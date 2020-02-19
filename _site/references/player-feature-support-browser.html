@@ -1,0 +1,574 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>Player Feature Support by Browser</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/references/">References</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Player Feature Support by Browser</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+<h1>Player Feature Support by Browser</h1>
+<summary>The table below provides some detail about which Brightcove web player features are supported across an array of browsers and platforms. The table will be updated as we continue to add functionality and address browser-specific issues.</summary>
+<style media="screen" type="text/css">
+.white {
+          color: white;
+        }
+</style>
+<article>
+  <section class="bcls-section">
+    <h2 id="Table_of_information">Table of information</h2>
+    <p>You may also be interested in the features supported by the <a href="/node/2216">Brightcove Native Player SDK's</a>.</p>
+    <aside class="bcls-aside bcls-aside--information">Note: As of July 1, 2018, the Brightcove Player will no longer support all versions of Microsoft Internet Explorer prior to version 11, including IE 8, 9, and 10. Versions of the Brightcove Player released before July 1 may continue to work on IE 10 and below, but Brightcove will no longer test on any of those browsers or consider bug fixes specific to those versions.</aside>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th rowspan="2">&nbsp;</th>
+          <th class="s1 bcl-center" colspan="1" dir="ltr">IE</th>
+          <th class="s2 bcl-center" colspan="1" dir="ltr">Edge</th>
+          <th class="s3 bcl-center" colspan="4" dir="ltr">Chrome</th>
+          <th class="s4 bcl-center" colspan="2" dir="ltr">Safari</th>
+          <th class="s5 bcl-center" colspan="2" dir="ltr">Firefox</th>
+          <!-- <th class="s6" dir="ltr">Android</th> --> 
+        </tr>
+        <tr style="background-color:#555555;color:#FFFFFF;">
+          <th class="s1" dir="ltr">IE11</th>
+          <th class="s1" dir="ltr">Win10</th>
+          <th class="s2" dir="ltr">Win<sup class="once-red"><strong><a href="#note1"><span class="white">[1]</span></a></strong></sup></th>
+          <th class="s2" dir="ltr">Mac<sup class="once-red"><strong><a href="#note1"><span class="white">[1]</span></a></strong></sup></th>
+          <th class="s2" dir="ltr">Android<sup class="once-red"><strong><a href="#note1"><span class="white">[1]</span></a></strong></sup></th>
+          <th class="s2" dir="ltr">iOS<sup class="once-red"><strong><a href="#note1"><span class="white">[1]</span></a></strong></sup></th>
+          <th class="s3" dir="ltr">Mac<sup class="once-red"><strong><a href="#note2"><span class="white">[2]</span> </a></strong></sup></th>
+          <th class="s3" dir="ltr">iOS<sup class="once-red"><strong><a href="#note3"><span class="white">[3]</span></a></strong></sup></th>
+          <th class="s4" dir="ltr">Win<sup class="once-red"><strong><a href="#note4"><span class="white">[4]</span></a></strong></sup></th>
+          <th class="s4" dir="ltr">Mac<sup class="once-red"><strong><a href="#note4"><span class="white">[4]</span></a></strong></sup></th>
+          <!-- <th class="s5" dir="ltr">stock Browser<sup class="once-red"><strong><a href="#note5">[5]</a></strong></sup></th> --> 
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td class="s6" dir="ltr">Supported?</td>
+          <!--        				<td class="s8" dir="ltr">No</td>--><!-- <td class="s9 passive-support" dir="ltr">Yes<sup class="once-red"><strong><a href="#note6">[6]</a></strong></sup></td>
+<td class="s9 passive-support" dir="ltr">Yes</td> -->
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s9" dir="ltr">Yes</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">Audio</td>
+          <td class="s9" dir="ltr">AAC Only</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">AAC Only</td>
+          <td class="s9" dir="ltr">AAC Only</td>
+          <td class="s9" dir="ltr">AAC Only</td>
+          <td class="s9" dir="ltr">AAC Only</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">AAC Only</td>
+          <td class="s9" dir="ltr">AAC Only</td>
+          <td class="s9" dir="ltr">AAC Only</td>
+          <td class="s9" dir="ltr">AAC Only</td>
+          <td class="s9" dir="ltr">AAC Only</td>
+          <!-- <td class="s9" dir="ltr">AAC Only</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">iframe embed</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s9" dir="ltr">Yes</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">in-page embed</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s9" dir="ltr">Yes</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">fullscreen</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s9" dir="ltr">Yes</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">HLS</td>
+          <td class="s9" dir="ltr">Yes<sup class="once-red"><strong><a href="#note23">[23]</a></strong></sup></td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s10" dir="ltr">Partial<sup class="once-red"><strong><a href="#note13">[13]</a></strong></sup></td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">MP4</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s9" dir="ltr">Yes</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">IMA3</td>
+          <td class="s9" dir="ltr">Yes<sup class="once-red"><strong><a href="#note14">[14]</a></strong></sup></td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes<sup class="once-red"><strong><a href="#note14">[14]</a></strong></sup></td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s9" dir="ltr">Yes</td> --> 
+        </tr>
+        <tr>
+          <td class="s6 softmerge" dir="ltr"><div class="softmerge-inner" style="width: 110px; left: -1px;">IMA3 Companions</div></td>
+          <td class="s11" dir="ltr">Partial</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Partial</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s9" dir="ltr">Yes</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">HTTPS Playback<sup class="once-red"><strong><a href="#note15">[15]</a></strong></sup></td>
+          <td class="s10" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s10" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <!-- <td class="s10" dir="ltr">Yes</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">Live HLS</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Partial<sup class="once-red"><strong><a href="#note16">[16]</a></strong></sup></td>
+          <!-- Chrome iOS -->
+          <td class="s10" dir="ltr">Partial<sup class="once-red"><strong><a href="#note16">[16]</a></strong></sup></td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Partial<sup class="once-red"><strong><a href="#note16">[16]</a></strong></sup></td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s10" dir="ltr">Partial<sup class="once-red"><strong><a href="#note16">[16]</a></strong></sup></td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">Social Tools</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s9" dir="ltr">Yes</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">Facebook embed<sup class="once-red"><strong><a href="#note17">[17]</a></strong></sup></td>
+          <td class="s12" dir="ltr">No</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">No</td>
+          <td class="s12" dir="ltr">No</td>
+          <td class="s12" dir="ltr">No</td>
+          <td class="s12" dir="ltr">No</td>
+          <!-- Chrome iOS -->
+          <td class="s12" dir="ltr">No</td>
+          <td class="s12" dir="ltr">No</td>
+          <td class="s12" dir="ltr">No</td>
+          <td class="s12" dir="ltr">No</td>
+          <td class="s12" dir="ltr">No</td>
+          <!-- <td class="s12" dir="ltr">No</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">Twitter cards<sup class="once-red"><strong><a href="#note18">[18]</a></strong></sup></td>
+          <td class="s10" dir="ltr">Partial</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <!-- Chrome iOS -->
+          <td class="s10" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <!-- <td class="s10" dir="ltr">Partial</td> --> 
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">Captions</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <!-- Chrome iOS -->
+          <td class="s10" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Partial</td>
+          <td class="s10" dir="ltr">Yes</td>
+          <td class="s10" dir="ltr">Yes</td>
+        </tr>
+        <tr>
+          <td class="s6" dir="ltr">DRM<sup class="once-red"><strong><a href="#note21">[21]</a></strong></sup></td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Windows Edge -->
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- Chrome iOS -->
+          <td class="s9" dir="ltr">No</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes<sup class="once-red"><strong><a href="#note20">[24]</a></strong></sup></td>
+          <td class="s9" dir="ltr">Yes</td>
+          <td class="s9" dir="ltr">Yes</td>
+          <!-- <td class="s9" dir="ltr">Yes</td> --> 
+        </tr>
+      </tbody>
+    </table>
+    <h3>Notes</h3>
+    <ul>
+      <li class="bcls-footnote" id="note1"><sup class="once-red"><strong>[1]</strong></sup> Latest version of browser and OS. Google no longer supports Android 4.x and older in the Chrome browser.</li>
+      <li class="bcls-footnote" id="note2"><sup class="once-red"><strong>[2]</strong></sup> Versions&nbsp;8+</li>
+      <li class="bcls-footnote" id="note3"><sup class="once-red"><strong>[3]</strong></sup> Versions 9+</li>
+      <li class="bcls-footnote" id="note4"><sup class="once-red"><strong>[4]</strong></sup> Latest version of browser and OS</li>
+      <!-- <li class="bcls-footnote" id="note5"><sup class="once-red"><strong>[5]</strong></sup> Versions 2, 3, 4 of Android. The Android stock browser is not actively supported by Google, and it is being replaced with Chrome on most Android 5.0+ devices.</li> --><!-- <li class="bcls-footnote" id="note7"><sup class="once-red"><strong>[7]</strong></sup> Supported but you have to use one of the existing HTML5 shims for IE (<a href="//modernizr.com/">http://modernizr.com/</a> or <a href="//html5boilerplate.com/">http://html5boilerplate.com/</a> are popular examples). Or you can add the bare minimum fix yourself by putting this script into the head of the page:
+<code>document.createElement('video');</code></li> -->
+      <li class="bcls-footnote" id="note8"><sup class="once-red"><strong>[8]</strong></sup> Fullscreen does not work</li>
+      <li class="bcls-footnote" id="note10"><sup class="once-red"><strong>[10]</strong></sup> iframe only</li>
+      <!-- <li class="bcls-footnote" id="note12"><sup class="once-red"><strong>[12]</strong></sup> MP4 fallback used where possible</li> --><!-- <li class="bcls-footnote" id="note13"><sup class="once-red"><strong>[13]</strong></sup> Depends on the HLS implementation of the Android version</li> -->
+      <li class="bcls-footnote" id="note14"><sup class="once-red"><strong>[14]</strong></sup> Support for Flash (latest version required) ads on IE is more robust with IMA3</li>
+      <li class="bcls-footnote" id="note15"><sup class="once-red"><strong>[15]</strong></sup> Video Cloud-hosted content is available via HTTPS when necessary. If you are using your own CDN, you must provide HTTPS URLs for all content. See <a href="/node/18116">HTTPS Support Overview</a> document for more information.</li>
+      <li class="bcls-footnote" id="note16"><sup class="once-red"><strong>[16]</strong></sup> Live UI not applied</li>
+      <li class="bcls-footnote" id="note17"><sup class="once-red"><strong>[17]</strong></sup> Dependent on Facebook allowing HTML5 video.</li>
+      <li class="bcls-footnote" id="note18"><sup class="once-red"><strong>[18]</strong></sup> MP4 only - pending resolution of HLS/SSL issue</li>
+      <!-- <li class="bcls-footnote" id="note20"><sup class="once-red"><strong>[20]</strong></sup> Versions 7+</li> -->
+      <li class="bcls-footnote" id="note21"><sup class="once-red"><strong>[21]</strong></sup>See the <a href="/node/18083">Configuring the Brightcove Player for DRM</a> document for complete details.</li>
+      <li class="bcls-footnote" id="note22"><sup class="once-red"><strong>[22]</strong></sup> No support after Player release 5.17.0</li>
+      <li class="bcls-footnote" id="note23"><sup class="once-red"><strong>[23]</strong></sup> HTML-based HLS (using MSE) on IE 11 on Windows 8.1+. See the <a href="/node/15613">Determining Which Rendition Will Play</a>&nbsp;document for more details.</li>
+      <li class="bcls-footnote" id="note24"><sup class="once-red"><strong>[24]</strong></sup>With iOS 11.2 the web player can play back FairPlay DRM encrypted HLS sources.</li>
+    </ul>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 19 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>

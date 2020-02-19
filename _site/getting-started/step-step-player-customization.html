@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>Step-by-Step: Player Customization</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/getting-started/">Getting Started</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Step-by-Step: Player Customization</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+  <h1>Step-by-Step: Player Customization</h1>
+  <summary>In this topic, hands-on steps are provided that when followed customizes the appearance of the Brightcove Player. To customize the appearance of the Brightcove Player you need to use Cascading Style Sheets (CSS). This document will go through the process of changing the appearance and location of the play button that initially overlays the video.</summary>
+  <section id="Overview" class="bcls-section">
+    <h2>Overview</h2>
+    <p>This document will have several sections as using CSS with the in-page embed and the iframe implementations of the player are quite different.</p>
+    <p>The content in this document uses Chrome's development tools, but all modern browsers have equivalent functionality. For a brief introduction to using development tools in different browsers, see the <a href="/node/17914">Debugging Basics</a> document.</p>
+    <aside class="bcls-aside bcls-aside--information">Note: Some basic player styling is provided inside of Video Cloud Studio. For more information, see <a href="/node/14051">Styling Players</a>.</aside>
+  </section>
+  <section id="determineselector" class="bcls-section">
+    <h2>Determine player selector</h2>
+    <p>CSS selectors allow you to select and manipulate HTML elements on a page. CSS selectors are used to "find" (or select) HTML elements based on their id, class, type, attribute, and more. The first thing you must do when trying to alter the look of an element on an HTML page is determine the selector to use to address the element. The following steps show how to find the selector for the player and then change the size of the player.</p>
+    <ol class="bcls-tasklist">
+      <li>In Video Cloud Studio, open the Media module and select a video to publish.</li>
+      <li>Choose the player with which you wish to play the video.</li>
+      <li>Set the <strong>Sizing</strong>, <strong>Aspect Ratio</strong> and player size.</li>
+      <li>Copy the <strong>Advanced</strong> publishing code.</li>
+      <li>Using your HTML editor, create a new HTML page.</li>
+      <li>Paste the publishing code into the body of your HTML page.</li>
+      <li>Browse the newly created page.</li>
+      <li>Open your browser's development tools and drill down into the HTML to find the <code>&lt;video-js&gt;</code> tag. You will see the <code class="notranslate">&lt;video-js&gt;</code> tag has a class also named <code class="notranslate">video-js</code>. The <code class="notranslate">&lt;video-js&gt;</code> tag will always have a class of <code class="notranslate">video-js</code>. You will utilize the <code class="notranslate">video-js</code> class frequently when styling the player.</li>
+      <li>Check the screenshot below to see the class highlighted in red. Highlighted in green is the <code>&lt;video-js&gt;</code> tag, which is, of course, Brightcove Player.
+        <figure class="bcls-figure"><img class="bcls-image" alt="player selectors" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/player-div-with-video.png" /></figure>
+        <!-- <aside class="bcls-aside bcls-aside--information">
+	<p>Note: Depending on the operating system and browser being used, the Flash fallback version of the player may be displayed. If your player is using the Flash fallback version of the player, you will not see a <code class="notranslate">&lt;video-js&gt;</code> tag. Instead you will see the <code class="notranslate">&lt;div&gt;</code> surrounding an <code class="notranslate">&lt;object&gt;</code> tag, as highlighted below.</p>
+	</aside>
+
+	<figure class="bcls-figure"><img class="bcls-image" alt="player div with object" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/player-div-with-object.png" /></figure> --></li>
+    </ol>
+  </section>
+  <section id="buttonselector" class="bcls-section">
+    <h2>Play button selector</h2>
+    <p>Another approach is going to be used to find the selector for the play button. The following steps show you how to find the correct selector for the play button and then change its appearance.</p>
+    <ol class="bcls-tasklist">
+      <li>Browse your HTML page.</li>
+      <li>Right click on the play button that overlays the player and select <strong>Inspect Element</strong>.</li>
+      <li>Note that the <code class="notranslate">&lt;div&gt;</code> tag that is highlighted represents the play button and has a class of <code class="notranslate">vjs-big-play-button</code>.
+        <figure class="bcls-figure"><img class="bcls-image" alt="big play button div" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/big-play-button-div.png" /></figure>
+      </li>
+      <li>Alter your styles to include CSS that changes the color and opacity of the play button.
+        <pre class="line-numbers">
+<code class="language-css notranslate">&lt;style&gt;
+  .vjs-big-play-button {
+    background-color: red;
+    opacity: .3;
+  }
+&lt;/style&gt;</code></pre>
+      </li>
+      <li>Browse your page and you will see not all the styles have been used. The button is not red.
+        <figure class="bcls-figure"><img class="bcls-image" alt="button not red" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/button-not-red.png" /></figure>
+      </li>
+      <li>Look to the right of your developer tools and you will see a summary of your styles. You can look down and see that changing the background to red is overridden, represented by it being crossed out.
+        <figure class="bcls-figure"><img class="bcls-image" alt="styles background overridden" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/styles-background-overridden.png" /></figure>
+        <aside class="bcls-aside bcls-aside--information">Note: In Safari, the style may not be crossed out even though it is being overridden.</aside>
+        <p>What has happened is that numerous changes are made to the background color. The style you set has been overridden in the "cascading" part of CSS. You can change this by utilizing functionality of CSS called <strong>specificity</strong>. Specificity determines which CSS rule is applied by browsers and is a type of weighting that has a bearing on how your cascading style sheet (CSS) rules are displayed. Using specificity, you can make your style more important than others, forcing it to be used. There is a brief introduction to CSS specificity in the <a href="/node/18066#specificity">Customize Player Appearance</a> doc, and numerous references in any search.</p>
+      </li>
+      <li>In this case, using the <code class="notranslate">video-js</code> class will "boost" your styles to take precedence. Alter your styles to use the new combination selector. Note there is one space before the last class (details of why can be found in rules for specificity).
+        <pre class="line-numbers">
+<code class="language-css notranslate">&lt;style&gt;
+  .video-js .vjs-big-play-button {
+    background-color: #ff0000;
+    opacity: .3;
+  }
+&lt;/style&gt;  </code></pre>
+      </li>
+      <li>Browse your page and see that all styles are now applied.
+        <figure class="bcls-figure"><img class="bcls-image" alt="styles background working" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/styles-background-working.png" /></figure>
+      </li>
+      <li>Again look to the right of your developer tools and you will see a summary of your styles. Now you see that your background color change is not overridden.
+        <figure class="bcls-figure"><img class="bcls-image" alt="styles background NOT overridden" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/styles-background-NOT-overridden.png" /></figure>
+      </li>
+    </ol>
+  </section>
+  <section id="inpageembed" class="bcls-section">
+    <h2>Advanced code implementation</h2>
+    <p>When working with selectors and styles above, the results were used with the Advanced code implementation of the player, as shown here:</p>
+    <pre class="line-numbers">
+<code class="language-html notranslate">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Untitled Document&lt;/title&gt;
+  &lt;style&gt;
+    .video-js .vjs-big-play-button {
+      background-color: red;
+      opacity: .3;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;video-js data-account="1507807800001"
+    data-player="default"
+    data-embed="default"
+    controls=""
+    data-video-id="6065136830001"
+    data-playlist-id=""
+    data-application-id=""
+    width="640" height="360"&gt;
+
+  &lt;/video-js&gt;&lt;script src="https://players.brightcove.net/1507807800001/default_default/index.min.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+    <p>This is a very common way to use CSS with an HTML page. You see the <code class="notranslate">&lt;style&gt;</code> block is on the page with the <code class="notranslate">&lt;video-js&gt;</code> tag.</p>
+    <p class="BCL-aside">Note: Depending upon your CSS experience, you may be wondering why the code above did not assign an <code class="notranslate">id</code> attribute to the <code class="notranslate">&lt;video-js&gt;</code> tag. You could then use a selector like <code class="notranslate">#myPlayer .vjs-big-play-button</code>. In fact, you could have and it would have worked. The problem is, the CSS created using id selectors will not work when using the iframe player implementation, so only existing class names were used. By not using an <code class="notranslate">id</code> attribute, the styles will be directly applicable to iframe player implementations.</p>
+  </section>
+  <section id="iframe" class="bcls-section">
+    <h2>Standard code implementation</h2>
+    <p>The Standard, or iframe, code implementation, not surprisingly, places the Brightcove Player in an iframe that you then place in an HTML page. You can style the actual iframe itself, change its size for instance, using styles on the page that contains the iframe, but styles on page of the iframe DO NOT cascade into the iframe itself. The iframe literally pulls in a separate HTML page, so desired styles for the contents of the iframe must be associated with the HTML page in the iframe.</p>
+    <p>When using the iframe implementation of the Brightcove Player, the steps to apply CSS are:</p>
+    <ul>
+      <li>Place styles in an Internet accessible file</li>
+      <li>Link the stylesheet to the player (done using Studio or the Player Management API)</li>
+    </ul>
+    <p class="BCL-aside">Note: The following steps assume you will be working from the HTML you completed in the previous steps and shown in the code snippet above. If you wish to keep that as a working example, simply copy the code into another file and start the following steps in the new file.</p>
+    <ol class="bcls-tasklist">
+      <li>In Studio, publish a video and copy the code for an iframe implementation of the player.</li>
+      <li>In your HTML page, replace the in-page embed code with the iframe code.</li>
+      <li>Check to be sure your HTML page looks similar to the following:
+        <pre class="line-numbers">
+<code class="language-html notranslate">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Untitled Document&lt;/title&gt;
+  &lt;style&gt;
+    .video-js .vjs-big-play-button {
+      background-color: red;
+      opacity: .3;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;iframe src="https://players.brightcove.net/1507807800001/default_default/index.html?videoId=6065136830001"
+  allowfullscreen=""
+  allow="encrypted-media"
+  width="640" height="360"&gt;&lt;/iframe&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+      </li>
+      <li>Browse the page and you will see the styles for the button are NOT being used.</li>
+      <li>Create a file named <strong>customize-qs.css</strong> and save it in an Internet accessible location.</li>
+      <li>Cut the styles for the button and paste them into the file and save it. Cut only the styles for the button, you cannot include the <code class="notranslate">&lt;style&gt;</code> tags. The file should contain only this content:
+        <pre class="line-numbers">
+<code class="language-css notranslate">.video-js .vjs-big-play-button {
+  background-color: red;
+  opacity: .3;
+}</code></pre>
+      </li>
+      <li>Check to be sure your HTML page looks similar to the following:
+        <pre class="line-numbers">
+<code class="language-html notranslate">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;iframe src="https://players.brightcove.net/1507807800001/default_default/index.html?videoId=6065136830001"
+  allowfullscreen=""
+  allow="encrypted-media"
+  width="640" height="360"&gt;&lt;/iframe&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+      </li>
+      <li>In Studio, go into the <strong>Players</strong> module and edit the player you are using for this quick start.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>Click <strong>Stylesheets</strong>, then the <strong>Add a Stylesheet</strong> button, and enter your path:
+        <figure class="bcls-figure"><img class="bcls-image" alt="studio enter css" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/studio-enter-css.png" /></figure>
+      </li>
+      <li>Click <strong>Save</strong> to save your changes. The preview player on the right side of the page will update to show the CSS styles applied to the button.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+      <li>Return to your browser and refresh the page. Once the published changes are active, you will see your styles applied to the iframe player. It can be several minutes before the published changes are visible.</li>
+    </ol>
+  </section>
+  <section id="explorestyles" class="bcls-section">
+    <h2>Explore styles</h2>
+    <p>In this section a CodePen is used to allow you to explore styles and make more customizations to the big play button than what is shown above. Once you get a look you like, you can simply copy the CSS generated and use it with either player implementation as shown above.</p>
+    <p>One issue that may seem confusing is that the actual arrow in the button is not an image but part of a font family. That is why you control its size using <code class="notranslate">font-size</code> and use <code class="notranslate">ems</code> as units.</p>
+    <p data-height="414" data-theme-id="14832" data-slug-hash="KVVNLX" data-default-tab="result" data-user="mboles" class="codepen">See the Pen <a href="http://codepen.io/mboles/pen/KVVNLX/">5.x Big Play Button Customization</a> by Matt Boles (<a href="http://codepen.io/mboles">@mboles</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script></section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 19 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>

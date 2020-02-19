@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>Catalog Search Architecture</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/references/">References</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Catalog Search Architecture</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+  <h1>Catalog Search Architecture</h1>
+  <summary>In this topic, you will learn about Brightcove's architecture for its catalog search technology.</summary>
+  <section class="bcls-section">
+    <h2 id="Overview">Overview</h2>
+    <p class="language-editable">As of April 2019 the Catalog Search functionality was upgraded to Elasticsearch. This upgrade provides a number of benefits, chief among them are improved relevance and accuracy, and dramatically improved performance -- response time is much more consistent and generally twice as fast. This new functionality will affect the CMS API, Playback API, Studio interactive search and the catalog search methods.</p>
+    <p class="language-editable">While Brightcove has invested a substantial amount of effort in making Elasticsearch results consistent there are differences, and there is some small possibility that if you have coded specific dependencies on search results your integration may not behave as expected.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Search_Result_Differences_and_Impact">Search Result Differences and Impact</h2>
+    <p class="language-editable">In studying the potential impact, Brightcove has found that more than 90% of searches return results that match in terms of the number of results returned. This is an indicator that expected results should not be different enough to cause any problems with API integrations.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="comparison" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/elasticsearch/comparison.png" /></figure>
+    <p class="language-editable">This graph shows the number of search results that match exactly the number of results between the two systems in blue, and those that differ in number in red.</p>
+    <p class="language-editable">As part of our roll-out, all default searches, those searches on the empty string, have already been provided by Elasticsearch for several months now -- so users are already seeing and using Elasticsearch results without problems.</p>
+    <p class="language-editable">There are limitations to what we can learn from this kind of comparison, however. At best we can only infer the intent of a particular search, and catalog data is fluid.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Known_Differences">Known Differences</h2>
+    <p class="language-editable">The differences below are largely fundamental, or the result of decisions reached after extensive analysis of search results -- they are impossible to completely eliminate.</p>
+    <h3>Stemming</h3>
+    <p class="language-editable"><a href="https://en.wikipedia.org/wiki/Stemming">Stemming</a> is the process of reducing inflected (or sometimes derived) words to their <a href="https://en.wikipedia.org/wiki/Word_stem">word stem</a>, base or <a href="https://en.wikipedia.org/wiki/Root_(linguistics)">root</a> form — generally a written word form.</p>
+    <p class="language-editable">A stemmer for English operating on the stem <em>cat</em> should identify such <a href="https://en.wikipedia.org/wiki/String_literal">strings</a> as <em>cats</em>, <em>catlike</em> and <em>catty</em>. A stemming algorithm might also reduce the words <em>fishing</em>, <em>fished</em> and <em>fisher</em> to the stem <em>fish</em>. The stem need not be a word, for example the Porter algorithm reduces <em>argue</em>, <em>argued</em>, <em>argues</em>, <em>arguing</em> and <em>argus</em> to the stem <em>argu</em>.</p>
+    <p class="language-editable">Our existing search uses the Lancaster (Paice/Husk) stemmer, this algorithm is generally regarded as being overly aggressive — this results in a lack of distinction, for example <em>lighter</em> and <em>light</em> would be regarded as the same term under Lancaster.</p>
+    <p class="language-editable">Elasticsearch uses a more recent and much less aggressive algorithm (Porter2) that has gained broad adoption in industry and is generally regarded as a significant improvement (Lancaster is now rare). The change of stemmer potentially impacts a significant (~35%) proportion of searches: that is not to say that results <strong>will</strong> be different, just that they <strong>might</strong> be different — but in general this should be for the better: that said, some subset of customers may be reliant on the old behavior.</p>
+    <h3>Relevance</h3>
+    <p class="language-editable">Our existing search seems to have a more strict TF normalization. This causes a different relevance sort for terms that are found in larger fields (i.e. existing considers the match less relevant since it gives less weight to the term as it is smaller relative to the length of the document).</p>
+    <h3>Special Characters</h3>
+    <p class="language-editable">Special characters are stripped inside our existing search, this pretty much equates to stripping punctuation and related characters — instead of stripping, we generally escape them in Elasticsearch, thus there is a chance that a search will instead take them into account.</p>
+    <h3>Term Handling</h3>
+    <p class="language-editable">Existing search queries perform `term smooshing` whereas in Elasticsearch we drop malformed terms, consider this search with an empty <code>tags:</code> term: <code>q=tags: state:ACTIVE</code></p>
+    <ul>
+      <li class="language-editable"><strong>Existing</strong>: <code>tags:state:ACTIVE</code> — search for videos with a tag of <code>state:ACTIVE</code></li>
+      <li class="language-editable"><strong>Elasticsearch</strong>: <code>state:ACTIVE</code> — drop the empty term</li>
+    </ul>
+    <p class="language-editable">There are a number of subtle edge cases related to handling dangling punctuation and queries that are generally malformed, we attempt to produce what we think the query was intended to be, but in these cases we’re unfortunately guessing what a user might have intended (when really we should have returned an error allowing them to refine their search)</p>
+    <h3>Playable Only</h3>
+    <p class="language-editable">There are two mechanisms for restricting a search to videos that are currently playable: the query can include a flag, or the query itself can require some aspect of playability.</p>
+    <ul>
+      <li class="language-editable">Existing: this is queried based on the value of a field that is updated</li>
+      <li class="language-editable">Elasticsearch: this is queried based on computed date ranges</li>
+    </ul>
+    <p class="language-editable">Elasticsearch should generally be more accurate and produce better results (there is a lag associated with the existing mechanism, and the flag maintenance mechanism is not entirely reliable).</p>
+    <h3>Index Accuracy</h3>
+    <p class="language-editable">The Elasticsearch index is ‘fresher’ than the existing index and tends to reflect updates faster — this is not always the case, but in general the experience with Elasticsearch is that results will more accurately reflect the state of the underlying catalog data. Both existing and Elasticsearch are distributed systems and thus not entirely consistent in the results they return: a repeated query against either system can potentially return different results (especially in the case where there are a number of concurrently running delete operations).</p>
+    <p class="language-editable">Existing search results change based on the state of the shard an account is allocated to — the global state of a particular shard can (and does) impact the results of any particular query: Elasticsearch does not have this deficiency.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Examples">Examples</h2>
+    <h3>Example 1</h3>
+    <p class="language-editable">Let’s say there are two videos with the following titles:</p>
+    <pre>
+  <code class="language-html">Video#1: has the title “Don’t look into the light”
+  Video#2: has the title “Using a lighter to make a campfire”</code></pre>
+    <p class="language-editable">The user wishes to return all videos that must have the word “light”. Using the CMS API, the query would look like:</p>
+    <pre>
+  <code class="language-html">q=%2Blight or q=+light</code></pre>
+    <p class="language-editable">With the existing search, this will return both of the videos in the order:</p>
+    <pre>
+  <code class="language-html">Video#2 - “Using a lighter to make a campfire”
+  Video#1 - “Don’t look into the light”</code></pre>
+    <p class="language-editable">There are two problems with this:</p>
+    <ul>
+      <li class="language-editable"><strong>Relevance</strong>: The order is incorrect. “Don’t look into the light” (Video#2) should appear before “Using a lighter to make a campfire” (Video#1)</li>
+      <li class="language-editable"><strong>Accuracy</strong>: “Using a lighter to make a campfire” shouldn’t even appear in the result set as the word “light” doesn’t appear in the video title at all.</li>
+    </ul>
+    <p class="language-editable">With Elasticsearch, this will return only video one:</p>
+    <pre>
+  <code class="language-html">Video#1 - “Don’t look into the light”</code></pre>
+    <p class="language-editable">This is an improvement because:</p>
+    <ul>
+      <li class="language-editable">Relevance: The order is correct.</li>
+      <li class="language-editable">Accuracy: Only Video one is returned as it’s the only video with the word “light” in the title.</li>
+    </ul>
+    <h3>Example 2</h3>
+    <p class="language-editable">As described in our <a href="/node/18005#Stemming">CMS API documentation for stemming</a>, stemming is supported, but not partial word searches. So let’s say there are 5 videos with the following titles:</p>
+    <pre>
+  <code class="language-html">Video#1 - "Parking Ban Announced"
+  Video#2 - "Parking to be Banned"
+  Video#3 - "City Banning Parking"
+  Video#4 - "Bank Holiday"
+  Video#5 - "Bandit Captured"</code></pre>
+    <p class="language-editable">The user wishes to return all videos that must have the word <strong>ban</strong> in the name field. Using the CMS API, the query would look like:</p>
+    <pre>
+  <code class="language-html">q=%2Bname%3Aban or q=+name:ban</code></pre>
+    <p class="language-editable">The expectation is that “Ban”, “Banning” and “Banned” would produce search results as “Ban” is a stem of all three.</p>
+    <p class="language-editable">However, with the current search system, this will return all five videos in this order:</p>
+    <pre>
+  <code class="language-html">Video#2 - "Parking to be Banned"
+  Video#3 - "City Banning Parking"
+  Video#1 - "Parking Ban Announced"
+  Video#4 - "Bank Holiday"
+  Video#5 - "Bandit Captured"</code></pre>
+    <p class="language-editable">Again, there are two problems with this:</p>
+    <ul>
+      <li class="language-editable">Relevance: The order is incorrect. "Parking Ban Announced" should be the first video returned as it has the word “Ban” in it.</li>
+      <li class="language-editable">Accuracy: "Bank Holiday" and "Bandit Captured" should not be returned at all as “Ban” is not part of the word “Bank” or “Bandit”.</li>
+    </ul>
+    <p class="language-editable">With Elasticsearch, the results look like:</p>
+    <pre>
+  <code class="language-html">Video#1 - "Parking Ban Announced"
+  Video#2 - "Parking to be Banned"
+  Video#3 - "City Banning Parking"</code></pre>
+    <p class="language-editable">This is an improvement because:</p>
+    <ul>
+      <li class="language-editable">Relevance: The order is correct.</li>
+      <li class="language-editable">Accuracy: Only Videos with the stems of the word “Ban” (“Ban”, “Banning” and “Banned”) are returned.</li>
+    </ul>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 19 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>
