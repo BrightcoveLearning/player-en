@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>Display Thumbnail Previews Plugin</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/plugins/">Plugins</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Display Thumbnail Previews Plugin</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+  <h1>Display Thumbnail Previews Plugin</h1>
+  <summary>In this topic, you will learn about the thumbnail previews plugin which allows for the timeline to display a preview image at defined points for your video. The user can mouse over the timeline and images defined by you will be displayed for specified time ranges.</summary>
+  <style type="text/css">
+/* player dimensions */
+  iframe {
+      width: 640px;
+      height: 360px;
+  }
+</style>
+  <section class="bcls-section">
+    <h2 id="Example">Example</h2>
+    <p>The image below shows a thumbnail displayed as the user mouses over the progress bar:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="thumbnail-plugin-display" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/display-thumbnail-previews/thumbnail-plugin-display.png" /></figure>
+    <p>The sample video below demonstrates the use of the Thumbnails Plugin. Start playing the video. Then, mouse over the progress bar and select a thumbnail image to jump to that section of the video.</p>
+    <div id="playerblock">
+      <iframe src="//players.brightcove.net/1752604059001/df4e0a75-2640-4301-ae00-ccba0e97d4db_default/index.html?videoId=2026618970001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+    </div>
+    <p>This topic contains the following sections:</p>
+    <ul>
+      <li><a href="#collectimages">Collect thumbnail images</a></li>
+      <li><a href="#playersmodule">Implementing using Players module</a></li>
+      <li><a href="#properties">Thumbnails Plugin properties</a></li>
+      <li><a href="#cssimagesprites">Using CSS image sprites</a></li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="collectimages">Collect thumbnail images</h2>
+    <p>At this time you must collect the images yourself. Preview thumbnails can be generated as part of the <a href="/node/17873">Zencoder encoding process</a>. Also, tools exist like <a href=" https://neededapps.com/snapmotion/">SnapMotion</a> to automate this process.</p>
+    <p>No matter how you generate the images, you need to decide the number of images you wish to use and choose an appropriate size.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="playersmodule">Implement using Players module</h2>
+    <p>Thumbnails can be configured by using the thumbnails plugin. To implement the thumbnails plugin using the Players module, follow these steps:</p>
+    <ol class="bcls-tasklist">
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>Next, click <strong>Add a Plugin</strong>.</li>
+      <li>For the <strong>Plugin Name</strong> enter <code>thumbnails</code>.</li>
+      <li>For the <strong>JavaScript</strong> URL, enter:
+        <pre>
+<code class="notranslate language-json">https://players.brightcove.net/videojs-thumbnails/videojs.thumbnails.js</code></pre>
+      </li>
+      <li>For the <strong>CSS</strong> URL, enter:
+        <pre>
+<code class="notranslate language-json">https://players.brightcove.net/videojs-thumbnails/videojs.thumbnails.css</code></pre>
+      </li>
+      <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box. The example below will display a thumbnail preview image as the mouse hovers over the timeline as follows:
+        <ul>
+          <li>The <em>sea-lionfish-thumbnail.png</em> image is be displayed from video start to 29 seconds</li>
+          <li>The <em>sea-anemone-thumbnail.png</em> image is displayed from 29 seconds to 54 seconds</li>
+          <li>The <em>sea-clownfish-thumbnail.png</em> image is displayed from 54 seconds to 84 seconds
+            <p>. . .</p>
+          </li>
+          <li>The <em>sea-dolphins-thumbnail.png</em> image is displayed from 143 seconds to the end of the video</li>
+        </ul>
+        <p>For details about the plugin options, see the <a href="#properties">Properties</a> section.</p>
+        <pre class="line-numbers">
+<code class="language-json">  {
+    "0": {
+        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-lionfish-thumbnail.png"
+    },
+    "29": {
+        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-anemone-thumbnail.png"
+    },
+    "54": {
+        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-clownfish-thumbnail.png"
+    },
+    "84": {
+        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-seahorse-thumbnail.png"
+    },
+    "114": {
+        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-crab-thumbnail.png"
+    },
+    "143": {
+        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-dolphins-thumbnail.png"
+    }
+  }</code></pre>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="properties">Properties</h2>
+    <p>The following plugin properties are used to control the thumbnail images:</p>
+    <ul>
+      <li>first argument:
+        <ul>
+          <li>The value can be a string or number, and is associated with an object.</li>
+          <li>This defines the time in seconds you wish to display your thumbnail image.</li>
+          <li>At a minimum, you need a <code>0</code> property with a <code>src</code> value for when users hover over the beginning of the progress bar. If you have additional times, the plugin will partition the progress bar and display the appropriate image as the user hovers over the progress bar.</li>
+        </ul>
+        &nbsp;
+        <aside class="bcls-aside bcls-aside--tip">Note: You need to include a <code>0</code> property with a <code>src</code> value. Otherwise, the plugin will try to use the example thumbnail and you may get an error.</aside>
+      </li>
+      <li><code>src</code>:
+        <ul>
+          <li>The value must be a string.</li>
+          <li>This is the URL for your thumbnail image.</li>
+        </ul>
+      </li>
+    </ul>
+    <p>Here is an example for setting thumbnail images for three blocks of time in the progress bar:</p>
+    <ul>
+      <li>The first image is displayed when a user mouses over the progress bar from video start to 5 seconds</li>
+      <li>The second image is displayed from 5 seconds to 10 seconds</li>
+      <li>The third image is displayed from 10 seconds to video end</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-json">  {
+    "0": {
+        "src": "http://solutions.brightcove.com/bcls/assets/images/Tiger-4-preview.jpg"
+    },
+    "5": {
+        "src": "http://solutions.brightcove.com/bcls/assets/images/Water-4-preview.jpg"
+    },
+    "10": {
+        "src": "http://solutions.brightcove.com/bcls/assets/images/BirdsOfAFeather-4-preview.jpg"
+    }
+  }</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="cssimagesprites">CSS image sprites</h2>
+    <p>If you choose you can use CSS image sprites as your preview thumbnails. The following JSON is an example for the <code>options</code> property when using a CSS image sprite:</p>
+    <pre class="line-numbers">
+<code class="language-json">{
+  0: {
+    src: 'thumbnails.png',
+    style: {
+      left: '-60px',
+      width: '600px',
+      height: '68px',
+      clip: 'rect(0, 120px, 68px, 0)'
+    }
+  },
+  10: {
+    style: {
+      left: '-180px',
+      clip: 'rect(0, 240px, 68px, 120px)'
+    }
+  },
+  20: {
+    style: {
+      left: '-300px',
+      clip: 'rect(0, 360px, 68px, 240px)'
+    }
+  },
+  30: {
+    style: {
+      left: '-420px',
+      clip: 'rect(0, 480px, 68px, 360px)'
+    }
+  },
+  40: {
+    style: {
+      left: '-540px',
+      clip: 'rect(0, 600px, 68px, 480px)'
+    }
+  }</code></pre>
+    <aside class="bcls-aside bcls-aside--information">If you are unfamiliar with CSS image sprites see this <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/CSS_Image_Sprites">Mozilla Developer Network document.</a></aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="changelog">Changelog</h2>
+    <p>None reported</p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 19 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>
