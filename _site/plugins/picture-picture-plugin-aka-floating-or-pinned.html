@@ -1,0 +1,703 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>Picture-in-Picture Plugin (aka "floating" or "pinned")</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/plugins/">Plugins</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Picture-in-Picture Plugin (aka "floating" or "pinned")</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/references/">References <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/plugins/">Plugins <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+  <h1>Picture-in-Picture Plugin (aka "floating" or "pinned")</h1>
+  <summary>In this topic, you will learn how to use the picture-in-picture plugin to enable this mode for the Brightcove Player.</summary>
+  <section class="bcls-section">
+    <h2 id="Overview">Overview</h2>
+    <p>Picture-in-picture mode allows users to multitask. Once video playback has started, as the user scrolls down the page, picture-in-picture mode will reposition and pin the player to a corner of the web page.</p>
+    <aside class="bcls-aside bcls-aside--information">The picture-in-picture plugin only works with the Advanced (<code>video</code>) embed code. It will not work with the Standard (<code>iframe</code>) implementation.</aside>
+    <h3>Why it is called Picture-in-Picture</h3>
+    <p>The behavior this plugin enables is also commonly referred to as "floating" or "pinned" behavior. Brightcove uses the term "picture-in-picture" because of adoption of this verbiage by Apple and Google for their native browsers. W3C <a href="https://wicg.github.io/picture-in-picture/">standards</a> also reference "picture-in-picture".</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
+    
+    <p>Start video playback. (You can then stop it). Scroll down the page to see the picture-in-picture player in the right-hand corner of the web page. You can close the picture-in-picture player or scroll back up to the full-size player.</p>
+    <!-- UPDATE codepen here -->
+    
+    <p data-height="750" data-theme-id="dark" data-slug-hash="ZxwOMR" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="Picture-in-Picture Plugin" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/ZxwOMR/">Picture-in-Picture Plugin</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source --><!-- <p>View the <a href="https://github.com/BrightcoveLearning/18193-brightcove-player-sample-age-gate-modaldialog">source code</a>.</p> --></section>
+  <section class="bcls-section">
+    <h2 id="Implement_using_Players_module">Implement using Players module</h2>
+    <p>To implement the Picture-in-Picture&nbsp;Plugin using the Players module, follow these steps:</p>
+    <ol class="bcls-tasklist">
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Select the link for the player to open the player's properties.</li>
+      <li>Select <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>
+        <p>Next, select the <strong>Add a Plugin</strong> button, and then select <strong>Brightcove Plugin</strong>.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="Add a Plugin button" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/chromecast/add-a-plugin.png" />
+          <figcaption class="bcls-caption--image">Add a Plugin button</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>Expand the <strong>Brightcove Plugin</strong> dropdown and select <strong>Picture-in-Picture</strong>.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="pip" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/pip/pip.png" />
+          <figcaption class="bcls-caption--image">picture-in-picture</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p><strong>Optional</strong>: Enter the configuration options in the <strong>Options(JSON)</strong> text box. An example for setting the horizontal alignment of the player when it is in picture-in-picture mode is shown here:</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="Plugin options" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/pip/options.png" />
+          <figcaption class="bcls-caption--image">Plugin options</figcaption>
+        </figure>
+        <p>See the <a href="#Options">options</a> section for more details.</p>
+      </li>
+      <li>
+        <p>Select the <strong>Save</strong> button. You will now see the <strong>Picture-in-Picture</strong> plugin added to the list of plugins for your player.</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="Plugin added" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/pip/plugin-added.png" />
+          <figcaption class="bcls-caption--image">Plugin added</figcaption>
+        </figure>
+      </li>
+      <li>To publish the player, select <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, select <strong>Close</strong>.</li>
+      <li>
+        <p>Return to the <strong>MEDIA</strong> module and publish your video using the player you just updated for picture-in-picture.</p>
+      </li>
+      <li>In an editor, copy the player embed code into your web page.</li>
+      <li>
+        <p>The picture-in-picture plugin requires that your player is wrapped by a container element with the class set to <code>vjs-pip-container</code>. Your code should look similar to this:</p>
+        <pre class="line-numbers">
+<code class="language-html"><span class="bcls-highlight">&lt;div class="vjs-pip-container"&gt;</span>
+  &lt;video-js id="myPlayerID"
+    data-video-id="5701202551001"
+    data-account="1752604059001"
+    data-player="default"
+    data-embed="default"
+    class="video-js"
+    width="640" height="360"
+    controls&gt;&lt;/video-js&gt;
+  &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
+<span class="bcls-highlight">&lt;/div&gt;</span></code></pre>
+        <p>If the <code>&lt;div&gt;</code> element above is not found as the parent of the player, the plugin will fail to initialize and you will get the following log warning:</p>
+        <pre>
+<code class="language-html">VIDEOJS: WARN: expected player to be a child of a "vjs-pip-container" element, cannot continue with picture-in-picture plugin</code></pre>
+      </li>
+      <li>When the video has starts playing, scroll down to see the picture-in-picture player pinned to the bottom of the page.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Implement_using_code">Implement using code</h2>
+    <p>To implement the plugin using custom code, you will configure the following plugin properties:</p>
+    <ul>
+      <li><code>scripts</code> - JavaScript supplied for the plugin and will not change for different plugin implementations</li>
+      <li><code>stylesheets </code>- CSS supplied to you for the plugin and will not change for different plugin implementations</li>
+      <li><code>plugin name</code> - Always <strong>pip</strong></li>
+      <li><code>plugin options</code> - Contains an array of properties and values</li>
+    </ul>
+    <p>To add the plugin to your code, follow these steps:</p>
+    <ol class="bcls-tasklist__restart">
+      <li>Add the styles for the picture-in-picture plugin.
+        <pre class="line-numbers">
+<code class="language-html">&lt;link href="https://players.brightcove.net/videojs-pip/1/videojs-pip.css" rel="stylesheet"&gt;</code></pre>
+      </li>
+      <li>Add the JavaScript file to include the picture-in-picture plugin. <!-- <aside class="bcls-aside bcls-aside--tip">Note: This plugin script must be placed after the last <code>&lt;script&gt;</code> tag for your player embed code.</aside> -->
+        <pre class="line-numbers">
+<code class="language-html">&lt;video-js id="myPlayerID"
+  data-video-id="5701202551001"
+  data-account="1752604059001"
+  data-player="default"
+  data-embed="default"
+  class="video-js"
+  width="640" height="360"
+  controls&gt;&lt;/video-js&gt;
+&lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Script for the picture-in-picture plugin --&gt;
+<span class="bcls-highlight">&lt;script src="https://players.brightcove.net/videojs-pip/1/videojs-pip.min.js"&gt;&lt;/script&gt;</span></code></pre>
+      </li>
+      <li>
+        <p>Wrap the player embed code in a container element with the class set to <code>vjs-pip-container</code>. The picture-in-picture plugin requires that your player is wrapped by this container element.</p>
+        <pre class="line-numbers">
+<code class="language-html"><span class="bcls-highlight">&lt;div class="vjs-pip-container"&gt;</span>
+    &lt;video-js id="myPlayerID"
+      data-video-id="5701202551001"
+      data-account="1752604059001"
+      data-player="default"
+      data-embed="default"
+      class="video-js"
+      width="640" height="360"
+      controls&gt;&lt;/video-js&gt;
+    &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
+  <span class="bcls-highlight">&lt;/div&gt;</span>
+
+        &lt;!-- Script for the picture-in-picture plugin --&gt;
+        &lt;script src="https://players.brightcove.net/videojs-pip/1/videojs-pip.min.js"&gt;&lt;/script&gt;</code></pre>
+        <p>If the <code>&lt;div&gt;</code> element above is not found as the parent of the player, the plugin will fail to initialize and you will get the following log warning:</p>
+        <pre>
+<code class="language-html">expected player to be a child of a "vjs-pip-container" element, cannot continue with picture-in-picture plugin</code></pre>
+      </li>
+      <li>Add custom script code which does the following:
+        <ul>
+          <li>When the player is ready, gets a reference to the Brightcove player. In this example, we are creating a variable named <code>myPlayer</code> and assigning it a reference to the player.</li>
+          <li>Initializes the picture-in-picture plugin.</li>
+        </ul>
+        <pre class="line-numbers">
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+  // When the player is ready, get a reference to it
+  var myPlayer = this;
+  // Initialize the picture-in-picture plugin
+  myPlayer.pip();
+});</code></pre>
+        <p>For details, see the <a href="#Player_example">codepen example</a> above.</p>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Options">Options</h2>
+    <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
+    <h3>allowOnMobile</h3>
+    <ul>
+      <li><code>allowOnMobile</code>:
+        <ul>
+          <li>Type: <code>boolean</code></li>
+          <li>Default: <code>false</code></li>
+          <li>
+            <p>By default, picture-in-picture mode will not work on Android or iOS mobile devices. The reason for this is because these CSS fixed positioning does not work on zoomable devices with multiple viewports in the same way it does on desktop devices.</p>
+            <p>If you want to enable picture-in-picture on supported mobile devices, you can do so with this option. There are some cases where you might want to enable support:</p>
+            <ul>
+              <li>The integrator is willing to take on the responsibility of managing positioning for picture-in-picture player mode.</li>
+              <li>The website using the player is unlikely to be zoomed.</li>
+              <li>Zooming has been disabled using a <code>user-scalable=no</code> directive. Using this directive will make <code>position: fixed</code> behave as it does on desktops, but it is not specifically recommended because it can be an accessibility concern.
+                <pre>
+<code class="language-html">&lt;meta name="viewport" content="width=device-width, user-scalable=no"&gt;</code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>Example:</p>
+            <pre class="line-numbers">
+<code class="language-javascript">// Allow mobile (iOS and Android) devices to enter PIP mode.
+player.pip({allowOnMobile: true});</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--warning">On iOS devices before version 12.2 and Android devices, once the player has moved to its new location it will not pop back into the original player location, even when the original player location is fully visible in the browser.</aside>
+    <h3>closeable</h3>
+    <ul>
+      <li><code>closeable</code>:
+        <ul>
+          <li>Type: <code>boolean</code></li>
+          <li>Default: <code>true</code></li>
+          <li>By default, picture-in-picture mode can be disabled by the user by clicking the <strong>X</strong> button in the top, right corner of the player. This feature can be disabled by passing <code>false</code> for this option.</li>
+          <li>
+            <p>Example:</p>
+            <pre class="line-numbers">
+<code class="language-javascript">// Do not allow the user to close the PIP mode player.
+player.pip({closeable: false});</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3>scale</h3>
+    <ul>
+      <li><code>scale</code>:
+        <ul>
+          <li>Type: <code>number</code></li>
+          <li>Default: <code>2 / 3</code></li>
+          <li>The scaling factor applied to the player when it is in picture-in-picture mode. This value must be a number greater than zero and less than or equal to 1.</li>
+          <li>
+            <p>Example:</p>
+            <pre class="line-numbers">
+<code class="language-javascript">// Detach the player, but do not change its size.
+player.pip({scale: 1});</code></pre>
+          </li>
+          <li>
+            <p>Example 2:</p>
+            <pre class="line-numbers">
+<code class="language-javascript">// Detach the player, and change its size to 1/2.
+player.pip({scale: 0.5});</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3>height and width</h3>
+    <ul>
+      <li><code>height</code> and <code>width</code>:
+        <ul>
+          <li>Type: <code>number</code></li>
+          <li>Default: <code>null</code></li>
+          <li>
+            <p>By default, the plugin will scale down the player's dimensions by a factor determined by the <code>scale</code> option. However, providing a <code>height</code> (or <code>width</code>) will override the default scaling and set the size of the scaled-down player explicitly.</p>
+            <p>If only one dimension is provided, the other will be scaled down to maintain the aspect ratio. If both dimensions are provided, the player will be set to the exact, specified size - allowing a change in aspect ratio.</p>
+          </li>
+          <li>
+            <p>Example:</p>
+            <pre class="line-numbers">
+<code class="language-javascript">// Detach the player and set its width to 300 pixels. Scale its height to
+// maintain its current aspect ratio.
+player.pip({width: 300});</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3>posX</h3>
+    <ul>
+      <li><code>posX</code>:
+        <ul>
+          <li>Type: <code>string</code></li>
+          <li>Default: <code>"right"</code></li>
+          <li>
+            <p>The horizontal alignment of the player when it is in picture-in-picture mode - either "right" or "left".</p>
+          </li>
+          <li>
+            <p>Example:</p>
+            <pre class="line-numbers">
+<code class="language-javascript">// When the player is in PIP mode, align it to the left side of the viewport.
+player.pip({posX: 'left'});</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3>posY</h3>
+    <ul>
+      <li><code>posY</code>:
+        <ul>
+          <li>Type: <code>string</code></li>
+          <li>Default: <code>"bottom"</code></li>
+          <li>
+            <p>The vertical alignment of the player when it is in picture-in-picture mode - either "top" or "bottom".</p>
+          </li>
+          <li>
+            <p>Example:</p>
+            <pre class="line-numbers">
+<code class="language-javascript">// When the player is in PIP mode, align it to the top of the viewport.
+player.pip({posY: 'top'});</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3>viewable</h3>
+    <ul>
+      <li><code>viewable</code>:
+        <ul>
+          <li>Type: <code>number</code></li>
+          <li>Default: <code>0.8</code></li>
+          <li>
+            <p>The threshold at which the player is considered viewable. In other words, when this percentage of the total player area (height and width) is visible in the browser's viewport, it is considered viewable.</p>
+            <p>For example, with the default of 0.8, the player is not considered viewable unless 80% of it is visible in the viewport. The <code>viewable</code> value must be a number greater than or equal to 0 and less than or equal to 1.</p>
+          </li>
+          <li>
+            <p>Example:</p>
+            <pre class="line-numbers">
+<code class="language-javascript">// If more than half the player is outside of the viewport, activate PIP mode.
+player.pip({viewable: 0.5});</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3>manualContainerSize</h3>
+    <ul>
+      <li><code>manualContainerSize</code>:
+        <ul>
+          <li>Type: <code>boolean</code></li>
+          <li>Default: <code>false</code></li>
+          <li>
+            <p>By default, a player with this plugin enabled will keep the physical dimensions of the special container element in sync with the player's dimensions. However, this behavior may not work for all use-cases, so it can be disabled by setting this option to <code>true</code>.</p>
+            <p>When doing so, the container element will behave like a normal block element. This means that users of the plugin will need to manage its size on their own.</p>
+            <p>This option can also be set in the embed code via the boolean <code>data-manual-container-size</code> attribute on the container. Its presence will set this option to true. Note that any value passed to the plugin will take precedence over any value defined in the embed code.</p>
+          </li>
+          <li>
+            <p>Example:</p>
+            <pre class="line-numbers">
+<code class="language-javascript">// Implementation will handle sizing the container.
+player.pip({manualContainerSize: true});</code></pre>
+          </li>
+          <li>
+            <p>Example using the <code>data-manual-container-size</code> attribute on the container:</p>
+            <pre class="line-numbers">
+<code class="language-html">&lt;div class="vjs-pip-container" data-manual-container-size&gt;
+  &lt;video-js class="video-js vjs-default-skin"&gt;
+  &lt;/video-js&gt;
+&lt;/div&gt;</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_the_options">Using the options</h2>
+    <p>You have two ways you can utilize the option:</p>
+    <ol>
+      <li>In Studio's <strong>PLAYERS &gt; PLUGINS</strong> section.</li>
+      <li>Using JavaScript with the player.</li>
+    </ol>
+    <h3>Using Studio</h3>
+    <p>In Studio, edit the player and return to the <strong>Plugins</strong> section. Click on Picture-in-Picture in the name list. Using proper JSON format, list the option (in quotation marks), followed by the appropriate value. If the values are string, they must be in quotes. If they are numeric or boolean, quotes cannot be included:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Plugin options" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/pip/plugin-options.png" />
+      <figcaption class="bcls-caption--image">Plugin options</figcaption>
+    </figure>
+    <h3>Using JavaScript</h3>
+    <p>To implement the options in code, you create an object, assign desired options their respective values, then pass the options object when calling the plugin:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+  // When the player is ready, get a reference to it
+  var myPlayer = this,
+      options = {};
+
+  options.scale = 0.5;
+  options.posX = "left";
+  // Initialize the picture-in-picture plugin
+  myPlayer.pip(options);
+});</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Methods">Methods</h2>
+    <p>The following methods let you interact with the picture-in-picture plugin:</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code>myPlayer.pip().enable()</code></td>
+          <td>Enable automatic picture-in-picture behavior</td>
+        </tr>
+        <tr>
+          <td><code>myPlayer.pip().disable()</code></td>
+          <td>Disable automatic picture-in-picture behavior</td>
+        </tr>
+        <tr>
+          <td><code>myPlayer.pip().toggle()</code></td>
+          <td>Manually activate or deactivate picture-in-picture mode based on the current state</td>
+        </tr>
+        <tr>
+          <td><code>myPlayer.pip().activate()</code></td>
+          <td>Manually put the player into picture-in-picture mode</td>
+        </tr>
+        <tr>
+          <td><code>myPlayer.pip().deactivate()</code></td>
+          <td>Manually take the player out of picture-in-picture mode</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Events">Events</h2>
+    <p>The following events are fired from the picture-in-picture plugin:</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Event</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code>beforepipactive</code></td>
+          <td>Fires before pip mode is activated</td>
+        </tr>
+        <tr>
+          <td><code>pipactive</code></td>
+          <td>Fires after pip mode is activated</td>
+        </tr>
+        <tr>
+          <td><code>beforepipinactive</code></td>
+          <td>Fires before pip mode is deactivated</td>
+        </tr>
+        <tr>
+          <td><code>pipinactive</code></td>
+          <td>Fires after pip mode is deactivated</td>
+        </tr>
+        <tr>
+          <td><code>beforepipenabled</code></td>
+          <td>Fires before the videojs-pip plugin is enabled</td>
+        </tr>
+        <tr>
+          <td><code>pipenabled</code></td>
+          <td>Fires after the videojs-pip plugin is enabled</td>
+        </tr>
+        <tr>
+          <td><code>beforepipdisabled</code></td>
+          <td>Fires before the videojs-pip plugin is disabled</td>
+        </tr>
+        <tr>
+          <td><code>pipdisabled</code></td>
+          <td>Fires after the videojs-pip plugin is disabled</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Changelog">Changelog</h2>
+    <p>See the <a href="/node/18797">changelog here</a>.</p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 19 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>

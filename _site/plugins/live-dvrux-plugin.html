@@ -1,0 +1,702 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>Live DVRUX Plugin</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/plugins/">Plugins</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Live DVRUX Plugin</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/references/">References <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/plugins/">Plugins <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+  <h1>Live DVRUX Plugin</h1>
+  <summary>Please see the notice that this plugin is deprecated.</summary>
+  <aside class="bcls-aside bcls-aside--warning language-editable">In Brightcove Player versions previous to 6.33.0 the <strong>Live DVRUX plugin</strong> was required to play live streams. This is no longer the case, as that functionality is now built into Brightcove Player. See the <a href="/node/18765">Playing Live Streams</a> document for further details. <strong>The Live DVRUX plugin is now deprecated and should no longer be used.</strong></aside>
+  <!-- 
+<section id="What_the_plugin_does" class="bcls-section">
+<h2>Detailing the plugin's behavior</h2>
+
+<p>The plugin changes the appearance and behavior of Brightcove Player to provide a better experience during live HLS playback, focusing primarily on the addition of DVR controls. With this plugin, viewers can seek to earlier points in the HLS stream as available, and they can tell in a glance where they are relative to the video's current live point.</p>
+
+<p>In a paused state, you will see the play head gradually drift left as the live stream continues on without you. In 'sliding window' DVR mode, where earlier segments of video are not available after some duration, the non-available video will eventually cause the play head to reach an unplayable position. In this case, the player will reset to live video when the user hits play.</p>
+
+<aside class="bcls-aside bcls-aside--tip">Note: The behavior described in the paragraph above will be affected how the live stream segments are expired.</aside>
+
+<p>There are also optional <strong>bookend</strong> features available for publishers to control what happens to the player before and after the live stream occurs and Brightcove Player is open. Those options are detailed below.</p>
+
+<p>As you see in the screenshot below, when you are watching live that will be reflected in the bottom-right of the player (highlighted in the yellow box).</p>
+
+<figure class="bcls-figure"><img class="bcls-image" alt="Showing green live" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/dvrux-plugin/showing-green-live.png" /></figure>
+
+<p>If you pause or scrub backwards in the stream, you will see the "fast forward" button which you can click to see the video in real time. The fast-forward button is located in the bottom-right of the player (highlighted in the yellow box).</p>
+
+<figure class="bcls-figure"><img class="bcls-image" alt="Showing fast forward" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/dvrux-plugin/showing-fast-forward.png" /></figure>
+</section>
+
+<section id="implementplayersmodule" class="bcls-section">
+<h2>Implement using Players module</h2>
+
+<p>To implement the Live DVRUX Plugin using the Players module, follow these steps:</p>
+
+<ol class="bcls-tasklist">
+	<li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+	<li>Click the link for the player to open the player's properties.</li>
+	<li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+	<li>Next click <strong>Plugins</strong> from the three options.
+	<figure class="bcls-figure"><img class="bcls-image" alt="Select Plugin" src="//learning-services-media.brightcove.com/doc-assets/general/players-plugin-options.png" /></figure>
+	</li>
+	<li>From the <strong>Add a Plugin</strong> select <strong>Custom Plugin</strong>.</li>
+	<li>For the <strong>Plugin Name</strong> enter <code>dvrux</code>.</li>
+	<li>For the <strong>JavaScript</strong> URL, enter:
+	<pre>
+<code class="notranslate language-json">https://players.brightcove.net/videojs-live-dvrux/1/videojs-live-dvrux.min.js</code></pre>
+	</li>
+	<li>For the <strong>CSS</strong> URL, enter:
+	<pre>
+<code class="notranslate language-json">https://players.brightcove.net/videojs-live-dvrux/1/videojs-live-dvrux.min.css</code></pre>
+	</li>
+	<li>Enter the configuration options in the <strong>Options(JSON)</strong> text box. The example below will use the <code>bookendBefore</code> object to display the text <strong>This live event has not yet started</strong> when someone has opened Brightcove Player but the live event has not yet started. The <code>bookendAfter</code> will display the source image after the live event has ended and Brightcove Player is still open.
+	<pre class="line-numbers">
+<code class="language-json">{
+  "bookendBefore": {
+    "startTime": 1426075200000,
+    "type": "text",
+    "src": "This live event has not yet started"
+  },
+  "bookendAfter": {
+    "startTime": 1489233600000,
+    "type": "image",
+    "src": "https://solutions.brightcove.com/bcls/brightcove-player/overlay-image.png"
+  }
+}</code></pre>
+	</li>
+	<li>Click <strong>Save</strong>.</li>
+	<li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+	<li>To close the open dialog, click <strong>Close</strong>.</li>
+</ol>
+</section>
+
+<section id="implementcode" class="bcls-section">
+<h2>Implement using code</h2>
+
+<p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the plugin code and stylesheet are as follows:</p>
+
+<pre class="line-numbers">
+<code class="language-html">https://players.brightcove.net/videojs-live-dvrux/1/videojs-live-dvrux.min.js</code></pre>
+
+<pre class="line-numbers">
+<code class="language-html">https://players.brightcove.net/videojs-live-dvrux/1/videojs-live-dvrux.min.css</code></pre>
+
+<p>The name of the plugin is <code>dvrux</code>, and an example set of options is:</p>
+
+<pre class="line-numbers">
+<code class="language-json">{
+  "bookendBefore": {
+    "startTime": 1426075200000,
+    "type": "text",
+    "src": "This live event has not yet started"
+  },
+  "bookendAfter": {
+    "startTime": 1489233600000,
+    "type": "image",
+    "src": "https://solutions.brightcove.com/bcls/brightcove-player/overlay-image.png"
+  }
+}</code></pre>
+
+<div class="video-cloud-only">
+<p>The following shows using the In-Page Embed implementation of the player to associate the Live DVRUX Plugin with a single instance of a player.</p>
+
+<ul>
+	<li>Line 1: Uses a <code>link</code> tag to include the plugin's CSS in the <code>head</code> of the HTML page.</li>
+	<li>Line 5: Gives the <code>video</code> tag an <code>id</code> attribute, with some value, in this case <strong>myPlayerID</strong>.</li>
+	<li>Line 15: Uses a <code>script</code> tag to include the plugin's JavaScript in the <code>body</code> of the HTML page.</li>
+	<li>Line 19: Creates a reference to the player.</li>
+	<li>Lines 20-31: Calls the plugin, passing the JSON object as options. If you are not passing any options the function call is simply <code>myPlayer.dvrux()</code>.</li>
+</ul>
+
+<pre class="line-numbers">
+<code class="language-html">  &lt;link rel="stylesheet" type="text/css" href="https://players.brightcove.net/videojs-live-dvrux/1/videojs-live-dvrux.min.css"&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;video-js id="myPlayerID"
+      data-video-id="5155162396001"
+      data-account="1752604059001"
+      data-player="ByXXzhT3"
+      data-embed="default"
+      data-application-id
+      class="video-js" controls&gt;&lt;/video-js&gt;
+
+    &lt;script src="https://players.brightcove.net/1752604059001/ByXXzhT3_default/index.min.js"&gt;&lt;/script&gt;
+
+    &lt;script src="https://players.brightcove.net/videojs-live-dvrux/1/videojs-live-dvrux.min.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript"&gt;
+      videojs.getPlayer('myPlayerID').ready(function() {
+        var myPlayer = this;
+        myPlayer.dvrux({
+          "bookendBefore": {
+            "startTime": 1426075200000,
+            "type": "text",
+            "src": "This live event has not yet started"
+          },
+          "bookendAfter": {
+            "startTime": 1489233600000,
+            "type": "image",
+            "src": "https://solutions.brightcove.com/bcls/overlay-image.png"
+          }
+        });
+      });
+    &lt;/script&gt;</code></pre>
+</div>
+
+<div class="player-only">
+<p>The following shows using the In-Page Embed implementation of the player to associate the Live DVRUX Plugin with a single instance of a player.</p>
+
+<ul>
+	<li>Line 82: Uses a <code>link</code> tag to include the plugin's CSS in the <code>head</code> of the HTML page.</li>
+	<li>Line 83: Gives the <code>video</code> tag an <code>id</code> attribute, with some value, in this case <strong>myPlayerID</strong>.</li>
+	<li>Line 91: Uses a <code>script</code> tag to include the plugin's JavaScript in the <code>body</code> of the HTML page.</li>
+	<li>Line 95: Creates a reference to the player.</li>
+	<li>Lines 96-107: Calls the plugin, passing the JSON object as options. If you are not passing any options the function call is simply <code>myPlayer.dvrux()</code>.</li>
+</ul>
+
+<pre class="line-numbers" data-start="82">
+<code class="language-html">&lt;link rel="stylesheet" type="text/css" href="https://players.brightcove.net/videojs-live-dvrux/1/videojs-live-dvrux.min.css"&gt;
+  &lt;video-js id="myPlayerID"
+    data-account="1507807800001"
+    data-player="6454befd-5fb6-483a-ac90-bd8438b58c6a"
+    data-embed="default"
+    class="video-js" controls&gt;&lt;/video&gt;
+
+  &lt;script src="https://players.brightcove.net/1507807800001/6454befd-5fb6-483a-ac90-bd8438b58c6a_default/index.min.js"&gt;&lt;/script&gt;
+
+  &lt;script src="https://players.brightcove.net/videojs-live-dvrux/1/videojs-live-dvrux.min.js"&gt;&lt;/script&gt;
+
+  &lt;script type="text/javascript"&gt;
+    videojs.getPlayer('myPlayerID').ready(function() {
+      var myPlayer = this;
+      myPlayer.dvrux({
+        "bookendBefore": {
+          "startTime": 1426075200000,
+          "type": "text",
+          "src": "This live event has not yet started"
+        },
+        "bookendAfter": {
+          "startTime": 1489233600000,
+          "type": "image",
+          "src": "https://solutions.brightcove.com/bcls/overlay-image.png"
+        }
+      });
+    });
+  &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</section>
+
+<section id="properties" class="bcls-section">
+<h2>Properties</h2>
+
+<p>The following plugin properties are used to control the Live DVRUX plugin:</p>
+
+<ul>
+	<li><strong>bookendBefore</strong>:
+
+	<ul>
+		<li>Type: <code>object</code></li>
+		<li>Creates an overlay to be shown after Brightcove Player has been loaded but before the live event has started.<br />
+		<br />
+		Contains the following three child properties:
+		<table class="bcls-table">
+			<tbody class="bcls-table__body">
+				<tr>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>startTime</td>
+					<td>number</td>
+					<td>The time the live event is scheduled to start, using epoch time in milliseconds; when this time is crossed for a bookendBefore, the bookend will clear and start playback as soon as the playlist is updated with a new segment</td>
+				</tr>
+				<tr>
+					<td>type</td>
+					<td>text</td>
+					<td>Must have the value either <code>image</code>, <code>text</code> or <code>custom</code></td>
+				</tr>
+				<tr>
+					<td>src</td>
+					<td>text</td>
+					<td>
+					<ul>
+						<li>When the <code>type</code> is <code>image</code>, the value is a URL to an image which overlays the video; if the image is not already the correct dimensions for the created player, it will be stretched to fill the player</li>
+						<li>When the <code>type</code> is <code>text</code>, the value is the text message to display over the video; if no <code>src</code> is specified, the video will display a message saying <strong>The event will start at {bookendBefore time}</strong>, followed by the printed date and time specified in the <code>startTime</code></li>
+						<li>When the <code>type</code> is <code>custom</code>, the value is complete HTML code which the player will display</li>
+					</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>class</td>
+					<td>text</td>
+					<td>Name of the CSS class to add to the bookend element</td>
+				</tr>
+			</tbody>
+		</table>
+		</li>
+	</ul>
+	</li>
+	<li><strong>bookendAfter</strong>:
+	<ul>
+		<li>Type: <code>object</code></li>
+		<li>Creates an overlay to be shown after the live event has completed and Brightcove Player is still open<br />
+		<br />
+		Contains the following three child properties:
+		<table class="bcls-table">
+			<tbody class="bcls-table__body">
+				<tr>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>startTime</td>
+					<td>number</td>
+					<td>The time the live event is scheduled to complete, using epoch time in milliseconds; when the time is crossed for a bookendAfter, playback will immediately end and the bookend will be shown</td>
+				</tr>
+				<tr>
+					<td>type</td>
+					<td>text</td>
+					<td>Must have the value either <code>image</code>, <code>text</code> or <code>custom</code></td>
+				</tr>
+				<tr>
+					<td>src</td>
+					<td>text</td>
+					<td>
+					<ul>
+						<li>When the <code>type</code> is <code>image</code>, the value is a URL to an image which overlays the video; if the image is not already the correct dimensions for the created player, it will be stretched to fill the player</li>
+						<li>When the <code>type</code> is <code>text</code>, the value is the text message to display over the video; if no <code>src</code> is specified, the video will display a message saying <strong>The event concluded at {bookendAfter time}</strong>, followed by the printed date and time specified in the <code>startTime</code></li>
+						<li>When the <code>type</code> is <code>custom</code>, the value is complete HTML code which the player will display</li>
+					</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>class</td>
+					<td>text</td>
+					<td>Name of the CSS class to add to the bookend element</td>
+				</tr>
+			</tbody>
+		</table>
+		</li>
+	</ul>
+	</li>
+</ul>
+</section>
+
+<section id="devicesupport" class="bcls-section">
+<h2>Device support</h2>
+
+<ul>
+	<li>Common desktop operating systems' browsers, except MS Edge, are supported provided Flash is installed.</li>
+	<li>In Android and MS Edge, live stream seeking and time tooltips are not supported.</li>
+	<li>The native player takes over in iOS for iPhone, so this stylistic plugin has no effect on iPhone playback.</li>
+	<li>Time tooltips are not supported on mobile devices except for the iPad.</li>
+	<li>This plugin will not work on Windows Phone 8 or earlier, which does not support HLS or Flash.</li>
+</ul>
+</section>
+
+<section id="Maximum_DVR_length" class="bcls-section">
+<h2>Maximum DVR length</h2>
+
+<p>The DVRUX Plugin will hold DVR functionality for as long as HLS segments are available, but therein lies the problem. You will first have to be sure the <strong>live_dvr_sliding_window_duration</strong> setting on your encoder/encoding device is set to the time you wish. Even after that is set, you then have a hurdle of how long your CDN will cache the segments. For instance, Akamai defaults to supporting 30 minutes of DVR, so you will need to check with your CDN and configure appropriately.</p>
+</section>
+
+<section class="bcls-section">
+<h2 id="Known_issues">Known issues</h2>
+
+<ul>
+	<li>On Firefox, entering and exiting fullscreen sometimes freezes the stream.</li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="changelog">Changelog</h2>
+
+<h4>29 Aug 2018</h4>
+
+<p>v1.3.5</p>
+
+<ul>
+	<li>Built unminified files</li>
+</ul>
+
+<h4>7 Aug 2018</h4>
+
+<p>v1.3.4</p>
+
+<ul>
+	<li>Fixed tooltip display</li>
+</ul>
+
+<h4>24 Jul 2018</h4>
+
+<p>v1.3.3</p>
+
+<ul>
+	<li>Hide live button if the stream is not live</li>
+</ul>
+
+<h4>15 Mar 2018</h4>
+
+<p>v1.3.2</p>
+
+<ul>
+	<li>Prevent seeking to 0 when attempting to seek to live</li>
+</ul>
+
+<h4>22 Feb 2018</h4>
+
+<p>v1.3.1</p>
+
+<ul>
+	<li>Don't seek to zero by default</li>
+</ul>
+
+<h4>1 Oct 2017</h4>
+
+<p>v1.3.0</p>
+
+<ul>
+	<li>Add custom class to bookends</li>
+	<li>Make it easier to select menu content</li>
+	<li>Fix styling when using Graphite v5 and v6</li>
+</ul>
+
+<h4>8 Aug 2017</h4>
+
+<p>v1.2.3</p>
+
+<ul>
+	<li>Fixed an issue where user could seek out of the live window</li>
+</ul>
+
+<h4>6 Jun 2017</h4>
+
+<p>v1.2.2</p>
+
+<ul>
+	<li>Fixed a build issue that left out a dependency in the minified file</li>
+</ul>
+
+<h4>8 Mar 2017</h4>
+
+<p>v1.2.1</p>
+
+<ul>
+	<li>Video.js 5 and 6 cross-compatibility.</li>
+</ul>
+
+<h4>19 Jan 2017</h4>
+
+<p>v1.2.0</p>
+
+<ul>
+	<li>Added a method to get plugin version</li>
+	<li>Fixed bug in which player does not autoplay when viewing VOD content</li>
+</ul>
+
+<h4>30 Sep 2016</h4>
+
+<p>v1.1.0</p>
+
+<ul>
+	<li>Updated plugin to <a href="https://github.com/videojs/generator-videojs-plugin">video.js plugin generator</a> conventions</li>
+	<li>Updated to conform to <a href="https://www.npmjs.com/package/videojs-standard">vjs-standard</a></li>
+</ul>
+
+<h4>15 Sep 2016</h4>
+
+<p>v1.0.3</p>
+
+<ul>
+	<li>Updated for compatibility with Brightcove Player v5.x</li>
+	<li>Preliminary support for browsers with native HLS implementations</li>
+	<li>Added the <strong>custom</strong> type for bookends, which permits HTML for the bookend</li>
+	<li>Added the <strong>class</strong> attribute to bookends, which allows adding a CSS class to the bookend</li>
+	<li>Added a time tooltip which shows the time behind live on mousing over the progress bar</li>
+</ul>
+
+<h4>30 Jan 2015</h4>
+
+<p>v0.1.1</p>
+
+<ul>
+	<li>Initial release</li>
+</ul>
+</section>
+--></article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 19 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>
