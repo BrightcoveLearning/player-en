@@ -1,0 +1,82 @@
+---
+title: Player Metadata from bcinfo
+parent: References
+---
+<article class="bcls-article">
+  <h1>Player Metadata from bcinfo</h1>
+  <summary>In this topic you will learn how to retrieve information about the player (metadata) from the <code>bcinfo</code> object. </summary>
+  <section class="bcls-section">
+    <h2 id="Object_overview">Object overview</h2>
+    <p>Here are specific instances of <code class="notranslate">console.log()</code> and a <code class="notranslate">console.table()</code> views of the data contained in the <code class="notranslate">bcinfo</code> property.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="bcinfo console log" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/bcinfo/console-log-bcinfo.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="bcinfo console table" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/bcinfo/console-table-bcinfo.png" /></figure>
+    <p>You can access this information using code similar to the following:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+  var myPlayer = this;
+  console.log('myPlayer.bcinfo', myPlayer.bcinfo);
+  console.table(myPlayer.bcinfo);
+});</code></pre>
+    <aside class="bcls-aside bcls-aside--tip">The <code class="notranslate">bcinfo</code> object is populated after <code class="notranslate">videojs()</code> is called (or the player script runs). So, using the object's information in conjunction with the <code class="notranslate">ready()</code> method, as shown in the code just above, is a safe practice.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Object_properties">Object properties</h2>
+    <p>The <code class="notranslate">bcinfo</code> property is an object which contains information (metadata) on the current player. The properties present in the object are as follows:</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Field Name</th>
+          <th>Description</th>
+          <th>Data Type</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>accountId</td>
+          <td>Brightcove account identifier</td>
+          <td>string</td>
+        </tr>
+        <tr>
+          <td>applicationId</td>
+          <td>Value you can set for use with analytics. It is defined as an attribute of the player:
+            <pre class="line-numbers">
+<code class="language-html">&lt;video-js id="myPlayerID"
+  data-video-id="5622718636001"
+  data-account="1507807800001"
+  data-player="ryw1oAQ4M"
+  data-embed="default"
+  <span class="bcls-highlight">data-application-id="id_for_testing_bcinfo"</span>
+  class="video-js"
+ ...</code></pre></td>
+          <td>string</td>
+        </tr>
+        <tr>
+          <td>css</td>
+          <td>Reflects CSS values set in Studio, in the <strong>PLAYERS &gt; STYLING</strong> section:
+            <figure class="bcls-figure"><img class="bcls-image" alt="Studio Player Styles" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/bcinfo/studio-css.png" /></figure></td>
+          <td>Object</td>
+        </tr>
+        <tr>
+          <td>embedId</td>
+          <td>If the player is an embed (child player), this value reflects the ID of the parent.</td>
+          <td>string</td>
+        </tr>
+        <tr>
+          <td>playerId</td>
+          <td>Identifier for the player</td>
+          <td>string</td>
+        </tr>
+        <tr>
+          <td>scriptBaseUrl</td>
+          <td>The base URL for the location of the player's unique configuration file. The actual file name, <strong class="notranslate">index.min.js</strong> is NOT included.</td>
+          <td>string</td>
+        </tr>
+        <tr>
+          <td>scriptUrl</td>
+          <td>Location of the player's unique configuration file named <strong class="notranslate">index.min.js</strong>.</td>
+          <td>string</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</article>
