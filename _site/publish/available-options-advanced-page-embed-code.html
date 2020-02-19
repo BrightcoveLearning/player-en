@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Brightcove Player Documentation</title>
+  <title>Available Options for the Advanced (in-page) Embed Code</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -82,9 +82,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb arr-right">
       
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
       
       
-      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Documentation</li>
+      
+      <li class="breadcrumb-item"><a href="/publish/">Publishing Videos & Players</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Available Options for the Advanced (in-page) Embed Code</li>
     </ol>
   </nav>
 </header>
@@ -389,176 +393,245 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1>Brightcove Player Documentation</h1>
-  <p>Brightcove Player development allows you to customize, integrate with, or add functionality to your players. Development tools are the Player API, and the standard web technologies of HTML5, CSS and JavaScript.</p>
-  <p>Check out the extensive list of <a href="http://support.brightcove.com/brightcove-player-developer-code-samples">code samples</a> for player customization possibilities.</p>
-  <p>Brightcove Player version:</p>
-  <p>Current: <a href="http://support.brightcove.com/brightcove-player-release-notes">v6.38.4</a></p>
-  <p>Pre-release: <a href="http://support.brightcove.com/brightcove-player-pre-release">v6.39.1</a></p>
-  <section class="card-wrapper">
-    <section onclick="window.location.pathname = '/getting-started/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-location-arrow"></i> </div>
-      <div class="card-content">
-        <h2><a href="/getting-started/index.html">Getting Started</a></h2>
-        <p>Just getting started with Brightcove Player?</p>
+  <h1>Available Options for the Advanced (in-page) Embed Code</h1>
+  <summary>In this topic, you will learn about the use and configuration of the <strong>Advanced</strong> embed code. This version of the player implementation is also referred to as the <strong>In-Page</strong> or <strong>embed_in_page</strong> embed code.</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+    <div class="BCL-concept">
+      <p>The <strong>Advanced (in-page) embed</strong>&nbsp;code permits you to have the player exist in the HTML page directly, not in an iframe. This offers the benefits of ease of accessing the player and associated properties and events. By using the non-iframe player, you lose the ease of use of the player as a single, contained unit in social media applications and sharing. See the <a href="/node/15622">Choosing the Correct Embed Code</a> document for further information.</p>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Usage">Usage</h2>
+    <aside class="bcls-aside bcls-aside--information player-only">Note: If you are a Brightcove Player customer, you will not use the <code>data-video-id</code> attribute to assign a video to your player. You would either assign the video in the <strong>Players</strong> module or using curl.</aside>
+    <p>To use the <strong>in-page embed</strong> code follow these steps:</p>
+    <ol class="bcls-tasklist">
+      <li>Use the&nbsp;<strong>PLAYERS</strong> module to create a player.</li>
+      <li>Go to the <strong>MEDIA</strong> module and publish a video using the newly created player.</li>
+      <li>Copy the <strong>Advanced</strong>&nbsp;embed code. The HTML will be similar to the following:
+        <pre class="line-numbers">
+  <code class="language-html">&lt;video-js data-video-id="4093372393001"
+    data-account="1507807800001"
+    data-player="ry3j6rsze"
+    data-embed="default"
+    data-application-id
+    class="video-js"
+    controls&gt;&lt;/video-js&gt;
+  &lt;script src="https://players.brightcove.net/1507807800001/ry3j6rsze_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+      </li>
+      <li>Copy the HTML from the browser and paste into the <code>body</code> of a full HTML page.</li>
+      <li>Browse the HTML page to see the player functioning.</li>
+    </ol>
+    <div class="BCL-concept">
+      <p>When publishing videos using the Media module, you can use the player URL to preview the video or copy the iframe or In-Page embed code to paste into your web page or application.</p>
+      <p class="BCL-aside">Note: Click the <strong>Shorten</strong> button next to the preview URL to generate a shortened preview URL.</p>
+      <p>The <strong>Standard</strong> link displays the iframe embed code and the <strong>Advanced</strong> link displays the In-Page embed code. From the Player Management API perspective, you will also see the <strong>Advanced</strong> player code referred to as the <strong>embed_in_page</strong> implementation.</p>
+      <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node15622-pub-code-options.png" /></div>
+      <p class="BCL-aside">Note: For information on working with responsive players, see the <a href="/node/18173">Responsive Sizing for the Brightcove Player</a> developer document.</p>
+      <div>
+        <h2 id="inpage">In-Page embed code (Advanced)</h2>
+        <p>Typical in-page embed code will appear as follows:</p>
+        <pre class="line-numbers">
+  <code class="language-html">&lt;video-js data-video-id="5076962725001"
+  data-account="1507807800001"
+  data-player="BkTGbgSq"
+  data-embed="default"
+  data-application-id
+  class="video-js"
+  controls&gt;&lt;/video-js&gt;
+  &lt;script src="https://players.brightcove.net/1507807800001/BkTGbgSq_default/index.min.js"&gt;&lt;/script&gt;
+  </code></pre>
+        <p>Although integrating the In-Page publishing code can be more complex, using the In-Page code is best when the page containing the player needs to communicate with the player. Some examples of when to use the In-Page embed code include:</p>
         <ul>
-          <li></li>
+          <li>The code in the containing page needs to listen for and act on player events</li>
+          <li>The player uses styles from the parent page</li>
+          <li>The iframe code will cause application logic to fail, like a redirect from the parent page</li>
         </ul>
-        <p><a href="/getting-started/index.html">View All...</a></p>
+        <p>Even if your final implementation does not use the iframe embed&nbsp;code, you can still use the In-Page code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+        <h3>Chrome and "broken" HTML video icon</h3>
+        <p>Chrome versions 67+ will display a broken video icon momentarily until the <code>&lt;video ...&gt;</code> tag gets converted into a Brightcove Player. The icon appears as follows:</p>
+        <figure class="bcls-figure"><img class="bcls-image" width="200" height="109" alt="chrome broken video icon" src="//learning-services-media.brightcove.com/doc-assets/general/chrome-broken-video-icon.png" /></figure>
+        <p>If you are using Brightcove Player version 6.11+, you change the video tag to <code>&lt;video-js ...&gt;</code> and you will NOT see the icon.</p>
       </div>
-    </section>
-    <section onclick="window.location.pathname = '/references/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fal fa-books"></i> </div>
-      <div class="card-content">
-        <h2><a href="/references/index.html">References</a></h2>
-        <p>Brightcove Player References</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/references/index.html">View All...</a></p>
+      <div class="BCL-concept">
+        <h2 id="recommend">Recommendation</h2>
+        <p>It is considered a best practice to use the iframe implementation unless some application logic requires the use of the In-Page code.&nbsp;If you are using the Audience module to track viewer engagement, the In-Page (Advanced) embed code must be used.</p>
       </div>
-    </section>
-    <section onclick="window.location.pathname = '/plugins/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-plug"></i> </div>
-      <div class="card-content">
-        <h2><a href="/plugins/index.html">Plugins</a></h2>
-        <p>Brightcove Player Plugins</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/plugins/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/advertising/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-ad"></i> </div>
-      <div class="card-content">
-        <h2><a href="/advertising/index.html">Advertising</a></h2>
-        <p>Advertising</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/advertising/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/publish/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-browser"></i> </div>
-      <div class="card-content">
-        <h2><a href="/publish/index.html">Publishing Videos & Players</a></h2>
-        <p>Publishing Videos & Players</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/publish/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/general/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-info-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/general/index.html">General Information</a></h2>
-        <p>General information about Brightcove Gallery.</p>
-        <ul>
-          <li><a href="/settings/index.html">Gallery Settings</a></li>
-          <li><a href="/general/gallery-system-requirements.html">Gallery System Requirements</a></li>
-          <li><a href="/general/troubleshooting-brightcove-gallery-issues.html">Troubleshooting  Gallery Issues</a></li>
-          <li><a href="/general/brightcove-gallery-cookies.html">Brightcove Gallery Cookies</a></li>
-        </ul>
-        <p><a href="/general/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/media/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fas fa-film"></i> </div>
-      <div class="card-content">
-        <h2><a href="/media/index.html">Managing Videos</a></h2>
-        <p>Learn how to upload and manage videos.</p>
-        <ul>
-          <li><a href="/media/getting-started-media-module.html">Getting Started with the Media Module</a></li>
-          <li><a href="/media/editing-video-properties-using-media-module.html">Editing Video Properties</a></li>
-          <li><a href="/media/organizing-videos-using-folders.html">Organizing Videos Using Folders</a></li>
-          <li><a href="/media/uploading-poster-and-thumbnail-images.html">Uploading Poster and Thumbnail Images</a></li>
-        </ul>
-        <p><a href="/media/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/players/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-play-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/players/index.html">Managing Players</a></h2>
-        <p>Learn how to create and style players.</p>
-        <ul>
-          <li><a href="/players/getting-started-players-module.html">Getting Started with the Players Module</a></li>
-          <li><a href="/players/styling-players.html">Styling Players</a></li>
-          <li><a href="/players/configuring-player-controls.html">Configuring Player Controls</a></li>
-          <li><a href="/players/configuring-social-properties-player.html">Configuring the Social Properties</a></li>
-        </ul>
-        <p><a href="/players/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/publish/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-browser"></i> </div>
-      <div class="card-content">
-        <h2><a href="/publish/index.html">Publishing Videos</a></h2>
-        <p>Learn how to publish videos to the web and to social media.</p>
-        <ul>
-          <li><a href="/publish/publishing-videos-and-playlists-media-module.html">Publishing Videos and Playlists</a></li>
-          <li><a href="/publish/publishing-video-email.html">Publishing a Video to Email</a></li>
-          <li><a href="/publish/choosing-correct-embed-code.html">Choosing the Correct Embed Code</a></li>
-        </ul>
-        <p><a href="/publish/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/analytics/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-chart-bar"></i> </div>
-      <div class="card-content">
-        <h2><a href="/analytics/index.html">Reviewing Analytics</a></h2>
-        <p>Learn how to view video analytics to see how your videos are performing.</p>
-        <ul>
-          <li><a href="/analytics/performance-report-reference.html">Performance Report Reference</a></li>
-          <li><a href="/analytics/engagement-report-reference.html">Engagement Report Reference</a></li>
-          <li><a href="/analytics/creating-custom-analytics-reports.html">Creating Custom Analytics Reports</a></li>
-        </ul>
-        <p><a href="/analytics/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/get-started/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-chalkboard-teacher"></i> </div>
-      <div class="card-content">
-        <h2 id="training"><a href="/get-started/index.html">Training</a></h2>
-        <p>On-Demand training and  product training videos.</p>
-        <ul>
-          <li><a href="/get-started/training-demand-video-cloud-basics.html">Training on Demand: Video Cloud Basics</a></li>
-          <li><a href="/get-started/training-demand-introduction-video-cloud.html">Training on Demand: Introduction to Video Cloud</a></li>
-          <li><a href="/get-started/training-demand-introduction-video-cloud-analytics.html">Training on Demand:  Introduction to Video Cloud Analytics</a></li>
-          <li><a href="/get-started/video-cloud-studio-training-videos.html">Video Cloud Studio Training Videos</a></li>
-        </ul>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/release-notes/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-bell"></i> </div>
-      <div class="card-content">
-        <h2><a href="/release-notes/index.html">Release Notes</a></h2>
-        <p>Learn about new product features and updates.</p>
-        <ul>
-          <li><a href="/release-notes/video-cloud-studio-release-notes.html">Video Cloud Studio Release Notes</a></li>
-        </ul>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/support/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-question-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/support/index.html">Support</a></h2>
-        <p>Have a question or need help?</p>
-        <ul>
-          <li><a href="/support/viewing-brightcove-system-status-page.html">View Brightcove System Status</a></li>
-          <li><a href="/support/opening-case-with-brightcove-support.html">Open a Support Case</a></li>
-        </ul>
-      </div>
-    </section>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Attributes">Attributes</h2>
+    <p>Numerous attributes are available for the <code>&lt;video&gt;</code> tag to provide additional information about how a player should behave. The table below details available attributes.</p>
+    <aside class="bcls-aside bcls-aside--tip">
+      <p>When using tag attributes that can only be true or false (data type <strong>Boolean</strong>), you simply include the attribute (no equals sign) to turn it on.</p>
+      <p>RIGHT: <code>controls</code></p>
+      <p>WRONG: <code>controls="true"</code></p>
+      <p>In order to use Booleans, the attribute should be disabled by default in the player configuration settings, then it is enabled by including the attribute in the in-page embed code. For instance, if <code>autoplay</code> is enabled in the player configuration there is no way to disable that feature in the in-page embed code. This means that if you want to control a Boolean attribute, you want to be sure it is disabled in the player configuration then you can optionally enable it by placing the appropriate attribute in the in-page embed code. Enabling the attribute in the player configuration overrides omitting the attribute in the in-page embed code.</p>
+    </aside>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th style="width:20%">Attribute</th>
+          <th style="width:70%">Description</th>
+          <th style="width:10%">Data Type</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code>autoplay </code></td>
+          <td>Indicates that the player should start playing immediately, on platforms where this is allowed.<br />
+            <br />
+            If <code class="notranslate">autoplay</code> is set to a Boolean value the browser's native autoplay behavior is used. If it is set to one of the following three valid string values, the following occurs:
+            <ul>
+              <li><code class="notranslate">play</code>: The player will manually try to call play.</li>
+              <li><code class="notranslate">muted</code>: The player will manually mute the player and call play.</li>
+              <li><code class="notranslate">any</code>: The player will first try to call play. If that fails, mute the player and call play.</li>
+            </ul>
+            If any of the above fail, the player will display the "Big Play Button" as if autoplay was set to false.<br />
+            <br />
+            Getting a video to autoplay can be a complex situation. See the <a href="/node/18602">Autoplay Considerations</a> document for further details.</td>
+          <td>Boolean or String</td>
+        </tr>
+        <tr>
+          <td><code>class</code></td>
+          <td>Standard HTML attribute that will be assigned the <strong>video-js</strong> value by default.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code>controls</code></td>
+          <td>Determine if the controls should be visible in the player.</td>
+          <td>Boolean</td>
+        </tr>
+        <tr>
+          <td><code>crossorigin</code></td>
+          <td>If <strong>true</strong>, the underlying <strong>&lt;video&gt;</strong> element will have <strong>crossorigin="anonymous"</strong>. This means that any videos or text tracks pulled into the player must have CORS headers.
+            <aside class="bcls-aside bcls-aside--information">Note: This feature should only be used if you know that all your content (video and text tracks) have CORS headers applied to them.</aside></td>
+          <td>Boolean</td>
+        </tr>
+        <tr>
+          <td><code>data-account</code></td>
+          <td>The account ID, sometimes also called the Publisher ID.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code>data-ad-config-id</code></td>
+          <td>A Dynamic Delivery SSAI ad configuration ID.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code>data-application-id</code></td>
+          <td>Allows re-use of a single player, but differentiates analytics on a per-site or per-application basis. See the <a href="/node/16616">Adding an Application ID to the Player Embed Code</a> document for full details.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td>data-embed</td>
+          <td>Displays information if you are using embeds (parent-child player relationships).</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code>data-player</code></td>
+          <td>Sets the player ID.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code>data-playlist-id</code></td>
+          <td>Sets the ID or reference ID of the playlist in the player.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code>data-playlist-video-id</code></td>
+          <td>Sets the initial video to be played in the video, which must be in the designated playlist.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code>data-start-time</code></td>
+          <td>Sets the time offset from which a video will start playing. See the <a href="/node/18104">Deep Linking</a> document for details.</td>
+          <td>String</td>
+        </tr>
+        <tr class="video-cloud-only">
+          <td>data-video-id</td>
+          <td>Sets the ID or reference ID of the video in the player.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>Sets the display height of the video, measured in pixels <strong>ONLY</strong>. For further details using percentages for the height see the <a href="/node/18134#Using_percentages">Sizing the Player</a> document.</td>
+          <td>Number</td>
+        </tr>
+        <tr>
+          <td><code>language</code></td>
+          <td>Sets the language (using a valid language code, usually two letters) for the player.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code>loop</code></td>
+          <td>Causes the video to start over as soon as it ends.</td>
+          <td>Boolean</td>
+        </tr>
+        <tr>
+          <td><code>muted</code></td>
+          <td>Mutes the video's sound.</td>
+          <td>Boolean</td>
+        </tr>
+        <tr>
+          <td>playsinline</td>
+          <td>If the platform and OS allow it, will display video content within the player's playback area, meaning it won't displayed fullscreen or in an independent, resizable window; does work on iPhone and iPad</td>
+          <td>Boolean</td>
+        </tr>
+        <tr>
+          <td>preload</td>
+          <td>Informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. Possible values are <code>none</code>, <code>metadata</code> or <code>auto</code>. See the next section for further details.</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code>width</code></td>
+          <td>Sets the display width of the video, measured in pixels <strong>ONLY</strong>. For further details using percentages for the width see the <a href="/node/18134#Using_percentages">Sizing the Player</a> document.</td>
+          <td>Number</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="preload_details">preload details</h2>
+    <aside class="bcls-aside bcls-aside--warning">Note: currently the value for preload set in the <a href="/node/18510#preload">Studio Player Settings</a> will always override the value set in the <code>video</code> tag attributes, so you must set this in Studio.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: The preload settings are actually just suggestions in the HTML5 spec and as a result there can be different behavior on different browsers. Setting the value to <strong>Yes</strong> could potentially have significant impact on bandwidth consumption.</aside>
+    <p>The preload attribute informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. The options are <code>auto</code>, <code>metadata</code>, and <code>none</code>. For HLS playback technology the settings mean slightly different things and noted below.</p>
+    <ul>
+      <li>
+        <p><code>auto</code> (default): Start loading the video immediately (if the browser agrees). Some mobile devices like iPhones and iPads will not preload the video in order to protect their users' bandwidth. This is why the value is called <strong>auto</strong> and not something more final like <strong>true</strong>.</p>
+        <aside class="bcls-aside bcls-aside--information">For the HLS playback technology, <strong>auto</strong> means the player downloads the m3u8 manifest file and only 1 segment instead of 3-4, as was the case before version 5.3 of Brightcove Player.</aside>
+      </li>
+      <li>
+        <p><code>metadata</code>: Load only the meta data of the video, which includes information like the duration and dimensions of the video.</p>
+        <aside class="bcls-aside bcls-aside--information">For the HLS playback technology, <strong>metadata</strong> is the same as <strong>auto</strong>.</aside>
+      </li>
+      <li>
+        <p><code>none</code>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading. Note that on iOS there may be segment downloading even with this setting. See the <a href="/node/18106">Brightcove Player and iOS</a> document for more information.</p>
+        <aside class="bcls-aside bcls-aside--information">For the HLS playback technology, <strong>none</strong> means the player will only download the m3u8 manifest so that the video duration can be calculated.</aside>
+      </li>
+    </ul>
+    <pre class="line-numbers">
+  <code class="language-html">&lt;video-js preload ...&gt;
+  or
+  { "preload": "auto" }</code></pre>
+    <aside class="bcls-aside bcls-aside--information">
+      <p>Notes:</p>
+      <ul>
+        <li>When using Server-Side Ad Insertion (SSAI), Brightcove recommends setting <code>preload=none</code>. If <code>preload</code> is set to <code>auto</code> or <code>metadata</code>, the first frames of the video stream will be requested, which counts the ad as delivered even if the user does not start playback.</li>
+        <li>Due to a bug in Internet Explorer, the preload setting may be ignored when using IE.</li>
+      </ul>
+    </aside>
   </section>
 </article>
 
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
       
     </div>
   </div>
@@ -647,6 +720,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
   
   <script src="/assets/js/sites_nav.js"></script>
   <script src="/assets/js/feedback.js"></script>

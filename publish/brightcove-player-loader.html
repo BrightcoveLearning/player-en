@@ -1,0 +1,337 @@
+---
+title: Brightcove Player Loader
+parent: 'Publishing Videos & Players'
+---
+<article class="bcls-article">
+  <h1>Brightcove Player Loader</h1>
+  <summary>In this topic, you will learn how to use the Brightcove Player Loader to load a Brightcove Player using modern build tooling. This library is seen as a tool for more technical customers.</summary>
+  <section class="bcls-section">
+    <h2 id="Player_loader_overview">Player loader overview</h2>
+    <aside class="bcls-aside bcls-aside--warning">The Brightcove Player Loader is an open source tool and is NOT officially supported by Brightcove. Also, this library supports only Brightcove Players v6.11.0 and higher.</aside>
+    <p>For users of Brightcove Player would don't want to copy and paste either the in-page embed or iframe player implementations, this module is bundled into their web application and provides a way to use Brightcove Players without needing to write integration code to download their players and embed them. This tool solves the problem with a Brightcove library that can download any published Brightcove Player and embed it in the DOM.</p>
+    <p>This library supports common evergreen browsers, Chrome, Firefox, Edge, Safari and IE11. Earlier versions of IE are NOT supported.</p>
+    <p>This document essentially provides example uses of the Brightcove Player Loader. For complete details see the library's <a href="https://github.com/brightcove/player-loader#">brightcove / player-loader</a> GitHub repo.</p>
+    <p>There is a webpack that can be utilized with Brightcove Player. Details for that can be found in the <a href="https://github.com/brightcove/player-loader-webpack-plugin">player-loader-webpack-plugin</a> GitHub repo.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Installation">Installation</h2>
+    <p>The library is installed using NPM, using the following:</p>
+    <pre class="line-numbers">
+<code class="language-javascript notranslate">npm install --save @brightcove/player-loader</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Including_the_library">Including the library</h2>
+    <p>For different methods of including the library for your use please see the <a href="https://github.com/brightcove/player-loader#inclusion">GitHub repo</a> for the library.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Implementation_using_a_Promise">Implementation using a Promise</h2>
+    <aside class="bcls-aside bcls-aside--tip">In this sample, and those that follow, parameters from the library are used. A table with complete listing of parameters is in the <a href="#Available_parameters">Available parameters</a> section below.</aside>
+    <p>You can use a <a href="/node/18652">JavaScript Promise</a> with the library. Promises are not required for this library to work, but they are recommended. By default, this library will look for a global Promise. However, you can explicitly provide a Promise implementation via the <code class="notranslate">Promise</code> parameter, detailed later in this document.</p>
+    <p>The following shows an implementation of the library using a Promise. A key concept is that you obtain a reference to the player by using <code class="notranslate">var myPlayer = success.ref;</code> in the <code class="notranslate">then</code> section of handling the promise:</p>
+    <pre class="line-numbers">
+<code class="language-html notranslate">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Untitled Document&lt;/title&gt;
+  &lt;style&gt;
+    .video-js {
+      height: 344px;
+      width: 610px;
+    }
+  &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;script src="brightcove-player-loader.min.js"&gt;&lt;/script&gt;
+
+  &lt;div id="theDiv"&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    <span class="bcls-highlight">brightcovePlayerLoader({
+      refNode: document.querySelector('#theDiv'),
+      accountId: '1752604059001',
+      playerId: 'wHBRh9M3o',
+      videoId: '4607357817001'
+    })
+    .then(function(success) {
+      var myPlayer = success.ref;
+      console.log('success', success);
+      myPlayer.on('loadedmetadata',function(){
+        myPlayer.muted(true);
+        myPlayer.play();
+      });
+    })
+    .catch(function(error) {
+      console.log('error', error);
+    })</span>
+  &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Implementation_using_callbacks">Implementation using callbacks</h2>
+    <p>You can also implement the player loader using callbacks via the <code class="notranslate">onSuccess</code> and <code class="notranslate">onFailure</code> callback functions.</p>
+    <p>The following shows an implementation of the library using callbacks. A key concept is that you obtain a reference to the player by using <code class="notranslate">var myPlayer = success.ref;</code> in the <code class="notranslate">onSuccess</code> callback function:</p>
+    <pre class="line-numbers">
+<code class="language-html notranslate">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Untitled Document&lt;/title&gt;
+  &lt;style&gt;
+    .video-js {
+      height: 344px;
+      width: 610px;
+    }
+  &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;script src="brightcove-player-loader.min.js"&gt;&lt;/script&gt;
+
+  &lt;div id="theDiv"&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+  <span class="bcls-highlight">brightcovePlayerLoader({
+    refNode: document.querySelector('#theDiv'),
+    accountId: '1752604059001',
+    playerId: 'wHBRh9M3o',
+    videoId: '4607357817001',
+    onSuccess: function(success) {
+      var myPlayer = success.ref;
+      console.log('success', success);
+      myPlayer.on('loadedmetadata',function(){
+        myPlayer.muted(true);
+        myPlayer.play();
+      });
+    },
+    onFailure(error) {
+      console.log('error', error);
+    }
+  });</span>
+  &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+  </section>
+  <!-- <section class="bcls-section">
+  <h2 id="Using_a_search_parameter">Using a search parameter</h2>
+  <aside class="bcls-aside bcls-aside--tip">For information on building complex searches see the <a href="/node/18108#getSearch_method">getSearch()</a> section of the <strong class="notranslate">Player Catalog</strong> document.</aside>
+  <p>This sample retrieves all videos that have <strong class="notranslate">Desert</strong> in their name, then displays them in a playlist. Important to note in this example:</p>
+  <ul>
+    <li>The Brightcove Player has been playlist enabled.</li>
+    <li>The <code class="notranslate">embedType</code> parameter is used to specify that the <code class="notranslate">iframe</code> player implementation should be used.</li>
+    <li>The <code class="notranslate">playlist</code> embed option is NOT needed since an <code class="notranslate">iframe</code> player implementation is used. The <code class="notranslate">playlist</code> embed option would be needed if using an in-page embed player implementation.</li>
+    <li></li>
+    <li></li>
+  </ul>
+  <pre class="line-numbers">
+<code class="language-html notranslate">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Untitled Document&lt;/title&gt;
+  &lt;style&gt;
+    iframe {
+      height: 344px;
+      width: 610px;
+    }
+  &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;script src=&quot;brightcove-player-loader.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;div id=&quot;theDiv&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    brightcovePlayerLoader({
+      refNode: document.querySelector('#theDiv'),
+      embedType: 'iframe',
+      accountId: '1752604059001',
+      playerId: 'wHBRh9M3o',
+      catalogSearch: 'name:Desert'
+    })
+    .then(function(success) {
+      var myPlayer = success.ref;
+      console.log('success', success);
+      myPlayer.on('loadedmetadata',function(){
+        myPlayer.muted(true);
+        myPlayer.play();
+      });
+    })
+    .catch(function(error) {
+      console.log('error', error);
+    })
+  &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+  <p>More complex searches can be used. For example to limit the number of videos returned then sort the videos by name you would use:</p>
+  <pre class="line-numbers">
+<code class="language-javascript notranslate"></code></pre>
+</section> -->
+  
+  <section class="bcls-section">
+    <h2 id="Available_parameters">Available parameters</h2>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Name</th>
+          <th>Data type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code class="notranslate">accountId</code></td>
+          <td>string | number</td>
+          <td><strong class="notranslate">Required</strong><br />
+            A Video Cloud account ID.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">applicationId</code></td>
+          <td>string</td>
+          <td>The application ID to be applied to the generated embed.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">catalogSearch</code></td>
+          <td>string | Object</td>
+          <td>A Video Cloud Catalog search to perform. This can be a simple string search or a object that matches the <a href="/node/18108#getSearch_method">Catalog <code class="notranslate">getSearch()</code> method</a>. If a non-string value is given that is not serializable as JSON, this parameter will be ignored.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">catalogSequence</code></td>
+          <td>Array | Object</td>
+          <td>A Video Cloud Catalog sequence to perform. See the <a href="/node/18108#getLazySequence_method">Catalog <code class="notranslate">getLazySequence()</code> method</a> for more information. If a non-string value is given that is not serializable as JSON, this parameter will be ignored.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">embedId</code></td>
+          <td>string</td>
+          <td>The Brightcove Player embed ID for the player. The default value is <code class="notranslate">'default'</code>. The default value is correct for most users.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">embedOptions</code></td>
+          <td>Object</td>
+          <td>Used to provide certain options for embed generation. These include:
+            <table>
+              <tbody>
+                <tr>
+                  <td><code class="notranslate">embedOptions.pip</code></td>
+                  <td>boolean</td>
+                  <td>If <code class="notranslate">true</code>, will wrap the embed in a <code class="notranslate">&lt;div class="vjs-pip-container"&gt;</code> element. This should be used when you need support for the <a href="/node/18581">Brightcove Picture-in-Picture plugin</a>. The default value is <code class="notranslate">false</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="notranslate">embedOptions.playlist</code></td>
+                  <td>boolean</td>
+                  <td>If <code class="notranslate">true</code>, will add a <code class="notranslate">&lt;div class="vjs-playlist"&gt;</code> element after the embed. This should be used when you need support for the <a href="/node/18063">Brightcove Playlist UI plugin</a>. The default value is <code class="notranslate">false</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="notranslate">embedOptions.responsive</code></td>
+                  <td>boolean | Object</td>
+                  <td>Used customize the embed code to produce a responsively-sized player using the <strong class="notranslate">intrinsic ratio</strong> wrapper approach. When true, will produce a responsive embed code with a 16:9 aspect ratio that will fill its container. The default value is <code class="notranslate">false</code>.<br />
+                    An object can be provided to customize this with the following sub-properties:
+                    <ul>
+                      <li><code class="notranslate">aspectRatio</code>: A string used to customize the aspect ratio to a value other than 16:9 (e.g., '4:3').</li>
+                      <li><code class="notranslate">maxWidth</code>: A string used to restrain the maximum width of the player. This should use CSS units, such as pixels (e.g., '960px').</li>
+                    </ul></td>
+                </tr>
+                <tr>
+                  <td><code class="notranslate">embedOptions.unminified</code></td>
+                  <td>boolean</td>
+                  <td>If <code class="notranslate">true</code>, will use the un-minified version of the player. This can be useful for debugging purposes, but comes at a cost of a larger player download. <strong>Not recommended for production!</strong> The default value is <code class="notranslate">false</code>.</td>
+                </tr>
+              </tbody>
+            </table></td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">embedType</code></td>
+          <td>string</td>
+          <td>The embed code type to produce. This parameter's value must be one of the following:
+            <ul>
+              <li><code class="notranslate">'in-page'</code> or <code class="notranslate">brightcovePlayerLoader.EMBED_TYPE_IN_PAGE</code>: Also referred to as the advanced embed code, this injects the player directly into the top-level web page.</li>
+              <li><code class="notranslate">'iframe'</code> or <code class="notranslate">brightcovePlayerLoader.EMBED_TYPE_IFRAME</code>: Also referred to as the basic embed code, this injects the player as an &lt;iframe&gt; element.</li>
+            </ul>
+            The default value is <code class="notranslate">'in-page'</code>.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">onEmbedCreated</code></td>
+          <td>Function (element)</td>
+          <td>A callback used to customize the embed element (either <code class="notranslate">video-js</code> element or an <code class="notranslate">iframe</code> element) before it is inserted into the DOM or customized as a result of <code class="notranslate">embedOptions</code> and before the player is downloaded and initialized. The embed element may be mutated or, if this callback returns an element, that element will be used as the embed element. Potential use-cases are adding/removing attributes or adding child elements, such as sources or tracks.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">onFailure</code></td>
+          <td>Function(Error)</td>
+          <td>A callback function which allows handling of failures when <code class="notranslate">Promise</code> is not available or not desired. Passing this function will prevent a <code class="notranslate">Promise</code> from being returned. It gets a single <code class="notranslate">Error</code> object as an argument. The return value of this function is ignored.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">onSuccess</code></td>
+          <td>Function(Object)</td>
+          <td>A callback function which allows handling of successes when <code class="notranslate">Promise</code> is not available or not desired. Passing this function will prevent a <code class="notranslate">Promise</code> from being returned. It gets a single <code class="notranslate">Success</code> object as an argument. The return value of this function is ignored.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">options</code></td>
+          <td>Object</td>
+          <td>A Video.js <a href="https://docs.videojs.com/tutorial-options.html">options object</a> to pass during the player creation process. These options will take precedence over any settings specified in the Brightcove Player configuration. This parameter cannot be used with iframe embeds.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">playerId</code></td>
+          <td>string</td>
+          <td>A Brightcove Player player ID. The default is <code class="notranslate">'default'</code>.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">playlistId</code></td>
+          <td>string | number</td>
+          <td>A Video Cloud playlist ID or playlist reference ID.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">playlistVideoId</code></td>
+          <td>string | number</td>
+          <td>A Video Cloud video ID that would be found in the resulting playlist specified by <code class="notranslate">playlistId</code>. This parameter is ignored if <code class="notranslate">playlistId</code> is missing.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">Promise</code></td>
+          <td>Function(Function)</td>
+          <td>Used to explicitly provide a <code class="notranslate">Promise</code> implementation. If provided, this will be used in lieu of any global <code class="notranslate">Promise</code>. The default is <code class="notranslate">window.Promise</code></td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">refNode</code></td>
+          <td>Element | string</td>
+          <td><strong class="notranslate">Required</strong><br />
+            The DOM element into which the player will be embedded. If not provided as a DOM element, it can be provided as a string, which will be passed to <code class="notranslate">document.querySelector</code>.</td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">refNodeInsert</code></td>
+          <td>string</td>
+          <td>The manner in which the player will be inserted relative to the reference DOM element (specified by refNode). This parameter's value must be one of the following:
+            <ul>
+              <li><code class="notranslate">'append'</code> or <code class="notranslate">brightcovePlayerLoader.REF_NODE_INSERT_APPEND</code>: The player will be the last child of the reference node.</li>
+              <li><code class="notranslate">'prepend'</code> or <code class="notranslate">brightcovePlayerLoader.REF_NODE_INSERT_PREPEND</code>: The player will be the first child of the reference node.</li>
+              <li><code class="notranslate">'before'</code> or <code class="notranslate">brightcovePlayerLoader.REF_NODE_INSERT_BEFORE</code>: The player will be previous sibling of the reference node.</li>
+              <li><code class="notranslate">'after'</code> or <code class="notranslate">brightcovePlayerLoader.REF_NODE_INSERT_AFTER</code>: The player will be the next sibling after the reference node.</li>
+              <li><code class="notranslate">'replace'</code> or <code class="notranslate">brightcovePlayerLoader.REF_NODE_INSERT_REPLACE</code>: The reference node will be removed and replaced by the player.</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td><code class="notranslate">videoId</code></td>
+          <td>string | number</td>
+          <td>A Video Cloud video ID or video reference ID.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</article>
