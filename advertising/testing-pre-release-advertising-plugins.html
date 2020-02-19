@@ -1,0 +1,105 @@
+---
+title: Testing Pre-Release Advertising Plugins
+parent: Advertising
+---
+<article class="bcls-article">
+  <h1>Testing Pre-Release Advertising Plugins</h1>
+  <summary>In this topic, you will learn how to use pre-release versions of the IMA3 and FreeWheel plugins with your player.</summary>
+  <section id="Overview" class="bcls-section">
+    <h2>Overview</h2>
+    <p>Showing video ads in Brightcove Player can be a complex task. Multiple entities (Brightcove Player itself, an ad server and the specific ad plugin) are all involved in successful delivery of advertising. To provide a testing environment for updates to the IMA3 and FreeWheel plugins, Brightcove will make available pre-release versions of the plugins. This document provides instructions on how to test with these pre-releases.</p>
+    <p>The pre-releases will be announced in the <a href="https://groups.google.com/forum/embed/?place=forum%2Fbcplayerdev#!forum/bcplayerdev">Brightcove Web Player Developer Forum</a>, as well as in the <strong>changelog</strong> sections of the <a href="/node/18080">Advertising with the IMA3 Plugin</a> and <a href="/node/18140">Advertising with the FreeWheel Plugin</a> documents.</p>
+  </section>
+  <section id="Testing_IMA3_in_Studio" class="bcls-section">
+    <h2>Testing IMA3 in Studio</h2>
+    <p>The following steps guide you on how to test a pre-release IMA3 plugin in Studio:</p>
+    <ol class="bcls-tasklist">
+      <li>For safety's sake, you should record the current versions of the plugin you are currently using. This will allow you to restore the plugin version you were using before testing. You can always find the latest version of the plugin in the <a href="/node/18274">Plugin Version Reference</a> document.</li>
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Advertising</strong> in the left navigation menu.</li>
+      <li>Uncheck the <strong>Enable Client-Side (IMA)</strong>. You do not want this enabled as it may interfere with the version you will soon manually load.</li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>Next, click <strong>Add a Plugin</strong>.</li>
+      <li>For the <strong>Plugin Name</strong> enter <code>ima3</code>.</li>
+      <li>For the <strong>JavaScript</strong> URL, enter the URL to the pre-release JavaScript file.</li>
+      <li>For the <strong>CSS</strong> URL, enter the URL to the pre-release CSS file.</li>
+      <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box. If you have previously configured the IMA3 plugin using the <strong>Plugins</strong> section, you will most likely not need to make any changes to the options.</li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To use the player, click <strong>Publish &amp; Embed</strong>. you will be able to test using the <strong>Preview Player</strong>, or you can publish and use the <strong>Published Player</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+  </section>
+  <section id="Testing_FreeWheel_in_Studio" class="bcls-section">
+    <h2>Testing FreeWheel in Studio</h2>
+    <p>The following steps guide you on how to test a pre-release FreeWheel plugin in Studio:</p>
+    <ol class="bcls-tasklist">
+      <li>For safety's sake, you should record the current versions of the plugin you are currently using. This will allow you to restore the plugin version you were using before testing. You can always find the latest version of the plugin in the <a href="/node/18274">Plugin Version Reference</a> document.</li>
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>Next, click <strong>Add a Plugin</strong> OR if you see <strong>FreeWheelPlugin</strong> in the list of plugins, click that.</li>
+      <li>For the <strong>Plugin Name</strong> enter <code>FreeWheelPlugin</code>.</li>
+      <li>For the <strong>JavaScript</strong> URL, enter the URL to the pre-release JavaScript file.</li>
+      <li>For the <strong>CSS</strong> URL, enter the URL to the pre-release CSS file.</li>
+      <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box. If you have previously configured the FreeWheel plugin using the <strong>Plugins</strong> section, you will most likely not need to make any changes to the options.</li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To use the player, click <strong>Publish &amp; Embed</strong>. you will be able to test using the <strong>Preview Player</strong>, or you can publish and use the <strong>Published Player</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+  </section>
+  <section id="Testing_programmatic_implementation" class="bcls-section">
+    <h2>Testing programmatic implementation</h2>
+    <p>Testing where you have implemented the plugin programmatically is the same whether you are using the IMA3 or FreeWheel plugin. Basically, you simply replace the existing paths to the JavaScript and CSS files with those for the pre-release version. The steps to perform this task follow.</p>
+    <ol class="bcls-tasklist">
+      <li>For safety's sake, you should record the current versions of the plugin you are currently using. This will allow you to restore the plugin version you were using before testing. You can always find the latest version of the plugin in the <a href="/node/18274">Plugin Version Reference</a> document.</li>
+      <li>In your code, locate the <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags that pull in the CSS and JavaScript for the appropriate plugin. In the code below, examples for the IMA3 plugin are highlighted.</li>
+      <li>Replace those paths with the pre-release versions.</li>
+      <li>Refresh your page and you will be using the pre-release version.</li>
+      <li>Once testing is complete, again edit the paths to the JavaScript and CSS files using the paths recorded to restore your original configuration.</li>
+    </ol>
+    <pre class="line-numbers">
+<code class="language-html">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;IMA3 Plugin Code Example&lt;/title&gt;
+  &lt;style&gt;
+    .video-js {
+      height: 344px;
+      width: 610px;
+    }
+  &lt;/style&gt;
+  <span class="bcls-highlight">&lt;link href="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet"&gt;</span>
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;video-js  id="myVideoID"
+    data-video-id="3851380732001"
+    data-account="1752604059001"
+    data-player="Hy3gDJHu"
+    data-embed="default"
+    class="video-js"
+    controls&gt;&lt;/video-js&gt;
+  &lt;script src="https://players.brightcove.net/1752604059001/Hy3gDJHu_default/index.min.js"&gt;&lt;/script&gt;
+
+  <span class="bcls-highlight">&lt;script src="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"&gt;&lt;/script&gt;</span>
+
+  &lt;script&gt;
+    var myPlayer;
+
+    bc('myPlayerID').ima3({
+      serverUrl: 'http://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml';
+    });
+    videojs.getPlayer('myPlayerID').ready(function() {
+      myPlayer = this;
+      ...
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+  </section>
+</article>

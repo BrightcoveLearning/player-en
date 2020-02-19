@@ -1,0 +1,711 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>Guide: Ad Partner Integration</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/advertising/">Advertising</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Guide: Ad Partner Integration</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player-plugins.html">Overview: Brightcove Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/training-demand-developing-brightcove-player.html">Training on Demand: Developing with the Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/references/">References <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/references/brightcove-player-5-6-migration-guide.html">Brightcove Player 5 to 6 Migration Guide</a></li>
+                  
+                
+                  
+                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">Brightcove Player API Documentation (external site)</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
+                  
+                
+                  
+                    <li><a href="https://groups.google.com/forum/embed/?place=forum/bcplayerdev#!forum/bcplayerdev">Brightcove Player Announcement Forum</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-system-requirements.html">Brightcove Player System Requirements</a></li>
+                  
+                
+                  
+                    <li><a href="/references/catalog-search-architecture.html">Catalog Search Architecture</a></li>
+                  
+                
+                  
+                    <li><a href="">Known Issues</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-catalog.html">Player Catalog</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-feature-support-browser.html">Player Feature Support by Browser</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-metadata-bcinfo.html">Player Metadata from bcinfo</a></li>
+                  
+                
+                  
+                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html">Player Methods/Events API (external site)</a></li>
+                  
+                
+                  
+                    <li><a href="/references/guide-playlist-api.html">Playlist API Guide</a></li>
+                  
+                
+                  
+                    <li><a href="/references/video-metadata-mediainfo.html">Video Metadata from mediainfo</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/plugins/">Plugins <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/plugins/360degvr-video-plugin.html">360º Video</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/upgrading-ima3-plugin-version-3.html">Upgrading to IMA3 Plugin Version 3</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with SSAI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/beta-chromecast-plugin-brightcove-player.html">Chromecast</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/custom-endscreen-plugin.html">Custom Endscreen</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-thumbnail-previews-plugin.html">Display Thumbnail Previews</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/google-tag-manager-plugin-brightcove-player.html">Google Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/hls-plugin.html">HLS</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/live-dvrux-plugin.html">Live DVRUX</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-overlay-plugin.html">Overlay</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/overview-brightcove-player-plugins.html">Overview: Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">Picture-in-Picture</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playerplugin-version-testing.html">Player/Plugin Version Testing</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playlist-ui-plugin.html">Playlist UI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-registry.html">Plugin Registry</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-version-reference.html">Plugin Version Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/quality-selection-plugin.html">Quality Selection</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/social-sharing-plugin.html">Social Media</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/tealium-plugin-brightcove-player.html">Tealium Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/video-seo-schema-generator-plugin.html">Video SEO Schema Generator</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/advertising/">Advertising <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/advertising/ad-events-and-ad-objects.html">Ad Events and Ad Objects</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/flash-no-longer-valid-ima.html">Flash No Longer Valid with IMA</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-ad-partner-integration.html">Guide: Ad Partner Integration</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-contrib-ads-migration.html">Guide: contrib-ads Migration</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Implementing SSAI with the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/step-step-implementing-advertising.html">Step-by-Step: Implementing Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/testing-pre-release-advertising-plugins.html">Testing Pre-Release Advertising Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-dfp-premium-brightcove-player.html">Using DFP Premium with Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-player-enhancements-live-ssai-brightcove-player.html">Using Live SSAI and Advanced Player Toolkit</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+  <h1>Guide: Ad Partner Integration</h1>
+  <summary>This document describes functionality you can implement if you wish to integrate your advertising system with Brightcove Player.</summary>
+  <section id="Overview" class="bcls-section">
+    <h2>Overview</h2>
+    <p>If your advertising system is compliant with Google IMA3, for instance, you do not need this information but can simply use the existing plugin for IMA3, documented in the <a href="/node/18080">Advertising with IMA3 Plugin Guide</a>.</p>
+    <p>If you have determined you need this functionality, this content explains the advertising API framework needed for advertising integrations with the Brightcove Player. You can see two implementations of this framework that Brightcove has produced, those being for Google's IMA3 and FreeWheel (reference documents shown in the next paragraph).</p>
+    <p>Again, this document is NOT intended for customers wanting to use an existing ad framework with their videos. Documents more suitable for these customers are:</p>
+    <ul>
+      <li><a href="/node/18080">Advertising with IMA3 Plugin</a></li>
+      <li><a href="/node/18140">Advertising with the FreeWheel Plugin</a></li>
+      <li><a href="/node/18468">Implementing Server-Side Ads with the Brightcove Player</a></li>
+    </ul>
+  </section>
+  <section id="frameworkfunctionality" class="bcls-section">
+    <h2>Ad framework functionality</h2>
+    <p>Brightcove provides an advertising API framework as the basis for custom ad plugins. The framework provides common functionality needed by video advertisement libraries working with the Brightcove Player, reducing the code you have to write for your ad integration. The framework is provided as an open source project upon which you can build. The project code is available from the GitHub repository <a href="https://github.com/videojs/videojs-contrib-ads">videojs-contrib-ads</a>.</p>
+    <p>The ad framework enables ad partners to:</p>
+    <ul>
+      <li>Have complete control over the advertising experience (i.e., the look and behavior of the player while ads are playing).</li>
+      <li>Work with custom or proprietary ad servers.</li>
+      <li>Manage low-level ad implementation details, like determining when ad requests are made and how creatives are buffered.</li>
+      <li>Easily interoperate with video analytics providers and the Brightcove Player ecosystem.</li>
+    </ul>
+  </section>
+  <section id="baseknowledge" class="bcls-section">
+    <h2>Base knowledge</h2>
+    <p>To use and build upon the advertising API framework you will need a thorough understanding of Brightcove Player plugin architecture. The following documents provide this knowledge:</p>
+    <ul>
+      <li><a href="/node/18128">Overview: Player Plugins</a></li>
+      <li><a href="/node/18059">Pass Data to the Plugin</a></li>
+      <li><a href="/node/18073">Localizing Plugins</a></li>
+    </ul>
+    <p>If necessary for you, a quick overview of video advertising from Brightcove's perspective can be found here:</p>
+    <ul>
+      <li><a href="/node/18143">Learning Guide: Video Advertising</a></li>
+    </ul>
+  </section>
+  <section id="using" class="bcls-section">
+    <h2>Using the framework</h2>
+    <p>The following sections provide details on using the framework.</p>
+    <h3>Include the framework resources</h3>
+    <p>To use the plugin you must first be sure to include the CSS and JavaScript for the plugin.</p>
+    <pre class="line-numbers">
+<code class="language-html">&lt;link rel="stylesheet" href="//mypath/videojs.ads.css"&gt;
+&lt;script src="//mypath/videojs.ads.js"&gt;&lt;/script&gt;</code></pre>
+    <p>Once the JavaScript is included you can then call the function to initialize the ad framework.</p>
+    <pre class="line-numbers">
+<code class="language-html">&lt;script type="text/javascript"&gt;
+  videojs.getPlayer('myPlayerID').one('loadedmetadata', function(){
+    var myPlayer = this;
+    // Initialize the ad framework
+    <span class="bcls-highlight">myPlayer.ads();</span>
+  });
+&lt;/script&gt;</code></pre>
+    <aside class="bcls-aside bcls-aside--tip">Note: While the <code>ready()</code> method is used to indicate that the player is loaded and ready, the <code>loadedmetadata</code> event is used to indicate that the player content, like ads, is ready to interact with. Here, we are also using the <code>one()</code> method so that our function is executed the first time the plugin is loaded and not every time a video is loaded. For details, see the <a href="/node/18113">Player Events</a> document.</aside>
+    <h3>Configuration options</h3>
+    <p>There are a number of configuration options available for the framework. For instance, there is a <code>timeout</code> option. To set this option you would use the following code:</p>
+    <pre class="line-numbers">
+<code class="language-html">&lt;script type="text/javascript"&gt;
+  videojs.getPlayer('myPlayerID').one('loadedmetadata', function(){
+    var myPlayer = this;
+    // Initialize the ad framework
+    myPlayer.ads({
+      "timeout": 3000
+    });
+  });
+&lt;/script&gt;</code></pre>
+    <p>This table provides a list of the options:</p>
+    <aside class="bcls-aside bcls-aside--information">Note: For complete details on configuration options see the <a href="https://github.com/videojs/videojs-contrib-ads">https://github.com/videojs/videojs-contrib-ads</a> GitHub repository.</aside>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th style="width:15%">Option</th>
+          <th style="width:15%">Type</th>
+          <th style="width:15%">Default</th>
+          <th style="width:55%">Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code>timeout</code></td>
+          <td>number</td>
+          <td>5000</td>
+          <td>The maximum amount of time to wait for an ad implementation to initialize before playback, in milliseconds</td>
+        </tr>
+        <tr>
+          <td><code>prerollTimeout</code></td>
+          <td>number</td>
+          <td>1000</td>
+          <td>The maximum amount of time to wait for an ad implementation to initiate a preroll, in milliseconds</td>
+        </tr>
+        <tr>
+          <td><code>postrollTimeout</code></td>
+          <td>number</td>
+          <td>100</td>
+          <td>The maximum amount of time to wait for an ad implementation to initiate a postroll, in milliseconds</td>
+        </tr>
+        <tr>
+          <td><code>debug</code></td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>If debug is set to true, the ads plugin will output additional information about its current state during playback</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Events</h3>
+    <p>The following events are grouped into two different types. The groupings and their descriptions follow.</p>
+    <aside class="bcls-aside bcls-aside--information">Note: For complete details on framework events see the <a href="https://github.com/videojs/videojs-contrib-ads">https://github.com/videojs/videojs-contrib-ads</a> GitHub repository.</aside>
+    <p>The <code>adstart</code> and <code>adend</code> events are triggered by the framework in response to method calls from the ad integrator. These events should not be triggered by the ad integrator directly.</p>
+    <table class="table-styles">
+      <thead>
+        <tr>
+          <th style="width:20%">Event</th>
+          <th style="width:80%">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>adstart</td>
+          <td>The player has entered linear ad playback mode</td>
+        </tr>
+        <tr>
+          <td>adend</td>
+          <td>The player has returned from linear ad playback mode</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The <code>adskip</code> and <code>adtimeout</code> events are optional events that the ad integrator can choose trigger to indicate the player should skip a preroll or postroll opportunity.</p>
+    <table class="table-styles">
+      <thead>
+        <tr>
+          <th style="width:20%">Event</th>
+          <th style="width:80%">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>adskip</td>
+          <td>The player is skipping a linear ad opportunity and content-playback should resume immediately</td>
+        </tr>
+        <tr>
+          <td>adtimeout</td>
+          <td>A timeout managed by the plugin has expired and regular video content has begun to play</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Runtime settings</h3>
+    <p>Once the plugin is initialized, there is a property you can use to modify its behavior.</p>
+    <aside class="bcls-aside bcls-aside--information">Note: For complete details on framework runtime settings see the <a href="https://github.com/videojs/videojs-contrib-ads">https://github.com/videojs/videojs-contrib-ads</a> GitHub repository.</aside>
+    <table class="table-styles">
+      <thead>
+        <tr>
+          <th style="width:20%">Property</th>
+          <th style="width:80%">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>contentSrc</td>
+          <td>This property is used to determine when a new video loads so that the player can be reset to the "get ready to show a preroll" state. Ad providers would not typically interact with it, but a plugin author who wished to change the video source to implement a rendition selector, for instance, could modify the <code>contentSrc</code> so that a preroll wasn't initiated when a rendition switch occurred.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section id="example" class="bcls-section">
+    <h2>Examples</h2>
+    <h3>Sample implementation</h3>
+    <p>The hands-on exercise section of the <a href="/node/18080#playersmodule">Advertising with IMA3 Plugin Guide</a> walks you through a simple implementation of using a plugin for IMA3 advertising.</p>
+    <h3>Pseudo code integration</h3>
+    <p>Here's pseudo code of what a basic ad integration might look like. This example shows a single preroll ad before each content video, and demonstrates the interaction points offered by the ads plugin. This is not actually a runnable example, as it needs more information as specified in the code comments.</p>
+    <pre class="line-numbers">
+<code class="language-html">&lt;script type="text/javascript"&gt;
+  videojs.getPlayer('myPlayerID').one('loadedmetadata', function(){
+    var player = this;
+    player.ads(); // initialize the ad framework
+
+    // request ads whenever there's new video content
+    player.on('contentupdate', function(){
+      // fetch ad inventory asynchronously, then ...
+      player.trigger('adsready');
+    });
+
+    player.on('readyforpreroll', function() {
+      player.ads.startLinearAdMode();
+      // play your linear ad content
+      player.src('http://url/to/your/ad.content');
+      player.one('durationchange', function(){
+        player.play();
+      });
+      // when all your linear ads have finished...
+      player.one('ended', function() {
+        player.ads.endLinearAdMode();
+      });
+    });
+  });
+&lt;/script&gt;</code></pre>
+  </section>
+  <section id="faq" class="bcls-section">
+    <h2>FAQ</h2>
+    <p class="bcls-question">How can an ad plugin access media metadata?</p>
+    <p class="bcls-answer">For Video Cloud customers, the plugin will access metadata via the <a href="/node/18085">mediainfo</a> object, which will be populated with metadata set in Video Cloud. Brightcove Player customers will be responsible for populating the <a href="/node/18085">mediainfo object manually</a> since they'll be using a non-Video Cloud CMS.</p>
+    <p class="bcls-question">How can options be specified for an ad plugin?</p>
+    <p class="bcls-answer">Plugin options can be specified in Studio's <strong>Players &gt; Plugins</strong> section. The player with the plugin containing options can be published using an iframe or in-page embed code, but the plugin options contain static info (e.g., description). You can pass dynamic data to the plugin using the technique shown in the <a href="/node/18059">Pass Data to the Plugin</a> document.</p>
+    <p class="bcls-question">How should an ad plugin support Flash-based ads?</p>
+    <p class="bcls-answer">Brightcove recommends packaging a Flash-based ad player as part of your ad plugin implementation and overlaying that player over the content while the player is in linear ad mode.</p>
+    <p class="bcls-question">How can cue points trigger mid-rolls?</p>
+    <p class="bcls-answer">On cue change, call <code>startLinearAdMode()</code> to begin the midroll. For information on listening for, and setting, cue points see the <a href="/node/18131">Using Cue Points</a> document.</p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 19 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>
