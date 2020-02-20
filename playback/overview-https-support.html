@@ -1,0 +1,49 @@
+---
+title: 'Overview: HTTPS Support'
+parent: Playback
+---
+<article class="bcls-article">
+  <h1>Overview: HTTPS Support</h1>
+  <summary>This topic will walk you through the steps to enable HTTPS with the Brightcove Player.</summary>
+  <section class="bcls-section" id="whyHTTPS">
+    <h2>Why support HTTPS?</h2>
+    <p>Let's first talk about why HTTPS support is even needed:</p>
+    <ul>
+      <li>Social sharing sites require it. Twitter and Facebook require a level of HTTPS support to show a video player.</li>
+      <li>To keep the browser lock intact. If you have all or part of your site on HTTPS, you likely want to keep the "browser lock" intact. Without full HTTPS support, the browser lock looks broken.</li>
+      <li>To keep the player working. Increasingly, browsers will refuse to load any HTTP content on a site that uses HTTPS. Therefore, if a video player doesn't have HTTPS support, it won't load or will be missing features. Having a working player has also been a specific issue with the current player when domain restriction is in use.</li>
+    </ul>
+  </section>
+  <section class="bcls-section" id="enablingHTTPS">
+    <h2>Enabling HTTPS</h2>
+    <p>To enable HTTPS with the Brightcove player, you will need to do the following:</p>
+    <h3>Use HTTPS with the player</h3>
+    <ul>
+      <li>For the iframe implementation, make sure your page is loaded over HTTPS. In the example below, notice that the player's <code>src</code> property uses a protocol relative URL. This means that players embedded on HTTPS pages will be loaded over HTTPS.
+        <pre class="line-numbers">
+<code class="language-html">&lt;iframe src='//players.brightcove.net/1752604059001/default_default/index.html?videoId=4029697544001' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+      </li>
+      <li>For the In-Page implementation, make sure your page is loaded over HTTPS. In the example below, the player's JavaScript file has a <code>src</code> property which uses a protocol relative URL. Therefore, players embedded on HTTPS pages will be loaded over HTTPS.
+        <pre class="line-numbers">
+<code class="language-html">&lt;video-js
+  data-video-id="4029697544001"
+  data-account="1752604059001"
+  data-player="default"
+  data-embed="default"
+  class="video-js" controls&gt;&lt;/video-js&gt;
+&lt;script src="//players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+      </li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information">Of course, you may use <strong>https:</strong> in your player requests rather than using relative URLs. You many notice this is what is done in most of the documentation.</aside>
+    <h3>Serve content over HTTPS</h3>
+    <p>Make sure all of your VOD content is served over HTTPS.</p>
+    <ul>
+      <li>For Video Cloud accounts, all of your content will automatically be served over HTTPS.</li>
+      <li>For BYO accounts, you may need to contact your provider and follow up with customer support.</li>
+    </ul>
+    <h3>Deliver live streams over HTTPS</h3>
+    <p>Make sure that your remote asset URL is using HTTPS. For example:</p>
+    <pre class="line-numbers">
+<code class="language-html">"https://livedelivery-lh.akamaihd.net/i/mylivestream_1@146180/master.m3u8"</code></pre>
+  </section>
+</article>
