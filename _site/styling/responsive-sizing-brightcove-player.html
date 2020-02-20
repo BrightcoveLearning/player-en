@@ -1,0 +1,888 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>Responsive Sizing for Brightcove Player</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/styling/">Styling</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Responsive Sizing for Brightcove Player</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player-plugins.html">Overview: Brightcove Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/training-demand-developing-brightcove-player.html">Training on Demand: Developing with the Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/references/">References <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/references/brightcove-player-5-6-migration-guide.html">Brightcove Player 5 to 6 Migration Guide</a></li>
+                  
+                
+                  
+                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">Brightcove Player API Documentation (external site)</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
+                  
+                
+                  
+                    <li><a href="https://groups.google.com/forum/embed/?place=forum/bcplayerdev#!forum/bcplayerdev">Brightcove Player Announcement Forum</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-system-requirements.html">Brightcove Player System Requirements</a></li>
+                  
+                
+                  
+                    <li><a href="/references/catalog-search-architecture.html">Catalog Search Architecture</a></li>
+                  
+                
+                  
+                    <li><a href="">Known Issues</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-catalog.html">Player Catalog</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-feature-support-browser.html">Player Feature Support by Browser</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-metadata-bcinfo.html">Player Metadata from bcinfo</a></li>
+                  
+                
+                  
+                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html">Player Methods/Events API (external site)</a></li>
+                  
+                
+                  
+                    <li><a href="/references/guide-playlist-api.html">Playlist API Guide</a></li>
+                  
+                
+                  
+                    <li><a href="/references/video-metadata-mediainfo.html">Video Metadata from mediainfo</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/plugins/">Plugins <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/plugins/360degvr-video-plugin.html">360º Video</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/upgrading-ima3-plugin-version-3.html">Upgrading to IMA3 Plugin Version 3</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with SSAI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/beta-chromecast-plugin-brightcove-player.html">Chromecast</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/custom-endscreen-plugin.html">Custom Endscreen</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-thumbnail-previews-plugin.html">Display Thumbnail Previews</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/google-tag-manager-plugin-brightcove-player.html">Google Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/hls-plugin.html">HLS</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/live-dvrux-plugin.html">Live DVRUX</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-overlay-plugin.html">Overlay</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/overview-brightcove-player-plugins.html">Overview: Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">Picture-in-Picture</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playerplugin-version-testing.html">Player/Plugin Version Testing</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playlist-ui-plugin.html">Playlist UI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-registry.html">Plugin Registry</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-version-reference.html">Plugin Version Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/quality-selection-plugin.html">Quality Selection</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/social-sharing-plugin.html">Social Media</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/tealium-plugin-brightcove-player.html">Tealium Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/video-seo-schema-generator-plugin.html">Video SEO Schema Generator</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/advertising/">Advertising <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/advertising/ad-events-and-ad-objects.html">Ad Events and Ad Objects</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/flash-no-longer-valid-ima.html">Flash No Longer Valid with IMA</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-ad-partner-integration.html">Guide: Ad Partner Integration</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-contrib-ads-migration.html">Guide: contrib-ads Migration</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Implementing SSAI with the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/step-step-implementing-advertising.html">Step-by-Step: Implementing Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/testing-pre-release-advertising-plugins.html">Testing Pre-Release Advertising Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-dfp-premium-brightcove-player.html">Using DFP Premium with Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-player-enhancements-live-ssai-brightcove-player.html">Using Live SSAI and Advanced Player Toolkit</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/publish/">Publishing Videos & Players <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/publish/assigning-video-player-programmatically.html">Assigning a Video to the Player Programmatically</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/available-options-advanced-page-embed-code.html">Available Options for the Advanced (in-page) Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/available-options-standard-iframe-embed-code.html">Available Options for the Standard (iframe) Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/brightcove-player-loader.html">Brightcove Player Loader</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/bulk-updating-brightcove-default-player.html">Bulk Updating Brightcove Default Player</a></li>
+                  
+                
+                  
+                    <li><a href="">Choosing the Correct Publishing Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/delaying-player-instantiation.html">Delaying Player Instantiation</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/pre-release-player.html">Pre-release Player</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/syndication-strategies.html">Syndication Strategies</a></li>
+                  
+                
+                  
+                    <li><a href="">Using Multiple Players on One Page</a></li>
+                  
+                
+                  
+                    <li><a href="">Using Reference IDs</a></li>
+                  
+                
+                  
+                    <li><a href="">Video Renditions Inspector</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/troubleshooting/">Troubleshooting <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-playback-technology-app.html">Brightcove Playback Technology App</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-player-information-modal.html">Brightcove Player Information Modal</a></li>
+                  
+                
+                  
+                    <li><a href="/samples/brightcove-player-sample-live-custom-error-message.html">Sample: Live Custom Error Message</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/creating-charles-log.html">Creating a Charles Log</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/creating-network-log.html">Creating a Network Log</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">Domain Restrictions Messaging</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/manually-setting-player-version.html">Manually Setting the Player Version</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playerplugin-version-testing.html">Player/Plugin Version Testing</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/step-step-brightcove-player-debugger.html">Step-by-Step: Brightcove Player Debugger</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/running-network-path-trace.html">Running a Network Path Trace</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/using-player-reference.html">Using the Player Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/vetting-brightcove-player-releases.html">Vetting Brightcove Player Releases</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/viewing-player-configuration.html">Viewing the Player Configuration</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/styling/">Styling & Appearance <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">Player Styling Playground</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/sizing-player.html">Sizing the Player</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/skins-and-player-versions.html">Skins and Player Versions</a></li>
+                  
+                
+                  
+                    <li><a href="">Styling Captions</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+  <h1>Responsive Sizing for Brightcove Player</h1>
+  <summary>In this topic, you will learn how to create a responsive video player that resizes based on screen dimensions.</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+    <p>Responsive sizing means resizing player in response to changes in the size of the bounding window, while maintaining the aspect ratio, so that the video is not letterboxed (see image below).</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Letterbox Sample" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/responsive-sizing/responsive_img1.png" />
+      <figcaption class="bcls-caption--image">Letterbox Sample</figcaption>
+    </figure>
+    <p>When you embed a video player in a page, you will notice that it does not resize with the browser window. This occurs because, by default, the video player is given a fixed width and height, preventing it from responding to changes in the browser. One aspect of responsive web design is ensuring that elements within your page adapt gracefully to different screen sizes.</p>
+    <aside class="bcls-aside bcls-aside--information">The samples in this document do not address all the aspects of responsive web design, which might include font changes and whole layout transformations.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="The_player">The player</h2>
+    <p>Resize the browser to see how the video player resizes while maintaining the video aspect ratio. You should not see any letter-boxing around the video. Note that this document page has a maximum width for content.</p>
+    <div style="display: block; position: relative; max-width: 100%;">
+      <div style="padding-top: 56.25%;">
+        <iframe style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;" src="https://players.brightcove.net/1752604059001/VyqgG8mql_default/index.html?videoId=4093643993001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+      </div>
+    </div>
+  </section>
+  <!-- id="player" -->
+  
+  <section class="bcls-section">
+    <h2 id="How_it_works">How it works</h2>
+    <p>The following sections explain the player and the HTML code used in the example.</p>
+    <h3>Create a responsive player</h3>
+    <p>While you can manually add HTML to your player embed code to create a responsive player, the easiest way is to use the <strong>Players</strong> module in Studio.</p>
+    <p>Follow these steps to create a responsive player:</p>
+    <ol class="bcls-tasklist">
+      <li>In the <strong>Players</strong> module, create a new player or use an existing one and click on the player name to edit its properties.</li>
+      <li>Locate the <strong>Player Information</strong> section.</li>
+      <li>Set the <strong>Sizing</strong> property to <strong>Responsive</strong>.
+        <figure class="bcls-figure"><img class="bcls-image" alt="Responsive Size Settings" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/responsive-sizing/responsive_setting.png" />
+          <figcaption class="bcls-caption--image">Responsive Size Settings</figcaption>
+        </figure>
+      </li>
+      <li>Optional: You can add a <strong>width</strong> property in the <strong>Player Dimensions</strong> setting. With a responsive player, this sets a maximum width for the player.</li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+      <li>
+        <p><span class="video-cloud-only">In the <strong>Media</strong> module, select a video and publish it with this player.</span><span class="player-only">Assign video content to the player and publish it.</span></p>
+        <aside class="bcls-aside bcls-aside--tip">You can also set the <strong>Sizing</strong> property to <strong>Responsive</strong> when you publish a video from the <strong>Media</strong> module.</aside>
+      </li>
+      <li>Copy either the Standard (iframe) or Advanced (In-Page) embed code and paste it into a new HTML file.</li>
+    </ol>
+    <h3>The player embed code</h3>
+    <p>When you copy the Standard (iframe) embed code into your HTML page, notice that the player is wrapped in two <code>&lt;div&gt; </code> containers. Your code should look similar to the following:</p>
+    <ul>
+      <li>Lines 1-10: Is the embed code that you copied when publishing a video with the player.</li>
+      <li>Line 1: Defines an outer container that sets the maximum width for the player. The default is set to 100%. If you set a width in Studio, your player will be responsive up to the maximum width size.</li>
+      <li>Line 2: Defines an inner container that uses an intrinsic ratio to set the height and maintain the correct aspect ratio. To learn more, see the <a href="#IntrinsicRatio">Understand intrinsic ratio</a> section.</li>
+      <li>Lines 3-8: Contain the player code for the iframe implementation. Notice that line 3 has a <code>style </code> attribute which positions the player to fill its parent container. This allows the player to change size as the browser changes size.</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-html">&lt;div style="position: relative; display: block; max-width: 100%;"&gt;
+  &lt;div style="padding-top: 56.25%;"&gt;
+    &lt;iframe src="https://players.brightcove.net/1752604059001/default_default/index.html?videoId=5802784116001"
+      allowfullscreen
+      webkitallowfullscreen
+      mozallowfullscreen
+      style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;
+    &lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="iframe_example">iframe example</h2>
+    <p>When you copy the Standard (iframe) embed code into your HTML page, your code should look similar to this:</p>
+    <div class="video-cloud-only">
+      <pre class="line-numbers">
+<code class="language-html">&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
+  &lt;div style="padding-top: 56.25%;"&gt;
+    &lt;iframe src="https://players.brightcove.net/1752604059001/default_default/index.html?videoId=5802784116001"
+      allowfullscreen
+      webkitallowfullscreen
+      mozallowfullscreen
+      style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;
+    &lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <div class="player-only">
+      <pre class="line-numbers">
+<code class="language-html">&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
+  &lt;div style="padding-top: 56.25%;"&gt;
+    &lt;iframe src="https://players.brightcove.net/1752604059001/VyqgG8mql_default/index.html"
+      allowfullscreen
+      webkitallowfullscreen
+      mozallowfullscreen
+      style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;
+    &lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="In-Page_embed_example">In-Page embed example</h2>
+    <p>When you copy the Advanced (In-Page) embed code into your HTML page, your code should look similar to this:</p>
+    <div class="video-cloud-only">
+      <pre class="line-numbers">
+<code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset="utf-8"&gt;
+
+&lt;head&gt;
+&lt;title&gt;Responsive Brightcove player&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
+  &lt;div style="padding-top: 56.25%;"&gt;
+    &lt;video-js data-video-id="5802784116001"
+      data-account="1752604059001"
+      data-player="default"
+      data-embed="default"
+      data-application-id
+      class="video-js"
+      controls
+      style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;&lt;/video-js&gt;
+    &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+    <div class="player-only">
+      <pre class="line-numbers">
+<code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset="utf-8"&gt;
+
+&lt;head&gt;
+&lt;title&gt;Responsive Brightcove player&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
+&lt;div style="padding-top: 56.25%;"&gt;
+  &lt;video-js
+    data-account="1752604059001"
+    data-player="VyqgG8mql"
+    data-embed="default"
+    data-application-id
+    class="video-js"
+    controls
+    style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;&lt;/video-js&gt;
+  &lt;script src="https://players.brightcove.net/1752604059001/VyqgG8mql_default/index.min.js"&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Understanding_intrinsic_ratio">Understanding intrinsic ratio</h2>
+    <p>In this solution, we used an intrinsic ratio, which is a CSS technique to fluidly constrain a child element to a ratio set in their parent element. To do this, we added a <code>&lt;div&gt; </code> container around the video player and set the <code>padding-top </code> property with the desired aspect ratio for the video.</p>
+    <p>The padding property is the magic that styles a box with an intrinsic ratio. This is because the padding property is set as a percentage of the width of the containing block. It works well since padding styles are supported in all major browsers.</p>
+    <aside class="bcls-aside bcls-aside--information">This solution is borrowed from a blog post by Thierry Koblentz. For more details about browser compatibility, refer to his <a href="http://alistapart.com/article/creating-intrinsic-ratios-for-video"> blog post</a>.</aside>
+    <p>The aspect ratio is determined by a simple calculation to determine a percentage. For instance, calculate the percentage for a video with a 16:9 aspect ratio by dividing 9 by 16 (i.e. 9/16 = .5625) to get 56.25%. For a 16:9 video, you want the height to be 9/16ths of the width.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_fluid_mode">Using fluid mode</h2>
+    <p>The Video.js library v5.0.0+ has been updated to support simple responsive classes. These classes are supported by the Brightcove Player when using the Advanced (In-Page) embed code.</p>
+    <p>The responsive classes include the following:</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Class</th>
+          <th>Default</th>
+          <th>Aspect ratio</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code>vjs-fluid</code></td>
+          <td>Yes</td>
+          <td>2.4:1</td>
+        </tr>
+        <tr>
+          <td><code>vjs-16-9</code></td>
+          <td>No</td>
+          <td>16:9</td>
+        </tr>
+        <tr>
+          <td><code>vjs-4-3</code></td>
+          <td>No</td>
+          <td>4:3</td>
+        </tr>
+        <!-- <tr>
+              <td><code>vjs-fill</code></td>
+              <td>No</td>
+              <td>The player will fill its container regardless of aspect ratio</td>
+          </tr> -->
+      </tbody>
+    </table>
+    <p>The fluid classes listed above apply the responsive sizing to the player. They accomplish this by applying a <code>padding-top</code> attribute to the <code>video</code> element.</p>
+    <p>To create a responsive player which fills the browser, add one of the fluid classes to your player embed code. For example, to use a 16:9 aspect ratio, your code should look similar to this:</p>
+    <pre class="line-numbers">
+<code class="language-html">&lt;video-js data-video-id="5802784116001"
+  data-account="1752604059001"
+  data-player="default"
+  data-embed="default"
+  data-application-id
+  class="video-js <span class="bcls-highlight">vjs-16-9</span>"
+  controls&gt;&lt;/video-js&gt;
+&lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+    <p>If you want to set a maximum size for your player, simply add a <code>div</code> container around your embed code and set the <code>max-width</code> or <code>max-height</code> attribute. For example, this code limits the size of the player to 640px:</p>
+    <pre class="line-numbers">
+<code class="language-html"><span class="bcls-highlight">&lt;div style="max-width: 640px;"&gt;</span>
+  &lt;video-js data-video-id="5802784116001"
+    data-account="1752604059001"
+    data-player="default"
+    data-embed="default"
+    data-application-id
+    class="video-js <span class="bcls-highlight">vjs-16-9</span>"
+    controls&gt;&lt;/video-js&gt;
+  &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
+<span class="bcls-highlight">&lt;/div&gt;</span></code></pre>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 20 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>

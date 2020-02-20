@@ -1,0 +1,869 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>AMP Using a Video Cloud Video</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/playback/">Playback</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">AMP Using a Video Cloud Video</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player-plugins.html">Overview: Brightcove Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/training-demand-developing-brightcove-player.html">Training on Demand: Developing with the Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/references/">References <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/references/brightcove-player-5-6-migration-guide.html">Brightcove Player 5 to 6 Migration Guide</a></li>
+                  
+                
+                  
+                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">Brightcove Player API Documentation (external site)</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
+                  
+                
+                  
+                    <li><a href="https://groups.google.com/forum/embed/?place=forum/bcplayerdev#!forum/bcplayerdev">Brightcove Player Announcement Forum</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-system-requirements.html">Brightcove Player System Requirements</a></li>
+                  
+                
+                  
+                    <li><a href="/references/catalog-search-architecture.html">Catalog Search Architecture</a></li>
+                  
+                
+                  
+                    <li><a href="">Known Issues</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-catalog.html">Player Catalog</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-feature-support-browser.html">Player Feature Support by Browser</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-metadata-bcinfo.html">Player Metadata from bcinfo</a></li>
+                  
+                
+                  
+                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html">Player Methods/Events API (external site)</a></li>
+                  
+                
+                  
+                    <li><a href="/references/guide-playlist-api.html">Playlist API Guide</a></li>
+                  
+                
+                  
+                    <li><a href="/references/video-metadata-mediainfo.html">Video Metadata from mediainfo</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/plugins/">Plugins <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/plugins/360degvr-video-plugin.html">360º Video</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/upgrading-ima3-plugin-version-3.html">Upgrading to IMA3 Plugin Version 3</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with SSAI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/beta-chromecast-plugin-brightcove-player.html">Chromecast</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/custom-endscreen-plugin.html">Custom Endscreen</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-thumbnail-previews-plugin.html">Display Thumbnail Previews</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/google-tag-manager-plugin-brightcove-player.html">Google Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/hls-plugin.html">HLS</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/live-dvrux-plugin.html">Live DVRUX</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-overlay-plugin.html">Overlay</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/overview-brightcove-player-plugins.html">Overview: Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">Picture-in-Picture</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playerplugin-version-testing.html">Player/Plugin Version Testing</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playlist-ui-plugin.html">Playlist UI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-registry.html">Plugin Registry</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-version-reference.html">Plugin Version Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/quality-selection-plugin.html">Quality Selection</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/social-sharing-plugin.html">Social Media</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/tealium-plugin-brightcove-player.html">Tealium Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/video-seo-schema-generator-plugin.html">Video SEO Schema Generator</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/advertising/">Advertising <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/advertising/ad-events-and-ad-objects.html">Ad Events and Ad Objects</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/flash-no-longer-valid-ima.html">Flash No Longer Valid with IMA</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-ad-partner-integration.html">Guide: Ad Partner Integration</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-contrib-ads-migration.html">Guide: contrib-ads Migration</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Implementing SSAI with the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/step-step-implementing-advertising.html">Step-by-Step: Implementing Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/testing-pre-release-advertising-plugins.html">Testing Pre-Release Advertising Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-dfp-premium-brightcove-player.html">Using DFP Premium with Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-player-enhancements-live-ssai-brightcove-player.html">Using Live SSAI and Advanced Player Toolkit</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/publish/">Publishing Videos & Players <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/publish/assigning-video-player-programmatically.html">Assigning a Video to the Player Programmatically</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/available-options-advanced-page-embed-code.html">Available Options for the Advanced (in-page) Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/available-options-standard-iframe-embed-code.html">Available Options for the Standard (iframe) Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/brightcove-player-loader.html">Brightcove Player Loader</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/bulk-updating-brightcove-default-player.html">Bulk Updating Brightcove Default Player</a></li>
+                  
+                
+                  
+                    <li><a href="">Choosing the Correct Publishing Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/delaying-player-instantiation.html">Delaying Player Instantiation</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/pre-release-player.html">Pre-release Player</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/syndication-strategies.html">Syndication Strategies</a></li>
+                  
+                
+                  
+                    <li><a href="">Using Multiple Players on One Page</a></li>
+                  
+                
+                  
+                    <li><a href="">Using Reference IDs</a></li>
+                  
+                
+                  
+                    <li><a href="">Video Renditions Inspector</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/troubleshooting/">Troubleshooting <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-playback-technology-app.html">Brightcove Playback Technology App</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-player-information-modal.html">Brightcove Player Information Modal</a></li>
+                  
+                
+                  
+                    <li><a href="/samples/brightcove-player-sample-live-custom-error-message.html">Sample: Live Custom Error Message</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/creating-charles-log.html">Creating a Charles Log</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/creating-network-log.html">Creating a Network Log</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">Domain Restrictions Messaging</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/manually-setting-player-version.html">Manually Setting the Player Version</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playerplugin-version-testing.html">Player/Plugin Version Testing</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/step-step-brightcove-player-debugger.html">Step-by-Step: Brightcove Player Debugger</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/running-network-path-trace.html">Running a Network Path Trace</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/using-player-reference.html">Using the Player Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/vetting-brightcove-player-releases.html">Vetting Brightcove Player Releases</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/viewing-player-configuration.html">Viewing the Player Configuration</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/styling/">Styling & Appearance <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">Player Styling Playground</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/sizing-player.html">Sizing the Player</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/skins-and-player-versions.html">Skins and Player Versions</a></li>
+                  
+                
+                  
+                    <li><a href="">Styling Captions</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+  <h1>AMP Using a Video Cloud Video</h1>
+  <summary>In this topic, you will learn how Accelerated Mobile Pages (AMP) can be used with Brightcove Player.</summary>
+  <section class="bcls-section">
+    <aside class="bcls-aside bcls-aside--warning">This document uses AMP with Brightcove Player version 6 and a Video Cloud video. If you are a non-Video Cloud customer see <a href="/node/18555">AMP Using an External Video</a>.</aside>
+    <h2 id="Overview">Overview</h2>
+    <p>Accelerated Mobile Pages is a Google project that aims to enable "the creation of websites and ads that are consistently fast, beautiful and high-performing across devices and distribution platforms." You can use Brightcove Player with AMP because the project includes an <code>amp-brightcove</code> component which allows publishers to embed Brightcove Players within AMP HTML documents.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Sample">Sample</h2>
+    <p>The following is a sample AMP HTML page that includes a Brightcove Player. The player functions normally, so the HTML is the interesting part of this sample. The HTML code is examined later in this document.</p>
+    <p class="codepen" data-height="330" data-theme-id="34967" data-default-tab="html,result" data-user="rcrooks1969" data-slug-hash="ddKwre" style="height: 330px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="AMP Example"><span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/ddKwre/"> AMP Example</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</span></p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    <aside class="bcls-aside bcls-aside--warning">Note that because of the way AMP works, you must carefully consider its limitations before use. For example:
+      <ul>
+        <li>AMP has very strict rules on what HTML can and cannot be used on a page. Details on this can be viewed in the <a href="https://www.ampproject.org/docs/reference/spec">AMP HTML Specification</a>.</li>
+        <li>Brightcove Analytics will not correctly report the referring page for AMP pages - instead the <code>referrer_domain</code> will be blank, and <code>source_type</code> will be recorded as <code>direct</code>.</li>
+        <li>Few of the attributes used with Brightcove Player's Advanced (in-page) implementation are valid with <code>&lt;amp-brightcove ..&gt;</code>. Check the <a href="https://www.ampproject.org/docs/reference/spec">AMP HTML Specification</a> for those that can be used.</li>
+        <li>AMP will not work with domain restricted players.</li>
+      </ul>
+    </aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Player_configuration">Player configuration</h2>
+    <p>Brightcove supplies a plugin you will want to load to enhance the use of AMP with Brightcove Player. The plugin adds support for AMP's video interface API which AMP requires&nbsp;to control the player within the AMP document. It also enables some&nbsp;advanced features:</p>
+    <ul>
+      <li><strong>Integration with amp-analytics</strong>: Allows tracking of views to third party analytics against the AMP page domain.</li>
+      <li><strong>Integration with amp-bind</strong>: Playback can be controlled by other elements in the AMP page.</li>
+    </ul>
+    <p>Players without the plugin may not behave as expected in an AMP document.</p>
+    <h3><strong>Plugin installation</strong></h3>
+    <p>As with all Brightcove Player plugins, you need the plugin's name and URL to the plugin's JavaScript, which are provided here (no CSS file is necessary for this plugin's use):</p>
+    <h4>Plugin name</h4>
+    <pre class="line-numbers">
+  <code class="language-html">ampSupport</code></pre>
+    <h4>JavaScript URL</h4>
+    <pre class="line-numbers">
+  <code class="language-html">//players.brightcove.net/videojs-amp-support/1/videojs-amp-support.js</code></pre>
+    <p>To implement the AMP Plugin you will add the function name of the plugin and the URL to the plugin's JavaScript:</p>
+    <ol class="bcls-tasklist">
+      <li>In Studio, open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>Next click <strong>Plugins</strong> from the three options.
+        <figure class="bcls-figure"><img class="bcls-image" alt="Select Plugin" src="//learning-services-media.brightcove.com/doc-assets/general/players-plugin-options.png" /></figure>
+      </li>
+      <li>From the <strong>Add a Plugin</strong> select <strong>Custom Plugin</strong>.</li>
+      <li>For the <strong>Plugin Name</strong> enter <code>ampSupport</code>.</li>
+      <li>For the <strong>JavaScript</strong> URL, enter:
+        <pre>
+  <code class="language-json">//players.brightcove.net/videojs-amp-support/1/videojs-amp-support.js</code></pre>
+      </li>
+      <li>You do not have to enter any CSS or options for this plugin.
+        <figure class="bcls-figure"><img class="bcls-image" alt="Install plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/AMP/studio-install-plugin.png" /></figure>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Resources_from_AMP">Resources from AMP</h2>
+    <p>The AMP project developed a special <code>amp-brightcove</code> component that displays the Brightcove Player. The component is detailed in the <a href="https://www.ampproject.org/docs/reference/components/amp-brightcove">amp-brightcove document.</a></p>
+    <p>AMP provides an example <code>amp-brightcove</code> implementation with details in the following documents:</p>
+    <ul>
+      <li><a href="https://ampbyexample.com/components/amp-brightcove/">amp-brightcove</a></li>
+      <li><a href="https://github.com/ampproject/amp-by-example/blob/master/src/20_Components/amp-brightcove.html">amp-by-example</a></li>
+      <li><a href="https://ampbyexample.com/playground/#url=https%3A%2F%2Fampbyexample.com%2Fcomponents%2Famp-brightcove%2Fsource%2F">AMP Playground</a></li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Code_examination">Code examination</h2>
+    <p>The code from the CodePen sample above is shown below. A complete explanation of the code is provided by AMP in the documents linked to above. In the following list are a few tricks/traps to be aware of:</p>
+    <ul>
+      <li>Line 20: DO NOT beautify the code. The boilerplate CSS is needed as supplied by AMP.</li>
+      <li>Line 35: The <code>width</code> and <code>height</code> attributes determine the aspect ratio of the player embedded in responsive layouts.</li>
+    </ul>
+    <pre class="line-numbers" data-start="1">
+  <code class="language-html">&lt;!--
+    ## Introduction
+  
+    The `amp-brightcove` component allows embedding a Brightcove
+    [Video Cloud](https://www.brightcove.com/en/online-video-platform) or
+    [Perform](https://www.brightcove.com/en/perform) player.
+  --&gt;
+  &lt;!-- --&gt;
+  &lt;!doctype html&gt;
+  &lt;html ⚡&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;amp-brightcove&lt;/title&gt;
+    &lt;script async src="https://cdn.ampproject.org/v0.js"&gt;&lt;/script&gt;
+    &lt;!-- ## Setup --&gt;
+    &lt;!-- Import the Brightcove component in the header. --&gt;
+    &lt;script async custom-element="amp-brightcove" src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js"&gt;&lt;/script&gt;
+    &lt;meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"&gt;
+    &lt;link rel="canonical" href="https://ampbyexample.com/components/amp-brightcove/"&gt;
+    &lt;style amp-boilerplate&gt;body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}&lt;/style&gt;&lt;noscript&gt;&lt;style amp-boilerplate&gt;body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}&lt;/style&gt;&lt;/noscript&gt;
+  
+  &lt;/head&gt;
+  &lt;body&gt;
+  
+    &lt;!-- ## Basic Usage --&gt;
+    &lt;!--
+      A responsive brightcove video. The required data is `data-account` and `data-video-id`. Other
+      supported parameters are `data-player-id`, `data-embed` and `data-playlist-id`.
+    --&gt;
+    &lt;amp-brightcove
+      data-account="1752604059001"
+      data-video-id="5715315990001"
+      data-player-id="H1xW7NWcz"
+      layout="responsive"
+      width="16" height="9"&gt;
+    &lt;/amp-brightcove&gt;
+  
+  &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Features">Features</h2>
+    <p>Although discussed in the AMP documentation, a few features are highlighted here that are of special importance:</p>
+    <!-- These are features that are common to both Video Cloud and external videos --><!-- THIS SECTION CAN BE ADDED TO THEN COPIED TO SIMILAR SECTION IN EXTERNAL VIDEO FEATURES SECTION -->
+    
+    <h3>Custom parameters</h3>
+    <p>You may want to pass additional information through to your player for your plugins to access. You can do this by adding extra attributes on the <code>amp-brightcove</code> element that must be named <code>data-param-*</code>, where <code>*</code> is the name of your property.</p>
+    <p>The parameters are passed through as camel cased attribute names appended to the player URL. Keys and values are URL encoded. For example:</p>
+    <ul>
+      <li><code>data-param-language="de"</code> becomes <code>&amp;language=de</code></li>
+      <li><code>data-param-ad-vars="key:val;key2:val2"</code> becomes <code>&amp;adVars=key%3Aval%3Bkey2%3Aval2</code></li>
+    </ul>
+    <h3 id="dock">dock (picture-in-picture)</h3>
+    <p>The <code>dock</code> attribute will "dock" the player when it would be scrolled out of view. The player is made smaller and moved near the top-right of the web page. Note that HTML standards refer to this feature as <strong>picture-in-picture</strong>. A screenshot of a docked player follows:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="dock" src="//learning-services-media.brightcove.com/doc-assets/general/amp-dock.png" /></figure>
+    <p>To implement this feature you need to do the following:</p>
+    <ol>
+      <li>Include a script that contains the code for the dock feature, as shown in the following code snippet at line 2.</li>
+      <li>Add the <code>dock</code> attribute to the <code>&lt;amp-brightcove&gt;</code> tag, as shown in line 13.</li>
+    </ol>
+    <pre class="line-numbers" data-start="1">
+  <code class="language-html">...
+      <span class="bcls-highlight">&lt;script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"&gt;&lt;/script&gt;</span>
+  &lt;/head&gt;
+  &lt;body&gt;
+  
+  ...
+      &lt;amp-brightcove
+      data-account="1752604059001"
+      data-video-id="5715315990001"
+      data-player-id="H1xW7NWcz"
+      layout="responsive"
+      width="16" height="9"
+      <span class="bcls-highlight">dock</span>&gt;
+    &lt;/amp-brightcove&gt;
+    ...</code></pre>
+    <h3>External referrer support</h3>
+    <p>Brightcove Player v6.25.0+ supports setting an arbitrary referrer on an iframe. The AMP component now supports passing through its own referrer to the player, by adding a <code>referrer="EXTERNAL_REFERRER"</code> attribute their amp-brightcove embed.</p>
+    <p>EXTERNAL_REFERRER is AMP's own macro - see <a href="https://github.com/ampproject/amphtml/blob/19135a3aac7813a9ff263a9f863fe35aeb316582/spec/amp-var-substitutions.md#external-referrer">https://github.com/ampproject/amphtml/blob/19135a3aac7813a9ff263a9f863fe35aeb316582/spec/amp-var-substitutions.md#external-referrer</a> for further information.</p>
+    <h3>AMP Analytics</h3>
+    <p>An <strong>amp-analytics</strong> component can be used in an AMP document to track data to any arbitrary analytics. If publishers wish to include video events they can now do so.</p>
+    <p>AMP's doc on the AMP Analytics syntax (which is cumbersome) is here: <a href="https://www.ampproject.org/docs/reference/components/amp-analytics">https://www.ampproject.org/docs/reference/components/amp-analytics</a>. And specifically video analytics: <a href="https://github.com/ampproject/amphtml/blob/master/extensions/amp-analytics/amp-video-analytics.md">https://github.com/ampproject/amphtml/blob/master/extensions/amp-analytics/amp-video-analytics.md</a>.</p>
+    <p>An example is available, tracking to <strong>example.com</strong> so you'll see the beacons as errors in the network tab: <a href="http://solutions.brightcove.com/bclifford/ampexamples/analytics.html">http://solutions.brightcove.com/bclifford/ampexamples/analytics.html</a>.</p>
+    <h3>AMP Bind</h3>
+    <p>AMP Bind is AMP's API for interacting between components. At a basic level, it allows you to have something external to the player to control playback. For example, the following code would play a video, where <code>myPlayer</code> is the <code>id</code> of the amp-brightcove player.</p>
+    <pre class="line-numbers">
+    <code class="language-html notranslate">&lt;button on="tap:myPlayer.play"&gt;Play&lt;/button&gt;</code></pre>
+    <p>AMP doesn't trust video events so you can't currently do something more useful, like acting on a video end. An example of this is available here: <a href="http://solutions.brightcove.com/bclifford/ampexamples/bind.html">http://solutions.brightcove.com/bclifford/ampexamples/bind.html</a>.</p>
+    <!-- END OF COMMON FEATURES --><!-- These are features unique to Video Cloud videos and NOT shared with external videos -->
+    
+    <h3>Advertising</h3>
+    <p>Advertising including prerolls works in players used in AMP.</p>
+    <p>The ad plugin and its configuration just need to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin as described below.</p>
+    <p>As mentioned earlier, AMP is very strict in what can be added to a valid AMP page. For example, you CANNOT add an <code>id</code> to the <code>amp-brightcove</code> tag then use a <code>script</code> block to configure, for instance, the IMA3 plugin. To reiterate what was said in the previous paragraph, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
+    <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code>{pageVariable.adId}</code>, you must alter the player's configuration. You can use a custom parameter (as described just above) like:</p>
+    <pre class="line-numbers">
+  <code class="language-html">data-param-ad-id="preonlybumper"</code></pre>
+    <p>This does not make the value automatically available to the ad macro <code>{pageVariable.adId}</code>. To make the <code>ad-id/adId</code> property available to the ad URL, you must use Brightcove Player's <a href="//support.brightcove.com/player-configuration-guide#query_string_to_window">query_string_to_window</a> configuration option. This option controls the population of the global namespace (window) variables from query string parameters. So to make the <code class="language-html">data-param-ad-id="..."</code> available to the plugin you must add the following to the player configuration using the <a href="/node/18378">Player Management API</a> (also see note below the code):</p>
+    <pre class="line-numbers">
+  <code class="language-bash">  "query_string_to_window": {
+      "globals": [
+        "adId"
+      ]
+    }</code></pre>
+    <p>For specific instructions on updating a player see <a href="https://docs.brightcove.com/player-management-api/v2/doc/index.html#operation/UpdatePlayerConfiguration">Player_Configurations - Update a Player Configuration</a> from the Player Management API reference.</p>
+    <h3>Styling the player</h3>
+    <p>If you wish to style the player you must use special syntax to do so. For instance, if you want to set the size of the player, you would create a <code>style</code> block as shown and surround the player with a <code>div</code>, as shown here:</p>
+    <pre class="line-numbers">
+  <code class="language-html">&lt;style <span class="bcls-highlight">amp-custom</span>&gt;
+    .player-container {
+      width: 640px;
+      height: 360px;
+    }
+  &lt;/style&gt;&lt;/code&gt;&lt;/pre&gt;
+  
+  ...
+  
+  &lt;div class="player-container"&gt;
+    &lt;amp-brightcove
+      data-account="1752604059001"
+      data-video-id="5715315990001"
+      data-player-id="H1xW7NWcz"
+      layout="responsive"
+      width="16" height="9"&gt;
+    &lt;/amp-brightcove&gt;
+  &lt;/div&gt;</code></pre>
+    <p>You can add a single <code>style</code> tag, but it must include the <code>amp-custom</code> attribute.</p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 20 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>
