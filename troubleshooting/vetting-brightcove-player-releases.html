@@ -1,0 +1,609 @@
+---
+title: Vetting Brightcove Player Releases
+parent: Troubleshooting
+---
+<article class="bcls-article">
+  <h1>Vetting Brightcove Player Releases</h1>
+  <summary>In this topic, you will learn how Brightcove Player engineering vets player releases.</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+    <p>This testing/vetting information is mostly supplied on a purely informational basis, but there might be some process you can extract for testing in your environment. For instance, some of the applicable testing scenarios might be good for you when testing custom plugins with major version releases of Brightcove Player.</p>
+    <p>The first section below lists the types of players the engineering team tests. The rest of the sections are for each player type, with the tests performed, and corresponding player results and dispatched events.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Player_types">Player types</h2>
+    <p>The following shows the player types/configurations tested. You will most likely chose a subset of this list. For example, if you don't use advertising with your Brightcove Player, then the IMA and FreeWheel configurations would NOT be worth your time to test.</p>
+    <ul>
+      <li>Simple VOD Player</li>
+      <li>Player with IMA ads and bumpers - HTML</li>
+      <li>Player with IMA ads - Flash</li>
+      <li>Player with FreeWheel ads - HTML</li>
+      <li>Player with FreeWheel ads - Flash</li>
+      <li>Player with IMA ads and replay end screen</li>
+      <li>Autoplay with IMA ads</li>
+      <li>Playlist with ads</li>
+      <li>Player with invalid IMA ads</li>
+      <!-- <li>IMA Ad-only player</li>
+	<li>Live Player</li> -->
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Simple_VOD_player">Simple VOD player</h2>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Tests</th>
+          <th>Expected Results</th>
+          <th>Important Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Load the player.</td>
+          <td>Video should load. If there is a poster image, it should be displayed.</td>
+          <td><ul>
+              <li>player_init</li>
+              <li>catalog_request</li>
+              <li>catalog_response</li>
+              <li>player_load</li>
+              <li>video_impression</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the Big Play Button. Once the video plays for a few seconds, click on the play/pause control.</td>
+          <td>The video should begin playing. When you hit pause, the video should pause. The play/pause control should toggle to display the correct state.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Scrub to the end of the video and hit the play/pause control again to resume video play. Let the video play until the end.</td>
+          <td>You should be able to scrub to the end of the video. Hitting the play/pause toggle should resume the video. The video should continue playing until it ends.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>video_engagement</li>
+              <li>video_complete</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>While you will not see the big play button again, hit the play control in the player control bar.</td>
+          <td>The video should start playing from the beginning again.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>video_engagement</li>
+            </ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Player_with_IMA_Ads_-_HTML">Player with IMA Ads - HTML</h2>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Tests</th>
+          <th>Expected Results</th>
+          <th>Important Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Load the player.</td>
+          <td>Video should load. If there is a poster image, it should be displayed.</td>
+          <td><ul>
+              <li>player_init</li>
+              <li>catalog_request</li>
+              <li>catalog_response</li>
+              <li>player_load</li>
+              <li>video_impression</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the big play button. The preroll ad should start playing. Mute the player while the ad is playing. Pause while the ad is playing.</td>
+          <td>The preroll ad should begin playing. There should be no flash of content (ideally). When muted, the ad should be muted and it should pause when we hit the pause control.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the play/pause control to resume the ad. Let the ad finish, proceed to video content. Scrub through the video towards the end.</td>
+          <td>The ad should resume playing and switch to the video when done. The video content should play muted too, since we muted the ad. Scrubbing to the end of the video should cause the midroll to start playing.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>View the midroll, pause immediately after the midroll finishes playing.</td>
+          <td>Transitions between ad and content should be seamless.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Resume and watch till the end of the video.</td>
+          <td>Video should end with a postroll ad.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+            </ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Player_with_IMA_Ads_-_Flash">Player with IMA Ads - Flash</h2>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Tests</th>
+          <th>Expected Results</th>
+          <th>Important Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Load the player.</td>
+          <td>Video should load. If there is a poster image, it should be displayed.</td>
+          <td><ul>
+              <li>player_init</li>
+              <li>catalog_request</li>
+              <li>catalog_response</li>
+              <li>player_load</li>
+              <li>video_impression</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the big play button. The preroll ad should start playing. Mute the player while the ad is playing. Pause while the ad is playing.</td>
+          <td>The preroll ad should begin playing. There should be no flash of content (ideally). When muted, the ad should be muted and it should pause when we hit the pause control.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the play/pause control to resume the ad. Let the ad finish, proceed to video content. Scrub through the video towards the end.</td>
+          <td>The ad should resume playing and switch to the video when done. The video content should play muted too, since we muted the ad. Scrubbing to the end of the video should cause the midroll to start playing.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>View the midroll, pause immediately after the midroll finishes playing.</td>
+          <td>Transitions between ad and content should be seamless.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Resume and watch till the end of the video.</td>
+          <td>Video should end with a postroll ad.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+            </ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Player_with_FreeWheel_Ads_-_HTML">Player with FreeWheel Ads - HTML</h2>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Tests</th>
+          <th>Expected Results</th>
+          <th>Important Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Load the player.</td>
+          <td>Video should load. If there is a poster image, it should be displayed.</td>
+          <td><ul>
+              <li>player_init</li>
+              <li>catalog_request</li>
+              <li>catalog_response</li>
+              <li>player_load</li>
+              <li>video_impression</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the big play button. The preroll ad should start playing. Mute the player while the ad is playing. Pause while the ad is playing.</td>
+          <td>The preroll ad should begin playing. There should be no flash of content (ideally). When muted, the ad should be muted and it should pause when we hit the pause control.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the play/pause control to resume the ad. Let the ad finish, proceed to video content. Scrub through the video towards the end.</td>
+          <td>The ad should resume playing and switch to the video when done. The video content should play muted too, since we muted the ad. Scrubbing to the end of the video should cause the midroll to start playing.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>View the midroll, pause immediately after the midroll finishes playing.</td>
+          <td>Transitions between ad and content should be seamless.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Resume and watch till the end of the video.</td>
+          <td>Video should end with a postroll ad.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+            </ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Player_with_FreeWheel_Ads_-_Flash">Player with FreeWheel Ads - Flash</h2>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Tests</th>
+          <th>Expected Results</th>
+          <th>Important Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Load the player.</td>
+          <td>Video should load. If there is a poster image, it should be displayed.</td>
+          <td><ul>
+              <li>player_init</li>
+              <li>catalog_request</li>
+              <li>catalog_response</li>
+              <li>player_load</li>
+              <li>video_impression</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the big play button. The preroll ad should start playing. Mute the player while the ad is playing. Pause while the ad is playing.</td>
+          <td>The preroll ad should begin playing. There should be no flash of content (ideally). When muted, the ad should be muted and it should pause when we hit the pause control.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the play/pause control to resume the ad. Let the ad finish, proceed to video content. Scrub through the video towards the end.</td>
+          <td>The ad should resume playing and switch to the video when done. The video content should play muted too, since we muted the ad. Scrubbing to the end of the video should cause the midroll to start playing.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>View the midroll, pause immediately after the midroll finishes playing.</td>
+          <td>Transitions between ad and content should be seamless.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Resume and watch till the end of the video.</td>
+          <td>Video should end with a postroll ad.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+            </ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Player_with_IMA_Ads_and_Replay_End_Screen">Player with IMA Ads and Replay End Screen</h2>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Tests</th>
+          <th>Expected Results</th>
+          <th>Important Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Load the player.</td>
+          <td>Video should load. If there is a poster image, it should be displayed.</td>
+          <td><ul>
+              <li>player_init</li>
+              <li>catalog_request</li>
+              <li>catalog_response</li>
+              <li>player_load</li>
+              <li>video_impression</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the big play button. The preroll ad should start playing. Mute the player while the ad is playing. Pause while the ad is playing.</td>
+          <td>The preroll ad should begin playing. There should be no flash of content. When muted, the ad should be muted and it should pause when we hit the pause control.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the play/pause control to resume the ad. Let the ad finish, proceed to video content. Scrub through the video towards the end.</td>
+          <td>The ad should resume playing and switch to the video when done. The video content should play muted too, since we muted the ad. Scrubbing to the end of the video should cause the midroll to start playing.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>View the midroll, pause immediately after the midroll finishes playing.</td>
+          <td>Transitions between ad and content should be seamless.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Resume and watch till the end of the video.</td>
+          <td>Video should end with a postroll ad and then you should see the replay end screen.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the replay button.</td>
+          <td>The video should restart from the beginning. Note that there will be no ads during replay.</td>
+          <td><ul>
+              <li>play_request</li>
+            </ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Autoplay_with_IMA_Ads">Autoplay with IMA Ads</h2>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Tests</th>
+          <th>Expected Results</th>
+          <th>Important Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Load the player. You will not need to click on the big play button. The preroll ad should start playing. Mute the player while the ad is playing. Pause while the ad is playing.</td>
+          <td>Video should load. The preroll ad should begin playing. There should be no flash of content. When muted, the ad should be muted and it should pause when you hit the pause control.</td>
+          <td><ul>
+              <li>player_init</li>
+              <li>catalog_request</li>
+              <li>catalog_response</li>
+              <li>player_load</li>
+              <li>play_request</li>
+              <li>play_request</li>
+              <li>video_impression</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the play/pause control to resume the ad. Let the ad finish, proceed to video content. Scrub through the video towards the end.</td>
+          <td>The ad should resume playing and switch to the video when done. The video content should play muted too, since we muted the ad. Scrubbing to the end of the video should cause the midroll to start playing.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>View the midroll, pause immediately after the midroll finishes playing.</td>
+          <td>Transitions between ad and content should be seamless.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Resume and watch till the end of the video.</td>
+          <td>Video should end with a postroll ad.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+            </ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Playlists_with_Ads">Playlists with Ads</h2>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Tests</th>
+          <th>Expected Results</th>
+          <th>Important Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Load the player.</td>
+          <td>Video should load. If there is a poster image, it should be displayed.</td>
+          <td><ul>
+              <li>player_init</li>
+              <li>catalog_request</li>
+              <li>catalog_response</li>
+              <li>player_load</li>
+              <li>video_impression</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the big play button. The preroll ad should start playing. Mute the player while the ad is playing. Pause while the ad is playing.</td>
+          <td>The preroll ad should begin playing. There should be no flash of content (ideally). When muted, the ad should be muted and it should pause when we hit the pause control. The next video in the playlist should indicate that it is coming up.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Click on the play/pause control to resume the ad. Let the ad finish, proceed to video content. Scrub through the video towards the end.</td>
+          <td>The ad should resume playing and switch to the video when done. The video content should play muted too, since we muted the ad. Scrubbing to the end of the video should cause the midroll to start playing.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>View the midroll, pause immediately after the midroll finishes playing.</td>
+          <td>Transitions between ad and content should be seamless.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>play_request</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Resume and watch till the end of the video.</td>
+          <td>Video should end with a postroll ad and then should proceed to show the preroll for the next video in the playlist.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+              <li>play_request</li>
+              <li>video_impression</li>
+              <li>ad_start</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Once the preroll finishes, watch the video for some time. Then, click on any other video in the playlist.</td>
+          <td>You should be able to switch to a new video in the playlist. The preroll for that video should begin playing, if you have watched the previous video for 30 seconds.</td>
+          <td><ul>
+              <li>ad_end</li>
+              <li>video_complete</li>
+              <li>play_request</li>
+              <li>video_impression</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+              <li>play_request</li>
+              <li>video_impression</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>video_engagement</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+            </ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Player_with_Invalid_IMA_Ads">Player with Invalid IMA Ads</h2>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Tests</th>
+          <th>Expected Results</th>
+          <th>Important Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Load the player.</td>
+          <td>Video should load. If there is a poster image, it should be displayed.</td>
+          <td><ul>
+              <li>player_init</li>
+              <li>catalog_request</li>
+              <li>catalog_response</li>
+              <li>player_load</li>
+              <li>video_impression</li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td>Hit the big play button. Let the video finish playing. There will be no pre-roll, midroll or postroll ads because the ad is invalid.</td>
+          <td>Video should play without any glitches.</td>
+          <td><ul>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>video_view</li>
+              <li>video_engagement</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>ad_end</li>
+              <li>play_request</li>
+              <li>ad_start</li>
+              <li>video_engagement</li>
+              <li>ad_end</li>
+              <li>video_complete</li>
+            </ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</article>
