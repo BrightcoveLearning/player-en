@@ -1,0 +1,1373 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- remember to remove the following line when the site is ready to go live -->
+  <!-- <meta name="robots" content="noindex" /> -->
+  <title>Implementing Cue Points Programmatically</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/assets/css/site/bc-icons.css"> -->
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9e0492656a.js" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/google-analytics.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/product-logos/logo-bc-brightcove-player.svg" alt="product logo" style="max-height: 100px;max-width: 232px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);" style="margin-right: 1rem;">
+  <option value="">Select a language</option>
+  <option value="en|en">English</option>
+  <option value="en|zh-TW">繁體中文</option>
+  <option value="en|fr">Français</option>
+  <option value="en|de">Deutsch</option>
+  <option value="en|ja">日本語</option>
+  <option value="en|ko">한국어</option>
+  <option value="en|es">Español</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+<select id="site_select" style="margin-right: 1rem;">
+  <option value="">Other Brightcove Documentation</option>
+  
+    
+      <option value="https://support.brightcove.com">Documentation Home</option>
+    
+  
+    
+      <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+    
+  
+    
+      <option value="https://beacon.support.brightcove.com">Brightcove Beacon</option>
+    
+  
+    
+      <option value="https://campaign.support.brightcove.com">Brightcove Campaign</option>
+    
+  
+    
+      <option value="https://gallery.support.brightcove.com">Gallery</option>
+    
+  
+    
+      <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+    
+  
+</select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?language=en_US"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/support.png" alt="support"> Contact Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://learning-services-media.brightcove.com/doc-assets/site-assets/images/site/status.png" alt="system status"> System Status</a></span>
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/general/">General Information</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Implementing Cue Points Programmatically</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav">
+          
+            
+            <h5><a href="/">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/">Getting Started <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player-plugins.html">Overview: Brightcove Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/training-demand-developing-brightcove-player.html">Training on Demand: Developing with the Brightcove Player</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/references/">References <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/references/brightcove-player-5-6-migration-guide.html">Brightcove Player 5 to 6 Migration Guide</a></li>
+                  
+                
+                  
+                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">Brightcove Player API Documentation (external site)</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
+                  
+                
+                  
+                    <li><a href="https://groups.google.com/forum/embed/?place=forum/bcplayerdev#!forum/bcplayerdev">Brightcove Player Announcement Forum</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-system-requirements.html">Brightcove Player System Requirements</a></li>
+                  
+                
+                  
+                    <li><a href="/references/catalog-search-architecture.html">Catalog Search Architecture</a></li>
+                  
+                
+                  
+                    <li><a href="">Known Issues</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-catalog.html">Player Catalog</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-feature-support-browser.html">Player Feature Support by Browser</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-metadata-bcinfo.html">Player Metadata from bcinfo</a></li>
+                  
+                
+                  
+                    <li><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html">Player Methods/Events API (external site)</a></li>
+                  
+                
+                  
+                    <li><a href="/references/guide-playlist-api.html">Playlist API Guide</a></li>
+                  
+                
+                  
+                    <li><a href="/references/video-metadata-mediainfo.html">Video Metadata from mediainfo</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/plugins/">Plugins <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/plugins/360degvr-video-plugin.html">360º Video</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/upgrading-ima3-plugin-version-3.html">Upgrading to IMA3 Plugin Version 3</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with SSAI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/beta-chromecast-plugin-brightcove-player.html">Chromecast</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/custom-endscreen-plugin.html">Custom Endscreen</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-thumbnail-previews-plugin.html">Display Thumbnail Previews</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/google-tag-manager-plugin-brightcove-player.html">Google Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/hls-plugin.html">HLS</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/live-dvrux-plugin.html">Live DVRUX</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-overlay-plugin.html">Overlay</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/overview-brightcove-player-plugins.html">Overview: Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">Picture-in-Picture</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playerplugin-version-testing.html">Player/Plugin Version Testing</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playlist-ui-plugin.html">Playlist UI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-registry.html">Plugin Registry</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-version-reference.html">Plugin Version Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/quality-selection-plugin.html">Quality Selection</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/social-sharing-plugin.html">Social Media</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/tealium-plugin-brightcove-player.html">Tealium Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/video-seo-schema-generator-plugin.html">Video SEO Schema Generator</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/advertising/">Advertising <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/advertising/ad-events-and-ad-objects.html">Ad Events and Ad Objects</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/flash-no-longer-valid-ima.html">Flash No Longer Valid with IMA</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-ad-partner-integration.html">Guide: Ad Partner Integration</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-contrib-ads-migration.html">Guide: contrib-ads Migration</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Implementing SSAI with the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/step-step-implementing-advertising.html">Step-by-Step: Implementing Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/testing-pre-release-advertising-plugins.html">Testing Pre-Release Advertising Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-dfp-premium-brightcove-player.html">Using DFP Premium with Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-player-enhancements-live-ssai-brightcove-player.html">Using Live SSAI and Advanced Player Toolkit</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/publish/">Publishing Videos & Players <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/publish/assigning-video-player-programmatically.html">Assigning a Video to the Player Programmatically</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/available-options-advanced-page-embed-code.html">Available Options for the Advanced (in-page) Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/available-options-standard-iframe-embed-code.html">Available Options for the Standard (iframe) Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/brightcove-player-loader.html">Brightcove Player Loader</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/bulk-updating-brightcove-default-player.html">Bulk Updating Brightcove Default Player</a></li>
+                  
+                
+                  
+                    <li><a href="">Choosing the Correct Publishing Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/delaying-player-instantiation.html">Delaying Player Instantiation</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/pre-release-player.html">Pre-release Player</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/syndication-strategies.html">Syndication Strategies</a></li>
+                  
+                
+                  
+                    <li><a href="">Using Multiple Players on One Page</a></li>
+                  
+                
+                  
+                    <li><a href="">Using Reference IDs</a></li>
+                  
+                
+                  
+                    <li><a href="">Video Renditions Inspector</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/troubleshooting/">Troubleshooting <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-playback-technology-app.html">Brightcove Playback Technology App</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-player-information-modal.html">Brightcove Player Information Modal</a></li>
+                  
+                
+                  
+                    <li><a href="/samples/brightcove-player-sample-live-custom-error-message.html">Sample: Live Custom Error Message</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/creating-charles-log.html">Creating a Charles Log</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/creating-network-log.html">Creating a Network Log</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">Domain Restrictions Messaging</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/manually-setting-player-version.html">Manually Setting the Player Version</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playerplugin-version-testing.html">Player/Plugin Version Testing</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/step-step-brightcove-player-debugger.html">Step-by-Step: Brightcove Player Debugger</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/running-network-path-trace.html">Running a Network Path Trace</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/using-player-reference.html">Using the Player Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/vetting-brightcove-player-releases.html">Vetting Brightcove Player Releases</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/viewing-player-configuration.html">Viewing the Player Configuration</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/styling/">Styling & Appearance <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">Player Styling Playground</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/sizing-player.html">Sizing the Player</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/skins-and-player-versions.html">Skins and Player Versions</a></li>
+                  
+                
+                  
+                    <li><a href="">Styling Captions</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/playback/">Playback <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/playback/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/amp-using-external-video.html">AMP Using an External Video</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/autoplay-considerations.html">Autoplay Considerations</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-playback-technology-app.html">Brightcove Playback Technology App</a></li>
+                  
+                
+                  
+                    <li><a href="">Deep Linking</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/delivering-hls-video.html">Delivering HLS Video</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/guide-playback-technology.html">Guide: Playback Technology</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/hls-plugin.html">HLS Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/ios-and-brightcove-player.html">iOS and Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/overview-https-support.html">Overview: HTTPS Support</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/quality-selection-plugin.html">Quality Selection Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/using-brightcove-player-tve.html">Using the Brightcove Player for TVE</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/content-protection/">DRM & Content Protection <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="">Configuring Player Availability</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/creating-dash-drm-manifest-brightcove-player.html">Creating a DASH DRM Manifest for the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">Domain Restrictions Messaging</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/overview-content-protection.html">Overview: Content Protection</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/policy-keys.html">Policy Keys</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">Signed URLs and Token Auth with a Live Stream</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/coding-topics/">Coding Topics <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/publish/brightcove-player-loader.html">Brightcove Player Loader</a></li>
+                  
+                
+                  
+                    <li><a href="/references/catalog-search-architecture.html">Catalog Search Upgrade</a></li>
+                  
+                
+                  
+                    <li><a href="/samples/brightcove-player-sample-trigger-rewind-custom-event.html">Custom Event</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/guide-playback-technology.html">Guide: Playback Technology</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/programmatically-localizing-brightcove-player.html">Localizing Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/localizing-plugins.html">Localizing Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/player-events.html">Player Events</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/overview-components.html">Overview: Components</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/overview-https-support.html">Overview: HTTPS Support</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/overview-player-api.html">Overview: Player API</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/react-player-loader.html">React Player Loader</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/reporting-brightcove-player-configurations.html">Reporting on Brightcove Player Configurations</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/requirejs-and-brightcove-player.html">RequireJS and Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/using-bc-and-getplayer-methods.html">Using bc() and getPlayer() Methods</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/viewing-player-configuration.html">Viewing the Player Configuration</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/">Support <strong>+</strong></a></h5>            
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<!-- search bar -->
+<div id="search_bar" class="search-bar">
+  <!-- TODO - cx value below must be changed for each site and new GCS instance set up-->
+  <!-- <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:6sd3di5mwuw"></script> -->
+  <div id="search_box" class="gcse-search"></div>
+</div>
+
+<article class="bcls-article">
+  <h1>Implementing Cue Points Programmatically</h1>
+  <summary>In this topic, you will gain an understanding of cue points with Brightcove Player. You will then see how to programmatically create cue points and  handle when a cue point is dispatched.</summary>
+  <style type="text/css">
+.video-js {
+  		width: 640px;
+  		height: 360px;
+  	}
+</style>
+  <section class="bcls-section">
+    <h2 id="Overview">Overview</h2>
+    <p>Cue points can be set for a video. During video playback, an event is dispatched when each cue point is hit.</p>
+    <div class="video-cloud-only">
+      <p>Play the following video to see the player display cue point information at pre-roll, mid-roll (5 seconds, 10 seconds, 12 seconds) and post roll times.</p>
+      <video-js id="myPlayerID" data-video-id="4740963811001" data-account="1752604059001" data-player="VkIrj2aFx" data-embed="default" class="video-js" controls="">&nbsp;</video-js>
+      <p>******** Cue Point Information ********</p>
+      <p id="insertionPoint">&nbsp;</p>
+      <p>****** End Cue Point Information ******</p>
+      <aside class="bcls-aside bcls-aside--information">Note: The <strong>id</strong> variables have no associated values since they were not assigned in Video Cloud.</aside>
+    </div>
+    <div class="player-only">
+      <p>Play this video and you will see information for four cue points displayed below the player.</p>
+      <video-js id="myPlayerID3" data-account="3676484087001" data-player="4f14e962-a11f-441f-8c00-0c89b8edb0a6" data-embed="default" class="video-js" controls="">&nbsp;</video-js>
+      <p id="insertionPoint3">&nbsp;</p>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Key_concepts">Key concepts</h2>
+    <p><span class="video-cloud-only">A few concepts must be understood to effectively use cue points in Brightcove Player. These concepts are explained in this section of the document.</span><span class="player-only">The following concept must be understood to effectively use cue points in Brightcove Player.</span></p>
+    <div class="video-cloud-only">
+      <h3>Video Cloud catalog cue points</h3>
+      <p>The first concept to understand has to do with terminology. In Brightcove Player, cue points are stored as text track elements, per the HTML standard. This means that when a Video Cloud video is used, any "Video Cloud style" cue points are converted into text tracks.</p>
+      <p>These "Video Cloud style" cue points can also be referred to as "catalog" cue points since they are read from the Video Cloud catalog (See the <a href="/node/18108">Player Catalog</a> document for more information on the catalog). When this conversion takes place, some of the information in the catalog cue point, like type and cue point time, are converted into the text track.</p>
+      <h3>Catalog cue point structure</h3>
+      <p>The next concept to understand is that there is significant difference between catalog cue points and the HTML standard in structure. The difference is that an HTML cue point can have a duration. This means for every cue point, two cue point change events will be dispatched: one on start of the cue point and one on end of the cue point.</p>
+      <p>In the conversion process, every catalog cue point is converted into a cue point with identical start and stop times. This means that for every catalog cue point, two cue point events will be dispatched and has to be accounted for in code.</p>
+    </div>
+    <h3><code>activecues</code> array</h3>
+    <p><span class="video-cloud-only">Another</span><span class="player-only">An</span> important conceptual point to understand when dealing with HTML cue points is the <code>activeCues</code> array. All the cue points are defined in an array. There is another array, <code>activeCues</code>, which holds the cue points which are "active", meaning the playback time is between the cue point's start and stop times.</p>
+    <p>When using catalog cue points, the start and stop times are identical, so they will be active only for the second defined. Also, with catalog cue points, it is highly unlikely two cue points will be active at the same time since they will not overlap.</p>
+    <aside class="bcls-aside bcls-aside--information">Note: There can be multiple sets of text tracks, for instance one set for cue points and another for video captions. In the example code in this document, the cue points text tracks are located in both the first and second elements in the TextTracks array. You will see this reflected in code.</aside>
+    <h3>Cue point types</h3>
+    <p>In this document you will see cue points with a <code>type</code> property assigned a value. These type values are assigned when creating cue points in the Studio user interface. There are two types of cue points, but both simply supply a string value to the <code>type</code> property. The appropriate value is helpful only if used in custom JavaScript while processing the cue point information. The types are detailed here:</p>
+    <ul>
+      <li><strong>Ad</strong> - Assigns the string value of <code>AD</code> to the <code>type</code> property</li>
+      <li><strong>Code</strong> - Assigns the string value of <code>CODE</code> to the <code>type</code> property</li>
+    </ul>
+  </section>
+  <section class="bcls-section video-cloud-only">
+    <h2 id="Video_Cloud_cue_points">Video Cloud cue points</h2>
+    <p>In this section of the document, you will learn to set catalog cue points and listen for catalog cue point event dispatches.</p>
+    <h3>Setting Video Cloud cue points</h3>
+    <p>Video Cloud cue points can be associated with a video using the Video Cloud Studio, and a number of other ways, detailed in this document: <a href="/node/15151">Working with Cue Points in the Media Module</a>.</p>
+    <h3>Acting on Video Cloud cue points - video statically bound to the player</h3>
+    <p>In this section of the document, you will learn to process catalog cue points when the video has been statically bound to the player, meaning the video has been loaded in the player either in Studio or using the Player Management API directly.</p>
+    <p>To prevent a race condition of trying to process cue points before they are loaded, you need to use the <code>loadedmetadata</code> event to be dispatched before dealing with the cue points. Once the proper text track has been read, use the <code>oncuechange</code> event to listen for cue points events to be dispatched.</p>
+    <p>The following code shows listening for cue points and displaying the data from the cue point. Note that in this example the video is statically bound to the Player.</p>
+    <ul>
+      <li>Line 24: Create a paragraph element as a location in which to inject dynamically created HTML.</li>
+      <li>Lines 31,43: Use the <code>one()</code> method to add an event listener for the <code>loadedmetadata</code> event only once. The event handler function is defined here anonymously.</li>
+      <li>Line 32: Retrieve the TextTracks array using the <code>textTracks()</code> method, then assign the zeroth element, which holds the cue points, to the variable <code>tt</code>. Note that it may be possible in some implementations that the cue points could be in a different array element. See the <a href="#findtrack">Find correct track</a> section below for more information.</li>
+      <li>Lines 33,41: Sets the event handler function for when the <code>oncuechange</code>event is dispatched.</li>
+      <li>Line 34: Check to be sure that you are getting the first (zeroth array element) cue point dispatch. Without this condition, you would see that each cue point would be acted upon twice. Note that if you are using cue points that have durations that overlap this condition would have to be different.</li>
+      <li>Lines 35-39: Dynamically create HTML using information from the cue point and inject into the HTML page.</li>
+      <li>Line 42: Play the video.</li>
+    </ul>
+    <pre class="line-numbers" data-start="17">
+<code class="language-html">&lt;video-js id="myPlayerID"
+data-account="1507807800001"
+data-player="6aac508a-741e-41a2-bc7a-5805644cf089"
+data-embed="default"
+data-video-id="1507781667001"
+class="video-js" controls&gt;&lt;/video-js&gt;
+
+&lt;p id="insertionPoint"&gt;&lt;/p&gt;
+&lt;script src="https://players.brightcove.net/1507807800001/6aac508a-741e-41a2-bc7a-5805644cf089_default/index.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var player = this;
+    player.one("loadedmetadata", function () {
+      var tt = player.textTracks()[0];
+      tt.oncuechange = function () {
+        if (tt.activeCues[0] !== undefined) {
+          var dynamicHTML = "id: " + tt.activeCues[0].id + ", ";
+          dynamicHTML += "text: " + tt.activeCues[0].text + ", ";
+          dynamicHTML += "startTime: " + tt.activeCues[0].startTime + ",  ";
+          dynamicHTML += "endTime: " + tt.activeCues[0].endTime;
+          document.getElementById("insertionPoint").innerHTML += dynamicHTML + "&lt;br/&gt;";
+        }
+      }
+      player.play();
+    });
+  });
+&lt;/script&gt;</code></pre>
+    <h3>Acting on Video Cloud cue points - dynamically load video in the player</h3>
+    <p>In this section of the document, you will learn to process catalog cue points when the video is dynamically loaded into the player using the <code>catalog.getVideo()</code> and <code>catalog.load()</code> methods.</p>
+    <p>When you use the player catalog to get and load the video, processing cue points is bit easier than when you use a statically bound video, as you do not need to use the <code>loadedmetadata</code> event.</p>
+    <ul>
+      <li>Line 76: Create a paragraph element as a location in which to inject dynamically created HTML.</li>
+      <li>Lines 83,97: Use the <code>catalog.getVideo()</code> method to retrieve a video. The callback function is defined here anonymously.</li>
+      <li>Line 85: Use the <code>catalog.load()</code> method to load the video into the player.</li>
+      <li>Line 86: Retrieve the TextTracks array using the <code>textTracks()</code> method, then assign the zeroth element, which holds the cue points, to the variable <code>tt</code>. Note that it may be possible in some implementations that the cue points could be in a different array element. See the <a href="#findtrack">Find correct track</a> section below for more information.</li>
+      <li>Lines 87,95: Sets the event handler function for when the <code>oncuechange</code>event is dispatched.</li>
+      <li>Line 88: Check to be sure the first (zeroth array element) cue point is defined. Without this condition you would see that each cue point would be acted upon twice, the second time with no defined elements in the <code>activecues</code> array (since the second cue change is for cue point end). Note that if you are using cue points that have durations that overlap this condition would have to be different.</li>
+      <li>Lines 89-93: Dynamically create HTML using information from the cue point and inject into the HTML page.</li>
+      <li>Line 96: Play the video.</li>
+    </ul>
+    <pre class="line-numbers" data-start="69">
+<code class="language-html">&lt;video-js id="myPlayerID"
+  data-account="1507807800001"
+  data-player="3c59134e-89e8-4864-87e2-3cc871f8c361"
+  data-embed="default"
+  data-video-id=""
+  class="video-js" controls&gt;&lt;/video-js&gt;
+
+  &lt;p id="insertionPoint"&gt;&lt;/p&gt;
+
+  &lt;script src="https://players.brightcove.net/1507807800001/3c59134e-89e8-4864-87e2-3cc871f8c361_default/index.min.js"&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var player = this;
+    player.catalog.getVideo('1507781667001', function (error, video) {
+      //deal with error
+      player.catalog.load(video);
+      player.one("loadedmetadata", function () {
+        var tt = player.textTracks()[0];
+        tt.oncuechange = function () {
+          if (tt.activeCues[0] !== undefined) {
+            var dynamicHTML = "id: " + tt.activeCues[0].id + ", ";
+            dynamicHTML += "text: " + tt.activeCues[0].text + ", ";
+            dynamicHTML += "startTime: " + tt.activeCues[0].startTime + ",  ";
+            dynamicHTML += "endTime: " + tt.activeCues[0].endTime;
+            document.getElementById("insertionPoint").innerHTML += dynamicHTML + "&lt;br/&gt;";
+          }
+        }
+      });
+      player.play();
+    });
+  });
+&lt;/script&gt;</code></pre>
+    <h3 id="allvcinfo">Retrieve all Video Cloud cue point info</h3>
+    <p>As you may have noticed not all Video Cloud cue point information is directly available to you from the <code>activecues</code> array. This is easily remedied by retrieving the desired info from the <code>mediainfo</code> property.</p>
+    <p>The basic approach of this solution is:</p>
+    <ol>
+      <li>Wait for the <code>loadstart</code> event for the <code>mediainfo</code> property to be populated.</li>
+      <li>Assign the <code>cue_points</code> array from the <code>mediainfo</code> property to a variable. This variable contains complete Video Cloud cue point information.</li>
+      <li>On a cue point event, retrieve the corresponding cue point data based on the <code>time</code> property value. This will be done using a helper function that grabs an object out of an array based on a property value in the object.</li>
+      <li>Use the data from the cue point.</li>
+    </ol>
+    <p>The following image shows the entire cue point array (top-left), the single cue point data collection (top-right), and one property from that single cue point data collection (bottom-right).</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="cue point data" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/cue-points/using-cue-points/cue-point-all-vc-data.png" /></figure>
+    <p>In the snippet below only the new/changed code from examples above will be explained.</p>
+    <ul>
+      <li>Lines 452-463: Include the function that will be used to extract a single cue point data collection from the array of all cue points. Note that you pass it the array of all cue points, the property in which you are searching for a specific value, and lastly the value you are searching for.</li>
+      <li>Line 432: Listens for the <code>loadstart</code> event. When your video starts to load, then the <code>mediainfo</code> property is populated.</li>
+      <li>Line 434: Assign the array of all Video Cloud cue points to a variable.</li>
+      <li>Line 443: In the cue point dispatch event handler, assign the specific cue point's data collection to a variable. This is where the function mentioned in the first bullet point is called. The arguments used are:
+        <ul>
+          <li><code>cuePointAra</code>: The entire collection of Video Cloud cue points.</li>
+          <li><code>'time'</code>: The property in which to search for a value.</li>
+          <li><code>tt.activeCues[0].startTime</code>: The start time of the cue point currently being handled in the cue point dispatch event handler.</li>
+        </ul>
+      </li>
+      <li>Lines 444-445: Debugging <code>console.log()</code> method calls, which should be removed in production code.</li>
+    </ul>
+    <pre class="line-numbers" data-start="426">
+<code class="language-html">&lt;script&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this,
+      cuePointAra = [],
+      allCuePointData;
+    myPlayer.on('loadstart', function () {
+      //console.log('mediainfo', myPlayer.mediainfo);
+      cuePointAra = myPlayer.mediainfo.cue_points;
+      var tt = myPlayer.textTracks()[0];
+      tt.oncuechange = function () {
+        if (tt.activeCues[0] !== undefined) {
+          var dynamicHTML = "id: " + tt.activeCues[0].id + ", ";
+          dynamicHTML += "text: " + tt.activeCues[0].text + ", ";
+          dynamicHTML += "startTime: " + tt.activeCues[0].startTime + ",  ";
+          dynamicHTML += "endTime: " + tt.activeCues[0].endTime;
+          document.getElementById("insertionPoint").innerHTML += dynamicHTML + "&lt;br/&gt;";
+          allCuePointData = getSubArray(cuePointAra, 'time', tt.activeCues[0].startTime);
+          console.log('cue point data:', allCuePointData);
+          console.log('cue point metadata:', allCuePointData[0].metadata);
+        }
+      }
+      myPlayer.play();
+      myPlayer.muted(true);
+    });
+
+    function getSubArray(targetArray, objProperty, value) {
+      var i, totalItems = targetArray.length,
+        objFound = false,
+        idxArr = [];
+      for (i = 0; i &lt; totalItems; i++) {
+        if (targetArray[i][objProperty] === value) {
+          objFound = true;
+          idxArr.push(targetArray[i]);
+        }
+      }
+      return idxArr;
+    };
+  });
+&lt;/script&gt;</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="HTML5_standard_cue_points">HTML5 standard cue points</h2>
+    <p>HTML5 standard cue points are stored as track elements in a prescribed format. Good introductory content can be found in the following HTML5 Rocks tutorial: <a href="//www.html5rocks.com/en/tutorials/track/basics/">Getting Started With the Track Element</a>. In this section of the document, you will learn the format of WebVTT cue point files and then how to process those cue points.</p>
+    <h3>WebVTT file format for cue points</h3>
+    <p>The WebVTT file format is strictly defined. For cue points the file is composed as follows:</p>
+    <ul>
+      <li>The string <strong>WebVTT</strong> as the first line of the file</li>
+      <li>A single blank line</li>
+      <li>The identifier for a specific cue point</li>
+      <li>The duration in the form <strong>00:00:00.000 --&gt; 00:00:00.000</strong>; this is hours:minutes:seconds.milliseconds format and is strictly parsed; numbers must be zero padded if necessary</li>
+      <li>The characters following the duration to the next blank line are place into a <strong>text</strong> value; if you wish to store multiple, disparate values here JSON works well as it can be easily parsed</li>
+      <li>A single blank line</li>
+      <li>Multiple cue points can be added using the identifier/duration/text/blank line format</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--tip">Note: You can validate your WebVTT format with this <a href="//quuz.org/webvtt/">validator</a>.</aside>
+    <p>The following is a valid WebVTT cue point document that defines two cue points, one with a duration from 2-5 seconds and another with duration from 10-15 seconds:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">WEBVTT
+
+multiCell
+00:00:02.000 --&gt; 00:00:05.000
+{
+"title": "Multi-celled organisms",
+"description": "Multi-celled organisms have different types of cells that perform specialized functions.",
+"src": "multiCell.jpg",
+"href": "http://en.wikipedia.org/wiki/Multicellular"
+}
+
+insects
+00:00:10.000 --&gt; 00:00:15.000
+{
+"title": "Insects",
+"description": "Insects are the most diverse group of animals on the planet with estimates for the total number of current species range from two million to 50 million. The first insects appeared around 400 million years ago, identifiable by a hard exoskeleton, three-part body, six legs, compound eyes and antennae.",
+"src": "insects.jpg",
+"href": "http://en.wikipedia.org/wiki/Insects"
+}</code></pre>
+    <p>When you play the following video, you will see the cue point WebVTT file shown above processed. At the start of a cue point, you see dynamically created HTML injected into the page, followed by some parsed JSON from the <strong>text</strong> field. At the end of the cue point the message <strong>Cue point duration over</strong> is displayed.</p>
+    <video-js id="myPlayerID2" data-video-id="4607357817001" data-account="1752604059001" data-player="VkIrj2aFx" data-embed="default" class="video-js" controls="">
+      <track kind="metadata" src="https://solutions.brightcove.com/bcls/tests/player/cuepoints.vtt" />
+    </video-js>
+    <p>******** Cue Point Information ********</p>
+    <p id="insertionPoint2">&nbsp;</p>
+    <p>****** End Cue Point Information ******</p>
+    <h3>Process cue points overview</h3>
+    <p>The basics steps to use HTML5 standard cue points are:</p>
+    <ol>
+      <li>Read in the WebVTT file containing the cue points using a <code>&lt;track&gt;</code> tag nested as a child of the <code>&lt;video-js&gt;</code> tag.</li>
+      <li>In a <code>loadedmetadata</code> event handler, retrieve the proper text track element.</li>
+      <li>In the same event handler, configure a second event handler for the <code>oncuechange</code> cue point event.</li>
+      <li>In the <code>oncuechange</code> event handler, check if the <code>activecues</code> array object has zeroth element defined, if yes, act on the cue point start.
+        <aside class="bcls-aside bcls-aside--information">Note: You will have <code>oncuechange</code> events dispatched when the cue point both starts and stops. The <code>activecues</code> array will have a value only for the duration of the cue point. Hence, if an <code>oncuechange</code> event occurs and there are no defined objects in the <code>activecues</code> array, you know the dispatched event is for a cue point stop.</aside>
+      </li>
+      <li>In the <code>oncuechange</code> event handler, check if the <code>activecues</code> array object has zeroth element defined, if no, act on the cue point stop.</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information">Note: If your cue points have overlapping durations, the logic in the above steps will need to be slightly altered.</aside>
+    <div class="video-cloud-only">
+      <h3>Process cue points code</h3>
+      <p>&nbsp;</p>
+      <ul>
+        <li>Line 122: Create a text track by reading in the WebVTT file using the <code>&lt;track&gt;</code> tag.</li>
+        <li>Line 126: Create a paragraph element as a location in which to inject dynamically created HTML.</li>
+        <li>Lines 134,152: Use the <code>one()</code> method to listen only once for the <code>loadedmetadata</code> event. The event handler function is defined here anonymously.</li>
+        <li>Line 135: Assign to a variable the index of the last text track loaded.</li>
+        <li>Line 136: Retrieve the textTracks array using the <code>textTracks()</code> method the assign the last element of the array to a variable using the index determined in the previous step. See the <a href="#findtrack">Find correct track</a> section below for variations on this logic.</li>
+        <li>Lines 137,149: Sets the event handler function for when the <code>oncuechange</code>event is dispatched.</li>
+        <li>Line 138: Check to be sure the first (zeroth array element) cue point is defined in the activeCues array. This tells you that this is a start cue point event.</li>
+        <li>Lines 139-145: Dynamically create HTML using information from the cue point and inject into the HTML page. This includes parsing JSON and displaying various fields of that JSON.</li>
+        <li>Lines 146-147: Display a note that the cue point end has been reached.</li>
+        <li>Line 150: Play the video.</li>
+      </ul>
+      <pre class="line-numbers" data-start="115">
+<code class="language-html">&lt;video-js id="myPlayerID2"
+  data-account="1752604059001"
+  data-player="8cfb6785-c4be-43b4-af68-7ca2fe3a6ebf"
+  data-embed="default"
+  data-video-id="3851380732001"
+  class="video-js" controls&gt;
+
+  &lt;track kind="metadata" src="https://solutions.brightcove.com/bcls/tests/player/cuepoints.vtt" /&gt;
+&lt;/video-js&gt;
+
+&lt;p id="insertionPoint2"&gt;&lt;/p&gt;
+
+&lt;script src="https://players.brightcove.net/1752604059001/8cfb6785-c4be-43b4-af68-7ca2fe3a6ebf_default/index.min.js"&gt;&lt;/script&gt;
+
+&lt;script type="text/javascript"&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this;
+    myPlayer.one("loadedmetadata", function () {
+      var trackIndex = myPlayer.textTracks().length - 1;
+      var tt = myPlayer.textTracks()[trackIndex];
+      tt.oncuechange = function () {
+        if (tt.activeCues[0] !== undefined) {
+          var dynamicHTML = "id: " + tt.activeCues[0].id + ", ";
+          dynamicHTML += "text: " + tt.activeCues[0].text + ", ";
+          dynamicHTML += "startTime: " + tt.activeCues[0].startTime + ",  ";
+          dynamicHTML += "endTime: " + tt.activeCues[0].endTime;
+          document.getElementById("insertionPoint2").innerHTML += dynamicHTML + "&lt;br/&gt;&lt;br/&gt;";
+          jsonData = JSON.parse(tt.activeCues[0].text);
+          document.getElementById("insertionPoint2").innerHTML += jsonData.title + ": " + jsonData.description + "&lt;br/&gt;&lt;br/&gt;";
+        } else {
+          document.getElementById("insertionPoint2").innerHTML += "Cue point duration over" + "&lt;br/&gt;&lt;br/&gt;";
+        }
+      } //end oncuechange
+      myPlayer.play();
+      myPlayer.muted(true);
+    }); //end loadedmetadata
+  }); //end ready
+&lt;/script&gt;</code></pre>
+    </div>
+    <div class="player-only">
+      <h3>Process cue points code</h3>
+      <p>&nbsp;</p>
+      <ul>
+        <li>Line 270: Create a text track by reading in the WebVTT file using the <code>&lt;track&gt;</code> tag.</li>
+        <li>Line 273: Create a paragraph element as a location in which to inject dynamically created HTML.</li>
+        <li>Lines 285,309: Use the <code>one()</code> method to listen only once for the <code>loadedmetadata</code> event. The event handler function is defined here anonymously.</li>
+        <li>Line 286: Assign to a variable the index of the last text track loaded.</li>
+        <li>Line 287: Retrieve the textTracks array using the <code>textTracks()</code> method the assign the last element of the array to a variable using the index determined in the previous step. See the <a href="#findtrack">Find correct track</a> section below for variations on this logic.</li>
+        <li>Lines 289,301: Sets the event handler function for when the <code>oncuechange</code>event is dispatched.</li>
+        <li>Line 290: Check to be sure the first (zeroth array element) cue point is defined in the activeCues array. This tells you that this is a start cue point event.</li>
+        <li>Lines 291-294: Dynamically create HTML using information from the cue point and inject into the HTML page. This includes parsing JSON and displaying various fields of that JSON.</li>
+        <li>Lines 295-297: Display a note that the cue point end has been reached.</li>
+        <li>Line 302: Play the video.</li>
+      </ul>
+      <p>&nbsp;</p>
+    </div>
+    <p>One could assume you could add the WebVTT file programmatically using the <code>addRemoteTextTrack()</code> method. In this case, it would not be reliable since you can experience a race condition where the cue points would not be ready to process before trying to use them. It is safe to add the WebVTT file using the <code>&lt;track&gt;</code> tag as shown.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Find_correct_track">Find correct track</h2>
+    <p>In a number of places in this document a possible problem could occur if multiple text tracks are associated with a player. An assumption was made that only one text track is associated with the player so this code was used: <code>var tt = myPlayer.textTracks()[0];</code>. Selecting the zeroth array element assumes a single text track associated the player.</p>
+    <p>Text tracks are not only used for cue points, but other kinds of data also. The <strong>kind</strong> attribute can contain the following values:</p>
+    <ul>
+      <li>subtitles</li>
+      <li>captions</li>
+      <li>descriptions</li>
+      <li>chapters</li>
+      <li>metadata</li>
+    </ul>
+    <p>This means it is very possible multiple text tracks could be associated with the player, and a way is needed to find the correct one for your application logic. The following code loops over the available text tracks until the <strong>metadata</strong> (cue point) value is found:</p>
+    <pre class="line-numbers">
+<code class="language-html">&lt;script type="text/javascript"&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this,
+      allTextTacks,
+      attLength,
+      tt;
+    myPlayer.one("loadedmetadata", function () {
+      allTextTacks = myPlayer.textTracks();
+      attLength = allTextTacks.length;
+      for (var i = 0; i &lt; attLength; i++) {
+        if (allTextTacks[i].kind === 'metadata') {
+          tt = allTextTacks[i];
+          break;
+        };
+      };
+    });
+  });
+&lt;/script&gt;</code></pre>
+    <p>The logic from previous examples could then be used to process the cue points using the <code>tt</code> variable, which contains the wanted text track.</p>
+  </section>
+  <section class="bcls-section video-cloud-only">
+    <h2 id="Programmatic_cue_points">Programmatic cue points</h2>
+    <p>It is possible to programmatically add cue points. The key method comes from the HTML5 <code>VTTCue</code> interface. You can create cue points use the following syntax:</p>
+    <pre>
+<code class="language-javascript">new VTTCue( startTime, endTime, text )</code></pre>
+    <p>The logic of processing the cue points is very similar to previous examples, so only the code different from that used above will be detailed.</p>
+    <ul>
+      <li>
+        <p>Lines 43,44: Adds a <code>textTrack</code> element to the player using the player's <code>addRemoteTextTrack()</code> method. Specify the <code>kind</code> to be <strong>metadata</strong>, and a <code>label</code>, in this case <strong>Timed Cue Point</strong>.</p>
+        <aside class="bcls-aside bcls-aside--information">Note: Because only remote text tracks can be removed from a player, we recommend using the <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#addRemoteTextTrack">addRemoteTextTrack()</a> method.</aside>
+      </li>
+      <li>
+        <p>Lines 45-48: Wait 10 milliseconds before creating two cue points using the player's <code>addCue()</code> method. The cue points are instantiated using HTML5's <code>VTTCue()</code> constructor.</p>
+        <aside class="bcls-aside bcls-aside--tip">For Safari and iOS, you need to delay before adding cue points or they don't get added. This is because the Brightcove Player uses native, asynchronous tracks in the Safari browser and on iOS.</aside>
+      </li>
+      <li>Line 22: Listens for the <code>addtrack</code> event.</li>
+      <li>Line 23: Retrieves all text tracks associated with the player.</li>
+      <li>Line 24: Sets the <code>attLength</code> variable to the number of text tracks. This value will be used in a loop in the next code segment.</li>
+      <li>Lines 25-30: Loop over each text track checking for the <code>label</code> to be equal to the correct value. When found, assign the current text track to a variable and break out of the loop.</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--tip">Note: Outside of the learning sample code that follows, it is very likely the cue points would be created looping over some data structure containing key cue point info.</aside>
+    <pre class="line-numbers" data-start="1">
+<code class="language-html">&lt;video-js id="myPlayerID"
+  data-video-id="4607746980001"
+  data-account="1507807800001"
+  data-player="default"
+  data-embed="default"
+  class="video-js"
+  width="640" height="360"
+  controls&gt;&lt;/video-js&gt;
+
+&lt;script src="https://players.brightcove.net/1507807800001/default_default/index.min.js"&gt;&lt;/script&gt;
+
+&lt;p id="insertionPoint"&gt;&lt;/p&gt;
+
+&lt;script type="text/javascript"&gt;
+  videojs.getPlayer("myPlayerID").ready(function () {
+    var myPlayer = this,
+      textTrack = [],
+      allTextTacks,
+      attLength,
+      tt;
+    myPlayer.one("loadedmetadata", function () {
+      myPlayer.textTracks().addEventListener('addtrack', function () {
+        allTextTacks = myPlayer.textTracks();
+        attLength = allTextTacks.length;
+        for (var i = 0; i &lt; attLength; i++) {
+          if (allTextTacks[i].label === 'Timed Cue Point') {
+            tt = allTextTacks[i];
+            break;
+          }
+        }
+        tt.oncuechange = function () {
+          if (tt.activeCues[0] !== undefined) {
+            var dynamicHTML = "id: " + tt.activeCues[0].id + ", ";
+            dynamicHTML += "text: &lt;strong&gt;" + tt.activeCues[0].text + "&lt;/strong&gt;, ";
+            dynamicHTML += "startTime: &lt;strong&gt;" + tt.activeCues[0].startTime + "&lt;/strong&gt;,  ";
+            dynamicHTML += "endTime: &lt;strong&gt;" + tt.activeCues[0].endTime + "&lt;/strong&gt;";
+            document.getElementById("insertionPoint").innerHTML += dynamicHTML + "&lt;br/&gt;&lt;br/&gt;";
+          } else {
+            document.getElementById("insertionPoint").innerHTML += "Cue point duration over" + "&lt;br/&gt;&lt;br/&gt;";
+          }
+        }; //end oncuechange
+      }); // end playing
+      textTrack = myPlayer.addRemoteTextTrack({kind: 'metadata', label: 'Timed Cue Point', mode: 'hidden'}, false);
+      textTrack.track.mode = 'hidden';
+      setTimeout(function(){
+        textTrack.track.addCue(new window.VTTCue(2, 5, 'cue point 1 text'));
+        textTrack.track.addCue(new window.VTTCue(10, 15, 'cue point 2 text'));
+      }, 10);
+    }); //end on loadedmetadata
+  }); //end ready
+&lt;/script&gt;</code></pre>
+    <p>The code generates output as shown in the following screenshot. Note the <strong>id</strong> values are not supplied a value when using the <code>VTTCue()</code> constructor method.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="dynamic cue points" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/cue-points/using-cue-points/cue-points-dynamic.png" /></figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="ID3_and_media_cue_points">ID3 and media cue points</h2>
+    <p>If you have ID3 cue points or media cue points associated with your media you can deal with them using the <code>id3CuePointsTrack()</code> and <code>mediaCuePointsTrack()</code> methods. For instance, to listen for cue point changes you would use the following:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function () {
+  var myPlayer = this;
+  myPlayer.one("canplay", function () {
+    <span class="bcls-highlight">myPlayer.id3CuePointsTrack().on('cuechange', function () {
+      // process cue point here
+    });</span>
+  });
+});</code></pre>
+    <h3>ID3 Details</h3>
+    <p>The following provide more insight into using ID3 cue points:</p>
+    <ul>
+      <li>ID3 tags can be used to insert timed metadata into the stream.</li>
+      <li>You can have multiple ID3 frames per segment.</li>
+      <li>Brightcove Player parses ID3 cue points and exposes them as a Text Track, using the aforementioned <code>id3CuePointsTrack()</code> method.</li>
+      <li>It is a best practice to wait for the <code>canplay</code> event or there is a possibility the track would not be retrievable when trying to access it.</li>
+      <li>Multiple frames per tag is supported.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Known_issues">Known issues</h2>
+    <ul>
+      <li>On Safari, cue points will not trigger if end time is equal to start time. So if Safari compatibility is an issue, the cue points need a duration greater than zero.</li>
+    </ul>
+  </section>
+</article>
+<script src="https://players.brightcove.net/1752604059001/VkIrj2aFx_default/index.min.js"></script><script src="https://players.brightcove.net/3676484087001/4f14e962-a11f-441f-8c00-0c89b8edb0a6_default/index.min.js"></script><script>
+  videojs.getPlayer('myPlayerID').ready(function() {
+  	var player = this;
+  	player.one("loadedmetadata",function(){
+  		var tt = player.textTracks()[0];
+  		tt.oncuechange = function() {
+  			if(tt.activeCues[0] !== undefined){
+  				var dynamicHTML = "id: <strong>" + tt.activeCues[0].id + ", ";
+  				dynamicHTML += "text: <strong>" + tt.activeCues[0].text + ", ";
+  				dynamicHTML += "startTime: <strong>" + tt.activeCues[0].startTime + ",  ";
+  				dynamicHTML += "endTime: <strong>" + tt.activeCues[0].endTime + "";
+  				document.getElementById("insertionPoint").innerHTML += dynamicHTML + "<br/>";
+  			}
+  		}
+  		//player.play();
+  		player.muted(true);
+  	});
+  });
+  </script><script type="text/javascript">
+  videojs.getPlayer('myPlayerID2').ready(function() {
+  	var myPlayer = this;
+
+  	myPlayer.one("loadedmetadata",function(){
+  		var trackIndex = myPlayer.textTracks().length -1;
+  		var tt = myPlayer.textTracks()[trackIndex];
+  		tt.oncuechange = function() {
+  			if(tt.activeCues[0] !== undefined){
+console.log('tt.activeCues[0]',tt.activeCues[0]);
+  				var dynamicHTML = "id: <strong>" + tt.activeCues[0].id + ", ";
+  				dynamicHTML += "text: <strong>" + tt.activeCues[0].text + ", ";
+  				dynamicHTML += "startTime: <strong>" + tt.activeCues[0].startTime + ",  ";
+  				dynamicHTML += "endTime: <strong>" + tt.activeCues[0].endTime + "";
+  				document.getElementById("insertionPoint2").innerHTML += dynamicHTML + "<br/><br/>";
+  				jsonData = JSON.parse(tt.activeCues[0].text);
+  				document.getElementById("insertionPoint2").innerHTML += jsonData.title + ": " + jsonData.description + "<br/><br/>";
+  			} else {
+  				document.getElementById("insertionPoint2").innerHTML += "<strong>Cue point duration over" + "<br/><br/>";
+  			}
+  		} //end oncuechange
+  		//myPlayer.play();
+  		myPlayer.muted(true);
+  	}); //end loadedmetadata
+
+  }); //end ready
+  </script><script type="text/javascript">
+  var myPlayer3,
+  textTrack;
+
+  videojs.getPlayer('myPlayerID3').ready(function() {
+  	var myPlayer3 = this;
+  	myPlayer3.src({
+  		"type": "video/mp4",
+  		"src": "//solutions.brightcove.com/bcls/assets/videos/Water-In-Motion.mp4"
+  	});
+  	textTrack = myPlayer3.addTextTrack('metadata', 'Timed Cue Point');
+  	textTrack.addCue(new window.VTTCue(2,4,'cue point 1 text'));
+  	textTrack.addCue(new window.VTTCue(6,8,'cue point 2 text'));
+  	textTrack.addCue(new window.VTTCue(10,11,'cue point 3 text'));
+  	textTrack.addCue(new window.VTTCue(15,20,'cue point 4 text - LAST CUEPOINT'));
+  	var tt = myPlayer3.textTracks()[0];
+  	tt.oncuechange = function() {
+  		if(tt.activeCues[0] !== undefined){
+  			//var dynamicHTML = "id: " + tt.activeCues[0].id + ", ";
+  			var dynamicHTML = "text: <strong>" + tt.activeCues[0].text + ", ";
+  			dynamicHTML += "startTime: <strong>" + tt.activeCues[0].startTime + ",  ";
+  			dynamicHTML += "endTime: <strong>" + tt.activeCues[0].endTime + "";
+  			document.getElementById("insertionPoint3").innerHTML += dynamicHTML + "<br/>";
+  		} else {
+  			document.getElementById("insertionPoint3").innerHTML += "Cue point duration over" + "<br/><br/>";
+  		}
+  	} //end oncuechange
+  }); //end ready
+  </script>
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 21 Feb 2020
+</div>
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">System Status</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US">Contact Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentation</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Training</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://support.brightcove.com/online-training-courses">Online Courses</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/register-training">Register for a course</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?language=en_US" data-drupal-link-system-path="node/18330">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/https-fix.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/setDate.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=017969773216783359937:ddno7qwxthp"></script>
+</body>
+
+</html>
