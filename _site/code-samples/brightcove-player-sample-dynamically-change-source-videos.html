@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Available Options for the Standard (iframe) Embed Code</title>
+  <title>Brightcove Player Sample: Dynamically Change Source Videos</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -86,9 +86,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item"><a href="/publish/">Publishing Videos & Players</a></li>
+      <li class="breadcrumb-item"><a href="/code-samples/">Code Samples</a></li>
       
-      <li class="breadcrumb-item active" aria-current="page">Available Options for the Standard (iframe) Embed Code</li>
+      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Dynamically Change Source Videos</li>
     </ol>
   </nav>
 </header>
@@ -813,155 +813,131 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1>Available Options for the Standard (iframe) Embed Code</h1>
-  <summary>In this topic, you will learn about the use and configuration of the <strong>iframe</strong> embed code. This version of the player implementation is also referred to as the <strong>Standard</strong> player code.</summary>
-  <section id="intro" class="bcls-section">
-    <h2>Introduction</h2>
-    <div class="BCL-concept">
-      <p>The <strong>iframe</strong> player implementation code provides the ease of use of the player as a single, contained unit. This is often required for social media applications and sharing.</p>
+  <h1>Brightcove Player Sample: Dynamically Change Source Videos</h1>
+  <summary>In this topic, you will learn how to address the common use-case of dynamically changing the video loaded in the player. This topic shows you how to do this using both the In-Page embed and the iframe implementations.</summary>
+  <section class="bcls-section">
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>Click the button below the player to dynamically change the source video.</p>
+    <!-- UPDATE codepen here -->
+    
+    <p data-height="506" data-theme-id="34967" data-slug-hash="MvZjmY" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="18155-dynamically-change-source-videos" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/MvZjmY/">18155-dynamically-change-source-videos</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    
+    <p>View the <a href="https://github.com/BrightcoveLearning/18155-dynamically-change-source-videos">source code</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
+    <div class="bcls-expander-content">
+      <p>Here are some tips to effectively use the above CodePen:</p>
+      <ul>
+        <li>Toggle the actual display of the player by clicking the <strong>Result</strong> button.</li>
+        <li>Click the <strong>HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
+          <ol>
+            <li>Click the <strong>EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
+            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
+          </ol>
+        </li>
+      </ul>
     </div>
   </section>
-  <section id="usage" class="bcls-section">
-    <h2>Usage</h2>
-    <aside class="bcls-aside bcls-aside--information player-only">Note: If you are a Brightcove Player customer, you will not use the <code>videoId</code> query parameter to assign a video to your player. You would either assign the video in the <strong>Players</strong> module or using curl.</aside>
-    <p>To use the <strong>iframe</strong> code follow these steps:</p>
-    <ol class="bcls-tasklist">
-      <li class="language-editable">Use the&nbsp;<strong>PLAYERS</strong> module to create a player.</li>
-      <li class="language-editable">Go to the <strong>MEDIA</strong> module and publish a video using the newly created player.</li>
-      <li class="language-editable">Copy the <strong>Standard</strong>&nbsp;embed code. The HTML will be similar to the following:
-        <pre class="line-numbers">
-      <code class="language-html">&lt;iframe src="https://players.brightcove.net/921483702001/default_default/index.html?videoId=4570583963001"
-        allowfullscreen
-        webkitallowfullscreen
-        mozallowfullscreen&gt;&lt;/iframe&gt;</code></pre>
-      </li>
-      <li class="language-editable">Copy the HTML from the browser and paste into the <code>body</code> of a full HTML page.</li>
-      <li class="language-editable">Browse the HTML page to see the player functioning.</li>
-    </ol>
-  </section>
-  <section id="Query_parameters" class="bcls-section">
-    <h2>Query parameters</h2>
-    <p>Numerous query parameters are available for the <strong>iframe</strong> tag to provide additional information about how a player should behave. The table below details available parameters.</p>
-    <aside class="bcls-aside bcls-aside--tip">
-      <p>When using query parameters that can only be true or false (data type <strong>Boolean</strong>), you simply include the query parameter to turn it on, or exclude it to turn it off. An example is shown here using <code>muted</code>.</p>
-      <p><code>&lt;iframe src="https://players...index.html?videoId=4784463159001<span class="bcls-highlight">&amp;muted"</span></code></p>
-    </aside>
+  <section class="bcls-section">
+    <h2 id="developmentsequence" class="bcls-expander-head">Development sequence</h2>
+    <div class="bcls-expander-content">
+      <p>Here is the recommended development sequence:</p>
+      <ol>
+        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
+        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
+        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
+        <li>Use Studio to add the plugin and CSS to your player</li>
+        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
+      </ol>
+      <p>For details about these steps, review the <a href="/node/18081">Step-by-Step: Plugin Development</a> guide.</p>
+      <h3>iframe or In-Page embed</h3>
+      <p>When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
+      <ul>
+        <li>No collisions with existing JavaScript and/or CSS</li>
+        <li>Automatically responsive</li>
+        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
+      </ul>
+      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
+      <ul>
+        <li>Code in the containing page needs to listen for and act on player events</li>
+        <li>The player uses styles from the containing page</li>
+        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
+      </ul>
+      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+    </div>
+    <!-- id="expanderContent" --></section>
+  <section class="bcls-section">
+    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+    <!-- UPDATE table, remove unneeded columns -->
+    
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th style="width:20%">Parameter</th>
-          <th style="width:70%">Description</th>
-          <th style="width:10%">Data Type</th>
+          <th>API Methods</th>
         </tr>
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td class="language-editable">adConfigId</td>
-          <td class="language-editable">A Dynamic Delivery SSAI ad configuration ID.</td>
-          <td class="language-editable">String</td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#play">play()</a></td>
         </tr>
         <tr>
-          <td class="language-editable">applicationId</td>
-          <td class="language-editable">Allows re-use of a single player, but differentiates analytics on a per-site or per-application basis. See the <a href="/node/16616">Adding an Application ID to the Player Embed Code</a> document for full details.</td>
-          <td class="language-editable">String</td>
+          <td><a href="/node/18108#getVideo">catalog.getVideo()</a></td>
         </tr>
         <tr>
-          <td class="language-editable">autoplay</td>
-          <td class="language-editable">Indicates that the player should start playing immediately, on platforms where this is allowed.<br />
-            <br />
-            If <code class="notranslate">autoplay</code> is set to a Boolean value the browser's native autoplay behavior is used. If it is set to one of the following three valid string values, the following occurs:
-            <ul>
-              <li class="language-editable"><code class="notranslate">play</code>: The player will manually try to call play.</li>
-              <li class="language-editable"><code class="notranslate">muted</code>: The player will manually mute the player and call play.</li>
-              <li class="language-editable"><code class="notranslate">any</code>: The player will first try to call play. If that fails, mute the player and call play.</li>
-            </ul>
-            If any of the above fail, the player will display the "Big Play Button" as if autoplay was set to false.<br />
-            <br />
-            Getting a video to autoplay can be a complex situation. See the <a href="/node/18602">Autoplay Considerations</a> document for further details.
-            <aside class="bcls-aside bcls-aside--information language-editable">If <strong>autoplay</strong> is enabled at the player level (using either Studio or Player Management API), there is no way to disable it. For instance, <code>&amp;autoplay=false</code> will not stop autoplay. In fact, the last query parameter would actually turn on autoplay as if the URL contains the string <strong>autoplay</strong>, autoplay will be enabled, no matter what value might be assigned to it.</aside></td>
-          <td class="language-editable">Boolean or String</td>
-        </tr>
-        <tr>
-          <td class="language-editable"><code>crossorigin</code></td>
-          <td class="language-editable">If <strong>true</strong>, the underlying <strong>&lt;video&gt;</strong> element will have <strong>crossorigin="anonymous"</strong>. This means that any videos or text tracks pulled into the player must have CORS headers.
-            <aside class="bcls-aside bcls-aside--information language-editable">Note: This feature should only be used if you know that all your content (video and text tracks) have CORS headers applied to them.</aside></td>
-          <td class="language-editable">Boolean</td>
-        </tr>
-        <tr>
-          <td class="language-editable"><code>language</code></td>
-          <td class="language-editable">Sets the language (using a valid language code, usually two letters) for the player.</td>
-          <td class="language-editable">String</td>
-        </tr>
-        <tr>
-          <td class="language-editable"><code>loop</code></td>
-          <td class="language-editable">Causes the video to start over as soon as it ends.</td>
-          <td class="language-editable">String</td>
-        </tr>
-        <tr>
-          <td class="language-editable"><code>muted</code></td>
-          <td class="language-editable">Mutes the video's sound.</td>
-          <td class="language-editable">Boolean</td>
-        </tr>
-        <tr>
-          <td class="language-editable"><code>playlistId</code></td>
-          <td class="language-editable">Sets the ID or reference ID of the playlist in the player.</td>
-          <td class="language-editable">String</td>
-        </tr>
-        <tr>
-          <td class="language-editable"><code>playlistVideoId</code></td>
-          <td class="language-editable">Sets the initial video to be played in the video, which must be in the designated playlist.</td>
-          <td class="language-editable">String</td>
-        </tr>
-        <tr>
-          <td class="language-editable"><code>playsinline</code></td>
-          <td class="language-editable">If the platform and OS allow it, will display video content within the player's playback area, meaning it won't be displayed fullscreen or in an independent, resizable window; does work on iPhone and iPad</td>
-          <td class="language-editable">Boolean</td>
-        </tr>
-        <tr>
-          <td class="language-editable">preload</td>
-          <td class="language-editable">Informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. Possible values are <code>none</code>, <code>metadata</code> or <code>auto</code>. See the next section for further details.</td>
-          <td class="language-editable">String</td>
-        </tr>
-        <tr>
-          <td class="language-editable">referrer</td>
-          <td class="language-editable">Allows you to pass in the <code>document.referrer</code> along with other parameters to the iframe, allowing you to accurately track the referrer URL for the video. Note that you will need to URI encode the value - for example: <code>referrer=http%3A%2F%2Ffoo.com</code>. Also note that this parameter is available for the 6.25 version of the player or later.</td>
-          <td class="language-editable">String</td>
-        </tr>
-        <tr>
-          <td class="language-editable"><code>t</code></td>
-          <td class="language-editable">Sets the time offset from which a video will start playing. See the <a href="/node/18104">Deep Linking</a> document for details.</td>
-          <td class="language-editable">String</td>
-        </tr>
-        <tr>
-          <td class="language-editable"><code>videoId</code></td>
-          <td class="language-editable">Sets the ID or reference ID of the video in the player.</td>
-          <td class="language-editable">String</td>
+          <td><a href="/node/18108#load">catalog.load()</a></td>
         </tr>
       </tbody>
     </table>
   </section>
-  <section id="preload_details" class="bcls-section">
-    <h2>preload details</h2>
-    <p>The preload parameter informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. The options are <strong>auto</strong>, <strong>metadata</strong>, and <strong>none</strong>. For HLS playback technology the settings mean slightly different things and noted below.</p>
+  <!-- UPDATE player and HTML configuration -->
+  
+  <section class="bcls-section">
+    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+    <h3>Player configuration</h3>
+    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
+    <h3>Other HTML</h3>
+    <p>A button is added that calls a custom <code>changeVideo()</code> method.</p>
+  </section>
+  <!-- UPDATE application flow -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_flow">Application flow</h2>
+    <p>The basic logic behind this application is:</p>
     <ul>
-      <li class="language-editable">
-        <p><strong>auto</strong> (default): Start loading the video immediately (if the browser agrees). Some mobile devices like iPhones and iPads will not preload the video in order to protect their users' bandwidth. This is why the value is called <strong>auto</strong> and not something more final like <strong>true</strong>.</p>
-        <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>auto</strong> means the player downloads the m3u8 manifest file and only 1 segment instead of 3-4, as was the case before version 5.3 of Brightcove Player.</aside>
-      </li>
-      <li class="language-editable">
-        <p><strong>metadata</strong>: Load only the meta data of the video, which includes information like the duration and dimensions of the video.</p>
-        <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>metadata</strong> is the same as <strong>auto</strong>.</aside>
-      </li>
-      <li class="language-editable">
-        <p><strong>none</strong>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading. Note that on iOS there may be segment downloading even with this setting. See the <a href="/node/18106">Brightcove Player and iOS</a> document for more information.</p>
-        <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>none</strong> means player will no longer load anything, including the m3u8 manifest, until the user presses play.</aside>
-      </li>
+      <li>The user clicks a button to change the video currently playing in the player.</li>
+      <li>A video object is retrieved.</li>
+      <li>The video object is loaded into the player.</li>
+      <li>Video playback is started.</li>
     </ul>
-    <pre class="line-numbers">
-      <code class="language-html">&lt;video-js preload ...&gt;
-      or
-      { "preload": "auto" } </code></pre>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: When using Server-Side Ad Insertion (SSAI), Brightcove recommends setting <code>preload=none</code>. If <code>preload</code> is set to <code>auto</code> or <code>metadata</code>, the first frames of the video stream will be requested, which counts the ad as delivered even if the user does not start playback.</aside>
+    <!-- UPDATE task 1 -->
+    
+    <h3>Get, load and play the video</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Get, load and play video ###</code></pre>
+    <p>The function first retrieves a video object using the <code>catalog.getVideo()</code> method. The video object is then loaded into the player using the <code>catalog.load()</code> method. Finally, the <code>play()</code> method is used to initiate playback.</p>
+  </section>
+  <!-- UPDATE CSS description -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_styling">Application styling</h2>
+    <p>The only CSS used sizes the player.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Plugin_code">Plugin code</h2>
+    <p>The code in this sample does not make sense used in a plugin.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="iframe_implementation">iframe implementation</h2>
+    <p>The iframe implementation can be used in a very similar way as shown above. <a href="https://github.com/BrightcoveLearning/18155-dynamically-change-source-videos/blob/master/iframe-implementation.html">Sample code</a> is available. Most of the code in this implementation is a JavaScript exercise. The one point that may not be clear is that when you load a new source into the iframe, HTML will automatically reload the iframe.</p>
   </section>
 </article>
 
@@ -980,7 +956,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 19 Feb 2020
+  Page last updated on 21 Feb 2020
 </div>
 
 <footer class="bcls-footer" role="contentinfo">
