@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Code Samples</title>
+  <title>Brightcove Player Sample: Variable Speed Playback</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -86,7 +86,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item active" aria-current="page">Code Samples</li>
+      <li class="breadcrumb-item"><a href="/code-samples/">Code Samples</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Variable Speed Playback</li>
     </ol>
   </nav>
 </header>
@@ -800,69 +802,225 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1><i class="far fa-file-code"></i>Code Samples</h1>
+  <h1>Brightcove Player Sample: Variable Speed Playback</h1>
   <summary>
-    <p>The following code samples demonstrate customizations and enhancements to Brightcove Player.</p>
-    <aside class="bcls-aside bcls-aside--information">The code samples marked with double asterisks ** are partially or wholly dependent on Video Cloud features.</aside>
-    <p>For standard documentation, see the <a href="/index.html">Brightcove Player Developer Landing Page</a>.</p>
+    <aside class="bcls-aside bcls-aside--warning language-editable">This sample is no longer needed as variable speed playback is now a standard part of the player, as documented here: <a href="https://support.brightcove.com/player-configuration-guide#playback_rates">Player Configuration - playback_rate</a>. (HOWEVER, if you are concerned about IE11 compatibility, you will still need to use this sample as variable speed playback configured as just mentioned does not work completely with IE11.)</aside>
+    <p>In this topic, you will learn how to add a playback rate button to the Brightcove Player control bar, which will allow users to change the video playback speed.</p>
   </summary>
-  <br/>
   <section class="bcls-section">
-    <table width="100%" border="0">
-      <tbody>
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>Start video playback and select the playback rate button in the control bar (default is 1x). Choose a different rate to see how video playback speed changes.</p>
+    <!-- UPDATE codepen here -->
+    
+    <p data-height="585" data-theme-id="34967" data-slug-hash="eGpMBy" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="eGpMBy" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/eGpMBy/">eGpMBy</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    
+    <p>View the <a href="https://github.com/BrightcoveLearning/18451-variable-speed-playback">source code</a>.</p>
+    <aside class="bcls-aside bcls-aside--information">
+      <p>The playback rate for most browsers is <code>0.0625</code> to <code>16</code>. For details, see the following:</p>
+      <ul>
+        <li><a href="https://cs.chromium.org/chromium/src/third_party/blink/renderer/core/html/media/html_media_element.cc?l=170&amp;gsn=kMinRate">Playback range for Chrome</a></li>
+        <li><a href="https://dxr.mozilla.org/mozilla-central/source/dom/html/HTMLMediaElement.cpp#158">Playback range for Firefox</a></li>
+      </ul>
+    </aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
+    <div class="bcls-expander-content">
+      <p>Here are some tips to effectively use the above CodePen:</p>
+      <ul>
+        <li>Toggle the actual display of the player by clicking the <strong class="notranslate">Result</strong> button.</li>
+        <li>Click the <strong class="notranslate">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
+          <ol>
+            <li>Click the <strong class="notranslate">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
+            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="developmentsequence" class="bcls-expander-head">Development sequence</h2>
+    <div class="bcls-expander-content">
+      <p>Here is the recommended development sequence:</p>
+      <ol>
+        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
+        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
+        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
+        <li>Use Studio to add the plugin and CSS to your player</li>
+        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
+      </ol>
+      <p>For details about these steps, review the <a href="/node/18081">Step-by-Step: Plugin Development</a> guide.</p>
+      <h3>iframe or In-Page embed</h3>
+      <p>When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
+      <ul>
+        <li>No collisions with existing JavaScript and/or CSS</li>
+        <li>Automatically responsive</li>
+        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
+      </ul>
+      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
+      <ul>
+        <li>Code in the containing page needs to listen for and act on player events</li>
+        <li>The player uses styles from the containing page</li>
+        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
+      </ul>
+      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+    </div>
+    <!-- id="expanderContent" --></section>
+  <section class="bcls-section">
+    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+    <!-- UPDATE table, remove unneeded columns -->
+    
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
         <tr>
-          <th width="50%" scope="col"> <h2>Categorized</h2></th>
-          <th width="1%" scope="col">&nbsp;</th>
-          <th width="49%" scope="col"> <h2>Alphabetized</h2></th>
+          <th>API Classes</th>
+          <th>API Methods</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ControlBar.html">ControlBar</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ControlBar.html#removeChild">controlBar.removeChild()</a></td>
         </tr>
         <tr>
-          <td valign="top"><strong>Advertising</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-ad-countdown-timer.html">Ad Countdown Timer</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-ad-indicators-playback-bar.html">Ad Indicators in Playback Bar</a></li>
-              <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with the SSAI Plugin</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-outstream-ad-only-player.html">Outstream (Ad-Only) Player</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-scrolling-player-view-ads.html">Scrolling Player into View with Ads</a></li>
-            </ul>
-            <p><strong>Audio</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-automatically-set-audio-track-language.html">Automatically Set Audio Track Language</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Download Audio Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-horizontal-volume-control.html">Horizontal Volume Control (1.x Player Only)</a></li>
-            </ul>
-            <p><strong>Call to Action</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-cue-points-display-cta.html">Cue Points Display CTA</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamic-call-action.html">Dynamic Call to Action</a>**</li>
-            </ul>
-            <p><strong>Communicate with iFrame</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-playpause-video-iframe-parent.html">Play/Pause Video from iframe Parent</a></li>
-            </ul>
-            <p><strong>Control Playback Behavior</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-autoplay-unmute-button.html">Autoplay with Unmute Button for iOS/Safari/Chrome</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-back-and-forward-buttons.html">Back and Forward Buttons</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-creating-video-loop.html">Creating a Video Loop</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-disable-forward-scrubbing.html">Disable Forward Scrubbing</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-password-view-video.html">Password to View Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-stopping-other-players-page-when-video-starts.html">Stopping Other Players on the Page when a Video Starts</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-variable-speed-playback.html">Variable Speed Playback</a></li>
-            </ul>
-          <p>&nbsp;</p></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/PlaybackRateMenuButton.html">PlaybackRateMenuButton</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ControlBar.html#addChild">controlBar.addChild()</a></td>
+        </tr>
+        <tr>
           <td>&nbsp;</td>
-          <td valign="top"><ul>
-              <li></li>
-            </ul></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/PlaybackRateMenuButton.html#updateLabel">controlBar.playbackRateMenuButton.updateLabel()</a></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/PlaybackRateMenuButton.html#updateVisibility">controlBar.playbackRateMenuButton.updateVisibility()</a></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/PlaybackRateMenuButton.html#createMenu">controlBar.playbackRateMenuButton.createMenu()</a></td>
         </tr>
       </tbody>
     </table>
+  </section>
+  <!-- UPDATE player and HTML configuration -->
+  
+  <section class="bcls-section">
+    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+    <h3>Player configuration</h3>
+    <p>Optional: When you publish your video in Video Cloud Studio's Media module, set the <strong>Sizing</strong> property to <strong>Responsive</strong>.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Responsive player setting" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/variable-speed-playback/responsive.png" /></figure>
+    <h3>Other HTML</h3>
+    <p>Remember to add the <code>id</code> attribute to the <code>video-js</code> tag in the player embed code.</p>
+    <pre>
+  <code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+  ...</code></pre>
+  </section>
+  <!-- UPDATE application flow -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_flow">Application flow</h2>
+    <p>The basic logic behind this application is:</p>
+    <ul>
+      <li>Define the playback rates that you want to appear in the playback rate menu.</li>
+      <li>Turn off the default source order for the player.</li>
+      <li>If the playback rate button/menu is already defined in the control bar, then modify it with your defined playback rates.</li>
+      <li>Otherwise, add the playback rate button/menu with your defined playback rates to the control bar.</li>
+    </ul>
+    <!-- UPDATE task 1 -->
+    
+    <h3>Define playback rates</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+  <code class="language-javascript">// +++ Define the playback rate options +++</code></pre>
+    <p>Define the playback rates which will be added to the playback rate menu.</p>
+    <!-- UPDATE task 2 -->
+    
+    <h3>Turn off the default source order</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+  <code class="language-javascript">// +++ Turn off the default source order +++</code></pre>
+    <p>Setting sourceOrder to false means that old browsers that support HLS in Flash but not HTML5/MSE will use MP4.</p>
+    <!-- UPDATE task 3 -->
+    
+    <h3>Update the playback rate menu</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+  <code class="language-javascript">// +++ Update the existing playback rate menu +++</code></pre>
+    <p>If the playback rate button/menu exists in the control bar, then update it with your defined playback rates.</p>
+    <!-- UPDATE task 4 -->
+    
+    <h3>Add the playback rate menu</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+  <code class="language-javascript">// +++ Add the playback rate menu +++</code></pre>
+    <p>If it doesn't already exist, add the playback rate button and menu to the control bar.</p>
+    <!-- UPDATE task 5 -->
+    
+    <h3>Support IE browsers</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+  <code class="language-javascript">// +++ Support for IE browsers +++</code></pre>
+    <p>This section of code keeps the selected rate value from resetting to <strong>1x</strong> when you pause and play in IE. To test, follow these steps:</p>
+    <ol class="bcls-tasklist">
+      <li>Comment out this section of code, and run the sample in an IE 11 browser.</li>
+      <li>Change the playback rate.</li>
+      <li>Pause video playback and then restart it.</li>
+      <li>You will see that the playback rate has been reset to a value of <strong>1x</strong>.</li>
+      <li>Uncomment this section of code and redo the steps above. Now, you should see that the playback rate remains the value that you selected.</li>
+    </ol>
+  </section>
+  <!-- UPDATE CSS description -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_styling">Application styling</h2>
+    <p>No additional CSS is needed for this example.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Plugin_code">Plugin code</h2>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+	var myPlayer = this;
+	...
+});</code></pre>
+    <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+	var myPlayer = this;
+	...
+});</code></pre>
+    <!-- UPDATE path to plugin's JavaScript -->
+    
+    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18451-variable-speed-playback/blob/master/plugin/variable-speed-playback.js">variable-speed-playback.js</a>.</p>
+    <h3>Using the plugin with a player</h3>
+    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
+    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="//support.brightcove.com/node/14053">Configuring Player Plugins</a> document.</aside>
+    <p>After you have added the JavaScript file, add your plugin <strong>Name</strong>. It should be similar to this:</p>
+    <pre class="line-numbers">
+<code class="language-json">variableSpeedPlayback</code></pre>
+    <p>For the <strong>plugin options</strong>, enter the playback rates that you would like to be displayed in the playback rate menu. It should look similar to this:</p>
+    <pre class="line-numbers">
+<code class="language-json">{"playbackRates":
+  [0.5,1,2]
+}</code></pre>
   </section>
 </article>
 
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
       
     </div>
   </div>
@@ -951,6 +1109,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
   
   <script src="/assets/js/sites_nav.js"></script>
   <script src="/assets/js/feedback.js"></script>

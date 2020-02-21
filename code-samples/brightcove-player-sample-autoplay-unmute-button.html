@@ -1,0 +1,216 @@
+---
+title: 'Brightcove Player Sample: Autoplay with Unmute Button'
+parent: Code Samples
+---
+<article class="bcls-article">
+  <h1>Brightcove Player Sample: Autoplay with Unmute Button</h1>
+  <summary>In this topic, you will learn how to autostart a video on all platforms and devices. If on iOS or Safari, the video will start muted, and a button will be displayed that when clicked will unmute the video.</summary>
+  <section class="bcls-section">
+    <aside class="bcls-aside bcls-aside--information">As of April 2018, Chrome halted autoplay of unmuted video. Be aware, there are special circumstances where Chrome may autoplay an unmuted video. See Google's <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">Autoplay Policy Changes</a> document for full details.</aside>
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>The following video will behave differently depending on the browser/platform on which you run the video. If the video will autoplay with audio, it does so. If not, you will see the video begin to play, but an unmute button will appear. If you click that button you will hear the audio for the video. Generally, when using iOS, Safari or Chrome, a video will NOT autoplay if the video is not muted. This sample shows a way to autoplay the video and presents an obvious button for unmuting.</p>
+    <p>If you are using an IMA3 pre-roll, you will want to see the <a href="#Using_a_pre-roll_ad">Using a pre-roll ad</a> section in this document. This section details the minor changes you will need to apply to the code shown in the following CodePen to make the functionality work with an IMA pre-roll ad.</p>
+    <!-- UPDATE codepen here -->
+    
+    <p data-height="456" data-theme-id="34967" data-slug-hash="jzmWzL" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="Autoplay with Unmute Button" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/jzmWzL/">Autoplay with Unmute Button</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18567-autoplay-unmute-button">source code</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
+    <div class="bcls-expander-content">
+      <p>Here are some tips to effectively use the above CodePen:</p>
+      <ul>
+        <li>Toggle the actual display of the player by clicking the <strong>Result</strong> button.</li>
+        <li>Click the <strong>HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
+          <ol>
+            <li>Click the <strong>EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
+            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="developmentsequence" class="bcls-expander-head">Development sequence</h2>
+    <div class="bcls-expander-content">
+      <p>Here is the recommended development sequence:</p>
+      <ol>
+        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
+        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
+        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
+        <li>Use Studio to add the plugin and CSS to your player</li>
+        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
+      </ol>
+      <p>For details about these steps, review the <a href="/node/18081">Step-by-Step: Plugin Development</a> guide.</p>
+      <h3>iframe or In-Page embed</h3>
+      <p>When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
+      <ul>
+        <li>No collisions with existing JavaScript and/or CSS</li>
+        <li>Automatically responsive</li>
+        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
+      </ul>
+      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
+      <ul>
+        <li>Code in the containing page needs to listen for and act on player events</li>
+        <li>The player uses styles from the containing page</li>
+        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
+      </ul>
+      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+    </div>
+    <!-- id="expanderContent" --></section>
+  <section class="bcls-section">
+    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+    <!-- UPDATE table, remove unneeded columns -->
+    
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>API Methods</th>
+          <th>API Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#muted">muted()</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:loadedmetadata">loadedmetadata</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#play">play()</a></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on()</a></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#volume">volume()</a></td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/node/18132">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
+  <!-- UPDATE player and HTML configuration -->
+  
+  <section class="bcls-section">
+    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+    <h3>Player configuration</h3>
+    <p>In addition to the standard inclusion of an <code>id</code> in the <code>video</code> tag, the <code>playsinline</code> attribute is added for iOS functionality:</p>
+    <pre class="line-numbers">
+<code class="language-html">&lt;div id="playerContainer" class="outer"&gt;
+   &lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+     data-video-id="5755775186001"
+     data-account="1752604059001"
+     data-player="default"
+     data-embed="default"
+     data-application-id
+     class="video-js"
+     controls
+     <span class="bcls-highlight">playsinline</span>&gt;&lt;/video-js&gt;
+&lt;/div&gt;</code></pre>
+    <h3>Other HTML</h3>
+    <p>No other HTML elements, other than those mentioned in the previous section, are added to the page.</p>
+  </section>
+  <!-- UPDATE application flow -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_flow">Application flow</h2>
+    <p>The basic logic behind this application is:</p>
+    <ul>
+      <li>Use the <code>play()</code> method to attempt to play the video. The call to the method is assigned to a variable, which will hold the value returned by a JavaScript <a href="/node/18602#Programmatic_autoplay_detection">promise</a>.</li>
+      <li>If the promise is resolved (the video is playing), unmute the player and set the volume level.</li>
+      <li>If the promise is rejected (the video is NOT playing), perform the following:
+        <ul>
+          <li>Mute the player, and start the video playing (which it will do now since the player is muted).</li>
+          <li>Dynamically create an HTML button element, that acts as the <strong>unmute</strong> button.</li>
+          <li>Add a&nbsp;<code>click</code> event listener on the button.</li>
+          <li>Configure the button's text, style, etc.</li>
+          <li>Place the button over the player.</li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Try to play the video</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Wait for loadedmetadata then try to play video ###</code></pre>
+    <p>As per standard procedure, you wait for the <code>loadedmetadata</code> event before using the <code>play()</code> method. The promise returned from the method call is stored in the <code>promise</code> variable. If the video is playing, you can unmute the player and set the volume.</p>
+    <h3>When autoplay prevented, mute player and play video</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### If autoplay prevented: mute the video, play video and display unmute button ###</code></pre>
+    <p>Here the <code>catch</code> logic for the promise lets you act when the video did not start in the player. The player is programmatically muted, so the video will play. The <code>play()</code> method is called again, which will start the video. Following this code, the button is dynamically created and configured.</p>
+    <h3>Add a <code>click</code> event listener to the button</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Add button's event listener ###</code></pre>
+    <p>Using JavaScript's <code>addEventListener()</code>, the event handler for a click is dynamically created. In the event handler the player is unmuted, the volume level set, and lastly the button removed from the DOM.</p>
+    <!-- UPDATE task 3 -->
+    
+    <h3>Configure the button</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ###  Configure the button ###</code></pre>
+    <p>In this code section the button's label is set, the look of the button is configured, and a <code>class</code> is added for a CSS reference that positions the button.</p>
+    <!-- UPDATE task 3 -->
+    
+    <h3>Add the button to the container</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Add the button to the container ###</code></pre>
+    <p>The single line of code places the button in the <code>div</code> that constrains the player.</p>
+    <!-- UPDATE task 3 --></section>
+  <!-- UPDATE CSS description -->
+  
+  <section class="bcls-section">
+    <h2 id="Using_a_pre-roll_ad">Using a pre-roll ad</h2>
+    <p>Since the ad is playing when the unmute button appears, you need to unmute the ad player rather than the content player. To do this you would use the following for the click handler:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">button.addEventListener("click", function() {
+  <span class="bcls-highlight">myPlayer.ima3.adPlayer.muted(false);
+  myPlayer.ima3.adPlayer.volume(volumeLevel);</span>
+  //myPlayer.muted(false);
+  //myPlayer.volume(volumeLevel);
+  playerContainer.removeChild(button);
+}</code></pre>
+    <p>The two lines of code for the content player volume control are commented out and left in only for comparison's sake.</p>
+    <p>You do not need to make the same change for the non-iOS/Safari/Chrome code since the volume is altered BEFORE the ad is loaded (on the <code>loadstart</code> event), and those changes pass through to the ad player when it loads.</p>
+    <p>See this <a href="https://codepen.io/team/rcrooks1969/pen/xWzPJX">CodePen</a> for a working example.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Application_styling">Application styling</h2>
+    <p>The three CSS selectors perform the following:</p>
+    <ul>
+      <li>Sets the video <code>height</code> and <code>width</code> to <strong>100%</strong> to fill the container in which it is placed.</li>
+      <li>Creates a class selector that is used with the <code>div</code> that surrounds the player. The values used correspond to the size of the player.</li>
+      <li>Creates another class selector that positions the unmute button in the center of the <code>div</code> that surrounds the player.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Plugin_code">Plugin code</h2>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+  var myPlayer = this;
+  ...
+});</code></pre>
+    <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+  var myPlayer = this;
+  ...
+});</code></pre>
+    <!-- UPDATE path to plugin's JavaScript -->
+    
+    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18567-autoplay-unmute-button-iossafari/blob/master/plugin/unmute-button.js">unmute-button.js</a>.</p>
+    <h3>Using the plugin with a player</h3>
+    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
+    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="/node/14053">Configuring Player Plugins</a> document.</aside>
+  </section>
+</article>
