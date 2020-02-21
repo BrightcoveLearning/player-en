@@ -1,0 +1,117 @@
+---
+title: 'Brightcove Player Sample: Navigate on Video End'
+parent: Code Samples
+---
+<article class="bcls-article">
+  <h1>Brightcove Player Sample: Navigate on Video End</h1>
+  <summary>In this topic, you will learn how to display an overlay on video end, which when clicked navigates the page to a new URL.</summary>
+  <section class="bcls-section">
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>Upon completion of the very short video you will see an overlay appear with a link to the Brightcove Home Page. The Brightcove supplied Overlay Plugin is used, so no JavaScript is needed. CSS is used to style the overlay.</p>
+    <aside class="bcls-aside bcls-aside--information">An iframe implementation will not be shown in this case since the new URL page would be contained within the dimensions of the iframe player, most likely not then desired behavior. You will see this odd behavior in the CodePen below.</aside>
+    <!-- UPDATE codepen here -->
+    
+    <p data-height="472" data-theme-id="34967" data-slug-hash="GyRBLr" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="Navigate on Video End" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/GyRBLr/">Navigate on Video End</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    <section class="bcls-section">
+      <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
+      <div class="bcls-expander-content">
+        <p>Here are some tips to effectively use the above CodePen:</p>
+        <ul>
+          <li>Toggle the actual display of the player by clicking the <strong class="notranslate">Result</strong> button.</li>
+          <li>Click the <strong class="notranslate">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+          <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
+            <ol>
+              <li>Click the <strong class="notranslate">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+              <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
+              <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="bcls-section">
+      <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+      <!-- UPDATE table, remove unneeded columns -->
+      
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Brightcove Player Plugins</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><a href="/node/18075">Display Overlay Plugin</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/node/18132">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
+    <!-- UPDATE CSS description -->
+    
+    <section class="bcls-section">
+      <h2 id="Application_styling">Application styling</h2>
+      <p>The CSS is used to change the look of the overlay. In this sample the CSS used is:</p>
+      <pre class="line-numbers">
+<code class="language-css">/* override default styles for overlay */
+.video-js .vjs-overlay {
+    width: 100%;
+    height: 20%;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.8);
+    left: 0;
+    top: 0;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-top: 10%;
+    padding-left: 0;
+}</code></pre>
+      <p>You need to alter the CSS to define your desired look, then save the CSS in an Internet accessible location. You will point to this CSS in the plugin configuration.</p>
+    </section>
+    <!-- UPDATE player and HTML configuration -->
+    
+    <section class="bcls-section">
+      <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+      <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+      <h3>Player configuration</h3>
+      <p>In this case you will add the Display Overlay Plugin using Studio.</p>
+      <ol class="bcls-tasklist">
+        <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+        <li>Click the link for the player to open the player's properties.</li>
+        <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+        <li>Next, click <strong>Add a Plugin</strong>.</li>
+        <li>For the <strong>Plugin Name</strong> enter <code>overlay</code>.</li>
+        <li>For the <strong>JavaScript</strong> URL, enter:
+          <pre>
+<code class="language-json">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.min.js</code></pre>
+        </li>
+        <li>For the <strong>CSS</strong> URL, enter:
+          <pre>
+<code class="language-json">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.css</code></pre>
+        </li>
+        <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box.
+          <pre class="line-numbers">
+<code class="language-json">{
+  "content": "&lt;strong&gt;Default overlay content&lt;/strong&gt;",
+  "overlays": [
+    {
+      "content": "&lt;a href='http://www.brightcove.com'&gt;&lt;span style='font-size:large'&gt;&lt;strong&gt;Brightcove Homepage&lt;/strong&gt;&lt;/span&gt;&lt;/a&gt;",
+      "start": "ended",
+      "end": "play"
+    }
+  ]
+}</code></pre>
+        </li>
+        <li>Click <strong>Save</strong>.</li>
+        <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+        <li>To close the open dialog, click <strong>Close</strong>.</li>
+      </ol>
+      <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="/node/14053">Configuring Player Plugins</a> document.</aside>
+      <h3>Other HTML</h3>
+      <p>No other HTML elements are added to the page.</p>
+    </section>
+  </section>
+</article>
