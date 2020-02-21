@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Code Samples</title>
+  <title>Brightcove Player Sample: Vertical Volume Control</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -86,7 +86,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item active" aria-current="page">Code Samples</li>
+      <li class="breadcrumb-item"><a href="/code-samples/">Code Samples</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Vertical Volume Control</li>
     </ol>
   </nav>
 </header>
@@ -811,118 +813,227 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1><i class="far fa-file-code"></i>Code Samples</h1>
+  <h1>Brightcove Player Sample: Vertical Volume Control</h1>
   <summary>
-    <p>The following code samples demonstrate customizations and enhancements to Brightcove Player.</p>
-    <aside class="bcls-aside bcls-aside--information">The code samples marked with double asterisks ** are partially or wholly dependent on Video Cloud features.</aside>
-    <p>For complete documentation, visit the <a href="/index.html">Brightcove Player Developer Documentation Page</a></p>
+    <p>In this topic, you will learn how to change the volume control button to display a vertical volume slider instead of the default horizontal layout.</p>
+    <aside class="bcls-aside bcls-aside--tip language-editable">As of Brightcove Player 6.32.0 and later you can set this value much more simply in Studio. See the <a href="/node/18509">Configuring Player Controls</a> document.</aside>
   </summary>
-  <br/>
   <section class="bcls-section">
-    <table width="100%" border="0">
-      <tbody>
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>Start video playback and move your mouse over the volume button in the controlbar. You should see a vertical volume slider instead of the default horizontal slider.</p>
+    <!-- UPDATE codepen here -->
+    
+    <p data-height="485" data-theme-id="34967" data-slug-hash="mKwQBO" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="vertical volume" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/mKwQBO/">vertical volume</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    
+    <p>View the <a href="https://github.com/BrightcoveLearning/18608-vertical-volume-control">source code</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
+    <div class="bcls-expander-content">
+      <p>Here are some tips to effectively use the above CodePen:</p>
+      <ul>
+        <li>Toggle the actual display of the player by clicking the <strong class="notranslate">Result</strong> button.</li>
+        <li>Click the <strong class="notranslate">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
+          <ol>
+            <li>Click the <strong class="notranslate">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
+            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Development_sequence" class="bcls-expander-head">Development sequence</h2>
+    <div class="bcls-expander-content">
+      <p>Here is the recommended development sequence:</p>
+      <ol>
+        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
+        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
+        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
+        <li>Use Studio to add the plugin and CSS to your player</li>
+        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
+      </ol>
+      <p>For details about these steps, review the <a href="https://support.brightcove.com/node/18081">Step-by-Step: Plugin Development</a> guide.</p>
+      <h3>iframe or In-Page embed</h3>
+      <p>When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
+      <ul>
+        <li>No collisions with existing JavaScript and/or CSS</li>
+        <li>Automatically responsive</li>
+        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
+      </ul>
+      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
+      <ul>
+        <li>Code in the containing page needs to listen for and act on player events</li>
+        <li>The player uses styles from the containing page</li>
+        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
+      </ul>
+      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+    </div>
+    <!-- id="expanderContent" --></section>
+  <section class="bcls-section">
+    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+    <!-- UPDATE table, remove unneeded columns -->
+    
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
         <tr>
-          <th width="50%" scope="col"> <h2>Categorized</h2></th>
-          <th width="1%" scope="col">&nbsp;</th>
-          <th width="49%" scope="col"> <h2>Alphabetized</h2></th>
+          <th>API Methods</th>
         </tr>
+      </thead>
+      <tbody class="bcls-table__body">
         <tr>
-          <td valign="top"><strong>Advertising</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-ad-countdown-timer.html">Ad Countdown Timer</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-ad-indicators-playback-bar.html">Ad Indicators in Playback Bar</a></li>
-              <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with the SSAI Plugin</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-outstream-ad-only-player.html">Outstream (Ad-Only) Player</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-scrolling-player-view-ads.html">Scrolling Player into View with Ads</a></li>
-            </ul>
-            <p><strong>Audio</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-automatically-set-audio-track-language.html">Automatically Set Audio Track Language</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Download Audio Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-horizontal-volume-control.html">Horizontal Volume Control (1.x Player Only)</a></li>
-            </ul>
-            <p><strong>Call to Action</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-cue-points-display-cta.html">Cue Points Display CTA</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamic-call-action.html">Dynamic Call to Action</a>**</li>
-            </ul>
-            <p><strong>Communicate with iFrame</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-playpause-video-iframe-parent.html">Play/Pause Video from iframe Parent</a></li>
-            </ul>
-            <p><strong>Control Playback Behavior</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-autoplay-unmute-button.html">Autoplay with Unmute Button for iOS/Safari/Chrome</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-back-and-forward-buttons.html">Back and Forward Buttons</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-creating-video-loop.html">Creating a Video Loop</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-disable-forward-scrubbing.html">Disable Forward Scrubbing</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-password-view-video.html">Password to View Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-stopping-other-players-page-when-video-starts.html">Stopping Other Players on the Page when a Video Starts</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-variable-speed-playback.html">Variable Speed Playback</a></li>
-            </ul>
-            <p><strong>Control Player Loading</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-loading-player-dynamically.html">Loading the Player Dynamically</a></li>
-              <li><a href="/coding-topics/requirejs-and-brightcove-player.html">RequireJS and Brightcove Player</a></li>
-            </ul>
-            <p><strong>Control Video Currently Playing</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-dynamically-change-source-videos.html">Dynamically Change Source Videos</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-kiosk-app.html">Kiosk App</a>**</li>
-            </ul>
-            <p><strong>Enhance Player Display Behavior</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-automatically-set-caption-language.html">Automatically Set Caption Language</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-background-video.html">Background Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-caption-animation.html">Caption Animation</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-chapter-markers-progress-bar.html">Chapter Markers in Progress Bar</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-display-related-link.html">Display Related Link</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-display-thumbnails-hover.html">Display Thumbnails on Hover</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-display-views-controlbar.html">Display Views in Controlbar</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-display-random-bumpers.html">Display Random Bumpers</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamic-custom-endscreens.html">Dynamic Custom Endscreens</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-carousel.html">Lightbox Carousel</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-scroller.html">Lightbox with Scroller</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-simple-lightbox.html">Lightbox with Single Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-logo-overlay-plugin.html">Logo Overlay Plugin</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-multiple-session-playback.html">Multiple Session Playback</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-navigate-video-end.html">Navigate on Video End</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-scrolling-player-view.html">Scrolling Player into View</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-toggling-overlay.html">Toggling an Overlay</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-trigger-rewind-custom-event.html">Trigger Rewind Using a Custom Event</a></li>
-            </ul>
-            <p><strong>Enhance Player UI</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-add-country-flag-caption-label.html">Add Country Flag to Caption Label</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-back-and-forward-buttons.html">Back and Forward Buttons</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Download Audio Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-download-transcript.html">Download Transcript</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-download-video-plugin.html">Download Video Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-toggle-controlbar.html">Toggle Controlbar</a></li>
-            </ul>
-            <p><strong>Error Handling</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-live-custom-error-message.html">Live Custom Error Message</a></li>
-            </ul>
-            <p><strong>Player Styling</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-disable-progress-scrubber.html">Disabling the Progress Scrubber</a></li>
-              <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">Player Styling Playground</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">Vertical Volume Control</a></li>
-            </ul></td>
-          <td>&nbsp;</td>
-          <td valign="top"><ul>
-              <li></li>
-            </ul></td>
+          <td><a href="/node/18051">bc() method</a></td>
         </tr>
       </tbody>
     </table>
+  </section>
+  <!-- UPDATE player and HTML configuration -->
+  
+  <section class="bcls-section">
+    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+    <h3>Player configuration</h3>
+    <p>Because we want to modify the controlbar before the player is created, we will delay instantiation of the Brightcove Player by removing some of the attributes from the <code>&lt;video&gt;</code> tag. For more information about this, see the <a href="/node/18051">Delaying Player Instantiation</a> document.</p>
+    <p>Modify your player embed code as follows:</p>
+    <ol class="bcls-tasklist">
+      <li>Add the <code>id</code> attribute to the <code>video</code> tag in the player embed code</li>
+      <li>Remove the following attributes from the <code>video</code> tag:
+        <ul>
+          <li><code>data-account</code></li>
+          <li><code>data-player</code></li>
+          <li><code>data-video-id</code></li>
+        </ul>
+      </li>
+    </ol>
+    <p>Your player embed code should now look similar to this:</p>
+    <pre>
+<code class="language-html">&lt;video-js id="myPlayerID"
+  data-embed="default"
+  data-application-id
+  class="video-js"
+  width="640" height="360"
+  controls&gt;&lt;/video-js&gt;
+&lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+    <!-- <h3>Other HTML</h3>
+
+<p>Remember to add the <code>id</code> attribute to the <code>video-js</code> tag in the player embed code.</p>
+
+<pre><code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+...</code></pre> --></section>
+  <!-- UPDATE application flow -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_flow">Application flow</h2>
+    <p>The basic logic behind this application is:</p>
+    <ul>
+      <li>Define the player options</li>
+      <li>Add the player attributes</li>
+      <li>Create the player</li>
+    </ul>
+    <!-- UPDATE task 1 -->
+    
+    <h3>Define the player options</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// +++ Define the player options +++</code></pre>
+    <p>Define the <code>volumePanel</code> so that it is vertical and not inline with the controlbar.</p>
+    <!-- UPDATE task 2 -->
+    
+    <h3>Add the player attributes</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// +++ Add the player attributes +++</code></pre>
+    <p>Add the following player attributes with your values to the <code>&lt;video&gt;</code> tag.</p>
+    <ul>
+      <li><code>data-account</code></li>
+      <li><code>data-player</code></li>
+      <li><code>data-video-id</code></li>
+    </ul>
+    <!-- UPDATE task 3 -->
+    
+    <h3>Create the player</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// +++ Create the player +++</code></pre>
+    <p>Instantiate the player by passing the controlbar options into the <a href="/node/18051">bc() method</a>.</p>
+  </section>
+  <!-- UPDATE CSS description -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_styling">Application styling</h2>
+    <p>There are no additional styles for this sample.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Updating_multiple_players">Updating multiple players</h2>
+    <p>To update all of the players on your HTML page, you can use a <code>videojs.hook()</code> function.</p>
+    <h3>Hook functions</h3>
+    <p>Hooks allow you to add functionality or change the player appearance at certain Video.js lifecycle moments. With a hook function, all of the players on your HTML page are updated by passing in the player options into the <code>videojs.hook()</code> function.</p>
+    <p>For details, see <a href="https://docs.videojs.com/tutorial-hooks.html">Video.js hooks documentation</a>.</p>
+    <h3 id="Player_example">Player example</h3>
+    <p>This sample changes the volume control button to display a vertical volume slider for all of the players on the page.</p>
+    <p>Start video playback and move your mouse over the volume button in the controlbar. You should see a vertical volume slider for both players, instead of the default horizontal slider.</p>
+    <p data-height="525" data-theme-id="34967" data-slug-hash="GGvzpw" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="Vertical volume using Hook" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/GGvzpw/">Vertical volume using Hook</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    <h3>Player configuration</h3>
+    <p>You will delay the creation of the players in your HTML page, just like you did in the <a href="#Player/HTML_configuration">first example</a> in this document.</p>
+    <h3>Application flow</h3>
+    <p>The basic logic behind this application is:</p>
+    <ul>
+      <li>Define the hook function with player options</li>
+      <li>Add the player attributes</li>
+      <li>Execute the hook function</li>
+      <li>Create the players</li>
+    </ul>
+    <!-- UPDATE task 1 -->
+    
+    <h4>Define the hook function with player options</h4>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// +++ Define the hook function with player options +++</code></pre>
+    <p>Define the hook function for the <code>beforeSetup</code> lifecycle moment, which contains the player options. For the player options, set the <code>volumePanel</code> to appear vertical and not inline with the controlbar.</p>
+    <!-- UPDATE task 2 -->
+    
+    <h4>Add the player attributes</h4>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// +++ Add the player attributes +++</code></pre>
+    <p>Add the following player attributes with your values to the <code>&lt;video&gt;</code> tag for each player.</p>
+    <ul>
+      <li><code>data-account</code></li>
+      <li><code>data-player</code></li>
+      <li><code>data-video-id</code></li>
+    </ul>
+    <!-- UPDATE task 3 -->
+    
+    <h4>Execute the hook function</h4>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// +++ Execute the hook function +++</code></pre>
+    <p>Modify the options passed to the players, using the <code>beforeSetup</code> lifecycle moment with the <a href="https://docs.videojs.com/tutorial-hooks.html">Video.js hook</a> function.</p>
+    <!-- UPDATE task 4 -->
+    
+    <h4>Create the players</h4>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// +++ Create the players +++</code></pre>
+    <p>Instantiate each player using the <a href="/node/18051">bc() method</a>.</p>
   </section>
 </article>
 
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
       
     </div>
   </div>
@@ -1011,6 +1122,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
   
   <script src="/assets/js/sites_nav.js"></script>
   <script src="/assets/js/feedback.js"></script>
