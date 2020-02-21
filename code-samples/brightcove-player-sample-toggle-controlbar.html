@@ -1,0 +1,131 @@
+---
+title: 'Brightcove Player Sample: Toggle Controlbar'
+parent: Code Samples
+---
+<article class="bcls-article">
+  <h1>Brightcove Player Sample: Toggle Controlbar</h1>
+  <summary>In this topic, you will learn how to have a button toggle the display of the controlbar.</summary>
+  <section class="bcls-section">
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>Start the video playing, then you will be able to click the <strong>Toggle Controlbar</strong> button to display or hide the controlbar.</p>
+    <!-- UPDATE codepen here -->
+    
+    <p class="codepen" data-height="507" data-theme-id="34967" data-default-tab="result" data-user="rcrooks1969" data-slug-hash="EraVrQ" style="height: 507px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Toggle Controlbar"><span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/EraVrQ/"> Toggle Controlbar</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</span></p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    
+    <p>View the <a href="https://github.com/BrightcoveLearning/18713-toggle-controlbar">source code</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
+    <div class="bcls-expander-content">
+      <p>Here are some tips to effectively use the above CodePen:</p>
+      <ul>
+        <li>Toggle the actual display of the player by clicking the <strong>Result</strong> button.</li>
+        <li>Click the <strong>HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
+          <ol>
+            <li>Click the <strong>EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
+            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="developmentsequence" class="bcls-expander-head">Development sequence</h2>
+    <div class="bcls-expander-content">
+      <p>Here is the recommended development sequence:</p>
+      <ol>
+        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
+        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
+        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
+        <li>Use Studio to add the plugin and CSS to your player</li>
+        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
+      </ol>
+      <p>For details about these steps, review the <a href="/node/18081">Step-by-Step: Plugin Development</a> guide.</p>
+      <h3>iframe or In-Page embed</h3>
+      <p>When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
+      <ul>
+        <li>No collisions with existing JavaScript and/or CSS</li>
+        <li>Automatically responsive</li>
+        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
+      </ul>
+      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
+      <ul>
+        <li>Code in the containing page needs to listen for and act on player events</li>
+        <li>The player uses styles from the containing page</li>
+        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
+      </ul>
+      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+    </div>
+    <!-- id="expanderContent" --></section>
+  <section class="bcls-section">
+    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+    <!-- UPDATE table, remove unneeded columns -->
+    
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>API Methods</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#addClass">addClass</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#toggleClass">toggleClass</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/node/18132">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
+  <!-- UPDATE player and HTML configuration -->
+  
+  <section class="bcls-section">
+    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+    <h3>Player configuration</h3>
+    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
+    <h3>Other HTML</h3>
+    <p>An HTML button is added to call a function that toggles the controlbar.</p>
+  </section>
+  <!-- UPDATE application flow -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_flow">Application flow</h2>
+    <p>The basic logic behind this application is:</p>
+    <ul>
+      <li>Programmatically add the class to the player.</li>
+      <li>Call the event handler when the button is clicked.</li>
+      <li>Toggle the controlbar by adding or removing the CSS.</li>
+    </ul>
+    <!-- UPDATE task 1 -->
+    
+    <h3>Add the class to the player</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Add the class to the player ###</code></pre>
+    <p>Use the player's <code>addClass()</code> method to add the CSS class to the player.</p>
+    <!-- UPDATE task 2 -->
+    
+    <h3>Toggle the CSS applied to the controlbar</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Function called by button that toggles class ###</code></pre>
+    <p>In the event handler function, use the player's <code>toggleClass()</code> method to add/remove the CSS that displays/hides the controlbar.</p>
+  </section>
+  <!-- UPDATE CSS description -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_styling">Application styling</h2>
+    <p>The first two CSS declarations, and the numerous selectors associated with them, are needed to specify the changes to the classes that define the transforms. The second two declarations disable the controlbar rise/fall on <code>mouseEnter</code> and <code>mouseLeave</code> events. If you were to remove the second two declarations, even when the controlbar is hidden, a mouse enter would make it appear.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Plugin_code">Plugin code</h2>
+    <p>Since the button needs to call a function outside the player's scope, it does not make sense to create a plugin for this functionality.</p>
+  </section>
+</article>

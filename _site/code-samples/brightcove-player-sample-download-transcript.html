@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Code Samples</title>
+  <title>Brightcove Player Sample: Download Transcript</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -86,7 +86,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item active" aria-current="page">Code Samples</li>
+      <li class="breadcrumb-item"><a href="/code-samples/">Code Samples</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Download Transcript</li>
     </ol>
   </nav>
 </header>
@@ -811,112 +813,205 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1><i class="far fa-file-code"></i>Code Samples</h1>
-  <summary>
-    <p>The following code samples demonstrate customizations and enhancements to Brightcove Player.</p>
-    <aside class="bcls-aside bcls-aside--information">The code samples marked with double asterisks ** are partially or wholly dependent on Video Cloud features.</aside>
-    <p>For complete documentation, visit the <a href="/index.html">Brightcove Player Developer Documentation Page</a></p>
-  </summary>
-  <br/>
+  <h1>Brightcove Player Sample: Download Transcript</h1>
+  <summary>In this topic, you will learn how to use the captions WebVTT file and convert it into a downloadable transcript.</summary>
   <section class="bcls-section">
-    <table width="100%" border="0">
-      <tbody>
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>The video in the CodePen below uses the following WebVTT file to define captions:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">WEBVTT
+
+00:00.000 --&gt; 00:05.000 align:middle line:90%
+The waves rhythmically pound against the rocks.
+
+00:05.000 --&gt; 00:10.000 align:middle line:84%
+Here in the quaint village of Yachats on the central Oregon coast.
+
+00:10.000 --&gt; 00:15.000 align:middle line:84%
+Come visit and enjoy the surf and sand.
+
+00:15.000 --&gt; 00:19.000 align:middle line:84%
+Remember, it never rains on the Oregon coast!</code></pre>
+    <p>The sample supplies a <strong>Download Transcript</strong> button in the controlbar which downloads a text file with the WebVTT formatting stripped from the file. In essence, it permits the user to download a transcript of the captions based on a modified version of the WebVTT file.</p>
+    <!-- UPDATE codepen here -->
+    
+    <p class="codepen" data-height="478" data-theme-id="34967" data-default-tab="result" data-user="rcrooks1969" data-slug-hash="RdNJMq" style="height: 478px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Download Transcript"><span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/RdNJMq/"> Download Transcript</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</span></p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    
+    <p>View the <a href="https://github.com/BrightcoveLearning/18738-download-transcript">source code</a>.</p>
+    <aside class="bcls-aside bcls-aside--tip">
+      <p>BROWSER DOWNLOAD BEHAVIOR: Browsers have changed how they handle file downloads. Safari, Firefox and Chrome all open the downloaded video in a new window or tab, which generally is not desired behavior. For this reason this sample uses a client-side JavaScript tool to force browsers to do a proper download of the video. For detailed information of the tool see <a href="https://www.npmjs.com/package/downloadjs">https://www.npmjs.com/package/downloadjs</a>.</p>
+    </aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
+    <div class="bcls-expander-content">
+      <p>Here are some tips to effectively use the above CodePen:</p>
+      <ul>
+        <li>Toggle the actual display of the player by clicking the <strong>Result</strong> button.</li>
+        <li>Click the <strong>HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
+          <ol>
+            <li>Click the <strong>EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
+            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="developmentsequence" class="bcls-expander-head">Development sequence</h2>
+    <div class="bcls-expander-content">
+      <p>Here is the recommended development sequence:</p>
+      <ol>
+        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
+        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
+        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
+        <li>Use Studio to add the plugin and CSS to your player</li>
+        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
+      </ol>
+      <p>For details about these steps, review the <a href="/node/18081">Step-by-Step: Plugin Development</a> guide.</p>
+      <h3>iframe or In-Page embed</h3>
+      <p>When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
+      <ul>
+        <li>No collisions with existing JavaScript and/or CSS</li>
+        <li>Automatically responsive</li>
+        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
+      </ul>
+      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
+      <ul>
+        <li>Code in the containing page needs to listen for and act on player events</li>
+        <li>The player uses styles from the containing page</li>
+        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
+      </ul>
+      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+    </div>
+    <!-- id="expanderContent" --></section>
+  <section class="bcls-section">
+    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+    <!-- UPDATE table, remove unneeded columns -->
+    
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
         <tr>
-          <th width="50%" scope="col"> <h2>Categorized</h2></th>
-          <th width="1%" scope="col">&nbsp;</th>
-          <th width="49%" scope="col"> <h2>Alphabetized</h2></th>
+          <th>API Methods</th>
+          <th>API Events</th>
+          <th>API Properties</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on()</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:loadstart">loadstart</a></td>
+          <td><a href="/node/18085">player.mediainfo</a></td>
         </tr>
         <tr>
-          <td valign="top"><strong>Advertising</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-ad-countdown-timer.html">Ad Countdown Timer</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-ad-indicators-playback-bar.html">Ad Indicators in Playback Bar</a></li>
-              <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with the SSAI Plugin</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-outstream-ad-only-player.html">Outstream (Ad-Only) Player</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-scrolling-player-view-ads.html">Scrolling Player into View with Ads</a></li>
-            </ul>
-            <p><strong>Audio</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-automatically-set-audio-track-language.html">Automatically Set Audio Track Language</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Download Audio Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-horizontal-volume-control.html">Horizontal Volume Control (1.x Player Only)</a></li>
-            </ul>
-            <p><strong>Call to Action</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-cue-points-display-cta.html">Cue Points Display CTA</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamic-call-action.html">Dynamic Call to Action</a>**</li>
-            </ul>
-            <p><strong>Communicate with iFrame</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-playpause-video-iframe-parent.html">Play/Pause Video from iframe Parent</a></li>
-            </ul>
-            <p><strong>Control Playback Behavior</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-autoplay-unmute-button.html">Autoplay with Unmute Button for iOS/Safari/Chrome</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-back-and-forward-buttons.html">Back and Forward Buttons</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-creating-video-loop.html">Creating a Video Loop</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-disable-forward-scrubbing.html">Disable Forward Scrubbing</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-password-view-video.html">Password to View Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-stopping-other-players-page-when-video-starts.html">Stopping Other Players on the Page when a Video Starts</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-variable-speed-playback.html">Variable Speed Playback</a></li>
-            </ul>
-            <p><strong>Control Player Loading</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-loading-player-dynamically.html">Loading the Player Dynamically</a></li>
-              <li><a href="/coding-topics/requirejs-and-brightcove-player.html">RequireJS and Brightcove Player</a></li>
-            </ul>
-            <p><strong>Control Video Currently Playing</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-dynamically-change-source-videos.html">Dynamically Change Source Videos</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-kiosk-app.html">Kiosk App</a>**</li>
-            </ul>
-            <p><strong>Enhance Player Display Behavior</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-automatically-set-caption-language.html">Automatically Set Caption Language</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-background-video.html">Background Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-caption-animation.html">Caption Animation</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-chapter-markers-progress-bar.html">Chapter Markers in Progress Bar</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-display-related-link.html">Display Related Link</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-display-thumbnails-hover.html">Display Thumbnails on Hover</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-display-views-controlbar.html">Display Views in Controlbar</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-display-random-bumpers.html">Display Random Bumpers</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamic-custom-endscreens.html">Dynamic Custom Endscreens</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-carousel.html">Lightbox Carousel</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-scroller.html">Lightbox with Scroller</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-simple-lightbox.html">Lightbox with Single Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-logo-overlay-plugin.html">Logo Overlay Plugin</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-multiple-session-playback.html">Multiple Session Playback</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-navigate-video-end.html">Navigate on Video End</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-scrolling-player-view.html">Scrolling Player into View</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-toggling-overlay.html">Toggling an Overlay</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-trigger-rewind-custom-event.html">Trigger Rewind Using a Custom Event</a></li>
-            </ul>
-            <p><strong>Enhance Player UI</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-add-country-flag-caption-label.html">Add Country Flag to Caption Label</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-back-and-forward-buttons.html">Back and Forward Buttons</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Download Audio Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-download-transcript.html">Download Transcript</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-download-video-plugin.html">Download Video Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-toggle-controlbar.html">Toggle Controlbar</a></li>
-            </ul>
-            <p><strong>Error Handling</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-live-custom-error-message.html">Live Custom Error Message</a></li>
-            </ul></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/CustomControlSpacer.html#el">player.controlBar.customControlSpacer.el()</a></td>
           <td>&nbsp;</td>
-          <td valign="top"><ul>
-              <li></li>
-            </ul></td>
+          <td>&nbsp;</td>
         </tr>
       </tbody>
     </table>
+    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/node/18132">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
+  <!-- UPDATE player and HTML configuration -->
+  
+  <section class="bcls-section">
+    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+    <h3>Player configuration</h3>
+    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
+    <h3>Other HTML</h3>
+    <p>No other HTML elements are added to the page.</p>
+  </section>
+  <!-- UPDATE application flow -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_flow">Application flow</h2>
+    <p>The basic logic behind this application is:</p>
+    <ul>
+      <li>Build a regular expression to remove the WebVTT formatting from the file.</li>
+      <li>Wait for the <code>loadstart</code> event and retrieve the URL to the captions WebVTT file.</li>
+      <li>Build a button and place it in the controlbar.</li>
+      <li>On button click, download the remote WebVTT file using an <code>XMLHttpRequest()</code> object.</li>
+      <li>Use the <code>download</code> JavaScript library to have the browser download the file.</li>
+    </ul>
+    <!-- UPDATE task 2 -->
+    
+    <h3>Define the regular expression</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Define the regular expression ###</code></pre>
+    <p>You need to create a regular expression to remove any unwanted formatting from the WebVTT file. In this case, the regex removes lines that start with the standard way to define times in a WEBVTT file. If you are not a regex expert, you might find <a href="https://txt2re.com/">https://txt2re.com/</a> of help.</p>
+    <!-- UPDATE task 1 -->
+    
+    <h3>Retrieve URL and get file</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Retrieve the URL for the text track, which is in this case a WebVTT caption file ###</code></pre>
+    <p>You must wait for the <code>loadstart</code> event to access the <code>mediainfo</code> property, which contains the text track information. Note that if the page is served from a secure (<strong>https</strong>) page, you must alter the URL to the file to also use a secure connection. Once you have the correct URL, you then call the <code>getFile()</code> method that actually returns the file. Finally, you use the JavaScript <code>replace()</code> method in conjunction with the regular expression to reformat the text.</p>
+    <!-- UPDATE task 3 -->
+    
+    <h3>Build a button and place it in the controlbar</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Create button and place in player ###</code></pre>
+    <p>An HTML <strong>button</strong> element is built and placed in the controlbar. Note that the <code>click</code> event listener is also dynamically added. In this case, the button is place in the <code>spacer</code> region of the controlbar. For further details on the <code>spacer</code>, see the <a href="/node/18066">Customizing Player Appearance</a> document.</p>
+    <!-- UPDATE task 4 -->
+    
+    <h3>Get the file based on URL provided</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### Function that gets the actual file based on URL ###</code></pre>
+    <p>This function uses AJAX, via an <code>XMLHttpRequest</code> object, to retrieve the file. Asynchronous behavior dictates the use of a callback function.</p>
+    <!-- UPDATE task 5 -->
+    
+    <h3>Download the modified file to the user computer</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript">// ### download function used for graceful browser download ###</code></pre>
+    <p>As mentioned earlier in this document, the default browsers' behaviors as most likely NOT what you wish to happen, that is a new tab or window being opened to display the file. This JavaScript tool forces a file download of the text file.</p>
+  </section>
+  <!-- UPDATE CSS description -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_styling">Application styling</h2>
+    <p>The CSS sets the buttons colors and position in the controlbar.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Plugin_code">Plugin code</h2>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+var myPlayer = this;
+});</code></pre>
+    <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+var myPlayer = this;
+...
+});</code></pre>
+    <!-- UPDATE path to plugin's JavaScript -->
+    
+    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18738-download-transcript/blob/master/plugin/download-transcript.js">download-transcript.js</a>.</p>
+    <h3>Using the plugin with a player</h3>
+    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
+    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="/node/14053">Configuring Player Plugins</a> document.</aside>
   </section>
 </article>
 
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
       
     </div>
   </div>
@@ -1005,6 +1100,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
   
   <script src="/assets/js/sites_nav.js"></script>
   <script src="/assets/js/feedback.js"></script>
