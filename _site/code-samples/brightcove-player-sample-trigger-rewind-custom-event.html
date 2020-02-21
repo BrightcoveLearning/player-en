@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Brightcove Player Sample: Live Custom Error Message</title>
+  <title>Brightcove Player Sample: Trigger Rewind with a Custom Event</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -86,9 +86,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item"><a href="/samples/">Brightcove Player Samples</a></li>
+      <li class="breadcrumb-item"><a href="/code-samples/">Code Samples</a></li>
       
-      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Live Custom Error Message</li>
+      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Trigger Rewind with a Custom Event</li>
     </ol>
   </nav>
 </header>
@@ -802,21 +802,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1>Brightcove Player Sample: Live Custom Error Message</h1>
-  <summary>In this topic, you will learn how to display a custom overlay image when a user tries to play a live video stream that is not available.</summary>
+  <h1>Brightcove Player Sample: Trigger Rewind with a Custom Event</h1>
+  <summary>In this topic, you will learn how to implement a rewind button by dispatching and listening for a custom event.</summary>
+  <section class="bcls-section">
+    <h2 id="Overview">Overview</h2>
+    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>Even though the Brightcove player provides a number of out-of-the-box events, you may want to use your own custom events to decouple and eliminate dependencies between DOM objects and event listeners. This event-driven model is an architectural choice that you may want to consider.</p>
+    <p>This sample adds a back button to the control bar. When the user clicks the back button, a custom event is triggered along with the amount of time to rewind. The custom event listener finds the current video position and rewinds the video.</p>
+  </section>
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
     
-    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-    <p>The player will not be able to connect to the live stream. A ModalDialog object is created, a custom image placed in it, and then the ModalDialog displayed. If the ModalDialog is closed, the default error is shown.</p>
-    <aside class="bcls-aside bcls-aside--information">Note: You will not see the <strong>PLEASE STAND BY</strong> image that is in the custom ModalWindow immediately as a timeout must be reached before the player gives up and dispatches an error. The timeout is about 10 seconds.</aside>
+    <p style="float:left">Start video playback. Then click on the back button:</p>
+    <div><img style="width:40px;height:40px;margin-top:-10px;" alt="rewind video button" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/custom-event/back-button.png" /></div>
+    <p style="clear:both;">You should see that video playback goes back 5 seconds.</p>
     <!-- UPDATE codepen here -->
     
-    <p data-height="514" data-theme-id="34967" data-slug-hash="ZaqKbL" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="18199-live-custom-error-message" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/ZaqKbL/">18199-live-custom-error-message</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <p data-height="475" data-theme-id="34967" data-slug-hash="mBWvKb" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="18150-trigger-rewind-custom-event" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/mBWvKb/">18150-trigger-rewind-custom-event</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
     
-    <p>View the <a href="https://github.com/BrightcoveLearning/18384-brightcove-player-sample-live-custom-error-message">source code</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18150-trigger-rewind-custom-event">source code</a>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
@@ -872,39 +878,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <th>API Methods</th>
           <th>API Events</th>
-          <th>API Properties</th>
         </tr>
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#addChild">addChild()</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:error">error</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/MediaError.html#code">player.error().code</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Spacer.html#addChild">spacer.appendChild()</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.trigger">trigger</a></td>
         </tr>
         <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on()</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html#event:modalclose">modalclose</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#duration">duration()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html#hide">player.errorDisplay.hide()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html#show">player.errorDisplay.show()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#currentTime">currentTime()</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on</a></td>
         </tr>
       </tbody>
     </table>
-    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/node/18132">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
+  </section>
   <!-- UPDATE player and HTML configuration -->
   
   <section class="bcls-section">
@@ -913,7 +900,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Player configuration</h3>
     <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
     <h3>Other HTML</h3>
-    <p>No other HTML elements are added to the page.</p>
+    <p>Remember to add the <code>id</code> attribute to the <code>video-js</code> tag in the player embed code.</p>
+    <pre>
+<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+...</code></pre>
   </section>
   <!-- UPDATE application flow -->
   
@@ -921,58 +911,45 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Create an instance of a ModalDialog and place a custom image inside of it.</li>
-      <li>Listen for an error, and if it is the correct error type, display the custom ModalDialog.</li>
-      <li>If the viewer of the video chooses to close the custom ModalDialog, display the default error message.</li>
+      <li>Create a new element in the DOM for the rewind button.</li>
+      <li>Add the rewind button to the player control bar.</li>
+      <li>Listen for when a user clicks on the rewind button. When clicked, trigger your custom event with data.</li>
+      <li>Listen for the custom event with data and rewind video playback based on the data defined.</li>
     </ul>
     <!-- UPDATE task 1 -->
     
-    <h3>Create an HTML <code>div</code> element</h3>
+    <h3>Add elements to the DOM</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Create a div in which to place HTML content and place image inside ###</code></pre>
-    <p>You create an HTML <code>div</code> element and place an image in it you wish to display if the live feed is not working.</p>
+<code class="language-javascript">// +++ Add elements to the DOM +++</code></pre>
+    <p>Create a new <code>&lt;div&gt;</code> element in the DOM and assign an <code>id</code> attribute with a value of <strong>backButton</strong>. Create a new <code>&lt;img&gt;</code> element in the DOM and assign the <code>src</code> attribute with the URL to your rewind button.</p>
     <!-- UPDATE task 2 -->
     
-    <h3>Build an object in which the HTML <code>div</code> element will be placed</h3>
+    <h3>Add rewind button to the control bar</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Define options object to be used for modal content ###</code></pre>
-    <p>This is needed when you create the ModalDialog.</p>
+<code class="language-javascript">// +++ Add rewind button to the control bar +++</code></pre>
+    <p>Get the <code>spacer</code> element in the control bar, and add the rewind button elements to it.</p>
     <!-- UPDATE task 3 -->
     
-    <h3>Create the ModalDialog and place the image as its content</h3>
+    <h3>Listen for the rewind button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Create Modal with options object ###</code></pre>
-    <p>This is standard code to create a ModalDialog instance and add it to the player. By default it is NOT displayed.</p>
-    <!-- UPDATE task 3 -->
+<code class="language-javascript">// +++ Listen for the rewind button +++</code></pre>
+    <p>To the <code>backButton</code> element, add a listener for the <code>onclick</code> event. When clicked, trigger your custom event with data.</p>
+    <!-- UPDATE task 4 -->
     
-    <h3>Listen for an error to be dispatched</h3>
+    <h3>Listen for rewind event</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Listen for an error event ###</code></pre>
-    <p>When an error is dispatched get the error code and duration.</p>
-    <!-- UPDATE task 3 -->
-    
-    <h3>Check the error type</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="language-javascript">// ### Check if the error code and duration mean no video has loaded ###</code></pre>
-    <p>To check if a live stream is not playing you first check that the <code>code</code> is <strong>4</strong> (<strong>MEDIA_ERR_SRC_NOT_SUPPORTED</strong>) and the <code>duration</code> is <strong>0</strong>. If that is true, you want to hide the default error that is displayed and show the custom ModalDialog instance.</p>
-    <!-- UPDATE task 3 -->
-    
-    <h3>Display default error is custom ModalDialog is closed</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="language-javascript">// ### If custom modal error closed, show the default error ###</code></pre>
-    <p>This is done only if you wish to implement this behavior. Simply listen for the <code>modalclose</code> event and in its event handler show the default error.</p>
+<code class="language-javascript">// +++ Listen for rewind event +++</code></pre>
+    <p>Listen for your custom event with data. When triggered, rewind video playback based on the <code>rewindAmt</code> defined in the code..</p>
   </section>
   <!-- UPDATE CSS description -->
   
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
-    <p>The only CSS simply sizes the player.</p>
+    <p>CSS is used to size the player and to position and size the rewind button in the control bar.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
@@ -991,10 +968,50 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 });</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
     
-    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18384-brightcove-player-sample-live-custom-error-message/blob/master/plugin/liveCustomError.js">liveCustomError.js</a>.</p>
-    <h3>Using the plugin with a player</h3>
-    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
-    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="/node/14053">Configuring Player Plugins</a> document.</aside>
+    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18150-trigger-rewind-custom-event/blob/master/plugin/custom-event.js">custom-event.js</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Understanding_Custom_events">Understanding Custom events</h2>
+    <p>Custom events allow you to decouple and eliminate dependencies between DOM objects and event listeners, creating an event-driven architectural model.</p>
+    <h3>Dispatch</h3>
+    <p>To dispatch a custom event, use the <code>trigger()</code> method as follows:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">// trigger a custom event
+myPlayer.trigger('eventName');
+or
+// trigger a custom event with data
+myPlayer.trigger('eventName', {data: 'some data'});</code></pre>
+    <p>For details about dispatching custom events, see the <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#trigger__anchor">Player API index</a>.</p>
+    <p>In this sample, the code does the following:</p>
+    <ul>
+      <li>Dispatches a custom event, named <code>rewind</code></li>
+      <li>Sends a data object with a name of <code>amount</code> and a value of <code>5</code> - You'll see in the JavaScript code where this value is set</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-javascript">// trigger a custom event with data
+myPlayer.trigger('rewind', {'amount': rewindAmount});</code></pre>
+    <h3>Listen</h3>
+    <p>To listen for a custom event, you can use the <code>on()</code> method as follows:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">// listen for a custom event
+player.on('eventName', function(evt){});
+or
+// listen for a custom event with data
+player.on('eventName', function(evt,data){});</code></pre>
+    <p>You can also use the <code>one()</code> method if you want the event listener to be triggered only once and then removed. For details about listening for events, see the <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#on__anchor">Player API index</a>.</p>
+    <p>In this sample, the code does the following:</p>
+    <ul>
+      <li>Listens for a custom event, named <code>rewind</code></li>
+      <li>Passes the event and data objects into a function</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-javascript">// listen for a custom event with data
+ myPlayer.on('rewind',function(evt,data){
+});</code></pre>
+    <p>When you display the event and data objects in the console, it should look similar to this:</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Custom event data" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/custom-event/custom-event-data.png" />
+      <figcaption class="bcls-caption--image">Custom event data</figcaption>
+    </figure>
   </section>
 </article>
 
@@ -1013,7 +1030,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 20 Feb 2020
+  Page last updated on 21 Feb 2020
 </div>
 
 <footer class="bcls-footer" role="contentinfo">
