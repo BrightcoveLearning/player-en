@@ -1,0 +1,129 @@
+---
+title: Localizing Plugins
+parent: Coding Topics
+---
+<article class="bcls-article">
+  <h1>Localizing Plugins</h1>
+  <summary>In this topic you will learn how a plugin developer can localize a Brightcove Player plugin. Note that this is NOT the same as using the built-in localization for the player itself.
+    </p>
+    <p>As is suggested in the <a href="/node/18081">Quick Start to Plugin Development</a>, the application will be developed locally then converted into a plugin.
+  </summary>
+  <section id="addlanguage" class="bcls-section">
+    <h2>Add language(s)</h2>
+    <p>You can choose the languages to support in a plugin. For each language you wish to support you must have a set of key-value pairs with the English language as the key and the corresponding localized language as a value. You do this by using Videojs' <code>addLanguage()</code> method. The following code shows adding German translations to a page:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">videojs.addLanguage('de', {
+  "Hello": "Guten Tag",
+  "Goodbye": "Auf Wiedersehen",
+});</code></pre>
+  </section>
+  <section id="localizecontent" class="bcls-section">
+    <h2>Localize content</h2>
+    <p>Once you have added the languages and vocabulary you wish to use in the localization process you can use the player's <code>localize()</code> method to perform the actual localization. The following shows a string being injected into an HTML <code>&lt;span&gt;</code>, then appended to the end of the video tag:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">  textSpan = document.createElement('span');
+  textSpan.className = "localizeStyle"
+  <span class="bcls-highlight">textSpan.innerHTML = myPlayer.localize("Hello") + "/" + myPlayer.localize("Goodbye");</span>
+  myPlayer.el().appendChild(textSpan);</code></pre>
+    <p>The <code>localize()</code> method takes the English key word as a string argument, <code>myPlayer.localize("Hello")</code>, and displays that string unless the browser's preferred language is available, in which case the localized word will be substituted.</p>
+  </section>
+  <section id="setdisplaylanguage" class="bcls-section">
+    <h2>Set display language</h2>
+    <p>To display the localized text, the user must set the preferred language in the browser. The exact steps vary depending on browser and OS.</p>
+    <p>If the browser's preferred language is English, or a language not available, you will see the default, or English, text.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="localize english" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/localize-plugins/localize-plugin-english.png" /></figure>
+    <p>If the browser's preferred language is set to an available language, you will see the localized version, as shown here:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="localize german" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/localize-plugins/localize-plugin-deutsch.png" /></figure>
+  </section>
+  <section id="plugincode" class="bcls-section">
+    <h2>Plugin code</h2>
+    <p>As documented in the <a href="/node/18081">Step-by-Step: Plugin Development</a>, you put the code into a file that contains the plugin.</p>
+    <ul>
+      <li>Lines 27,37: Standard syntax to define a Brightcove Player plugin. Notice for later reference the name of the plugin is <strong>pluginLocalize</strong>.</li>
+      <li>Lines 28-31: Adds German language localization.</li>
+      <li>Lines 32-36: Dynamically creates an HTML <code>span</code> element, populates it and appends it to the player code.</li>
+    </ul>
+    <pre class="line-numbers" data-start="27">
+<code class="language-javascript">videojs.registerPlugin('pluginLocalize', function() {
+  videojs.addLanguage('de', {
+      "Hello": "Guten Tag",
+      "Goodbye": "Auf Wiedersehen",
+  });
+  var myPlayer = this,
+  textSpan = document.createElement('span');
+  textSpan.className = "localizeStyle"
+  textSpan.innerHTML = myPlayer.localize("Hello") + "/" + myPlayer.localize("Goodbye");
+  myPlayer.el().appendChild(textSpan);
+});</code></pre>
+    <p>For testing purposes, use the plugin locally in a page that utilizes the embed_in_page player implementation.</p>
+    <pre class="line-numbers">
+<code class="language-html">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Localize Plugin Example&lt;/title&gt;
+  <span class="bcls-highlight">&lt;link href="localize-plugin.css" rel="stylesheet"&gt;</span>
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;video-js id="myPlayerID"
+    data-account="1752604059001"
+    data-player="9a2e3f23-d63b-43c3-aae9-21f11548e812"
+    data-embed="default"
+    data-video-id="3851389913001"
+    class="video-js" controls&gt;&lt;/video-js&gt;
+  &lt;script src="https://players.brightcove.net/1752604059001/9a2e3f23-d63b-43c3-aae9-21f11548e812_default/index.min.js"&gt;&lt;/script&gt;
+
+<span class="bcls-highlight">  &lt;script type="text/javascript" src="localize-plugin.js"&gt;&lt;/script&gt;
+  &lt;script&gt;videojs.getPlayer('myPlayerID').pluginLocalize();&lt;/script&gt;</span>
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+  </section>
+  <section id="addplugintoplayer" class="bcls-section">
+    <h2>Add plugin to player</h2>
+    <p>Once you have confirmed the plugin is functioning correctly, you will want to add the plugin to the player. To do this, follow these steps:</p>
+    <ol class="bcls-tasklist">
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>Next, click <strong>Add a Plugin</strong>.</li>
+      <li>For the <strong>Plugin Name</strong> enter <code>pluginLocalize</code>.</li>
+      <li>For the <strong>JavaScript</strong> URL, enter:
+        <pre>
+<code class="notranslate language-json">http://solutions.brightcove.com/bcls/brightcove-player/localization/localize-plugin.js</code></pre>
+      </li>
+      <li>For the <strong>CSS</strong> URL, enter:
+        <pre>
+<code class="notranslate language-json">http://solutions.brightcove.com/bcls/brightcove-player/localization/localize-plugin.css</code></pre>
+      </li>
+      <li>You do not have to enter any options for this plugin.</li>
+      <li>Check to be sure your form appears similar to the following:
+        <figure class="bcls-figure"><img class="bcls-image" alt="add localize plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/localize-plugins/localize-add-plugin.png" /></figure>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+    <p>Once you have saved and published, you can alter the configuration by click on the plugin name in the <strong>Plugins</strong> list.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="add localize plugin done" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/localize-plugins/localize-add-plugin-done.png" /></figure>
+    <p>The plugin is now part of the player. This permits you to use the iframe player implementation with no other supporting code and have the plugin's functionality available.</p>
+    <pre class="line-numbers">
+<code class="language-html">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Localize Plugin - iframe&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;iframe src='https://players.brightcove.net/1752604059001/9a2e3f23-d63b-43c3-aae9-21f11548e812_default/index.html'
+    allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </section>
+</article>

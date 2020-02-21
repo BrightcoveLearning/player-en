@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Brightcove Player Documentation</title>
+  <title>Step-by-Step: Plugin Development</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -82,9 +82,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb arr-right">
       
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
       
       
-      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Documentation</li>
+      
+      <li class="breadcrumb-item"><a href="/coding-topics/">Coding Topics</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Step-by-Step: Plugin Development</li>
     </ol>
   </nav>
 </header>
@@ -640,160 +644,230 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1>Brightcove Player Documentation</h1>
-  <p>Brightcove Player development allows you to customize, integrate with, or add functionality to your players. Development tools are the Player API, and the standard web technologies of HTML5, CSS and JavaScript.</p>
-  <p>Check out the extensive list of <a href="http://support.brightcove.com/brightcove-player-developer-code-samples">code samples</a> for player customization possibilities.</p>
-  <p>Brightcove Player version:</p>
-  <p>Current: <a href="http://support.brightcove.com/brightcove-player-release-notes">v6.38.4</a></p>
-  <p>Pre-release: <a href="http://support.brightcove.com/brightcove-player-pre-release">v6.39.1</a></p>
-  <section class="card-wrapper">
-    <section onclick="window.location.pathname = '/getting-started/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-location-arrow"></i> </div>
-      <div class="card-content">
-        <h2><a href="/getting-started/index.html">Getting Started</a></h2>
-        <p>Just getting started with Brightcove Player?</p>
+  <h1>Step-by-Step: Plugin Development</h1>
+  <summary>In this topic you will learn via a hands-on introduction about plugin development and use.</summary>
+  <section id="developmentapproach" class="bcls-section">
+    <h2>Development approach</h2>
+    <p>The JavaScript and CSS you develop for plugins will eventually need to be stored in an Internet accessible location, but it is recommended that during development you create and test locally. To do this, you will perform the following:</p>
+    <ul>
+      <li>Create a file to contain your JavaScript plugin code</li>
+      <li>Create a file to contain your CSS plugin code (if needed)</li>
+      <li>Create an HTML file for testing. Use the <code class="notranslate">embed_in_page</code> implementation for the player</li>
+      <li>Add an <code class="notranslate">id</code> to the <code class="notranslate">&lt;video-js&gt;</code> tag</li>
+      <li>Link to the JavaScript and CSS pages</li>
+      <li>Use a <code class="notranslate">&lt;script&gt;</code> tag to call the function</li>
+      <li>Develop and debug your code</li>
+    </ul>
+    <p>The rest of this document guides you through these steps to build and deploy a simple plugin.</p>
+  </section>
+  <section id="buildthebasics" class="bcls-section">
+    <h2>Build the basics</h2>
+    <p>To begin the process of building a plugin, you need to perform some of the foundational, high-level steps mentioned above.</p>
+    <ol class="bcls-tasklist">
+      <li>Create a folder named <code class="notranslate">plugin-dev</code> that can be browsed using an actual HTTP server. The server is necessary for the iframe implementation testing later in this document.</li>
+      <li>In the folder, create three files with the following names:
         <ul>
-          <li></li>
+          <li><strong class="notranslate">plugin-dev.html</strong> (Insert the basic elements for an HTML page into the file)</li>
+          <li><strong class="notranslate">plugin-dev.js</strong></li>
+          <li><strong class="notranslate">plugin-dev.css</strong></li>
         </ul>
-        <p><a href="/getting-started/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/references/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fal fa-books"></i> </div>
-      <div class="card-content">
-        <h2><a href="/references/index.html">References</a></h2>
-        <p>Brightcove Player References</p>
+      </li>
+      <li>Using Studio's <strong class="notranslate">Players</strong> module, create a new player.</li>
+      <li class="video-cloud-only">In the <strong class="notranslate">Media</strong> module, select a video and publish it with the newly created player.</li>
+      <li class="player-only">Using the <strong class="notranslate">VIDEO CONTENT</strong> section, associate a video with the player, then save and publish the player.</li>
+      <li class="video-cloud-only">Copy the <strong class="notranslate">Advanced</strong> code and paste into the body of the <code class="notranslate">plugin-dev.html</code> page.</li>
+      <li class="player-only">From the <strong class="notranslate">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong class="notranslate">Advanced Embed Code</strong> code and paste into the body of the <code class="notranslate">plugin-dev.html</code> page.</li>
+      <li>Add an <code class="notranslate">id</code> attribute to the <code class="notranslate">&lt;video-js&gt;</code> tag with a value of <code class="notranslate">player</code>.</li>
+      <li>Check to be sure your HTML page appears similar to the following <span class="player-only">(Brightcove Player customers will not have a <code class="notranslate">data-video-id</code> property)</span>:
+        <pre class="line-numbers">
+<code class="language-html notranslate">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Quick Start Plugin Dev&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;video-js id="player"
+    data-video-id="4607746980001"
+    data-account="1507807800001"
+    data-player="Bk6LLayNQ"
+    data-embed="default"
+    class="video-js" controls&gt;&lt;/video&gt;
+  &lt;script src="https://players.brightcove.net/1507807800001/Bk6LLayNQ_default/index.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+      </li>
+      <li>Browse the page to be sure your video is playing.</li>
+    </ol>
+  </section>
+  <section id="javascript" class="bcls-section">
+    <h2>Create JavaScript</h2>
+    <p>Next you will create and test the JavaScript code to build an overlay for the video.</p>
+    <ol class="bcls-tasklist">
+      <li>Open the file <code class="notranslate">plugin-dev.js</code> and paste in the following JavaScript code:
+        <pre class="line-numbers">
+<code class="language-javascript notranslate">videojs.registerPlugin('pluginDev', function() {
+  var player = this,
+  overlay = document.createElement('p');
+  overlay.className = 'vjs-overlay';
+  overlay.innerHTML = "Becoming a plugin developer";
+  player.el().appendChild(overlay);
+});</code></pre>
+        <aside class="bcls-aside bcls-aside--information">Note: for version 5.x and earlier players, you must use <code class="notranslate">videojs.plugin()</code> instead of <code class="notranslate">videojs.registerPlugin()</code></aside>
+      </li>
+      <li>Check your understanding of each line inserted:
         <ul>
-          <li></li>
+          <li>Lines 1 and 7 are the standard syntax to begin and end a new player plugin. In this case, the plugin name is <code class="notranslate">pluginDev</code>.</li>
+          <li>Line 2 is a standard way to have a way to get a handle to the player. This is necessary to call methods of the player, which you will do later.</li>
+          <li>Line 3 creates a paragraph element in the document and assigns it to the <code class="notranslate">overlay</code> variable.</li>
+          <li>Line 4 assigns a class to the overlay which will be used later in conjunction with CSS.</li>
+          <li>Line 5 adds text to the paragraph element.</li>
+          <li>Line 6 uses the <code class="notranslate">el()</code> method of the player to retrieve the player's DOM element, then appends the new paragraph element to that DOM.</li>
         </ul>
-        <p><a href="/references/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/plugins/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-plug"></i> </div>
-      <div class="card-content">
-        <h2><a href="/plugins/index.html">Plugins</a></h2>
-        <p>Brightcove Player Plugins</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/plugins/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/advertising/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-ad"></i> </div>
-      <div class="card-content">
-        <h2><a href="/advertising/index.html">Advertising</a></h2>
-        <p>Advertising</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/advertising/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/publish/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-browser"></i> </div>
-      <div class="card-content">
-        <h2><a href="/publish/index.html">Publishing Videos & Players</a></h2>
-        <p>Publishing Videos & Players</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/publish/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/troubleshooting/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-exclamation-triangle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/troubleshooting/index.html">Troubleshooting & Error Handling</a></h2>
-        <p>Troubleshooting & Error Handling</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/troubleshooting/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/styling/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-hat-wizard"></i> </div>
-      <div class="card-content">
-        <h2><a href="/styling/index.html">Styling & Appearance</a></h2>
-        <p>Styling & Appearance</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/styling/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/playback/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fal fa-play-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/playback/index.html">Playback</a></h2>
-        <p>Playback</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/playback/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/content-protection/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-lock-alt"></i> </div>
-      <div class="card-content">
-        <h2><a href="/content-protection/index.html">DRM & Content Protection</a></h2>
-        <p>DRM & Content Protection</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/content-protection/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/general/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-info-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/general/index.html">General Information</a></h2>
-        <p>General information about the Brightcove Player.</p>
-        <ul>
-          <li></li>
-        </ul>
-        <p><a href="/general/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/get-started/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-chalkboard-teacher"></i> </div>
-      <div class="card-content">
-        <h2 id="training"><a href="/get-started/index.html">Training</a></h2>
-        <p>On-Demand training and  product training videos.</p>
-        <ul>
-          <li></li>
-        </ul>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/release-notes/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-bell"></i> </div>
-      <div class="card-content">
-        <h2><a href="/release-notes/index.html">Release Notes</a></h2>
-        <p>Learn about new product features and updates.</p>
-        <ul>
-          <li></li>
-        </ul>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/support/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-question-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/support/index.html">Support</a></h2>
-        <p>Have a question or need help?</p>
-        <ul>
-          <li><a href="/support/viewing-brightcove-system-status-page.html">View Brightcove System Status</a></li>
-          <li><a href="/support/opening-case-with-brightcove-support.html">Open a Support Case</a></li>
-        </ul>
-      </div>
-    </section>
+        <aside class="bcls-aside bcls-aside--information">Note: The trailing semicolon at the end of the plugin's JavaScript code (line 7 above) is required.</aside>
+      </li>
+      <li>In the HTML file, add the following code just below the existing <code class="notranslate">&lt;script&gt;</code> tags. This code includes the JavaScript file and then calls the method defined in that JavaScript.
+        <pre class="line-numbers">
+<code class="language-html notranslate">&lt;script type="text/javascript" src="plugin-dev.js"&gt;&lt;/script&gt;
+&lt;script&gt;videojs.getPlayer('myPlayerID').pluginDev();&lt;/script&gt;</code></pre>
+      </li>
+      <li>Browse the HTML page again, and you will see nothing visible has changed. The problem is that the overlay is there, but not visible. You will change this later.</li>
+      <li>To verify the overlay is present, use the development tools of your browser. In the <em>Elements</em> section, check the player's <code class="notranslate">&lt;div&gt;</code> element, and you will see the newly inserted paragraph element, as shown here:
+        <figure class="bcls-figure"><img class="bcls-image" alt="quick-start-overlay-in-elements" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/qs-plugin-dev/quick-start-overlay-in-elements.png" /></figure>
+      </li>
+    </ol>
+  </section>
+  <section id="styletheplugin" class="bcls-section">
+    <h2>Style the plugin</h2>
+    <p>You know the overlay is now part of the player, but not visible. Next you will style the overlay so it becomes visible. In this section of the document, you will use a very simple CSS to ensure the overlay is visible.</p>
+    <ol class="bcls-tasklist">
+      <li>Open the file <code class="notranslate">plugin-dev.css</code> and paste in the following styles:
+        <pre class="line-numbers">
+<code class="language-javascript notranslate">.vjs-overlay {
+    background-color: #333333;
+    color: white;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 20px;
+}</code></pre>
+      </li>
+      <li>In the HTML file, add the following code just below the existing <code class="notranslate">&lt;link&gt;</code> tag. This code links to your newly created CSS file.
+        <pre class="line-numbers">
+<code class="language-html notranslate">&lt;link href="plugin-dev.css" rel="stylesheet"&gt;</code></pre>
+      </li>
+      <li>Browse the HTML page and you will see the overlay is now visible.
+        <figure class="bcls-figure"><img class="bcls-image" alt="quick-start-overlay-showing" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/qs-plugin-dev/quick-start-overlay-showing.png" /></figure>
+      </li>
+    </ol>
+  </section>
+  <section id="passdatatoplugin" class="bcls-section">
+    <h2>Pass data to the plugin</h2>
+    <p>It will often be the case that you want to change the behavior of your plugin at initialization time. This is possible by passing data into the plugin using the <code class="notranslate">options</code> property. In this example you will pass in the text to be displayed in the overlay.</p>
+    <ol class="bcls-tasklist">
+      <li>Open the HTML page and alter the <code class="notranslate">&lt;script&gt;</code> tags so a variable named <code class="notranslate">options</code> is created and assigned an object with a key-value pair of <em>"overlayText":"This data is supplied at initialization"</em>. Also, pass the <code class="notranslate">options</code> variable as an argument when calling the <code class="notranslate">pluginDev()</code> method. The changes should appear as follows:
+        <pre class="line-numbers">
+<code class="language-html notranslate">&lt;script type="text/javascript" src="plugin-dev-copy.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+  <span class="bcls-highlight">var options = {"overlayText": "This data supplied at initialization"};</span>
+&lt;/script&gt;
+<span class="bcls-highlight">&lt;script&gt;videojs.getPlayer('myPlayerID').pluginDev(options);&lt;/script&gt;</span></code></pre>
+      </li>
+      <li>You now need to alter the plugin's JavaScript to use the data passed to the function. Line 110 shows the function accepting the data as a parameter, and line 114 uses the object's data.
+        <pre class="line-numbers">
+<code class="language-javascript notranslate"><span class="bcls-highlight">videojs.registerPlugin('pluginDev', function(options) {</span>
+  var player = this,
+  overlay = document.createElement('p');
+  overlay.className = 'vjs-overlay';
+  <span class="bcls-highlight">overlay.innerHTML = options.overlayText;</span>
+  player.el().appendChild(overlay);
+});</code></pre>
+      </li>
+      <li>Browse the HTML page and you will see the new text being used.
+        <figure class="bcls-figure"><img class="bcls-image" alt="quick-start-options-showing" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/qs-plugin-dev/quick-start-options-showing.png" /></figure>
+      </li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--warning">Note: The process shown in this section of the document, including and calling the plugin via JavaScript, is for development purposes and useful for initial configuration and testing, but not considered a best practice. The best practice is to include the plugin as part of your player configuration Studio (as shown in the following section) even if you're using the embed_in_page implementation.</aside>
+  </section>
+  <section id="deploytheplugin" class="bcls-section">
+    <h2>Deploy the plugin</h2>
+    <p>Once you have the plugin, CSS and player functioning correctly, you need to deploy the assets for proper use. Here is an overview of the steps required for deployment:</p>
+    <ul>
+      <li>Copy/move the JavaScript and CSS files to your remote location</li>
+      <li>Use Studio to add the plugin configuration to the player.</li>
+      <li>Create an HTML file for testing and use the iframe implementation for the player</li>
+      <li>Test for anomalies</li>
+    </ul>
+    <p>You will now be guided through these steps.</p>
+    <ol class="bcls-tasklist">
+      <li>Move your plugin JavaScript and CSS files to an Internet accessible location of your choice.
+        <aside class="bcls-aside bcls-aside--information">If you choose, you can use the files at the location shown below in the example. You could also use the <a href="/node/17911">Delivery System API</a> to store the files in your own repo.</aside>
+      </li>
+      <li>In the folder in which you are working, create another file called <code class="notranslate">plugin-dev-iframe.html</code>.</li>
+      <li>Use Studio's <strong class="notranslate">Players</strong> module to edit the player you created earlier.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>Next click <strong>Add a Plugin</strong>.</li>
+      <li>For the <strong>Plugin Name</strong> enter <code>pluginDev</code>.</li>
+      <li>For the <strong>JavaScript</strong> URL, enter (or your URL):
+        <pre>
+ <code class="notranslate language-json">https://solutions.brightcove.com/bcls/brightcove-player/plugins/plugin-dev.js</code></pre>
+      </li>
+      <li>For the <strong>CSS</strong> URL, enter (or your URL):
+        <pre>
+ <code class="notranslate language-json">https://solutions.brightcove.com/bcls/brightcove-player/plugins/plugin-dev.css</code></pre>
+      </li>
+      <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box.
+        <pre class="line-numbers">
+ <code class="language-json notranslate">{"overlayText": "This data is supplied at initialization"}</code></pre>
+      </li>
+      <li>Your configuration dialog should appear similar to the following:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Plugins dialog" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/qs-plugin-dev/plugins-dialog.png" /></figure>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+      <li class="video-cloud-only">In the <strong class="notranslate">Media</strong> module, select a video and publish it with the newly updated and published player.</li>
+      <li class="video-cloud-only">Copy the <strong class="notranslate">Standard</strong> code and paste into the body of the <code class="notranslate">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:</li>
+      <li class="player-only">From the <strong class="notranslate">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong class="notranslate">Standard Embed Code</strong> code and paste into the body of the <code class="notranslate">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:
+        <pre class="line-numbers">
+<code class="language-html notranslate">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Quick Start Plugin Dev - iframe&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;iframe src='https://players.brightcove.net/1507807800001/Bk6LLayNQ_default/index.html' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+      </li>
+      <li>Browse the HTML page and you should see the plugin functioning correctly with the iframe.</li>
+    </ol>
+  </section>
+  <section id="3rdparty" class="bcls-section">
+    <h2>3rd party libraries</h2>
+    <p>If your plugin has dependencies on 3rd party libraries, for instance jQuery, you need to include them in one of these two ways:</p>
+    <ul>
+      <li>Add the library as another JavaScript file in the <strong class="notranslate">Plugins</strong> section of <strong class="notranslate">Players</strong> module in <span class="video-cloud-only">Video Cloud</span> Studio.</li>
+      <li>Add multiple entries in the <strong class="notranslate">scripts</strong> section of the player configuration in a curl statement.</li>
+    </ul>
+    <p>BE SURE you put the libraries on which your plugin is dependent before your plugin's JavaScript entry in both scenarios listed above. The order of entry DOES matter.</p>
   </section>
 </article>
 
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
       
     </div>
   </div>
@@ -882,6 +956,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
   
   <script src="/assets/js/sites_nav.js"></script>
   <script src="/assets/js/feedback.js"></script>
