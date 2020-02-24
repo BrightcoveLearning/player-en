@@ -63,7 +63,7 @@ parent: Code Samples
         <li>Use Studio to add the plugin and CSS to your player</li>
         <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
       </ol>
-      <p>For details about these steps, review the <a href="https://support.brightcove.com/node/18081">Step-by-Step: Plugin Development</a> guide.</p>
+      <p>For details about these steps, review the <a href="https://support.brightcove.com/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a> guide.</p>
       <h3>iframe or In-Page embed</h3>
       <p>When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
       <ul>
@@ -99,12 +99,12 @@ parent: Code Samples
           <td><a href="https://support.brightcove.com/node/18085">mediainfo.account_id</a></td>
         </tr>
         <tr>
-          <td><a href="https://support.brightcove.com/node/18108#load">catalog.load()</a></td>
+          <td><a href="https://support.brightcove.com/references/player-catalog.html#load">catalog.load()</a></td>
           <td>&nbsp;</td>
           <td><a href="https://support.brightcove.com/node/18085">mediainfo.tags[0]</a></td>
         </tr>
         <tr>
-          <td><a href="https://support.brightcove.com/node/18108#getVideo">catalog.getVideo()</a></td>
+          <td><a href="https://support.brightcove.com/references/player-catalog.html#getVideo">catalog.getVideo()</a></td>
           <td>&nbsp;</td>
           <td><a href="https://support.brightcove.com/node/18085">mediainfo.name</a></td>
         </tr>
@@ -115,8 +115,8 @@ parent: Code Samples
   
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
-    <p>The <a href="https://support.brightcove.com/node/18075">Overlay plugin</a> is defined and initialized in the JavaScript code for this example. The reason it is done here, is that we need to get the related videos metadata before initializing the overlay.</p>
-    <p>If you want to include the Overlay plugin in your player configuration, you can add the Overlay JavaScript and CSS files in Video Cloud Studio's Players module. In the <a href="https://support.brightcove.com/node/14053"><strong>Plugins</strong> section</a>, leave the <strong>Name</strong> property blank, so that you can initialize the plugin within the code.</p>
+    <p>The <a href="https://support.brightcove.com/plugins/display-overlay-plugin.html">Overlay plugin</a> is defined and initialized in the JavaScript code for this example. The reason it is done here, is that we need to get the related videos metadata before initializing the overlay.</p>
+    <p>If you want to include the Overlay plugin in your player configuration, you can add the Overlay JavaScript and CSS files in Video Cloud Studio's Players module. In the <a href="https://support.brightcove.comhttps://studio.support.brightcove.com/players/configuring-player-plugins.html"><strong>Plugins</strong> section</a>, leave the <strong>Name</strong> property blank, so that you can initialize the plugin within the code.</p>
     <h3>Other HTML</h3>
     <p>Remember to add the <code class="notranslate">id</code> attribute to the <code class="notranslate">video</code> tag in the player embed code.</p>
     <pre>
@@ -207,6 +207,6 @@ parent: Code Samples
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18485-related-videos-tags-playback-api/blob/master/plugin/related-videos.js">related-videos.js</a>.</p>
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
-    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="//support.brightcove.com/node/14053">Configuring Player Plugins</a> document.</aside>
+    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="//support.brightcove.comhttps://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
   </section>
 </article>

@@ -1210,7 +1210,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li><strong class="notranslate">newPlaylist</strong>: An array of video sources/objects. <span class="video-cloud-only">The objects can either be manually created or simply a Video Cloud playlist ID or reference ID.</span></li>
     </ul>
-    <p class="video-cloud-only">Although you can use the <code class="notranslate">playlist()</code> method as a setter, it is a best practice to utilize Brightcove Player's catalog functionality to load a playlist, for example&nbsp;<code class="notranslate">myPlayer.catalog.getPlaylist( playlistID )</code> and <code class="notranslate">myPlayer.catalog.load( playlist )</code>. See the <a href="/node/18108">Player Catalog</a> document for more information.</p>
+    <p class="video-cloud-only">Although you can use the <code class="notranslate">playlist()</code> method as a setter, it is a best practice to utilize Brightcove Player's catalog functionality to load a playlist, for example&nbsp;<code class="notranslate">myPlayer.catalog.getPlaylist( playlistID )</code> and <code class="notranslate">myPlayer.catalog.load( playlist )</code>. See the <a href="/references/player-catalog.html">Player Catalog</a> document for more information.</p>
     <aside class="bcls-aside bcls-aside--tip language-editable">If you wish to load the playlist, but NOT have the first video in the playlist placed in the player, in the <code>playlist()</code> method you can set a second parameter to <code>-1</code>. For instance, the following code retrieves a playlist, puts it in the player, but does not load the first video into the player:
       <pre class="line-numbers">
 <code class="language-javascript">myPlayer.catalog.getPlaylist(playlistID, function(error, myPlaylist) {
@@ -1259,7 +1259,7 @@ myPlayer.playlist([{
     <p class="video-cloud-only">An example of a returned Video Cloud playlist (an array of Video Cloud video objects) follows:</p>
     <figure class="bcls-figure"><img class="bcls-image video-cloud-only" alt="Video Cloud playlist object" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vc-object.png" /></figure>
     <figure class="bcls-figure player-only"><img class="bcls-image" alt="playlist object perform" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-perform-object.png" /></figure>
-    <p class="video-cloud-only">The following example shows using the catalog object's <code class="notranslate">getPlaylist()</code> and <code class="notranslate">load()</code> methods to load a Video Cloud playlist. As mentioned previously, this is the recommended approach when using Video Cloud playlists. For more information see the <a href="/node/18108">Player Catalog</a> document.</p>
+    <p class="video-cloud-only">The following example shows using the catalog object's <code class="notranslate">getPlaylist()</code> and <code class="notranslate">load()</code> methods to load a Video Cloud playlist. As mentioned previously, this is the recommended approach when using Video Cloud playlists. For more information see the <a href="/references/player-catalog.html">Player Catalog</a> document.</p>
     <pre class="line-numbers video-cloud-only">
 <code class="language-javascript notranslate">myPlayer = this;
 myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
@@ -1440,13 +1440,13 @@ player.on('playlistchange', function() {
   <section id="playonselect" class="bcls-section">
     <h2>playOnSelect</h2>
     <p>This value is a configuration option that when set to <code class="notranslate">true</code> causes a clicked video from the playlist to start playing, even if the current video in the player was previously paused. By default, clicking a new video from the playlist will load the new video but keep the player paused if it was paused beforehand.</p>
-    <p>Information on to manipulate this value can be found in the <a href="/node/18262">Player Configuration Guide - Playlists section</a>.</p>
+    <p>Information on to manipulate this value can be found in the <a href="/general/player-configuration-guide.html">Player Configuration Guide - Playlists section</a>.</p>
   </section>
   <section id="visualplaylist" class="bcls-section">
     <h2>Visual playlists</h2>
     <p>If you wish to have a visual representation of the playlist in your page you must configure the player to do so. You can update the configuration using Studio, in the <strong class="notranslate">PLAYERS &gt; Styling</strong> section, as shown here (you can choose either a vertical or horizontal playlist):</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="enable playlist in Studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-enable-in-studio.png" /></figure>
-    <p>If you wish, you can also so use the Player Management API to configure you player for playlists. See the <strong class="notranslate">Playlists</strong> section of the <a href="/node/18262#playlists">Player Configuration Guide</a> for complete information.</p>
+    <p>If you wish, you can also so use the Player Management API to configure you player for playlists. See the <strong class="notranslate">Playlists</strong> section of the <a href="/general/player-configuration-guide.html#playlists">Player Configuration Guide</a> for complete information.</p>
     <p>You can programmatically check to see if playlists are enabled by checking if the value of <code class="notranslate">player.playlistUi</code> is defined.</p>
     <pre class="line-numbers">
 <code class="language-javascript notranslate">console.log('myPlayer.playlistUi:', myPlayer.playlistUi);</code></pre>

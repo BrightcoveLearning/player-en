@@ -7,13 +7,13 @@ parent: Advertising
   <summary>This document describes functionality you can implement if you wish to integrate your advertising system with Brightcove Player.</summary>
   <section id="Overview" class="bcls-section">
     <h2>Overview</h2>
-    <p>If your advertising system is compliant with Google IMA3, for instance, you do not need this information but can simply use the existing plugin for IMA3, documented in the <a href="/node/18080">Advertising with IMA3 Plugin Guide</a>.</p>
+    <p>If your advertising system is compliant with Google IMA3, for instance, you do not need this information but can simply use the existing plugin for IMA3, documented in the <a href="/plugins/advertising-ima3-plugin.html">Advertising with IMA3 Plugin Guide</a>.</p>
     <p>If you have determined you need this functionality, this content explains the advertising API framework needed for advertising integrations with the Brightcove Player. You can see two implementations of this framework that Brightcove has produced, those being for Google's IMA3 and FreeWheel (reference documents shown in the next paragraph).</p>
     <p>Again, this document is NOT intended for customers wanting to use an existing ad framework with their videos. Documents more suitable for these customers are:</p>
     <ul>
-      <li><a href="/node/18080">Advertising with IMA3 Plugin</a></li>
-      <li><a href="/node/18140">Advertising with the FreeWheel Plugin</a></li>
-      <li><a href="/node/18468">Implementing Server-Side Ads with the Brightcove Player</a></li>
+      <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with IMA3 Plugin</a></li>
+      <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+      <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Implementing Server-Side Ads with the Brightcove Player</a></li>
     </ul>
   </section>
   <section id="frameworkfunctionality" class="bcls-section">
@@ -31,13 +31,13 @@ parent: Advertising
     <h2>Base knowledge</h2>
     <p>To use and build upon the advertising API framework you will need a thorough understanding of Brightcove Player plugin architecture. The following documents provide this knowledge:</p>
     <ul>
-      <li><a href="/node/18128">Overview: Player Plugins</a></li>
-      <li><a href="/node/18059">Pass Data to the Plugin</a></li>
-      <li><a href="/node/18073">Localizing Plugins</a></li>
+      <li><a href="/plugins/overview-brightcove-player-plugins.html">Overview: Player Plugins</a></li>
+      <li><a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a></li>
+      <li><a href="/coding-topics/localizing-plugins.html">Localizing Plugins</a></li>
     </ul>
     <p>If necessary for you, a quick overview of video advertising from Brightcove's perspective can be found here:</p>
     <ul>
-      <li><a href="/node/18143">Learning Guide: Video Advertising</a></li>
+      <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
     </ul>
   </section>
   <section id="using" class="bcls-section">
@@ -57,7 +57,7 @@ parent: Advertising
     <span class="bcls-highlight">myPlayer.ads();</span>
   });
 &lt;/script&gt;</code></pre>
-    <aside class="bcls-aside bcls-aside--tip">Note: While the <code>ready()</code> method is used to indicate that the player is loaded and ready, the <code>loadedmetadata</code> event is used to indicate that the player content, like ads, is ready to interact with. Here, we are also using the <code>one()</code> method so that our function is executed the first time the plugin is loaded and not every time a video is loaded. For details, see the <a href="/node/18113">Player Events</a> document.</aside>
+    <aside class="bcls-aside bcls-aside--tip">Note: While the <code>ready()</code> method is used to indicate that the player is loaded and ready, the <code>loadedmetadata</code> event is used to indicate that the player content, like ads, is ready to interact with. Here, we are also using the <code>one()</code> method so that our function is executed the first time the plugin is loaded and not every time a video is loaded. For details, see the <a href="/coding-topics/player-events.html">Player Events</a> document.</aside>
     <h3>Configuration options</h3>
     <p>There are a number of configuration options available for the framework. For instance, there is a <code>timeout</code> option. To set this option you would use the following code:</p>
     <pre class="line-numbers">
@@ -170,7 +170,7 @@ parent: Advertising
   <section id="example" class="bcls-section">
     <h2>Examples</h2>
     <h3>Sample implementation</h3>
-    <p>The hands-on exercise section of the <a href="/node/18080#playersmodule">Advertising with IMA3 Plugin Guide</a> walks you through a simple implementation of using a plugin for IMA3 advertising.</p>
+    <p>The hands-on exercise section of the <a href="/plugins/advertising-ima3-plugin.html#playersmodule">Advertising with IMA3 Plugin Guide</a> walks you through a simple implementation of using a plugin for IMA3 advertising.</p>
     <h3>Pseudo code integration</h3>
     <p>Here's pseudo code of what a basic ad integration might look like. This example shows a single preroll ad before each content video, and demonstrates the interaction points offered by the ads plugin. This is not actually a runnable example, as it needs more information as specified in the code comments.</p>
     <pre class="line-numbers">
@@ -203,12 +203,12 @@ parent: Advertising
   <section id="faq" class="bcls-section">
     <h2>FAQ</h2>
     <p class="bcls-question">How can an ad plugin access media metadata?</p>
-    <p class="bcls-answer">For Video Cloud customers, the plugin will access metadata via the <a href="/node/18085">mediainfo</a> object, which will be populated with metadata set in Video Cloud. Brightcove Player customers will be responsible for populating the <a href="/node/18085">mediainfo object manually</a> since they'll be using a non-Video Cloud CMS.</p>
+    <p class="bcls-answer">For Video Cloud customers, the plugin will access metadata via the <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object, which will be populated with metadata set in Video Cloud. Brightcove Player customers will be responsible for populating the <a href="/references/video-metadata-mediainfo.html">mediainfo object manually</a> since they'll be using a non-Video Cloud CMS.</p>
     <p class="bcls-question">How can options be specified for an ad plugin?</p>
-    <p class="bcls-answer">Plugin options can be specified in Studio's <strong>Players &gt; Plugins</strong> section. The player with the plugin containing options can be published using an iframe or in-page embed code, but the plugin options contain static info (e.g., description). You can pass dynamic data to the plugin using the technique shown in the <a href="/node/18059">Pass Data to the Plugin</a> document.</p>
+    <p class="bcls-answer">Plugin options can be specified in Studio's <strong>Players &gt; Plugins</strong> section. The player with the plugin containing options can be published using an iframe or in-page embed code, but the plugin options contain static info (e.g., description). You can pass dynamic data to the plugin using the technique shown in the <a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a> document.</p>
     <p class="bcls-question">How should an ad plugin support Flash-based ads?</p>
     <p class="bcls-answer">Brightcove recommends packaging a Flash-based ad player as part of your ad plugin implementation and overlaying that player over the content while the player is in linear ad mode.</p>
     <p class="bcls-question">How can cue points trigger mid-rolls?</p>
-    <p class="bcls-answer">On cue change, call <code>startLinearAdMode()</code> to begin the midroll. For information on listening for, and setting, cue points see the <a href="/node/18131">Using Cue Points</a> document.</p>
+    <p class="bcls-answer">On cue change, call <code>startLinearAdMode()</code> to begin the midroll. For information on listening for, and setting, cue points see the <a href="/advertising/displaying-ads-using-ad-cue-points.html">Using Cue Points</a> document.</p>
   </section>
 </article>

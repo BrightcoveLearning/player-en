@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Brightcove Player Sample: Logo Overlay Plugin</title>
+  <title>Step-by-Step: Player Management</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -85,9 +85,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item"><a href="/code-samples/">Code Samples</a></li>
+      <li class="breadcrumb-item"><a href="/general/">General Information</a></li>
       
-      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Logo Overlay Plugin</li>
+      <li class="breadcrumb-item active" aria-current="page">Step-by-Step: Player Management</li>
     </ol>
   </nav>
 </header>
@@ -812,194 +812,356 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1>Brightcove Player Sample: Logo Overlay Plugin</h1>
-  <summary>In this topic, you will learn how to create a logo-overlay plugin that uses the standard Overlay plugin to display a logo-overlay for videos, with an optional click-through URL. If you are planning to use the plugin with an iframe implementation of the player, you cannot utilize the click-through URL as the new page will only open in the iframe.</summary>
+  <h1>Step-by-Step: Player Management</h1>
+  <summary>This document provides a hands-on introduction to the basic operations of the Player Management API.</summary>
   <section class="bcls-section">
-    <h2 id="Player_example">Player example</h2>
-    <aside class="bcls-aside bcls-aside--information">Note: Functionality similar to what is shown in this sample is now part of Studio, as shown in the <a href="/node/14051#overlay">Styling Players</a> document. This sample provides more control over logo location, display time, and other options.</aside>
-    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-    <!-- UPDATE description -->
-    
-    <p>The plugin can be used to display any web-ready image overlay on top of the player. You can control the display of the message based on:</p>
+    <h2 id="Introduction">Introduction</h2>
+    <p>In this step-by-step document you will perform the following tasks:</p>
     <ul>
-      <li>Location - the image can be displayed in different locations over the player</li>
-      <li>Player events - such as <code class="notranslate">play</code>, <code class="notranslate">pause</code> or custom events</li>
-      <li>Time interval - at a specified time during video playback</li>
+      <li class="language-editable">Create a player</li>
+      <li class="language-editable">Update the player to autoplay the video</li>
+      <li class="language-editable">Customize a player by adding a plugin</li>
+      <li class="language-editable">Display the configuration for a player</li>
     </ul>
-    <p>In the following example you see a logo displayed in the lower-left of the player. At five seconds into the video the logo will slowly fade out.</p>
-    <!-- UPDATE codepen here -->
-    
-    <p data-height="455" data-theme-id="34967" data-slug-hash="WJoyGx" data-default-tab="result" data-user="bcls" data-embed-version="2" data-pen-title="Logo Overlay Plugin" class="codepen">See the Pen <a href="https://codepen.io/team/bcls/pen/WJoyGx/">Logo Overlay Plugin</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls">@bcls</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
-    <p>View the <a href="https://github.com/BrightcoveLearning/18167-logo-overlay-plugin">source code</a>.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">For details on the API used in this document you can view the <a href="/node/18269">Player Management API Overview</a> document and the <a href="https://docs.brightcove.com/player-management-api/v1/doc/index.html">Player Management API</a> reference.</aside>
+    <aside class="bcls-aside bcls-aside--warning language-editable">The steps in the document involve curl and other command-line tools that are native to Mac and Linux systems, but not part of the Windows operating system. If you are on Windows, you can get these tools by installing <a href="//cygwin.com">cygwin</a>. During the install, you will be prompted for packages to install. Open the <strong>Net</strong> package, then check the <strong>curl</strong> option and then finish the installation. Once you have done this, you will be able to follow the Step-by-Step: Player Management document successfully as written using the cygwin command line. Tools are available to run curl at the normal Windows command line, but not detailed in this document.</aside>
   </section>
   <section class="bcls-section">
-    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
-    <div class="bcls-expander-content">
-      <p>Here are some tips to effectively use the above CodePen:</p>
-      <ul>
-        <li>Toggle the actual display of the player by clicking the <strong class="notranslate">Result</strong> button.</li>
-        <li>Click the <strong class="notranslate">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
-        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
-          <ol>
-            <li>Click the <strong class="notranslate">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
-            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
-            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
-          </ol>
-        </li>
-      </ul>
-    </div>
-  </section>
-  <section class="bcls-section">
-    <h2 id="developmentsequence" class="bcls-expander-head">Development sequence</h2>
-    <div class="bcls-expander-content">
-      <p>Here is the recommended development sequence:</p>
-      <ol>
-        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
-        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
-        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
-        <li>Use Studio to add the plugin and CSS to your player</li>
-        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
-      </ol>
-      <p>For details about these steps, review the <a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a> guide.</p>
-      <h3>iframe or In-Page embed</h3>
-      <p>When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
-      <ul>
-        <li>No collisions with existing JavaScript and/or CSS</li>
-        <li>Automatically responsive</li>
-        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
-      </ul>
-      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
-      <ul>
-        <li>Code in the containing page needs to listen for and act on player events</li>
-        <li>The player uses styles from the containing page</li>
-        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
-      </ul>
-      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
-    </div>
-    <!-- id="expanderContent" --></section>
-  <section class="bcls-section">
-    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
-    <!-- UPDATE table, remove unneeded columns -->
-    
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th>API Methods</th>
-          <th>API Events</th>
-          <th>Brightcove Player Plugins</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.off">off()</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:timeupdate">timeupdate</a></td>
-          <td><a href="/plugins/display-overlay-plugin.html">Display Overlay</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#currentTime">currentTime()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-      </tbody>
-    </table>
-    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/node/18132">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
-  <!-- UPDATE player and HTML configuration -->
-  
-  <section class="bcls-section">
-    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
-    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
-    <h3>Player configuration</h3>
-    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
-    <h3>Other HTML</h3>
-    <p>The <strong>Display Overlay Plugin</strong> JavaScript file is linked to the page using a <code class="notranslate">&lt;script&gt;</code> tag. Note that the CSS for the <strong>Display Overlay Plugin</strong> is NOT linked into the page. Custom CSS is used in the page to make for easier changes.</p>
-  </section>
-  <!-- UPDATE application flow -->
-  
-  <section class="bcls-section">
-    <h2 id="Application_flow">Application flow</h2>
-    <p>The basic logic behind this application is:</p>
+    <h2 id="getstarted">Get started</h2>
+    <p>The approach this step-by-step document takes is to use curl statements to communicate with the Player Service API. The curl tool is used at the command line to transfer data with URL syntax. More information about curl can be obtained from <a href="http://curl.haxx.se/">http://curl.haxx.se</a>.</p>
+    <p>You certainly do not have to use curl as you do in this step-by-step document for simplicities' sake. You can, of course, use your favorite language to communicate with the APIs. Check out the <a href="/node/18449">Setup for Player Management Samples</a> which demonstrates how to use basic authentication, AJAX and JavaScript to write some mini-apps for basic tasks like creating a player, displaying all your players, deleting players, etc.</p>
+    <p>A few preliminary steps need to be taken before you can start using the API. These are:</p>
     <ul>
-      <li>A function is defined that removes the overlay image at the proper time.</li>
-      <li>A function is defined that displays the overlay image at the proper time.</li>
-      <li>The custom configuration options are merged with the default options. Default options are only used if a custom option is not supplied.</li>
-      <li>The function is called that displays the overlay image.</li>
+      <li class="language-editable">Login to Studio. If you have multiple accounts, use the drop-down to select the one in which you'd like to create your new players. For the credential system to work properly, you need to have admin rights on this account. If you are unsure if a user has admin rights, go to the Users Settings page to see Users listed along with their role.</li>
+      <li class="language-editable">In Studio, be sure you have selected <strong>HOME</strong> from the lists of modules. In the top-left corner of the page you, just below the account name, will be able to copy your <strong>Account ID</strong>.
+        <figure class="bcls-figure"><img class="bcls-image" alt="Account ID to copy" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/getting-started/quick-start/acct-id.png" /></figure>
+      </li>
+      <li class="language-editable">At the command line, enter the following to assign the Account ID value to an environment variable:
+        <pre class="line-numbers">
+    <code class="language-bash">export ACCOUNT_ID=<em>YourAccountID</em>
+    </code>
+    </pre>
+      </li>
+      <li class="language-editable">Authentication will be handled by supplying your account email address as part of the curl statement, and then the API will prompt you for a password. Since the email address will be used frequently, also assign that value to an environment variable:
+        <pre class="line-numbers">
+    <code class="language-bash">export EMAIL=<em>YourEmailAddress</em>
+    </code>
+    </pre>
+      </li>
     </ul>
-    <!-- UPDATE task 1 -->
-    
-    <h3>Remove overlay</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="notranslate language-javascript">// ### Remove overlay ###</code></pre>
-    <p>This function is called when the overlay image is initially displayed. The logic in the function checks for when the overlay image should be removed, including if a expiration time has been set. Also, the <code class="notranslate">timeupdate</code> event listener is removed.</p>
-    <!-- UPDATE task 2 -->
-    
-    <h3>Add overlay</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="notranslate language-javascript">// ### Add overlay function ###</code></pre>
-    <p>The Overlay Plugin is called here using the user configuration settings. The settings determine what should be displayed, where it is displayed, and for how long. The <code class="notranslate">timeupdate</code> event listener is added to check for an expiration time.</p>
-    <!-- UPDATE task 3 -->
-    
-    <h3>Build an <code class="notranslate">overlayOptions</code> object</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="notranslate language-javascript">// ### Call function to merge default options with passed in options ###</code></pre>
-    <p>Both the custom configuration options and default options are passed to a function. The function uses the default options only if a corresponding custom option is not passed in.</p>
-    <!-- UPDATE task 3 -->
-    
-    <h3>Call the <code class="notranslate">showoverlay</code> method</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="notranslate language-javascript">// ### Show overlay ###</code></pre>
-    <p>The function that displays the overlay image is called. Depending on the options, the image may be displayed immediately or at a later time.</p>
-  </section>
-  <!-- UPDATE CSS description -->
-  
-  <section class="bcls-section">
-    <h2 id="Application_styling">Application styling</h2>
-    <p>The lengthy CSS defines how the overlay image should look, as well as where the image is displayed. The default CSS for the <strong>Display Overlay Plugin</strong> is NOT used to ease CSS customization.</p>
+    <aside class="bcls-aside bcls-aside--tip language-editable">If you wish to confirm the environment variables have been assigned correctly, you can display them using the <code>echo </code> command, for instance: <code>echo $ACCOUNT_ID </code>.</aside>
+    <p>You are now ready to start using the API.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code class="notranslate">ready()</code> method with the code that defines a plugin.</p>
-    <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
+    <h2 id="createPlayer">Create a player</h2>
+    <p>You can now create a player with a call to the Player Management API. This API call is explained in full detail in the <a href="/node/18269">Player Management API Overview</a> document. It is suggested you copy and paste the following curl statements to the command line.</p>
+    <p>The following steps assist you in creating a player.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Note: If you are not comfortable using curl statements and the command line, many REST-client apps exist. Information on using a REST-client Chrome browser plugin called Postman is detailed in the <a href="/node/17919">Using Postman for HTTP Requests</a> document.</aside>
+    <ol class="bcls-tasklist">
+      <li class="language-editable">The first curl statement creates the player and assigns a name and description. After you paste this statement at the command line and press <em>Enter</em>, you will be prompted for your password.
+        <pre class="line-numbers">
+    <code class="language-bash">curl \
+      --header "Content-Type: application/json" \
+      --user $EMAIL \
+      --request POST \
+      --data '{
+        "name": "My New Player Name v2",
+        "description": "My new player description"
+        }' \
+      https://players.api.brightcove.com/v1/accounts/$ACCOUNT_ID/players</code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="1-16"></code></p> -->
+        
+        <p>You will see the server returns response data in JSON format:</p>
+        <pre class="line-numbers">
+    <code class="language-json">{
+      "id": "S1qN4xeG7",
+      "url": "http://players.brightcove.net/1507807800001/S1qN4xeG7_default/index.html",
+      "embed_code": "&lt;iframe src='//players.brightcove.net/1507807800001/S1qN4xeG7_default/index.html' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;",
+      "embed_in_page": "http://players.brightcove.net/1507807800001/S1qN4xeG7_default/in_page.embed",
+      "preview_url": "http://preview-players.brightcove.net/v2/accounts/1507807800001/players/S1qN4xeG7/preview/embeds/default/master/index.html",
+      "preview_embed_in_page": "http://preview-players.brightcove.net/v2/accounts/1507807800001/players/S1qN4xeG7/preview/embeds/default/master/in_page.embed",
+      "preview_embed_code": "&lt;iframe src='//preview-players.brightcove.net/v2/accounts/1507807800001/players/S1qN4xeG7/preview/embeds/default/master/index.html' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;"
+    }</code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="17-24"></code></p> -->
+        
+        <aside class="bcls-aside bcls-aside--information language-editable">At this time the <code>preview_url </code> and <code>preview_embed_code </code> will not be discussed. Later in this document the differences between preview and published players will be covered.</aside>
+      </li>
+      <li class="language-editable">View your player by using one (or all) of the following values (at this point, there is no video in the player, but you can publish a video using your newly created player using Studio):
+        <ul>
+          <li class="language-editable">Copy the <code>url </code> into a browser to see your player.</li>
+          <li class="language-editable">Copy the <code>embed_code </code> into an HTML page to view your player in an iframe. For this to function properly, the page containing the iframe must be served from an actual HTTP server.</li>
+          <li class="language-editable">The <code>embed_in_page </code> feature's use is detailed in the <a href="/node/18119">Available Options for the Advanced (in-page) Embed Code</a> document.</li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--tip">You can use multiple players on the same HTML page.</aside>
+      </li>
+    </ol>
+  </section>
+  <section id="vcvideo" class="bcls-section video-cloud-only">
+    <h2>Video Cloud videos</h2>
+    <p>Of course you can create a player using a video from your Video Cloud library. Instead of using a <code>media </code> section in the JSON data, you use a <code>video_cloud </code> section. The curl statement below shows player creation using a Video Cloud video's ID.</p>
     <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
-  var myPlayer = this;
-  ...
-});</code></pre>
-    <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-    <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.registerPlugin('pluginName', function(options) {
-  var myPlayer = this;
-  ...
-});</code></pre>
-    <!-- UPDATE path to plugin's JavaScript -->
+    <code class="language-bash">curl \
+      --header "Content-Type: application/json" \
+      --user $EMAIL \
+      --request POST \
+      --data '{
+        "name": "Video Cloud CURL 10 March",
+        "configuration": {
+          "video_cloud": {
+            "video": "4093372393001"
+          }
+        }
+      }' \
+    https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code>
+    </pre>
+    <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="240-252" data-gist-highlight-line="247-249"></code></p> -->
     
-    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18167-logo-overlay-plugin/blob/master/plugin/logo-overlay.js">logo-overlay.js</a>.</p>
-    <h3>Using the plugin with a player</h3>
-    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed. In the case of this plugin, options will most likely be passed to the plugin, in the form:</p>
+    <aside class="bcls-aside bcls-aside--tip language-editable">Instead of using the ID, you can use the video's reference ID with the syntax <code>"video": "ref:1234refid" </code>.</aside>
+    <p>The response is logically equivalent to the response when creating a player using <strong>media/sources/src</strong> as shown above.</p>
+    <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="258-265"></code></p> -->
+    
     <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
-  var myPlayer = this;
-  myPlayer.logoOverlay(
-    {
-      'align': 'bottom-left',
-      'imageURL' : 'https://solutions.brightcove.com/bcls/brightcove-player/logo-overlay/bc-logo.png',
-      'clickThruURL': 'https://support.brightcove.com/',
-      'start': 'loadstart',
-      'end': 5
+    <code class="language-json">{
+    "id": "HJyMlHiuZ",
+    "url": "http://players.brightcove.net/1507807800001/HJyMlHiuZ_default/index.html",
+    "embed_code": "&lt;iframe src="//players.brightcove.net/1507807800001/HJyMlHiuZ_default/index.html" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""&gt;&lt;/iframe&gt;",
+    "embed_in_page": "http://players.brightcove.net/1507807800001/HJyMlHiuZ_default/in_page.embed",
+    "preview_url": "http://preview-players.brightcove.net/v1/accounts/1507807800001/players/HJyMlHiuZ/preview/embeds/default/master/index.html",
+    "preview_embed_code": "&lt;iframe src="//preview-players.brightcove.net/v1/accounts/1507807800001/players/HJyMlHiuZ/preview/embeds/default/master/index.html" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""&gt;&lt;/iframe&gt;"
     }
-  )
-});</code></pre>
-    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
+    </code>
+    </pre>
+    <p>You can see the player's configuration by browsing the URL value returned and change the <strong>index.html</strong> to <strong>config.json</strong>. For the player created by the curl statement above, you would see the following:</p>
+    <pre class="line-numbers">
+    <code class="language-json">{
+      "account_id": "1507807800001",
+      "compatibility": true,
+      "embed_id": "default",
+      "player": {
+        "template": {
+          "name": "single-video-template",
+          "version": "6.5.0"
+        }
+      },
+      "player_id": "HJyMlHiuZ",
+      "player_name": "Video Cloud CURL 10 March",
+      "updated_at": "2017-08-23T17:48:55.622Z",
+      "video_cloud": {
+        "<span class="bcls-highlight">policy_key</span>": "BCpkADawqM2FnBS3InxzDxU4bd4otJdHKvexlXfhs_XgSj3jmBHAsV2xANIvSPd4KiakMbiQM5oYJPopOcJD7vNnPWGPGsnXCO3_ZGdjPmur53WV_a4JUPWHCLt5oiyekN44i24jZzHMB6hT",
+        "video": "4093372393001"
+      }
+    }</code>
+    </pre>
+    <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="269-284" data-gist-highlight-line="270-273"></code></p> -->
+    
+    <p>The <code>policy_key </code> is automatically added to the player's configuration. This is created using the Policy API, and it will allow for special restrictions to be placed on your player for accessing different videos. In other words, the policy key controls which videos can be viewed when.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">You can also add your own policy key to a configuration instead of having one generated. The normal rules for player and player child config interaction apply here: a policy key that is set at the player child level will override any policy key set at the player level.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="updatePlayer">Update a player</h2>
+    <p>You have now performed the basics for creating a player. Next, you will learn how to do a simple update of the player. In this case, you will set the player to autoplay the video in the player, if allowed by the browser.</p>
+    <ol class="bcls-tasklist">
+      <li class="language-editable">In the returned JSON from player creation an <code>id </code> value was displayed. Copy this into a <code>PLAYER_ID </code> environment variable.
+        <pre class="line-numbers">
+    <code class="language-bash">export PLAYER_ID=<em>YourPlayerID</em>
+    </code>
+    </pre>
+      </li>
+      <li class="language-editable">To update the player you will use the HTTP <code>PATCH </code> method. You will send data to update your player. You will set the <code>autoplay</code> option to <code>true</code>. Copy and paste the following curl statement and execute it.
+        <pre class="line-numbers">
+    <code class="language-bash">curl \
+      --header "Content-Type: application/json" \
+      --user $EMAIL \
+      --request PATCH \
+      --data '{
+        "autoplay": true
+      }' \
+    https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="53-74"></code></p></li> --></li>
+      <li class="language-editable">Check to be sure the server returns data which includes the <code>id </code>, <code>preview_url </code> and <code>preview_embed_code </code> values in the following JSON format:
+        <pre class="line-numbers">
+    <code class="language-json">{
+      "id": "S1qN4xeG7",
+      "preview_url": "http://preview-players.brightcove.net/v2/accounts/1507807800001/players/S1qN4xeG7/preview/embeds/default/master/index.html",
+      "preview_embed_in_page": "http://preview-players.brightcove.net/v2/accounts/1507807800001/players/S1qN4xeG7/preview/embeds/default/master/in_page.embed",
+      "preview_embed_code": "&lt;iframe src='//preview-players.brightcove.net/v2/accounts/1507807800001/players/S1qN4xeG7/preview/embeds/default/master/index.html' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;"
+    }</code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="156-160"></code></p> -->
+        
+        <aside class="bcls-aside bcls-aside--information">After an update you have a preview version of the player. The change is NOT reflected in the published version of the player you were working with prior to the update.</aside>
+      </li>
+      <li class="language-editable">Use either the <code>preview_url </code> or <code>preview_embed_code </code> values to see the changes in your player's configuration. You will see autoplay is now true.</li>
+      <li class="language-editable">Now you'll publish the player to push it to the correct location for users to view. Enter the following command:
+        <pre class="line-numbers">
+    <code class="language-bash">curl \
+    --header "Content-Type: application/json" \
+    --user $EMAIL \
+    --request POST \
+    https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/publish
+    </code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="26-30"></code></p> -->
+        
+        <p>Once the player is published you will have players that differ from the preview versions. The published versions differ from the preview versions in these ways:</p>
+        <ul>
+          <li class="language-editable">The JavaScript and CSS are minified, concatenated and inlined into the player directly.</li>
+          <li class="language-editable">A low resolution version of the poster image is generated and inlined into the page to improve perceived load times on networks with a high request-setup time (i.e. cellular data networks).</li>
+          <li class="language-editable">The previous version of the player is saved so it can be recovered if problems are discovered after the update goes live.</li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--information">Note: On player creation (step 1 above) the player is also automatically published. That is why on player creation the JSON response included both published and preview information.</aside>
+      </li>
+      <li class="language-editable">Check to be sure the JSON response from publishing the player appears as follows:
+        <pre class="line-numbers">
+    <code class="language-json">{
+    "id": "S1qN4xeG7",
+    "url": "http://players.brightcove.net/1507807800001/S1qN4xeG7_default/index.html",
+    "embed_code": "&lt;iframe src='//players.brightcove.net/1507807800001/S1qN4xeG7_default/index.html' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;",
+    "embed_in_page": "http://players.brightcove.net/1507807800001/S1qN4xeG7_default/in_page.embed"
+    }
+    </code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="165-170"></code></p></li> --></li>
+      <li class="language-editable">Use one of the player implementations to be sure your published player is functioning correctly.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="customizePlayer">Customize a player</h2>
+    <aside class="bcls-aside bcls-aside--warning language-editable">This section assumes you have associated a video with the player, either through Studio or via the Player Management API. Depending on your approach, the resulting player configurations may vary from what is shown.</aside>
+    <p>You can customize your player using plugins. You can learn how to include pre-existing plugins in your player or build your own in the <a href="/node/18081">Step-by-Step: Plugin Development</a>.</p>
+    <p>In this case you will use a very simple pre-existing plugin to overlay a text message on the video. Following is the code for a plugin that creates an HTML paragraph tag. Note: a classname and text is assigned to the paragraph, then it is appended to the existing player. This plugin already exists for your convenience and is located at <a href="//solutions.brightcove.com/bcls/video-js/new-player/first-plugin.js">//solutions.brightcove.com/bcls/video-js/new-player/first-plugin.js</a>.</p>
+    <pre class="line-numbers">
+    <code class="language-javascript">videojs.registerPlugin('firstPlugin', function() {
+      var player = this,
+      overlay = document.createElement('p');
+      overlay.className = 'vjs-overlay';
+      overlay.innerHTML = "First Plugin Working!";
+      player.el().appendChild(overlay);
+    });
+    </code>
+    </pre>
+    <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="79-85"></code></p> -->
+    
+    <p>The paragraph needs to be styled to prevent, in this particular instance, black text on a black background. The following are styles applied to the paragraph's classname. This stylesheet already exists for your convenience and is located at <a href="//solutions.brightcove.com/bcls/video-js/new-player/first-plugin.css">//solutions.brightcove.com/bcls/video-js/new-player/first-plugin.css</a>.</p>
+    <pre class="line-numbers">
+    <code class="language-javascript">.vjs-overlay {
+      background-color: #333333;
+      color: white;
+      font-size: 2em;
+      padding: 5px;
+      position: absolute;
+      top: 100px;
+      left: 20px;
+      width: 150px;
+    }
+    </code>
+    </pre>
+    <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="88-97"></code></p> -->
+    
+    <p>Just as you used a curl statement to assign the video source and poster image, you will use a curl statement to tell the player the following:</p>
+    <ul>
+      <li class="language-editable">Location of the JavaScript file that contains the code for the plugin</li>
+      <li class="language-editable">Location of the stylesheet</li>
+      <li class="language-editable">The plugin name to be used with the player</li>
+    </ul>
+    <ol class="bcls-tasklist">
+      <li class="language-editable">Use the following curl statement to make the plugin functional.
+        <aside class="bcls-aside bcls-aside--information">Note: Even if you are not supplying any options, you still must enter the plugin's name, as shown here.</aside>
+        <pre class="line-numbers">
+    <code class="language-bash">curl\
+    --header "Content-Type: application/json"\
+    --user $EMAIL\
+    --request PATCH\
+    --data '{
+      "scripts": [
+        "//solutions.brightcove.com/bcls/video-js/new-player/first-plugin.js"
+       ],
+       "stylesheets": [
+        "//solutions.brightcove.com/bcls/video-js/new-player/first-plugin.css"
+       ],
+       "plugins": [{
+         "name": "firstPlugin"
+       }]
+      }'\
+    https: //players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="99-114"></code></p></li> --></li>
+      <li class="language-editable">Use the following curl statement to publish the updated player. This is the same publish code that you used in the previous section to publish a player.
+        <pre class="line-numbers">
+    <code class="language-bash">curl \
+      --header "Content-Type: application/json" \
+      --user $EMAIL \
+      --request POST \
+      https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/publish</code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="26-30"></code></p></li> --></li>
+      <li class="language-editable">Copy the returned URL and browse it. You will see that the plugin is functioning and the plugin text is displayed.
+        <aside class="bcls-aside bcls-aside--information">There may be a slight delay before you see the plugin functioning correctly as it can take a small amount of time for the player to be published. If you don't see the plugin, periodically refresh your page.</aside>
+        <figure class="bcls-figure"><img class="bcls-image" alt="Plugin Text" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/getting-started/quick-start/show-plugin-text.png" />
+          <figcaption class="bcls-caption--image">Plugin Text</figcaption>
+        </figure>
+      </li>
+    </ol>
+    <p>When a plugin is added to the player using the Player Management API, be it a Brightcove supplied plugin or a custom plugin you have built, the plugin becomes part of the player code itself.</p>
+    <aside class="bcls-aside bcls-aside--tip">If you develop your own plugin and change the source code, be sure you re-publish your player as the new plugin code will NOT be part of the JavaScript file unless you do so.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="displayconfiguration">Display configuration</h2>
+    <p>To debug and confirm work you have done it is often helpful to view a player's configuration.</p>
+    <ol class="bcls-tasklist">
+      <li class="language-editable">To do this, use a <code>GET </code> method with the <code>configuration </code> URL.
+        <pre class="line-numbers">
+    <code class="language-bash">curl \
+      --header "Content-Type: application/json" \
+      --user $EMAIL \
+      --request GET \
+      https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration
+    </code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="117-121"></code></p></li> --></li>
+      <li class="language-editable">Check to be sure the JSON configuration response is similar to the following:
+        <pre class="line-numbers">
+    <code class="language-json">{
+      "media": {
+        "poster": {
+          "highres": "//solutions.brightcove.com/bcls/assets/images/Tiger.jpg"
+        },
+        "sources": [{
+          "type": "application/x-mpegURL",
+          "src": "//solutions.brightcove.com/bcls/assets/videos/Tiger.m3u8"
+        }, {
+          "type": "video/mp4",
+          "src": "//solutions.brightcove.com/bcls/assets/videos/Tiger.mp4"
+        }]
+      },
+      "compatibility": true,
+      "video_cloud": {
+        "video": "4093372393001",
+        "policy_key": "BCpkADawqM3ugPRAtcx48_C4FjXiEiJORcRFnXkeL9siQUpauO_o7SaIhSnYvM24nUCeD74UFG1LMW8vtmaftsO1vYeeOn2iglfvEbG-c0PYwJ_zQCQGsvkrbgrNyEDvbEKjyrsQVXj0DOco"
+      },
+      "player": {
+        "template": {
+          "name": "single-video-template",
+          "version": "6.7.0"
+        }
+      },
+      "scripts": ["//solutions.brightcove.com/bcls/video-js/new-player/first-plugin.js"],
+      "stylesheets": ["//solutions.brightcove.com/bcls/video-js/new-player/first-plugin.css"],
+      "plugins": [{
+        "name": "firstPlugin"
+      }]
+    }</code>
+    </pre>
+        <!-- <p><code data-gist-id="8759542" data-gist-hide-footer="true" data-gist-line="124-148"></code></p></li> --></li>
+    </ol>
+    <p>Another way to get a look at the player's configuration is by browsing the URL value returned and change the <strong>index.html</strong> to <strong>config.json</strong>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="deliverySystem">Delivery system APIs</h2>
+    <p>The Delivery System APIs allow for the management and deployment of a group of files, called a repository. These files are managed through REST APIs and through git. These APIs shouldn't be needed by most people when creating or editing players, but they can be a very interesting set of APIs to use for other purposes. If you'd like to try them out, you can <a href="/node/17911">do so here</a>. For a hands-on introduction, try out the <a href="/node/17913">Ste-by-Step: Delivery System</a> document.</p>
   </section>
 </article>
 
@@ -1018,7 +1180,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 21 Feb 2020
+  Page last updated on 24 Feb 2020
 </div>
 
 <footer class="bcls-footer" role="contentinfo">
