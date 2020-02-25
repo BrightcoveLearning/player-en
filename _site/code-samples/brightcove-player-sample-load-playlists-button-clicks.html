@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Code Samples</title>
+  <title>Brightcove Player Sample: Load Playlists on Button Clicks</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -85,7 +85,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item active" aria-current="page">Code Samples</li>
+      <li class="breadcrumb-item"><a href="/code-samples/">Code Samples</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Load Playlists on Button Clicks</li>
     </ol>
   </nav>
 </header>
@@ -873,305 +875,135 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1><i class="far fa-file-code"></i>Code Samples</h1>
-  <summary>
-    <p>The following code samples demonstrate customizations and enhancements to Brightcove Player.</p>
-    <aside class="bcls-aside bcls-aside--information">The code samples marked with double asterisks ** are partially or wholly dependent on Video Cloud features.</aside>
-    <p>For complete documentation, visit the <a href="/index.html">Brightcove Player Developer Documentation Page</a></p>
-  </summary>
-  <br/>
+  <h1>Brightcove Player Sample: Load Playlists on Button Clicks</h1>
+  <summary>In this topic, you will learn how to load different playlists based on user's button click.</summary>
   <section class="bcls-section">
-    <table width="100%" border="0">
-      <tbody>
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
+    
+    <p>When you click on the buttons above the player, different playlists will load into the player.</p>
+    <!-- UPDATE codepen here -->
+    
+    <p data-height="355" data-theme-id="dark" data-slug-hash="qPNOoo" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="18453-load-playlists-button-clicks" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/qPNOoo/">18453-load-playlists-button-clicks</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    
+    <p>View the <a href="https://github.com/BrightcoveLearning/18453-load-playlists-button-clicks">source code</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
+    <div class="bcls-expander-content">
+      <p>Here are some tips to effectively use the above CodePen:</p>
+      <ul>
+        <li class="language-editable">Toggle the actual display of the player by clicking the <strong>Result</strong> button.</li>
+        <li class="language-editable">Click the <strong>HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li class="language-editable">Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
+          <ol>
+            <li class="language-editable">Click the <strong>EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li class="language-editable">In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
+            <li class="language-editable">View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Applicaton_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="developmentsequence" class="bcls-expander-head">Development sequence</h2>
+    <div class="bcls-expander-content">
+      <p>Here is the recommended development sequence:</p>
+      <ol>
+        <li class="language-editable">Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
+        <li class="language-editable">Put the plugin's JavaScript and CSS into separate files for local testing</li>
+        <li class="language-editable">Deploy the plugin code and CSS to your server once you have worked out any errors</li>
+        <li class="language-editable">Use Studio to add the plugin and CSS to your player</li>
+        <li class="language-editable">Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
+      </ol>
+      <p>For details about these steps, review the <a href="/node/18081">Step-by-Step: Plugin Development</a> guide.</p>
+      <h3>iframe or In-Page embed</h3>
+      <p>When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
+      <ul>
+        <li class="language-editable">No collisions with existing JavaScript and/or CSS</li>
+        <li class="language-editable">Automatically responsive</li>
+        <li class="language-editable">The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
+      </ul>
+      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
+      <ul>
+        <li class="language-editable">Code in the containing page needs to listen for and act on player events</li>
+        <li class="language-editable">The player uses styles from the containing page</li>
+        <li class="language-editable">The iframe will cause app logic to fail, like a redirect from the containing page</li>
+      </ul>
+      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+    </div>
+    <!-- id="expanderContent" --></section>
+  <section class="bcls-section">
+    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+    <!-- UPDATE table, remove unneeded columns -->
+    
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
         <tr>
-          <th width="50%" scope="col"> <h2>Categorized</h2></th>
-          <th width="1%" scope="col">&nbsp;</th>
-          <th width="49%" scope="col"> <h2>Alphabetized</h2></th>
+          <th>API Methods</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td class="language-editable"><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#play">play()</a></td>
         </tr>
         <tr>
-          <td valign="top"><strong>Advertising</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-ad-countdown-timer.html">Ad Countdown Timer</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-ad-indicators-playback-bar.html">Ad Indicators in Playback Bar</a></li>
-              <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with the SSAI Plugin</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-outstream-ad-only-player.html">Outstream (Ad-Only) Player</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-scrolling-player-view-ads.html">Scrolling Player into View with Ads</a></li>
-            </ul>
-            <p><strong>Audio</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-automatically-set-audio-track-language.html">Automatically Set Audio Track Language</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Download Audio Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-horizontal-volume-control.html">Horizontal Volume Control (1.x Player Only)</a></li>
-            </ul>
-            <p><strong>Call to Action</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-cue-points-display-cta.html">Cue Points Display CTA</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamic-call-action.html">Dynamic Call to Action</a>**</li>
-            </ul>
-            <p><strong>Communicate with iFrame</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-playpause-video-iframe-parent.html">Play/Pause Video from iframe Parent</a></li>
-            </ul>
-            <p><strong>Control Playback Behavior</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-autoplay-unmute-button.html">Autoplay with Unmute Button for iOS/Safari/Chrome</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-back-and-forward-buttons.html">Back and Forward Buttons</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-creating-video-loop.html">Creating a Video Loop</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-disable-forward-scrubbing.html">Disable Forward Scrubbing</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-password-view-video.html">Password to View Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-stopping-other-players-page-when-video-starts.html">Stopping Other Players on the Page when a Video Starts</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-variable-speed-playback.html">Variable Speed Playback</a></li>
-            </ul>
-            <p><strong>Control Player Loading</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-loading-player-dynamically.html">Loading the Player Dynamically</a></li>
-              <li><a href="/coding-topics/requirejs-and-brightcove-player.html">RequireJS and Brightcove Player</a></li>
-            </ul>
-            <p><strong>Control Video Currently Playing</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-dynamically-change-source-videos.html">Dynamically Change Source Videos</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-kiosk-app.html">Kiosk App</a>**</li>
-            </ul>
-            <p><strong>Enhance Player Display Behavior</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-automatically-set-caption-language.html">Automatically Set Caption Language</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-background-video.html">Background Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-caption-animation.html">Caption Animation</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-chapter-markers-progress-bar.html">Chapter Markers in Progress Bar</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-display-related-link.html">Display Related Link</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-display-thumbnails-hover.html">Display Thumbnails on Hover</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-display-views-controlbar.html">Display Views in Controlbar</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-display-random-bumpers.html">Display Random Bumpers</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamic-custom-endscreens.html">Dynamic Custom Endscreens</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-carousel.html">Lightbox Carousel</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-scroller.html">Lightbox with Scroller</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-simple-lightbox.html">Lightbox with Single Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-logo-overlay-plugin.html">Logo Overlay Plugin</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-multiple-session-playback.html">Multiple Session Playback</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-navigate-video-end.html">Navigate on Video End</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-scrolling-player-view.html">Scrolling Player into View</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-toggling-overlay.html">Toggling an Overlay</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-trigger-rewind-custom-event.html">Trigger Rewind Using a Custom Event</a></li>
-            </ul>
-            <p><strong>Enhance Player UI</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-add-country-flag-caption-label.html">Add Country Flag to Caption Label</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-back-and-forward-buttons.html">Back and Forward Buttons</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Download Audio Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-download-transcript.html">Download Transcript</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-download-video-plugin.html">Download Video Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-load-playlists-button-clicks.html">Load Playlists on Button Clicks</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-toggle-controlbar.html">Toggle Controlbar</a></li>
-            </ul>
-            <p><strong>Error Handling</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-live-custom-error-message.html">Live Custom Error Message</a></li>
-            </ul>
-            <p><strong>Player Styling</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-disable-progress-scrubber.html">Disabling the Progress Scrubber</a></li>
-              <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">Player Styling Playground</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">Vertical Volume Control</a></li>
-            </ul>
-            <p><strong>Playlists / Video Groups</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-all-time-video-views.html">All Time Video Views</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-background-video-playlist.html">Background Video Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-background-video-random-playlist.html">Background Video Random Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-horizontal-responsive-playlist.html">Horizontal, Responsive Playlist</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-carousel.html">Lightbox Carousel</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-scroller.html">Lightbox with Scroller</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-simple-lightbox.html">Lightbox with Single Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-most-watched-videos-playlist.html">Most Watched Videos in Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-newest-videos-playlist.html">Newest Videos in Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-play-video-end-playlist.html">Play Video at End of Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-play-video-playlist.html">Play Video Before Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-playback-api-paging.html">Playback API Paging</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-popular-videos-overlay.html">Popular Videos Overlay</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-popular-videos-playlist.html">Popular Videos Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-related-videos-playlist.html">Related Videos from a Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-related-videos-tags-cms-api.html">Related Videos via Tags (CMS API)</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-related-videos-tags-playback-api.html">Related Videos via Tags (Playback API)</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-tabbed-playlist.html">Tabbed Playlist</a>**<a href="/code-samples/brightcove-player-sample-live-custom-error-message.html"></a></li>
-            </ul>
-            <p><strong>Position Player</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-enlarge-player-mouseover.html">Enlarge Player on Mouseover</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-floating-player.html">Floating Player</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-vertical-video.html">Vertical Video</a></li>
-            </ul>
-            <p><strong>Restrict Viewing</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-age-gate.html">Age Gate</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-age-gate-modaldialog.html">Age Gate with ModalDialog</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-are-you-still-watching.html">Are You Still Watching?</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-limited-plays.html">Limited Plays</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-register-play.html">Register to Play</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-register-play-after-preview.html">Register to Play after Preview</a></li>
-            </ul>
-            <p><strong>Analytics API</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-all-time-video-views.html">All Time Video Views</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-display-views-controlbar.html">Display Views in Controlbar</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-popular-videos-overlay.html">Popular Videos Overlay</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-popular-videos-playlist.html">Popular Videos Playlist</a>**</li>
-            </ul>
-            <p><strong>CMS API</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-kiosk-app.html">Kiosk App</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-newest-videos-playlist.html">Newest Videos in Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-related-videos-tags-cms-api.html">Related Videos via Tags (CMS API)</a>**</li>
-            </ul>
-            <p><strong>Playback API</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-newest-videos-playlist.html">Newest Videos in Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-playback-api-paging.html">Playback API Paging</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-related-videos-tags-playback-api.html">Related Videos via Tags (Playback API)</a>**</li>
-            </ul>
-            <p><strong>Video Cloud Catalog</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-most-watched-videos-playlist.html">Most Watched Videos in Playlist</a>**</li>
-            </ul>
-            <p><strong>Video.js Middleware</strong></p>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-disable-forward-scrubbing.html">Disable Forward Scrubbing</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-get-seeked-time.html">Get Seeked Time</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-playback-rate-adjuster.html">Playback Rate Adjuster</a></li>
-            </ul></td>
-          <td>&nbsp;</td>
-          <td valign="top"><strong>A</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-ad-countdown-timer.html">Ad Countdown Timer</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-add-country-flag-caption-label.html">Add Country Flag to Caption Label</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-ad-indicators-playback-bar.html">Ad Indicators in Playback Bar</a></li>
-              <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with the SSAI Plugin</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-all-time-video-views.html">All Time Video Views</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-age-gate.html">Age Gate</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-age-gate-modaldialog.html">Age Gate with ModalDialog</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-are-you-still-watching.html">Are You Still Watching?</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-automatically-set-audio-track-language.html">Automatically Set Audio Track Language</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-automatically-set-caption-language.html">Automatically Set Caption Language</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-autoplay-unmute-button.html">Autoplay with Unmute Button for iOS/Safari/Chrome</a></li>
-            </ul>
-            <strong>B</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-back-and-forward-buttons.html">Back and Forward Buttons</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-background-video.html">Background Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-background-video-playlist.html">Background Video Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-background-video-random-playlist.html">Background Video Random Playlist</a>**</li>
-            </ul>
-            <strong>C</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-caption-animation.html">Caption Animation</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-chapter-markers-progress-bar.html">Chapter Markers in Progress Bar</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-creating-video-loop.html">Creating a Video Loop</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-cue-points-display-cta.html">Cue Points Display CTA</a>**</li>
-            </ul>
-            <strong>D</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-disable-forward-scrubbing.html">Disable Forward Scrubbing</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-disable-progress-scrubber.html">Disable the Progress Scrubber</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-display-random-bumpers.html">Display Random Bumpers</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-display-related-link.html">Display Related Link</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-display-thumbnails-hover.html">Display Thumbnails on Hover</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-display-views-controlbar.html">Display Views in Controlbar</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Download Audio Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-download-transcript.html">Download Transcript</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-download-video-plugin.html">Download Video Plugin</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamic-call-action.html">Dynamic Call to Action</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamically-change-source-videos.html">Dynamically Change Source Videos</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-dynamic-custom-endscreens.html">Dynamic Custom Endscreens</a></li>
-            </ul>
-            <strong>E</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-enlarge-player-mouseover.html">Enlarge Player on Mouseover</a></li>
-            </ul>
-            <strong>F</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-floating-player.html">Floating Player</a></li>
-            </ul>
-            <strong>G</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-get-seeked-time.html">Get Seeked Time</a></li>
-            </ul>
-            <strong>H</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-horizontal-responsive-playlist.html">Horizontal, Responsive Playlist</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-horizontal-volume-control.html">Horizontal Volume Control (1.x Player Only)</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-hyperlinked-company-logo.html">Hyperlinked Company Logo</a></li>
-            </ul>
-            <strong>K</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-kiosk-app.html">Kiosk App</a>**</li>
-            </ul>
-            <strong>L</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-carousel.html">Lightbox Carousel</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-lightbox-scroller.html">Lightbox with Scroller</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-simple-lightbox.html">Lightbox with Single Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-limited-plays.html">Limited Plays</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-live-custom-error-message.html">Live Custom Error Message</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-load-playlists-button-clicks.html">Load Playlists on Button Clicks</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-loading-player-dynamically.html">Loading the Player Dynamically</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-logo-overlay-plugin.html">Logo Overlay Plugin</a></li>
-            </ul>
-            <strong>M</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-most-watched-videos-playlist.html">Most Watched Videos in Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-multiple-session-playback.html">Multiple Session Playback</a></li>
-            </ul>
-            <strong>N</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-navigate-video-end.html">Navigate on Video End</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-newest-videos-playlist.html">Newest Videos in Playlist</a>**</li>
-            </ul>
-            <strong>O</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-outstream-ad-only-player.html">Outstream (Ad-Only) Player</a></li>
-            </ul>
-            <strong>P</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-password-view-video.html">Password to View Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-play-video-end-playlist.html">Play Video at End of Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-play-video-playlist.html">Play Video Before Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-playpause-video-iframe-parent.html">Play/Pause Video from iframe Parent</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-playback-api-paging.html">Playback API Paging</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-playback-rate-adjuster.html">Playback Rate Adjuster</a></li>
-              <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">Player Styling Playground</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-popular-videos-overlay.html">Popular Videos Overlay</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-popular-videos-playlist.html">Popular Videos Playlist</a>**</li>
-            </ul>
-            <strong>R</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-related-videos-playlist.html">Related Videos from a Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-related-videos-tags-cms-api.html">Related Videos via Tags (CMS API)</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-related-videos-tags-playback-api.html">Related Videos via Tags (Playback API)</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-register-play.html">Register to Play</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-register-play-after-preview.html">Register to Play after Preview</a></li>
-              <li><a href="/coding-topics/requirejs-and-brightcove-player.html">RequireJS and Brightcove Player</a></li>
-            </ul>
-            <strong>S</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-scrolling-player-view.html">Scrolling Player into View</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-scrolling-player-view-ads.html">Scrolling Player into View with Ads</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-stopping-other-players-page-when-video-starts.html">Stopping Other Players on the Page when a Video Starts</a></li>
-            </ul>
-            <strong>T</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-tabbed-playlist.html">Tabbed Playlist</a>**</li>
-              <li><a href="/code-samples/brightcove-player-sample-toggle-controlbar.html">Toggle Controlbar</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-toggling-overlay.html">Toggling an Overlay</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-trigger-rewind-custom-event.html">Trigger Rewind with a Custom Event</a></li>
-            </ul>
-            <strong>V</strong>
-            <ul>
-              <li><a href="/code-samples/brightcove-player-sample-variable-speed-playback.html">Variable Speed Playback</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-vertical-video.html">Vertical Video</a></li>
-              <li><a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">Vertical Volume Control</a></li>
-          </ul></td>
+          <td class="language-editable"><a href="/node/18108#getPlaylist">catalog.getPlaylist()</a></td>
+        </tr>
+        <tr>
+          <td class="language-editable"><a href="/node/18108#load">catalog.load()</a></td>
+        </tr>
+        <tr>
+          <td class="language-editable"><a href="/node/18099#first">playlist.first()</a></td>
         </tr>
       </tbody>
     </table>
+    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/node/18132">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
+  <!-- UPDATE player and HTML configuration -->
+  
+  <section class="bcls-section">
+    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+    <h3>Player configuration</h3>
+    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
+    <h3>Other HTML</h3>
+    <p>Of course, the three buttons are added to the page. Also, the <code>ol</code> tag that determines the position of the playlist is also added.</p>
+  </section>
+  <!-- UPDATE application flow -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_flow">Application flow</h2>
+    <p>The basic logic behind this application is:</p>
+    <ul>
+      <li class="language-editable">Listen for the click events from the buttons.</li>
+      <li class="language-editable">When a button is clicked, use the <strong>Video Cloud catalog</strong> to retrieve the playlist and load it into the player.</li>
+      <li class="language-editable">Use the Playlist API to play the first video in the playlist.</li>
+    </ul>
+    <!-- UPDATE task 1 -->
+    
+    <h3>Add buttons with click events to call the <code>loadPlaylist()</code> function</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+    <code class="language-javascript">&lt;!-- +++ Add buttons for playlist selection +++ --&gt;</code></pre>
+    <p>In the <code>onclick</code> event handler the playlist to play is hard coded.</p>
+    <!-- UPDATE task 2 -->
+    
+    <h3>Load the playlist and play the first video</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+    <code class="language-javascript">// ### Retrieve and load playlist ###</code></pre>
+    <p>The catalog's <code>getPlaylist()</code> and <code>load()</code> methods retrieve the playlist and place it in the player. Lastly, the Playlist API's <code>first()</code> method then plays the video.</p>
+  </section>
+  <!-- UPDATE CSS description -->
+  
+  <section class="bcls-section">
+    <h2 id="Application_styling">Application styling</h2>
+    <p>The CSS sizes and positions the player and playlist.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Plugin_code">Plugin code</h2>
+    <p>Although this sample could be written to use JavaScript's <code>postMessage</code> method to pass the button clicked event to a plugin, the much more common use case is to just use the in-page embed player, so no plugin code is used.</p>
   </section>
 </article>
 
@@ -1179,13 +1011,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </div>
     <div class="col-sm-2 right-side-bar">
       
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
     </div>
   </div>
 </div>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 24 Feb 2020
+  Page last updated on 25 Feb 2020
 </div>
 
 <footer class="bcls-footer" role="contentinfo">
@@ -1266,6 +1103,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
   
   <script src="/assets/js/sites_nav.js"></script>
   <script src="/assets/js/feedback.js"></script>
