@@ -1,0 +1,301 @@
+---
+title: DRM Plugin Changelog
+parent: Plugins
+---
+<article class="bcls-article">
+  <h1>DRM Plugin Changelog</h1>
+  <summary>The following tracks changes to the plugin:</summary>
+  <section class="bcls-section">
+    <h2 id="Changelog">Changelog</h2>
+    <h4>18 Nov 2019</h4>
+    <p>v5.8.1</p>
+    <ul>
+      <li>Fixed DRM playback on IE11 on Windows 7</li>
+    </ul>
+    <h4>22 Aug 2019</h4>
+    <p>v5.8.0</p>
+    <ul>
+      <li>Removed DASH-only middleware, allow for handling of HLS sources on non-Safari browsers</li>
+    </ul>
+    <h4>22 May 2019</h4>
+    <p>v5.7.0</p>
+    <ul>
+      <li>Add more complete <strong>castLabs/DRMtoday</strong> support for integrators not using DRM via Video Cloud</li>
+    </ul>
+    <h4>8 May 2019</h4>
+    <p>v5.6.0</p>
+    <ul>
+      <li>Improve messaging where EME is unavailable</li>
+      <li>Bug fix: Use legacy WebKit API when available to address DRM errors in Safari 12.1</li>
+    </ul>
+    <h4>29 Mar 2019</h4>
+    <p>v5.5.0</p>
+    <ul>
+      <li>Added support for defining custom headers for default license and certificate requests</li>
+    </ul>
+    <h4>25 Oct 2018</h4>
+    <p>As of player 6.26.0 the player supports DASH multi-period. For ealier versions of the player, the Shaka player is required for DASH multi-period.</p>
+    <h4>24 Oct 2018</h4>
+    <p>v5.4.2</p>
+    <ul>
+      <li>Don't set up EME early if no init data in manifest</li>
+    </ul>
+    <h4>24 Oct 2018</h4>
+    <p>v5.4.1</p>
+    <ul>
+      <li>Exposed API to immediately set up EME</li>
+    </ul>
+    <h4>20 Sep 2018</h4>
+    <p>v5.4.0</p>
+    <ul>
+      <li>Trigger DRM key status changes on player tech</li>
+    </ul>
+    <h4>23 Aug 2018</h4>
+    <p>v5.3.1</p>
+    <ul>
+      <li>Added field for automatic initialization from registry</li>
+    </ul>
+    <h4>30 Mar 2018</h4>
+    <p>v5.3.0</p>
+    <ul>
+      <li>Support in-manifest DRM init data</li>
+    </ul>
+    <h4>20 Feb 2018</h4>
+    <p>v5.2.2</p>
+    <ul>
+      <li>Add certificate for BC Widevine sources when using VHS</li>
+    </ul>
+    <h4>20 Feb 2018</h4>
+    <p>v5.2.1</p>
+    <ul>
+      <li>Support key rotation</li>
+      <li>Use HTTPS links for Silverlight installer</li>
+    </ul>
+    <h4>17 Jan 2018</h4>
+    <p>v5.2.0</p>
+    <ul>
+      <li>Add <strong>Castlabs</strong> third-party integration</li>
+    </ul>
+    <h4>3 Jan 2018</h4>
+    <p>v5.1.0</p>
+    <ul>
+      <li>Add custom third-party vendor logic to <code class="notranslate">keySystems </code></li>
+    </ul>
+    <h4>15 Dec 2017</h4>
+    <p>v5.0.0</p>
+    <ul>
+      <li>Support DRM DASH playback with VHS</li>
+    </ul>
+    <h4>14 Nov 2017</h4>
+    <p>v4.5.0</p>
+    <ul>
+      <li>Preload Widevine server certificate</li>
+      <li>Added preload <strong>none</strong> support</li>
+    </ul>
+    <h4>8 Nov 2017</h4>
+    <p>v4.4.1</p>
+    <ul>
+      <li>Fixed issue where loadstart would not fire when using Silverlight</li>
+    </ul>
+    <h4>6 Sep 2017</h4>
+    <p>v4.4.0</p>
+    <ul>
+      <li>Parse <strong>ms:laurl</strong> and <strong>mspr:pro</strong> from manifest</li>
+      <li>Fixed issue where text tracks would not be removed on source change</li>
+    </ul>
+    <h4>3 Aug 2017</h4>
+    <p>v4.3.5</p>
+    <ul>
+      <li>Fixed minification process</li>
+    </ul>
+    <h4>31 Jul 2017</h4>
+    <p>v4.3.4</p>
+    <ul>
+      <li>Fixed duration rounding in Silverlight when using the dashPreprocessing option</li>
+    </ul>
+    <h4>27 Jul 2017</h4>
+    <p>v4.3.3</p>
+    <ul>
+      <li>Report frame stats from Silverlight playback</li>
+    </ul>
+    <h4>25 Jul 2017</h4>
+    <p>v4.3.2</p>
+    <ul>
+      <li>Automatically log debug information in debug script</li>
+    </ul>
+    <h4>19 Jul 2017</h4>
+    <p>v4.3.1</p>
+    <ul>
+      <li>Fixed intermittent license acquisition error when switching sources in Silverlight</li>
+    </ul>
+    <h4>12 Jul 2017</h4>
+    <p>v4.3.0</p>
+    <ul>
+      <li>Call player error on critical errors</li>
+    </ul>
+    <h4>11 Jul 2017</h4>
+    <p>v4.2.7</p>
+    <ul>
+      <li>Fixed an source change issue in Silverlight by clearing IsEnded on unload</li>
+    </ul>
+    <h4>10 Jul 2017</h4>
+    <p>v4.2.6</p>
+    <ul>
+      <li>Fixed an issue where representations did not accurately reflect manifest</li>
+    </ul>
+    <h4>10 Jul 2017</h4>
+    <p>v4.2.5</p>
+    <ul>
+      <li>Fixed an issue where Silverlight representations wouldn't populate</li>
+      <li>Fixed an issue where Silverlight would error on source change</li>
+    </ul>
+    <h4>10 Jul 2017</h4>
+    <p>v4.2.4</p>
+    <ul>
+      <li>Fixed an issue where VTTCue shims would conflict</li>
+    </ul>
+    <h4>3 Jul 2017</h4>
+    <p>v4.2.3</p>
+    <ul>
+      <li>Fixed an issue where playback has stalled within 0.5s of the end</li>
+      <li>Fixed an error during source change in Silverlight</li>
+    </ul>
+    <h4>21 Jun 2017</h4>
+    <p>v4.2.2</p>
+    <ul>
+      <li>Fixed an issue with limiting renditions on player resize</li>
+    </ul>
+    <h4>20 Jun 2017</h4>
+    <p>v4.2.1</p>
+    <ul>
+      <li>Don't exclude variants that are missing key status info</li>
+    </ul>
+    <h4>15 Jun 2017</h4>
+    <p>v4.2.0</p>
+    <ul>
+      <li>In-manifest text track support</li>
+    </ul>
+    <h4>15 Jun 2017</h4>
+    <p>v4.1.1</p>
+    <ul>
+      <li>Clear representations state between sources in Silverlight</li>
+    </ul>
+    <h4>9 Jun 2017</h4>
+    <p>v4.1.0</p>
+    <ul>
+      <li>Update from Shaka Player v2.0.8 to Shaka Player v2.1.3</li>
+    </ul>
+    <h4>9 Jun 2017</h4>
+    <p>v4.0.1</p>
+    <ul>
+      <li>Fixed source not supported error in IE when switching sources</li>
+      <li>Warn when skipping DASH sources on insecure contexts</li>
+      <li>Timeout when Silverlight playback halts</li>
+    </ul>
+    <h4>1 May 2017</h4>
+    <p>v4.0.0</p>
+    <ul>
+      <li>Use Shaka Player for DASH playback</li>
+    </ul>
+    <h4>25 Apr 2017</h4>
+    <p>v3.4.2</p>
+    <ul>
+      <li>Show role in audio track label</li>
+    </ul>
+    <h4>24 Apr 2017</h4>
+    <p>v3.4.1</p>
+    <ul>
+      <li>Disable videojs-errors progress event watcher</li>
+    </ul>
+    <h4>3 Apr 2017</h4>
+    <p>v3.4.0</p>
+    <ul>
+      <li>Used <strong>Native/EME</strong> ABR limiting methods to set quality levels</li>
+      <li>Updated to <strong>Native/EME</strong> 2.4.1</li>
+    </ul>
+    <h4>21 Feb 2017</h4>
+    <p>v3.3.2</p>
+    <ul>
+      <li>Reverted to <strong>Native/EME</strong> 2.3.0 to fix quality selection issues</li>
+    </ul>
+    <h4>13 Feb 2017</h4>
+    <p>v3.3.1</p>
+    <ul>
+      <li>Updated <strong>videojs-contrib-eme</strong> to support delayed setup</li>
+    </ul>
+    <h4>13 Feb 2017</h4>
+    <p>v3.3.0</p>
+    <ul>
+      <li>Updated to <strong>Native/EME</strong> 2.4.1</li>
+      <li>Updated <strong>videojs-contrib-eme</strong> to support video.js 6</li>
+    </ul>
+    <h4>9 Feb 2017</h4>
+    <p>v3.2.1</p>
+    <ul>
+      <li>Fixed updating source in <code class="notranslate">canHandleSource </code></li>
+    </ul>
+    <h4>8 Feb 2017</h4>
+    <p>v3.2.0</p>
+    <ul>
+      <li>Added multiple audio track support</li>
+      <li>Added video.js 6 forward compatibility</li>
+      <li>Allows passing in dashjs options with player constructor</li>
+    </ul>
+    <h4>6 Jan 2017</h4>
+    <p>v3.1.0</p>
+    <ul>
+      <li>Support the quality levels API</li>
+    </ul>
+    <h4>9 Dec 2016</h4>
+    <p>v3.0.6</p>
+    <ul>
+      <li>Fixed representation whitelisting</li>
+    </ul>
+    <h4>7 Dec 2016</h4>
+    <p>v3.0.5</p>
+    <ul>
+      <li>Correctly hide player overlays when Silverlight is disabled/not installed</li>
+    </ul>
+    <h4>1 Nov 2016</h4>
+    <p>v3.0.4</p>
+    <ul>
+      <li>Add PlayReady key system if it doesn't exist in the catalog response</li>
+    </ul>
+    <h4>3 Oct 2016</h4>
+    <p>v3.0.3</p>
+    <ul>
+      <li>Update to <strong>dashjs</strong> 2.3.0</li>
+      <li>Rename project to <strong>videojs-drm</strong></li>
+    </ul>
+    <h4>27 Sep 2016</h4>
+    <p>v3.0.2</p>
+    <ul>
+      <li>Disable dashjs debug logging</li>
+    </ul>
+    <h4>9 Sep 2016</h4>
+    <p>v3.0.1</p>
+    <ul>
+      <li>Update techOrder to HTML5, Silverlight</li>
+    </ul>
+    <h4>8 Sep 2016</h4>
+    <p>v3.0.0</p>
+    <ul>
+      <li>Added Fairplay DRM support for HLS</li>
+    </ul>
+    <h4>24 Aug 2016</h4>
+    <p>v2.3.0</p>
+    <ul>
+      <li>Expose dashjs mediaPlayer as player.dash.mediaPlayer</li>
+    </ul>
+    <h4>25 Jul 2016</h4>
+    <p>v2.2.1</p>
+    <ul>
+      <li>Update to <strong>dashjs</strong> 2.2.0</li>
+    </ul>
+    <h4>8 Jul 2016</h4>
+    <p>v2.2.0</p>
+    <ul>
+      <li>Update <strong>videojs-silverlight</strong> to support <strong>dashjs</strong> on Firefox</li>
+    </ul>
+  </section>
+</article>
