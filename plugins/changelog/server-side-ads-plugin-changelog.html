@@ -1,0 +1,164 @@
+---
+title: Server-Side Ads Plugin Changelog
+parent: Plugins
+---
+<article class="bcls-article">
+  <h1>Server-Side Ads Plugin Changelog</h1>
+  <summary>The following tracks changes to the plugin:</summary>
+  <section class="bcls-section">
+    <h2 id="Changelog">Changelog</h2>
+    <h4>10 Feb 2020</h4>
+    <p>v1.9.0</p>
+    <ul>
+      <li>Added Arabic translations</li>
+    </ul>
+    <h4>1 Nov 2019</h4>
+    <p>v1.8.1</p>
+    <ul>
+      <li>Fixed a regression in playback of VOD SSAI streams with an empty playlist</li>
+    </ul>
+    <h4>30 Oct 2019</h4>
+    <p>v1.8.0</p>
+    <ul>
+      <li>Added support for Brightcove Live SSAI streams</li>
+      <li>Fixed an issue where SSAI sources in playlists were not being properly marked as selected</li>
+      <li>Updated <strong>contrib-ads</strong> to 6.6.5</li>
+    </ul>
+    <h4>27 Aug 2019</h4>
+    <p>v1.7.0</p>
+    <ul>
+      <li>Added translations for Chinese, German, Spanish, French, Japanese, and Korean</li>
+    </ul>
+    <h4>11 Jul 2019</h4>
+    <p>v1.6.0</p>
+    <ul>
+      <li>Added support for ads.pod</li>
+      <li>Bug fix: Append <code>rule=discos-disabled</code> for HLS sources when discontinuities are disabled</li>
+      <li>Bug fix: Fix API issues with <code>seekIn*</code> methods</li>
+      <li>Bug fix: Restore missing ad markers</li>
+    </ul>
+    <h4>20 May 2019</h4>
+    <p>v1.5.1</p>
+    <ul>
+      <li>Fixed an issue where ads could not be paused in IE11/Win7</li>
+    </ul>
+    <h4>16 Apr 2019</h4>
+    <p>v1.5.0</p>
+    <ul>
+      <li>Added support for Playback Authorization Service with HLSe</li>
+      <li>Bug fix: Prevent iOS fullscreen from seeking over ads</li>
+      <li>Included <strong>contrib-ads-shim</strong> for parity with other Brightcove ad plugins</li>
+    </ul>
+    <h4>17 Jan 2019</h4>
+    <p>v1.4.3</p>
+    <ul>
+      <li>Bug fix: When discontinuities are enabled, include the <code>rule=discos-enabled</code> parameter in the VMAP request</li>
+    </ul>
+    <h4>24 Oct 2018</h4>
+    <p>v1.4.2</p>
+    <ul>
+      <li>Bug fix: Do not fire <code>playing</code> event before a preroll</li>
+    </ul>
+    <h4>15 Oct 2018</h4>
+    <p>v1.4.1</p>
+    <ul>
+      <li>Bug fix: Selectively enable multiperiod for non-MS browsers</li>
+      <li>Bug fix: Video corruption in IE/Edge</li>
+    </ul>
+    <h4>9 Oct 2018</h4>
+    <p>v1.4.0</p>
+    <ul>
+      <li>Added option to request content with discontinuities</li>
+    </ul>
+    <h4>19 Sep 2018</h4>
+    <p>v1.3.2</p>
+    <ul>
+      <li>Updated <strong>videojs-contrib-ad</strong>s to 6.6.1</li>
+    </ul>
+    <h4>12 Sep 2018</h4>
+    <p>v1.3.1</p>
+    <ul>
+      <li>Updated the plugin to use <strong>videojs-contrib-ads 6</strong> and validate contrib-ads version on initialization</li>
+    </ul>
+    <h4>12 Sep 2018</h4>
+    <p>v1.3.0</p>
+    <ul>
+      <li>New feature: Display skip ad countdown overlay for skippable ads</li>
+      <li>Bug fix: Ad countdown stops when it reaches first quartile</li>
+      <li>Bug fix: Limit buffering UI to the current play window</li>
+      <li>Bug fix: Remove the postinstall script to prevent install issues</li>
+      <li>Updated using plugin generator v7.2.1</li>
+    </ul>
+    <h4>30 Jul 2018</h4>
+    <p>v1.2.4</p>
+    <ul>
+      <li>Fix: Handle <code class="notranslate">ended</code> as a special timeline case</li>
+      <li>Added an NVMRC</li>
+    </ul>
+    <h4>5 July 2018</h4>
+    <p>v1.2.3</p>
+    <ul>
+      <li>Bug fix: Ignore captions provided by VMAP</li>
+      <li>Test: Use vhs instead of videojs-contrib-hls</li>
+    </ul>
+    <h4>23 Mar 2018</h4>
+    <p>v1.2.2</p>
+    <ul>
+      <li>Send the <strong>BCOV-Once-Accept</strong> header for sources that come from <strong>once.unicornmedia.com</strong></li>
+    </ul>
+    <h4>31 Jan 2018</h4>
+    <p>v1.2.1</p>
+    <ul>
+      <li>Make sure we tell <strong>contrib-ads</strong> we are using stitched ads correctly</li>
+    </ul>
+    <h4>18 Jan 2018</h4>
+    <p>v1.2.0</p>
+    <ul>
+      <li>Added support for <code class="notranslate">WrapperChain</code> creative extension in VAST documents</li>
+      <li>Fix sending impression, start, quartile, and complete beacons and player events</li>
+    </ul>
+    <h4>18 Dec 2017</h4>
+    <p>v1.1.2</p>
+    <ul>
+      <li>Ensure that we coerce legacy Once VMAP Content-Type correctly</li>
+      <li>Fixed an issue where the player could be stuck in a state of waiting for a preroll when there was no preroll</li>
+    </ul>
+    <h4>15 Dec 2017</h4>
+    <p>v1.1.1</p>
+    <ul>
+      <li>Added an option to not put the player in a fake ended state</li>
+      <li>Bug fixes
+        <ul>
+          <li>Allow <code class="notranslate">fakeEnded</code> setter to accept false</li>
+          <li>Always report <code class="notranslate">nopreroll</code> and <code class="notranslate">nopostroll</code> events to <strong>contrib-ads</strong> to prevent strange edge-case issues with states that are not relevant to the SSAI use-case</li>
+          <li>Do a better job of cleaning up overlays between sources and on error events</li>
+          <li><code class="notranslate">false</code> rather than <code class="notranslate">true</code> should short-circuit fakeEnded logic</li>
+          <li>Remove overlays from player before dispose</li>
+        </ul>
+      </li>
+    </ul>
+    <h4>16 Nov 2017</h4>
+    <p>v1.0.3</p>
+    <ul>
+      <li>Fixed an issue where synchronously setting an SSAI source after initializing the plugin would put the player in a bad state</li>
+      <li>Improved prevention of scrubbing and seeking during ads to prevent stuttering</li>
+    </ul>
+    <h4>30 Oct 2017</h4>
+    <p>v1.0.2</p>
+    <ul>
+      <li>Ensure that <code class="notranslate">player.ads.ad</code> is available when <code class="notranslate">ads-ad-started</code> is triggered</li>
+    </ul>
+    <h4>25 Oct 2017</h4>
+    <p>v1.0.1</p>
+    <ul>
+      <li>1 minute should show as <strong>1:00</strong> not <strong>&lt;1:00</strong></li>
+      <li>Adjust timing logic when moving out of ads to avoid flashes of content</li>
+      <li>Skip ad button should only skip one linear ad</li>
+    </ul>
+    <h4>12 Oct 2017</h4>
+    <p>v1.0.0</p>
+    <ul>
+      <li>Initial release. Support playback of SSAI streams via Brightcove Dynamic Delivery.</li>
+    </ul>
+  </section>
+</article>

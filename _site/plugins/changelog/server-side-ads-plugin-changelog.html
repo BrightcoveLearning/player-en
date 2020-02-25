@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Brightcove Player Documentation</title>
+  <title>Server-Side Ads Plugin Changelog</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -81,9 +81,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb arr-right">
       
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
       
       
-      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Documentation</li>
+      
+      <li class="breadcrumb-item"><a href="/plugins/changelog/">Plugins</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Server-Side Ads Plugin Changelog</li>
     </ol>
   </nav>
 </header>
@@ -847,212 +851,174 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1>Brightcove Player Documentation</h1>
-  <p>Brightcove Player development allows you to customize, integrate with, or add functionality to your players. Development tools are the Player API, and the standard web technologies of HTML5, CSS and JavaScript.</p>
-  <p>Check out the extensive list of <a href="http://support.brightcove.com/brightcove-player-developer-code-samples">code samples</a> for player customization possibilities.</p>
-  <p>Brightcove Player version:</p>
-  <p>Current: <a href="http://support.brightcove.com/brightcove-player-release-notes">v6.38.4</a></p>
-  <p>Pre-release: <a href="http://support.brightcove.com/brightcove-player-pre-release">v6.39.1</a></p>
-  <section class="card-wrapper">
-    <section onclick="window.location.pathname = '/getting-started/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-location-arrow"></i> </div>
-      <div class="card-content">
-        <h2><a href="/getting-started/index.html">Getting Started</a></h2>
-        <p>Just getting started with Brightcove Player?</p>
+  <h1>Server-Side Ads Plugin Changelog</h1>
+  <summary>The following tracks changes to the plugin:</summary>
+  <section class="bcls-section">
+    <h2 id="Changelog">Changelog</h2>
+    <h4>10 Feb 2020</h4>
+    <p>v1.9.0</p>
+    <ul>
+      <li>Added Arabic translations</li>
+    </ul>
+    <h4>1 Nov 2019</h4>
+    <p>v1.8.1</p>
+    <ul>
+      <li>Fixed a regression in playback of VOD SSAI streams with an empty playlist</li>
+    </ul>
+    <h4>30 Oct 2019</h4>
+    <p>v1.8.0</p>
+    <ul>
+      <li>Added support for Brightcove Live SSAI streams</li>
+      <li>Fixed an issue where SSAI sources in playlists were not being properly marked as selected</li>
+      <li>Updated <strong>contrib-ads</strong> to 6.6.5</li>
+    </ul>
+    <h4>27 Aug 2019</h4>
+    <p>v1.7.0</p>
+    <ul>
+      <li>Added translations for Chinese, German, Spanish, French, Japanese, and Korean</li>
+    </ul>
+    <h4>11 Jul 2019</h4>
+    <p>v1.6.0</p>
+    <ul>
+      <li>Added support for ads.pod</li>
+      <li>Bug fix: Append <code>rule=discos-disabled</code> for HLS sources when discontinuities are disabled</li>
+      <li>Bug fix: Fix API issues with <code>seekIn*</code> methods</li>
+      <li>Bug fix: Restore missing ad markers</li>
+    </ul>
+    <h4>20 May 2019</h4>
+    <p>v1.5.1</p>
+    <ul>
+      <li>Fixed an issue where ads could not be paused in IE11/Win7</li>
+    </ul>
+    <h4>16 Apr 2019</h4>
+    <p>v1.5.0</p>
+    <ul>
+      <li>Added support for Playback Authorization Service with HLSe</li>
+      <li>Bug fix: Prevent iOS fullscreen from seeking over ads</li>
+      <li>Included <strong>contrib-ads-shim</strong> for parity with other Brightcove ad plugins</li>
+    </ul>
+    <h4>17 Jan 2019</h4>
+    <p>v1.4.3</p>
+    <ul>
+      <li>Bug fix: When discontinuities are enabled, include the <code>rule=discos-enabled</code> parameter in the VMAP request</li>
+    </ul>
+    <h4>24 Oct 2018</h4>
+    <p>v1.4.2</p>
+    <ul>
+      <li>Bug fix: Do not fire <code>playing</code> event before a preroll</li>
+    </ul>
+    <h4>15 Oct 2018</h4>
+    <p>v1.4.1</p>
+    <ul>
+      <li>Bug fix: Selectively enable multiperiod for non-MS browsers</li>
+      <li>Bug fix: Video corruption in IE/Edge</li>
+    </ul>
+    <h4>9 Oct 2018</h4>
+    <p>v1.4.0</p>
+    <ul>
+      <li>Added option to request content with discontinuities</li>
+    </ul>
+    <h4>19 Sep 2018</h4>
+    <p>v1.3.2</p>
+    <ul>
+      <li>Updated <strong>videojs-contrib-ad</strong>s to 6.6.1</li>
+    </ul>
+    <h4>12 Sep 2018</h4>
+    <p>v1.3.1</p>
+    <ul>
+      <li>Updated the plugin to use <strong>videojs-contrib-ads 6</strong> and validate contrib-ads version on initialization</li>
+    </ul>
+    <h4>12 Sep 2018</h4>
+    <p>v1.3.0</p>
+    <ul>
+      <li>New feature: Display skip ad countdown overlay for skippable ads</li>
+      <li>Bug fix: Ad countdown stops when it reaches first quartile</li>
+      <li>Bug fix: Limit buffering UI to the current play window</li>
+      <li>Bug fix: Remove the postinstall script to prevent install issues</li>
+      <li>Updated using plugin generator v7.2.1</li>
+    </ul>
+    <h4>30 Jul 2018</h4>
+    <p>v1.2.4</p>
+    <ul>
+      <li>Fix: Handle <code class="notranslate">ended</code> as a special timeline case</li>
+      <li>Added an NVMRC</li>
+    </ul>
+    <h4>5 July 2018</h4>
+    <p>v1.2.3</p>
+    <ul>
+      <li>Bug fix: Ignore captions provided by VMAP</li>
+      <li>Test: Use vhs instead of videojs-contrib-hls</li>
+    </ul>
+    <h4>23 Mar 2018</h4>
+    <p>v1.2.2</p>
+    <ul>
+      <li>Send the <strong>BCOV-Once-Accept</strong> header for sources that come from <strong>once.unicornmedia.com</strong></li>
+    </ul>
+    <h4>31 Jan 2018</h4>
+    <p>v1.2.1</p>
+    <ul>
+      <li>Make sure we tell <strong>contrib-ads</strong> we are using stitched ads correctly</li>
+    </ul>
+    <h4>18 Jan 2018</h4>
+    <p>v1.2.0</p>
+    <ul>
+      <li>Added support for <code class="notranslate">WrapperChain</code> creative extension in VAST documents</li>
+      <li>Fix sending impression, start, quartile, and complete beacons and player events</li>
+    </ul>
+    <h4>18 Dec 2017</h4>
+    <p>v1.1.2</p>
+    <ul>
+      <li>Ensure that we coerce legacy Once VMAP Content-Type correctly</li>
+      <li>Fixed an issue where the player could be stuck in a state of waiting for a preroll when there was no preroll</li>
+    </ul>
+    <h4>15 Dec 2017</h4>
+    <p>v1.1.1</p>
+    <ul>
+      <li>Added an option to not put the player in a fake ended state</li>
+      <li>Bug fixes
         <ul>
-          <li><a href="/getting-started/training-demand-developing-brightcove-player.html">Training: Developing with the Brightcove Player</a></li>
-          <li><a href="/getting-started/developer-basics-videos.html">Developer Basics Videos</a></li>
-          <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
-          <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
-          <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+          <li>Allow <code class="notranslate">fakeEnded</code> setter to accept false</li>
+          <li>Always report <code class="notranslate">nopreroll</code> and <code class="notranslate">nopostroll</code> events to <strong>contrib-ads</strong> to prevent strange edge-case issues with states that are not relevant to the SSAI use-case</li>
+          <li>Do a better job of cleaning up overlays between sources and on error events</li>
+          <li><code class="notranslate">false</code> rather than <code class="notranslate">true</code> should short-circuit fakeEnded logic</li>
+          <li>Remove overlays from player before dispose</li>
         </ul>
-        <p><a href="/getting-started/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/basics/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-shapes"></i> </div>
-      <div class="card-content">
-        <h2><a href="/basics/index.html">Learn the Basics</a></h2>
-        <p>Learn the Basics</p>
-        <ul>
-          <li><a href="/basics/developer-basics-custom-plugin-why-and-how.html">Custom Plugins - Why and How?</a></li>
-        </ul>
-        <p><a href="/basics/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/references/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fal fa-books"></i> </div>
-      <div class="card-content">
-        <h2><a href="/references/index.html">References</a></h2>
-        <p>Brightcove Player References</p>
-        <ul>
-          <li><a href="/references/player-catalog.html">Player Catalog</a></li>
-          <li><a href="/references/player-metadata-bcinfo.html">Player Metadata from bcinfo</a></li>
-          <li><a href="/references/video-metadata-mediainfo.html">Video Metadata from mediainfo</a></li>
-        </ul>
-        <p><a href="/references/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/plugins/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-plug"></i> </div>
-      <div class="card-content">
-        <h2><a href="/plugins/index.html">Plugins</a></h2>
-        <p>Brightcove Player Plugins</p>
-        <ul>
-          <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
-          <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with the SSAI Plugin</a></li>
-          <li><a href="/plugins/overview-brightcove-player-plugins.html">Overview: Brightcove Player Plugins</a></li>
-        </ul>
-        <p><a href="/plugins/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/advertising/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-ad"></i> </div>
-      <div class="card-content">
-        <h2><a href="/advertising/index.html">Advertising</a></h2>
-        <p>Advertising</p>
-        <ul>
-          <li><a href="/advertising/ad-events-and-ad-objects.html">Ad Events and Ad Objects</a></li>
-          <li><a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a></li>
-          <li><a href="/advertising/step-step-implementing-advertising.html">Step-by-Step: Implementing Advertising</a></li>
-        </ul>
-        <p><a href="/advertising/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/publish/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-browser"></i> </div>
-      <div class="card-content">
-        <h2><a href="/publish/index.html">Publishing Videos & Players</a></h2>
-        <p>Publishing Videos & Players</p>
-        <ul>
-          <li><a href="/publish/available-options-advanced-page-embed-code.html">Options for the Advanced (in-page) Embed Code</a></li>
-          <li><a href="/publish/available-options-standard-iframe-embed-code.html">Options for the Standard (iframe) Embed Code</a></li>
-          <li>Choosing the Correct Embed Code</li>
-        </ul>
-        <p><a href="/publish/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/troubleshooting/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-exclamation-triangle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/troubleshooting/index.html">Troubleshooting & Error Handling</a></h2>
-        <p>Troubleshooting & Error Handling</p>
-        <ul>
-          <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
-          <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages Plugin</a></li>
-          <li><a href="/troubleshooting/viewing-player-configuration.html">Viewing the Player Configuration</a></li>
-        </ul>
-        <p><a href="/troubleshooting/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/styling/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-hat-wizard"></i> </div>
-      <div class="card-content">
-        <h2><a href="/styling/index.html">Styling & Appearance</a></h2>
-        <p>Styling & Appearance</p>
-        <ul>
-          <li><a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a></li>
-          <li><a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for Brightcove Player</a></li>
-          <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
-        </ul>
-        <p><a href="/styling/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/playback/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fal fa-play-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/playback/index.html">Playback</a></h2>
-        <p>Playback</p>
-        <ul>
-          <li><a href="/playback/autoplay-considerations.html">Autoplay Considerations</a></li>
-          <li><a href="/playback/delivering-hls-video.html">Delivering HLS Video</a></li>
-          <li><a href="/plugins/hls-plugin.html">HLS Plugin</a></li>
-        </ul>
-        <p><a href="/playback/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/content-protection/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-lock-alt"></i> </div>
-      <div class="card-content">
-        <h2><a href="/content-protection/index.html">DRM & Content Protection</a></h2>
-        <p>DRM & Content Protection</p>
-        <ul>
-          <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM Plugin</a></li>
-          <li><a href="/content-protection/overview-content-protection.html">Overview: Content Protection</a></li>
-          <li><a href="/content-protection/policy-keys.html">Policy Keys</a></li>
-        </ul>
-        <p><a href="/content-protection/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/coding-topics/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fas fa-brackets-curly"></i> </div>
-      <div class="card-content">
-        <h2><a href="/coding-topics/index.html">Coding Topics</a></h2>
-        <p>Coding Topics</p>
-        <ul>
-          <li><a href="/coding-topics/player-events.html">Player Events</a></li>
-          <li>Overiew: Player API</li>
-          <li><a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a></li>
-        </ul>
-        <p><a href="/coding-topics/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/general/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-info-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/general/index.html">General Information</a></h2>
-        <p>General information about the Brightcove Player.</p>
-        <ul>
-          <li><a href="/general/adding-captions-videos-programmatically.html">Adding Captions to Videos</a></li>
-          <li><a href="/general/implementing-cue-points-programmatically.html">Implementing Cue Points</a></li>
-          <li><a href="/general/implementing-playlists.html">Implementing Playlists</a></li>
-          <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
-        </ul>
-        <p><a href="/general/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/code-samples/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-file-code"></i> </div>
-      <div class="card-content">
-        <h2><a href="/code-samples/index.html">Code Samples</a></h2>
-        <p>Brightcove Player code samples.</p>
-        <ul>
-          <li><a href="/code-samples/brightcove-player-sample-download-video-plugin.html">Download Video Plugin</a></li>
-          <li><a href="/code-samples/brightcove-player-sample-ad-countdown-timer.html">Ad Countdown Timer</a></li>
-          <li><a href="/code-samples/brightcove-player-sample-all-time-video-views.html">All Time Video Views</a></li>
-          <li><a href="/code-samples/brightcove-player-sample-disable-progress-scrubber.html">Disable Progress Scrubber</a></li>
-        </ul>
-        <p><a href="/code-samples/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/release-notes/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-bell"></i> </div>
-      <div class="card-content">
-        <h2><a href="/release-notes/index.html">Release Notes</a></h2>
-        <p>Learn about new product features and updates.</p>
-        <ul>
-          <li>Brightcove Player Release Notes</li>
-          <li>Brightcove Player Pre-Release Notes</li>
-        </ul>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/support/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-question-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/support/index.html">Support</a></h2>
-        <p>Have a question or need help?</p>
-        <ul>
-          <li><a href="/support/viewing-brightcove-system-status-page.html">View Brightcove System Status</a></li>
-          <li><a href="/support/opening-case-with-brightcove-support.html">Open a Support Case</a></li>
-        </ul>
-      </div>
-    </section>
+      </li>
+    </ul>
+    <h4>16 Nov 2017</h4>
+    <p>v1.0.3</p>
+    <ul>
+      <li>Fixed an issue where synchronously setting an SSAI source after initializing the plugin would put the player in a bad state</li>
+      <li>Improved prevention of scrubbing and seeking during ads to prevent stuttering</li>
+    </ul>
+    <h4>30 Oct 2017</h4>
+    <p>v1.0.2</p>
+    <ul>
+      <li>Ensure that <code class="notranslate">player.ads.ad</code> is available when <code class="notranslate">ads-ad-started</code> is triggered</li>
+    </ul>
+    <h4>25 Oct 2017</h4>
+    <p>v1.0.1</p>
+    <ul>
+      <li>1 minute should show as <strong>1:00</strong> not <strong>&lt;1:00</strong></li>
+      <li>Adjust timing logic when moving out of ads to avoid flashes of content</li>
+      <li>Skip ad button should only skip one linear ad</li>
+    </ul>
+    <h4>12 Oct 2017</h4>
+    <p>v1.0.0</p>
+    <ul>
+      <li>Initial release. Support playback of SSAI streams via Brightcove Dynamic Delivery.</li>
+    </ul>
   </section>
 </article>
 
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
       
     </div>
   </div>
@@ -1141,6 +1107,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
   
   <script src="/assets/js/sites_nav.js"></script>
   <script src="/assets/js/feedback.js"></script>

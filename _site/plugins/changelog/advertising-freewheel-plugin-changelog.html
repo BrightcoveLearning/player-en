@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- remember to remove the following line when the site is ready to go live -->
   <!-- <meta name="robots" content="noindex" /> -->
-  <title>Brightcove Player Documentation</title>
+  <title>Advertising with the FreeWheel Plugin Changelog</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -81,9 +81,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb arr-right">
       
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
       
       
-      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Documentation</li>
+      
+      <li class="breadcrumb-item"><a href="/plugins/changelog/">Plugins</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Advertising with the FreeWheel Plugin Changelog</li>
     </ol>
   </nav>
 </header>
@@ -847,212 +851,361 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </div>
 
 <article class="bcls-article">
-  <h1>Brightcove Player Documentation</h1>
-  <p>Brightcove Player development allows you to customize, integrate with, or add functionality to your players. Development tools are the Player API, and the standard web technologies of HTML5, CSS and JavaScript.</p>
-  <p>Check out the extensive list of <a href="http://support.brightcove.com/brightcove-player-developer-code-samples">code samples</a> for player customization possibilities.</p>
-  <p>Brightcove Player version:</p>
-  <p>Current: <a href="http://support.brightcove.com/brightcove-player-release-notes">v6.38.4</a></p>
-  <p>Pre-release: <a href="http://support.brightcove.com/brightcove-player-pre-release">v6.39.1</a></p>
-  <section class="card-wrapper">
-    <section onclick="window.location.pathname = '/getting-started/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-location-arrow"></i> </div>
-      <div class="card-content">
-        <h2><a href="/getting-started/index.html">Getting Started</a></h2>
-        <p>Just getting started with Brightcove Player?</p>
+  <h1>Advertising with the FreeWheel Plugin Changelog</h1>
+  <summary>The following tracks changes to the plugin:</summary>
+  <section class="bcls-section">
+    <h2 id="Changelog">Changelog</h2>
+    <h4>3 Dec 2019</h4>
+    <p>v3.5.0</p>
+    <ul>
+      <li>Added support for <code>minDuration</code> and <code>maxDuration</code> to <code>temporalSlots</code></li>
+    </ul>
+    <h4>4 Sep 2019</h4>
+    <p>v3.4.0</p>
+    <ul>
+      <li>Resized the ad container when the <code>playerresize</code> event occurs</li>
+      <li>Update the FW SDK URL</li>
+      <li>Fixed a sizing issue with VPAID ads</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information language-editable">Note: As mentioned in the actual FreeWheel plugin doc, in the <a href="/node/18140#Using_the_correct_SDK_URL">Using the correct SDK URL</a> section, FreeWheel did away with the dynamic SDK URL in favor of a versioned URL. This means that the Brightcove Player plugin is now locked to a specific version by default, rather than the latest version. Brightcove will attempt to keep up with FreeWheel SDK releases, but may lag behind.
+      <p>You may want to manage your own SDK version in their Brightcove Player integration. This involves passing the <code>Html5.sdkurl</code> option to the FreeWheel plugin:</p>
+      <pre class="line-numbers">
+<code class="language-javascript">player.FreeWheelPlugin({
+  Html5: {
+    sdkurl: '<em>preferred-sdk-url</em>'
+  }
+});</code></pre>
+    </aside>
+    <h4>20 Mar 2019</h4>
+    <p>v3.3.1</p>
+    <ul>
+      <li>Bug fix: Ensure duration is a float when sending to FreeWheel SDK to properly set <code>vdur</code> param in URL</li>
+      <li>Support newer coding standards (vjsstandard 8)</li>
+    </ul>
+    <h4>2 Jan 2019</h4>
+    <p>v3.3.0</p>
+    <ul>
+      <li>Added autoplay handling</li>
+    </ul>
+    <h4>13 Aug 2018</h4>
+    <p>v3.2.0</p>
+    <ul>
+      <li>Fix link to Live Player documentation PDF</li>
+      <li>Add <code class="notranslate">isVpaid</code> convenience method to FreeWheel plugin</li>
+    </ul>
+    <h4>13 Jun 2018</h4>
+    <p>v3.1.0</p>
+    <ul>
+      <li>Added behavior to hide player overlays during ad playback</li>
+      <li>Fixed bug where an empty VAST response would prevent content playback on Android</li>
+      <li>Fixed bug where content couldn't be resumed following a VPAID ad clickthrough</li>
+      <li>Added ability to set Freewheel SDK parameters via plugin options</li>
+      <li>Added ability to set the Freewheel SDK log level via plugin options</li>
+    </ul>
+    <h4>7 Mar 2018</h4>
+    <p>v3.0.0</p>
+    <ul>
+      <li>Changed default tech order to be HTML5-only</li>
+      <li>Default value for <code class="notranslate">pauseOnAdClickthrough</code> has been changed from <code class="notranslate">false</code> to <code class="notranslate">true</code></li>
+      <li>VPAID clickthrough area now resizes with player</li>
+      <li>Added <code class="notranslate">loadWithCookie</code> option</li>
+      <li>Removed defunct <code class="notranslate">nativeHlsForceHtml</code> option</li>
+      <li>Plugin now respects relative URLs in configuration</li>
+      <li>Updated <strong class="notranslate">videojs-contrib-ads</strong> from 4.2.7 to 5.1.6
         <ul>
-          <li><a href="/getting-started/training-demand-developing-brightcove-player.html">Training: Developing with the Brightcove Player</a></li>
-          <li><a href="/getting-started/developer-basics-videos.html">Developer Basics Videos</a></li>
-          <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
-          <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
-          <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+          <li>Clear timeouts when player is disposed</li>
+          <li>More reliable media events, including <code class="notranslate">loadeddata</code> and <code class="notranslate">loadedmetadata</code></li>
+          <li>Emit an error if plugin is initialized too late</li>
+          <li>Fixed a bug where certain ad errors would not end ad mode</li>
+          <li>Improved compatibility with Video.js 6</li>
+          <li>Fix issue where captions could show during ads on iOS</li>
+          <li>Fix <strong class="notranslate">snapshot.trackChangeHandler</strong> bug</li>
+          <li>Fix bug with play state after source changes</li>
+          <li>Fix issue where content would restart after iOS midroll</li>
+          <li>Fix issue where loading spinner would not animate before ads</li>
+          <li>Fix issue with caption state persistence</li>
+          <li>Other reliability improvements</li>
         </ul>
-        <p><a href="/getting-started/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/basics/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-shapes"></i> </div>
-      <div class="card-content">
-        <h2><a href="/basics/index.html">Learn the Basics</a></h2>
-        <p>Learn the Basics</p>
+      </li>
+    </ul>
+    <h4>19 Jan 2018</h4>
+    <p>v2.9.0</p>
+    <ul>
+      <li>Added <code class="notranslate">pauseOnAdClickthrough</code> option
         <ul>
-          <li><a href="/basics/developer-basics-custom-plugin-why-and-how.html">Custom Plugins - Why and How?</a></li>
+          <li>If set to true, linear ads will pause when clicked</li>
+          <li>Default is true</li>
         </ul>
-        <p><a href="/basics/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/references/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fal fa-books"></i> </div>
-      <div class="card-content">
-        <h2><a href="/references/index.html">References</a></h2>
-        <p>Brightcove Player References</p>
+      </li>
+      <li>Freewheel AdManager loading is now subject to the plugin's timeout setting; This prevents content flash that could result from the FreeWheel AdManager taking a long time to load</li>
+      <li>Fixed a content flash case with prerolls and autoplay</li>
+      <li>Fixed an issue with playlists where improper source cleanup caused issues when there was no preroll</li>
+      <li>Fixed an issue where ad progress was not updated when there were multiple instances of the player</li>
+    </ul>
+    <h4>4 Jan 2018</h4>
+    <p>v2.8.6</p>
+    <ul>
+      <li>Use separate ad container for Safari 11 desktop again</li>
+      <li>Fixed a bug where the content plays behind an ad when in a separate ad container</li>
+    </ul>
+    <h4>13 Nov 2017</h4>
+    <p>v2.8.5</p>
+    <ul>
+      <li>Fixed an issue with play button when autoplay is blocked due to not meeting autoplay requirements</li>
+    </ul>
+    <h4>12 Oct 2017</h4>
+    <p>v2.8.4</p>
+    <ul>
+      <li>Fixed a bug addressing Safari 11 Desktop's new autoplay behavior preventing autoplay and click-to-play ads from playing</li>
+      <li>Added handling for a new Freewheel SDK event, <code class="notranslate">EVENT_AD_AUTO_PLAY_BLOCKED</code>, to display a play button when Safari 11 prevents autoplay ads</li>
+      <li>Fixed a bug where video did not pause when user clicked through on pre, mid or post-rolls (pause on companion clickthrough not supported)</li>
+      <li>Fixed a bug where VPAID ads did not start playing in the correct size</li>
+      <li>Fixed a bug where VPAID ads did not resize after calling <code class="notranslate">player.dimensions()</code> to resize the player</li>
+      <li>Fixed a bug so we do not call <code class="notranslate">slot.stop()</code> on ad error (Flash)</li>
+      <li>Fixed a bug causing an incompatibility with Brightcove Video Player versions 6.3 and up</li>
+    </ul>
+    <h4>5 Sep 2017</h4>
+    <p>v2.8.3</p>
+    <ul>
+      <li>Fixed a bug so <code class="notranslate">slot.stop()</code> not called on ad error</li>
+      <li>Fixed a bug where the big-play-button and poster displayed during prerolls</li>
+    </ul>
+    <h4>17 Aug 2017</h4>
+    <p>v2.8.2</p>
+    <ul>
+      <li>Added ability to use subsessionToken in options</li>
+      <li>Fixed a bug where slot impression would not fire on empty preroll</li>
+      <li>Bug fixes for <code class="notranslate">oncue</code> mode</li>
+    </ul>
+    <h4>21 Jul 2017</h4>
+    <p>v2.8.1</p>
+    <ul>
+      <li>Implements a dedicated ad container for desktop browsers. FreeWheel Html5 ads will no longer reuse the player's video element on desktop.</li>
+    </ul>
+    <h4>17 May 2017</h4>
+    <p>v2.8.0</p>
+    <ul>
+      <li>Video.js 6 support</li>
+      <li>Exposed FreeWheel parameters</li>
+      <li>Fixed bug where you cannot un-mute the player once you mute it on Safari</li>
+      <li>Updated to use videojs-contrib-ads 4.2.7
         <ul>
-          <li><a href="/references/player-catalog.html">Player Catalog</a></li>
-          <li><a href="/references/player-metadata-bcinfo.html">Player Metadata from bcinfo</a></li>
-          <li><a href="/references/video-metadata-mediainfo.html">Video Metadata from mediainfo</a></li>
+          <li>Placeholder div's CSS position and top values now match the player's</li>
+          <li>Cross-compatibility between Video.js 5 and 6</li>
+          <li>Added a way to estimate adType</li>
+          <li>Added back support for ES3</li>
         </ul>
-        <p><a href="/references/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/plugins/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-plug"></i> </div>
-      <div class="card-content">
-        <h2><a href="/plugins/index.html">Plugins</a></h2>
-        <p>Brightcove Player Plugins</p>
+      </li>
+    </ul>
+    <h4>27 Mar 2017</h4>
+    <p>v2.7.1</p>
+    <ul>
+      <li>Enabling support for ES3</li>
+    </ul>
+    <h4>16 Feb 2017</h4>
+    <p>v2.7.0</p>
+    <ul>
+      <li>Plugin now chooses an <code class="notranslate">adTech</code> after a content source is set; this allows playlists with mixed content types to be used with the plugin</li>
+    </ul>
+    <h4>2 Feb 2017</h4>
+    <p>v2.6.1</p>
+    <ul>
+      <li>Fixed a bug with progress bar during Flash VPAID ads playback</li>
+      <li>Fixed a bug where user chooses to manually enable the Flash Player in Chrome Browser</li>
+      <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.2.2
         <ul>
-          <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
-          <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with the SSAI Plugin</a></li>
-          <li><a href="/plugins/overview-brightcove-player-plugins.html">Overview: Brightcove Player Plugins</a></li>
+          <li>Re-fix iOS content flash</li>
+          <li>Added cuepoints example</li>
+          <li>Documented <code class="notranslate">contentresumed</code> event</li>
         </ul>
-        <p><a href="/plugins/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/advertising/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-ad"></i> </div>
-      <div class="card-content">
-        <h2><a href="/advertising/index.html">Advertising</a></h2>
-        <p>Advertising</p>
+      </li>
+    </ul>
+    <h4>4 Jan 2017</h4>
+    <p>v2.6.0</p>
+    <ul>
+      <li>Added support for <code class="notranslate">cueTextTracks</code> feature in <strong class="notranslate">videojs-contrib-ads</strong> so cue points can be used to trigger ads</li>
+      <li>Fixed control bar in Flash to use localized text</li>
+      <li>Added ability to pass a custom visitor ID to FreeWheel</li>
+      <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.2.0
         <ul>
-          <li><a href="/advertising/ad-events-and-ad-objects.html">Ad Events and Ad Objects</a></li>
-          <li><a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a></li>
-          <li><a href="/advertising/step-step-implementing-advertising.html">Step-by-Step: Implementing Advertising</a></li>
+          <li>Added a new module to process metadata tracks for ad cue point manipulation</li>
+          <li>Updated videojs-standard dependency</li>
         </ul>
-        <p><a href="/advertising/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/publish/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-browser"></i> </div>
-      <div class="card-content">
-        <h2><a href="/publish/index.html">Publishing Videos & Players</a></h2>
-        <p>Publishing Videos & Players</p>
+      </li>
+    </ul>
+    <h4>20 Dec 2016</h4>
+    <p>v2.5.1</p>
+    <ul>
+      <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.1.6
         <ul>
-          <li><a href="/publish/available-options-advanced-page-embed-code.html">Options for the Advanced (in-page) Embed Code</a></li>
-          <li><a href="/publish/available-options-standard-iframe-embed-code.html">Options for the Standard (iframe) Embed Code</a></li>
-          <li>Choosing the Correct Embed Code</li>
+          <li>Fixed placeholder <code class="notranslate">div</code> on iOS 10 <code class="notranslate">playsinline</code></li>
+          <li>No longer sends an undocumented <code class="notranslate">adcontentplaying</code> event, which was only sent to cancel an extra <code class="notranslate">adplaying</code> event; code has been refactored to not need this extra event</li>
         </ul>
-        <p><a href="/publish/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/troubleshooting/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-exclamation-triangle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/troubleshooting/index.html">Troubleshooting & Error Handling</a></h2>
-        <p>Troubleshooting & Error Handling</p>
+      </li>
+    </ul>
+    <h4>9 Dec 2016</h4>
+    <p>v2.5.0</p>
+    <ul>
+      <li>Bug Fixes
         <ul>
-          <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
-          <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages Plugin</a></li>
-          <li><a href="/troubleshooting/viewing-player-configuration.html">Viewing the Player Configuration</a></li>
+          <li>Plugin now prevents ad clickthrough when clicking progress bar during ad</li>
+          <li>Ended event now triggers correctly after the content ends additional times, having ended once already</li>
+          <li>Fixed some scenarios in which ad requests were made twice</li>
+          <li>Plugin now correctly handles empty ad creative and plays content without ads when no ads present</li>
+          <li>Captions and audio track buttons are now hidden during ads</li>
         </ul>
-        <p><a href="/troubleshooting/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/styling/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-hat-wizard"></i> </div>
-      <div class="card-content">
-        <h2><a href="/styling/index.html">Styling & Appearance</a></h2>
-        <p>Styling & Appearance</p>
+      </li>
+      <li>Feature Update
         <ul>
-          <li><a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a></li>
-          <li><a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for Brightcove Player</a></li>
-          <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
+          <li>Plugin now passes autoPlayType in Flash</li>
         </ul>
-        <p><a href="/styling/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/playback/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fal fa-play-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/playback/index.html">Playback</a></h2>
-        <p>Playback</p>
+      </li>
+    </ul>
+    <h4>21 Nov 2016</h4>
+    <p>v2.4.1</p>
+    <ul>
+      <li>Added dev dep on videojs-standard</li>
+      <li>Updated to use <strong class="notranslate">videojs-contrib-ads 4.1.4</strong>
         <ul>
-          <li><a href="/playback/autoplay-considerations.html">Autoplay Considerations</a></li>
-          <li><a href="/playback/delivering-hls-video.html">Delivering HLS Video</a></li>
-          <li><a href="/plugins/hls-plugin.html">HLS Plugin</a></li>
+          <li>Fixed issue where blank div to prevent content flash covers ad on iPad</li>
+          <li>Fixed to snapshot test to avoid relying on track src</li>
         </ul>
-        <p><a href="/playback/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/content-protection/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-lock-alt"></i> </div>
-      <div class="card-content">
-        <h2><a href="/content-protection/index.html">DRM & Content Protection</a></h2>
-        <p>DRM & Content Protection</p>
+      </li>
+    </ul>
+    <h4>2 Nov 2016</h4>
+    <p>v2.4.0</p>
+    <ul>
+      <li>Enabled volume persistence across ad breaks</li>
+      <li>Added support for page variable ad macros</li>
+      <li>Added support for mediainfo custom field ad macros</li>
+      <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.1.1
         <ul>
-          <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM Plugin</a></li>
-          <li><a href="/content-protection/overview-content-protection.html">Overview: Content Protection</a></li>
-          <li><a href="/content-protection/policy-keys.html">Policy Keys</a></li>
+          <li>Temporarily re-added <code class="notranslate">contentplayback</code> as a transitionary step; do not use this event, use <code class="notranslate">playing</code> instead</li>
+          <li>Added macro support in contrib-ads</li>
         </ul>
-        <p><a href="/content-protection/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/coding-topics/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="fas fa-brackets-curly"></i> </div>
-      <div class="card-content">
-        <h2><a href="/coding-topics/index.html">Coding Topics</a></h2>
-        <p>Coding Topics</p>
+      </li>
+    </ul>
+    <h4>24 Oct 2016</h4>
+    <p>v2.3.0</p>
+    <ul>
+      <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.0.0
         <ul>
-          <li><a href="/coding-topics/player-events.html">Player Events</a></li>
-          <li>Overiew: Player API</li>
-          <li><a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a></li>
+          <li><code class="notranslate">playing</code> event no longer sent before preroll</li>
+          <li><code class="notranslate">contentplayback</code> event removed</li>
+          <li>Fixed a flash of content introduced in Chrome 53 where ads-loading class was being removed too soon</li>
+          <li>Added <code class="notranslate">player.ads.VERSION</code></li>
+          <li>Updated to use conventions put forward by <strong class="notranslate">generator-videojs-plugin</strong></li>
+          <li>Created separate files for feature modules</li>
         </ul>
-        <p><a href="/coding-topics/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/general/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-info-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/general/index.html">General Information</a></h2>
-        <p>General information about the Brightcove Player.</p>
+      </li>
+    </ul>
+    <h4>22 Sep 2016</h4>
+    <p>v2.2.0</p>
+    <ul>
+      <li>Flash uses real timing info for progress bar</li>
+      <li>Smooth progress bar</li>
+      <li>Send <code class="notranslate">nopostroll</code> and <code class="notranslate">nopreroll</code> events when economics is free</li>
+      <li>Update to videojs.contrib-ads 3.3.13
         <ul>
-          <li><a href="/general/adding-captions-videos-programmatically.html">Adding Captions to Videos</a></li>
-          <li><a href="/general/implementing-cue-points-programmatically.html">Implementing Cue Points</a></li>
-          <li><a href="/general/implementing-playlists.html">Implementing Playlists</a></li>
-          <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
+          <li>Fix check to reset snapshot on contentupdate</li>
         </ul>
-        <p><a href="/general/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/code-samples/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-file-code"></i> </div>
-      <div class="card-content">
-        <h2><a href="/code-samples/index.html">Code Samples</a></h2>
-        <p>Brightcove Player code samples.</p>
+      </li>
+    </ul>
+    <h4>19 Aug 2016</h4>
+    <p>v2.1.5</p>
+    <ul>
+      <li>Update to videojs-contrib-ads v3.3.12 to include fixes for metrics on empty ad</li>
+    </ul>
+    <h4>27 Jul 2016</h4>
+    <p>v2.1.4</p>
+    <ul>
+      <li>Update to videojs-contrib-ads v3.3.10</li>
+    </ul>
+    <h4>13 Jun 2016</h4>
+    <p>v2.1.1</p>
+    <ul>
+      <li>Update to videojs-contrib-ads v3.3.7 to include fixes for
         <ul>
-          <li><a href="/code-samples/brightcove-player-sample-download-video-plugin.html">Download Video Plugin</a></li>
-          <li><a href="/code-samples/brightcove-player-sample-ad-countdown-timer.html">Ad Countdown Timer</a></li>
-          <li><a href="/code-samples/brightcove-player-sample-all-time-video-views.html">All Time Video Views</a></li>
-          <li><a href="/code-samples/brightcove-player-sample-disable-progress-scrubber.html">Disable Progress Scrubber</a></li>
+          <li>Bug where content would replay after a postroll completed</li>
+          <li>Bug where two ad-end events would fire</li>
         </ul>
-        <p><a href="/code-samples/index.html">View All...</a></p>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/release-notes/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-bell"></i> </div>
-      <div class="card-content">
-        <h2><a href="/release-notes/index.html">Release Notes</a></h2>
-        <p>Learn about new product features and updates.</p>
-        <ul>
-          <li>Brightcove Player Release Notes</li>
-          <li>Brightcove Player Pre-Release Notes</li>
-        </ul>
-      </div>
-    </section>
-    <section onclick="window.location.pathname = '/support/index.html';" class="bcls-card">
-      <div class="card-icon"> <i class="far fa-question-circle"></i> </div>
-      <div class="card-content">
-        <h2><a href="/support/index.html">Support</a></h2>
-        <p>Have a question or need help?</p>
-        <ul>
-          <li><a href="/support/viewing-brightcove-system-status-page.html">View Brightcove System Status</a></li>
-          <li><a href="/support/opening-case-with-brightcove-support.html">Open a Support Case</a></li>
-        </ul>
-      </div>
-    </section>
+      </li>
+    </ul>
+    <h4>9 May 2016</h4>
+    <p>v2.1.0</p>
+    <ul>
+      <li>Added Macros support</li>
+      <li>Added <code class="notranslate">player.mediainfo.economics</code> support</li>
+    </ul>
+    <h4>20 Apr 2016</h4>
+    <p>v2.0.0</p>
+    <ul>
+      <li>Updates for compatibility with Brightcove Playlists</li>
+      <li>Introduces new event for updating FreeWheel Configuration object: fw-before-ad-request</li>
+    </ul>
+    <h4>31 Mar 2016</h4>
+    <p>v1.0.0</p>
+    <ul>
+      <li>Updates for compatibility with Brightcove players v5.*</li>
+    </ul>
+    <h4>1 Mar 2016</h4>
+    <p>v0.7.2</p>
+    <ul>
+      <li>Updates to the latest FreeWheel HTML5 and Flash SDK</li>
+      <li>Fixes issues related to FreeWheel's video view beacons</li>
+    </ul>
+    <h4 id="toc_0">15 Sep 2015</h4>
+    <p>v0.5.1</p>
+    <ul>
+      <li>Exposes FW events</li>
+    </ul>
+    <h4 id="toc_1">15 Sep 2015</h4>
+    <p>v0.5.0</p>
+    <ul>
+      <li>Fixes midroll skipping for both adtechs</li>
+    </ul>
+    <h4 id="toc_2">15 Sep 2015</h4>
+    <p>v0.4.1</p>
+    <ul>
+      <li>Fixes bug with "keyValues"</li>
+    </ul>
+    <h4 id="toc_3">15 Sep 2015</h4>
+    <p>v0.4.0</p>
+    <ul>
+      <li>Ads "keyValues" support for Flash ad Tech</li>
+    </ul>
+    <h4 id="toc_4">7 May 2015</h4>
+    <p>v0.3.5</p>
+    <ul>
+      <li>Fixes video replay after postrolls in HTML bug</li>
+    </ul>
+    <h4 id="toc_5">17 Apr 2015</h4>
+    <p>v0.3.4</p>
+    <ul>
+      <li>Generates id's for FW Config <em>temporalSlots</em>.</li>
+      <li>Note: <em>temporalSlots.id</em> is optional for Clients, but code wise required when adding a temporal slot</li>
+    </ul>
+    <h4 id="toc_6">17 Apr 2015</h4>
+    <p>v0.3.3</p>
+    <ul>
+      <li>Removes partial support of FW Video NonTemporal Slots</li>
+    </ul>
+    <h4 id="toc_7">17 Mar 2015</h4>
+    <p>v0.3.0</p>
+    <ul>
+      <li>Add html5 midroll support.</li>
+    </ul>
   </section>
 </article>
 
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
       
     </div>
   </div>
@@ -1141,6 +1294,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/prism.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/site.js"></script>
   <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/tabs.js"></script>
+  
+  <script src="https://learning-services-media.brightcove.com/doc-assets/site-assets/js/site/toc.js"></script>
   
   <script src="/assets/js/sites_nav.js"></script>
   <script src="/assets/js/feedback.js"></script>
