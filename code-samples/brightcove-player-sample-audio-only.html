@@ -1,0 +1,60 @@
+---
+title: Brightcove Player Sample: Audio-Only
+parent: Code Samples
+---
+<article class="bcls-article">
+<h1>Brightcove Player Sample: Audio-Only</h1>
+<summary>
+  <p>In this topic, you will learn to create a Brightcove player that plays your content in audio-only mode. The video still image is displayed during playback, so you won't see the video content, but you will hear the audio track.</p>
+  <aside class="bcls-aside bcls-aside--information">You may also be interested in this <a href="http://solutions.brightcove.com/bclifford/demo/player/audio.html">alternative audio player sample</a>.</aside>
+</summary>
+<section class="bcls-section">
+<section id="Development_sequence" class="bcls-section">
+  <h2 class="bcls-expander-head">Development sequence</h2>
+  <div class="bcls-expander-content">
+    <p class="language-editable">Here is the recommended development sequence:</p>
+    <ol>
+      <li class="language-editable">Use the embed_in_page player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
+      <li class="language-editable">Put the plugin's JavaScript and CSS into separate files for local testing</li>
+      <li class="language-editable">Deploy the plugin code and CSS to your server once you have worked out any errors</li>
+      <li class="language-editable">Use Studio to add the plugin and CSS to your player</li>
+      <li class="language-editable">Replace the embed_in_page player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
+    </ol>
+    <p class="language-editable">For details about these steps, review the <a href="/node/18081">Step-by-Step: Plugin Development</a> guide.</p>
+    <h3>iframe or embed_in_page</h3>
+    <p class="language-editable">When developing enhancements for the Brightcove player you will need to decide if the code is a best fit for the iframe or embed_in_page implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
+    <ul>
+      <li class="language-editable">No collisions with existing JavaScript and/or CSS</li>
+      <li class="language-editable">Automatically responsive</li>
+      <li class="language-editable">The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
+    </ul>
+    <p class="language-editable">Although integrating the embed_in_page player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
+    <ul>
+      <li class="language-editable">Code in the containing page needs to listen for and act on player events</li>
+      <li class="language-editable">The player uses styles from the containing page</li>
+      <li class="language-editable">The iframe will cause application logic to fail, like a redirect from the containing page</li>
+    </ul>
+    <p class="language-editable">Even if your final implementation does not use the iframe player, you can still use the embed_in_page player with a plugin that contains your JavaScript and CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+  </div>
+  <!-- id="expanderContent" --></section>
+<section id="Select_implementation" class="bcls-section">
+  <h2>Select implementation</h2>
+  <p class="language-editable">Either an in-page or iframe player will work for this sample. Here, the iframe player is used</p>
+</section>
+<section id="The_player" class="bcls-section">
+  <h2>The player</h2>
+  <p data-height="265" data-theme-id="dark" data-slug-hash="EbGBwL" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="Audio-Only Player" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/EbGBwL/">Audio-Only Player</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></section>
+<section id="How_it_works" class="bcls-section">
+  <h2>How it works</h2>
+  <p class="language-editable">Publishing audio content in this way does not require any modification to your player. <span class="video-cloud-only">Just add an <a href="/node/17951">audio file to your Video Cloud library</a>.</span> <span class="player-only">Your audio content must be in the form of a MP4 video with no video track.</span></p>
+  <h3>Create the player</h3>
+  <p class="language-editable">To create a player and assign a video to it, follow these steps:</p>
+  <ol>
+    <li class="language-editable">In the <strong>Players</strong> module, create a new player or use an existing one.</li>
+    <li class="language-editable"><span class="video-cloud-only">In the <strong>Media</strong> module, select an audio-only item and publish it with this player.</span><span class="player-only">Assign audio content to the player and publish it.</span></li>
+    <li class="language-editable">Copy either the basic (iframe) or the advanced (In-Page) embed code and paste it into a new HTML file.</li>
+    <li class="language-editable">Add the JavaScript to change the hover message on the play button from <strong>Play Video</strong> to <strong>Play Audio</strong>. For the advanced embed code you would need to create a custom plugin for the JavaScript.</li>
+  </ol>
+</section>
+</article>
