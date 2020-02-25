@@ -1,0 +1,48 @@
+---
+title: Using a Non-Brightcove Player
+parent: 'Publishing Videos & Players'
+---
+<article class="bcls-article">
+  <h1>Using a Non-Brightcove Player</h1>
+  <summary>In this topic, you will learn about the various types of events associated with Brightcove Player.</summary>
+  <section class="bcls-section">
+    <h2 id="introduction">Introduction</h2>
+    <p>The Brightcove web and mobile device players have a considerable amount of functionality built in, directly or through plugins, to work various aspects of your Video Cloud account:</p>
+    <ul>
+      <li>Retrieve video data and metadata</li>
+      <li>Handle content protection though domain or geo restriction</li>
+      <li>Send analytics data to the Brightcove data collector</li>
+    </ul>
+    <p>If for some reason you need to play your Video Cloud videos, you will need to handle this functionality yourself. The sections below explain how to use Brightcove APIs to do this.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="get_policy_key">Getting a policy key</h2>
+    <p>In order to get video and playlist data, or set content restrictions, you will need a <a href="/node/18381">policy key</a>. In most cases, you can do this through Video Cloud Studio, or you can use the Policy API.</p>
+    <h3>Simple policy keys</h3>
+    <p>If all you need to do is retrieve videos and/or playlists by their IDs, you can simply <a href="/node/18125">get the policy key from a player</a>.</p>
+    <p>If you want to be able to <a href="/node/18005">search for videos</a> using the <a href="#get_video_data">Playback API</a>, you will need to create a search-enabled policy key. You can do that through the Policy API, or use the sample app we have embedded in the <a href="/node/18004">Quick Start: Policy API</a>.</p>
+    <h3>Policy keys with playback restrictions</h3>
+    <p>Domain restriction and geo restriction for players are also implemented using policy keys. If you need either one or both, the easiest way to get a policy key is to set the desired restrictions on a new player in Studio, and then <a href="/node/18125">get the policy key from that player</a>. If you prefer, you can also generate this policy key directly, using the <a href="https://docs.brightcove.com/policy-api/v1/doc/index.html#operation/CreateAPolicyKey">Policy API</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="get_video_data">Getting video data</h2>
+    <p>Once you have a policy key, you can retrieve video data for your player using the <a href="/node/18380">Playback API</a>. Data can be retrieved in three ways:</p>
+    <ul>
+      <li>Get a video by ID or reference_id</li>
+      <li>Get a playlist by ID or reference_id</li>
+      <li>Get videos by <a href="/node/18005">search</a></li>
+    </ul>
+    <p>See the <a href="/node/17907">Quick Start: Playback API</a> for sample JavaScript you can use to set up the API request.</p>
+    <p>The response data will include video <code>sources</code>, which is an array of rendition data, including the URL. You will also get URLs for thumbnail and poster images, as well as metadata such as the video <code>name</code> and <code>description</code>.</p>
+    <p>How you load this data into your player will depend on the player's API.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="analytics">Analytics</h2>
+    <p>Since non-Brightcove players will not automatically send data to the <a href="/node/18876">Data Collection API</a> for the Brightcove Analytics system, it is your responsibility to implement that.</p>
+    <p>What you will need to do depends on the API for the player, especially the events that are broadcast for player actions. See the <a href="/node/17987">Data Collection API Sample</a> for a model based on the VideoJS player for guidance on what events you should capture and how to submit the data to the API.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="other_functionality">Other functionality</h2>
+    <p>If you require other functionality such as advertising or DRM unlocking, you will also need to implement this for your player. Looking at the source code for the <a href="/node/18362">Brightcove Player plugins</a> will provide some useful clues as to what you need to do.</p>
+  </section>
+</article>

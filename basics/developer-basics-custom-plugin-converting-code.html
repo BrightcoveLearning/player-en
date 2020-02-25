@@ -1,0 +1,182 @@
+---
+title: 'Developer Basics: Custom Plugin - Converting Code'
+parent: Developer Basics
+---
+<article class="bcls-article">
+  <h1>Developer Basics: Custom Plugin - Converting Code</h1>
+  <summary>In this topic, you will learn how to convert code that controls the Brightcove Player into a custom plugin.</summary>
+  <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="6049692449001">&nbsp;</div>
+  <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script>
+  <section class="bcls-section">
+    <h2 id="Steps">Steps</h2>
+    <p>These steps assume you have written the code to enhance the Brightcove Player on a single, HTML page.</p>
+    <ol class="bcls-tasklist">
+      <li>Create empty files for the JavaScript and CSS. As a best practice, the filenames should reflect the plugin's functionality. In the video <strong>back-forward-buttons.js</strong> and <strong>back-forward-buttons.css</strong> are used.</li>
+      <li>Copy the CSS from the HTML page, minus the <code>&lt;style&gt;</code> tags, and paste into the dedicated CSS file.</li>
+      <li>Copy the JavaScript from the HTML page, minus the <code>&lt;script&gt;</code> tags, and paste into the dedicated JavaScript file.</li>
+      <li>In the JavaScript file, locate the code that resembles
+        <pre class="line-numbers">
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function () {</code></pre>
+        and replace it with the following, choosing a name for the plugin that reflects its functionality:
+        <pre class="line-numbers">
+<code class="language-javascript">videojs.registerPlugin('backForwardButtons', function() {</code></pre>
+        <aside class="bcls-aside bcls-aside--information language-editable">Note that the filenames for the CSS and JavaScript uses hyphens, while the plugin name is camelCase. This is simply a convention used by the writer of the code and you can name entities as you wish.</aside>
+      </li>
+      <li>From the original HTML page, remove the <code>&lt;style&gt;</code> block and replace it with a link to the CSS file:
+        <pre class="line-numbers">
+<code class="language-html">&lt;link href="back-forward-buttons.css" rel="stylesheet"&gt;</code></pre>
+      </li>
+      <li>From the original HTML page, and just below the <code>&lt;script&gt;</code> tag that links to the player's <code>index.min.js</code> file, add a second <code>&lt;script&gt;</code> tag to link to the plugin's JavaScript:
+        <pre class="line-numbers">
+<code class="language-html">&lt;script src="back-forward-buttons.js"&gt;&lt;/script&gt;</code></pre>
+      </li>
+      <li>From the original HTML page, remove the contents of the <code>&lt;script&gt;</code> block, and replace it code that performs the following:
+        <ul>
+          <li>Get a reference to the player using the <code>getPlayer()</code> and <code>ready()</code> methods, that has a related anonymous event handler function.</li>
+          <li>In the event handler function, assign a variable named <code>myPlayer</code> the <code>this</code> keyword, which represents the player in this context.</li>
+          <li>Call the plugin.</li>
+        </ul>
+        <pre class="line-numbers">
+<code class="language-html">&lt;script&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this;
+    myPlayer.backForwardButtons();
+  });
+&lt;/script&gt;</code></pre>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Completed_Code">Complete Code</h2>
+    <h3>Main HTML page</h3>
+    <pre class="line-numbers">
+  <code class="language-html">&lt;!doctype html&gt;
+  &lt;html&gt;
+
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Untitled Document&lt;/title&gt;
+  &lt;link href="back-forward-buttons.css" rel="stylesheet"&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+
+    &lt;video id="myPlayerID"
+      data-video-id="5992439742001"
+      data-account="1752604059001"
+      data-player="default"
+      data-embed="default"
+      data-application-id
+      class="video-js"
+      controls
+      width="640" height="360"&gt;&lt;/video&gt;
+    &lt;script src="//players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
+    &lt;script src="back-forward-buttons.js"&gt;&lt;/script&gt;
+
+    &lt;script&gt;
+      videojs.getPlayer('myPlayerID').ready(function() {
+        var myPlayer = this;
+        myPlayer.backForwardButtons();
+      });
+    &lt;/script&gt;
+
+  &lt;/body&gt;
+
+  &lt;/html&gt;</code></pre>
+    <h3>Custom plugin's JavaScript</h3>
+    <pre class="line-numbers">
+  <code class="language-javascript">videojs.registerPlugin('backForwardButtons', function() {
+    var myPlayer = this,
+        jumpAmount = 5,
+        controlBar,
+        insertBeforeNode,
+        newElementBB = document.createElement('div'),
+        newElementFB = document.createElement('div'),
+        newImageBB = document.createElement('img'),
+        newImageFB = document.createElement('img');
+
+    // +++ Assign IDs for later element manipulation +++
+    newElementBB.id = 'backButton';
+    newElementFB.id = 'forwardButton';
+
+    // +++ Assign properties to elements and assign to parents +++
+    newImageBB.setAttribute('src', '//learning-services-media.brightcove.com/doc-assets/player-development/samples/back-forward-buttons/back-button.png');
+    newElementBB.appendChild(newImageBB);
+    newImageFB.setAttribute('src', '//learning-services-media.brightcove.com/doc-assets/player-development/samples/back-forward-buttons/forward-button.png');
+    newElementFB.appendChild(newImageFB);
+
+    // +++ Get controlbar and insert elements +++
+    controlBar = myPlayer.$('.vjs-control-bar');
+    // Get the element to insert buttons in front of in conrolbar
+    insertBeforeNode = myPlayer.$('.vjs-volume-panel');
+
+    // Insert the button div in proper location
+    controlBar.insertBefore(newElementBB, insertBeforeNode);
+    controlBar.insertBefore(newElementFB, insertBeforeNode);
+
+    // +++ Add event listeners to jump back or forward +++
+    // Back button logic, don't jump to negative times
+    newElementBB.addEventListener('click', function () {
+      var newTime,
+          rewindAmt = jumpAmount,
+          videoTime = myPlayer.currentTime();
+      if (videoTime &gt;= rewindAmt) {
+        newTime = videoTime - rewindAmt;
+      } else {
+        newTime = 0;
+      }
+      myPlayer.currentTime(newTime);
+    });
+
+    // Forward button logic, don't jump past the duration
+    newElementFB.addEventListener('click', function () {
+      var newTime,
+          forwardAmt = jumpAmount,
+          videoTime = myPlayer.currentTime(),
+          videoDuration = myPlayer.duration();
+      if (videoTime + forwardAmt &lt;= videoDuration) {
+        newTime = videoTime + forwardAmt;
+      } else {
+        newTime = videoDuration;
+      }
+      myPlayer.currentTime(newTime);
+    });
+  });</code></pre>
+    <h3>Custom plugin's CSS</h3>
+    <aside class="bcls-aside bcls-aside--tip language-editable">Remember, NO &lt;style&gt; tags.</aside>
+    <pre class="line-numbers">
+  <code class="language-css">#backButton img{
+    margin-top: -7px;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+  }
+  #forwardButton img{
+    margin-top: -7px;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+  }</code></pre>
+  </section>
+</article>
+<link rel="stylesheet" href="https://learning-services-media.brightcove.com/doc-assets/css/learning-paths/learning-paths.css" />
+<script>
+    var learning_path = [
+      {
+        node: '18854',
+        title: 'Developer Basics: Custom Plugin - Why and How (2:56)'
+      },
+      {
+        node: '18855',
+        title: 'Developer Basics: Custom Plugin - Converting Code (2:26)'
+      },
+      {
+        node: '18856',
+        title: 'Developer Basics: Custom Plugin - Using Studio (1:40)'
+      },
+      {
+        node: '18857',
+        title: 'Developer Basics: Custom Plugin - Passing Data (2:43)'
+      }
+    ]
+  </script><script src="https://learning-services-media.brightcove.com/doc-assets/js/learning-paths/learning-paths.js"></script>
