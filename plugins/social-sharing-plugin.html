@@ -7,7 +7,7 @@ parent: Plugins
   <summary>In this topic, you will learn how to use the social media plugin to enable users to share a video through Facebook, Google+, Twitter, Tumblr, Pinterest and LinkedIn.</summary>
   <section class="bcls-section">
     <h2 id="Example">Example</h2>
-    <p>Let's say you have a web page with a Brightcove player on it. Now, you want to let users share the video across social media platforms. With the social media plugin, you will see a social sharing icon in the title and description dock.</p>
+    <p>Let's say you have a web page with a Brightcove Player on it. Now, you want to let users share the video across social media platforms. With the social media plugin, you will see a social sharing icon in the title and description dock.</p>
     <aside class="bcls-aside bcls-aside--information">Note: If the player is configured to not display the title and description dock, the sharing icon will appear in the player controls area.</aside>
     <figure class="bcls-figure"><img class="bcls-image" alt="Social Media icon" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/social-media-plugin/social-media-icon.png" /></figure>
     <p>Clicking on this icon displays the social sharing screen, as shown here.</p>
@@ -25,14 +25,14 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p>This document walks you through the steps to enable social media sharing for an existing HTML page with your Brightcove player on it. This assumes that you have created a Brightcove player with the proper configuration information and have added the player to an HTML page.</p>
+    <p>This document walks you through the steps to enable social media sharing for an existing HTML page with your Brightcove Player on it. This assumes that you have created a Brightcove Player with the proper configuration information and have added the player to an HTML page.</p>
     <p>To add the social media plugin, follow these steps:</p>
     <ol class="bcls-tasklist">
       <li>
-        <p>Configure the player. This will update your Brightcove player to use the social media plugin. There are three ways to include social sharing with your player:</p>
+        <p>Configure the player. This will update your Brightcove Player to use the social media plugin. There are three ways to include social sharing with your player:</p>
         <!-- <aside class="bcls-aside bcls-aside--information">
 			<ul>
-				<li>You will need the URL to the HTML page with your Brightcove player.</li>
+				<li>You will need the URL to the HTML page with your Brightcove Player.</li>
 				<li>Review the available <a href="#Properties">properties</a> to customize the social media plugin.</li>
 			</ul>
 		</aside> -->
@@ -55,7 +55,7 @@ parent: Plugins
       <li>Add social <a href="#Generate_meta_tags">meta tags</a> to your player's HTML page.</li>
       <li><a href="#Validate">Validate</a> the meta tags on your HTML page for FaceBook and Twitter.</li>
     </ol>
-    <p>In a browser, open the HTML page with your Brightcove player and use the social sharing icon in the player to share your video.</p>
+    <p>In a browser, open the HTML page with your Brightcove Player and use the social sharing icon in the player to share your video.</p>
     <p>You can also implement the social media plugin within your page code, but this is a more advanced solution. You may want to use this approach to include custom sharing URLs. For details, see the <a href="#Customizing_sharing_URLs">Customizing sharing URLs</a> section.</p>
     <aside class="bcls-aside bcls-aside--tip">
       <p>Other options for posting to social platforms include the following:</p>
@@ -153,7 +153,7 @@ parent: Plugins
     <h3 id="embedcode">embedCode</h3>
     <ul>
       <li>Type: string</li>
-      <li>This is the Brightcove player iframe embed code for sharing the video. This allows you to completely override the contents of the <strong>Embed Code</strong> field located in the sharing dialog.
+      <li>This is the Brightcove Player iframe embed code for sharing the video. This allows you to completely override the contents of the <strong>Embed Code</strong> field located in the sharing dialog.
         <figure class="bcls-figure"><img class="bcls-image" alt="Social Media Embed Code" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/social-media-plugin/social-media-embedcode.png" /></figure>
       </li>
       <li>You can get the value of this property by using the <a href="#getembedcode">getEmbedCode()</a> method.</li>
@@ -281,9 +281,9 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="Generate_meta_tags">Generate meta tags</h2>
-    <p>After you update your Brightcove player to use the social sharing plugin in the previous section, you are ready to add social meta tags to your HTML page.</p>
+    <p>After you update your Brightcove Player to use the social sharing plugin in the previous section, you are ready to add social meta tags to your HTML page.</p>
     <p>These meta tags allow social sharing sites to embed your video players and thumbnails in the post. The form below calls the CMS API with your information and retrieves your video data. It then generates social meta tags with your specific data.</p>
-    <p>To add social media meta tags to the HTML page with your Brightcove player, follow these steps:</p>
+    <p>To add social media meta tags to the HTML page with your Brightcove Player, follow these steps:</p>
     <ol class="bcls-tasklist__restart">
       <li>Enter your account, player and video information into the form below and select the <strong>Generate Social Tags</strong> button.</li>
     </ol>
@@ -398,7 +398,7 @@ parent: Plugins
   <section class="bcls-section">
     <h2 id="Sharing_on_Facebook">Sharing on Facebook</h2>
     <p>At this time, only Facebook's native player will play videos in a Facebook wall. If you would like to share your videos and have them play in the Facebook wall, you can use Brightcove Social. For details, see the <a href="/node/16342">Getting Started with Brightcove Social</a> document.</p>
-    <p>The Brightcove player will create a link in the wall which will open your video and player in a new browser tab or window. For most people, this behavior may be fine. To do this, Facebook lets you define the video using Open Graph (<strong>og</strong>) meta tags in your page HTML page. For details about how to use <strong>og</strong> tags for Facebook, see the <a href="//developers.facebook.com/docs/sharing/best-practices">Sharing Best Practices</a> document.</p>
+    <p>The Brightcove Player will create a link in the wall which will open your video and player in a new browser tab or window. For most people, this behavior may be fine. To do this, Facebook lets you define the video using Open Graph (<strong>og</strong>) meta tags in your page HTML page. For details about how to use <strong>og</strong> tags for Facebook, see the <a href="//developers.facebook.com/docs/sharing/best-practices">Sharing Best Practices</a> document.</p>
     <div class="video-cloud-only">
       <p>To share a link to your player and video, follow these steps:</p>
       <ol class="bcls-tasklist__restart">
@@ -408,7 +408,7 @@ parent: Plugins
         <li>Generate your <a href="#Generate_meta_tags">social meta tags</a> for your HTML page and update them as follows:
           <ul>
             <li>Lines 9-11: define your site name, the title of your video and type as video.</li>
-            <li>Line 12: points to the URL for your video with the Brightcove player.</li>
+            <li>Line 12: points to the URL for your video with the Brightcove Player.</li>
             <li>
               <p>Line 13: points to a thumbnail image for your video.</p>
               <aside class="bcls-aside bcls-aside--information">Because media URLs expire, it is recommended that you do either:
@@ -547,9 +547,9 @@ parent: Plugins
                 </ul>
                 For more information about using media URLs, see the <a href="/node/18570#using_media_urls">Best Practices: CMS and Playback APIs</a> document.</aside>
             </li>
-            <li>Line 69: points to the URL for your Brightcove player. Notice that the query parameters define the <code class="notranslate">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
+            <li>Line 69: points to the URL for your Brightcove Player. Notice that the query parameters define the <code class="notranslate">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
             <li>Lines 70-71: provide the player dimensions.</li>
-            <li>Line 72: points to the URL for your HTML page with your Brightcove player.</li>
+            <li>Line 72: points to the URL for your HTML page with your Brightcove Player.</li>
           </ul>
         </li>
       </ol>
@@ -601,9 +601,9 @@ parent: Plugins
                 </ul>
                 For more information about using media URLs, see the <a href="/node/18570#using_media_urls">Best Practices: CMS and Playback APIs</a> document.</aside>
             </li>
-            <li>Line 144: points to the URL for your Brightcove player. Notice that the query parameters define the <code class="notranslate">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
+            <li>Line 144: points to the URL for your Brightcove Player. Notice that the query parameters define the <code class="notranslate">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
             <li>Lines 145-146: provide the player dimensions.</li>
-            <li>Line 147: points to the URL for your HTML page with your Brightcove player.</li>
+            <li>Line 147: points to the URL for your HTML page with your Brightcove Player.</li>
           </ul>
         </li>
       </ol>
@@ -753,7 +753,7 @@ parent: Plugins
           <ul>
             <li>Line 147: Gets a reference to your player.</li>
             <li>Lines 149-164: Set the options for the social sharing plugin. For details, see the <a href="#properties">Properties</a> section.</li>
-            <li>Line 153: Sets the sharing URL to use a Smart Player. You can use this property to set the Sharing URL to any Brightcove player or Smart Player.</li>
+            <li>Line 153: Sets the sharing URL to use a Smart Player. You can use this property to set the Sharing URL to any Brightcove Player or Smart Player.</li>
             <li>
               <p>Line 166: Initializes the social plugin with the specific options.</p>
             </li>
