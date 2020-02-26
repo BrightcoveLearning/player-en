@@ -1,0 +1,40 @@
+---
+title: Volume Control
+parent: General Information
+---
+<article class="bcls-article">
+  <h1>Volume Control</h1>
+  <summary>
+    <p>In this topic, you will learn how to use two methods, <code>muted()</code> and <code>volume()</code>, to programmatically control audio for Brightcove Player. Of course you can manually control audio using the volume button in the player controls.</p>
+    <aside class="bcls-aside bcls-aside--information">Note: The examples below that use the <code>volume()</code> and <code>muted()</code> methods are executed when the player is ready. You need not wait for the <code>metatdataloaded</code> event, for example, since the volume is a player setting and independent of the video being played.</aside>
+  </summary>
+  <section id="volume" class="bcls-section">
+    <h2>volume() method</h2>
+    <p>The <code>volume()</code> method acts as both a getter and a setter depending upon if an argument is passed. If the method is used as a setter, the argument is a decimal number between 0 (muted) and 1.0 (full volume). The argument is a percentage represented as a decimal number.</p>
+    <p>Below is a code example programmatically using the <code>volume()</code> method to set the volume to 60%.</p>
+    <pre class="line-numbers">
+<code class="language-javascript">  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this;
+    myPlayer.volume(.6);
+  });</code></pre>
+  </section>
+  <section id="muted" class="bcls-section">
+    <h2>muted() method</h2>
+    <p>The <code>muted()</code> method acts as both a getter and setter depending upon if an argument is passed. If the method is used as a setter, the argument is a boolean value, <code>true</code> to mute and <code>false</code> to unmute.</p>
+    <p>Below is a code example programmatically using the <code>muted()</code> method to mute player audio.</p>
+    <pre class="line-numbers">
+<code class="language-javascript">  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this;
+    myPlayer.muted(true);
+  });</code></pre>
+    <aside class="bcls-aside bcls-aside--tip">Note: There is a subtle difference between <code>volume(0)</code> and <code>muted(true)</code>. The difference is that when muted is toggled the volume will remain at whatever the percentage was before <code>muted()</code> was used. Of course, if volume is set to 0, to resume audio a percentage will have to be set again.</aside>
+  </section>
+  <section id="volumechangeevent" class="bcls-section">
+    <h2>volumechange event</h2>
+    <p>If you wish to react to a change in volume you can use the <code>volumechange</code> event. You can set the event listener as follows:</p>
+    <pre class="line-numbers">
+<code class="language-javascript">    myPlayer.on('volumechange', function( evt ){
+      console.log('event: ', evt);
+    })</code></pre>
+  </section>
+</article>
