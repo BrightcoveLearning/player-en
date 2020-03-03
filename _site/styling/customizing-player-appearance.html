@@ -996,8 +996,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <article class="bcls-article">
   <h1>Customizing Player Appearance</h1>
-  <summary>This topic is a primer on customizing the appearance of Brightcove Player. The content uses Chrome's development tools, but all modern browsers have equivalent functionality. For a brief introduction to using development tools in different browsers see the <a href="/node/17914">Debugging Basics</a> document.</summary>
-  <aside class="bcls-aside bcls-aside--information language-editable">This document customizes the player using CSS. There are a limited set of customization options available in Studio, which requires no knowledge of CSS to implement. See the <a href="/node/14051">Styling Players</a> document for more information.</aside>
+  <summary>This topic is a primer on customizing the appearance of Brightcove Player. The content uses Chrome's development tools, but all modern browsers have equivalent functionality. For a brief introduction to using development tools in different browsers see the <a href="https://general.support.brightcove.com/general/concepts-javascript-debugging-basics.html">Debugging Basics</a> document.</summary>
+  <aside class="bcls-aside bcls-aside--information language-editable">This document customizes the player using CSS. There are a limited set of customization options available in Studio, which requires no knowledge of CSS to implement. See the <a href="https://studio.support.brightcove.com/players/styling-players.html">Styling Players</a> document for more information.</aside>
   <section class="bcls-section">
     <h2 id="Create_own_skin">Create own skin</h2>
     <p class="language-editable">If you wish to not use the default skin and create your own, this is possible using the Player Management API. The <a href="/general/player-configuration-guide.html#skin">Player Configuration Guide</a> provides the necessary information.</p>
@@ -1064,7 +1064,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   opacity: .6;
 }</code></pre>
     <p class="language-editable">You would think that this approach would work, but it does not. When working with CSS you need to be aware of property specificity. This refers to how the browser determines which property values get applied to an element based on their relevance.</p>
-    <p class="language-editable">One way to apply the button changes is to add another class in the selector. For instance, you can use the <code>.video-js</code> class to increase the selector's specificity. For more details, see the <a href="#specificity">CSS specificity</a> section</p>
+    <p class="language-editable">One way to apply the button changes is to add another class in the selector. For instance, you can use the <code>.video-js</code> class to increase the selector's specificity. For more details, see the <a href="#CSS_specificity">CSS specificity</a> section</p>
     <p class="language-editable">Then, reference the player's big play button in the CSS as follows:</p>
     <pre class="line-numbers">
 <code class="language-css"><span class="bcls-highlight">.video-js</span> .vjs-big-play-button {
@@ -1336,11 +1336,11 @@ spacer.appendChild(newElement);</code></pre>
     <pre class="line-numbers">
 <code class="language-javascript">// Set the content of the spacer to be right justified
 spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="spacer-right" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/spacer-right.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="spacer-right" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/spacer-right.png" /></figure>/playback/ios-and-brightcove-player.html/playback/ios-and-brightcove-player.html
   </section>
   <section class="bcls-section">
     <h2 id="Remove_fullscreen_icon">Remove fullscreen button</h2>
-    <p class="language-editable">There can be issues if you permit fullscreen viewing of videos on iOS, detailed in the <a href="/node/18106">iOS and Brightcove Player</a> document. If you wish to remove the fullscreen button from the controlbar you can so using this code:</p>
+    <p class="language-editable">There can be issues if you permit fullscreen viewing of videos on iOS, detailed in the <a href="/playback/ios-and-brightcove-player.html">iOS and Brightcove Player</a> document. If you wish to remove the fullscreen button from the controlbar you can so using this code:</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
