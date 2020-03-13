@@ -1,18 +1,51 @@
 ---
-title: 'DRM & Content Protection'
+title: Content Protection
+description: Topics for coders.
+icon: '<i class="fal fa-lock-alt"></i>'
 parent: Home
 ---
+<style>
+  h1 i.fal, h1 i.fab, h1 i.fas, h1 i.far {
+    font-size: 3rem;
+    color:{{site.product_color}};
+    margin-right: .5rem;
+  }
+  .card-icon i {
+    color: {{site.product_color}};
+  }
+  .card-wrapper {
+  justify-content: start;
+  }
+  .bcls-card ul li {
+    font-size: small;
+  }
+</style>
+
 <article class="bcls-article">
-  <h1><i class="far fa-lock-alt"></i>DRM & Content Protection</h1>
-  <summary></summary>
-    <p></p>
-    <ul>
-      <li><a href="https://studio.support.brightcove.com/players/configuring-player-content-restrictions.html">Configuring Player Content Restrictions</a></li>
-      <li><a href="/content-protection/creating-dash-drm-manifest-brightcove-player.html">Creating a DASH DRM Manifest for the Brightcove Player</a></li>
-      <li><a href="/troubleshooting/domain-restrictions-messaging.html">Domain Restrictions Messaging</a></li>
-      <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM Plugin</a></li>
-      <li><a href="/content-protection/overview-content-protection.html">Overview: Content Protection</a></li>
-      <li><a href="/content-protection/policy-keys.html">Policy Keys</a></li>
-      <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">Signed URLs and Token Auth with a Live Stream</a></li>
-    </ul>
+  <h1>{{ page.icon }} {{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+  <section class="card-wrapper">
+    <section class="bcls-card">
+      <div class="card-content">
+        <h2 id="Topics_in_this_section">Topics in this section</h2>
+        <ul>
+        {% for item in site.data.navigation %}
+        {% if item.name == page.title %}
+              {% for entry in item.docs %}
+                <li><a href="{{ entry.url }}">{{ entry.name }}</a>
+                {% if entry.docs %}
+                  <ul>
+                    {% for subentry in entry.docs %}
+                      <li><a href="{{ subentry.url }}">{{ subentry.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+                </li>
+              {% endfor %}
+        {% endif %}
+      {% endfor %}
+  
+      </div>
+    </section>
+  </section>
 </article>
