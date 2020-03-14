@@ -1,21 +1,51 @@
 ---
 title: 'Styling & Appearance'
+description: Topics on styling  and customizing the appearance of the Brightcove Player.
+icon: '<i class="far fa-hat-wizard"></i>'
 parent: Home
 ---
+<style>
+  h1 i.fal, h1 i.fab, h1 i.fas, h1 i.far {
+    font-size: 3rem;
+    color:{{site.product_color}};
+    margin-right: .5rem;
+  }
+  .card-icon i {
+    color: {{site.product_color}};
+  }
+  .card-wrapper {
+  justify-content: start;
+  }
+  .bcls-card ul li {
+    font-size: small;
+  }
+</style>
+
 <article class="bcls-article">
-  <h1><i class="far fa-hat-wizard"></i>Styling & Appearance</h1>
-  <summary></summary>
-  <p></p>
-  <ul>
-    <li><a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a></li>
-    <li><a href="/styling/customizing-player-appearance-legacy-skin.html">Customizing Player Appearance - Legacy Skin</a></li>
-    <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">Player Styling Playground</a></li>
-    <li><a href="/styling/quick-start-player-customization-legacy-skin.html">Quick Start: Player Customization - Legacy Skin</a></li>
-    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
-    <li><a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a></li>
-    <li><a href="/styling/sizing-player.html">Sizing the Player</a></li>
-    <li><a href="/styling/skins-and-player-versions.html">Skins and Player Versions</a></li>
-    <li><a href="https://studio.support.brightcove.com/media/styling-captions.html">Styling Captions</a></li>
-    <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
-  </ul>
+  <h1>{{ page.icon }} {{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+  <section class="card-wrapper">
+    <section class="bcls-card">
+      <div class="card-content">
+        <h2 id="Topics_in_this_section">Topics in this section</h2>
+        <ul>
+        {% for item in site.data.navigation %}
+        {% if item.name == page.title %}
+              {% for entry in item.docs %}
+                <li><a href="{{ entry.url }}">{{ entry.name }}</a>
+                {% if entry.docs %}
+                  <ul>
+                    {% for subentry in entry.docs %}
+                      <li><a href="{{ subentry.url }}">{{ subentry.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+                </li>
+              {% endfor %}
+        {% endif %}
+      {% endfor %}
+  
+      </div>
+    </section>
+  </section>
 </article>

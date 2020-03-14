@@ -1,26 +1,51 @@
 ---
 title: 'Publishing Videos & Players'
+description: Documentation on publishing Brightcove Players.
+icon: '<i class="far fa-browser"></i>'
 parent: Home
 ---
+<style>
+  h1 i.fal, h1 i.fab, h1 i.fas, h1 i.far {
+    font-size: 3rem;
+    color:{{site.product_color}};
+    margin-right: .5rem;
+  }
+  .card-icon i {
+    color: {{site.product_color}};
+  }
+  .card-wrapper {
+  justify-content: start;
+  }
+  .bcls-card ul li {
+    font-size: small;
+  }
+</style>
+
 <article class="bcls-article">
-<h1><i class="far fa-browser"></i>Publishing Videos &amp; Players</h1>
-<summary>
-</summary>
-<p></p>
-<ul>
-  <li><a href="/publish/assigning-video-player-programmatically.html">Assigning a Video to the Player Programmatically</a></li>
-  <li><a href="/publish/available-options-advanced-page-embed-code.html">Available Options for the Advanced (in-page) Embed Code</a></li>
-  <li><a href="/publish/available-options-standard-iframe-embed-code.html">Available Options for the Standard (iframe) Embed Code</a></li>
-  <li><a href="/publish/brightcove-player-loader.html">Brightcove Player Loader</a></li>
-  <li><a href="/publish/bulk-updating-brightcove-default-player.html">Bulk Updating Brightcove Default Player</a></li>
-  <li><a href="https://studio.support.brightcove.com/publish/choosing-correct-embed-code.html">Choosing the Correct Embed Code</a></li>
-  <li><a href="/publish/delaying-player-instantiation.html">Delaying Player Instantiation</a></li>
-  <li><a href="/publish/pre-release-player.html">Pre-release Player</a></li>
-  <li><a href="/publish/restricting-video-playback-using-ip-address.html">Restricting Video Playback Using IP Address</a></li>
-  <li><a href="/publish/syndication-strategies.html">Syndication Strategies</a></li>
-  <li><a href="/publish/using-non-brightcove-player.html">Using a Non-Brightcove Player</a></li>
-  <li><a href="https://studio.support.brightcove.com/publish/using-multiple-players-one-page.html">Using Multiple Players on One Page</a></li>
-  <li><a href="https://studio.support.brightcove.com/publish/using-reference-ids.html">Using Reference IDs</a></li>
-  <li>Video Renditions Inspector</li>
-</ul>
+  <h1>{{ page.icon }} {{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+  <section class="card-wrapper">
+    <section class="bcls-card">
+      <div class="card-content">
+        <h2 id="Topics_in_this_section">Topics in this section</h2>
+        <ul>
+        {% for item in site.data.navigation %}
+        {% if item.name == page.title %}
+              {% for entry in item.docs %}
+                <li><a href="{{ entry.url }}">{{ entry.name }}</a>
+                {% if entry.docs %}
+                  <ul>
+                    {% for subentry in entry.docs %}
+                      <li><a href="{{ subentry.url }}">{{ subentry.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+                </li>
+              {% endfor %}
+        {% endif %}
+      {% endfor %}
+  
+      </div>
+    </section>
+  </section>
 </article>

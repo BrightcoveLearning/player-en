@@ -1,51 +1,62 @@
 ---
 title: Code Samples
-description: Topics for coders.
+description: 'Sample players to help you with customizing the Brightcove Player.'
 icon: '<i class="far fa-brackets-curly"></i>'
 parent: Home
 ---
+
+<!-- note: this page has a special layout for code samples - don't reuse for other landing pages -->
 <style>
   h1 i.fal, h1 i.fab, h1 i.fas, h1 i.far {
     font-size: 3rem;
     color:{{site.product_color}};
     margin-right: .5rem;
   }
-  .card-icon i {
-    color: {{site.product_color}};
-  }
-  .card-wrapper {
-  justify-content: start;
-  }
-  .bcls-card ul li {
-    font-size: small;
-  }
 </style>
 
 <article class="bcls-article">
   <h1>{{ page.icon }} {{ page.title }}</h1>
   <summary>{{ page.description }}</summary>
-  <section class="card-wrapper">
-    <section class="bcls-card">
-      <div class="card-content">
-        <h2 id="Topics_in_this_section">Topics in this section</h2>
-        <ul>
+  <section style="font-size: small;width: 100%;">
+    <h2 id="Topics_in_this_section">Topics in this section</h2>
+    <div style="display: inline-block;vertical-align: top;max-width: 30%;">
+      <ul>
         {% for item in site.data.navigation %}
-        {% if item.name == page.title %}
-              {% for entry in item.docs %}
-                <li><a href="{{ entry.url }}">{{ entry.name }}</a>
-                {% if entry.docs %}
-                  <ul>
-                    {% for subentry in entry.docs %}
-                      <li><a href="{{ subentry.url }}">{{ subentry.name }}</a></li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-                </li>
-              {% endfor %}
-        {% endif %}
-      {% endfor %}
-  
-      </div>
-    </section>
+          {% if item.name == page.title %}
+            {% for entry in item.docs %}
+            {% assign n = forloop.length | divided_by: 3 %}
+            {% assign n2 = n | times: 2 %}
+              {% if forloop.index < n %}
+                <li><a href="{{ entry.url }}">{{ entry.name }}</a></li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div style="display: inline-block;vertical-align: top;max-width: 30%;">
+      <ul>
+        {% for item in site.data.navigation %}
+          {% if item.name == page.title %}
+            {% for entry in item.docs offset: n %}
+              {% if forloop.index < n %}
+                <li><a href="{{ entry.url }}">{{ entry.name }}</a></li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div style="display: inline-block;vertical-align: top;max-width: 30%;">
+      <ul>
+        {% for item in site.data.navigation %}
+          {% if item.name == page.title %}
+            {% for entry in item.docs offset: n2 %}
+              <li><a href="{{ entry.url }}">{{ entry.name }}</a></li>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
   </section>
 </article>
