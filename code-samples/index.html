@@ -18,14 +18,16 @@ parent: Home
   <h1>{{ page.icon }} {{ page.title }}</h1>
   <summary>{{ page.description }}</summary>
   <section style="font-size: small;width: 100%;">
-    <h2 id="Topics_in_this_section">Topics in this section</h2>
-    <div style="display: inline-block;vertical-align: top;max-width: 30%;">
+    <h2 id="Topics_in_this_section">Code Samples in Alphabetical Order</h2>
+    <p>Also see <a href="/margiin-bottom:2rem;margiin-bottom:2rem;">Code Samples Grouped by Category</a></p>
+    <div style="display: inline-block;vertical-align: top;width: 45%;margin-bottom:2rem;">
       <ul>
         {% for item in site.data.navigation %}
           {% if item.name == page.title %}
             {% for entry in item.docs %}
-            {% assign n = forloop.length | divided_by: 3 %}
+            {% assign n = forloop.length | divided_by: 4 %}
             {% assign n2 = n | times: 2 %}
+            {% assign n3 = n | times: 3 %}
               {% if forloop.index < n %}
                 <li><a href="{{ entry.url }}">{{ entry.name }}</a></li>
               {% endif %}
@@ -34,7 +36,7 @@ parent: Home
         {% endfor %}
       </ul>
     </div>
-    <div style="display: inline-block;vertical-align: top;max-width: 30%;">
+    <div style="display: inline-block;vertical-align: top;width: 45%;margin-bottom:2rem;">
       <ul>
         {% for item in site.data.navigation %}
           {% if item.name == page.title %}
@@ -47,12 +49,25 @@ parent: Home
         {% endfor %}
       </ul>
     </div>
-    <div style="display: inline-block;vertical-align: top;max-width: 30%;">
+    <div style="display: inline-block;vertical-align: top;width: 45%;margin-bottom:2rem;">
       <ul>
         {% for item in site.data.navigation %}
           {% if item.name == page.title %}
             {% for entry in item.docs offset: n2 %}
-              <li><a href="{{ entry.url }}">{{ entry.name }}</a></li>
+            {% if forloop.index < n %}
+                <li><a href="{{ entry.url }}">{{ entry.name }}</a></li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div style="display: inline-block;vertical-align: top;width: 45%;margin-bottom:2rem;">
+      <ul>
+        {% for item in site.data.navigation %}
+          {% if item.name == page.title %}
+            {% for entry in item.docs offset: n3 %}
+                <li><a href="{{ entry.url }}">{{ entry.name }}</a></li>
             {% endfor %}
           {% endif %}
         {% endfor %}
