@@ -1365,7 +1365,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ul>
     <aside class="bcls-aside bcls-aside--information">
       <super>* </super>
-      When using the plugin on Safari, if you are using a non-Video Cloud video (a video NOT ingested via Video Cloud), note that you need to set the <a href="#crossorigin"> <code class="notranslate">crossorigin </code></a> configuration property to <code class="notranslate">anonymous </code>.</aside>
+      When using the plugin on Safari, if you are using a non-Video Cloud video (a video NOT ingested via Video Cloud), note that you need to set the <code class="notranslate">crossorigin</code> configuration property to <code class="notranslate">anonymous </code>.</aside>
     <p>The plugin does <strong>NOT</strong> work with Internet Explorer.</p>
     <h3>Limitations</h3>
     <p>You should be aware of the following when using the 360°/VR Plugin:</p>
@@ -1382,7 +1382,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Ingest_the_360_video">Ingest the 360° video</h2>
-    <aside class="bcls-aside bcls-aside--information">Note: For more information on creating 360° videos see the <a href="/node/16784">Working with 360° Videos</a> document.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: For more information on creating 360° videos see the <a href="https://studio.support.brightcove.com/general/working-360deg-videos.html">Working with 360° Videos</a> document.</aside>
     <p>Once you have the 360° video recorded, you need to ingest it into Video Cloud. A little understanding of how 360° video works will help you understand some reasons for the Ingest Profile to choose. The 360° video is filmed to be projected on the interior of a sphere. This means that the visible area of the video in the player is only a fraction of the entire video. The following screenshot gives you a rough idea of this concept. The area inside the red rectangle is what is visible in the player, but only a small part of the entire video.</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="show part of video" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/360video/show-display.png" /></figure>
     <p>Since only a small part of the video will be in the player at any one time, you want a very high quality rendition to be playing, with no chance of stepping down to a lower quality rendition. In essence, you are "zooming in" on part of the video and a poor quality rendition would yield a very poor quality viewing experience. For this reason, during the ingestion process you should use an Ingest Profile of high-quality, and few renditions. Brightcove recommends using the <strong>single-bitrate-high (2 renditions)</strong> Ingest Profile for 360° videos. This profile includes a high quality MP4 rendition, which is preferred over HLS renditions when using the 360°/VR Plugin.</p>
