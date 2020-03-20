@@ -26,7 +26,7 @@ parent: 'Publishing Videos & Players'
   <section class="bcls-section">
     <h2 id="Implementation_using_a_Promise">Implementation using a Promise</h2>
     <aside class="bcls-aside bcls-aside--tip">In this sample, and those that follow, parameters from the library are used. A table with complete listing of parameters is in the <a href="#Available_parameters">Available parameters</a> section below.</aside>
-    <p>You can use a <a href="/node/18652">JavaScript Promise</a> with the library. Promises are not required for this library to work, but they are recommended. By default, this library will look for a global Promise. However, you can explicitly provide a Promise implementation via the <code class="notranslate">Promise</code> parameter, detailed later in this document.</p>
+    <p>You can use a <a href="https://general.support.brightcove.com/developer/concepts-using-javascript-promises.html">JavaScript Promise</a> with the library. Promises are not required for this library to work, but they are recommended. By default, this library will look for a global Promise. However, you can explicitly provide a Promise implementation via the <code class="notranslate">Promise</code> parameter, detailed later in this document.</p>
     <p>The following shows an implementation of the library using a Promise. A key concept is that you obtain a reference to the player by using <code class="notranslate">var myPlayer = success.ref;</code> in the <code class="notranslate">then</code> section of handling the promise:</p>
     <pre class="line-numbers">
 <code class="language-html notranslate">&lt;!doctype html&gt;
@@ -212,12 +212,12 @@ parent: 'Publishing Videos & Players'
         <tr>
           <td><code class="notranslate">catalogSearch</code></td>
           <td>string | Object</td>
-          <td>A Video Cloud Catalog search to perform. This can be a simple string search or a object that matches the <a href="/node/18108#getSearch_method">Catalog <code class="notranslate">getSearch()</code> method</a>. If a non-string value is given that is not serializable as JSON, this parameter will be ignored.</td>
+          <td>A Video Cloud Catalog search to perform. This can be a simple string search or a object that matches the <a href="/references/player-catalog.html#getSearch_method">Catalog <code class="notranslate">getSearch()</code> method</a>. If a non-string value is given that is not serializable as JSON, this parameter will be ignored.</td>
         </tr>
         <tr>
           <td><code class="notranslate">catalogSequence</code></td>
           <td>Array | Object</td>
-          <td>A Video Cloud Catalog sequence to perform. See the <a href="/node/18108#getLazySequence_method">Catalog <code class="notranslate">getLazySequence()</code> method</a> for more information. If a non-string value is given that is not serializable as JSON, this parameter will be ignored.</td>
+          <td>A Video Cloud Catalog sequence to perform. See the <a href="/references/player-catalog.html#getLazySequence_method">Catalog <code class="notranslate">getLazySequence()</code> method</a> for more information. If a non-string value is given that is not serializable as JSON, this parameter will be ignored.</td>
         </tr>
         <tr>
           <td><code class="notranslate">embedId</code></td>
@@ -233,12 +233,12 @@ parent: 'Publishing Videos & Players'
                 <tr>
                   <td><code class="notranslate">embedOptions.pip</code></td>
                   <td>boolean</td>
-                  <td>If <code class="notranslate">true</code>, will wrap the embed in a <code class="notranslate">&lt;div class="vjs-pip-container"&gt;</code> element. This should be used when you need support for the <a href="/node/18581">Brightcove Picture-in-Picture plugin</a>. The default value is <code class="notranslate">false</code>.</td>
+                  <td>If <code class="notranslate">true</code>, will wrap the embed in a <code class="notranslate">&lt;div class="vjs-pip-container"&gt;</code> element. This should be used when you need support for the <a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">Brightcove Picture-in-Picture plugin</a>. The default value is <code class="notranslate">false</code>.</td>
                 </tr>
                 <tr>
                   <td><code class="notranslate">embedOptions.playlist</code></td>
                   <td>boolean</td>
-                  <td>If <code class="notranslate">true</code>, will add a <code class="notranslate">&lt;div class="vjs-playlist"&gt;</code> element after the embed. This should be used when you need support for the <a href="/node/18063">Brightcove Playlist UI plugin</a>. The default value is <code class="notranslate">false</code>.</td>
+                  <td>If <code class="notranslate">true</code>, will add a <code class="notranslate">&lt;div class="vjs-playlist"&gt;</code> element after the embed. This should be used when you need support for the <a href="/plugins/playlist-ui-plugin.html">Brightcove Playlist UI plugin</a>. The default value is <code class="notranslate">false</code>.</td>
                 </tr>
                 <tr>
                   <td><code class="notranslate">embedOptions.responsive</code></td>
