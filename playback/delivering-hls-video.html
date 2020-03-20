@@ -20,7 +20,7 @@ parent: Playback
     </ul>
     <aside class="bcls-aside bcls-aside--information">
       <p>Note: If you deliver video via progressive download to iOS devices, iOS will attempt to download the entire video, even if the viewer never tries to play it. This can increase your bandwidth usage if you have many viewers on iOS devices. You can prevent this by insuring that there are HLS renditions for all of your videos.</p>
-      <p>Note: HLS has nothing to do with live video. For a list of all the options available from Brightcove for delivering live streaming video, see <a href="/node/11397">Delivering Live Streams</a>.</p>
+      <p>Note: HLS has nothing to do with live video. For a list of all the options available from Brightcove for delivering live streaming video, see <a href="https://live.support.brightcove.com/get-started/delivering-live-streams.html">Delivering Live Streams</a>.</p>
     </aside>
   </section>
   <section class="bcls-section">
@@ -33,6 +33,5 @@ parent: Playback
   <p>The Brightcove Player includes an HLS playback engine by default. If the video you provide to the player includes HLS renditions, it will play those before it tries MP4 because the default playback order is HLS, then HTML5, then Flash. If the browser supports HLS natively, it will use that capability (e.g. Safari on desktop or iOS). If the browser doesn't support HLS, but the browser has Flash installed, it will load the Flash fallback. You can change this behavior by changing the tech order of the player. For more information, see the <a href="/playback/guide-playback-technology.html">Playback Technology Guide</a>.</p>
   <p>Video Cloud offers HLS encryption which lets you send encrypted video over HTTP for playback on devices running iOS. See <a href="https://studio.support.brightcove.com/general/protecting-videos-hls-encryption.html">Protecting Videos with HLS Encryption</a> for details.</p>
   <p>The Brightcove Player tries to ensure the highest-quality viewing experience possible, given the available bandwidth and encodings. This doesn't always mean using the highest-bitrate rendition available. If the player is 300px by 150px, it would be a waste of bandwidth to download a 4K stream. By default, the player attempts to load the highest-bitrate variant that is less than the most recently detected segment bandwidth, with one condition: if there are multiple variants with dimensions greater than the current player size, it will only switch up one size greater than the current player size.</p>
-  <p>There are some limitations when using HLS on Android. For more information, see <a href="/node/18211">Limitations of HLS on Android</a>.</p>
 </article>
 <!-- end drupal content -->
