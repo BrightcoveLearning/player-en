@@ -8,15 +8,15 @@ parent: Plugins
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-    <p>Server-Side Ad Insertion (SSAI) allows you to embed ads into your videos so that they can't be blocked by ad blockers in the browser. <a href="/node/18476">Dynamic Delivery</a> is the next generation ingest and delivery system which reduces your storage footprint and dynamically packages media.</p>
+    <p>Server-Side Ad Insertion (SSAI) allows you to embed ads into your videos so that they can't be blocked by ad blockers in the browser. <a href="https://studio.support.brightcove.com/general/overview-dynamic-delivery.html">Dynamic Delivery</a> is the next generation ingest and delivery system which reduces your storage footprint and dynamically packages media.</p>
     <p>By default, SSAI enforces that all advertisements are watched, displaying an ad count-down timer while they play. You can easily customize this feature to skip advertisements.</p>
-    <p>You can configure the Brightcove Player to use client-side ads when they are not blocked and automatically failover to SSAI when an adblocker is detected. For more information on how to enable this feature, see the <a href="/node/18586">Ad failover</a> document.</p>
+    <p>You can configure the Brightcove Player to use client-side ads when they are not blocked and automatically failover to SSAI when an adblocker is detected. For more information on how to enable this feature, see the <a href="https://ssai.support.brightcove.com/vod/guides/ssai-ad-block-detection-and-auto-failover.html">Ad failover</a> document.</p>
     <aside class="bcls-aside bcls-aside--information">
       <p>Notes:</p>
       <ul>
-        <li>To use SSAI, your Video Cloud account needs to be configured for <a href="/node/18476">Dynamic Delivery</a> and enabled for SSAI. Contact your account manager to start using this feature.</li>
-        <li>SSAI for live playback does not require the SSAI plugin, and client-side features for SSAI playback are not available for live. For details, see the <a href="/node/17763">Brightcove Live API with SSAI</a> document.</li>
-        <li>For a list of limitations, see the <a href="/node/18623#Limitations">SSAI Overview</a> document.</li>
+        <li>To use SSAI, your Video Cloud account needs to be configured for <a href="https://studio.support.brightcove.com/general/overview-dynamic-delivery.html">Dynamic Delivery</a> and enabled for SSAI. Contact your account manager to start using this feature.</li>
+        <li>SSAI for live playback does not require the SSAI plugin, and client-side features for SSAI playback are not available for live. For details, see the <a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html">Brightcove Live API with SSAI</a> document.</li>
+        <li>For a list of limitations, see the <a href="https://ssai.support.brightcove.com/getting-started/video-cloud-ssai-overview.html#Limitations">SSAI Overview</a> document.</li>
       </ul>
     </aside>
     <p>For a video overview, see the following:</p>
@@ -75,12 +75,12 @@ parent: Plugins
         <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Ad settings" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/ssai/ad-settings.png" />
           <figcaption class="bcls-caption--image">Ad settings</figcaption>
         </figure>
-      </li>
+      </li>https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html
     </ol>
-    <p>For details, see the <a href="/node/18748">Configuring Server-Side Ad Settings</a> document.</p>
-    <p>To create an ad configuration using the SSAI API, see the <a href="/node/17942">Video Cloud SSAI Ad Config API</a> document.</p>
+    <p>For details, see the <a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html">Configuring Server-Side Ad Settings</a> document.</p>
+    <p>To create an ad configuration using the SSAI API, see the <a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html">Video Cloud SSAI Ad Config API</a> document.</p>
     <h3 id="Create_a_Brightcove_player">Create a Brightcove Player</h3>
-    <p>Create a new Brightcove Player using Video Cloud Studio. For details, see the <a href="/node/15488">Quick Start: Creating and Styling a Player</a> document.</p>
+    <p>Create a new Brightcove Player using Video Cloud Studio. For details, see the <a href="https://studio.support.brightcove.com/basics/video-cloud-basics-creating-player.html">Video Cloud Basics: Creating a Player</a> document.</p>
     <aside class="bcls-aside bcls-aside--information">You must use a Brightcove Player version 6.8.0+.</aside>
   </section>
   <section class="bcls-section">
@@ -194,7 +194,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
 	}
 }, <span class="bcls-highlight">adConfigId</span>);</code></pre>
     <h4 id="Updating_your_player_configuration">Updating your player configuration</h4>
-    <p>Another way to associate ads is to include your ad config id in your Brightcove Player configuration. To do this, you can use the <a href="node/18378">Player Management API</a> as follows:</p>
+    <p>Another way to associate ads is to include your ad config id in your Brightcove Player configuration. To do this, you can use the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> as follows:</p>
     <ol class="bcls-tasklist__restart">
       <li>
         <p>Use the <code class="notranslate">PATCH</code> command to include your <code class="notranslate">ad_config_id</code>. Here is an example of updating your player using cURL:</p>
@@ -419,7 +419,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
   <section class="bcls-section">
     <h2 id="Events">Events</h2>
     <p>At the current time there is one SSAI-specific event dispatched by this plugin.</p>
-    <aside class="bcls-aside bcls-aside--tip">SSAI ads dispatch the standard Brightcove ad events, and provide access to ad objects. Details are detailed in the <a href="/node/18072">Ad Events and Ad Objects</a> document.</aside>
+    <aside class="bcls-aside bcls-aside--tip">SSAI ads dispatch the standard Brightcove ad events, and provide access to ad objects. Details are detailed in the <a href="/advertising/ad-events-and-ad-objects.html">Ad Events and Ad Objects</a> document.</aside>
     <p><code>bcov-ssai-click-through</code></p>
     <ul>
       <li>This event is dispatched internally by the plugin to indicate that an ad click-through was requested.</li>

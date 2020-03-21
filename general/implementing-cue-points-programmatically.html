@@ -54,7 +54,7 @@ parent: General Information
     <h2 id="Video_Cloud_cue_points">Video Cloud cue points</h2>
     <p>In this section of the document, you will learn to set catalog cue points and listen for catalog cue point event dispatches.</p>
     <h3>Setting Video Cloud cue points</h3>
-    <p>Video Cloud cue points can be associated with a video using the Video Cloud Studio, and a number of other ways, detailed in this document: <a href="/node/15151">Working with Cue Points in the Media Module</a>.</p>
+    <p>Video Cloud cue points can be associated with a video using the Video Cloud Studio, and a number of other ways, detailed in this document: <a href="https://studio.support.brightcove.com/media/working-cue-points-media-module.html">Working with Cue Points in the Media Module</a>.</p>
     <h3>Acting on Video Cloud cue points - video statically bound to the player</h3>
     <p>In this section of the document, you will learn to process catalog cue points when the video has been statically bound to the player, meaning the video has been loaded in the player either in Studio or using the Player Management API directly.</p>
     <p>To prevent a race condition of trying to process cue points before they are loaded, you need to use the <code>loadedmetadata</code> event to be dispatched before dealing with the cue points. Once the proper text track has been read, use the <code>oncuechange</code> event to listen for cue points events to be dispatched.</p>
@@ -339,7 +339,7 @@ insects
     <p>One could assume you could add the WebVTT file programmatically using the <code>addRemoteTextTrack()</code> method. In this case, it would not be reliable since you can experience a race condition where the cue points would not be ready to process before trying to use them. It is safe to add the WebVTT file using the <code>&lt;track&gt;</code> tag as shown.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="Find_correct_track">Find correct track</h2>
+    <h2 id="findtrack">Find correct track</h2>
     <p>In a number of places in this document a possible problem could occur if multiple text tracks are associated with a player. An assumption was made that only one text track is associated with the player so this code was used: <code>var tt = myPlayer.textTracks()[0];</code>. Selecting the zeroth array element assumes a single text track associated the player.</p>
     <p>Text tracks are not only used for cue points, but other kinds of data also. The <strong>kind</strong> attribute can contain the following values:</p>
     <ul>

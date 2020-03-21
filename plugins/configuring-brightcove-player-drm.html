@@ -23,7 +23,7 @@ parent: Plugins
         <li class="language-editable">DRM must be enabled by your account manager.</li>
         <li class="language-editable">It is recommended to use the Brightcove Player version <strong>6.18.1+</strong>.</li>
         <!-- <li class="language-editable">Dynamic Delivery and the Brightcove Player support DRM audio-only content - use videojs-drm 4</li> -->
-        <li class="language-editable">For more information on Brightcove support for DRM see <a href="/node/18436">Overview: Digital Rights Management (DRM) in Video Cloud</a>.</li>
+        <li class="language-editable">For more information on Brightcove support for DRM see <a href="https://studio.support.brightcove.com/general/overview-digital-rights-management-drm-video-cloud.html">Overview: Digital Rights Management (DRM) in Video Cloud</a>.</li>
       </ol>
     </aside>
     <aside class="bcls-aside bcls-aside--information">Brightcove currently does not support video-only or audio-only DRM playback.</aside>
@@ -171,7 +171,7 @@ parent: Plugins
         <li class="language-editable">Contact your account manager to have your account(s) DRM-enabled. You can then configure your account with the proper licensing keys and ingest profiles to enable the creation of DRM protected content.</li>
         <li class="language-editable">
           <p>Produce DRM protected content. You can choose to either upload new content or re-encode existing content as DRM. This is done by selecting the <strong>Ingest Profile</strong> that produces your desired encryption technology.</p>
-          <aside class="bcls-aside bcls-aside--information">For more information, see the <a href="/node/18038">Content Security (DRM and HLSe)</a> document.</aside>
+          <aside class="bcls-aside bcls-aside--information">For more information, see the <a href="https://apis.support.brightcove.com/dynamic-ingest/ingest-guides/ingesting-content-drm.html">Ingesting content with DRM</a> document.</aside>
         </li>
       </ol>
     </div>
@@ -196,7 +196,7 @@ parent: Plugins
     <code class="notranslate language-html">&lt;script src="https://players.brightcove.net/videojs-drm/5/videojs-drm.min.js"&gt;&lt;/script&gt;</code></pre>
           </li>
           <li class="language-editable">
-            <p>If your account is set up for <a href="/node/17949">Dynamic Delivery</a>, simply call the EME plugin to initialize it.</p>
+            <p>If your account is set up for <a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html">Dynamic Delivery</a>, simply call the EME plugin to initialize it.</p>
             <pre class="line-numbers">
     <code class="notranslate language-html">&lt;script type="text/javascript"&gt;
       videojs.getPlayer('myPlayerID').ready(function() {
@@ -205,7 +205,7 @@ parent: Plugins
     });
     &lt;/script&gt;</code></pre>
             <p>&nbsp;</p>
-            <p>If your account is NOT set up for <a href="/node/17949">Dynamic Delivery</a>, then you need to call and configure the EME plugin with FairPlay credential information.</p>
+            <p>If your account is NOT set up for <a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html">Dynamic Delivery</a>, then you need to call and configure the EME plugin with FairPlay credential information.</p>
             <pre class="line-numbers">
     <code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
       var myPlayer = this;
@@ -506,7 +506,7 @@ parent: Plugins
   <section class="bcls-section">
     <h2 id="Known_issues">Known issues</h2>
     <ul>
-      <li class="language-editable">The <strong>Default (Auto Display)</strong> caption setting in the&nbsp;<strong>Media</strong> module's <strong>TEXT TRACK</strong> section is not supported when used in conjunction with DRM and in-manifest captions. In-manifest captions are used with the Brightcove products Dynamic Delivery and SSAI, for example. A workaround for this issue is to use the <code>&lt;track&gt;</code> tag with the Advanced Brightcove Player implementation. This is detailed in the <a href="/node/18076">Adding Captions to Videos Programmatically</a> document. Note you must use the <code>default</code> attribute with the <code>&lt;track&gt;</code> tag.</li>
+      <li class="language-editable">The <strong>Default (Auto Display)</strong> caption setting in the&nbsp;<strong>Media</strong> module's <strong>TEXT TRACK</strong> section is not supported when used in conjunction with DRM and in-manifest captions. In-manifest captions are used with the Brightcove products Dynamic Delivery and SSAI, for example. A workaround for this issue is to use the <code>&lt;track&gt;</code> tag with the Advanced Brightcove Player implementation. This is detailed in the <a href="/general/adding-captions-videos-programmatically.html">Adding Captions to Videos Programmatically</a> document. Note you must use the <code>default</code> attribute with the <code>&lt;track&gt;</code> tag.</li>
       <li class="language-editable"><strong>DRM assets and Chrome</strong>: When using the Standard (iframe) player implementation with the DRM plugin, <code class="notranslate">allow="encrypted-media" </code> is required to be able to play DRM assets in Chrome.
         <pre class="line-numbers">
     <code class="notranslate language-html">&lt;iframe src="https://players.brightcove.net/123456789/BydO6uuuu_default/index.html?videoId=5783262319001"
