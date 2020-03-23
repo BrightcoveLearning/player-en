@@ -1026,7 +1026,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <section class="bcls-section">
 <h2 id="Testing_the_ad_server">Testing the ad server</h2>
 
-<p>The first thing you should do is verify the validity of the ad tag you are planning to use. Be sure you have copied its URL and browse to the following page: <a target="_blank" rel="noopener noreferrer" href="//developers.google.com/interactive-media-ads/docs/vastinspector_dual">Video Suite Inspector</a> (clicking this link will cause the page to open in a new window or tab).</p>
+<p>The first thing you should do is verify the validity of the ad tag you are planning to use. Be sure you have copied its URL and browse to the following page: <a target="_blank" rel="noopener noreferrer" href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/vastinspector">Video Suite Inspector</a> (clicking this link will cause the page to open in a new window or tab).</p>
 
 <p>Paste your ad tag URL into the <strong class="notranslate">Input type</strong> form input field. Click <strong class="notranslate">Test Ad</strong> and you will see your ad(s) play, with the Google supplied video interspersed. If your ad tag is not working in this test environment, it will not work with Brightcove Player.</p>
 
@@ -1601,7 +1601,7 @@ myPlayer.ima3({
 
 <p>This method lets you set ads rendering settings for the IMA SDK for HTML5.</p>
 
-<p>If there is no Ads Manager yet, this method saves your settings and when an Ads Manager is created it uses the settings you provided. If an Ads Manager already exists, it is updated to use your settings. In either case, any new Ads Managers created in the future will also use the most recent settings you provided. You can create an <code class="notranslate">AdsRenderingSettings</code> object by accessing the IMA SDK directly. <a href="//developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.AdsRenderingSettings">A variety of settings are available.</a></p>
+<p>If there is no Ads Manager yet, this method saves your settings and when an Ads Manager is created it uses the settings you provided. If an Ads Manager already exists, it is updated to use your settings. In either case, any new Ads Managers created in the future will also use the most recent settings you provided. You can create an <code class="notranslate">AdsRenderingSettings</code> object by accessing the IMA SDK directly. <a href="https://developers.google.com/interactive-media-ads/docs/sdks/android/v3/api/reference/com/google/ads/interactivemedia/v3/api/AdsRenderingSettings">A variety of settings are available.</a></p>
 
 <h5>Parameters</h5>
 
@@ -1627,7 +1627,7 @@ player.ima3.setAdsRenderingSettings(adsRenderingSettings);</code></pre>
 <section class="bcls-section">
 <h2 id="Googles_AdsManager">Google's AdsManager</h2>
 
-<p>There are methods and properties available from Google's <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.AdsManager">google.ima.AdsManager</a> Interface. You can use the interface's properties/methods that retrieve information. It is not advised to use the methods that perform actions, like <code class="notranslate">destroy</code>, <code class="notranslate">setAutoPlayAdBreaks</code> and <code class="notranslate">stop</code>. For example, one method you can use is shown here:</p>
+<p>There are methods and properties available from Google's <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/reference/js/ima.AdsManager">google.ima.AdsManager</a> Interface. You can use the interface's properties/methods that retrieve information. It is not advised to use the methods that perform actions, like <code class="notranslate">destroy</code>, <code class="notranslate">setAutoPlayAdBreaks</code> and <code class="notranslate">stop</code>. For example, one method you can use is shown here:</p>
 
 <h3>AdsManager.getRemainingTime</h3>
 
@@ -1635,7 +1635,7 @@ player.ima3.setAdsRenderingSettings(adsRenderingSettings);</code></pre>
 
 <p>Usage: <code class="notranslate">myPlayer.ima3.adsManager.getRemainingTime()</code></p>
 
-<p>Calling this method returns the amount of time remaining for the current ad. If an ad isn't available or has finished playing, it returns -1. For more information see Google's <a href="//developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.AdsManager.getRemainingTime">documentation</a> on the method.</p>
+<p>Calling this method returns the amount of time remaining for the current ad. If an ad isn't available or has finished playing, it returns -1. For more information see Google's <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/reference/js/ima.AdsManager#getRemainingTime">documentation</a> on the method.</p>
 </section>
 
 <section class="bcls-section">
@@ -2152,7 +2152,7 @@ myPlayer.ready(function() {
 
 <h3>Overlays and Fullscreen Transitions</h3>
 
-<p>video.js uses the <a href="//www.w3.org/TR/fullscreen/">fullscreen API</a> where available. Different browsers implement the transition to fullscreen differently and that can produce discrepancies in appearance when transitioning into and out of fullscreen mode. In most implementations, the element that is being taken into fullscreen is geometrically scaled (i.e. zoomed) from its original to the target size. Most overlay advertisements are designed to be displayed at a fixed size, however, and so they may appear distorted until the animation completes.</p>
+<p>video.js uses the <a href="https://www.w3.org/TR/fullscreen/">fullscreen API</a> where available. Different browsers implement the transition to fullscreen differently and that can produce discrepancies in appearance when transitioning into and out of fullscreen mode. In most implementations, the element that is being taken into fullscreen is geometrically scaled (i.e. zoomed) from its original to the target size. Most overlay advertisements are designed to be displayed at a fixed size, however, and so they may appear distorted until the animation completes.</p>
 <!-- <h3>Midrolls and live streams/VMAP live streams</h3>
       <p>Midrolls play immediately if they are configured for live streams. The reason this occurs is that in live video time is relative. If a midroll says 10 seconds, it's not clear what 10 seconds is relative to. Is it 10 seconds from the start of
       the stream, or 10 seconds from the start of the time the user started playback? A better solution for a live streams is using ID3 metadata that gives unambiguous cue points when an ad should be played.</p> -->
