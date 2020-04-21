@@ -32,7 +32,7 @@
 <!-- GTranslate: https://gtranslate.io/ -->
 <select onchange="doGTranslate(this);"><option value="">Select Language</option><option value="en|en">English</option><option value="en|zh-TW">繁體中文</option><option value="en|fr">Français</option><option value="en|de">Deutsch</option><option value="en|ja">日本語</option><option value="en|ko">한국어</option><option value="en|es">Español</option><option value="en|hy">Armenian</option></select>
 
-<script type="text/javascript">
+<script>
 /* <![CDATA[ */
 function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
 /* ]]> */
@@ -1229,7 +1229,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     htmlText1 += displayPlayerHTML;
     htmlText1 += playerScript.outerHTML;
     htmlText1 += '<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js">\</script\>';
-    htmlText1 += '<script type="text/javascript">';
+    htmlText1 += '<script>';
     jsText = ' var pbjs = pbjs || {}; pbjs.que = pbjs.que || []; iosDevice = !! navigator.platform.match(/iPhone|iPod|iPad/); function getServerUrl(callback) { var videoAdUnit = { code: "video1", mediaTypes: { video: { playerSize: [640, 480], context: "instream" } }, bids: [{ bidder: "appnexus", params: { placementId: iosDevice ? 13239390 : 13232361, video: { skipppable: true, playback_method: ["auto_play_sound_off"] } } }] }; pbjs.que.push(function () { pbjs.addAdUnits(videoAdUnit); pbjs.setConfig({ debug: true, cache: { url: "https://prebid.adnxs.com/pbc/v1/cache" } }); pbjs.requestBids({ bidsBackHandler: function (bids) { var videoUrl = pbjs.adServers.dfp.buildVideoUrl({ adUnit: videoAdUnit, params: { iu: "/19968336/prebid_cache_video_adunit", cust_params: { section: "blog", anotherKey: "anotherValue" }, output: "vast" } }); callback(videoUrl); } }); }); }; bc("myPlayerID").ima3({ serverUrl: getServerUrl, debug: true, timeout: 5000, ima3SdkSettings: { "disableCustomPlaybackForIOS10Plus": true } }); var myPlayer = videojs.getPlayer("myPlayerID"); myPlayer.ready(function() { myPlayer.on("ima3error", function () { console.log("There was an ima3 error."); }); });';
     htmlText2 =  '\</script\> </body> </html>';
     htmlText1 = html_beautify(htmlText1, { "indent_size": 2 });
