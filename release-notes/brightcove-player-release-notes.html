@@ -14,8 +14,16 @@ parent: 'release-notes'
       <strong style="color:#990000">Note:</strong> By default, updates are
       applied to all players automatically. To prevent auto-updating of a player
       you must set it to manual updating (also known as locking a player). You
-      can do this in the <a href="/node/16130">Studio Players module</a> or
-      using the <a href="/node/18258">Player Management API</a>.
+      can do this in the
+      <a
+        href="https://studio.support.brightcove.com/players/setting-player-update-mode-and-version.html"
+        >Studio Players module (external site)</a
+      >
+      or using the
+      <a
+        href="https://apis.support.brightcove.com/player-management/guides/opting-out-automatic-player-updates.html"
+        >Player Management API</a
+      >.
     </p>
     <p>
       Opting out of auto-updates should be a temporary measure, applied while
@@ -35,12 +43,20 @@ parent: 'release-notes'
   </aside>
 
   <section id="currentrelease" class="section">
-    <h2>VERSION 6 - v6.40.3</h2>
+    <h2>VERSION 6 - v6.41.1</h2>
 
-    <p>7 Apr 2020</p>
+    <p>6 May 2020</p>
 
     <ul>
-      <li>Addressed issues with autoplay detection on iOS and Android</li>
+      <li>Support VTT thumbnails URLs in Playback API responses</li>
+      <li>
+        Bug fix: Made sure we send <code>play_request</code> when we have a
+        preroll ad
+      </li>
+      <li>Bug fix: Updated to <strong>Video.js 7.7.6</strong></li>
+      <li>
+        Bug fix: Addressed issues with autoplay detection on iOS and Android
+      </li>
     </ul>
 
     <h2>VERSION 5 - 5.28.1</h2>
@@ -88,6 +104,13 @@ parent: 'release-notes'
 
   <section class="section">
     <h2 id="Previous_releases"><strong>Previous releases</strong></h2>
+    <h2>VERSION 6 - v6.40.3</h2>
+
+    <p>7 Apr 2020</p>
+
+    <ul>
+      <li>Addressed issues with autoplay detection on iOS and Android</li>
+    </ul>
 
     <h2>VERSION 6 - v6.40.2</h2>
 
@@ -1193,9 +1216,7 @@ parent: 'release-notes'
     <ul>
       <li>
         Deprecated named RequireJS module and add the
-        <code>require_js_anonymous</code> player config to control it. See
-        <a href="/node/18120#Future_implementation"> this documentation </a> for
-        more information
+        <code>require_js_anonymous</code> player config to control it
       </li>
       <li>
         Resolved an issue where <strong>error</strong> events triggered on the
@@ -1210,10 +1231,7 @@ parent: 'release-notes'
     <ul>
       <li>
         Deprecated the named RequireJS module and added the
-        <code>require_js_anonymous</code> player config to control it. For more
-        information,
-        <a href="/node/18120#Future_implementation"> see this documentation </a>
-        .
+        <code>require_js_anonymous</code> player config to control it.
       </li>
       <li>
         Resolved an issue where <strong>error</strong> events triggered on the
@@ -1337,11 +1355,7 @@ parent: 'release-notes'
       <li>Upgraded to <strong>Video.js 6</strong></li>
       <li>
         Video.js 6 brings support for middleware, advanced plugins, and
-        accessibility and UI improvements; for more information, see the
-        <a href="//github.com/videojs/video.js/wiki/Video.js-6-Migration-Guide">
-          migration guide
-        </a>
-        on the Video.js wiki
+        accessibility and UI improvements
       </li>
       <li>Removed support for Internet Explorer 8</li>
       <li>Modernized and tweaked the Graphite skin</li>
@@ -1521,7 +1535,9 @@ parent: 'release-notes'
     <ul>
       <li>
         Added new error codes, as shown in the
-        <a href="/node/18145#bccustomerrors">
+        <a
+          href="https://player.support.brightcove.com/references/brightcove-player-error-reference.html"
+        >
           Custom Errors section of the Errors Plugin
         </a>
         document
@@ -2437,12 +2453,7 @@ parent: 'release-notes'
           <td>
             <p>
               <strong>Action required:</strong> These features are not yet
-              supported in version 5.0.
-              <a href="/node/16130">
-                Please select and lock your version by selecting manual update
-                mode in the studio
-              </a>
-              or via API
+              supported in version 5.0. or via API
             </p>
           </td>
         </tr>
@@ -2468,10 +2479,6 @@ parent: 'release-notes'
             <p>
               By default new players will get the Luna skin; auto-updated
               players will get Graphite.
-              <a href="/node/18066">
-                You can choose your skin in the Players module of the Studio
-              </a>
-              .
             </p>
           </td>
         </tr>
@@ -2537,12 +2544,9 @@ parent: 'release-notes'
       Also in this version, we have made many updates to improve the programming
       model for customization, including simplifications to our skinning model
       and the API for plugins. These changes bring us up-to-date with our latest
-      open source release, Video.js 5,
-      <a href="https://blog.videojs.com/post/130143694631/video-js-5">
-        which you can read about here
-      </a>
-      . You will also notice that we have also synchronized our version
-      numbering between Video.js and Brightcove Player releases.
+      open source release, Video.js 5. You will also notice that we have also
+      synchronized our version numbering between Video.js and Brightcove Player
+      releases.
     </p>
 
     <h3>v1.14.30</h3>
