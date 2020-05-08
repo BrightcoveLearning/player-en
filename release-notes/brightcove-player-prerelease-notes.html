@@ -21,25 +21,36 @@ parent: 'release-notes'
     >.
   </aside>
 
-  <section id="features" class="bcls-section">
+  <!--   <section id="features" class="bcls-section">
     <h2>No pre-release versions at this time</h2>
-  </section>
+  </section> -->
   <!-- HTML for standard pre-release-->
 
   <div>&nbsp;</div>
-  <!-- <section class="bcls-section" id="features-latest">
-        <h2>VERSION 6 - v6.40.2</h2>
+  <section class="bcls-section" id="features-latest">
+    <h2>VERSION 6 - v6.42.0</h2>
 
-        <p>24 Mar 2020</p>
+    <p>8 May 2020</p>
 
-        <ul>
-          <li>
-            Fixed a regression in language handling introduced in 6.38.0
-          </li>
-          <li>Updated @videojs/http-streaming to 1.12.3</li>
-          <li>Updated videojs-errors to 4.3.2</li>
-        </ul>
-      </section> -->
+    <ul>
+      <li>Support VTT thumbnails URLs in Playback API responses</li>
+      <li>
+        Update to <strong>Video.js 7.8.1</strong> and
+        <strong>@videojs/http-streaming 1.13.2</strong>
+      </li>
+      <li>
+        Send <code>video_engagement</code> event when new rendition is chosen
+      </li>
+      <li>
+        Bug fix: Address issues with autoplay detection on iOS and Android
+      </li>
+      <li>Bug fix: Consider protocol when selecting thumbnail WebVTT</li>
+      <li>
+        Bug fix: Make sure we always send <code>play_request</code> when we have
+        a preroll ad
+      </li>
+    </ul>
+  </section>
 
   <div>&nbsp;</div>
   <!-- HTML for pre-release not yet in production player --><!--           <section id="features-not-in-yet" class="bcls-section">
@@ -108,7 +119,7 @@ parent: 'release-notes'
   --data '{
     "player": {
     "template": {
-      "version": "6.40.2"
+      "version": "6.42.0"
       }
     }
   }' \
