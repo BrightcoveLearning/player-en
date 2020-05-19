@@ -1103,66 +1103,61 @@ you can accomplish using it.</code></pre>
       <li>Generate the <strong>Advanced</strong> (In-Page) embed code for your player. <span class="video-cloud-only">This can be done using the <a href="https://studio.support.brightcove.com/players/generating-player-embed-code.html">Media module</a>.</span><br />
         Your code should look similar to this:
         <pre class="video-cloud-only">
-<code class="language-html notranslate">&lt;video-js id="myPlayerID"
-data-video-id="4230322585001"
-data-account="20318290001"
-data-player="default"
-data-embed="default"
-data-application-id
-class="video-js"
-controls
-width="640"
-height="360"&gt;
+<code class="language-html notranslate">&lt;video-js 
+	id=&quot;myPlayerID&quot; 
+    data-video-id=&quot;4230322585001&quot; 
+    data-account=&quot;20318290001&quot; 
+    data-player=&quot;default&quot; 
+    data-embed=&quot;default&quot; 
+    data-application-id 
+    class=&quot;video-js&quot; controls 
+    width=&quot;640&quot; height=&quot;360&quot;&gt;
 &lt;/video-js&gt;
-&lt;script src="https://players.brightcove.net/20318290001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+&lt;script src=&quot;https://players.brightcove.net/20318290001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
         <pre class="player-only">
-<code class="language-html notranslate">&lt;video-js id="myPlayerID"
-data-account="20318290001"
-data-player="d508c6e1-efa7-4aad-ba91-1a8db9761b8c"
-data-embed="default"
-data-application-id
-class="video-js"
-controls
-width="640"
-height="360"&gt;
+<code class="language-html notranslate">&lt;video-js 
+	id=&quot;myPlayerID&quot; 
+    data-account=&quot;20318290001&quot; 
+    data-player=&quot;d508c6e1-efa7-4aad-ba91-1a8db9761b8c&quot; 
+    data-embed=&quot;default&quot; 
+    data-application-id 
+    class=&quot;video-js&quot; controls 
+    width=&quot;640&quot; height=&quot;360&quot;&gt;
 &lt;/video-js&gt;
-&lt;script src="https://players.brightcove.net/20318290001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+&lt;script src=&quot;https://players.brightcove.net/20318290001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
         <aside class="bcls-aside bcls-aside--tip">To the <code class="notranslate">&lt;video-js&gt;</code> element, we added an <code class="notranslate">id</code> attribute with a value of <strong>myPlayerID</strong>. This is needed to get a reference to the player in step 3.</aside>
       </li>
       <li>Add <code class="notranslate">&lt;track&gt;</code> tag(s) inside of the <code class="notranslate">&lt;video-js&gt;</code> tag that point to location of all caption files. <span class="player-only">Player Studio does not currently provide a way for publishers to upload WebVTT caption files.</span> The URL for the caption file location must be less than 250 characters.<br />
         <br />
         In the example below, English, Japanese and French caption files have been specified. For a complete list of language codes, see the <a href="http://www.w3schools.com/tags/ref_language_codes.asp">HTML Language Code Reference</a>.
         <pre class="video-cloud-only">
-<code class="language-html notranslate">&lt;video-js id="myPlayerID"
-data-video-id="4230322585001"
-data-account="20318290001"
-data-player="default"
-data-embed="default"
-data-application-id
-class="video-js"
-controls
-width="640"
-height="360"&gt;
-&lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs.vtt" srclang="en" label="English"&gt;
-&lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-jp.vtt" srclang="ja" label="Japanese"&gt;
-&lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-fr.vtt" srclang="fr" label="French"&gt;
+<code class="language-html notranslate">&lt;video-js 
+	id=&quot;myPlayerID&quot; 
+    data-video-id=&quot;4230322585001&quot; 
+    data-account=&quot;20318290001&quot; 
+    data-player=&quot;default&quot; 
+    data-embed=&quot;default&quot; 
+    data-application-id 
+    class=&quot;video-js&quot; controls 
+    width=&quot;640&quot; height=&quot;360&quot;&gt;
+  &lt;track kind=&quot;captions&quot; src=&quot;https://solutions.brightcove.com/bcls/assets/captions/intro-vcs.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;
+  &lt;track kind=&quot;captions&quot; src=&quot;https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-jp.vtt&quot; srclang=&quot;ja&quot; label=&quot;Japanese&quot;&gt;
+  &lt;track kind=&quot;captions&quot; src=&quot;https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-fr.vtt&quot; srclang=&quot;fr&quot; label=&quot;French&quot;&gt;
 &lt;/video-js&gt;
-&lt;script src="https://players.brightcove.net/20318290001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+&lt;script src=&quot;https://players.brightcove.net/20318290001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
         <pre class="player-only">
-<code class="language-html notranslate">&lt;video-js id="myPlayerID"
-data-account="20318290001"
-data-player="d508c6e1-efa7-4aad-ba91-1a8db9761b8c"
-data-embed="default"
-data-application-id
-class="video-js"
-controls
-width="640"
-height="360"&gt;
-&lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs.vtt" srclang="en" label="English"&gt;
-&lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-jp.vtt" srclang="ja" label="Japanese"&gt;
-&lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-fr.vtt" srclang="fr" label="French"&gt;
+<code class="language-html notranslate">&lt;video-js id=&quot;myPlayerID&quot; 
+	data-account=&quot;20318290001&quot; 
+    data-player=&quot;d508c6e1-efa7-4aad-ba91-1a8db9761b8c&quot; 
+    data-embed=&quot;default&quot; 
+    data-application-id 
+    class=&quot;video-js&quot; controls 
+    width=&quot;640&quot; height=&quot;360&quot;&gt;
+  &lt;track kind=&quot;captions&quot; src=&quot;https://solutions.brightcove.com/bcls/assets/captions/intro-vcs.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;
+  &lt;track kind=&quot;captions&quot; src=&quot;https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-jp.vtt&quot; srclang=&quot;ja&quot; label=&quot;Japanese&quot;&gt;
+  &lt;track kind=&quot;captions&quot; src=&quot;https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-fr.vtt&quot; srclang=&quot;fr&quot; label=&quot;French&quot;&gt;
 &lt;/video-js&gt;
-&lt;script src="https://players.brightcove.net/20318290001/default_default/index.min.js"&gt;&lt;/script&gt;
+&lt;script src=&quot;https://players.brightcove.net/20318290001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
       </li>
       <li><strong>(Optional)</strong> To have captions automatically display when the video starts playing you have to make a couple of changes to your page. You have to add the <code class="notranslate">default</code> attribute to the <code class="notranslate">&lt;track&gt;</code> tag for the language to display and set and add a small amount of code. Note that the <code class="notranslate">default</code> attribute should only appear on one <code class="notranslate">&lt;track&gt;</code> tag. For example, to have the English captions display when the video starts playing, the <code class="notranslate">&lt;track&gt;</code> tag would be modified as follows:
@@ -1172,14 +1167,14 @@ height="360"&gt;
 &lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-fr.vtt" srclang="fr" label="French"&gt;</code></pre>
         <p>The code needed to start the designated captions automatically is:</p>
         <pre class="line-numbers">
-<code class="language-javascript notranslate">&lt;script type="text/javascript"&gt;
-videojs.getPlayer('myPlayerID').ready(function() {
-var myPlayer = this;
-myPlayer.on("play", function () {
-//If you want to start English as the caption automatically
-myPlayer.textTracks()[1].mode = "showing";
-});
-});
+<code class="language-javascript notranslate">&lt;script type=&quot;text/javascript&quot;&gt;
+  videojs.getPlayer('myPlayerID').ready(function () {
+    var myPlayer = this;
+    myPlayer.on(&quot;loadedmetadata&quot;, function () {
+      //If you want to start English as the caption automatically
+      myPlayer.textTracks()[1].mode = &quot;showing&quot;;
+    });
+  });
 &lt;/script&gt;</code></pre>
       </li>
       <li>Publish the page with the player. When a player with associated captions is published, a <strong>CC</strong> button will appear on the player chrome.
@@ -1202,16 +1197,16 @@ myPlayer.textTracks()[1].mode = "showing";
     <h3>setValues(objectOfStyles)</h3>
     <p>There is a limited set of styles you can change for captions, which are detailed below. An example of using these styles is shown in the following code, and will display captions as shown in the screenshot:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
-var myPlayer = this;
-myPlayer.<span class="bcls-highlight">textTrackSettings.setValues({
-backgroundColor: "#FF0",
-color: "#00F",
-fontFamily: "monospaceSansSerif",
-fontPercent: 1.5,
-windowColor: "#0FF",
-windowOpacity: "0.5"
-})</span>;
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function () {
+    var myPlayer = this;
+    myPlayer. <span class = "bcls-highlight" > textTrackSettings.setValues({
+      backgroundColor: &quot;#FF0&quot;,
+      color: &quot;#00F&quot;,
+      fontFamily: &quot;monospaceSansSerif&quot;,
+      fontPercent: 1.5,
+      windowColor: &quot;#0FF&quot;,
+      windowOpacity: &quot;0.5&quot;
+    }) </span>;
 });</code></pre>
     <figure class="bcls-figure"><img class="bcls-image" alt="Styled Captions" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/captions/styled-captions.png" /></figure>
     <aside class="bcls-aside bcls-aside--tip language-editable">The <strong>window</strong> is the cyan colored rectangle that is nearly the full width of the player. It is common NOT to use a window, hence the default opacity is <code>0</code>.</aside>
@@ -1329,10 +1324,10 @@ windowOpacity: "0.5"
     <p>It is possible to programmatically add text tracks for captions. The key method for this functionality is <code class="notranslate">addRemoteTextTrack()</code>, the syntax of which is:</p>
     <pre class="line-numbers">
 <code class="language-javascript notranslate">playerObject.addRemoteTextTrack({
-kind: string,
-language: string,
-label: string,
-src: string
+  kind: string,
+  language: string,
+  label: string,
+  src: string
 });</code></pre>
     <p>where:</p>
     <ul>
@@ -1345,35 +1340,31 @@ src: string
     <p>Example usage:</p>
     <pre class="line-numbers">
 <code class="language-javascript notranslate">var frTrack = myPlayer.addRemoteTextTrack({
-kind: 'captions',
-language: 'fr',
-label: 'French',
-src: 'https://solutions.brightcove.com/bcls/captions/adding_captions_to_videos_french.vtt'
+  kind: 'captions',
+  language: 'fr',
+  label: 'French',
+  src: 'https://solutions.brightcove.com/bcls/captions/adding_captions_to_videos_french.vtt'
 });</code></pre>
     <p>You must wait for the <code class="notranslate">loadedmetadata</code> event to be dispatched before you use the <code class="notranslate">addRemoteTextTrack()</code> method. The following example shows the script block for adding English and French captions to a video.</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">&lt;script type="text/javascript"&gt;
-videojs.getPlayer('myPlayerID').ready(function() {
-var myPlayer = this;
-
-myPlayer.one("loadedmetadata",function(){
-
-var enTrack = myPlayer.addRemoteTextTrack({
-kind: 'captions',
-language: 'en',
-label: 'English',
-src: 'https://solutions.brightcove.com/bcls/captions/adding_captions_to_videos.vtt'
-});
-
-var frTrack = myPlayer.addRemoteTextTrack({
-kind: 'captions',
-language: 'fr',
-label: 'French',
-src: 'https://solutions.brightcove.com/bcls/captions/adding_captions_to_videos_french.vtt'
-});
-
-});
-});
+<code class="language-html notranslate">&lt;script type=&quot;text/javascript&quot;&gt;
+  videojs.getPlayer('myPlayerID').ready(function () {
+    var myPlayer = this;
+    myPlayer.one(&quot;loadedmetadata&quot;, function () {
+      var enTrack = myPlayer.addRemoteTextTrack({
+        kind: 'captions',
+        language: 'en',
+        label: 'English',
+        src: 'https://solutions.brightcove.com/bcls/captions/adding_captions_to_videos.vtt'
+      });
+      var frTrack = myPlayer.addRemoteTextTrack({
+        kind: 'captions',
+        language: 'fr',
+        label: 'French',
+        src: 'https://solutions.brightcove.com/bcls/captions/adding_captions_to_videos_french.vtt'
+      });
+    });
+  });
 &lt;/script&gt;</code></pre>
     <p>The complementary method <code class="notranslate">textTracks()</code> enables you to retrieve all text tracks assigned to a player. The method returns an object of type <code class="notranslate">vjs.TextTrackList</code>.</p>
   </section>
