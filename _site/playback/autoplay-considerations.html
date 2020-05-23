@@ -1047,24 +1047,155 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>Using Brightcove Player to autoplay a video when a page loads is not a simple issue. This stems from browser vendors responding to user wishes to NOT have videos autoplay. This document will detail the current state of autoplaying videos in various browsers and Brightcove Player configurations that affect autoplay.</p>
+    <p>We have a set of <a href="http://solutions.brightcove.com/poneill/experiments/autoplay/" rel="nofollow">test cases available</a>.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="Browser/platform_autoplay_policies">Browser/platform autoplay policies</h2>
-    <p>The following is a brief summary of autoplay policies for a few browsers and iOS:</p>
+    <h2 id="tldr">Bottom line</h2>
+    <p>If you just want our best advice, without the details:</p>
+    <dl>
+      <dt>
+        <h3>Autoplay without Client-side Ads</h3>
+      </dt>
+      <dd>
+        <p>These steps will provide the best chance for successful automatic playback in players without client-side ads or with SSAI:</p>
+        <ul>
+          <li>Set <code>autoplay</code> to <code>"any"</code></li>
+          <li>Set <code>playsinline</code> to <code>true</code> (for iPhones)</li>
+        </ul>
+      </dd>
+      <dt>
+        <h3>Autoplay with Client-side Ads</h3>
+      </dt>
+      <dd>
+        <p>These steps will provide the best chance for successful automatic playback in players with client-side ads (IMA3 or FreeWheel):</p>
+        <ul>
+          <li>Set <code>autoplay</code> to <code>true</code></li>
+          <li>Set <code>playsinline</code> to <code>true</code> (for iPhones)</li>
+          <li>Configure the advertising plugin via the player's JSON configuration, <em>not</em> via side-loading or custom bundling</li>
+        </ul>
+      </dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Configuring_Autoplay">Configuring Autoplay</h2>
+    <p>The Brightcove Player supports five possible values for autoplay. In the HTML5 spec, autoplay is a boolean attribute - it id either on (<code>true</code>) or off (<code>false</code>). In the Brightcove Player, we have three special values available:</p>
     <ul>
-      <li><strong>Safari</strong>: In September 2017 with the release of Safari 11, Apple began preventing autoplay of videos with sound.</li>
-      <li><strong>Chrome</strong>: In April 2018 with the release of Chrome 66, Google began preventing autoplay of unmuted video. Be aware, there are special circumstances where Chrome may autoplay an unmuted video, depending on the score of Media Engagement Index (MEI). See Google's <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">Autoplay Policy Changes</a> document for full details.</li>
-      <li><strong>Firefox</strong>: In April of 2019 in Firefox Quantum, Mozilla states "If you find yourself on a site that autoplays video or audio Firefox will now stop the autoplay before it can start." The blog post <a href="https://blog.mozilla.org/firefox/block-autoplay/">Stop videos from automatically playing with new autoplay controls from Firefox</a> details the changes. That said, in older versions of Firefox <a href="https://support.mozilla.org/en-US/questions/1150702">users can choose to disable autoplay</a> with a few configuration changes.</li>
-      <li><strong>IE11/Edge</strong>: At the time of this writing, Microsoft’s browsers have no specific/known autoplay policy, autoplay just works with audio in IE11 and Edge.</li>
-      <li><strong>iOS</strong>: In June 2016 with the release of iOS 10, Apple began preventing autoplay of videos with sound. Details can be obtained from Webkit.org's <a href="https://webkit.org/blog/6784/new-video-policies-for-ios/">New &lt;video&gt; Policies for iOS</a> document.</li>
-      <li>Note that if you are requesting a preroll ad and set <code class="notranslate">autoplay</code> to <code class="notranslate">true</code>, the IMA3 v3 plugin tries to autoplay the content/ad with sound, if that fails, it tries to autoplay muted, and only if that fails does it fall back to click-to-play.</li>
+      <li><code>play</code>: This will cause the Brightcove Player to call <code>play()</code> when a source is set.</li>
+      <li><code>muted</code>: This will cause the Brightcove Player to mute the player and call <code>play()</code>.</li>
+      <li><code>any</code>: This will cause the Brightcove Player to call <code>play()</code>. If that fails, it will mute the player and call <code>play()</code> again.</li>
     </ul>
-    <p>From the list above, you can see you should <strong>never assume autoplay will work</strong>. As an alternative to adding <code class="notranslate">autoplay</code> or calling <code class="notranslate">player.autoplay(true)</code>, you can call <code class="notranslate">player.play()</code> and check the promise to see if they can autoplay or not.</p>
-  </section>
-  <section class="bcls-section">
+    <p><em>These three values are not supported in tag attributes!</em></p>
+    <h3>Priority</h3>
+    <p>The following list describes all the ways autoplay can be configured and how they are prioritized in the Brightcove Player's initialization process.</p>
+    <ol>
+      <li>
+        <p><strong>Video Element Attribute</strong></p>
+        <p>Following the HTML5 standard, this can either be <code>true</code> (attribute
+          exists) or <code>false</code> (attribute does not exist).</p>
+        <p>Unlike other properties where the query param values (iframes only in
+          other cases) win, the attribute wins here because it wins in Video.js.</p>
+<pre class="line-numbers"><code class="language-html">&lt;video-js autoplay controls&gt;&lt;/video-js&gt;</code></pre>
+      </li>
+      <li>
+        <p><strong>URL Hash or Query String</strong></p>
+        <p>Unlike most cases, the autoplay query string parameter or URL hash
+          parameter is respected for ALL types of embeds for backward
+          compatibility reasons.</p>
+        <p><em>This should be removed for in-page embeds in a future major release.</em></p>
+        <p>Parameter existence is equivalent to <code>true</code>, i.e. <code>?autoplay&amp;foo=bar</code>,
+          but string values are supported, e.g. <code>?autoplay=muted&amp;foo=bar</code></p>
+        <p><em>You cannot set autoplay to <code>false</code> via query/hash param!</em></p>
+      </li>
+      <li>
+        <p><strong><code>videojs()</code>/<code>bc()</code> Options</strong></p>
+        <p>The autoplay option can be passed to the <code>bc()</code> function.</p>
+      </li>
+      <li>
+        <p><strong>JSON configuration</strong></p>
+        <p>If autoplay is not available in options, use any value passed in from
+          the player's JSON configuration.</p>
+      </li>
+      <li>
+        <p><strong>Default</strong></p>
+        <p>Finally, if none of the above apply, we default to <code>false</code>.</p>
+      </li>
+    </ol>
+    </section>
+    <section class="bcls-section">
+      <h2 id="Browser_Settings_and_Policies">Browser Settings and Policies</h2>
+      <p>Browsers have gotten more consistent in recent years, but the following sections summarize each major browser's available settings and/or policies.</p>
+      <h3>Safari (macOS)</h3>
+      <p>Safari on macOS has these settings:</p>
+      <ul>
+        <li>Allow All Auto-Play</li>
+        <li>Stop Media with Sound <em>(default)</em></li>
+        <li>Never Auto-Play</li>
+      </ul>
+      <p>Additionally, these settings can be changed on a per-site basis.</p>
+      <h3>Safari (iOS and iPadOS)</h3>
+      <p>Safari on iOS and iPadOS do not have user-facing autoplay settings, but implements the following policies:</p>
+      <ul>
+        <li>Muted autoplay will always work</li>
+        <li>Autoplay with sound requires user gesture</li>
+        <li>On iPhone, the <code>playsinline</code> attribute is required in all cases.</li>
+      </ul>
+      <p>Read <a href="https://webkit.org/blog/6784/new-video-policies-for-ios/" rel="nofollow">this WebKit blog post</a> for more specifics.</p>
+      <h3>Chrome</h3>
+      <p>Chrome does not have user-facing autoplay settings, but implements the following policies:</p>
+      <ul>
+        <li>Muted autoplay will always work</li>
+        <li>Autoplay with sound requires user gesture or a high enough MEI (on desktop)</li>
+      </ul>
+      <p>Read <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes" rel="nofollow">this Chrome blog post</a> for more specifics.</p>
+      <h3>Firefox</h3>
+      <p>Firefox has these settings both globally and per website:</p>
+      <ul>
+        <li>Allow Audio and Video</li>
+        <li>Block Audio <em>(default)</em></li>
+        <li>Block Audio and Video</li>
+      </ul>
+      <h3>Edge</h3>
+      <p>By default, Edge has these settings:</p>
+      <ul>
+        <li>Allow <em>(default)</em></li>
+        <li>Limit</li>
+      </ul>
+      <p>However, by going to <code class="language-http">edge://flags/#edge-autoplay-user-setting-block-option</code>, the option to Block autoplay that was available in Edge (Legacy) can be restored.</p>
+      <h3>Edge (Legacy)</h3>
+      <p>Edge (Legacy) had these settings:</p>
+      <ul>
+        <li>Allow</li>
+        <li>Limit</li>
+        <li>Block</li>
+      </ul>
+      <p>The Limit option is similar to other browsers in that it requires muted autoplay or a user gesture.</p>
+      <h3>IE11</h3>
+      <p>IE11 has no autoplay settings or policy. Autoplay should work in all cases.</p>
+    </section>
+    <section class="bcls-section">
+      <h2 id="Known_issues">Known issues</h2>
+      <h3>In-Page Sources and Programmatic Autoplay</h3>
+      <p>There is a known issue when using in-page sources (e.g. via a <code>&lt;source&gt;</code> element) and calling <code>play()</code> or using string-based autoplay values - <code>"play"</code>, <code>"muted"</code>, and <code>"any"</code>.</p>
+      <p>This has been seen in Firefox, but it may be present in other browsers.</p>
+      <p><em>This is not a common use-case for Brightcove customers. Because Video Cloud sources are loaded after player creation, this issue does not occur.</em></p>
+      <p>Instead, you must wait for the <code>canplay</code> event to fire before calling <code>play()</code>. Alternatively, configuring <code>autoplay: true</code> will work as expected, depending on user settings/preferences.</p>
+      <h3>IMA3/FreeWheel</h3>
+      <h4>Autoplay String Values</h4>
+      <p>The special string-based autoplay values - <code>"play"</code>, <code>"muted"</code>, and <code>"any"</code> - are <strong>not currently supported</strong> in conjunction with the IMA3 and FreeWheel plugins.</p>
+      <p>However, these plugins have their own autoplay handling in place and, when <code>autoplay: true</code> is configured, they will behave as if <code>autoplay: "any"</code> were configured.</p>
+      <h4>Missing or Faulty Prerolls</h4>
+      <p>If attempting to call <code>play()</code> with these plugins, there are cases where autoplay will fail and, when the play button is clicked, no preroll will play.</p>
+      <p>With FreeWheel, there have also been reports of prerolls playing <em>behind</em> the big play button.</p>
+      <h4>Recommendation</h4>
+      <p>When using these plugins, the recommended method of enabling autoplay is:</p>
+      <ul>
+        <li>Bundle the plugin into your player (e.g. via Studio). <em>Side-loading (in-page) is not recommended</em>.</li>
+        <li>Do not attempt to use the special autoplay values. Set autoplay to <code>true</code> and allow the ad plugin to attempt playback however it can.</li>
+      </ul>
+    </section>
+  <!-- <section class="bcls-section">
     <h2 id="Configure_autoplay">Configure autoplay</h2>
     <p>When you want Brightcove Player to try to autoplay a video you need to set that in the player's configuration. You can do this either with Studio or the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a>.</p>
-    <!-- <aside class="bcls-aside bcls-aside--warning">Do NOT set autoplay in Studio if you are using the IMA3 plugin to display advertisements. Setting autoplay in Studio could cause ad plaback failure. If you are using the IMA3 plugin, you must implement autoplay using one of the methods detailed later in this document.</aside> -->
     
     <p>In Studio, edit the desired player then in the <strong>Playback</strong> section set the value:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="Set autoplay in Studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/autoplay/studio-setting.png" /></figure>
@@ -1190,7 +1321,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>When using Chrome on Android, and using <a href="https://support.google.com/chrome/answer/2392284?co=GENIE.Platform%3DAndroid&amp;hl=en-GB">Chrome’s Data Saver</a>, autoplay will not function correctly.</li>
     </ul>
-  </section>
+  </section> -->
 </article>
 
 <!-- complete bootstrap layout -->
