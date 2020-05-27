@@ -1,0 +1,59 @@
+---
+title: 'Using Dynamic Delivery Rules with Brightcove Player'
+description: "In this topic, you will learn how to configure Brightcove Player to use Brightcove's Dynamic Delivery Rules."
+parent: Playback
+---
+
+ <article class="bcls-article">
+  <h1>{{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+
+    <p>Brightcove's Dynamic Delivery Rules allows you to leverage the just-in-time manifest generation capability to use custom rules to control how your content is delivered to the viewer.</p>
+    <p>For more details about Delivery Rules, see the following:</p>
+    <ul>
+      <li>
+        <a href="/delivery-rules/overview-delivery-rules.html">Overview: Dynamic Delivery Rules</a>
+      </li>
+      <li>
+        <a href="/delivery-rules/implementing-delivery-rules.html">Implementing Dynamic Delivery Rules</a>
+      </li>
+      <li>
+        <a href="https://docs.brightcove.com/en/staging/rules/using-rules-with-sdks.html">Using Dynamic Delivery Rules with the Native SDKs</a>
+      </li>
+      <li>
+        <a href="https://studio.support.brightcove.com/general/overview-dynamic-delivery.html">Overview of Dynamic Delivery</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Configuring_Brightcove_Player">Configuring Brightcove Player</h2>
+    <p>Delivery Rules can be configured in the Brightcove Player in the following ways:</p>
+
+    <h3>Player management API</h3>
+    <p>When configuring players with the Player Management API, you can set the <code>delivery_config_id</code> configuration property as follows:</p>
+    <pre class="line-numbers">
+<code class="language-json">{
+  &quot;delivery_config_id&quot;: &quot;abcdef&quot;,
+  ...
+}</code></pre>
+
+    <h3>Standard embed code</h3>
+    <p>With the standard embed code (iframe), use the <code>deliveryConfigId</code> query parameter:</p>
+    <pre>
+<code class="language-html">&lt;iframe src=&quot;https://players.brightcove.net/.../index.html?deliveryConfigId=abcdef&quot;&gt;</code></pre>
+<br>
+    <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
+
+    <h3>Advanced embed code</h3>
+    <p>With the advanced embed code (in-page embed), use the <code>data-delivery-config-id</code> attribute:</p>
+    <pre>
+<code class="language-html">&lt;video-js data-delivery-config-id=&quot;abcdef&quot;&gt;</code></pre>
+<br>
+    <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
+  </section>
+
+</article>
