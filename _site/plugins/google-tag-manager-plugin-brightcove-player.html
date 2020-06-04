@@ -1195,7 +1195,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       The following steps detail using Video Cloud Studio to load the plugin.
     </p>
 
-    <ol class="bcls-tasklist__restart">
+    <ol class="bcls-tasklist-restart">
       <li>
         Open the <strong>PLAYERS</strong> module and either create a new player
         or locate the player to which you wish to add the plugin.
@@ -1253,13 +1253,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <ul>
           <li>
             <a href="#Configuring_dimensions_manually"
-              >Configuring dimensions manually</a
-            >
+              >Configuring dimensions manually</a>
           </li>
           <li>
-            <a href="#Configuring_dimensions_automatically"
-              >Configuring dimensions automatically</a
-            >
+            <p>
+              <a href="#Configuring_dimensions_automatically"
+              >Configuring dimensions automatically</a>
+            </p>
           </li>
         </ul>
       </li>
@@ -1425,7 +1425,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       Analytics account:
     </p>
 
-    <ol class="bcls-tasklist__restart">
+    <ol class="bcls-tasklist-restart">
       <li>
         <p>
           In the <strong>Options(JSON)</strong> text box, enter the events and
@@ -1488,12 +1488,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       Google Analytics account. These steps do use a Google App Script.
     </p>
 
-    <ol class="bcls-tasklist__restart">
+    <ol class="bcls-tasklist-restart">
       <!-- <li>
     Open the <a href="https://drive.google.com/file/d/1Boxem7n4UNy7IbofMTTw2bmsdviSIvbZ/view">custom app script</a>.
   </li> -->
       <li>
         <p>Copy the following custom app script code to your clip board.</p>
+        <aside class="bcls-aside bcls-aside--tip">
+          In this example, we are putting the dimensions in an object named <code>customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code>customDimensions.{dimension}</code>
+        </aside>
 
         <pre class="line-numbers">
 <code class="language-javascript">//Set values for GA Account ID and web property ID to which you have to set custom dimensions.
