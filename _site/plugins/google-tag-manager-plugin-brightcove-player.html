@@ -1334,10 +1334,118 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
       </tbody>
     </table>
+    <br/>
+    <p>
+      The creation of Variables, Tags & Triggers can be done in one of two ways:  
+    </p>
+    <ul>
+      <li>
+        <a href="#Importing_a_container_file">Importing a Container file in GTM</a>
+      </li>
+      <li>
+        Creating Variables, Tags & Triggers in GTM
+      </li>
+    </ul>
   </section>
 
   <section class="bcls-section">
-    <h2 id="Using_the_Brightcove_plugin">Using the Brightcove plugin</h2>
+    <h2 id="Importing_a_container_file">Importing a container file</h2>
+
+    <p>
+     One way to add Variables, Tags and Triggers to Google Tag Manager is to import a JSON-formatted Container file. For details, see Google's <a href="https://support.google.com/tagmanager/answer/6106997?hl=en">Container export and import</a> document.
+    </p>
+    <h3>Steps</h3>
+    <p>
+      Follow these steps to import a Container file:
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+         In your JSON-formatted Container file, set the following values:
+        </p>
+        <ul>
+          <li>
+            <code>publicID</code> - Your GTM tracker ID (GTM-XXXXXX)
+          </li>
+          <li>
+             <code>value</code> - Your GA tracker ID (UA-111111111-1)
+          </li>
+        </ul>
+        <p>
+          Snippet1 from an example Container file:
+        </p>
+        <pre class="line-numbers">
+<code class="language-json">...
+&quot;container&quot;: {
+   &quot;path&quot;: &quot;accounts/470123456/containers/13171830&quot;,
+    &quot;accountId&quot;: &quot;470123456&quot;,
+    &quot;containerId&quot;: &quot;13171830&quot;,
+    &quot;name&quot;: &quot;solutions.brightcove.com&quot;,
+    &quot;publicId&quot;: &quot;<span class="bcls-input">your GTM tracker ID</span>&quot;,
+    &quot;usageContext&quot;: [
+        &quot;WEB&quot;
+    ],
+    &quot;fingerprint&quot;: &quot;1571234567890&quot;,
+    ...
+</code></pre>
+  <p>
+      Snippet2 from an example Container file:
+    </p>
+    <pre class="line-numbers">
+<code class="language-json">...
+{
+    &quot;accountId&quot;: &quot;470123456&quot;,
+    &quot;containerId&quot;: &quot;13171830&quot;,
+    &quot;variableId&quot;: &quot;2&quot;,
+    &quot;name&quot;: &quot;Google Analytics Settings&quot;,
+    &quot;type&quot;: &quot;gas&quot;,
+    &quot;parameter&quot;: [
+        {
+            &quot;type&quot;: &quot;TEMPLATE&quot;,
+            &quot;key&quot;: &quot;trackingId&quot;,
+            &quot;value&quot;: &quot;<span class="bcls-input">your GA tracker ID</span>&quot;
+        }
+    ],
+    &quot;fingerprint&quot;: &quot;1573675830590&quot;
+}
+ ...
+</code></pre>
+      </li>
+      <li>
+        Login to your GTM account.
+      </li>
+      <li>
+        Select the <strong>Admin</strong> tab. 
+      </li>
+      <li>
+        Select <strong>Import Container</strong>
+      </li>
+      <li>
+        <p>
+         Select <strong>Choose container file</strong>.
+        </p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="Import container file"
+            src="/assets/images/plugins/google-tag-manager/import-container.png"
+          />
+          <figcaption class="bcls-caption--image">Import container file</figcaption>
+        </figure>
+      </li>
+      <li>
+        Select <strong>Existing</strong> workspace.
+      </li>
+      <li>
+        Preview the file and publish. This will create the necessary Variables, Tags and Triggers in GTM.
+      </li>
+    </ol>
+    
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Adding_the_Brightcove_plugin">Adding the Brightcove plugin</h2>
 
     <p>
       Like other Brightcove Player plugins, the Google Tag Manager plugin must
