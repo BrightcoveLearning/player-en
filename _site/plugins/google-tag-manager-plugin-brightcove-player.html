@@ -1248,83 +1248,93 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ol>
   </section>
 
-  <!-- <section class="bcls-section">
-    <h2 id="Review_events_to_track">Review events to track</h2>
+  <section class="bcls-section">
+    <h2 id="Reviewing_events_to_track">Reviewing events to track</h2>
 
     <p>
-      Here are some of the common terms you will encounter when using Google Tag
-      Manager (GTM).
+      Every Brightcove event to be tracked must be created as an <strong>Event Tag</strong> in Google Tag Manager. The event IDs from GTM will then be used inside the Players module. This allows Brightcove event data to be passed to GTM events.
     </p>
+    <p>
+      Along with the tags, GTM triggers, for each tag, have to be created in order to send these events to Google Analytics (GA). The custom parameters associated with the events, also have to be created in the GTM <strong>Variables</strong> tab.
+    </p>
+
+    <p>Review the table below and determine which events you want to track.</p>
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th style="width:15%">Term</th>
-          <th style="width:85%">Description</th>
+          <th style="width:15%">Type</th>
+          <th style="width:20%">Event</th>
+          <th style="width:65%">Description</th>
         </tr>
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><strong>Container</strong></td>
+          <td>Player Load</td>
+          <td><code>bcvideo_player_load</code></td>
           <td>
-            Your tag management system account can have multiple containers
-            (profiles), with its own tags and variables. Each container can have
-            multiple environments, usually set up for development, staging and
-            production.
+            Sent when a player has been loaded and is ready for playback
           </td>
         </tr>
         <tr>
-          <td><strong>Data layer</strong></td>
+          <td>Video Impression</td>
+          <td><code>bcvideo_video_impression</code></td>
           <td>
-            The data layer refers to the collection of data that lives in the
-            code of your web page. This JavaScript object is used to pass
-            information from your website to your tag manager container. You can
-            then use this information to populate variables and activate
-            triggers in your tag configurations.
+            Sent when a video has been loaded into a player and is ready for playback
           </td>
         </tr>
         <tr>
-          <td><strong>Event</strong></td>
+          <td>Video View</td>
+          <td><code>bcvideo_video_view</code></td>
           <td>
-            Events are data points used to send data to your reporting tool.
-            These are related to video loading and playback.
+            Sent when a video has started playing back either through auto-play or due to user interaction
           </td>
         </tr>
         <tr>
-          <td><strong>Tag</strong></td>
+          <td>Video Engagement</td>
+          <td><code>bcvideo_video_engagement</code></td>
           <td>
-            Tags are code snippets placed on your web page to collect user
-            interaction data. Tag management systems simplify the process of
-            adding tags to your site, requiring that you only supply the tag id
-            and tag event type.
+            A user watched a range of seconds of a video's timeline. This event is a heartbeat for tracking video engagement and will likely be sent many times during playback, depending on the user interaction and the length of the video.
           </td>
         </tr>
         <tr>
-          <td><strong>Tag marketplace</strong></td>
+          <td>Play Request</td>
+          <td><code>bcvideo_play_request</code></td>
           <td>
-            Tag marketplace templates provide code snippets for deploying a tag.
-            While this reduces the amount of code knowledge needed, some
-            familiarity with JavaScript and HTML is required for successful
-            implementation.
+            Sent when playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario
           </td>
         </tr>
         <tr>
-          <td><strong>Tracker</strong></td>
+          <td>Ad Start</td>
+          <td><code>bcvideo_ad_start</code></td>
           <td>
-            Trackers are objects that collect, store data and send that data to
-            Google Tag Manager.
+            Sent when control is handed over to an advertising agent by the playback platform
           </td>
         </tr>
         <tr>
-          <td><strong>Trigger</strong></td>
+          <td>Ad End</td>
+          <td><code>bcvideo_ad_end</code></td>
           <td>
-            Triggers tell when tag code should be added to a page. These are
-            user-defined conditions.
+            Sent when control is handed back from the advertising agent to the playback platform
+          </td>
+        </tr>
+        <tr>
+          <td>Error</td>
+          <td><code>bcvideo_error</code></td>
+          <td>
+            Sent when fatal errors which disrupt the playback experience are encountered
+          </td>
+        </tr>
+        <tr>
+          <td>Video Complete</td>
+          <td><code>bcvideo_video_complete</code></td>
+          <td>
+            Sent when video playback finishes
           </td>
         </tr>
       </tbody>
     </table>
-  </section> -->
+  </section>
 
   <section class="bcls-section">
     <h2 id="Using_the_Brightcove_plugin">Using the Brightcove plugin</h2>
@@ -1460,7 +1470,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ol>
   </section>
 
-  <section class="bcls-section">
+  <!-- <section class="bcls-section">
     <h2 id="Events_and_parameters">Events and parameters</h2>
 
     <p>
@@ -1558,7 +1568,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><code>device_os</code></li>
       <li><code>device_os_version</code></li>
     </ul>
-  </section>
+  </section> -->
 
   <section class="bcls-section">
     <h2 id="Configuring_dimensions_manually">
@@ -1799,7 +1809,7 @@ var dimensions=<span class="bcls-highlight">['bcvideo_video_seconds_viewed','bcv
 
 <hr>
 <div class="last-updated">
-  Page last updated on 04 Jun 2020
+  Page last updated on 05 Jun 2020
 </div>
 
 
