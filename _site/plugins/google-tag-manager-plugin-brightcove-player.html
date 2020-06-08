@@ -1445,11 +1445,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
 
   <section class="bcls-section">
-    <h2 id="Adding_the_Brightcove_plugin">Adding the Brightcove plugin</h2>
-
+    <h2 id="Integrating_GTM_with_Brightcove">Integrating GTM with Brightcove</h2>
     <p>
-      Like other Brightcove Player plugins, the Google Tag Manager plugin must
-      be loaded into the player.
+      To integrate GTM with Brightcove Player, you will add the Google Tag Manager plugin to the player.
     </p>
 
     <h3>Using Studio</h3>
@@ -1460,7 +1458,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
     <ol class="bcls-tasklist-restart">
       <li>
-        Open the <strong>PLAYERS</strong> module and either create a new player
+        In Video Cloud Studio, open the <strong>PLAYERS</strong> module and either create a new player
         or locate the player to which you wish to add the plugin.
       </li>
       <li>Select the link for the player to open the player's properties.</li>
@@ -1499,17 +1497,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           </figcaption>
         </figure>
       </li>
-      <li>
+      <!-- <li>
         <p>
           Now, you are ready to configure Google Analytics with the dimensions
           you want to track. Review the dimensions that are available, see the
           <a href="#Events_and_parameters">Events and parameters</a> section of
           this document.
         </p>
-      </li>
-      <li>
+      </li> -->
+      <!-- <li>
         <p>
-          There are two ways to populate custom dimensions with Google
+          There are two ways to tell the player populate custom dimensions with Google
           Analytics.
         </p>
 
@@ -1525,6 +1523,55 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             </p>
           </li>
         </ul>
+      </li> -->
+      <li>
+        <p>
+          To tell the player which events and custom dimensions you want to track, create a JSON object to paste into the <strong>Options(JSON)</strong> text box.
+        </p>
+        <p>
+          Field descriptions:
+        </p>
+
+        <ul>
+          <li><code>tracker</code> - Your Google Tag Manager tracking id (GTM-XXXXXXX)</li>
+          <li><code>eventsToTrack</code> - Events you want to track</li>
+          <li>
+            <code>paramsToTrack</code> - Custom dimensions you want to track
+          </li>
+        </ul>
+        <p>Here is an example:</p>
+
+        <pre class="line-numbers">
+<code class="language-json">{
+  "tracker":"<span class="bcls-input">your Google Tag Manager id</span>",
+  "eventsToTrack": {
+    "error":"Error",
+    "play_request":"Play Request",
+    "video_engagement":"Video Engagement"
+  },
+  "paramsToTrack": {
+    "bcvideo_video_seconds_viewed":"dimension1",
+    "bcvideo_video_playhead":"dimension2",
+    "bcvideo_account":"dimension3",
+    "bcvideo_player":"dimension4",
+    "bcvideo_player_name":"dimension5",
+    "bcvideo_session":"dimension8",
+    "bcvideo_video":"dimension6",
+    "bcvideo_video_name":"dimension7",
+    "bcvideo_platform_version":"dimension9",
+    "bcvideo_video_duration":"dimension11",
+    "bcvideo_range":"dimension10",
+    "bcvideo_video_percent_viewed":"dimension12",
+    "bcvideo_error_code":"dimension13",
+    "bcvideo_video_milestone":"dimension14",
+    "bcvideo_destination":"dimension15"
+  }
+}</code></pre>
+
+        <aside class="bcls-aside bcls-aside--tip">
+          Make sure your custom dimensions in the JSON object match the name and
+          index within Google Analytics.
+        </aside>
       </li>
       <li>
         <p>
@@ -1677,69 +1724,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><code>device_os_version</code></li>
     </ul>
   </section> -->
-
-  <section class="bcls-section">
-    <h2 id="Configuring_dimensions_manually">
-      Configuring dimensions manually
-    </h2>
-
-    <p>
-      Follow these steps to manually configure custom dimensions in your Google
-      Analytics account:
-    </p>
-
-    <ol class="bcls-tasklist-restart">
-      <li>
-        <p>
-          In the <strong>Options(JSON)</strong> text box, enter the events and
-          parameters you would like to track. Field descriptions:
-        </p>
-
-        <ul>
-          <li><code>tracker</code> - Your Google Tag Manager id</li>
-          <li><code>eventsToTrack</code> - List of events you want to track</li>
-          <li>
-            <code>paramsToTrack</code> - List of parameters you want to track
-          </li>
-        </ul>
-        &nbsp;
-
-        <p>Here is an example:</p>
-
-        <pre class="line-numbers">
-<code class="language-json">{
-  "tracker":"<span class="bcls-input">your Google Tag Manager id</span>",
-  "eventsToTrack": {
-    "error":"Error",
-    "play_request":"Play Request",
-    "video_engagement":"Video Engagement"
-  },
-  "paramsToTrack": {
-    "bcvideo_video_seconds_viewed":"dimension1",
-    "bcvideo_video_playhead":"dimension2",
-    "bcvideo_account":"dimension3",
-    "bcvideo_player":"dimension4",
-    "bcvideo_player_name":"dimension5",
-    "bcvideo_session":"dimension8",
-    "bcvideo_video":"dimension6",
-    "bcvideo_video_name":"dimension7",
-    "bcvideo_platform_version":"dimension9",
-    "bcvideo_video_duration":"dimension11",
-    "bcvideo_range":"dimension10",
-    "bcvideo_video_percent_viewed":"dimension12",
-    "bcvideo_error_code":"dimension13",
-    "bcvideo_video_milestone":"dimension14",
-    "bcvideo_destination":"dimension15"
-  }
-}</code></pre>
-
-        <aside class="bcls-aside bcls-aside--tip">
-          Make sure your custom dimensions in the JSON object match the name and
-          index within Google Analytics.
-        </aside>
-      </li>
-    </ol>
-  </section>
 
   <section class="bcls-section">
     <h2 id="Configuring_dimensions_automatically">
