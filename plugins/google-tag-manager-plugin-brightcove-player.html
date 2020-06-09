@@ -184,7 +184,7 @@ parent: Plugins
       </li>
       <li>
         <p>
-         Enter values for the new account page and select a target platform.
+         Enter values for your new account page, including account name and container name. Select a target platform.
         </p>
         <figure class="bcls-figure">
           <img
@@ -209,13 +209,6 @@ parent: Plugins
 
   <section class="bcls-section">
     <h2 id="Reviewing_events_to_track">Reviewing events to track</h2>
-
-    <p>
-      Every Brightcove event to be tracked must be created as an <strong>Event Tag</strong> in Google Tag Manager. The event IDs from GTM will then be used inside the Players module. This allows Brightcove event data to be passed to GTM events.
-    </p>
-    <p>
-      Along with the tags, GTM triggers, for each tag, have to be created in order to send these events to Google Analytics (GA). The custom parameters associated with the events, also have to be created in the GTM <strong>Variables</strong> tab.
-    </p>
 
     <p>Review the table below and determine which events you want to track.</p>
 
@@ -293,114 +286,240 @@ parent: Plugins
         </tr>
       </tbody>
     </table>
-    <br/>
-    <p>
-      The creation of Variables, Tags & Triggers can be done in one of two ways:  
-    </p>
-    <ul>
-      <li>
-        <a href="#Importing_a_container_file">Importing a Container file in GTM</a>
-      </li>
-      <li>
-        Creating Variables, Tags & Triggers in GTM
-      </li>
-    </ul>
   </section>
 
   <section class="bcls-section">
-    <h2 id="Importing_a_container_file">Importing a container file</h2>
+    <h2 id="Creating_variables_tags_&_triggers">Creating Variables, Tags & Triggers</h2>
+    <p>
+      Every Brightcove event to be tracked must be created as an <strong>Event Tag</strong> in Google Tag Manager. The event IDs from GTM are used inside the player, allowing Brightcove event data to be passed to GTM events.
+    </p>
+    <p>
+      GTM triggers, for each Tag, need to be created to send these events to Google Analytics (GA). The custom parameters associated with the events, are also created in the GTM <strong>Variables</strong> tab.
+    </p>
+    <p>You can create Variables, Tags and Triggers in Google Tag Manager, as shown below, or you can <a href="#Importing_a_container_file_in_GTM">import a Container file in GTM</a>. </p>
+    
+    <h3>Adding Variables to GTM</h3>
+    <p>Parameters carry additional data and are passed with events. Every Brightcove parameter that will be recorded must be created as a Variable in Google Tag Manager. The parameter named will then be used inside the player, allowing Brightcove parameters to be passed to Google Tag Manager Variables.</p>
 
     <p>
-     One way to add Variables, Tags and Triggers to Google Tag Manager is to import a JSON-formatted Container file. For details, see Google's <a href="https://support.google.com/tagmanager/answer/6106997?hl=en">Container export and import</a> document.
-    </p>
-    <h3>Steps</h3>
-    <p>
-      Follow these steps to import a Container file:
+      To create Variables in Google Tag Manager, follow these steps
     </p>
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
-         In your JSON-formatted Container file, set the following values:
+         Login to your Google Tag Manager account
         </p>
-        <ul>
-          <li>
-            <code>publicID</code> - Your GTM tracker ID (GTM-XXXXXX)
-          </li>
-          <li>
-             <code>value</code> - Your GA tracker ID (UA-111111111-1)
-          </li>
-        </ul>
-        <p>
-          Snippet1 from an example Container file:
-        </p>
-        <pre class="line-numbers">
-<code class="language-json">...
-&quot;container&quot;: {
-   &quot;path&quot;: &quot;accounts/470123456/containers/13171830&quot;,
-    &quot;accountId&quot;: &quot;470123456&quot;,
-    &quot;containerId&quot;: &quot;13171830&quot;,
-    &quot;name&quot;: &quot;solutions.brightcove.com&quot;,
-    &quot;publicId&quot;: &quot;<span class="bcls-input">your GTM tracker ID</span>&quot;,
-    &quot;usageContext&quot;: [
-        &quot;WEB&quot;
-    ],
-    &quot;fingerprint&quot;: &quot;1571234567890&quot;,
-    ...
-</code></pre>
-  <p>
-      Snippet2 from an example Container file:
-    </p>
-    <pre class="line-numbers">
-<code class="language-json">...
-{
-    &quot;accountId&quot;: &quot;470123456&quot;,
-    &quot;containerId&quot;: &quot;13171830&quot;,
-    &quot;variableId&quot;: &quot;2&quot;,
-    &quot;name&quot;: &quot;Google Analytics Settings&quot;,
-    &quot;type&quot;: &quot;gas&quot;,
-    &quot;parameter&quot;: [
-        {
-            &quot;type&quot;: &quot;TEMPLATE&quot;,
-            &quot;key&quot;: &quot;trackingId&quot;,
-            &quot;value&quot;: &quot;<span class="bcls-input">your GA tracker ID</span>&quot;
-        }
-    ],
-    &quot;fingerprint&quot;: &quot;1573675830590&quot;
-}
- ...
-</code></pre>
       </li>
       <li>
-        Log in to your GTM account.
+        Select <strong>Variables</strong> in the left side navigation. 
       </li>
       <li>
-        Select the <strong>Admin</strong> tab. 
-      </li>
-      <li>
-        Select <strong>Import Container</strong>
+        For <strong>User-Defined Variables</strong>, select the <strong>New</strong> button. 
       </li>
       <li>
         <p>
-         Select <strong>Choose container file</strong>.
+          Select the <strong>Variable Type</strong> as <strong>Data Layer Variable</strong>.
         </p>
         <figure class="bcls-figure">
           <img
             class="bcls-image--no-border"
-            alt="Import container file"
-            src="/assets/images/plugins/google-tag-manager/import-container.png"
+            alt="Data Layer Variable"
+            src="/assets/images/plugins/google-tag-manager/data-layer-variable.png"
           />
-          <figcaption class="bcls-caption--image">Import container file</figcaption>
+          <figcaption class="bcls-caption--image">Data Layer Variable</figcaption>
         </figure>
       </li>
       <li>
-        Select <strong>Existing</strong> workspace.
+        <p>
+          Enter the details:
+        </p>
+        <ul>
+          <li>
+            <strong>Data Layer Variable Name</strong> - Name of the variable
+          </li>
+          <li>
+            <strong>Data Layer Version</strong> - Version 2
+          </li>
+        </ul>   
       </li>
       <li>
-        Preview the file and publish. This will create the necessary Variables, Tags and Triggers in GTM.
+        <p>
+          Parameters to be created:
+        </p>
+        <ul>
+          <li>
+            <strong>Account</strong> - Brightcove account name
+          </li>
+          <li>
+            <strong>Player</strong> - Player ID
+          </li>
+          <li>
+            <strong>Player Name</strong> - Player Name
+          </li>
+          <li>
+            <strong>Platform Version</strong> - Platform version number
+          </li>
+          <li>
+            <strong>Session</strong> - Session identifier
+          </li>
+          <li>
+            <strong>Video</strong> - Video ID
+          </li>
+          <li>
+            <strong>Video Name</strong> - Name of the video
+          </li>
+          <li>
+            <strong>Range</strong> - The range of seconds viewed in the format  StartSecond..EndSecond
+          </li>
+          <li>
+            <strong>Video Seconds Viewed</strong> - Count of watched seconds
+          </li>
+          <li>
+            <strong>Video Duration</strong> - The duration of the video in seconds
+          </li>
+          <li>
+            <strong>Video Percent Viewed</strong> - Percentage of video watched
+          </li>
+          <li>
+            <strong>Error Code</strong> - Platform specific error code associated with the event
+          </li>
+          <li>
+            <strong>Video Milestone</strong> - Milestone (25%,50%,75%,100%) completed by the video
+          </li>
+          <li>
+            <strong>Video Playhead</strong> - The time in the video at which the event is triggered
+          </li>
+          <li>
+            <strong>Country</strong> - ISO-3166 (alpha 2) country code, e.g.: US
+          </li>
+          <li>
+            <strong>Country Name</strong> - Human readable country name e.g.: United States
+          </li>
+          <li>
+            <strong>Region</strong> - ISO-3166 (alpha 2) region code
+          </li>
+          <li>
+            <strong>Region Name</strong> - Human readable region name
+          </li>
+          <li>
+            <strong>City</strong> - City Name
+          </li>
+          <li>
+            <strong>Browser</strong> - Full name and version of the browser used
+          </li>
+          <li>
+            <strong>Browser Type</strong> - Common name of browser used (i.e. Chrome, Edge, Firefox)
+          </li>
+          <li>
+            <strong>Destination</strong> - URI that originated the event
+          </li>
+          <li>
+            <strong>Source</strong> - URI that sent end-user to destination
+          </li>
+          <li>
+            <strong>Device Type</strong> - Override to specify the OS of the device that originated the event in cases where the User-Agent is unreliable
+          </li>
+          <li>
+            <strong>Device OS</strong> - The name of OS being used by the device
+          </li>
+          <li>
+            <strong>Device OS Version</strong> - The version of OS being used by the device
+          </li>
+        </ul>   
+      </li>
+      <li>
+        <p>
+          Your user-defined Variables should look similar to this in GTM:
+        </p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="User-defined variables"
+            src="/assets/images/plugins/google-tag-manager/user-defined-vars.png"
+          />
+          <figcaption class="bcls-caption--image">User-defined variables</figcaption>
+        </figure>
       </li>
     </ol>
-    
 
+    <h3>Adding Tags to GTM</h3>
+    <p>After you determine which events you want to track, Tags must be created in Google Tag Manager.</p>
+
+    <p>
+      To create Tags in Google Tag Manager, follow these steps
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+         Login to your Google Tag Manager account
+        </p>
+      </li>
+      <li>
+        Select <strong>Tags</strong> in the left side navigation, and select the <strong>New</strong> button. 
+      </li>
+      <li>
+        <p>
+          Select the <strong>Tag Type</strong> as <strong>Google Analytics: Universal Analytics</strong>.
+        </p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="Tag configuration"
+            src="/assets/images/plugins/google-tag-manager/tag-configuration.png"
+          />
+          <figcaption class="bcls-caption--image">Tag configuration</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          Enter the tag details:
+        </p>
+        <ul>
+          <li>
+            <strong>Track Type</strong> - Set to <strong>Event</strong>
+          </li>
+          <li>
+            <strong>Category</strong> - Event Category Variable
+          </li>
+          <li>
+            <strong>Action</strong> - Event Action Variable
+          </li>
+          <li>
+            <strong>Label</strong> - Event Label Variable
+          </li>
+          <li>
+            <strong>Value</strong> - Nil
+          </li>
+          <li>
+            <strong>Non interaction hit</strong> - Set to <strong>True</strong>
+          </li>
+          <li>
+            <strong>Google Analytics Settings</strong> - Default setting
+          </li>
+          <li>
+            <strong>Tracking ID</strong> - Tracking ID of GA dashboard. Select Tracking ID Variable.
+          </li>
+        </ul>   
+      </li>
+      <li>
+        <p>
+          Go to Advanced settings and set the related Custom Dimension indices and Dimension Values. These indices should match what's in Google Analytics.
+        </p>
+      </li>
+      <li>
+        <p>
+          Your Tags should look similar to this in GTM:
+        </p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="Tags in GTM"
+            src="/assets/images/plugins/google-tag-manager/tags-in-gtm.png"
+          />
+          <figcaption class="bcls-caption--image">Tags in GTM</figcaption>
+        </figure>
+      </li>
+    </ol>
   </section>
 
   <section class="bcls-section">
@@ -788,6 +907,100 @@ function createGACustomDimensions() {
       </figure>
     </li>
     
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Importing_a_container_file_in_GTM">Importing a container file</h2>
+
+    <p>
+     One way to add Variables, Tags and Triggers to Google Tag Manager is to import a JSON-formatted Container file. For details, see Google's <a href="https://support.google.com/tagmanager/answer/6106997?hl=en">Container export and import</a> document.
+    </p>
+    <h3>Steps</h3>
+    <p>
+      Follow these steps to import a Container file:
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+         In your JSON-formatted Container file, set the following values:
+        </p>
+        <ul>
+          <li>
+            <code>publicID</code> - Your GTM tracker ID (GTM-XXXXXX)
+          </li>
+          <li>
+             <code>value</code> - Your GA tracker ID (UA-111111111-1)
+          </li>
+        </ul>
+        <p>
+          Snippet1 from an example Container file:
+        </p>
+        <pre class="line-numbers">
+<code class="language-json">...
+&quot;container&quot;: {
+   &quot;path&quot;: &quot;accounts/470123456/containers/13171830&quot;,
+    &quot;accountId&quot;: &quot;470123456&quot;,
+    &quot;containerId&quot;: &quot;13171830&quot;,
+    &quot;name&quot;: &quot;solutions.brightcove.com&quot;,
+    &quot;publicId&quot;: &quot;<span class="bcls-input">your GTM tracker ID</span>&quot;,
+    &quot;usageContext&quot;: [
+        &quot;WEB&quot;
+    ],
+    &quot;fingerprint&quot;: &quot;1571234567890&quot;,
+    ...
+</code></pre>
+  <p>
+      Snippet2 from an example Container file:
+    </p>
+    <pre class="line-numbers">
+<code class="language-json">...
+{
+    &quot;accountId&quot;: &quot;470123456&quot;,
+    &quot;containerId&quot;: &quot;13171830&quot;,
+    &quot;variableId&quot;: &quot;2&quot;,
+    &quot;name&quot;: &quot;Google Analytics Settings&quot;,
+    &quot;type&quot;: &quot;gas&quot;,
+    &quot;parameter&quot;: [
+        {
+            &quot;type&quot;: &quot;TEMPLATE&quot;,
+            &quot;key&quot;: &quot;trackingId&quot;,
+            &quot;value&quot;: &quot;<span class="bcls-input">your GA tracker ID</span>&quot;
+        }
+    ],
+    &quot;fingerprint&quot;: &quot;1573675830590&quot;
+}
+ ...
+</code></pre>
+      </li>
+      <li>
+        Log in to your GTM account.
+      </li>
+      <li>
+        Select the <strong>Admin</strong> tab. 
+      </li>
+      <li>
+        Select <strong>Import Container</strong>
+      </li>
+      <li>
+        <p>
+         Select <strong>Choose container file</strong>.
+        </p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="Import container file"
+            src="/assets/images/plugins/google-tag-manager/import-container.png"
+          />
+          <figcaption class="bcls-caption--image">Import container file</figcaption>
+        </figure>
+      </li>
+      <li>
+        Select <strong>Existing</strong> workspace.
+      </li>
+      <li>
+        Preview the file and publish. This will create the necessary Variables, Tags and Triggers in GTM.
+      </li>
     </ol>
   </section>
 
