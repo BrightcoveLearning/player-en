@@ -37,23 +37,82 @@ parent: Plugins
     <p>No matter how you generate the images, you need to decide the number of images you wish to use and choose an appropriate size.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="playersmodule">Implement using Players module</h2>
-    <p>Thumbnails can be configured by using the thumbnails plugin. To implement the thumbnails plugin using the Players module, follow these steps:</p>
+    <h2 id="playersmodule">Implement using embed code</h2>
+    <p>Thumbnails can be configured by using the thumbnails plugin. To implement the thumbnails plugin using embed code, follow these steps:</p>
     <ol class="bcls-tasklist">
-      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
-      <li>Click the link for the player to open the player's properties.</li>
-      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
-      <li>Next, click <strong>Add a Plugin</strong>.</li>
-      <li>For the <strong>Plugin Name</strong> enter <code>thumbnails</code>.</li>
-      <li>For the <strong>JavaScript</strong> URL, enter:
-        <pre>
-<code class="notranslate language-json">https://players.brightcove.net/videojs-thumbnails/videojs.thumbnails.js</code></pre>
+      <li>In Video Cloud Studio, open the <strong>MEDIA</strong> module.</li>
+      <li>Select a video that you want to use, and select the <strong>Publish and Embed</strong> button.</li>
+      <li>In the dialog, select either the Brightcove Default Player, or a player that you have configured.</li>
+      <li>
+        <p>
+          Copy the <strong>Advanced</strong> embed code, and add an <code>id</code> attribute to the <code>video-js</code> tag. It should look similar to this:
+        </p>
+        <pre class="line-numbers">
+<code class="language-json">&lt;video-js
+  <span class="bcls-highlight">id=&quot;myPlayerID&quot;</span>
+  data-account=&quot;1752604059001&quot;
+  data-player=&quot;default&quot;
+  data-embed=&quot;default&quot;
+  controls=&quot;&quot;
+  data-video-id=&quot;2026618970001&quot;
+  data-playlist-id=&quot;&quot;
+  data-application-id=&quot;&quot;
+  width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+&lt;script src=&quot;https://players.brightcove.net/1752604059001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
       </li>
-      <li>For the <strong>CSS</strong> URL, enter:
+      <li>Paste the player embed code into an editor with your HTML page code.</li>
+      <li>In the <code>head</code> section of your page code, add the following CSS file:
         <pre>
-<code class="notranslate language-json">https://players.brightcove.net/videojs-thumbnails/videojs.thumbnails.css</code></pre>
+<code class="notranslate language-json">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://players.brightcove.net/videojs-thumbnails/videojs.thumbnails.css&quot;&gt;</code></pre>
+      <li>In the <code>body</code> section, below the player embed code, add the following JavaScript file:
+        <pre>
+<code class="notranslate language-json">&lt;script src=&quot;https://players.brightcove.net/videojs-thumbnails/videojs.thumbnails.js&quot;&gt;&lt;/script&gt;</code></pre>
       </li>
-      <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box. The example below will display a thumbnail preview image as the mouse hovers over the timeline as follows:
+      <li>
+        <p>
+          Below the previous script, add a script block with the following:
+        </p>
+        <ul>
+          <li>
+            Get a reference to the player when it is ready
+          </li>
+          <li>
+            Call the <code>thumbnails</code> plugin with preview thumbnail images
+          </li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--information">Notice that the first thumbnail image has a <code>width</code> property. You need to include this to keep the thumbnail image in full view as the user hovers or scrubs near the beginning or end of the progress bar.</a></aside>
+        <pre class="line-numbers">
+<code class="language-json">&lt;script&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this;
+
+    myPlayer.thumbnails(thumb_data);
+  });
+  var thumb_data = {
+      &quot;0&quot;: {
+          &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-lionfish-thumbnail.png&quot;,
+          <span class="bcls-highlight">&quot;width&quot;: 120</span>
+      },
+      &quot;29&quot;: {
+          &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-anemone-thumbnail.png&quot;
+      },
+      &quot;54&quot;: {
+          &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-clownfish-thumbnail.png&quot;
+      },
+      &quot;84&quot;: {
+          &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-seahorse-thumbnail.png&quot;
+      },
+      &quot;114&quot;: {
+          &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-crab-thumbnail.png&quot;
+      },
+      &quot;143&quot;: {
+          &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-dolphins-thumbnail.png&quot;
+      }
+  };
+	&lt;/script&gt;</code></pre>
+        <p>
+          This example will display a thumbnail preview image as the mouse hovers over the timeline as follows:
+        </p>
         <ul>
           <li>The <em>sea-lionfish-thumbnail.png</em> image is be displayed from video start to 29 seconds</li>
           <li>The <em>sea-anemone-thumbnail.png</em> image is displayed from 29 seconds to 54 seconds</li>
@@ -63,31 +122,68 @@ parent: Plugins
           <li>The <em>sea-dolphins-thumbnail.png</em> image is displayed from 143 seconds to the end of the video</li>
         </ul>
         <p>For details about the plugin options, see the <a href="#properties">Properties</a> section.</p>
-        <pre class="line-numbers">
-<code class="language-json">  {
-    "0": {
-        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-lionfish-thumbnail.png"
-    },
-    "29": {
-        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-anemone-thumbnail.png"
-    },
-    "54": {
-        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-clownfish-thumbnail.png"
-    },
-    "84": {
-        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-seahorse-thumbnail.png"
-    },
-    "114": {
-        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-crab-thumbnail.png"
-    },
-    "143": {
-        "src": "http://solutions.brightcove.com/bcls/assets/images/sea-dolphins-thumbnail.png"
-    }
-  }</code></pre>
       </li>
-      <li>Click <strong>Save</strong>.</li>
-      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
-      <li>To close the open dialog, click <strong>Close</strong>.</li>
+      <li>
+        <p>
+          Here is the complete code example:
+        </p>
+<pre class="line-numbers">
+<code class="language-json">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+	&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;title&gt;Display Thumbnail Previews&lt;/title&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://players.brightcove.net/videojs-thumbnails/videojs.thumbnails.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;video-js
+		id=&quot;myPlayerID&quot;
+		data-account=&quot;1752604059001&quot;
+		data-player=&quot;default&quot;
+		data-embed=&quot;default&quot;
+		controls=&quot;&quot;
+		data-video-id=&quot;2026618970001&quot;
+		data-playlist-id=&quot;&quot;
+		data-application-id=&quot;&quot;
+		width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+	&lt;script src=&quot;https://players.brightcove.net/1752604059001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+	&lt;!-- Script for thumbnails plugin --&gt;
+	&lt;script src=&quot;https://players.brightcove.net/videojs-thumbnails/videojs.thumbnails.js&quot;&gt;&lt;/script&gt;
+
+	&lt;script&gt;
+	  videojs.getPlayer('myPlayerID').ready(function() {
+	    var myPlayer = this;
+
+			myPlayer.thumbnails(thumb_data);
+	  });
+		var thumb_data = {
+        &quot;0&quot;: {
+            &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-lionfish-thumbnail.png&quot;,
+            &quot;width&quot;: 120
+        },
+        &quot;29&quot;: {
+            &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-anemone-thumbnail.png&quot;
+        },
+        &quot;54&quot;: {
+            &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-clownfish-thumbnail.png&quot;
+        },
+        &quot;84&quot;: {
+            &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-seahorse-thumbnail.png&quot;
+        },
+        &quot;114&quot;: {
+            &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-crab-thumbnail.png&quot;
+        },
+        &quot;143&quot;: {
+            &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/sea-dolphins-thumbnail.png&quot;
+        }
+    };
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </li>
     </ol>
   </section>
   <section class="bcls-section">
@@ -109,6 +205,11 @@ parent: Plugins
           <li>This is the URL for your thumbnail image.</li>
         </ul>
       </li>
+      <li><code>width</code>:
+        <ul>
+          <li>This property needs to be included for the first thumbnail image. It keeps the image from sliding out of display when near the beginning or end of the progress bar.</li>
+        </ul>
+      </li>
     </ul>
     <p>Here is an example for setting thumbnail images for three blocks of time in the progress bar:</p>
     <ul>
@@ -118,14 +219,15 @@ parent: Plugins
     </ul>
     <pre class="line-numbers">
 <code class="language-json">  {
-    "0": {
-        "src": "http://solutions.brightcove.com/bcls/assets/images/Tiger-4-preview.jpg"
+    &quot;0&quot;: {
+        &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/Tiger-4-preview.jpg&quot;,
+        &quot;width&quot;: 120
     },
-    "5": {
-        "src": "http://solutions.brightcove.com/bcls/assets/images/Water-4-preview.jpg"
+    &quot;5&quot;: {
+        &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/Water-4-preview.jpg&quot;
     },
-    "10": {
-        "src": "http://solutions.brightcove.com/bcls/assets/images/BirdsOfAFeather-4-preview.jpg"
+    &quot;10&quot;: {
+        &quot;src&quot;: &quot;http://solutions.brightcove.com/bcls/assets/images/BirdsOfAFeather-4-preview.jpg&quot;
     }
   }</code></pre>
   </section>
