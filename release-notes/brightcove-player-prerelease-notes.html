@@ -5,41 +5,39 @@ player, as well as how you can try it.'
 parent: 'release-notes'
 ---
 
+<h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <h1>{{ page.title }}</h1>
   <summary>{{ page.description }}</summary>
   <!-- Place document intro sentence(s) here -->
   <br />
   <aside class="bcls-aside bcls-aside--warning">
-    Note that every 1-2 weeks pre-released versions become the current version.
-    At that time all non-locked players are upgraded to the current version. If
-    you wish to lock your player on a certain version for some reason, see the
-    <a
-      href="https://studio.support.brightcove.com/players/setting-player-update-mode-and-version.html
-"
-      >opting out of automatic player updates (external site)</a
-    >.
+    Note that every 1-2 weeks pre-released versions become the current version. At that time all non-locked players are upgraded to the current version. If you wish to lock your
+    player on a certain version for some reason, see the
+    <a href="https://studio.support.brightcove.com/players/setting-player-update-mode-and-version.html">opting out of automatic player updates (external site)</a>.
   </aside>
 
-  <section id="features" class="bcls-section">
+  <!--   <section id="features" class="bcls-section">
     <h2>No pre-release versions at this time</h2>
-  </section>
-  <!-- HTML for standard pre-release-->
-
-  <!--   <div>&nbsp;</div>
-  <section class="bcls-section" id="features-latest">
-    <h2>VERSION 6 - v6.42.1</h2>
-
-    <p>12 May 2020</p>
-
-    <ul>
-      <li>Fixed detection of default language in iframe embeds</li>
-    </ul>
   </section> -->
 
+  <!-- HTML for standard pre-release-->
+
   <div>&nbsp;</div>
+  <section class="bcls-section" id="features-latest">
+    <h2>VERSION 6 - v6.42.3</h2>
+
+    <p>12 Jun 2020</p>
+
+    <ul>
+      <li>Addressed an issue passing SSAI parameters to the Chromecast receiver</li>
+      <li>Added a workaround for captions not displaying on native fullscreen on latest versions of iOS/iPhone</li>
+    </ul>
+  </section>
+
+  <div>&nbsp;</div>
+
   <!-- HTML for pre-release not yet in production player -->
-  <section id="features-not-in-yet" class="bcls-section">
+  <!--   <section id="features-not-in-yet" class="bcls-section">
     <aside class="bcls-aside bcls-aside--information">
       The features of the release(s) listed below have not yet been rolled into
       a current release.
@@ -68,16 +66,13 @@ parent: 'release-notes'
       </li>
     </ul>
   </section>
-
+ -->
   <section id="tryit" class="bcls-section">
     <h2>Try new version</h2>
 
     <p>
-      If a pre-release version is available, the easiest way to try out a
-      pre-release version is to go to Studio's <strong>PLAYERS</strong> module,
-      click on the player you wish to change, and then edit the
-      <strong>Player Information</strong> . Use the version selector to choose
-      the latest pre-release:
+      If a pre-release version is available, the easiest way to try out a pre-release version is to go to Studio's <strong>PLAYERS</strong> module, click on the player you wish to
+      change, and then edit the <strong>Player Information</strong> . Use the version selector to choose the latest pre-release:
     </p>
 
     <figure class="bcls-figure">
@@ -89,22 +84,15 @@ parent: 'release-notes'
     </figure>
 
     <p>
-      You can update a player to the pre-release version by using a curl
-      statement. A quick overview of curl can be found at the top of the
-      <a
-        href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html"
-        >Step-by-Step: Player Management (external site)</a
-      >. In the document there is a specific section on how to
-      <a
-        href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html#updatePlayer"
-        >update your player</a
-      >.
+      You can update a player to the pre-release version by using a curl statement. A quick overview of curl can be found at the top of the
+      <a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html">Step-by-Step: Player Management (external site)</a>. In the
+      document there is a specific section on how to
+      <a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html#updatePlayer">update your player</a>.
     </p>
 
     <p>
-      Here is the curl command to update your player, where you substitute
-      appropriate values for <strong>YOUR_EMAIL</strong> ,
-      <strong>YOUR_ACCOUNT_ID</strong> and <strong>YOUR_PLAYER_ID</strong> .
+      Here is the curl command to update your player, where you substitute appropriate values for <strong>YOUR_EMAIL</strong> , <strong>YOUR_ACCOUNT_ID</strong> and
+      <strong>YOUR_PLAYER_ID</strong> .
     </p>
 
     <pre class="line-numbers">
@@ -115,7 +103,7 @@ parent: 'release-notes'
   --data '{
     "player": {
     "template": {
-      "version": "6.42.1"
+      "version": "6.42.3"
       }
     }
   }' \
@@ -124,9 +112,7 @@ parent: 'release-notes'
 </pre>
 
     <p>
-      In most cases you will want to publish the player, which can be done with
-      the following curl statement. Again, you will need to substitute correct
-      values where indicated.
+      In most cases you will want to publish the player, which can be done with the following curl statement. Again, you will need to substitute correct values where indicated.
     </p>
 
     <pre class="line-numbers">
