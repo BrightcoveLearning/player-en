@@ -1,19 +1,19 @@
 ---
-title: "Kollective eCDN with Brightcove Player"
+title: "Kollective ECDN with Brightcove Player"
 description: "In this topic, you will learn the how to integrate the Kollective ECDN with Brightcove Player."
 parent: Plugins
 layout: staging
 ---
 
+<h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <h1>{{ page.title }}</h1>
   <summary>{{ page.description }}</summary> 
 
 <section class="bcls-section">
 <h2 id="Overview">Overview</h2>
 
 <p>
-  <a href="https://kollective.com/ecdn-solutions/">Kollective</a> offers an Enterprise Content Delivery Network (ECDN) solution that can be integrated Brightcove Player. 
+  <a href="https://kollective.com/ecdn-solutions/">Kollective</a> offers an Enterprise Content Delivery Network (ECDN) solution that can be integrated with Brightcove Player to deliver VOD and Live content. 
 </p>
 
 <p>An ECDN solution helps with content delivery to corporate networks. They relieve network bottlenecks when you have a large number of concurrent viewers watching the same content, such as in corporate offices. With ECDN, you download video content from the origin server once for each ECDN server instance. Viewers in the corporate network receive the content from the ECDN server over the LAN. </p>
@@ -41,7 +41,7 @@ layout: staging
 <section class="bcls-section">
 <h2 id="Requirements">Requirements</h2>
 <p>
-  The following requirements apply to the thumbnail plugin:
+  The following requirements apply to the ECDN plugin:
 </p>
 <ul>
   <li>
@@ -51,37 +51,90 @@ layout: staging
     Videos must be ingested for Dynamic Delivery
   </li>
 </ul>
-
 </section>
 
-<!-- <section class="bcls-section">
-<h2 id="Player_example">Player example</h2>
-
-<p>Click on the example below, and hover or scrub along the progress bar to see preview thumbnails.</p> -->
-<!-- UPDATE codepen here -->
-
-<!-- <p class="codepen" data-height="510" data-theme-id="34967" data-default-tab="result" data-user="bcls1969" data-slug-hash="dyYRYYb" style="height: 510px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Thumbnails plugin">
-  <span>See the Pen <a href="https://codepen.io/team/bcls1969/pen/dyYRYYb">
-  Thumbnails plugin</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls1969">@bcls1969</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-<br/>
-
-<h3>Source code</h3> -->
-<!-- UPDATE link to GitHub source -->
-<!-- <p>
-  You can view the source code by selecting the <strong>HTML</strong> button in the CodePen above, or you can view the <a href="https://github.com/BrightcoveLearning/thumbnail-scrubbing/blob/master/index.html">complete solution on GitHub</a>.
-</p>
-</section> -->
-
 <section class="bcls-section">
-<h2 id="Getting_started">Getting started</h2>
+<h2 id="Server-side_application">Server-side application</h2>
+<p>The backend ECDN application needs to deployed on your server.</p>
 
-<p>This feature is available to anyone with a Brightcove Video Cloud account.</p>
-  <p>
-    Make sure your videos are ingested for Dynamic Delivery.
-  </p>
+<h3>Server requirements</h3>
+<p>
+  The following requirements apply to the hosting server for the backend application.
+</p>
+<ul>
+  <li>
+    NodeJS version 13+
+  </li>
+  <li>
+    Hosting server: Linux or Windows server (The backend application can also be deployed to Heroku)
+  </li>
+  <li>
+    MongoDB database
+  </li>
+</ul>
+<p>
+  The MongoDB can be on the same server as the hosting server, on a different server, or using a <a href="https://www.mongodb.com/cloud">MongoDB Atlas cloud database</a>.
+</p>
+
+<h3>Configurations</h3>
+<p>
+  You will make a few configuration changes for the backend application. Follow these steps:
+</p>
+<ol class="bcls-tasklist">
+  <li>
+    In the root directory for the backend application deployment package, open the <strong>config.env</strong> file.
+  </li>
+  <li>
+    <p>
+      <strong>Production Mode</strong> - Set the mode to run the application in production or development.
+    </p>
+    <p>
+      Either
+    </p>
+    <pre>
+<code class="notranslate language-bash">NODE_ENV=production</code></pre>
+<p>
+  or
+</p>
+<pre>
+<code class="notranslate language-bash">NODE_ENV=development</code></pre>
+  </li>
+  <li>
+    <p>
+      <strong>Application Port</strong> - Set the port for the application to run on.
+    </p>
+    <p>
+      Example:
+    </p>
+    <pre>
+<code class="notranslate language-bash">PORT=3000</code></pre>
+  </li>
+   <li>
+    <p>
+      <strong>Database</strong> - The backend application requires a MongoDB database. 
+    </p>
+    <p>
+      You can specify the database connection with the following format:
+    </p>
+     <pre>
+<code class="notranslate language-bash">DATABASE=mongodb://{host}:{port}/{databaseName}</code></pre>
+    <p>
+      Example:
+    </p>
+    <pre>
+<code class="notranslate language-bash">DATABASE=mongodb://localhost:27017/Brightcove</code></pre>
+    <p>
+      If you want to use a MongoDB Atlas cloud database, you can set it as follows:
+    </p>
+    <pre>
+<code class="notranslate language-bash">DATABASE=mongodb+srv://{user}:{password}@{cluster}/{databaseName}?retryWrites=true&amp;w=majority</code></pre>
+<p>
+      Example:
+    </p>
+    <pre>
+<code class="notranslate language-bash">DATABASE=mongodb+srv://myuser:mypassword@cluster0-xafsz.mongodb.net/MyDatabase?retryWrites=true&amp;w=majority</code></pre>
+  </li>
+</ol>
 
 </section>
 
