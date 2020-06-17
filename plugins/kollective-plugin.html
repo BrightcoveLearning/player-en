@@ -1,0 +1,295 @@
+---
+title: "Kollective eCDN with Brightcove Player"
+description: "In this topic, you will learn the how to integrate the Kollective ECDN with Brightcove Player."
+parent: Plugins
+layout: staging
+---
+
+<article class="bcls-article">
+  <h1>{{ page.title }}</h1>
+  <summary>{{ page.description }}</summary> 
+
+<section class="bcls-section">
+<h2 id="Overview">Overview</h2>
+
+<p>
+  <a href="https://kollective.com/ecdn-solutions/">Kollective</a> offers an Enterprise Content Delivery Network (ECDN) solution that can be integrated Brightcove Player. 
+</p>
+
+<p>An ECDN solution helps with content delivery to corporate networks. They relieve network bottlenecks when you have a large number of concurrent viewers watching the same content, such as in corporate offices. With ECDN, you download video content from the origin server once for each ECDN server instance. Viewers in the corporate network receive the content from the ECDN server over the LAN. </p>
+<p>Some of the benefits of using an ECDN include the following:</p>
+<ul>
+  <li>
+    Reduced WAN traffic for corporate locations
+  </li>
+  <li>
+    Improved viewing experience at scale
+  </li>
+  <li>
+    Reduced network costs
+  </li>
+  <li>
+    Increased security since the ECDN is behind the corporate firewall
+  </li>
+  <li>
+    Performance monitoring
+  </li>
+</ul>
+
+</section>
+
+<section class="bcls-section">
+<h2 id="Requirements">Requirements</h2>
+<p>
+  The following requirements apply to the thumbnail plugin:
+</p>
+<ul>
+  <li>
+    You must use a Brightcove Player version 6.42.2+
+  </li>
+  <li>
+    Videos must be ingested for Dynamic Delivery
+  </li>
+</ul>
+
+</section>
+
+<!-- <section class="bcls-section">
+<h2 id="Player_example">Player example</h2>
+
+<p>Click on the example below, and hover or scrub along the progress bar to see preview thumbnails.</p> -->
+<!-- UPDATE codepen here -->
+
+<!-- <p class="codepen" data-height="510" data-theme-id="34967" data-default-tab="result" data-user="bcls1969" data-slug-hash="dyYRYYb" style="height: 510px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Thumbnails plugin">
+  <span>See the Pen <a href="https://codepen.io/team/bcls1969/pen/dyYRYYb">
+  Thumbnails plugin</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls1969">@bcls1969</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<br/>
+
+<h3>Source code</h3> -->
+<!-- UPDATE link to GitHub source -->
+<!-- <p>
+  You can view the source code by selecting the <strong>HTML</strong> button in the CodePen above, or you can view the <a href="https://github.com/BrightcoveLearning/thumbnail-scrubbing/blob/master/index.html">complete solution on GitHub</a>.
+</p>
+</section> -->
+
+<section class="bcls-section">
+<h2 id="Getting_started">Getting started</h2>
+
+<p>This feature is available to anyone with a Brightcove Video Cloud account.</p>
+  <p>
+    Make sure your videos are ingested for Dynamic Delivery.
+  </p>
+
+</section>
+
+<section class="bcls-section">
+<h2 id="Implementing_thumbnails_using_Studio">Implementing thumbnails using Studio</h2>
+
+<p>The easiest way to configure your player for thumbnail scrubbing is with Video Cloud Studio.</p>
+
+<ol class="bcls-tasklist">
+	<li>
+    <p>
+      Open the <strong>PLAYERS</strong> module. Use an existing player or create a new one.
+    </p>
+    <aside class="bcls-aside bcls-aside--information">Remember to use a Brightcove Player version 6.41.0+.</aside>
+  </li>
+	<li>Select the player link to open the player's properties.</li>
+	<li>In the left navigation, select <strong>Plugins</strong>.</li>
+	<li>
+    <p>
+      Expand the <strong>Add a Plugin</strong> dropdown menu, and select <strong>Brightcove plugin</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Brightcove Plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/bc-plugin.png" />
+  	<figcaption class="bcls-caption--image">Brightcove plugin</figcaption>
+  	</figure>
+  </li>
+  <li>
+    <p>
+      Expand the <strong>Brightcove Plugin</strong> dropdown menu, and select <strong>thumbnails</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Thumbnails plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/thumbnails-plugin.png" />
+  	<figcaption class="bcls-caption--image">Thumbnails plugin</figcaption>
+  	</figure>
+  </li>
+  <li>
+    <p>
+      Select the <strong>Save</strong> button. You should now see the plugin added to your player.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Thumbnails plugin added" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/plugin-added.png" />
+  	<figcaption class="bcls-caption--image">Thumbnails plugin added</figcaption>
+  	</figure>
+  </li>
+  <li>
+    <p>
+      To publish the player, select <strong>Publish &amp; Embed &gt; Publish Changes</strong>
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Publish Changes" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/publish-changes.png" />
+  	<figcaption class="bcls-caption--image">Publish Changes</figcaption>
+  	</figure>
+  </li>
+  <li>
+    <p>The thumbnails plugin is now configured for your player.</p>
+    <p>
+      Use a video ingested for Dynamic Delivery and publish it with the player we configured in the steps above. You should see thumbnail images when you hover over or scrub the player's progress bar.
+    </p>
+  </li>
+</ol>
+
+</section>
+
+<section class="bcls-section">
+<h2 id="Implementing_WebVTT_thumbnails">Implementing WebVTT thumbnails</h2>
+
+<p>If you choose to use your own thumbnail images, you can create a custom WebVTT file and pass it to the player using the <code>player.addRemoteTextTrack()</code> method. Here are the steps:</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>
+    <p>
+      Create a <strong>.vtt</strong> file that follows the standard WebVTT format. Replace caption text with the URL for each thumbnail image. It may look something like this:
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="WebVTT file" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/webvtt-file.png" />
+  	<figcaption class="bcls-caption--image">WebVTT file</figcaption>
+  	</figure>
+  </li>
+	<li>In Video Cloud Studio, choose a video ingested for Dynamic Delivery. Copy the Advanced Embed code for a player with version 6.41.0+.</li>
+	<li>In the HTML file for your web page, paste the Advanced Embed code.</li>
+  <li>In the <code>head</code> section of your HTML code add the thumbnails CSS file:
+	<pre>
+<code class="notranslate language-json">//players.brightcove.net/videojs-thumbnails/1/videojs-thumbnails.css</code></pre>
+	</li>
+  <li>In the <code>body</code> section of your HTML code add the thumbnails JavaScript file:
+	<pre>
+<code class="notranslate language-json">//players.brightcove.net/videojs-thumbnails/1/videojs-thumbnails.js</code></pre>
+	</li>
+	<li>To the <code>video</code> tag, add an <code>id</code> property.
+	</li>
+  <li>
+    Before the closing <code>body</code> tag, add a <code>script</code> block.
+  </li>
+  <li>
+    <p>
+      In the script block you just created, add the following:
+    </p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code>type</code></td>
+          <td>The mime-type for your video</td>
+        </tr>
+        <tr>
+          <td><code>src</code></td>
+          <td>The source URL for your video</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Your code should be similar to this:
+    </p>
+
+    <pre class="line-numbers"><code class="notranslate language-javascript">var player = bc('myPlayerID');
+
+player.thumbnails();
+
+player.ready(() =&gt; {
+  player.src({
+    type: 'video/mp4',
+    src: '//solutions.brightcove.com/bcls/videos/Great Blue Heron.mp4'
+  });
+});</code></pre>
+  </li>
+	<li>
+    <p>
+      In the same script block, add the following:
+    </p>
+    <p>
+      After the plugin is initialized and the player is ready, you will pass thumbnail image sources to the plugin in a WebVTT file using the <code>addRemoteTextTrack()</code> method. When calling the method with the thumbnail file, you must also set:
+    </p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code>src</code></td>
+          <td>The location of your WebVTT file with thumbnail images</td>
+        </tr>
+        <tr>
+          <td><code>kind</code></td>
+          <td>Set to <code>metadata</code></td>
+        </tr>
+        <tr>
+          <td><code>label</code></td>
+          <td>Set to <code>thumbnails</code></td>
+        </tr>
+        <tr>
+          <td><code>mode</code></td>
+          <td>Set to <code>hidden</code></td>
+        </tr>
+        <tr>
+          <td><code>addRemoteTextTrack()</code> <code>manualCleanup</code></td>
+          <td>Set to <code>false</code> so that the track is automatically removed when the source changes</td>
+        </tr>
+
+      </tbody>
+    </table>
+    <br/>
+    <p>
+      Your code should be similar to this:
+    </p>
+    <pre class="line-numbers"><code class="notranslate language-javascript">var player = bc('myPlayerID');
+
+player.thumbnails();
+
+  player.ready(() =&gt; {
+    player.src({
+      type: 'video/mp4',
+      src: '//solutions.brightcove.com/bcls/videos/Great Blue Heron.mp4'
+    });
+
+<span class="bcls-highlight">  player.addRemoteTextTrack({
+    src: 'thumbnails.vtt',
+    kind: 'metadata',
+    label: 'thumbnails',
+    mode: 'hidden'
+  }, false);</span>
+});</code></pre>
+  </li>
+</ol>
+
+<h3>Source code</h3>
+<!-- UPDATE link to GitHub source -->
+<p>
+  For details, see the <a href="https://github.com/BrightcoveLearning/thumbnail-scrubbing/blob/master/webvtt-sample/index.html">complete solution on GitHub</a>.
+</p>
+
+</section>
+
+<section class="bcls-section">
+<h2 id="Limitations">Limitations</h2>
+
+<p>Here are the limitation associated with the thumbnails plugin.</p>
+
+<ul>
+	<li>The current version of this plugin does not support thumbnails on mobile devices.</li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Changelog">Changelog</h2>
+
+<p>See the <a href="/plugins/changelog/thumbnails-plugin-changelog.html">changelog here</a>.</p>
+</section>
+</article>
