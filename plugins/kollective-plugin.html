@@ -1,6 +1,6 @@
 ---
-title: "Kollective ECDN with Brightcove Player"
-description: "In this topic, you will learn the how to integrate the Kollective ECDN with Brightcove Player."
+title: "Kollective eCDN with Brightcove Player"
+description: "In this topic, you will learn the how to integrate the Kollective eCDN with Brightcove Player."
 parent: Plugins
 layout: staging
 ---
@@ -13,11 +13,11 @@ layout: staging
 <h2 id="Overview">Overview</h2>
 
 <p>
-  <a href="https://kollective.com/ecdn-solutions/">Kollective</a> offers an Enterprise Content Delivery Network (ECDN) solution that can be integrated with Brightcove Player to deliver VOD and Live content. 
+  <a href="https://kollective.com/ECDN-solutions/">Kollective</a> offers an Enterprise Content Delivery Network (eCDN) solution that can be integrated with Brightcove Player to deliver VOD and Live content. 
 </p>
 
-<p>An ECDN solution helps with content delivery to corporate networks. They relieve network bottlenecks when you have a large number of concurrent viewers watching the same content, such as in corporate offices. With ECDN, you download video content from the origin server once for each ECDN server instance. Viewers in the corporate network receive the content from the ECDN server over the LAN. </p>
-<p>Some of the benefits of using an ECDN include the following:</p>
+<p>An eCDN solution helps with content delivery to corporate networks. They relieve network bottlenecks when you have a large number of concurrent viewers watching the same content, such as in corporate offices. With eCDN, you download video content from the origin server once for each eCDN server instance. Viewers in the corporate network receive the content from the eCDN server over the LAN. </p>
+<p>Some of the benefits of using an eCDN include the following:</p>
 <ul>
   <li>
     Reduced WAN traffic for corporate locations
@@ -29,7 +29,7 @@ layout: staging
     Reduced network costs
   </li>
   <li>
-    Increased security since the ECDN is behind the corporate firewall
+    Increased security since the eCDN is behind the corporate firewall
   </li>
   <li>
     Performance monitoring
@@ -41,7 +41,7 @@ layout: staging
 <section class="bcls-section">
 <h2 id="Requirements">Requirements</h2>
 <p>
-  The following requirements apply to the ECDN plugin:
+  The following requirements apply to the eCDN plugin:
 </p>
 <ul>
   <li>
@@ -54,8 +54,29 @@ layout: staging
 </section>
 
 <section class="bcls-section">
-<h2 id="Server-side_application">Server-side application</h2>
-<p>The backend ECDN application needs to deployed on your server.</p>
+<h2 id="Getting_started">Getting started</h2>
+<p>
+  To use the kollective plugin, you will need some initial setup:  
+</p>
+<ol>
+  <li>
+    <a href="#Deploying_server_side_application">Deploy the server-side syndicator app</a>
+  </li>
+  <li>
+    Install the player plugin
+  </li>
+</ol>
+<p>
+  Once the setup is done, your workflow will look like this:
+</p>
+<!-- <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Two-part integration" src="/assets/images/plugins/kollective/two-part-integration.png" />
+  <figcaption class="bcls-caption--image">Two-part integration</figcaption>
+</figure> -->
+</section>
+
+<section class="bcls-section">
+<h2 id="Deploying_server_side_application">Deploying server-side application</h2>
+<p>The backend eCDN application needs to deployed on your server.</p>
 
 <h3>Server requirements</h3>
 <p>
@@ -86,7 +107,7 @@ layout: staging
   </li>
   <li>
     <p>
-      <strong>Production Mode</strong> - Set the mode to run the application in production or development.
+      <strong>Production mode</strong> - Set the mode to run the application in production or development.
     </p>
     <p>
       Either
@@ -101,7 +122,7 @@ layout: staging
   </li>
   <li>
     <p>
-      <strong>Application Port</strong> - Set the port for the application to run on.
+      <strong>Application port</strong> - Set the port for the application to run on.
     </p>
     <p>
       Example:
@@ -134,6 +155,44 @@ layout: staging
     <pre>
 <code class="notranslate language-bash">DATABASE=mongodb+srv://myuser:mypassword@cluster0-xafsz.mongodb.net/MyDatabase?retryWrites=true&amp;w=majority</code></pre>
   </li>
+  <li>
+    <p>
+      <strong>Email service</strong> - The backend application requires an email service setting to send notification emails.
+    </p>
+    <ul>
+      <li>
+        <p>
+      To send emails using SendGrid email service, use the following with your SendGrid username and password:
+    </p>
+    <pre>
+<code class="notranslate language-bash"># Send email using Sendgrid email service.
+EMAIL_SERVICE=SendGrid
+
+# Send email using Sendgrid email service.
+SENDGRID_USERNAME=<span class="bcls-input">your SendGrid username</span>
+SENDGRID_PASSWORD=<span class="bcls-input">your SendGrid password</span>
+</code></pre>
+      </li>
+      <li>
+        <p>
+      To send emails using other email services, use the following with your email server host, port and username, password:
+    </p>
+    <pre>
+<code class="notranslate language-bash"># Set EMAIL_SERVICE=Other to send email using normal email service using host and port
+EMAIL_SERVICE=Other
+
+# Send email using host and port
+EMAIL_HOST=<span class="bcls-input">your email host</span>
+EMAIL_PORT=<span class="bcls-input">your email port</span>
+EMAIL_USERNAME=<span class="bcls-input">your email username</span>
+EMAIL_PASSWORD=<span class="bcls-input">your email password</span>
+EMAIL_FROM=<span class="bcls-input">your email from address</span>
+</code></pre>
+      </li>
+    </ul>
+    
+  </li>
+  
 </ol>
 
 </section>
