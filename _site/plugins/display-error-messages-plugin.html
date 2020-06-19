@@ -1123,7 +1123,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ul>
   </section>
   <section class="bcls-section">
-    <h2 id="overridetext">Override text</h2>
+    <h2 id="Overriding_text">Overriding text</h2>
     <p>There are three parts of the error message that you can change:</p>
     <ul>
       <li><code class="notranslate">headline</code> : This is the message text at the top.</li>
@@ -1131,7 +1131,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><code class="notranslate">message</code> : This is the <strong>Technical details:</strong> text.</li>
     </ul>
     <figure class="bcls-figure"><img class="bcls-image" alt="error message plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/error-message-plugin2.png" /></figure>
-    <p>Once your player is created, in Studio edit the <strong>Plugins</strong> section of the <strong>Players</strong> module with a JSON object to set property values.</p>
+    <!-- <p>Once your player is created, in Studio edit the <strong>Plugins</strong> section of the <strong>Players</strong> module with a JSON object to set property values.</p> -->
     <p>The example below shows how to override the message text for the standard error with an error code value of <code class="notranslate">4</code>. The properties are defined as follows:</p>
     <ul>
       <li><code class="notranslate">plugins</code>: This property contains an array of properties and values. For this plugin, you only need to supply the <code class="notranslate">name</code> property with the value of <code class="notranslate">errors</code>.</li>
@@ -1140,17 +1140,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <aside class="bcls-aside bcls-aside--information">Note: the error code can be any string value, such as overriding the text for the <code class="notranslate">unknown</code> message.</aside>
       </li>
     </ul>
-    &nbsp;
-    <pre class="line-numbers">
-<code class="language-json">{
-  "errors": {
-    "4": {
-      "headline": "This is a custom error message",
-      "type": "MEDIA_ERR_SRC_CUSTOM",
-      "message": "These are the details for the custom message"
-    }
-  }
-}</code></pre>
+    
     <p>If you include the errors script in your code, you can override message text as follows:</p>
     <pre class="line-numbers">
 <code class="language-javascript notranslate">myPlayer.errors({
@@ -1162,6 +1152,69 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
   }
 });</code></pre>
+<h3>Using a plugin</h3>
+<p>If you prefer, you can create a custom plugin and add it to your player in Video Cloud Studio's Players module. For details, see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</p>
+<p>To create a plugin to override standard message text, follow these steps:</p>
+<ol class="bcls-tasklist">
+  <li>
+    <p>
+      Create a JavaScript file stored in an Internet accessible location with your Brightcove Player plugin code. It should look similar to this, but with your own values:
+    </p>
+    <pre class="line-numbers">
+<code class="language-json">videojs.registerPlugin('errorText', function() {
+  var myPlayer = this;
+
+  myPlayer.errors({
+    &quot;errors&quot;: {
+      &quot;4&quot;: {
+        &quot;headline&quot;: &quot;The Live Stream will begin soon&quot;,
+        &quot;type&quot;: &quot;CUSTOM_TYPE&quot;,
+        &quot;message&quot;: &quot;Please come back, once the live event has begun!&quot;
+      }
+    }
+  });
+});</code></pre>
+  </li>
+  <li>
+    <p>
+       In the <strong>Players</strong> module, select <strong>Plugins</strong> from the left navigation.
+    </p>
+  </li>
+  <li>
+    <p>
+       Expand the <strong>Add a Plugin</strong> button, and select <strong>Custom Plugin</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Custom Plugin" src="/assets/images/plugins/errors/custom-plugin.png" />
+      <figcaption class="bcls-caption--image">Custom Plugin</figcaption>
+    </figure>
+  </li>
+  <li>
+    <p>
+       In the plugin details page, add values for:  
+    </p>
+    <ul>
+      <li>
+        <strong>Plugin Name</strong> - Your plugin name
+      </li>
+      <li>
+        <strong>JavaScript URL</strong> - The location of your player plugin from the first step
+      </li>
+    </ul>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Plugin details" src="/assets/images/plugins/errors/plugin-details.png" />
+      <figcaption class="bcls-caption--image">Plugin details</figcaption>
+    </figure>
+  </li>
+  <li>
+    Select the <strong>Save</strong> button.
+  </li>
+  <li>
+    <p>
+      Publish your player.
+    </p>
+    <aside class="bcls-aside bcls-aside--information">When you make any changes to your plugin code, you need to publish the player for it to pick up those changes.</aside>
+  </li>
+</ol>
+
   </section>
   <section class="bcls-section">
     <h2 id="bccustomerrors">Brightcove defined custom errors</h2>
@@ -1169,7 +1222,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>Brightcove recommends custom error code values be a string. You will see two of the provided errors use negative numbers for historical reasons, but alpha-numeric/descriptive strings are less likely to cause collision issues.</li>
       <li>Custom error messages can be named anything you want. Brightcove recommends that the type begin with <code class="notranslate">PLAYER_ERR</code> versus the standardized <code class="notranslate">MEDIA_ERR</code> to avoid confusion.</li>
-      <li>As detailed <a href="#dismissible">later in this section</a>, you can make custom errors dismissible or not.</li>
+      <li>As detailed <a href="#Making_custom_errors_non_dismissible">later in this section</a>, you can make custom errors dismissible or not.</li>
     </ul>
     <p>Five custom error messages have been added as a reference:</p>
     <ul>
@@ -1213,7 +1266,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="usercustomerrors">User defined custom errors</h2>
     <p>When defining your own custom errors Brightcove recommends you do not use a <strong>code</strong>. (You see in the section above that this is what Brightcove is now doing with the newer custom errors they are defining.) You should also consider using the <code class="notranslate">PLAYER_ERR_</code> prefix for your custom errors for consistency's sake, but of course you can name them however you wish.</p>
-    <p>This example creates a new user defined custom error message with an error code value of <code class="notranslate">PLAYER_ERR_AGE_GATE</code> and includes text based on an age gate test that you would enter in Studio's <strong>PLAYERS &gt; PLUGINS</strong> section.</p>
+    <!-- <p>This example creates a new user defined custom error message with an error code value of <code class="notranslate">PLAYER_ERR_AGE_GATE</code> and includes text based on an age gate test that you would enter in Studio's <strong>PLAYERS &gt; PLUGINS</strong> section.</p>
     <pre class="line-numbers">
 <code class="language-json">{
   "errors": {
@@ -1222,7 +1275,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       "message": "Content may be considered inappropriate for some users."
     }
   }
-}</code></pre>
+}</code></pre> -->
     <p>If you include the errors script in your code, you can add custom messages as follows:</p>
     <pre class="line-numbers">
 <code class="language-javascript notranslate">videojs.getPlayer('myPlayerID').ready(function() {
@@ -1252,7 +1305,7 @@ myPlayer.on("loadstart", function () {
     <aside class="bcls-aside bcls-aside--tip">Note: any code to throw custom errors must wait for the video to load. Use the <code class="notranslate">loadstart</code> event to determine this. If you try to display your message without waiting, then your message will disappear after the video loads.</aside>
   </section>
   <section class="bcls-section">
-    <h2 id="dismissible">Make custom errors non-dismissible</h2>
+    <h2 id="Making_custom_errors_non_dismissible">Making custom errors non-dismissible</h2>
     <p>By default a custom error message is dismissible by the video viewer. As the following screenshot shows, there is an <strong>OK</strong> button to click to dismiss the window, as well as an <strong>X</strong> in the top right corner.</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="dismissible error message" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/dismissible.png" /></figure>
     <p>If you wish to NOT permit the video viewer to dismiss the error message, you can do that. When you call the <code class="notranslate">error()</code> method, you can set the <code class="notranslate">dismiss</code> property to <code class="notranslate">false</code>.</p>
