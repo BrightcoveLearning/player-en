@@ -97,7 +97,7 @@ layout: staging
   The MongoDB can be on the same server as the hosting server, on a different server, or using a <a href="https://www.mongodb.com/cloud">MongoDB Atlas cloud database</a>.
 </p>
 
-<h3>Configurations</h3>
+<h3>Setting configurations</h3>
 <p>
   You will make a few configuration changes for the backend application. Follow these steps:
 </p>
@@ -189,205 +189,142 @@ EMAIL_PASSWORD=<span class="bcls-input">your email password</span>
 EMAIL_FROM=<span class="bcls-input">your email from address</span>
 </code></pre>
       </li>
-    </ul>
-    
-  </li>
-  
-</ol>
-
-</section>
-
-<section class="bcls-section">
-<h2 id="Implementing_thumbnails_using_Studio">Implementing thumbnails using Studio</h2>
-
-<p>The easiest way to configure your player for thumbnail scrubbing is with Video Cloud Studio.</p>
-
-<ol class="bcls-tasklist">
-	<li>
-    <p>
-      Open the <strong>PLAYERS</strong> module. Use an existing player or create a new one.
-    </p>
-    <aside class="bcls-aside bcls-aside--information">Remember to use a Brightcove Player version 6.41.0+.</aside>
-  </li>
-	<li>Select the player link to open the player's properties.</li>
-	<li>In the left navigation, select <strong>Plugins</strong>.</li>
-	<li>
-    <p>
-      Expand the <strong>Add a Plugin</strong> dropdown menu, and select <strong>Brightcove plugin</strong>.
-    </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Brightcove Plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/bc-plugin.png" />
-  	<figcaption class="bcls-caption--image">Brightcove plugin</figcaption>
-  	</figure>
+    </ul> 
   </li>
   <li>
     <p>
-      Expand the <strong>Brightcove Plugin</strong> dropdown menu, and select <strong>thumbnails</strong>.
+      <strong>Kollective Publish API base URL</strong> - The server-side application calls the Kollective publish API to publish a video from Brightcove with video sources to Kollective and get back a content token. Here, you specify the Kollective publish API base url:
     </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Thumbnails plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/thumbnails-plugin.png" />
-  	<figcaption class="bcls-caption--image">Thumbnails plugin</figcaption>
-  	</figure>
+    <pre>
+<code class="notranslate language-bash"># Kollective publish API base url
+KOLLECTIVE_PUBLISH_API_BASE_URL=https://content.stage.kollective.app/api
+</code></pre>
   </li>
   <li>
     <p>
-      Select the <strong>Save</strong> button. You should now see the plugin added to your player.
+      <strong>Brightcove API Base URLs</strong> - The server-side application needs the following Brightcove API base URLs:
     </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Thumbnails plugin added" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/plugin-added.png" />
-  	<figcaption class="bcls-caption--image">Thumbnails plugin added</figcaption>
-  	</figure>
+    <pre>
+<code class="notranslate language-bash"># Brightcove API base URLs
+BRIGHTCOVE_ACCESS_TOKEN_BASE_URL=https://oauth.brightcove.com/v4/access_token
+BRIGHTCOVE_CMS_API_BASE_URL=https://cms.api.brightcove.com/v1
+BRIGHTCOVE_LIVE_API_BASE_URL=https://api.bcovlive.io/v1
+</code></pre>
   </li>
   <li>
     <p>
-      To publish the player, select <strong>Publish &amp; Embed &gt; Publish Changes</strong>
+      <strong>Custom Field Names</strong> - The following custom fields name settings cannot be changed:
     </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Publish Changes" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/publish-changes.png" />
-  	<figcaption class="bcls-caption--image">Publish Changes</figcaption>
-  	</figure>
-  </li>
-  <li>
-    <p>The thumbnails plugin is now configured for your player.</p>
-    <p>
-      Use a video ingested for Dynamic Delivery and publish it with the player we configured in the steps above. You should see thumbnail images when you hover over or scrub the player's progress bar.
-    </p>
+    <pre>
+<code class="notranslate language-bash"># Required custom field names for each Brightcove Account ID
+CUSTOM_FIELD_KOLLECTIVE_CONTENT_TOKEN=kollective_content_token
+CUSTOM_FIELD_KOLLECTIVE_IS_SYNCHRONIZED=kollective_is_synchronized
+CUSTOM_FIELD_KOLLECTIVE_SYNCHRONIZED_TIME=kollective_synchronized_time
+CUSTOM_FIELD_KOLLECTIVE_LAST_SYNC_STATUS=kollective_last_sync_status
+</code></pre>
   </li>
 </ol>
 
-</section>
-
-<section class="bcls-section">
-<h2 id="Implementing_WebVTT_thumbnails">Implementing WebVTT thumbnails</h2>
-
-<p>If you choose to use your own thumbnail images, you can create a custom WebVTT file and pass it to the player using the <code>player.addRemoteTextTrack()</code> method. Here are the steps:</p>
-
-<ol class="bcls-tasklist-restart">
-	<li>
-    <p>
-      Create a <strong>.vtt</strong> file that follows the standard WebVTT format. Replace caption text with the URL for each thumbnail image. It may look something like this:
-    </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="WebVTT file" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/thumbnails/webvtt-file.png" />
-  	<figcaption class="bcls-caption--image">WebVTT file</figcaption>
-  	</figure>
-  </li>
-	<li>In Video Cloud Studio, choose a video ingested for Dynamic Delivery. Copy the Advanced Embed code for a player with version 6.41.0+.</li>
-	<li>In the HTML file for your web page, paste the Advanced Embed code.</li>
-  <li>In the <code>head</code> section of your HTML code add the thumbnails CSS file:
-	<pre>
-<code class="notranslate language-json">//players.brightcove.net/videojs-thumbnails/1/videojs-thumbnails.css</code></pre>
-	</li>
-  <li>In the <code>body</code> section of your HTML code add the thumbnails JavaScript file:
-	<pre>
-<code class="notranslate language-json">//players.brightcove.net/videojs-thumbnails/1/videojs-thumbnails.js</code></pre>
-	</li>
-	<li>To the <code>video</code> tag, add an <code>id</code> property.
-	</li>
-  <li>
-    Before the closing <code>body</code> tag, add a <code>script</code> block.
-  </li>
-  <li>
-    <p>
-      In the script block you just created, add the following:
-    </p>
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th>Property</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td><code>type</code></td>
-          <td>The mime-type for your video</td>
-        </tr>
-        <tr>
-          <td><code>src</code></td>
-          <td>The source URL for your video</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>
-      Your code should be similar to this:
-    </p>
-
-    <pre class="line-numbers"><code class="notranslate language-javascript">var player = bc('myPlayerID');
-
-player.thumbnails();
-
-player.ready(() =&gt; {
-  player.src({
-    type: 'video/mp4',
-    src: '//solutions.brightcove.com/bcls/videos/Great Blue Heron.mp4'
-  });
-});</code></pre>
-  </li>
-	<li>
-    <p>
-      In the same script block, add the following:
-    </p>
-    <p>
-      After the plugin is initialized and the player is ready, you will pass thumbnail image sources to the plugin in a WebVTT file using the <code>addRemoteTextTrack()</code> method. When calling the method with the thumbnail file, you must also set:
-    </p>
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th>Property</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td><code>src</code></td>
-          <td>The location of your WebVTT file with thumbnail images</td>
-        </tr>
-        <tr>
-          <td><code>kind</code></td>
-          <td>Set to <code>metadata</code></td>
-        </tr>
-        <tr>
-          <td><code>label</code></td>
-          <td>Set to <code>thumbnails</code></td>
-        </tr>
-        <tr>
-          <td><code>mode</code></td>
-          <td>Set to <code>hidden</code></td>
-        </tr>
-        <tr>
-          <td><code>addRemoteTextTrack()</code> <code>manualCleanup</code></td>
-          <td>Set to <code>false</code> so that the track is automatically removed when the source changes</td>
-        </tr>
-
-      </tbody>
-    </table>
-    <br/>
-    <p>
-      Your code should be similar to this:
-    </p>
-    <pre class="line-numbers"><code class="notranslate language-javascript">var player = bc('myPlayerID');
-
-player.thumbnails();
-
-  player.ready(() =&gt; {
-    player.src({
-      type: 'video/mp4',
-      src: '//solutions.brightcove.com/bcls/videos/Great Blue Heron.mp4'
-    });
-
-<span class="bcls-highlight">  player.addRemoteTextTrack({
-    src: 'thumbnails.vtt',
-    kind: 'metadata',
-    label: 'thumbnails',
-    mode: 'hidden'
-  }, false);</span>
-});</code></pre>
-  </li>
-</ol>
-
-<h3>Source code</h3>
-<!-- UPDATE link to GitHub source -->
+<h3>Adding custom fields</h3>
 <p>
-  For details, see the <a href="https://github.com/BrightcoveLearning/thumbnail-scrubbing/blob/master/webvtt-sample/index.html">complete solution on GitHub</a>.
+  Next, you are ready to define the required custom fields in Video Cloud Studio.
 </p>
+<ol class="bcls-tasklist">
+  <li>
+    <p>
+      In Video Cloud Studio, expand the <strong>Admin</strong> dropdown menu and select <strong>Video Fields</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Video Fields" src="/assets/images/plugins/kollective/video-fields.png" />
+      <figcaption class="bcls-caption--image">Video Fields</figcaption>
+    </figure>
+  </li>
+  <li>
+    <p>
+      In the Video Fields page, select the <strong>Add Custom Field</strong> button.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Add Custom Field" src="/assets/images/plugins/kollective/add-custom-field.png" />
+      <figcaption class="bcls-caption--image">Add Custom Field</figcaption>
+    </figure>
+  </li>
+  <li>
+    <p>
+      Each Brightcove Account ID to be used for a syndicator account needs the following custom field names defined for the synchronization to work:
+    </p>
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">Brightcove Beacon Feature Summary</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th style="text-align: center;width:70%;">Custom Field Name</th>
+          <th style="text-align: center;width:30%;">Type</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>kollective_content_token</td>
+          <td style="text-align: center;">text</td>
+        </tr>
+        <tr>
+          <td>kollective_is_synchronized</td>
+          <td style="text-align: center;">text</td>
+        </tr>
+        <tr>
+          <td>kollective_synchronized_time</td>
+          <td style="text-align: center;">text</td>
+        </tr>
+        <tr>
+          <td>kollective_last_sync_status</td>
+          <td style="text-align: center;">text</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      In the Video Field details page, enter the following:
+    </p>
+    <ul>
+      <li>
+        Display Name
+      </li>
+      <li>
+        Internal Name (from the table above)
+      </li>
+      <li>
+        Leave the <strong>Type</strong> as <strong>Text</strong>
+      </li>
+      <li>
+        You can enter a description if you want
+      </li>
+      <li>
+        Leave the <strong>Make this Field Required</strong> option NOT selected
+      </li>
+    </ul>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Custom field values" src="/assets/images/plugins/kollective/custom-field-values.png" />
+      <figcaption class="bcls-caption--image">Custom field values</figcaption>
+    </figure>
+  </li>
+</ol>
+
+<h3>Deploying application</h3>
+<p>
+  After making all the required configuration changes and adding the required custom fields, you are ready to deploy the backend application to your server.
+</p>
+<ol class="bcls-tasklist">
+  <li>
+    Copy the server-side application package to the targeted deployment folder on your hosting server.
+  </li>
+  <li>
+    <p>
+      Open a console application and go to the root folder of the application package in the previous step, and execute the following command to install all the required Node packages:
+    </p>
+    <pre>
+<code class="notranslate language-bash"># npm install --production
+</code></pre>
+  </li>
+
+</ol>
 
 </section>
+
+
 
 <section class="bcls-section">
 <h2 id="Limitations">Limitations</h2>
