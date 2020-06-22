@@ -1411,7 +1411,7 @@ CUSTOM_FIELD_KOLLECTIVE_LAST_SYNC_STATUS=kollective_last_sync_status
 <p>
   The Kollective plugin is a javascript file, so you can deploy it on any server that allows access to the file from outside using a public address.  
 </p>
-<ol class="bcls-tasklist">
+<ol class="bcls-tasklist-restart">
   <li>
     <p>
       In the Kollective Integration github repository, locate the Kollective plugin in the <strong>kollective-player-plugin</strong> folder.
@@ -1430,6 +1430,104 @@ CUSTOM_FIELD_KOLLECTIVE_LAST_SYNC_STATUS=kollective_last_sync_status
     <pre>
 <code class="notranslate language-bash">https://my-server/k-plugin-1.0.6.js
 </code></pre>
+  </li>
+  <li>
+    <p>
+      Login to Brightcove's <a href="https://signin.brightcove.com/">Video Cloud Studio</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Navigate to the Players module. Either create a new player or use an existing one.
+    </p>
+  </li>
+  <li>
+    <p>
+      Select the link for your player to go to the player details page.
+    </p>
+  </li>
+  <li>
+    <p>
+      In the left-side navigation, select <strong>JSON Editor</strong> and copy the value of your <code>policy_key</code>. You will need this for the plugin configuration in a later step.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Policy key" src="/assets/images/plugins/kollective/policy-key.png" />
+      <figcaption class="bcls-caption--image">Policy key</figcaption>
+    </figure>
+  </li>
+  <li>
+    <p>
+      In the left-side navigation, select <strong>Plugins</strong>. Expand the <strong>Add a Plugin</strong> dropdown menu and select <strong>Custom Plugin</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Custom plugin" src="/assets/images/plugins/kollective/custom-plugin.png" />
+      <figcaption class="bcls-caption--image">Custom plugin</figcaption>
+    </figure>
+  </li>
+  <li>
+    <p>
+      For the <strong>Plugins</strong> tab, enter the following values:
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Plugin Name</strong>: Enter the value <strong>kollective</strong>
+        </p>
+        <aside class="bcls-aside bcls-aside--warning">The plugin name is case sensitive, and the name <strong>kollectve</strong> must be all lowercase.</aside>
+      </li>
+      <li>
+        <p>
+          <strong>JavaScript URL</strong>: The address where you deployed the Kollective plugin file
+        </p>
+        <p>
+          Example:
+        </p>
+    <pre>
+<code class="notranslate language-bash">https://my-server/k-plugin-1.0.6.js
+</code></pre>
+      </li>
+      <li>
+        <p>
+          <strong>Options(JSON)</strong>: Enter the following:
+        </p>
+        <ul>
+          <li>
+            <code>ksdk_url</code> - Points to the <code>ksdk</code> library from Kollective
+          </li>
+          <li>
+            <code>policy_key</code> - Use the value of your Policy key that we copied from a previous step
+          </li>
+        </ul>
+    <pre>
+<code class="notranslate language-bash">{
+    &quot;ksdk_url&quot;: &quot;https://cdn.kollective.app/ksdk/ksdk-2.1.9.min.js&quot;,
+    &quot;policy_key&quot;: &ldquo;<span class="bcls-input">your policy key</span>&rdquo;
+}
+</code></pre>
+      </li>
+    </ul>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Plugin details" src="/assets/images/plugins/kollective/plugin-details.png" />
+      <figcaption class="bcls-caption--image">Plugin details</figcaption>
+    </figure>  
+  </li>
+  <li>
+    Select the <strong>Save</strong> button.
+  </li>
+  <li>
+    <p>
+      The Kollective plugin requires a specific version of jQuery. For the <strong>Scripts</strong> tab, select the <strong>Add a Script</strong> button and enter the following:
+    </p>
+    <pre>
+<code class="notranslate language-bash">https://code.jquery.com/jquery-3.5.1.min.js
+</code></pre>
+
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Script details" src="/assets/images/plugins/kollective/script-details.png" />
+      <figcaption class="bcls-caption--image">Script details</figcaption>
+    </figure>
+  </li>
+  <li>
+    Select the <strong>Save</strong> button.
+  </li>
+  <li>
+    Publish your player. 
   </li>
 
 </ol>
@@ -1469,7 +1567,7 @@ CUSTOM_FIELD_KOLLECTIVE_LAST_SYNC_STATUS=kollective_last_sync_status
 
 <hr>
 <div class="last-updated">
-  Page last updated on 19 Jun 2020
+  Page last updated on 22 Jun 2020
 </div>
 
 
