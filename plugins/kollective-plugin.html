@@ -58,20 +58,17 @@ layout: staging
 <p>
   To use the kollective plugin, you will need some initial setup:  
 </p>
-<ol>
+<ol class="bcls-tasklist">
   <li>
     <a href="#Deploying_server_side_application">Deploy the server-side syndicator app</a>
   </li>
   <li>
-    Install the player plugin
+    <a href="#Installing_the_player_plugin">Install the player plugin</a>
+  </li>
+  <li>
+    <a href="#Whitelisting_domain_names">Whitelist domain names</a>
   </li>
 </ol>
-<p>
-  Once the setup is done, your workflow will look like this:
-</p>
-<!-- <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Two-part integration" src="/assets/images/plugins/kollective/two-part-integration.png" />
-  <figcaption class="bcls-caption--image">Two-part integration</figcaption>
-</figure> -->
 </section>
 
 <section class="bcls-section">
@@ -101,7 +98,7 @@ layout: staging
 <p>
   You will make a few configuration changes for the backend application. Follow these steps:
 </p>
-<ol class="bcls-tasklist">
+<ol class="bcls-tasklist-restart">
   <li>
     In the root directory for the backend application deployment package, open the <strong>config.env</strong> file.
   </li>
@@ -488,14 +485,33 @@ CUSTOM_FIELD_KOLLECTIVE_LAST_SYNC_STATUS=kollective_last_sync_status
   <li>
     Publish your player. 
   </li>
-
 </ol>
+</section>
 
+<section class="bcls-section">
+<h2 id="Whitelisting_domain_names">Whitelisting domain names</h2>
+<p>
+  Kollective needs to add your domain names to their whitelist so that don't get a CORS error. Provide the following domain names to Kollective:
+</p>
+<ul>
+  <li>
+    <p>
+      The domain name where you deployed your server-side application
+    </p>
+  </li>
+  <li>
+    <p>
+      The domain where you deployed your web pages
+    </p>
+  </li>
+</ul>
+<p>
+  For example, if you have a page at <strong>https://my-server.com/my-video-page</strong> that uses Brightcove Player with the Kollective plugin, then the <strong>my-server.com</strong> domain needs to be added to the Kollective whitelist. This will allow playback on the page without returning a CORS error.
+</p>
 </section>
 
 
-
-<section class="bcls-section">
+<!-- <section class="bcls-section">
 <h2 id="Limitations">Limitations</h2>
 
 <p>Here are the limitation associated with the thumbnails plugin.</p>
@@ -509,5 +525,5 @@ CUSTOM_FIELD_KOLLECTIVE_LAST_SYNC_STATUS=kollective_last_sync_status
 <h2 id="Changelog">Changelog</h2>
 
 <p>See the <a href="/plugins/changelog/thumbnails-plugin-changelog.html">changelog here</a>.</p>
-</section>
+</section> -->
 </article>
