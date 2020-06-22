@@ -1354,10 +1354,81 @@ CUSTOM_FIELD_KOLLECTIVE_LAST_SYNC_STATUS=kollective_last_sync_status
   </li>
   <li>
     <p>
-      Open a console application and go to the root folder of the application package in the previous step, and execute the following command to install all the required Node packages:
+      Open a console application and go to the root folder of the application package in the previous step. Execute the following command to install all the required Node packages:
     </p>
     <pre>
 <code class="notranslate language-bash"># npm install --production
+</code></pre>
+  </li>
+  <li>
+    <p>
+      Execute the command below to import default super-admin user:
+    </p>
+    <pre>
+<code class="notranslate language-bash"># npm run import-users
+</code></pre>
+  </li>
+  <li>
+    <p>
+      To start the backend application, execute the following command:
+    </p>
+    <pre>
+<code class="notranslate language-bash"># npm run start
+</code></pre>
+  </li>
+  <li>
+    <p>
+      If everything is setup correctly, then you can open the application on a browser using the configured address.
+    </p>
+    <p>
+      Example:
+    </p>
+    <pre>
+<code class="notranslate language-bash">http://localhost:3000/login
+</code></pre>
+  </li>
+  <li>
+    <p>
+      Log into the application with the default super-admin user imported above.
+    </p>
+    <ul>
+      <li>
+        Username: super-admin@brightcove.com
+      </li>
+      <li>
+        Password: Br1ghtC0ve
+      </li>
+    </ul>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Server-side login" src="/assets/images/plugins/kollective/backend-login.png" />
+      <figcaption class="bcls-caption--image">Server-side login</figcaption>
+    </figure>
+  </li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Installing_the_player_plugin">Installing the player plugin</h2>
+<p>
+  The Kollective plugin is a javascript file, so you can deploy it on any server that allows access to the file from outside using a public address.  
+</p>
+<ol class="bcls-tasklist">
+  <li>
+    <p>
+      In the Kollective Integration github repository, locate the Kollective plugin in the <strong>kollective-player-plugin</strong> folder.
+    </p>
+    <pre>
+<code class="notranslate language-bash">[backend-application-root-folder]/kollective-player-plugin/k-plugin.js
+</code></pre>
+  </li>
+  <li>
+    <p>
+      Deploy the Kollective plugin JavaScript file to your sever. 
+    </p>
+    <p>
+      Example:
+    </p>
+    <pre>
+<code class="notranslate language-bash">https://my-server/k-plugin-1.0.6.js
 </code></pre>
   </li>
 
@@ -1398,7 +1469,7 @@ CUSTOM_FIELD_KOLLECTIVE_LAST_SYNC_STATUS=kollective_last_sync_status
 
 <hr>
 <div class="last-updated">
-  Page last updated on 20 Jun 2020
+  Page last updated on 19 Jun 2020
 </div>
 
 
