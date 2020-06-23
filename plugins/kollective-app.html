@@ -136,71 +136,168 @@ layout: staging
     <p>
       In the <strong>Settings</strong> section, you can enter information about your company's account.
     </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Policy key" src="/assets/images/plugins/kollective/policy-key.png" />
-      <figcaption class="bcls-caption--image">Policy key</figcaption>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Settings" src="/assets/images/plugins/kollective/app/settings.png" />
+      <figcaption class="bcls-caption--image">Settings</figcaption>
     </figure>
     <p>Here are the field details:</p>
     <ul>
       <li>
         <p>
-          <strong>Target Name</strong>
+          <strong>Tenant Name</strong> - Your company name
         </p>
       </li>
       <li>
         <p>
-          <strong>Description</strong>
+          <strong>Description</strong> - Your description
         </p>
       </li>
       <li>
         <p>
-          <strong>Contact Name</strong>
+          <strong>Contact Name</strong> - Your contact name
         </p>
       </li>
       <li>
         <p>
-          <strong>Contact Email</strong>
+          <strong>Contact Email</strong> - Your contact email address
         </p>
       </li>
       <li>
         <p>
-          <strong>Brightcove Account ID</strong> - You can get this from Video Cloud Studio
+          <strong>Brightcove Account ID</strong> - You can get this from Brightcove's Video Cloud Studio
         </p>
       </li>
       <li>
         <p>
-          <strong>Brightcove Client Key</strong> - To get the client key and secret, see the 
+          <strong>Brightcove Client Key</strong> - You can get this from Brightcove's Video Cloud Studio 
+        </p>
+        <p>
+          <strong>Brightcove Client Secret</strong> - You can get this from Brightcove's Video Cloud Studio 
+        </p>
+        <p>
+          For Kollective to access your content in Brightcove, you need to provide your client credentials. You can generate them in the Admin section of Video Cloud Studio. You need to select the following permissions:
+        </p>
+        <ul>
+          <li>
+            CMS : Playlist Read, Playlist Read/Write, Video Read, Video Read/Write
+          </li>
+          <li>
+            Dynamic Ingest : Create, Push Files
+          </li>
+          <li>
+            Players : Read, Read/Write 
+          </li>
+          <li>
+            SSAI : Read, Read/Write 
+          </li>
+        </ul>
+        <p>
+          For details about getting your Brightcove Client Key and Client Secret, see the following:
+        </p>
+        <ul>
+          <li>
+            <a href="https://studio.support.brightcove.com/admin/managing-api-authentication-credentials.html">Managing API Authentication Credentials</a>
+          </li>
+          <li>
+            Alternatively, you can use this tool: <a href="https://apis.support.brightcove.com/oauth/code-samples/oauth-api-sample-create-client-credentials.html">Create Client Credentials</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          <strong>Brightcove Live API Key</strong> - Contact Brightcove support to get this 
         </p>
       </li>
       <li>
         <p>
-          <strong>Brightcove Client Secret</strong> - To get the client key and secret, see the 
+          <strong>Kollective Tenant ID</strong> -  You will get this from your account manager
         </p>
       </li>
       <li>
         <p>
-          <strong>Brightcove Live API Key</strong> - Contact your account manager to get this 
+          <strong>Kollective Service Token</strong> -  You will get this from your account manager
         </p>
       </li>
       <li>
         <p>
-          <strong>Kollective Tenant</strong> -  
-        </p>
-      </li>
-      <li>
-        <p>
-          <strong>Kollective Service Token</strong> -  
-        </p>
-      </li>
-      <li>
-        <p>
-          <strong>Allow Automatic Synchronization</strong> -  
+          <strong>Allow Automatic Synchronization</strong> -  If you want all of your content synced at a specific time, check this. Otherwise, leave it unchecked. For details, see the next step.
         </p>
       </li>
     </ul>
-    
   </li>
-
+  <li>
+    <p>
+      If you select <strong>Allow Automatic Synchronization</strong>, then you will see the following details:
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Automatic Synchronization" src="/assets/images/plugins/kollective/app/auto-sync.png" />
+      <figcaption class="bcls-caption--image">Automatic Synchronization</figcaption>
+    </figure>
+    <p>This allows the synchronization job to run automatically at the configurable time interval.</p>
+    <ul>
+      <li>
+        Enter a time interval for the job to run. (example: run the job every 1 hour).
+      </li>
+      <li>
+        Select the time for the job to run for the first time.
+      </li>
+      <li>
+        Enter the <strong>Max Videos To Synchronize</strong> each time the job runs.
+      </li>
+      <li>
+        You can click on the <strong>Run Job Now</strong> button to run the job immediately.
+      </li>
+    </ul>  
+  </li>
+  <li>
+    <p>
+      Select the <strong>Update</strong> button to save the settings.
+    </p>
+  </li>
 </ol>
+
+<h4>Managing users</h4>
+<p>
+  With an admin account, you can create, edit and delete users.
+</p>
+<ol class="bcls-tasklist-restart">
+  <li>
+    <p>
+      Login to the Kollective syndicator app as an admin user.
+    </p>
+  </li>
+  <li>
+    <p>
+      In the left-side navigation, select <strong>Manage Users</strong>.
+    </p>
+  </li>
+  <li>
+    <p>
+      You will see a list of all users in the company account.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="List users" src="/assets/images/plugins/kollective/app/manage-users.png" />
+      <figcaption class="bcls-caption--image">List users</figcaption>
+    </figure>
+  </li>
+  </ol>
+
+  <h4>Adding users</h4>
+  <p>
+    You can add a user with either an admin or a user role.
+  </p>
+  <ol class="bcls-tasklist-restart">
+    <li>
+      <p>
+        From the <strong>Manage Users</strong> page, select the <strong>Add User</strong> button .
+      </p>
+    </li>
+    <li>
+      <p>
+        Enter the information to create a user with either an admin or user role.
+      </p>
+      <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Create user" src="/assets/images/plugins/kollective/app/create-user.png" />
+        <figcaption class="bcls-caption--image">Create user</figcaption>
+      </figure>
+    </li>
+  </ol>
 
 </section>
 
