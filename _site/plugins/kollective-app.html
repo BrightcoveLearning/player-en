@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex,nofollow"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will learn the how to use the Kollective syndicator application with your VOD and Live content.">
+  <meta name="description" content="In this topic, you will learn the how to synchronize your VOD and Live content with the Kollective syndicator application.">
   
   <title>Kollective Syndicator Application</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1048,7 +1048,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h1>Kollective Syndicator Application</h1>
 <article class="bcls-article">
-  <summary>In this topic, you will learn the how to use the Kollective syndicator application with your VOD and Live content.</summary> 
+  <summary>In this topic, you will learn the how to synchronize your VOD and Live content with the Kollective syndicator application.</summary> 
 
 <section class="bcls-section">
 <h2 id="Overview">Overview</h2>
@@ -1072,12 +1072,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </li>
 </ul>
 
-<p>Before you can use the Kollective syndicator app, you must first follow the setup steps as described in the following document: </p>
-<ul>
-  <li>
-    <a href="/plugins/kollective-plugin.html">Kollective Plugin with Brightcove Player</a>
-  </li>
-</ul>
+<p>
+  This topic focuses on Kollective's server-side app used to synchronize your content.
+</p>
 
 </section>
 
@@ -1113,19 +1110,72 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <section class="bcls-section">
 <h2 id="Getting_started">Getting started</h2>
 <p>
-  To use the kollective plugin, you will need some initial setup:  
+  To synchronize content, follow these steps:  
 </p>
-<ol class="bcls-tasklist">
+<ol class="bcls-tasklist-restart">
   <li>
-    <a href="#Deploying_server_side_application">Deploy the server-side syndicator app</a>
+    <p>
+      If you haven't done so already, follow the setup instructions in the <a href="/plugins/kollective-plugin.html">Kollective Plugin with Brightcove Player</a> document:
+    </p>
   </li>
   <li>
-    <a href="#Installing_the_player_plugin">Install the player plugin</a>
+    <a href="#Reviewing_user_roles">Reviewing user roles</a>
   </li>
   <li>
-    <a href="#Whitelisting_domain_names">Whitelist domain names</a>
+    <a href="#Synchronizing_videos">Synchronizing videos</a>
+  </li>
+  <li>
+    <a href="#Synchronizing_live_events">Synchronizing live events</a>
+  </li>
+  <li>
+    <a href="#Checking_syndicator_logs">Checking syndicator logs</a>
   </li>
 </ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Reviewing_user_roles">Reviewing user roles</h2>
+<p>
+  The Kollective backend syndicator application supports two different user roles: 
+</p>
+<ol class="bcls-tasklist-restart">
+  <li>
+    <p>
+      Admin role - Admin users can create other users (admin and user roles), access company settings, run the syndicator tool and check the synchronization logs.
+    </p>
+  </li>
+  <li>
+    <p>
+      User role - These users can run the syndicator tool and check the synchronization logs, but cannot edit company settings.
+    </p>
+  </li>
+</ol>
+
+<h3>Admin User</h3>
+<p>
+  The admin user can create other users (admin and user roles), access company settings, run the syndicator tool and check the synchronization logs.
+</p>
+<h4>Account Settings</h4>
+<p>
+  The admin user has access to the <strong>Settings</strong> section to set account information. To manage account settings, follow these steps:
+</p>
+<ol class="bcls-tasklist-restart">
+  <li>
+    <p>
+      Login to the Kollective syndicator app as an admin user.
+    </p>
+  </li>
+  <li>
+    <p>
+      In the left-side navigation, select <strong>Settings</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Policy key" src="/assets/images/plugins/kollective/policy-key.png" />
+      <figcaption class="bcls-caption--image">Policy key</figcaption>
+    </figure>
+  </li>
+
+</ol>
+
 </section>
 
 
@@ -1145,7 +1195,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 22 Jun 2020
+  Page last updated on 23 Jun 2020
 </div>
 
 
