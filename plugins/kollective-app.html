@@ -1,6 +1,6 @@
 ---
 title: "Kollective Syndicator Application"
-description: "In this topic, you will learn the how to use the Kollective syndicator application with your VOD and Live content."
+description: "In this topic, you will learn the how to synchronize your VOD and Live content with the Kollective syndicator application."
 parent: Plugins
 layout: staging
 ---
@@ -31,12 +31,9 @@ layout: staging
   </li>
 </ul>
 
-<p>Before you can use the Kollective syndicator app, you must first follow the setup steps as described in the following document: </p>
-<ul>
-  <li>
-    <a href="/plugins/kollective-plugin.html">Kollective Plugin with Brightcove Player</a>
-  </li>
-</ul>
+<p>
+  This topic focuses on Kollective's server-side app used to synchronize your content.
+</p>
 
 </section>
 
@@ -72,19 +69,48 @@ layout: staging
 <section class="bcls-section">
 <h2 id="Getting_started">Getting started</h2>
 <p>
-  To use the kollective plugin, you will need some initial setup:  
+  To synchronize content, follow these steps:  
 </p>
-<ol class="bcls-tasklist">
+<ol class="bcls-tasklist-restart">
   <li>
-    <a href="#Deploying_server_side_application">Deploy the server-side syndicator app</a>
+    <p>
+      If you haven't done so already, follow the setup instructions in the <a href="/plugins/kollective-plugin.html">Kollective Plugin with Brightcove Player</a> document:
+    </p>
   </li>
   <li>
-    <a href="#Installing_the_player_plugin">Install the player plugin</a>
+    <a href="#Reviewing_user_roles">Review user roles</a>
   </li>
   <li>
-    <a href="#Whitelisting_domain_names">Whitelist domain names</a>
+    <a href="#Synchronizing_videos">Synchronize videos</a>
+  </li>
+  <li>
+    <a href="#Synchronizing_live_events">Synchronize live events</a>
+  </li>
+  <li>
+    <a href="#Checking_syndicator_logs">Check syndicator logs</a>
   </li>
 </ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Reviewing_user_roles">Reviewing user roles</h2>
+<p>
+  The Kollective backend syndicator application supports two different user roles: 
+</p>
+<ol class="bcls-tasklist-restart">
+  <li>
+    <p>
+      Admin role - Admin users can create other users (admin and user roles), access company settings, run the syndicator tool and check the synchronization logs.
+    </p>
+  </li>
+  <li>
+    <p>
+      User role - These users can run the syndicator tool and check the synchronization logs, but cannot edit company settings.
+    </p>
+  </li>
+</ol>
+
+<h3>Admin User</h3>
 </section>
 
 
