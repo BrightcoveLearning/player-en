@@ -47,15 +47,6 @@ layout: staging
       <li>
         Contact your account manager to enable your account for cross-device resume
       </li>
-      <!-- <li>
-    <p>
-      Make sure your player is using the Brightcove Playback API v2 (PAPI v2)
-    </p>
-    <p>
-      The domain URL for PAPI v2 is:
-    </p>
-<pre><code class="language-html">https://playback.brightcovecdn.com/playback/v1/</code></pre>
-  </li> -->
       <li>
         Make sure the videos you are using are ingested for Dynamic Delivery
       </li>
@@ -135,13 +126,16 @@ layout: staging
       if you are building a custom implementation that does not use Brightcove Player, add the <code>user</code> parameter to your Data Collection API requests. For details, see the <a href="https://apis.support.brightcove.com/data-collection/overview-data-collection-api-v2.html#all-event-parameters">Overview: Data Collection API v2</a> document.
     </p>
     <p>On your websites that host your player, you can use an authentication gateway or some identity management solution to keep track viewers. Use this viewer id as the user identifier to pass to Brightcove analytics.</p>
+    <p>
+      This <code>user</code> parameter passed to Brightcove can be used in the next section to retrieve the playback position from the XDR API.
+    </p>
 
   </section>
 
   <section class="bcls-section">
     <h2 id="Get_the_user_playback_position">Get the user playback position</h2>
 
-    <p>Next, you will get the user playback position from the XDR API.</p>
+    <p>Next, you will get the user playback position from the Cross-Device Resume (XDR) API.</p>
 
         <p>
           You will need a server-side application to make the REST API request to get the user playback position.
