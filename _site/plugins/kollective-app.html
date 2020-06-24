@@ -1141,12 +1141,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <ul>
   <li>
     <p>
-      Admin role - Admin users can create other users (admin and user roles), access company settings, run the syndicator tool and check the synchronization logs.
+      Admin role - Admin users can create other users (admin and user roles), access company settings, run the syndicator tool and check the synchronization logs. They have access to all sections of the syndicator app.
     </p>
   </li>
   <li>
     <p>
-      User role - These users can run the syndicator tool and check the synchronization logs, but cannot edit company settings.
+      User role - These users can run the syndicator tool and check the synchronization logs, but cannot edit company settings. They have access to the <strong>Video Syndicator, Live Events Syndicator</strong> and the <strong>Syndicator Logs</strong>, but they don’t have access to the <strong>Manage Users</strong> or <strong>Settings</strong> pages.
     </p>
   </li>
 </ul>
@@ -1449,6 +1449,100 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ul>
   </li>
 </ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Synchronizing_live_events">Synchronizing live events</h2>
+<p>
+  Synchronize live events under the current account from Brightcove to Kollective.  
+</p>
+<h3>Video List</h3>
+<ol class="bcls-tasklist-restart">
+   <li>
+    <p>
+      In the left-side navigation, select <strong>Content Syndicator</strong>, and then select <strong>Live Events Syndicator</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Sync live events" src="/assets/images/plugins/kollective/app/sync-live.png" />
+        <figcaption class="bcls-caption--image">Sync live events</figcaption>
+      </figure> 
+      <p>
+        You should see a list of all live events in your Video Cloud account with the most recent added/updated videos on top.
+      </p>
+  </li>
+  <li>
+    <p>
+      In the live event list, you can filter for <strong>All, Live, Standby</strong> or <strong>Completed</strong> live events.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Filter live events" src="/assets/images/plugins/kollective/app/sync-live-filter.png" />
+        <figcaption class="bcls-caption--image">Filter live events</figcaption>
+      </figure> 
+  </li>
+  <li>
+    <p>
+      Select one or more live events in the list and select the <strong>Synchronize</strong> button to synchronize from Brightcove to Kollective.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Synchronize multiple events" src="/assets/images/plugins/kollective/app/sync-live-events.png" />
+        <figcaption class="bcls-caption--image">Synchronize multiple events</figcaption>
+      </figure> 
+  </li>
+</ol>
+
+<h3>Live Event Detail</h3>
+<ol class="bcls-tasklist-restart">
+   <li>
+    <p>
+      Select any live event in the list to display the details page.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Live event details" src="/assets/images/plugins/kollective/app/live-details.png" />
+        <figcaption class="bcls-caption--image">Live event details</figcaption>
+      </figure> 
+  </li>
+  <li>
+    <p>
+      From the live event details page, you can do the following:
+    </p>
+    <ul>
+      <li>
+        Synchronize the live event
+      </li>
+      <li>
+        Update live event status
+      </li>
+      <li>
+        Delete the live event
+      </li>
+    </ul>
+  </li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Checking_syndicator_logs">Checking syndicator logs</h2>
+<p>
+  The syndicator logs provide success, error and warning details about video and live event synchronizations for your account.  
+</p>
+<ol class="bcls-tasklist-restart">
+   <li>
+    <p>
+      In the left-side navigation, select <strong>Syndicator Logs</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Syndicator logs" src="/assets/images/plugins/kollective/app/syndicator-logs.png" />
+        <figcaption class="bcls-caption--image">Syndicator logs</figcaption>
+      </figure> 
+      <p>
+        You should see a list of synchronization logs for the current account with the most recent on top.
+      </p>
+  </li>
+  <li>
+    <p>
+      In the synchronization logs list, you can filter for <strong>All, Error, Info</strong> or <strong>Warning</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Filter syndicator logs" src="/assets/images/plugins/kollective/app/syndicator-log-filter.png" />
+        <figcaption class="bcls-caption--image">Filter syndicator logs</figcaption>
+      </figure> 
+  </li>
+</ol>
+
 </section>
 
 
