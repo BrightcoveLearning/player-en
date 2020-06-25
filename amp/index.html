@@ -1,9 +1,36 @@
 ---
-title: "AMP Landing Page"
+title: AMP Home
+parent: amp
+section: AMP
 description: "AMP can be used with Brightcove Player. This page links to the two possibilities of using Brightcove Player with a Video Cloud video or an external video."
-parent: "amp"
 ---
 <style>
+    h1 i.fal,
+    h1 i.fab,
+    h1 i.fas,
+    h1 i.far {
+        font-size: 3rem;
+
+        color: {
+                {
+                site.product_color
+            }
+        }
+
+        ;
+        margin-right: 1rem;
+    }
+
+    .card-icon I {
+        color: {
+                {
+                site.product_color
+            }
+        }
+
+        ;
+    }
+
     .card-wrapper {
         justify-content: start;
     }
@@ -18,7 +45,7 @@ parent: "amp"
         {% if item.name == page.section %}
         <section class="bcls-card">
             <div class="card-icon">
-                <i class="fal fa-books"></i>
+                <i class="far fa-sync"></i>
             </div>
             <div class="card-content">
                 <h2 class="landing-page-item-header">{{ item.name }} Topics</h2>
