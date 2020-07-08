@@ -129,6 +129,10 @@ parent: Playback
           <td>Thumbnails and poster images</td>
         </tr>
         <tr>
+          <td>Live assets</td>
+          <td></td>
+        </tr>
+        <tr>
           <td>Playback Rights Service (EPA)</td>
           <td>Contact your account manager for details.</td>
         </tr>
@@ -251,6 +255,13 @@ parent: Playback
                 </td>
               </tr>
               <tr>
+                <td><code>drules</code></td>
+                <td>Array</td>
+                <td></td>
+                <td>Array of Delivery Rules to be applied to this manifest. If absent, no Delivery Rules will be applied.
+                </td>
+              </tr>
+              <tr>
                 <td><code>pro</code></td>
                 <td>String</td>
                 <td></td>
@@ -303,6 +314,11 @@ parent: Playback
         &quot;iat&quot;:1575484132,
         // content id: JWT is only valid for video id or reference id
         &quot;conid&quot;:&quot;5805807122222&quot;,
+        // delivery rules: array of Delivery Rules to be applied to this manifest
+        &quot;drules&quot;: [
+            &quot;11de1111-2222-33ec-444d-f5555555f5&quot;,
+            &quot;cb11111-2222e-333c-a444-5d55555555&quot;
+        ],
         // protection: specify a protection type in the case where multiple are available for a single video
         &quot;pro&quot;:&quot;aes128&quot;,
         // VOD specific configuration options
