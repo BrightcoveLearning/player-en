@@ -17,40 +17,57 @@ parent: 'Release Notes'
   </aside>
 
     <section id="features" class="bcls-section">
-    <h2>No pre-release versions at this time</h2>
+    <!-- <h2>No pre-release versions at this time</h2> -->
   </section>
 
   <!-- HTML for standard pre-release-->
 
-  <div>&nbsp;</div>
-  <!-- <section class="bcls-section" id="features-latest">
-    <h2>VERSION 6 - v6.42.4</h2>
+  <!-- <div>&nbsp;</div>
+  <section class="bcls-section" id="features-latest">
+    <h2>VERSION 6 - v6.44.2</h2>
 
-    <p>18 Jun 2020</p>
+    <p>16 Jul 2020</p>
 
     <ul>
       <li>Only add thumbnails tracks if <code>videojs-thumbnails</code> is in use; this resolves some harmless but unsightly error messages that were being logged for some users</li>
     </ul>
-  </section> -->
+  </section>
 
-  <div>&nbsp;</div>
+  <div>&nbsp;</div> -->
 
   <!-- HTML for pre-release not yet in production player -->
-  <!-- <section id="features-not-in-yet" class="bcls-section">
+  <section id="features-not-in-yet" class="bcls-section">
     <aside class="bcls-aside bcls-aside--information">
       The features of the release(s) listed below have not yet been rolled into
       a current release.
     </aside>
 
-    <h2>VERSION 6 - v6.42.3</h2>
+    <h2>VERSION 6 - v6.44.2</h2>
 
-    <p>12 Jun 2020</p>
+    <p>16 Jun 2020</p>
 
+    <h3>Features</h3>
     <ul>
-      <li>Addressed an issue passing SSAI parameters to the Chromecast receiver</li>
-      <li>Added a workaround for captions not displaying on native fullscreen on latest versions of iOS/iPhone</li>
+      <li>Add support for SSAI with IMA preroll (documentation coming soon)</li>
     </ul>
-  </section> -->
+
+    <h3>Bug fixes</h3>
+    <ul>
+      <li>Update to <a href="https://github.com/videojs/video.js/blob/d4430a38a7bde4eb9a5d471d8db8c3b2ab628363/CHANGELOG.md#791-2020-07-13">Video.js 7.9.1</a></li>
+      <li>
+        Fix intermittent initialization failures on Chromecast devices
+      </li>
+      <li>
+        Do not break when <code>"hls": true</code> is in the player config. This configuration is not needed or used in any way, but some older players had it.
+      </li>
+      <li>
+        Fix player controls being unresponsive on iPhones when leaving fullscreen
+      </li>
+      <li>
+        Regression in support for the application ID
+      </li>
+    </ul>
+  </section>
   <section id="tryit" class="bcls-section">
     <h2>Try new version</h2>
 
@@ -87,7 +104,7 @@ parent: 'Release Notes'
   --data '{
     "player": {
     "template": {
-      "version": "6.42.4"
+      "version": "6.44.2"
       }
     }
   }' \
