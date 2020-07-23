@@ -1080,28 +1080,29 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <p data-height="472" data-theme-id="34967" data-slug-hash="dVoaOe" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="18170-display-views-controlbar" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/dVoaOe/">18170-display-views-controlbar</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
   
-  <p>View the <a href="https://github.com/BrightcoveLearning/18170-display-views-controlbar">source code</a>.</p>
+  <h3>Source code</h3>
+          <p>View the <a href="https://github.com/BrightcoveLearning/18170-display-views-controlbar">complete solution on GitHub</a>.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
-    <div class="bcls-expander-content">
+    <details>
+      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
-        <li>Toggle the actual display of the player by clicking the <strong>Result</strong> button.</li>
-        <li>Click the <strong>HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Toggle the actual display of the player by clicking the <strong class="notranslate">Result</strong> button.</li>
+        <li>Click the <strong class="notranslate">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
         <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
           <ol>
-            <li>Click the <strong>EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>Click the <strong class="notranslate">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
             <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
             <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
           </ol>
         </li>
       </ul>
-    </div>
+    </details>
   </section>
   <section class="bcls-section">
-    <h2 id="developmentsequence" class="bcls-expander-head">Development sequence</h2>
-    <div class="bcls-expander-content">
+    <details>
+      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -1125,11 +1126,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
       </ul>
       <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
-    </div>
-    <!-- id="expanderContent" --></section>
+    </details>
+  </section>
   <section class="bcls-section">
-    <h2 id="gettingCredentials" class="bcls-expander-head">Getting Credentials</h2>
-    <div class="bcls-expander-content">
+    <details>
+      <summary><h2 id="gettingCredentials">Getting Credentials</h2></summary> 
+    
       <p>To get a <code>client_id</code> and <code>client_secret</code>, you will need to go to the OAuth UI and register this app:</p>
       <ul>
         <li><a href="https://studio.support.brightcove.com/admin/managing-api-authentication-credentials.html">Managing API Authentication Credentials</a></li>
@@ -1149,7 +1151,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 				"video-cloud/analytics/read",
 				"video-cloud/video/read"
 			]</code></pre>
-    </div>
+    </details>
   </section>
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
@@ -1173,6 +1175,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
       </tbody>
     </table>
+    <br/>
     <aside class="bcls-aside bcls-aside--tip">This code sample uses Brightcove's REST based Analytics API. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</aside>
   </section>
   <!-- UPDATE player and HTML configuration -->
@@ -1201,29 +1204,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
     <h3>Build the URL for the Analytics API request</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-			<code class="language-javascript">// ### Setup for video views Analytics API request ###</code></pre>
+    <pre><code class="language-javascript">// ### Setup for video views Analytics API request ###</code></pre>
     <p>Use information from the <code>mediainfo</code> object to build the proper endpoint.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Request the views data from the Analytics API</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-			<code class="language-javascript">// ### Make the request to the Analytics API ###</code></pre>
+    <pre><code class="language-javascript">// ### Make the request to the Analytics API ###</code></pre>
     <p>They key point here is that the anonymous function is the callback function used where the actual request to the Analytics API is used. At the end of this function the returned value of video views is passed to the <code>placeCountInControlbar</code> method for display in the controlbar.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Place count in controlbar</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-			<code class="language-javascript">// ### Build and place count in controlbar ###</code></pre>
+    <pre><code class="language-javascript">// ### Build and place count in controlbar ###</code></pre>
     <p>Here an HTML <code>div</code> element is created and populated with the view information. Lastly, that <code>div</code> is placed in the controlbar's <code>spacer</code> element.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Make call to Analytics API</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-			<code class="language-javascript">// ### Standard functionality for Analytics API call ###</code></pre>
+    <pre><code class="language-javascript">// ### Standard functionality for Analytics API call ###</code></pre>
     <p>This mostly standard code that make calls to Brightcove's REST APIs. See the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document for details.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1236,14 +1235,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Plugin_code">Plugin code</h2>
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
-    <pre class="line-numbers">
-			<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+    <pre class="line-numbers"><code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
 				var myPlayer = this;
 				...
 			});</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-    <pre class="line-numbers">
-			<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+    <pre class="line-numbers"><code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
 				var myPlayer = this;
 				...
 			});</code></pre>
