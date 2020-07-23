@@ -1081,8 +1081,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>View the <a href="https://github.com/BrightcoveLearning/18597-playback-rate-adjuster">source code</a>.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="Using_the_CodePen" class="bcls-expander-head">Using the CodePen</h2>
-    <div class="bcls-expander-content">
+    <details>
+      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong class="notranslate">Result</strong> button.</li>
@@ -1095,11 +1095,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           </ol>
         </li>
       </ul>
-    </div>
+    </details>
   </section>
   <section class="bcls-section">
-    <h2 id="Development_sequence" class="bcls-expander-head">Development sequence</h2>
-    <div class="bcls-expander-content">
+    <details>
+      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -1123,8 +1123,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
       </ul>
       <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
-    </div>
-    <!-- id="expanderContent" --></section>
+    </details>
+  </section>
   <section class="bcls-section">
     <h2 id="Middleware_functions">Middleware functions</h2>
     <p>This sample uses Video.js middleware to implement the code solution. At a very high level, the use cases where middleware is of most value is when you want to intercept and alter core behaviors of the player, such as setting the source or current time. Video.js middleware in general is not discussed at length in this document, but the actual code used for the middleware function is explained. Here are documents from Video.js sources that do detail middleware:</p>
