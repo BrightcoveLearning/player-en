@@ -20,7 +20,6 @@ parent: Plugins
 }</code></pre>
       </li>
       <li>Cross-origin resource sharing (CORS) can be an issue when using HLS. For more information about using CORS, see the <a href="https://general.support.brightcove.com/developer/concepts-cors.html">CORS guide</a>.</li>
-      <li>Flash will be used as a fallback to play HLS only on IE11 on Windows 7.</li>
       <li>HLS is not supported on versions of IE earlier than IE11.</li>
     </ul>
   </section>
@@ -543,11 +542,6 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
   <section class="bcls-section">
     <h2 id="Errors">Errors</h2>
     <p>Errors during HLS playback will be reported using the type <strong>APPEND_BUFFER_ERR</strong>. The message will be what is retrieved from the browser's native error. For instance, <strong>The quota has been exceeded</strong>.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Known_issues">Known issues</h2>
-    <h4>IE11/Win7 &amp; HLS playback delayed</h4>
-    <p>A playback delay occurs on Internet Explorer 11/Windows 7 when using HLS. This is due to the FlasHLS library used for HLS playback on that browser/platform combination. There is a chance delay on other browsers could occur if a customer forces Flash playback.</p>
   </section>
   <section class="bcls-section">
     <h2 id="changelog">Changelog</h2>
