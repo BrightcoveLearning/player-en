@@ -1,0 +1,150 @@
+---
+title: 'Client-Side Pre-roll Ads with Live SSAI'
+description: In this topic, you will learn how use Brightcove Player to play a client-side pre-roll ad with live streams enabled for server-side ad insertion (SSAI).
+parent: Advertising
+---
+
+<!-- 
+  This content appears on:
+  
+  https://player.support.brightcove.com/advertising/client-side-preroll-with-live-ssai.html
+
+  https://ssai.support.brightcove.com/live/guides/client-side-preroll-with-live-ssai.html
+
+  https://live.support.brightcove.com/live-module/client-side-preroll-with-live-ssai.html
+
+  If you update in one place, you MUST update it in all!
+  Images are stored on the SSAI site.
+ -->
+
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+<section class="bcls-section">
+<h2 id="overview">Overview</h2>
+
+<p>When delivering live streams with server-side ad insertion (SSAI) using Brightcove Player, you can insert a client-side pre-roll ad. For client-side ads, this feature supports IMA ads.</p>
+
+<aside class="bcls-aside bcls-aside--information">
+<p>This feature requires the following:</p>
+
+<ul>
+	<li>IMA3 plugin v3.5.0+</li>
+	<li>SSAI plugin v1.11.0+</li>
+	<li>Brightcove Player version 6.44.0+</li>
+</ul>
+</aside>
+
+<h3>Caveats</h3> 
+
+<ul>
+	<li>Customers using this feature must be using Dynamic Delivery.</li>
+	<li>Only IMA and SSAI plugins are supported (no FreeWheel).</li>
+  <li>Currently, this feature only supports a single player on the page.</li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Getting_started">Getting started</h2>
+
+<p>To play a client-side IMA pre-roll ad with a live SSAI stream, follow these steps:</p>
+
+<ol class="bcls-tasklist-restart">
+	<li><a href="#Create_an_SSAI_enabled_live_stream">Create an SSAI-enabled live stream</a></li>
+	<li><a href="#Create_a_Brightcove_player">Create a Brightcove player</a></li>
+	<li><a href="#Implementing_client_side_pre_roll_using_Studio">Implement client-side pre-roll using Studio </a></li>
+</ol>
+
+<h3 id="Create_an_SSAI_enabled_live_stream">Create an SSAI-enabled live stream</h3>
+
+<p>The Live module supports Server-Side Ad Insertion (SSAI) enabling server-side ads can be requested and displayed during a live stream. To create your live stream, see the following:</p>
+<ul>
+  <li>
+    <a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html">Implementing Server-Side Ads in the Live Module</a>
+  </li>
+</ul>
+
+<h3 id="Create_a_Brightcove_player">Create a Brightcove player</h3>
+
+<p>Create a new Brightcove player using Video Cloud Studio. For details, see the <a href="https://studio.support.brightcove.com/basics/video-cloud-basics-creating-player.html">Quick Start: Creating and Styling a Player</a> document.</p>
+
+<aside class="bcls-aside bcls-aside--information">You must use a Brightcove Player version 6.44.0+.</aside>
+</section>
+
+<section class="bcls-section">
+<h2 id="Implementing_client_side_pre_roll_using_Studio">Implementing client-side pre-roll using Studio</h2>
+
+<p>The easiest way to configure your player for auto-failover ads is with Video Cloud Studio. Once you have created an ad configuration and player, then you are ready to configure the player for auto-failover as follows:</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>Open the <strong>PLAYERS</strong> module and locate the player to which you want to add advertising functionality.</li>
+	<li>Select the link for the player to open the player's properties.</li>
+	<li>In the left navigation menu, select <strong>Advertising</strong>.</li>
+	<li>Check the <strong>Enable Client-Side (IMA)</strong> checkbox.</li>
+	<li>
+	<p>Include the URL for your IMA Ad Tag. For this example, we will use the sample Ad Tag URL.</p>
+
+	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable client-side ads" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/ssai/enable-client-side.png" />
+	<figcaption class="bcls-caption--image">Enable client-side ads</figcaption>
+	</figure>
+
+	<p>For details about the player advertising properties, see the <a href="https://studio.support.brightcove.com/players/configuring-player-advertising-using-players-module.html">Configuring Player Advertising using the Players Module</a> document.</p>
+	</li>
+	<li>
+	<p>Check the <strong>Enable Server-Side (SSAI)</strong> checkbox.</p>
+
+	<aside class="bcls-aside bcls-aside--information">The server-side option will not appear unless your account has been enabled for SSAI.</aside>
+	</li>
+	<li>From the <strong>Select Configuration</strong> dropdown menu, select the ad configuration that you would like to associate with this player.</li>
+	<li>
+    <p>
+      If you want overlays to display over your ads, check the <strong>Enable ad information overlays</strong> checkbox. This includes "Learn More" and ad count down overlays.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable SSAI" src="https://ssai.support.brightcove.com/assets/images/client-side-preroll/enable-ssai.png" />
+      <figcaption class="bcls-caption--image">Enable SSAI</figcaption>
+    </figure>
+    <aside class="bcls-aside bcls-aside--information">Overlays will not display until you enable them here and configure them in your VAST ad tag.</aside>
+  </li>
+	<li>Select the <strong>Save</strong> button.</li> 
+  <li>
+    <p>
+      In the left navigation menu, select <strong>JSON Editor</strong>.
+    </p>
+  </li>
+  <li>
+    <p>
+      In the JSON editor, scroll down until you see the <code>ad_failover: true</code> property.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Ad failover property" src="https://ssai.support.brightcove.com/assets/images/client-side-preroll/ad_failover.png" />
+      <figcaption class="bcls-caption--image">Ad failover property</figcaption>
+    </figure>
+  </li>
+  <li>
+    <p>
+      Replace the <code>ad_failover: true</code> property with the following:
+    </p>
+    <pre class="line-numbers"><code class="language-json">"ima_preroll_with_ssai": true
+</code></pre>
+  </li>
+  <li>
+    <p>
+      Your JSON editor should look similar to this:
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="IMA pre-roll property" src="https://ssai.support.brightcove.com/assets/images/client-side-preroll/ima-preroll.png" />
+      <figcaption class="bcls-caption--image">IMA pre-roll property</figcaption>
+    </figure>
+  </li>
+  <li>Select the <strong>Save</strong> button.</li>
+	<li>
+	<p>To publish the player, select <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</p>
+	</li>
+  <li>
+    <p>
+      Now, you are ready to publish your live event. For details, see the <a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#Publishing_the_live_event">Implementing Server-Side Ads in the Live Module</a> document.
+    </p>
+  </li>
+</ol>
+
+</section>
+</article>
