@@ -1292,12 +1292,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <h2 id="Options">Options</h2>
 
         <p>
-            The video.js IMA3 plugin is built on top of the <a href="https://github.com/brightcove/videojs-ads">video.js ads framework</a> and accepts any options
-            that the ad framework provides. Take a look at the ad framework <a href="//videojs.github.io/videojs-contrib-ads/integrator/options.html">README</a> for
-            details on the current set of overrideable settings. Both the IMA plugin specific options and ad framework options are documented here.
+            The video.js IMA3 plugin is built on top of the <a href="https://github.com/brightcove/videojs-ads">video.js ads framework</a> and accepts any options that the ad framework provides. Take a look at the ad framework <a href="//videojs.github.io/videojs-contrib-ads/integrator/options.html">README</a> for details on the current set of overrideable settings. Both the IMA plugin specific options and ad framework options are documented here.
         </p>
+        <p>The options are:</p>
+        <ul>
+            <li><a href="#clickTrackingElement">clickTrackingElement</a></li>
+            <li><a href="#debug">debug</a></li>
+            <li><a href="#debugContribAds">debugContribAds</a></li>
+            <li><a href="#disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</a></li>
+            <li><a href="#hardTimeouts">hardTimeouts</a></li>
+            <li><a href="#ima3SdkSettings">ima3SdkSettings</a></li>
+            <li><a href="#requestMode">requestMode</a></li>
+            <li><a href="#serverUrl">serverUrl</a></li>
+            <li><a href="#showVpaidControls">showVpaidControls</a></li>
+            <li><a href="#timeout">timeout</a></li>
+            <li><a href="#useMediaCuePoints">useMediaCuePoints</a></li>
+            <li><a href="#vpaidMode">vpaidMode</a></li>
+        </ul>
 
-        <h3>clickTrackingElement</h3>
+        <h3 id="clickTrackingElement">clickTrackingElement</h3>
 
         <p>Type: <code class="notranslate">HTMLElement</code> Default Value: undefined</p>
 
@@ -1310,7 +1323,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             best to leave this setting undefined and allow the plugin and IMA to manage ad interaction.
         </p>
 
-        <h3 id="debugOption">debug</h3>
+        <h3 id="debug">debug</h3>
 
         <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
 
@@ -1332,16 +1345,47 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <img class="bcls-image" alt="debug output in console" src="//learning-services-media.brightcove.com/doc-assets/player-development/advertising/ima3-plugin/console-debug.png" />
         </figure>
 
-        <h3>showVpaidControls</h3>
+        <h3 id="debugContribAds">debugContribAds</h3>
+
+        <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
+        <p>Used to enable debug logging for videojs-contrib-ads. For ID3 <code>oncue</code> requests to work, the ID3 TXXX frame received must contain JSON data with the following fields:</p>
+        <ul>
+            <li>Ad cue tag format:
+                <ul>
+                    <li>name: Required - Must be the string value <code>adCue</code></li>
+                    <li>id: Required. A unique value to identify the ad given that times are relative in live streams</li>
+                    <li>serverUrl: Optional. Override the serverUrl in the IMA3 config for this ad only</li>
+                    <li>duration: Optional - Appended as a breaklength parameter to the server url</li>
+                </ul>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <h3 id="disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</h3>
 
         <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
 
         <p>
-            Set to <code class="notranslate">true</code> to show custom Brightcove controls over VPAID ads. They may or may not work depending on the VPAID
-            implementation, so Brightcove suggests testing this feature with your ads before enabling it in production.
+            This property is part of the <code class="notranslate">ima3SdkSettings</code> object. It acts as a getter and setter to control whether to disable custom
+            playback on iOS 10+ browsers. Behavior is as follows:
         </p>
 
-        <h3>hardTimeouts</h3>
+        <ul>
+            <li>
+                When true, ads will play inline if the content video is inline, which enables skippable ads. However, the ad will stay inline and not support iOS's
+                native fullscreen.
+            </li>
+            <li>When false, ads will play in the same player as your content.</li>
+        </ul>
+
+        <p>See the <a href="#skippable-ads">iOS skippable ads</a> section of this document for an example of usage of this setting.</p>
+
+
+
+        <h3 id="hardTimeouts">hardTimeouts</h3>
 
         <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">true</code></p>
 
@@ -1359,7 +1403,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
         <p>Setting this option to <code class="notranslate">false</code> will result in content flash before ads.</p>
 
-        <h3>ima3SdkSettings</h3>
+        <h3 id="ima3SdkSettings">ima3SdkSettings</h3>
 
         <p>Type: <code class="notranslate">object</code> Default Value: undefined</p>
 
@@ -1384,25 +1428,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <pre class="line-numbers">
 <code class="language-javascript notranslate">window.google.ima.ImaSdkSettings.setNumRedirects(3);
 window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
-
-        <h3 id="disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</h3>
-
-        <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
-
-        <p>
-            This property is part of the <code class="notranslate">ima3SdkSettings</code> object. It acts as a getter and setter to control whether to disable custom
-            playback on iOS 10+ browsers. Behavior is as follows:
-        </p>
-
-        <ul>
-            <li>
-                When true, ads will play inline if the content video is inline, which enables skippable ads. However, the ad will stay inline and not support iOS's
-                native fullscreen.
-            </li>
-            <li>When false, ads will play in the same player as your content.</li>
-        </ul>
-
-        <p>See the <a href="#skippable-ads">iOS skippable ads</a> section of this document for an example of usage of this setting.</p>
 
         <h3 id="requestMode">requestMode</h3>
 
@@ -1476,7 +1501,7 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
             </li>
         </ul>
 
-        <h3>serverUrl</h3>
+        <h3 id="serverUrl">serverUrl</h3>
 
         <p>Type: <code class="notranslate">string</code> or <code class="notranslate">function</code></p>
 
@@ -1519,7 +1544,18 @@ myPlayer.ima3({
   debugContribAds: true
 });</code></pre>
 
-        <h3>timeout</h3>
+        <h3 id="showVpaidControls">showVpaidControls</h3>
+
+        <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
+
+        <p>
+            Set to <code class="notranslate">true</code> to show custom Brightcove controls over VPAID ads. They may or may not work depending on the VPAID
+            implementation, so Brightcove suggests testing this feature with your ads before enabling it in production.
+        </p>
+
+
+
+        <h3 id="timeout">timeout</h3>
 
         <p>Type: <code class="notranslate">number</code> Default Value: <code class="notranslate">4000</code></p>
 
@@ -1542,7 +1578,7 @@ myPlayer.ima3({
             precedence.
         </aside>
 
-        <h3>useMediaCuePoints</h3>
+        <h3 id="useMediaCuePoints">useMediaCuePoints</h3>
 
         <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
 
