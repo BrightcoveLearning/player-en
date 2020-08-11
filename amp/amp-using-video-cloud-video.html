@@ -210,4 +210,12 @@ parent: amp
   &lt;/div&gt;</code></pre>
         <p>You can add a single <code>style</code> tag, but it must include the <code>amp-custom</code> attribute.</p>
     </section>
+
+    <section class="bcls-section">
+        <h2 id="Error_suppression">Error suppression for bots</h2>
+        <p>When a bot that does not support AMP browses a page that contains the AMP video player, a failing video error is generated. This can hurt SEO ranking. You can use the <code>suppressNotSupportedError</code> option in the Brightcove Player's JSON configuration to stop this from occurring. Add the following to suppress these spurious errors:</p>
+        <pre class="line-numbers"><code class="language-json">"suppress_not_supported_error": true</code></pre>
+        <aside class="bcls-aside bcls-aside--warning">For this to function you must be on Brightcove Player version 6.38.4 or later.</aside>
+    </section>
+
 </article>
