@@ -554,6 +554,14 @@ myPlayer.ima3({
     </section>
 
     <section class="bcls-section">
+        <h2 id="Properties">Properties</h2>
+        <p>Only one property exists for the plugin:</p>
+        <ul>
+            <li>html5: This is the only ad tech that can be loaded when the plugin initializes.</li>
+        </ul>
+    </section>
+
+    <section class="bcls-section">
         <h2 id="Ad_macros_and_the_serverUrl">Ad macros and the serverUrl</h2>
 
         <p>
@@ -583,6 +591,27 @@ myPlayer.ima3({
                     <td>{player.id}</td>
                     <td>Player ID</td>
                 </tr>
+                <tr>
+                    <td>{player.}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>{player.width}</td>
+                    <td>The current player width</td>
+                </tr>
+                <tr>
+                    <td>{player.height}</td>
+                    <td>The current player height</td>
+                </tr>
+                <tr>
+                    <td>{player.duration}</td>
+                    <td>The duration of current video: Note that this returns 0 if video is not loaded. Be careful timing your ad request with this macro.</td>
+                </tr>
+                <tr>
+                    <td>{player.pageUrl}</td>
+                    <td>The page URL: Returns document referrer if in an iframe, otherwise window location.</td>
+                </tr>
+
                 <tr>
                     <td>{mediainfo.id}</td>
                     <td>Video ID</td>
@@ -789,8 +818,6 @@ myPlayer.ima3({
             When you need to interact with the IMA SDK you need to wait for the <code>ima3-ready</code> event to be dispatched before successful use of the SDK can
             take place. This includes the following two methods.
         </p>
-
-        <p>&nbsp;</p>
 
         <h3>player.ima3.adrequest( )</h3>
 
