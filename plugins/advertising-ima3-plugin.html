@@ -281,16 +281,21 @@ parent: Plugins
         <ul>
             <li>Ad cue tag format:
                 <ul>
-                    <li>name: Required - Must be the string value <code>adCue</code></li>
-                    <li>id: Required. A unique value to identify the ad given that times are relative in live streams</li>
-                    <li>serverUrl: Optional. Override the serverUrl in the IMA3 config for this ad only</li>
-                    <li>duration: Optional - Appended as a breaklength parameter to the server url</li>
+                    <li>name: Required - must be the string <code>adCue</code>></li>
+                    <li>id: Required - a unique value to identify the ad given that times are relative in live streams</li>
+                    <li>serverUrl: Optional - Override the <code>serverUrl</code> in the IMA3 config for this ad only</li>
+                    <li>duration: Optional - appended as a <code>breaklength</code> parameter to the server url</li>
                 </ul>
+                Example: <code>{"name": "adCue", "id": 123}</code>
             </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Ad cancellation tag format:
+                <ul>
+                    <li>name: Required - must be the string value <code>adCancel</code></li>
+                    <li>id: Required - a unique value to identify the ad cancellation given that times are relative in live streams</li>
+
+                </ul>
+                Example: <code>{"name": "adCancel", "id": 234}</code>
+            </li>
         </ul>
 
         <h3 id="disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</h3>
