@@ -588,53 +588,8 @@ myPlayer.ima3({
             </thead>
             <tbody class="bcls-table__body">
                 <tr>
-                    <td>{player.id}</td>
-                    <td>Player ID</td>
-                </tr>
-                <tr>
-                    <td>{player.}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>{player.width}</td>
-                    <td>The current player width</td>
-                </tr>
-                <tr>
-                    <td>{player.height}</td>
-                    <td>The current player height</td>
-                </tr>
-                <tr>
-                    <td>{player.duration}</td>
-                    <td>The duration of current video: Note that this returns 0 if video is not loaded. Be careful timing your ad request with this macro.</td>
-                </tr>
-                <tr>
-                    <td>{player.pageUrl}</td>
-                    <td>The page URL: Returns document referrer if in an iframe, otherwise window location.</td>
-                </tr>
-
-                <tr>
-                    <td>{mediainfo.id}</td>
-                    <td>Video ID</td>
-                </tr>
-                <tr>
-                    <td>{mediainfo.name}</td>
-                    <td>Video title</td>
-                </tr>
-                <tr>
-                    <td>{mediainfo.description}</td>
-                    <td>Short description (250 chars max)</td>
-                </tr>
-                <tr>
-                    <td>{mediainfo.tags}</td>
-                    <td>Tags (metadata) associated with the video</td>
-                </tr>
-                <tr>
-                    <td>{mediainfo.reference_id}</td>
-                    <td>Reference ID</td>
-                </tr>
-                <tr>
-                    <td>{mediainfo.duration}</td>
-                    <td>Duration of the video as reported by Video Cloud</td>
+                    <td>{document.referrer}</td>
+                    <td>Referring page URL</td>
                 </tr>
                 <tr>
                     <td>{mediainfo.ad_keys}</td>
@@ -645,30 +600,58 @@ myPlayer.ima3({
                     </td>
                 </tr>
                 <tr>
+                    <td>{mediainfo.description}</td>
+                    <td>Short description (250 chars max)</td>
+                </tr>
+                <tr>
+                    <td>{mediainfo.duration}</td>
+                    <td>Duration of the video as reported by Video Cloud</td>
+                </tr>
+                <tr>
+                    <td>{mediainfo.id}</td>
+                    <td>Video ID</td>
+                </tr>
+                <tr>
+                    <td>{mediainfo.name}</td>
+                    <td>Video title</td>
+                </tr>
+                <tr>
+                    <td>{mediainfo.reference_id}</td>
+                    <td>Reference ID</td>
+                </tr>
+                <tr>
+                    <td>{mediainfo.tags}</td>
+                    <td>Tags (metadata) associated with the video</td>
+                </tr>
+                <tr>
                     <td>{player.duration}</td>
                     <td>
-                        Duration of video as measured by player (possibly slightly different from <code class="notranslate">mediainfo.duration</code> and probably more
-                        accurate)
+                        Duration of video as measured by player (possibly slightly different from <code class="notranslate">mediainfo.duration</code> and probably more accurate). Note that this returns 0 if video is not loaded. Be careful timing your ad request with this macro.
                     </td>
                 </tr>
                 <tr>
-                    <td>{document.referrer}</td>
-                    <td>Referring page URL</td>
+                    <td>{player.height}</td>
+                    <td>The current player height</td>
                 </tr>
                 <tr>
-                    <td>{window.location.href}</td>
-                    <td>Current page URL</td>
+                    <td>{player.id}</td>
+                    <td>Player ID</td>
                 </tr>
-                <!-- Greg Smith wanted this removed on 6 Aug 2018
-	will leave here and remove if no complaints occur
-<tr>
-			<td>{player.url}</td>
-			<td>URL of the player</td>
-		</tr>
--->
                 <tr>
-                    <td>{timestamp}</td>
-                    <td>Current local time in milliseconds since 1/1/70</td>
+                    <td>{player.pageUrl}</td>
+                    <td>The page URL: Returns document referrer if in an iframe, otherwise window location.</td>
+                </tr>
+                <tr>
+                    <td>{player.width}</td>
+                    <td>The current player width</td>
+                </tr>
+                <tr>
+                    <td>{playlist.id}</td>
+                    <td>Pulled from playlistinfo object</td>
+                </tr>
+                <tr>
+                    <td>{playlist.name}</td>
+                    <td>Pulled from playlistinfo object</td>
                 </tr>
                 <tr>
                     <td>{random}</td>
@@ -676,6 +659,14 @@ myPlayer.ima3({
                         A random number 0-1 trillion (Used to create a unique impression. This prevents the ad from being cached in the browser and prevents impression
                         discrepancies.)
                     </td>
+                </tr>
+                <tr>
+                    <td>{timestamp}</td>
+                    <td>Current local time in milliseconds since 1/1/70</td>
+                </tr>
+                <tr>
+                    <td>{window.location.href}</td>
+                    <td>Current page URL</td>
                 </tr>
             </tbody>
         </table>
