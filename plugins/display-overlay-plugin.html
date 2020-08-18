@@ -410,12 +410,37 @@ parent: Plugins
       <li class="language-editable">
         <code>start</code>:
         <ul class="language-editable">
-          <li class="language-editable">The value can be a string or number.</li>
+          <li class="language-editable">The value can be a string or number. This defines when to show an overlay. </li>
           <li class="language-editable">
-            This defines when to show an overlay. If it is a number, the overlay will be displayed when that time (in seconds) in the video playback has passed.
+             If it is a number, the overlay will be displayed when that time (in seconds) in the video playback has passed.
+          </li>
+          <li class="language-editable">
             If the value is a string, it is interpreted as a&nbsp;Brightcove Player event name, like <code>play</code>, <code>pause</code> or
-            <code>ended</code>. A list of all player events is located in the
-            <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#toc125__anchor">Player API</a>.
+            <code>ended</code>. Here are some helpful links: 
+            <ul>
+              <li>
+                <a href="/coding-topics/player-events.html">Player events</a>
+              </li>
+              <li>
+                <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#toc125__anchor">Player API reference</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Here's an example that displays overlay text before the video starts playing:
+            <pre class="line-numbers">
+<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+  var myPlayer = this;
+  myPlayer.overlay({
+    content: '&lt;strong&gt;Default overlay content&lt;/strong&gt;',
+    overlays: [{
+      align: &quot;top&quot;,
+      content: 'This event-triggered overlay message appears before the video starts playing',
+      start: 'loadedmetadata',
+      end: 'play'
+    }]
+  });
+});</code></pre>
           </li>
         </ul>
       </li>
