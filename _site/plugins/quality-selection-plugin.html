@@ -1144,6 +1144,113 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </ol>
     </section>
     <section class="bcls-section">
+      <h2 id="Implement_using_Code">Implement using Code</h2>
+      <p>To implement the quality selection plugin using code, follow these steps:</p>
+      <ol class="bcls-tasklist-restart">
+        <li>
+          <p>
+            In an editor, open your HTML code where you want the Brightcove Player to reside.
+          </p>
+        </li>
+        <li>
+          <p>
+            In the <code>head</code> section, add the quality selection plugin default style sheet.
+          </p>
+          <pre>
+<code class="language-html">&lt;link href=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.css&quot; rel='stylesheet'&gt;</code></pre>
+        </li>
+        <li>
+          <p>
+            In the <code>body</code> section, add the advanced player embed code.
+          </p>
+          <aside class="bcls-aside bcls-aside--tip language-editable">To the player embed code, we've added an <code>id</code> attribute so that we can get a reference to the player in a later script.
+          </aside>
+          <pre class="line-numbers">
+<code class="language-html">&lt;video-js <span class="bcls-highlight">id=&quot;myPlayerID&quot;</span>
+  data-account=&quot;1752604059001&quot;
+  data-player=&quot;default&quot;
+  data-embed=&quot;default&quot;
+  controls=&quot;&quot;
+  data-video-id=&quot;5842800655001&quot;
+  data-playlist-id=&quot;&quot;
+  data-application-id=&quot;&quot;
+  width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+&lt;script src=&quot;https://players.brightcove.net/1752604059001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+        </li>
+        <li>
+          <p>
+            After your player embed code, add the quality selection plugin script file.
+          </p>
+          <pre>
+<code class="language-html">&lt;script src=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+        </li>
+        <li>
+          <p>
+            Below the plugin script, add a script that does the following:
+          </p>
+          <ul>
+            <li>
+              Get a reference to the Brightcove Player.
+            </li>
+            <li>
+              Register the quality selection plugin with the player.
+            </li>
+            <li>
+              Specify any plugin options that you want to use. In this example, we are setting the default quality selection to <code>720p</code>.
+            </li>
+          </ul>
+          <pre class="line-numbers">
+<code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+      videojs.getPlayer('myPlayerID').ready(function() {
+        var myPlayer = this;
+        myPlayer.qualityMenu({
+          defaultResolution: '720p'
+        });
+      });
+    &lt;/script&gt;</code></pre>
+        </li>
+      </ol>
+      <details>
+          <summary><h2 id="Complete_code_example">Complete code example</h2></summary>
+          <p>Here is a complete code example for using the quality selection plugin, setting the initial default resolution:</p>
+          <pre class="line-numbers">
+<code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+      &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+      &lt;title&gt;Quality Selection&lt;/title&gt;
+      &lt;link href=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.css&quot; rel='stylesheet'&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+    &lt;h1&gt;Quality Selection&lt;/h1&gt;
+
+    &lt;video-js id=&quot;myPlayerID&quot;
+      data-account=&quot;1752604059001&quot;
+      data-player=&quot;default&quot;
+      data-embed=&quot;default&quot;
+      controls=&quot;&quot;
+      data-video-id=&quot;5842800655001&quot;
+      data-playlist-id=&quot;&quot;
+      data-application-id=&quot;&quot;
+      width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+    &lt;script src=&quot;https://players.brightcove.net/1752604059001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script src=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      videojs.getPlayer('myPlayerID').ready(function() {
+        var myPlayer = this;
+        myPlayer.qualityMenu({
+          defaultResolution: '720p'
+        });
+      });
+    &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </details>
+    </section>
+    <section class="bcls-section">
       <h2 id="Configuration_options">Configuration options</h2>
       <p>The following options are available to configure the plugin if you are implementing the plugin using code:</p>
       <ul>
