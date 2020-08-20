@@ -147,12 +147,15 @@ parent: Plugins
     &lt;head&gt;
       &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
       &lt;title&gt;Quality Selection&lt;/title&gt;
+      
+      &lt;!-- CSS for the quality selection plugin --&gt;
       &lt;link href=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.css&quot; rel='stylesheet'&gt;
     &lt;/head&gt;
 
     &lt;body&gt;
     &lt;h1&gt;Quality Selection&lt;/h1&gt;
 
+    &lt;!-- Brightcove Player embed code --&gt;
     &lt;video-js id=&quot;myPlayerID&quot;
       data-account=&quot;1752604059001&quot;
       data-player=&quot;default&quot;
@@ -164,11 +167,15 @@ parent: Plugins
       width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
     &lt;script src=&quot;https://players.brightcove.net/1752604059001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
 
+    &lt;!-- Script for the quality selection plugin --&gt;
     &lt;script src=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js&quot;&gt;&lt;/script&gt;
 
     &lt;script type=&quot;text/javascript&quot;&gt;
+      // When the player is ready, get a reference to it
       videojs.getPlayer('myPlayerID').ready(function() {
         var myPlayer = this;
+
+        // Register the quality selection plugin with options
         myPlayer.qualityMenu({
           defaultResolution: '720p'
         });

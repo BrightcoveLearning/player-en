@@ -1219,12 +1219,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     &lt;head&gt;
       &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
       &lt;title&gt;Quality Selection&lt;/title&gt;
+      
+      &lt;!-- CSS for the quality selection plugin --&gt;
       &lt;link href=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.css&quot; rel='stylesheet'&gt;
     &lt;/head&gt;
 
     &lt;body&gt;
     &lt;h1&gt;Quality Selection&lt;/h1&gt;
 
+    &lt;!-- Brightcove Player embed code --&gt;
     &lt;video-js id=&quot;myPlayerID&quot;
       data-account=&quot;1752604059001&quot;
       data-player=&quot;default&quot;
@@ -1236,11 +1239,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
     &lt;script src=&quot;https://players.brightcove.net/1752604059001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
 
+    &lt;!-- Script for the quality selection plugin --&gt;
     &lt;script src=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js&quot;&gt;&lt;/script&gt;
 
     &lt;script type=&quot;text/javascript&quot;&gt;
+      // When the player is ready, get a reference to it
       videojs.getPlayer('myPlayerID').ready(function() {
         var myPlayer = this;
+
+        // Register the quality selection plugin with options
         myPlayer.qualityMenu({
           defaultResolution: '720p'
         });
@@ -1413,7 +1420,7 @@ div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.v
 
 <hr>
 <div class="last-updated">
-  Page last updated on 20 Mar 2020
+  Page last updated on 20 Aug 2020
 </div>
 
 
