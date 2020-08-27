@@ -2,20 +2,20 @@
 title: Assigning a Video to the Player Programmatically
 parent: 'Publishing Videos & Players'
 ---
+<h1>Assigning a Video to the Player Programmatically</h1>
 <article class="bcls-article">
-  <h1>Assigning a Video to the Player Programmatically</h1>
   <summary>In this topic, you will learn how to dynamically change the video in the player. To do this you will programmatically change the player instances. This document shows various approaches to changing the video in the player.
     </p>
     <aside class="bcls-aside bcls-aside--information">The content in this document applies to Video Cloud only.</aside>
   </summary>
-  <section id="urldynamicvideo" class="bcls-section">
-    <h2>Set video ID via URL</h2>
+  <section class="bcls-section">
+    <h2 id="urldynamicvideo">Set video ID via URL</h2>
     <p>It is possible to use the URL implementation and dynamically change the video that is played. To do this you use a query string at the end of the URL in the form <code>?videoId=<em>YOUR_VIDEO_ID</em></code> as shown in the following example.</p>
     <pre class="line-numbers">
 <code class="language-html">https://players.brightcove.net/..._default/index.html?videoId=2114345471001</code></pre>
   </section>
-  <section id="refids" class="bcls-section">
-    <h2>Using reference IDs</h2>
+  <section class="bcls-section">
+    <h2 id="refids">Using reference IDs</h2>
     <p>In all examples in this document where a video ID is used a <strong>reference ID</strong> can be substituted. If you use the reference ID you must prepend that identifier with <strong>ref:</strong>. For example, the first URL uses the video ID, whereas the second uses the reference ID.</p>
     <pre class="line-numbers">
 <code class="language-html">https://players.brightcove.net/..._default/index.html?videoId=2114345471001
@@ -35,8 +35,8 @@ https://players.brightcove.net/..._default/index.html?videoId=ref:1234abcd</code
 &lt;script src="https://players.brightcove.net/1507807800001/dadff0fb-5635-4eac-a1b8-ab8c37a72be9_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
     <aside class="bcls-aside bcls-aside--tip">Note: When the player JavaScript executes, it reads the video ID from the <code>data-video-id</code> attribute. However, it does so only at startup. Changing the value with, for example, JavaScript's <code>setAttribute()</code> method, does not cause the player to load the video. To change the video after the player has loaded, you should use the JavaScript method described below.</aside>
   </section>
-  <section id="setvideousingjavascript" class="bcls-section">
-    <h2>Set video using JavaScript</h2>
+  <section class="bcls-section">
+    <h2 id="setvideousingjavascript">Set video using JavaScript</h2>
     <p>In many cases, you want user interactions to control which video is played. To accomplish this, you can use JavaScript and the player catalog's <code>getVideo()</code> and <code>load()</code> methods to dynamically retrieve and play the desired video.</p>
     <ul>
       <li>Lines 1-8: Advanced (In-page embed) code with no value for the <code>data-video-id</code> attribute.</li>
@@ -65,8 +65,8 @@ https://players.brightcove.net/..._default/index.html?videoId=ref:1234abcd</code
     });
   &lt;/script&gt;</code></pre>
   </section>
-  <section id="setvideoiniframe" class="bcls-section">
-    <h2>Set video in iframe</h2>
+  <section class="bcls-section">
+    <h2 id="setvideoiniframe">Set video in iframe</h2>
     <p>To specify the video to a player hosted in an iframe, you can pass the video ID (or reference ID as mentioned earlier) via a URL's query string. For example:</p>
     <pre class="line-numbers">
 <code class="language-html">  &lt;iframe src='https://players.brightcove.net/.../index.html<span class="bcls-highlight">?videoId=2114345471001'</span>
