@@ -1126,6 +1126,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-html">&lt;video-js data-delivery-config-id=&quot;abcdef&quot;&gt;</code></pre>
 <br>
     <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
+
+    <h3>Using the Catalog API</h3>
+    <p>Using Javascript, you can fetch the delivery rule by its <code>deliveryConfigId</code> using the Catalog API:</p>
+<pre class="line-numbers"><code class="language-javascript">var player = videojs.getPlayer('myPlayerId');
+player.ready(function () {
+  var catalogParams = {
+    deliveryConfigId: <span class="bcls-input">delivery_rules_id</span>,
+    type: 'video',
+    id: <span class="bcls-input">video_id</span>,
+  };
+
+  player.catalog.get(catalogParams, function (error, video) {
+    if (error) {
+      throw new Error(error);
+    }
+
+    player.catalog.load(video);
+  });
+});</code></pre>
   </section>
 
 </article>
