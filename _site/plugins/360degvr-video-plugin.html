@@ -94,11 +94,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         
       
         
-          <option value="https://integrations.support.brightcove.com">Integration / CMS Connectors</option>
+          <option value="https://integrations.support.brightcove.com">Integrations and CMS Connectors</option>
         
       
         
-          <option value="https://general.support.brightcove.com">Video Cloud General</option>
+          <option value="https://general.support.brightcove.com">Video Cloud General Information</option>
         
       
         
@@ -1106,7 +1106,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><strong>Gyroscope integration on mobile devices</strong>: The perspective changes as you rotate your phone.</li>
       <li><strong>Cardboard/VR mode support</strong>: On devices that support it, the Cardboard viewer icon will appear in the control bar. When pressed, the projection will be adjusted to work with Cardboard-style VR goggles.</li>
       <li><strong>Video Cloud Media 360° Setting</strong>: If you are using Video Cloud videos, the plugin respects Video Cloud’s setting for 360° on Video Cloud media. If the value is not present it will play the video as a normal video. You do not have to ensure that only 360° videos are played on players using the 360°/VR Plugin.</li>
-      <li><strong>Non-Video Cloud Media</strong>: If you are <em>not using media served from Video Cloud</em>, you can still use the plugin. You will need to call the <code class="notranslate">vr </code> plugin passing an object with a <code class="notranslate">projection </code> value set as follows:
+      <li><strong>Non-Video Cloud Media</strong>: If you are <em>not using media served from Video Cloud</em>, you can still use the plugin. You will need to call the <code>vr</code> plugin passing an object with a <code>projection</code> value set as follows:
         <pre class="line-numbers">
 <code class="notranslate language-javascript">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
@@ -1114,7 +1114,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     myPlayer.vr({projection: '360'});
   });
 &lt;/script&gt;</code></pre>
-        <aside class="bcls-aside bcls-aside--tip">Setting the <code class="notranslate">projection </code> property to <code class="notranslate">360</code>, <code class="notranslate">equirectangular </code> or <code class="notranslate">Sphere </code> are all logically equivalent.</aside>
+        <aside class="bcls-aside bcls-aside--tip">Setting the <code>projection</code> property to <code>360</code>, <code>equirectangular</code> or <code>Sphere</code> are all logically equivalent.</aside>
         <p>Of course, the code above assumes you have included the JavaScript and CSS files for the plugin, as described later in this document.</p>
       </li>
     </ul>
@@ -1135,7 +1135,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ul>
     <aside class="bcls-aside bcls-aside--information">
       <super>* </super>
-      When using the plugin on Safari, if you are using a non-Video Cloud video (a video NOT ingested via Video Cloud), note that you need to set the <code class="notranslate">crossorigin</code> configuration property to <code class="notranslate">anonymous </code>.</aside>
+      When using the plugin on Safari, if you are using a non-Video Cloud video (a video NOT ingested via Video Cloud), note that you need to set the <code>crossorigin</code> configuration property to <code>anonymous</code>.</aside>
     <p>The plugin does <strong>NOT</strong> work with Internet Explorer.</p>
     <h3>Limitations</h3>
     <p>You should be aware of the following when using the 360°/VR Plugin:</p>
@@ -1154,10 +1154,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Ingest_the_360_video">Ingest the 360° video</h2>
     <aside class="bcls-aside bcls-aside--information">Note: For more information on creating 360° videos see the <a href="https://studio.support.brightcove.com/general/working-360deg-videos.html">Working with 360° Videos</a> document.</aside>
     <p>Once you have the 360° video recorded, you need to ingest it into Video Cloud. A little understanding of how 360° video works will help you understand some reasons for the Ingest Profile to choose. The 360° video is filmed to be projected on the interior of a sphere. This means that the visible area of the video in the player is only a fraction of the entire video. The following screenshot gives you a rough idea of this concept. The area inside the red rectangle is what is visible in the player, but only a small part of the entire video.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="show part of video" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/360video/show-display.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="show part of video" src="/assets/images/plugins/360-video/show-display.png" /></figure>
     <p>Since only a small part of the video will be in the player at any one time, you want a very high quality rendition to be playing, with no chance of stepping down to a lower quality rendition. In essence, you are "zooming in" on part of the video and a poor quality rendition would yield a very poor quality viewing experience. For this reason, during the ingestion process you should use an Ingest Profile of high-quality, and few renditions. Brightcove recommends using the <strong>single-bitrate-high (2 renditions)</strong> Ingest Profile for 360° videos. This profile includes a high quality MP4 rendition, which is preferred over HLS renditions when using the 360°/VR Plugin.</p>
     <p>Be sure when the video is ingested it is marked for 360° projection, as shown here in the video's information section:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="show part of video" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/360video/studio-mark-video-360.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="show part of video" src="/assets/images/plugins/360-video/studio-mark-video-360.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="Implement_using_Players_module">Implement using Players module</h2>
@@ -1184,7 +1184,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Click <strong>Save</strong>.</li>
       <li>Click <strong>Styling</strong> in the left navigation menu.</li>
       <li>If you feel it will be a better viewing experience, you can disable the title and description dock. To do this, uncheck the <strong>Show title and description</strong> checkbox.
-        <figure class="bcls-figure"><img class="bcls-image" alt="disable dock" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/360video/disabled.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="disable dock" src="/assets/images/plugins/360-video/disabled.png" /></figure>
       </li>
       <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
       <li>To close the open dialog, click <strong>Close</strong>.</li>
@@ -1193,18 +1193,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
     <h3>forceCardboard</h3>
-    <p>Type: <code class="notranslate">boolean </code> Default Value: false</p>
+    <p>Type: <code>boolean</code> Default Value: false</p>
     <p>Force the cardboard button to display on all devices.</p>
     <h3>motionControls</h3>
-    <p>Type: <code class="notranslate">boolean </code> Default Value: true on iOS and Android</p>
+    <p>Type: <code>boolean</code> Default Value: true on iOS and Android</p>
     <p>Determines whether motion/gyro controls should be enabled.</p>
     <h3>projection</h3>
-    <p>Type: <code class="notranslate">string </code> Default Value: auto</p>
+    <p>Type: <code>string</code> Default Value: auto</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
           <th width="65%">Video Type</th>
-          <th>Value for <code class="notranslate">projection </code> Option</th>
+          <th>Value for <code>projection</code> Option</th>
         </tr>
       </thead>
       <tbody class="bcls-table__body">
@@ -1221,7 +1221,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <td><strong>None</strong></td>
         </tr>
         <tr>
-          <td>If you want to check if the current video is a 360° video via <code class="notranslate">player.mediainfo.projection </code></td>
+          <td>If you want to check if the current video is a 360° video via <code>player.mediainfo.projection</code></td>
           <td><strong>AUTO</strong></td>
         </tr>
         <tr>
@@ -1235,10 +1235,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </tbody>
     </table>
     <h3>player.mediainfo.projection</h3>
-    <p>Type: <code class="notranslate">string </code> Default Value: undefined</p>
+    <p>Type: <code>string</code> Default Value: undefined</p>
     <p>This value should be set on a source-by-source basis to turn 360° videos on an off depending upon the video.</p>
     <h3>debug</h3>
-    <p>Type: <code class="notranslate">boolean </code> Default Value: false</p>
+    <p>Type: <code>boolean</code> Default Value: false</p>
     <p>Enable debug logging for this plugin.</p>
   </section>
   <section class="bcls-section">
@@ -1252,15 +1252,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>In Safari 12.x the gyroscope integration for mobile devices is turned off by default. The <strong>Motion &amp; Orientation Access</strong> settings must be changed in order for the gyro feature to function.</li>
       <li>Although the 360°/VR Plugin may work with live streams, it is not officially supported.</li>
       <li>The latest 360°/VR Plugin is compatible with Brightcove Player version 6.17.0 and later.</li>
+      <li>Because the 360°/VR Plugin uses an MP4 rendition, it does <strong>not</strong> support multiple audio tracks (because browsers do not support multiple audio tracks with MP4s).</li>
       <li>The 360°/VR Plugin does not function with Internet Explorer.</li>
       <li>The 360°/VR Plugin does not support DRM.</li>
       <li>Stereoscopic/stacked videos are not supported by the plugin.</li>
       <li>On mobile devices only horizontal swiping works (this changes the view horizontally), but swiping the screen vertically does not do anything. The vertical swiping does work&nbsp;for&nbsp;desktop browsers.</li>
       <li>The Standard (iframe) implementation of Brightcove Player will NOT change orientation.</li>
-      <li>On iOS, for the 360° plugin to render videos correctly the <strong>Preload Video Before Playback</strong> setting must be set to <strong>Yes</strong> in the player:
-        <figure class="bcls-figure"><img class="bcls-image" alt="ios preload" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/360video/ios-preload.png" /></figure>
+      <li>On iOS, for the 360° plugin to render videos correctly the <strong>Preload Video Before Playback</strong> setting must be set to <strong>Preload Video (fastest)</strong> in the player:
+        <figure class="bcls-figure"><img class="bcls-image" alt="ios preload" src="/assets/images/plugins/360-video/preload-options.png" /></figure>
       </li>
-      <li>On iOS, the fullscreen mode button is disabled since the 360°/VR Plugin does not work with the iOS native player. Because of this, it is recommended that you set the <code class="notranslate">playsinline</code> attribute for non-fullscreen video playback, as shown in the <a href="/playback/ios-and-brightcove-player.html#Playing_a_video_non_fullscreen">iOS and Brightcove Player</a> document.</li>
+      <li>On iOS, the fullscreen mode button is disabled since the 360°/VR Plugin does not work with the iOS native player. Because of this, it is recommended that you set the <code>playsinline</code> attribute for non-fullscreen video playback, as shown in the <a href="/playback/ios-and-brightcove-player.html#Playing_a_video_non_fullscreen">iOS and Brightcove Player</a> document.</li>
     </ul>
   </section>
   <section class="bcls-section">
@@ -1284,7 +1285,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 20 Mar 2020
+  Page last updated on 25 Sep 2020
 </div>
 
 
