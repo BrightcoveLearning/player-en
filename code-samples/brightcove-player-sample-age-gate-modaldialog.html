@@ -132,7 +132,7 @@ parent: Code Samples
     <h3>Configure the ModalDialog</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Configure the ModalDialog +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Configure the ModalDialog +++</code></pre>
     <p>Create an options object and set properties for the <a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html">ModalDialog class</a>. For details about this object, see the <a href="/general/implementing-modaldialog.html">Implementing the ModalDialog</a> document. Here we do the following:</p>
     <ul>
       <li>Define the age gate text</li>
@@ -144,14 +144,14 @@ parent: Code Samples
     <h3>Instantiate and open the ModalDialog</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Instantiate and open the ModalDialog +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Instantiate and open the ModalDialog +++</code></pre>
     <p>Instantiate the dialog with our age gate text, add it to the player and open the dialog.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Listen for the click event on the ModalDialog</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Listen for the click event on the ModalDialog +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Listen for the click event on the ModalDialog +++</code></pre>
     <p>To the ModalDialog, add an event listener for the <code translate="No">click</code> event. When a user selects the age gate text, close the dialog and start video playback.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -165,13 +165,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

@@ -1097,7 +1097,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>By default, the Brightcove Player uses source-first selection when searching for a source/tech combination to play. This means that the player will try to play a video with every tech before moving on to the next video source.</p>
     <p>Even though the Brightcove Player only uses the Flash tech in browsers that do not support HTML5 media, you may choose to turn off the Flash tech. In this case, the player would never use Flash to deliver your video content, and your video would be delivered with progressive download of an MP4 rendition. To do this, use the following:</p>
     <pre class="line-numbers">
-<code class="language-javascript">{"techOrder": ["html5"]}</code></pre>
+<code class="language-javascript" translate="No">{"techOrder": ["html5"]}</code></pre>
     <p>For details about technology ordering, see the <a href="https://github.com/videojs/video.js/blob/master/docs/guides/tech.md">Video.js Playback Technology</a> notes.</p>
   </section>
   <section class="bcls-section">
@@ -1117,7 +1117,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <h3>Source type</h3>
       <p>First, let's see which rendition source type is currently being used. With your video in the Chrome browser, open Developer Tools to view the console messages. In the console's command prompt, enter the following:</p>
       <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayers().video_1.currentSrc()</code></pre>
+<code class="language-javascript" translate="No">videojs.getPlayers().video_1.currentSrc()</code></pre>
       <aside class="bcls-aside bcls-aside--information">Note: The <code translate="No">video_1</code> section of the entry represents the ID of the player in this case. If you are experimenting and have a player with an ID, that ID will replace <code translate="No">video_1</code>.</aside>
       <p>You should see that the current source file has an extension value of <strong>m3u8</strong>.</p>
       <figure class="bcls-figure"><img class="bcls-image" alt="tech name" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/tech/hls-rendition.png" /></figure>
@@ -1125,7 +1125,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <h3>vjs-tech class</h3>
       <p>Next, let's verify that HTML5 is being used to play the hls rendition. In the console's command prompt, enter the following to return the first player element which uses the class named <code translate="No">vjs-tech</code>:</p>
       <pre class="line-numbers">
-<code class="language-javascript">document.getElementsByClassName("vjs-tech")[0]</code></pre>
+<code class="language-javascript" translate="No">document.getElementsByClassName("vjs-tech")[0]</code></pre>
       <figure class="bcls-figure"><img class="bcls-image" alt="tech name" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/tech/tech-details.png" /></figure>
       <p>Here, you can see that the HTML5 <code translate="No">video</code> element is being used.</p>
     </div>
@@ -1155,7 +1155,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 20 Mar 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

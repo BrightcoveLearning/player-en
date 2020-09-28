@@ -95,27 +95,27 @@ parent: Code Samples
     <ol class="bcls-tasklist">
       <li>A <code translate="No">&lt;div&gt;</code> element with an <code translate="No">id</code> attribute assigned to a value of your choice. The JavaScript code will create your Brightcove Player within this <code translate="No">&lt;div&gt;</code> element.
         <pre class="line-numbers">
-<code class="language-html">&lt;div id="adPlayerDiv"&gt;&lt;/div&gt;</code></pre>
+<code class="language-html" translate="No">&lt;div id="adPlayerDiv"&gt;&lt;/div&gt;</code></pre>
       </li>
       <li>
         <p>The JavaScript file associated with your Brightcove Player. It should look similar to this:</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;script src="https://players.brightcove.net/<span class="bcls-input">your account id</span>/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+<code class="language-html" translate="No">&lt;script src="https://players.brightcove.net/<span class="bcls-input">your account id</span>/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
       </li>
       <li>
         <p>The JavaScript and CSS files for the IMA3 plugin. This is for ad integration with Google's IMA3 HTML5 SDK.</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;link href="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet"/&gt;
+<code class="language-html" translate="No">&lt;link href="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet"/&gt;
 &lt;script src="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"&gt;&lt;/script&gt;</code></pre>
         <aside class="bcls-aside bcls-aside--tip">You can get a little faster load time if you include these files in your player configuration. For details, see the <a href="#Load_time_optimization">Load-time optimization</a> section.</aside>
       </li>
       <li>
         <p>The helper library named <strong>adonly.js</strong>. You can use this file unmodified since it is hosted from Brightcove's player origin and served over CDN. If you choose, you can use this JavaScript code as a guide to create your own loader script and host it on your own server. This file can also be included in your player configuration.</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;script src="https://players.brightcove.net/3723496277001/files/adonly.js"&gt;&lt;/script&gt;</code></pre>
+<code class="language-html" translate="No">&lt;script src="https://players.brightcove.net/3723496277001/files/adonly.js"&gt;&lt;/script&gt;</code></pre>
         <p>A minified, CDN-hosted version is also available if you choose to include it directly within your page.</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;script src="https://players.brightcove.net/3723496277001/files/adonly.min.js"&gt;&lt;/script&gt;</code></pre>
+<code class="language-html" translate="No">&lt;script src="https://players.brightcove.net/3723496277001/files/adonly.min.js"&gt;&lt;/script&gt;</code></pre>
       </li>
     </ol>
     <p>&nbsp;</p>
@@ -184,7 +184,7 @@ parent: Code Samples
           <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
 
           <pre class="line-numbers">
-                  <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+                  <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
                     var myPlayer = this;
                     ...
                   });</code></pre>
@@ -192,7 +192,7 @@ parent: Code Samples
           <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
 
           <pre class="line-numbers">
-                  <code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+                  <code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
                     var myPlayer = this;
                     ...
                   });</code></pre>

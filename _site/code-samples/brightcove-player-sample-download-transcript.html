@@ -1085,7 +1085,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>The video in the CodePen below uses the following WebVTT file to define captions:</p>
     <pre class="line-numbers">
-<code class="language-javascript">WEBVTT
+<code class="language-javascript" translate="No">WEBVTT
 
 00:00.000 --&gt; 00:05.000 align:middle line:90%
 The waves rhythmically pound against the rocks.
@@ -1208,35 +1208,35 @@ Remember, it never rains on the Oregon coast!</code></pre>
     <h3>Define the regular expression</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Define the regular expression ###</code></pre>
+<code class="language-javascript" translate="No">// ### Define the regular expression ###</code></pre>
     <p>You need to create a regular expression to remove any unwanted formatting from the WebVTT file. In this case, the regex removes lines that start with the standard way to define times in a WEBVTT file. If you are not a regex expert, you might find <a href="https://regexr.com/">https://regexr.com/</a> of help.</p>
     <!-- UPDATE task 1 -->
     
     <h3>Retrieve URL and get file</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Retrieve the URL for the text track, which is in this case a WebVTT caption file ###</code></pre>
+<code class="language-javascript" translate="No">// ### Retrieve the URL for the text track, which is in this case a WebVTT caption file ###</code></pre>
     <p>You must wait for the <code translate="No">loadstart</code> event to access the <code translate="No">mediainfo</code> property, which contains the text track information. Note that if the page is served from a secure (<strong>https</strong>) page, you must alter the URL to the file to also use a secure connection. Once you have the correct URL, you then call the <code translate="No">getFile()</code> method that actually returns the file. Finally, you use the JavaScript <code translate="No">replace()</code> method in conjunction with the regular expression to reformat the text.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Build a button and place it in the controlbar</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Create button and place in player ###</code></pre>
+<code class="language-javascript" translate="No">// ### Create button and place in player ###</code></pre>
     <p>An HTML <strong>button</strong> element is built and placed in the controlbar. Note that the <code translate="No">click</code> event listener is also dynamically added. In this case, the button is place in the <code translate="No">spacer</code> region of the controlbar. For further details on the <code translate="No">spacer</code>, see the <a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a> document.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Get the file based on URL provided</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Function that gets the actual file based on URL ###</code></pre>
+<code class="language-javascript" translate="No">// ### Function that gets the actual file based on URL ###</code></pre>
     <p>This function uses AJAX, via an <code translate="No">XMLHttpRequest</code> object, to retrieve the file. Asynchronous behavior dictates the use of a callback function.</p>
     <!-- UPDATE task 5 -->
     
     <h3>Download the modified file to the user computer</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### download function used for graceful browser download ###</code></pre>
+<code class="language-javascript" translate="No">// ### download function used for graceful browser download ###</code></pre>
     <p>As mentioned earlier in this document, the default browsers' behaviors as most likely NOT what you wish to happen, that is a new tab or window being opened to display the file. This JavaScript tool forces a file download of the text file.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1250,12 +1250,12 @@ Remember, it never rains on the Oregon coast!</code></pre>
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 var myPlayer = this;
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 var myPlayer = this;
 ...
 });</code></pre>
@@ -1283,7 +1283,7 @@ var myPlayer = this;
 
 <hr>
 <div class="last-updated">
-  Page last updated on 23 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

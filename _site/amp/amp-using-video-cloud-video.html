@@ -1109,10 +1109,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>As with all Brightcove Player plugins, you need the plugin's name and URL to the plugin's JavaScript, which are provided here (no CSS file is necessary for this plugin's use):</p>
         <h4>Plugin name</h4>
         <pre class="line-numbers">
-  <code class="language-html">ampSupport</code></pre>
+  <code class="language-html" translate="No">ampSupport</code></pre>
         <h4>JavaScript URL</h4>
         <pre class="line-numbers">
-  <code class="language-html">//players.brightcove.net/videojs-amp-support/1/videojs-amp-support.js</code></pre>
+  <code class="language-html" translate="No">//players.brightcove.net/videojs-amp-support/1/videojs-amp-support.js</code></pre>
         <p>To implement the AMP Plugin you will add the function name of the plugin and the URL to the plugin's JavaScript:</p>
         <ol class="bcls-tasklist">
             <li>In Studio, open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
@@ -1125,7 +1125,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <li>For the <strong>Plugin Name</strong> enter <code translate="No">ampSupport</code>.</li>
             <li>For the <strong>JavaScript</strong> URL, enter:
                 <pre>
-  <code class="language-json">//players.brightcove.net/videojs-amp-support/1/videojs-amp-support.js</code></pre>
+  <code class="language-json" translate="No">//players.brightcove.net/videojs-amp-support/1/videojs-amp-support.js</code></pre>
             </li>
             <li>You do not have to enter any CSS or options for this plugin.
                 <figure class="bcls-figure"><img class="bcls-image" alt="Install plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/AMP/studio-install-plugin.png" /></figure>
@@ -1154,7 +1154,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <li>Line 35: The <code translate="No">width</code> and <code translate="No">height</code> attributes determine the aspect ratio of the player embedded in responsive layouts.</li>
         </ul>
         <pre class="line-numbers" data-start="1">
-  <code class="language-html">&lt;!--
+  <code class="language-html" translate="No">&lt;!--
     ## Introduction
 
     The `amp-brightcove` component allows embedding a Brightcove
@@ -1216,7 +1216,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <li>Add the <code translate="No">dock</code> attribute to the <code translate="No">&lt;amp-brightcove&gt;</code> tag, as shown in line 13.</li>
         </ol>
         <pre class="line-numbers" data-start="1">
-  <code class="language-html">...
+  <code class="language-html" translate="No">...
       <span class="bcls-highlight">&lt;script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"&gt;&lt;/script&gt;</span>
   &lt;/head&gt;
   &lt;body&gt;
@@ -1252,10 +1252,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>As mentioned earlier, AMP is very strict in what can be added to a valid AMP page. For example, you CANNOT add an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin. To reiterate what was said in the previous paragraph, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
         <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code translate="No">{pageVariable.adId}</code>, you must alter the player's configuration. You can use a custom parameter (as described just above) like:</p>
         <pre class="line-numbers">
-  <code class="language-html">data-param-ad-id="preonlybumper"</code></pre>
-        <p>This does not make the value automatically available to the ad macro <code translate="No">{pageVariable.adId}</code>. To make the <code translate="No">ad-id/adId</code> property available to the ad URL, you must use Brightcove Player's <a href="/general/player-configuration-guide.html#query_string_to_window">query_string_to_window</a> configuration option. This option controls the population of the global namespace (window) variables from query string parameters. So to make the <code class="language-html">data-param-ad-id="..."</code> available to the plugin you must add the following to the player configuration using the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> (also see note below the code):</p>
+  <code class="language-html" translate="No">data-param-ad-id="preonlybumper"</code></pre>
+        <p>This does not make the value automatically available to the ad macro <code translate="No">{pageVariable.adId}</code>. To make the <code translate="No">ad-id/adId</code> property available to the ad URL, you must use Brightcove Player's <a href="/general/player-configuration-guide.html#query_string_to_window">query_string_to_window</a> configuration option. This option controls the population of the global namespace (window) variables from query string parameters. So to make the <code class="language-html" translate="No">data-param-ad-id="..."</code> available to the plugin you must add the following to the player configuration using the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> (also see note below the code):</p>
         <pre class="line-numbers">
-  <code class="language-bash">  "query_string_to_window": {
+  <code class="language-bash" translate="No">  "query_string_to_window": {
       "globals": [
         "adId"
       ]
@@ -1264,7 +1264,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <h3>Styling the player</h3>
         <p>If you wish to style the player you must use special syntax to do so. For instance, if you want to set the size of the player, you would create a <code translate="No">style</code> block as shown and surround the player with a <code translate="No">div</code>, as shown here:</p>
         <pre class="line-numbers">
-  <code class="language-html">&lt;style <span class="bcls-highlight">amp-custom</span>&gt;
+  <code class="language-html" translate="No">&lt;style <span class="bcls-highlight">amp-custom</span>&gt;
     .player-container {
       width: 640px;
       height: 360px;
@@ -1288,7 +1288,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <section class="bcls-section">
         <h2 id="Error_suppression">Error suppression for bots</h2>
         <p>When a bot that does not support AMP browses a page that contains the AMP video player, a failing video error is generated. This can hurt SEO ranking. You can use the <code translate="No">suppressNotSupportedError</code> option in the Brightcove Player's JSON configuration to stop this from occurring. Add the following to suppress these spurious errors:</p>
-        <pre class="line-numbers"><code class="language-json">"suppress_not_supported_error": true</code></pre>
+        <pre class="line-numbers"><code class="language-json" translate="No">"suppress_not_supported_error": true</code></pre>
         <aside class="bcls-aside bcls-aside--warning">For this to function you must be on Brightcove Player version 6.38.4 or later.</aside>
     </section>
 
@@ -1308,7 +1308,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 05 Sep 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

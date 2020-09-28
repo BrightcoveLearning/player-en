@@ -1142,7 +1142,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Line 42: Play the video.</li>
     </ul>
     <pre class="line-numbers" data-start="17">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
 data-account="1507807800001"
 data-player="6aac508a-741e-41a2-bc7a-5805644cf089"
 data-embed="default"
@@ -1183,7 +1183,7 @@ class="video-js" controls&gt;&lt;/video-js&gt;
       <li>Line 96: Play the video.</li>
     </ul>
     <pre class="line-numbers" data-start="69">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-account="1507807800001"
   data-player="3c59134e-89e8-4864-87e2-3cc871f8c361"
   data-embed="default"
@@ -1242,7 +1242,7 @@ class="video-js" controls&gt;&lt;/video-js&gt;
       <li>Lines 444-445: Debugging <code translate="No">console.log()</code> method calls, which should be removed in production code.</li>
     </ul>
     <pre class="line-numbers" data-start="426">
-<code class="language-html">&lt;script&gt;
+<code class="language-html" translate="No">&lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this,
       cuePointAra = [],
@@ -1299,7 +1299,7 @@ class="video-js" controls&gt;&lt;/video-js&gt;
     <aside class="bcls-aside bcls-aside--tip">Note: You can validate your WebVTT format with this <a href="//quuz.org/webvtt/">validator</a>.</aside>
     <p>The following is a valid WebVTT cue point document that defines two cue points, one with a duration from 2-5 seconds and another with duration from 10-15 seconds:</p>
     <pre class="line-numbers">
-<code class="language-javascript">WEBVTT
+<code class="language-javascript" translate="No">WEBVTT
 
 multiCell
 00:00:02.000 --&gt; 00:00:05.000
@@ -1353,7 +1353,7 @@ insects
         <li>Line 150: Play the video.</li>
       </ul>
       <pre class="line-numbers" data-start="115">
-<code class="language-html">&lt;video-js id="myPlayerID2"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID2"
   data-account="1752604059001"
   data-player="8cfb6785-c4be-43b4-af68-7ca2fe3a6ebf"
   data-embed="default"
@@ -1424,7 +1424,7 @@ insects
     </ul>
     <p>This means it is very possible multiple text tracks could be associated with the player, and a way is needed to find the correct one for your application logic. The following code loops over the available text tracks until the <strong>metadata</strong> (cue point) value is found:</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;script type="text/javascript"&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this,
       allTextTacks,
@@ -1448,7 +1448,7 @@ insects
     <h2 id="Programmatic_cue_points">Programmatic cue points</h2>
     <p>It is possible to programmatically add cue points. The key method comes from the HTML5 <code translate="No">VTTCue</code> interface. You can create cue points use the following syntax:</p>
     <pre>
-<code class="language-javascript">new VTTCue( startTime, endTime, text )</code></pre>
+<code class="language-javascript" translate="No">new VTTCue( startTime, endTime, text )</code></pre>
     <p>The logic of processing the cue points is very similar to previous examples, so only the code different from that used above will be detailed.</p>
     <ul>
       <li>
@@ -1466,7 +1466,7 @@ insects
     </ul>
     <aside class="bcls-aside bcls-aside--tip">Note: Outside of the learning sample code that follows, it is very likely the cue points would be created looping over some data structure containing key cue point info.</aside>
     <pre class="line-numbers" data-start="1">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-video-id="4607746980001"
   data-account="1507807800001"
   data-player="default"
@@ -1524,7 +1524,7 @@ insects
     <h2 id="ID3_and_media_cue_points">ID3 and media cue points</h2>
     <p>If you have ID3 cue points or media cue points associated with your media you can deal with them using the <code translate="No">id3CuePointsTrack()</code> and <code translate="No">mediaCuePointsTrack()</code> methods. For instance, to listen for cue point changes you would use the following:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function () {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function () {
   var myPlayer = this;
   myPlayer.one("canplay", function () {
     <span class="bcls-highlight">myPlayer.id3CuePointsTrack().on('cuechange', function () {
@@ -1637,7 +1637,7 @@ console.log('tt.activeCues[0]',tt.activeCues[0]);
 
 <hr>
 <div class="last-updated">
-  Page last updated on 21 Apr 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

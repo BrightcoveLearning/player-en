@@ -83,14 +83,14 @@ layout: staging
         <p>
           Even though viewer data is sent to Brightcove analytics automatically, you need to set the user identifier. To do this, use the <code translate="No">setUser()</code> method. For example:
         </p>
-        <pre class="line-numbers"><code class="language-javascript">myPlayer.bcAnalytics.client.setUser('<span class="bcls-input">user id</span>');</code></pre>
+        <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.bcAnalytics.client.setUser('<span class="bcls-input">user id</span>');</code></pre>
         <p>On your websites that host Brightcove Player, you can use an authentication gateway or some identity management solution to keep track viewers. Use this viewer id as the user identifier to pass to Brightcove analytics.</p>
       </li>
       <li>
         <p>
           It is important to set the user id before any source is set on the player. It should be called immediately after initializing the player.
         </p>
-        <pre class="line-numbers"><code class="language-javascript">&lt;video-js
+        <pre class="line-numbers"><code class="language-javascript" translate="No">&lt;video-js
     id=&quot;myPlayerID&quot;
     data-account=&quot;1752604059001&quot;
     data-player=&quot;hyQW6GByl&quot;
@@ -158,7 +158,7 @@ layout: staging
         <p>
           Here is an example:
         </p>
-        <pre class="line-numbers"><code class="language-javascript">// The specific event to use may require some experimentation
+        <pre class="line-numbers"><code class="language-javascript" translate="No">// The specific event to use may require some experimentation
 player.on('loadstart', function() {
 
   // This initialPlayhead variable will have to come from the publisher's

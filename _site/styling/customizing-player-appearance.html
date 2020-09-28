@@ -1090,7 +1090,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/player-elements.png" /></figure>
     <p class="language-editable">Once you know this, you can use styles to alter the player itself. For instance, to include a border around the player you can use this style:</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;style&gt;
+<code class="language-html" translate="No">&lt;style&gt;
   .video-js {
     border-style: double;
     border-width: thick;
@@ -1106,7 +1106,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p class="language-editable">The styles you create will still work with the player in the iframe, but a CSS file will need to be created and associated with the player using Studio. You do this by going to the <strong>Players</strong> module, then click on the player with which you wish to associate the CSS, then in the <strong>Plugins &gt; Stylesheets</strong> section add the path you your CSS file.</p>
     <p class="language-editable">If you do wish to customize the iframe itself, you can do this by using an element selector. Then use a <code translate="No">&lt;style&gt;</code> tag to modify as wished. In the example below a border is added around the player.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -1140,7 +1140,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <figure class="bcls-figure"><img class="bcls-image" alt="big-play-button" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/big-play-button.png" /></figure>
     <p class="language-editable">From the highlighted code above, you can see the class assigned to the button is <code translate="No">vjs-big-play-button</code>. The play button's color (to match the tiger) and opacity will be changed with these styles:</p>
     <pre class="line-numbers">
-<code class="language-css">.vjs-big-play-button {
+<code class="language-css" translate="No">.vjs-big-play-button {
   background-color: #B37D5B;
   opacity: .6;
 }</code></pre>
@@ -1148,7 +1148,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p class="language-editable">One way to apply the button changes is to add another class in the selector. For instance, you can use the <code translate="No">.video-js</code> class to increase the selector's specificity. For more details, see the <a href="#CSS_specificity">CSS specificity</a> section</p>
     <p class="language-editable">Then, reference the player's big play button in the CSS as follows:</p>
     <pre class="line-numbers">
-<code class="language-css"><span class="bcls-highlight">.video-js</span> .vjs-big-play-button {
+<code class="language-css" translate="No"><span class="bcls-highlight">.video-js</span> .vjs-big-play-button {
   background-color: #B37D5B;
   opacity: .6;
 }</code></pre>
@@ -1157,7 +1157,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Hide play button</h3>
     <p class="language-editable">You can completely hide the play button by using the following style:</p>
     <pre class="line-numbers">
-<code class="language-javascript">display: none;</code></pre>
+<code class="language-javascript" translate="No">display: none;</code></pre>
     <h3>Experiment</h3>
     <p class="language-editable">The following CodePen permits you to experiment with the play button. Note that the triangle in the play button is actually a font, and its size is controlled with a <code translate="No">font-size</code> style.</p>
     <p data-height="414" data-theme-id="14832" data-slug-hash="KVVNLX" data-default-tab="result" data-user="mboles" class="codepen">See the Pen <a href="http://codepen.io/mboles/pen/KVVNLX/">5.x Big Play Button Customization</a> by Matt Boles (<a href="http://codepen.io/mboles">@mboles</a>) on <a href="http://codepen.io">CodePen</a>.</p>
@@ -1165,7 +1165,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Change hover text</h3>
     <p class="language-editable">If you would like to change the text which displays when you hover over the big play button, which is <strong>Play Video</strong>&nbsp;by default, to something more specific to your videos, you can do that. Add the following JavaScript using your desired verbiage as the argument for the <code translate="No">controlText</code> method.</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   myPlayer.getChild('bigPlayButton').controlText('Play Audio');
 });
@@ -1175,12 +1175,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Controls_visibility">Controls visibility</h2>
     <p class="language-editable">You can control if you want the controlbar, and controls contained therein, visible or not. If you wish to hide the controlbar from the start of player creation you can use this style:</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js .vjs-control-bar {
+<code class="language-css" translate="No">.video-js .vjs-control-bar {
   display: none;
 }</code></pre>
     <p class="language-editable">If you wish to do this dynamically based on some event, you can use the <code translate="No">controlBar.hide()/show()</code> methods. The code snippet below demonstrates the methods use (this assumes you have an <code translate="No">id</code> with a value of <code translate="No">myPlayer</code> on the video):</p>
     <pre class="line-numbers">
-<code class="language-javascript">&lt;video-js id="myPlayerID"
+<code class="language-javascript" translate="No">&lt;video-js id="myPlayerID"
 	data-video-id="5781068653001"
 	data-account="1507807800001"
 	data-player="default"
@@ -1210,7 +1210,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Controls never hide</h3>
     <p class="language-editable">You can also make it so the controls never hide. To do this use the <code translate="No">transform.none</code> style. The selector is very long as six classes are used for the specificity of transforms.</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active .vjs-control-bar:not(.vjs-focus-within):not(.vjs-control-bar-visible),
+<code class="language-css" translate="No">.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active .vjs-control-bar:not(.vjs-focus-within):not(.vjs-control-bar-visible),
 .video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive .vjs-control-bar:not(.vjs-focus-within):not(.vjs-control-bar-visible),
 .video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active .vjs-control-bar:not(.vjs-focus-within):not(.vjs-control-bar-visible),
 .video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-control-bar:not(.vjs-focus-within):not(.vjs-control-bar-visible),
@@ -1222,7 +1222,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 }</code></pre>
     <aside class="bcls-aside bcls-aside--information language-editable">Although considered a bit of a hack, you can simply repeat the class of the controlbar eight times to build its specificity to match the selector above:
       <pre class="line-numbers">
-<code class="language-css">.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar {
+<code class="language-css" translate="No">.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar {
   transform: none;
   -webkit-transform: none;
   -ms-transform: none;
@@ -1239,7 +1239,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--tip language-editable">In browsers you can actually search for class names in the console. For instance, in Chrome simply use <strong>CTL-F</strong> then enter the class for which you are looking.</aside>
     <p class="language-editable">The <code translate="No">background-color</code> changes the color of the element and needs to be styled. The needed style is shown here:</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js .vjs-play-progress {
+<code class="language-css" translate="No">.video-js .vjs-play-progress {
   background-color: green;
 }</code></pre>
     <p class="language-editable">Notice that the <code translate="No">.video-js</code> class was added into the selector. This is done to increase the selector's CSS specificity.</p>
@@ -1254,12 +1254,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/volume-standard.png" /></figure>
     <p class="language-editable">To change the color of the volume button, and the mute button when you click it, use the selector shown here:</p>
     <pre class="line-numbers">
-<code class="language-css">.vjs-volume-panel.vjs-control.vjs-volume-panel-horizontal {
+<code class="language-css" translate="No">.vjs-volume-panel.vjs-control.vjs-volume-panel-horizontal {
   color: yellow;
 }</code></pre>
     <p class="language-editable">To change the color of the volume bar, the <code translate="No">background-color</code> of the element needs to be styled. The needed style is shown here:</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js .vjs-volume-level{
+<code class="language-css" translate="No">.video-js .vjs-volume-level{
   background-color: yellow;
 }</code></pre>
     <p class="language-editable">Notice that the <code translate="No">.video-js</code> class was added into the selector. This is done to increase the selector's CSS specificity.</p>
@@ -1277,7 +1277,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li class="language-editable">Define the <code translate="No">options</code> object so that the <code translate="No">volumePanel</code> is vertical and not inline with the controlbar.
         <pre class="line-numbers">
-<code class="language-css">var options = {
+<code class="language-css" translate="No">var options = {
   controlBar: {
     volumePanel: {
       inline: false,
@@ -1289,7 +1289,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li class="language-editable">Add the player attributes that were initially removed.</li>
       <li class="language-editable">Create the player by calling the <a href="/publish/delaying-player-instantiation.html">bc() method</a> with the <code translate="No">options</code> object.
         <pre>
-<code class="language-css">bc("myPlayerID", options);</code></pre>
+<code class="language-css" translate="No">bc("myPlayerID", options);</code></pre>
       </li>
       <li class="language-editable">For details, see the <a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">Vertical Volume Control</a> player sample.
         <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/vertical-volume.png" /></figure>
@@ -1302,14 +1302,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <figure class="bcls-figure"><img class="bcls-image" alt="dock text selectors" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/dock-text-elements.png" /></figure>
     <p class="language-editable">You can affect both the title and description by setting a style on the <code translate="No">vjs-dock-text</code> class. Note that styles set on the <code translate="No">.vjs-dock-title</code> and <code translate="No">.vjs-dock-description</code> will, of course, not be completely overridden by the style set at a higher level. Some styles are inherited, as shown by the following style and its result on the text:</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js .vjs-dock-text {
+<code class="language-css" translate="No">.video-js .vjs-dock-text {
   color: yellow;
   font-size: .7em;
 }</code></pre>
     <figure class="bcls-figure"><img class="bcls-image" alt="dock text selector example" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/dock-text-selector.png" /></figure>
     <p class="language-editable">You can directly style the individual title and description. The following shows styles set on the <code translate="No">.vjs-dock-title</code> and <code translate="No">.vjs-dock-description</code> class selectors, with the resulting text displaying the styles:</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js .vjs-dock-title {
+<code class="language-css" translate="No">.video-js .vjs-dock-title {
   color: red;
   font-size: 1.5em;
 }
@@ -1333,7 +1333,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--tip language-editable">
       <p class="language-editable">The syntax for <code translate="No">insertBefore()</code> is:</p>
       <pre class="line-numbers">
-<code class="language-javascript">parent.insertBefore(newElement,insertBeforeElement)</code></pre>
+<code class="language-javascript" translate="No">parent.insertBefore(newElement,insertBeforeElement)</code></pre>
       <p class="language-editable">This means in the detailed code below you will see JavaScript to get a reference to the controlbar (parent), a new <code translate="No">&lt;div&gt;</code> with an icon to insert into the controlbar, and lastly a reference to the element which the new icon will be inserted in from of.</p>
     </aside>
     <p class="language-editable">Specifically, the following code is used to insert a download video icon in front of the volume icon:</p>
@@ -1356,7 +1356,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li class="language-editable">Line 310: Insert the dynamically created element.</li>
     </ul>
     <pre class="line-numbers" data-start="279">
-<code class="language-javascript">&lt;!-- styles for page --&gt;
+<code class="language-javascript" translate="No">&lt;!-- styles for page --&gt;
   /* Style the download icon */
   #downloadButton {
       width: 34px;
@@ -1393,13 +1393,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <figure class="bcls-figure"><img class="bcls-image" alt="download-icon-before-volume" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/download-icon-before-volume.png" /></figure>
     <p class="language-editable">If you wish to have the icon in a different location, you need only to change the code which gets the element to insert in front of. For instance, to move the new icon in front of the fullscreen button, use this:</p>
     <pre class="line-numbers">
-<code class="language-javascript">insertBeforeNode = document.getElementsByClassName('vjs-fullscreen-control')[0];</code></pre>
+<code class="language-javascript" translate="No">insertBeforeNode = document.getElementsByClassName('vjs-fullscreen-control')[0];</code></pre>
     <p class="language-editable">The result would appear as follows:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="download-icon-before-fullscreen" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/download-icon-before-fullscreen.png" /></figure>
     <h3>Icon on far right</h3>
     <p class="language-editable">If you wish the icon to appear at the far right of the controlbar, you would replace the <code translate="No">insertBefore()</code> with the <code translate="No">appendChild()</code> method, as shown here:</p>
     <pre class="line-numbers">
-<code class="language-javascript">controlBar.appendChild(newElement);</code></pre>
+<code class="language-javascript" translate="No">controlBar.appendChild(newElement);</code></pre>
     <p class="language-editable">An example of adding an icon (for downloading a file in this case) is shown in the <a href="/code-samples/brightcove-player-sample-download-video-plugin.html">Brightcove Player Sample: Download Video Plugin</a> document.</p>
     <h3 id="spacer">Use the spacer</h3>
     <p class="language-editable">Although the techniques above work for placing icons on the controlbar, it is possible they will not be compatible with other code that manipulates the controlbar. Also, you most likely would not want to abstract the code into a plugin for general reuse.</p>
@@ -1408,14 +1408,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <figure class="bcls-figure"><img class="bcls-image" alt="spacer" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/spacer.png" /></figure>
     <p class="language-editable">To place an icon in the spacer element, you use the following code, which is very similar to the code shown earlier in this section. The result of the code is shown in the screenshot which follows the code snippet.</p>
     <pre class="line-numbers">
-<code class="language-javascript">// Get the spacer element
+<code class="language-javascript" translate="No">// Get the spacer element
 spacer = document.getElementsByClassName('vjs-spacer')[0];
 // Place the new element in the spacer
 spacer.appendChild(newElement);</code></pre>
     <figure class="bcls-figure"><img class="bcls-image" alt="spacer-left" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/spacer-left.png" /></figure>
     <p class="language-editable">If you wish to place the icon on the right side of the spacer, another line of code needs to be used. The spacer layout is controlled by an HTML Flexbox. So adding a Flexbox style you can push the added icon to the right. The result of the code is shown in the screenshot which follows the code snippet.</p>
     <pre class="line-numbers">
-<code class="language-javascript">// Set the content of the spacer to be right justified
+<code class="language-javascript" translate="No">// Set the content of the spacer to be right justified
 spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <figure class="bcls-figure"><img class="bcls-image" alt="spacer-right" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/spacer-right.png" /></figure>/playback/ios-and-brightcove-player.html/playback/ios-and-brightcove-player.html
   </section>
@@ -1423,7 +1423,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <h2 id="Remove_fullscreen_icon">Remove fullscreen button</h2>
     <p class="language-editable">There can be issues if you permit fullscreen viewing of videos on iOS, detailed in the <a href="/playback/ios-and-brightcove-player.html">iOS and Brightcove Player</a> document. If you wish to remove the fullscreen button from the controlbar you can so using this code:</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;script type="text/javascript"&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this,
       <span class="bcls-highlight">fullScreenElement = document.getElementsByClassName("vjs-fullscreen-control")[0];
@@ -1440,7 +1440,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <figure class="bcls-figure"><img class="bcls-image" alt="red text shadow" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/red-glow.png" /></figure>
     <p class="language-editable">The affect shown is done by changing the CSS <code translate="No">text-shadow</code>. The selector determines that the change will only occur with the icon has focus or hover states.</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js .vjs-control:hover:before, .video-js .vjs-control:focus:before {
+<code class="language-css" translate="No">.video-js .vjs-control:hover:before, .video-js .vjs-control:focus:before {
   text-shadow: 0 0 1em #f00,0 0 1em #f00,0 0 1em #f00;
 }</code></pre>
     <p class="language-editable">For more information on the rather complex <code translate="No">text-shadow</code> style, see MDN's <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow">text-shadow</a> document.</p>
@@ -1450,17 +1450,17 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <p class="language-editable">When the player is first loaded, and when you mouse over the player, you see the video title displayed, as well as a black to transparent gradient over the top portion of the player. This section will show you how to alter the gradient.</p>
     <p class="language-editable">The actual gradient is controlled by the CSS <code translate="No">linear-gradient</code> function in the <code translate="No">vjs-dock-text</code> HTML <code translate="No">&lt;div&gt;.</code> The size of the gradient can be controlled by the height of the <code translate="No">vjs-dock-text</code> HTML <code translate="No">&lt;div&gt;</code>. Here is that element, and its children, from the player:</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;div class="vjs-dock-text"&gt;
+<code class="language-html" translate="No">&lt;div class="vjs-dock-text"&gt;
   &lt;h1 class="vjs-dock-title"&gt;Tiger&lt;/h1&gt;
   &lt;h2 class="vjs-dock-description"&gt;&lt;/h2&gt;
 &lt;/div&gt;</code></pre>
     <p class="language-editable">The default values for the gradient use the <code translate="No">rgba()</code> (red-green-blue-alpha) function, as shown here:</p>
     <pre class="line-numbers">
-<code class="language-javascript">linear-gradient(180deg,rgba(0,0,0,.8) 25%,transparent 100%);</code></pre>
+<code class="language-javascript" translate="No">linear-gradient(180deg,rgba(0,0,0,.8) 25%,transparent 100%);</code></pre>
     <p class="language-editable">These values cause the gradient to horizontally fade from black, with an alpha of <strong>.8</strong>, to transparent. The value of <strong>25%</strong> is a cut off value, meaning the value set in the <code translate="No">rgba</code> function will be used for the first 25% of the space before the fading to transparent begins.</p>
     <p class="language-editable">For instructional purposes, as you would not use this gradient in production, the following style creates the gradient in the screenshot.</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js .vjs-dock-text {
+<code class="language-css" translate="No">.video-js .vjs-dock-text {
   background: linear-gradient(45deg, rgba(0,0,255,.8) 35%, transparent);
   height: 80%;
 }</code></pre>
@@ -1475,7 +1475,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <figure class="bcls-figure"><img class="bcls-image" alt="Selectors for caption list items" width="800" height="281" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/caption-list-items.png" /></figure>
     <p>You can style all the items using the selector:</p>
     <pre class="line-numbers">
-<code class="language-javascript">.vjs-subs-caps-button .vjs-menu .vjs-menu-content .vjs-menu-item.</code></pre>
+<code class="language-javascript" translate="No">.vjs-subs-caps-button .vjs-menu .vjs-menu-content .vjs-menu-item.</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="CSS_specificity">CSS specificity</h2>
@@ -1492,14 +1492,14 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <p class="language-editable">Since an <code translate="No">id</code> attribute has a high relevance regarding CSS specificity, adding an <code translate="No">id</code> to the CSS selector will override the <code translate="No">background-color</code> property.</p>
     <p class="language-editable">If you haven't already done so, add an <code translate="No">id</code> attribute to the <code translate="No">video</code> element as follows:</p>
     <pre class="line-numbers">
-<code class="language-html"><span class="bcls-highlight">&lt;video-js id="video_1"</span>
+<code class="language-html" translate="No"><span class="bcls-highlight">&lt;video-js id="video_1"</span>
   data-account="1752604059001"
   data-player="68f30408-8fb4-431d-accb-8c5baa8c4790"
   data-embed="default"
   class="video-js" controls&gt;&lt;/video-js&gt;</code></pre>
     <p class="language-editable">In the CSS, add the id value to the <code translate="No">.vjs-big-play-button</code> class selector. Override the background color and opacity as follows:</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;style&gt;
+<code class="language-html" translate="No">&lt;style&gt;
 <span class="bcls-highlight">  #video_1 .vjs-big-play-button {
       background-color: #B37D5B;
       opacity: .6;
@@ -1516,7 +1516,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <p class="language-editable">Add the <code translate="No">.video-js</code> class to the <code translate="No">.vjs-big-play-button</code> class selector. Remember that the <code translate="No">.video-js</code> class is set on the video container.</p>
     <p class="language-editable">With these values, we are saying select all elements with a class name of <code translate="No">vjs-big-play-button</code> which are decedents of elements with a class name of <code translate="No">.video-js</code>.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;style&gt;
+<code class="language-html" translate="No">&lt;style&gt;
 <span class="bcls-highlight">  .video-js .vjs-big-play-button {</span>
     background-color: #B37D5B;
     opacity: .6;
@@ -1535,7 +1535,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
       <li class="language-editable">Line 174: Adds an <code translate="No">id</code> attribute to the big play button.</li>
     </ul>
     <pre class="line-numbers" data-start="171">
-<code class="language-html">  &lt;script type="text/JavaScript"&gt;
+<code class="language-html" translate="No">  &lt;script type="text/JavaScript"&gt;
 
     var playButton = document.getElementsByClassName("vjs-big-play-button")[0];
     playButton.setAttribute("id", "myPlayButton");
@@ -1543,7 +1543,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
   &lt;/script&gt;</code></pre>
     <p class="language-editable">In the CSS, change the selector to use the <code translate="No">myPlayButton</code> id name.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;style&gt;
+<code class="language-html" translate="No">&lt;style&gt;
 <span class="bcls-highlight">    #myPlayButton {</span>
       background-color: #B37D5B;
       opacity: .6;
@@ -1651,16 +1651,16 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <h2 id="PLAYER_CLASS">{PLAYER_CLASS}</h2>
     <p class="language-editable">The <code translate="No">{PLAYER_CLASS}</code> is a selector and will be replaced with the actual class specific selector for the player, for example:</p>
     <pre class="line-numbers">
-<code class="language-css">.bc-player-oH9IdGudo_default</code></pre>
+<code class="language-css" translate="No">.bc-player-oH9IdGudo_default</code></pre>
     <p class="language-editable"><code translate="No">{PLAYER_CLASS}</code> helps you make your CSS specific enough to overwrite the built-in styles without having to make CSS for each player individually or use something like:</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js.video-js</code></pre>
+<code class="language-css" translate="No">.video-js.video-js</code></pre>
     <p class="language-editable">For instance, say you want to override the loading spinner, you might use:</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js.video-js .vjs-loading-spinner {...}</code></pre>
+<code class="language-css" translate="No">.video-js.video-js .vjs-loading-spinner {...}</code></pre>
     <p class="language-editable">That is specific enough to override the default, but if you happen to have a second player on the page. Using the following would NOT affect any other player in the page:</p>
     <pre class="line-numbers">
-<code class="language-css">.video-js{PLAYER_CLASS} .vjs-loading-spinner {...}</code></pre>
+<code class="language-css" translate="No">.video-js{PLAYER_CLASS} .vjs-loading-spinner {...}</code></pre>
     <p>Note that the <code translate="No">{PLAYER_CLASS}</code> selector can only be used in CSS files that are added to a player configuration stylesheets array (for example, via Studio or the Player Management API) and built directly into the player. This selector will not work with Advanced implementation code CSS separately included via <code translate="No">&lt;style&gt;&lt;/style&gt;</code> or <code translate="No">&lt;link&gt;&lt;/link&gt;</code> tags.</p>
   </section>
 </article>
@@ -1680,7 +1680,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 08 May 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

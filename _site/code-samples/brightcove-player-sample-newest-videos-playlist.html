@@ -1174,7 +1174,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </figure>
       <p>If the permissions you need are not available in Studio, or if you prefer to get them directly from the OAuth API, use your choice of the <strong>Get Client Credentials</strong> documents listed below. Whichever option you choose, you will need to ask for the correct operation permissions. The following can be used with cURL or Postman to get all permissions for the CMS API:</p>
       <pre class="line-numbers">
-      <code class="language-json">"operations": [
+      <code class="language-json" translate="No">"operations": [
         "video-cloud/video/all",
         "video-cloud/playlist/all",
         "video-cloud/sharing-relationships/all",
@@ -1196,7 +1196,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Other HTML</h3>
     <p>An HTML ordered list is used as the location for the playlist, which is standard practice:</p>
     <pre class="line-numbers">
-      <code class="language-html">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
+      <code class="language-html" translate="No">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
   </section>
   <!-- UPDATE application flow -->
   
@@ -1215,30 +1215,30 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Initialize values</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-      <code class="language-javascript">// ### Set up data for CMS API request ###</code></pre>
+      <code class="language-javascript" translate="No">// ### Set up data for CMS API request ###</code></pre>
     <p>A function is called where variables are created that setup for the call to the CMS API. For instance, the request URL is built, and appears as follows:</p>
     <pre class="line-numbers">
-      <code class="language-javascript">https://cms.api.brightcove.com/v1/accounts/1752604059001/videos?sort=-created_at&amp;limit=10</code></pre>
+      <code class="language-javascript" translate="No">https://cms.api.brightcove.com/v1/accounts/1752604059001/videos?sort=-created_at&amp;limit=10</code></pre>
     <!-- UPDATE task 2 -->
     
     <h3>Make the call to the CMS API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-      <code class="language-javascript">// ### Make the CMS API request to get matching video IDs ###</code></pre>
+      <code class="language-javascript" translate="No">// ### Make the CMS API request to get matching video IDs ###</code></pre>
     <p>The function <code translate="No">getNewestVideos</code> is called. Passed to the function are the configuration options previously built and a callback function. The callback function is used as the transport to return data from the API. For further details on this technique see the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Extract video IDs from data returned from CMS API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-      <code class="language-javascript">// ### Standard code to extract videos from returned data ###</code></pre>
+      <code class="language-javascript" translate="No">// ### Standard code to extract videos from returned data ###</code></pre>
     <p>The CMS API returns more than just the video IDs, so all IDs need to be extracted from the returned, raw data.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Retrieve video objects using IDs and place in an array</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-      <code class="language-javascript">// ### Get video objects from IDs ###</code></pre>
+      <code class="language-javascript" translate="No">// ### Get video objects from IDs ###</code></pre>
     <p>The code from the comment just above to the end of the <code translate="No">script</code> block all involves getting the actual video objects (using the Video Cloud catalog) and placing them in an array for use as a playlist.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1252,13 +1252,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-      <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+      <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
         var myPlayer = this;
         ...
       });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-      <code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+      <code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
         var myPlayer = this;
         ...
       });</code></pre>
@@ -1290,7 +1290,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 25 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

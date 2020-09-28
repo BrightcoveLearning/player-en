@@ -1187,9 +1187,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Player configuration</h3>
     <p>You need to add and configure the Overlay Plugin in <strong>Studio &gt; Players &gt; Plugins</strong>. Add the paths to the JavaScript and CSS:</p>
     <pre class="line-numbers">
-<code class="language-html">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.min.js</code></pre>
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.min.js</code></pre>
     <pre class="line-numbers">
-<code class="language-html">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.css</code></pre>
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.css</code></pre>
     <p>Then add the configuration information as follows:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="create a cue point in Studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/cue-points/cue-points-cta/overlay-plugin-studio.png" /></figure>
     <aside class="bcls-aside bcls-aside--tip">No <strong>content</strong> is supplied in the Overlay configuration as it will be dynamically built and injected into the overlay.</aside>
@@ -1218,7 +1218,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Configure listener for cue point changes</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Listen for cue change then pass data to be displayed ###</code></pre>
+<code class="language-javascript" translate="No">// ### Listen for cue change then pass data to be displayed ###</code></pre>
     <p>After extracting the cue point information from the <code translate="No">mediainfo</code> object, you use JavaScript's <code translate="No">oncuechange</code> event handler to listen for cue point starts. You then extract the cue point information for the current cue point and call the <code translate="No">displayCTA()</code> method. The information about the cue points passed to the custom function appears as follows:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="cue point info" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/cue-points/cue-points-cta/console-cp-info.png" /></figure>
     <aside class="bcls-aside bcls-aside--tip">The <code translate="No">endTime</code> is not helpful in this application as it is either the time of the next cue point or the end of the video. Remember, the duration for the overlay to be displayed is stored in the cue point's <strong>Metadata</strong>.</aside>
@@ -1227,21 +1227,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Display the overlay with dynamically populated data</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Extract data pieces from cue point meta data and display overlay ###</code></pre>
+<code class="language-javascript" translate="No">// ### Extract data pieces from cue point meta data and display overlay ###</code></pre>
     <p>The first step uses JavaScript's <code translate="No">split()</code> method to break the metadata info three pieces and each piece is assigned to a variable. After building the dynamic anchor tag, JavaScript's <code translate="No">setTimeout()</code> value is used to set how long before another method is called. The overlay data is then injected and the overlay displayed.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Remove the overlay</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Clear timeout and remove overlay ###</code></pre>
+<code class="language-javascript" translate="No">// ### Clear timeout and remove overlay ###</code></pre>
     <p>This method is called when the time set in the <code translate="No">setTimeout()</code> method expires. Here the timeout is cleared using JavaScript's <code translate="No">clearTimeout()</code> method. Also, the overlay is hidden.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Extract a smaller array from a larger array</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Helper function to extract cue point info ###</code></pre>
+<code class="language-javascript" translate="No">// ### Helper function to extract cue point info ###</code></pre>
     <p>This is a helper function used to extract desired cue point information.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1255,13 +1255,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>
@@ -1289,7 +1289,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 23 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

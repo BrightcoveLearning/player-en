@@ -1108,7 +1108,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Player management API</h3>
     <p>When configuring players with the Player Management API, you can set the <code translate="No">delivery_config_id</code> configuration property as follows:</p>
     <pre class="line-numbers">
-<code class="language-json">{
+<code class="language-json" translate="No">{
   &quot;delivery_config_id&quot;: &quot;abcdef&quot;,
   ...
 }</code></pre>
@@ -1116,20 +1116,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Standard embed code</h3>
     <p>With the standard embed code (iframe), use the <code translate="No">deliveryConfigId</code> query parameter:</p>
     <pre>
-<code class="language-html">&lt;iframe src=&quot;https://players.brightcove.net/.../index.html?deliveryConfigId=abcdef&quot;&gt;</code></pre>
+<code class="language-html" translate="No">&lt;iframe src=&quot;https://players.brightcove.net/.../index.html?deliveryConfigId=abcdef&quot;&gt;</code></pre>
     <br>
     <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
 
     <h3>Advanced embed code</h3>
     <p>With the advanced embed code (in-page embed), use the <code translate="No">data-delivery-config-id</code> attribute:</p>
     <pre>
-<code class="language-html">&lt;video-js data-delivery-config-id=&quot;abcdef&quot;&gt;</code></pre>
+<code class="language-html" translate="No">&lt;video-js data-delivery-config-id=&quot;abcdef&quot;&gt;</code></pre>
     <br>
     <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
 
     <h3>Using the Catalog API</h3>
     <p>Using Javascript, you can fetch the delivery rule by its <code translate="No">deliveryConfigId</code> using the Catalog API:</p>
-    <pre class="line-numbers"><code class="language-javascript">var player = videojs.getPlayer('myPlayerId');
+    <pre class="line-numbers"><code class="language-javascript" translate="No">var player = videojs.getPlayer('myPlayerId');
 player.ready(function () {
   var catalogParams = {
     deliveryConfigId: <span class="bcls-input">delivery_rules_id</span>,
@@ -1163,7 +1163,7 @@ player.ready(function () {
 
 <hr>
 <div class="last-updated">
-  Page last updated on 25 Sep 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

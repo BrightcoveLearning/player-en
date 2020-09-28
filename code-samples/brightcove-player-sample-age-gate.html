@@ -99,10 +99,10 @@ parent: Code Samples
     <p>The Overlay plugin was configured in Studio as follows:</p>
     <h4>Name:</h4>
     <pre>
-<code class="language-json">overlay</code></pre>
+<code class="language-json" translate="No">overlay</code></pre>
     <h4>Options:</h4>
     <pre>
-<code class="language-json">{
+<code class="language-json" translate="No">{
   "content": "&lt;strong&gt;Default overlay content&lt;/strong&gt;",
   "overlays" : [{
       "content" : "&lt;div id='ageGateButton'&gt;By clicking here you certify that you are over 18 years old&lt;/div&gt;",
@@ -132,7 +132,7 @@ parent: Code Samples
     <h3>Add an event listener</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Set up listening for when the user clicks the age verification text +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Set up listening for when the user clicks the age verification text +++</code></pre>
     <p>To the age gate text, add an event listener for the <code translate="No">click</code> event. When a user selects the age gate text, remove the overlay and start video playback.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -150,16 +150,16 @@ parent: Code Samples
         <li>In the Chrome browser, open the <strong>Developer Tools</strong>.</li>
         <li>Right click on the player and select <strong>Inspect Element</strong>.</li>
         <li>In the <strong>Elements</strong> section of the <strong>Developer Tools</strong>, select the HTML associated with the big play button.</li>
-        <li>In the <strong>Styles</strong> section, you can see that the original <code class="language-css">display</code> property with a value of <code class="language-css">block</code> is set on the <code class="language-html">&lt;div&gt;</code> element.
+        <li>In the <strong>Styles</strong> section, you can see that the original <code class="language-css" translate="No">display</code> property with a value of <code class="language-css" translate="No">block</code> is set on the <code class="language-html" translate="No">&lt;div&gt;</code> element.
           <figure class="bcls-figure"><img class="bcls-image" alt="Hide Big Play Button" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/overlays/age-gate/age-gate-hide-button.png" />
             <figcaption class="bcls-caption--image">Hide Big Play Button</figcaption>
           </figure>
         </li>
-        <li>When overriding CSS values, more specific styles win over less specific ones. Since elements have the lowest specificity value, we can override the display property by simply specifying the <code class="language-css">vjs-big-play-button</code> class.</li>
+        <li>When overriding CSS values, more specific styles win over less specific ones. Since elements have the lowest specificity value, we can override the display property by simply specifying the <code class="language-css" translate="No">vjs-big-play-button</code> class.</li>
         <li>
-          <p>Look at our CSS for the big play button below. In this example, we are saying select all elements with a class name of <code class="language-css">vjs-big-play-button</code> which are decendents of the element with class name of <code class="language-css">video-agelist</code>. Remember that in the JavaScript code, we added the <code class="language-css">video-agelist</code> class to the player.</p>
+          <p>Look at our CSS for the big play button below. In this example, we are saying select all elements with a class name of <code class="language-css" translate="No">vjs-big-play-button</code> which are decendents of the element with class name of <code class="language-css" translate="No">video-agelist</code>. Remember that in the JavaScript code, we added the <code class="language-css" translate="No">video-agelist</code> class to the player.</p>
           <pre class="line-numbers" data-start="17">
-            <code class="language-css">  video-agelist.video-js .vjs-control-bar,
+            <code class="language-css" translate="No">  video-agelist.video-js .vjs-control-bar,
             <span class="bcls-highlight">  .video-agelist .vjs-big-play-button {
                   display: none;</span>
               }</code></pre>
@@ -168,15 +168,15 @@ parent: Code Samples
       <p>Next, let's change the style to hide the player's control bar.</p>
       <ol class="bcls-tasklist">
         <li>In the <strong>Elements</strong> section of the <strong>Developer Tools</strong>, select the HTML associated with the player control bar.</li>
-        <li>In the <strong>Styles</strong> section, you can see that the original <code class="language-css">display</code> property with a value of <code class="language-css">flex</code> is set with three class attributes in the selector.
+        <li>In the <strong>Styles</strong> section, you can see that the original <code class="language-css" translate="No">display</code> property with a value of <code class="language-css" translate="No">flex</code> is set with three class attributes in the selector.
           <figure class="bcls-figure"><img class="bcls-image" alt="Hide Control Bar" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/overlays/age-gate/age-gate-hide-controls.png" />
             <figcaption class="bcls-caption--image">Hide Control Bar</figcaption>
           </figure>
         </li>
-        <li>To override the style for the control bar, we need at least three class attributes in our selector, including the <code class="language-css">vjs-control-bar</code> class.</li>
-        <li>Look at our CSS for the control bar below. In this example, we are saying select all elements with a class name of <code class="language-css">vjs-control-bar</code> which are decendents of the element with both a class name of <code class="language-css">video-agelist</code> and a class name of <code class="language-css">video-js</code>.
+        <li>To override the style for the control bar, we need at least three class attributes in our selector, including the <code class="language-css" translate="No">vjs-control-bar</code> class.</li>
+        <li>Look at our CSS for the control bar below. In this example, we are saying select all elements with a class name of <code class="language-css" translate="No">vjs-control-bar</code> which are decendents of the element with both a class name of <code class="language-css" translate="No">video-agelist</code> and a class name of <code class="language-css" translate="No">video-js</code>.
           <pre class="line-numbers" data-start="17">
-            <code class="language-html"><span class="bcls-highlight">.video-agelist.video-js .vjs-control-bar,</span>
+            <code class="language-html" translate="No"><span class="bcls-highlight">.video-agelist.video-js .vjs-control-bar,</span>
             .video-agelist .vjs-big-play-button {
             <span class="bcls-highlight">    display: none;</span>
             }</code></pre>
@@ -190,13 +190,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

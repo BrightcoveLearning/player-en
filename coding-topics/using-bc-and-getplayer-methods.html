@@ -28,12 +28,12 @@ parent: Coding Topics
     <h2 id="reference"><code translate="No">getPlayer()</code> versus <code translate="No">videojs()</code></h2>
     <p>If you have been doing development with Brightcove Player for any length of time, you almost assuredly have seen code similar to the following used to get a reference to the player and store it in the <code translate="No">myPlayer</code> variable:</p>
     <pre class="line-numbers">
-  <code class="language-javascript">videojs('myPlayerID').ready(function(){
+  <code class="language-javascript" translate="No">videojs('myPlayerID').ready(function(){
     var myPlayer = this;
   });</code></pre>
     <p>If you are using <strong>v6.16.0+</strong> it is a cleaner use of the API, and a recommended best practice, to use <code translate="No">player.getPlayer()</code> <strong>instead</strong>, as shown here:</p>
     <pre class="line-numbers">
-  <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+  <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
   });
   </code></pre>
@@ -53,7 +53,7 @@ parent: Coding Topics
     <p>The <code translate="No">bc()</code> method is used to instantiate a player at a time of your choosing. The <a href="/publish/delaying-player-instantiation.html">Delaying Player Instantiation</a> document discusses use cases and implementations. The <a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">Brightcove Player Sample: Vertical Volume Control</a> shows another use of the <code translate="No">bc()</code> method where you want to change the direction of the volume control to vertical, which must occur before the player is instantiated.</p>
     <p>The syntax of the method is:</p>
     <pre class="line-numbers">
-  <code class="language-javascript">bc(id,options)</code></pre>
+  <code class="language-javascript" translate="No">bc(id,options)</code></pre>
     <p>where:</p>
     <ul>
       <li class="language-editable"><code translate="No">id</code>:
@@ -74,7 +74,7 @@ parent: Coding Topics
     </ul>
     <p>For example, you could have the following <code translate="No">video-js</code> tag and then JavaScript to configure the player:</p>
     <pre class="line-numbers">
-  <code class="language-html">&lt;video-js id="myPlayerID"
+  <code class="language-html" translate="No">&lt;video-js id="myPlayerID"
      data-embed="default"
      data-application-id
      class="video-js"

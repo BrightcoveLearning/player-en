@@ -1173,35 +1173,35 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Configure IMA3 plugin</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Configure IMA3 plugin</code></pre>
+<code class="language-javascript" translate="No">// ### Configure IMA3 plugin</code></pre>
     <p>The IMA3 plugin is configured to use a VMAP configuration that will play a pre-, mid- and post-roll.</p>
     <!-- UPDATE task 1 -->
     
     <h3>Listen for any scroll events on the <strong>window</strong> element</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Execute every time page is scrolled ###</code></pre>
+<code class="language-javascript" translate="No">// ### Execute every time page is scrolled ###</code></pre>
     <p>This one line of code calls the <code translate="No">checkIfVideoInView()</code> method on every <code translate="No">window.onscroll</code> event dispatch.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Handle the scroll events</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Called on scroll, check if in view and the play/pause ###</code></pre>
+<code class="language-javascript" translate="No">// ### Called on scroll, check if in view and the play/pause ###</code></pre>
     <p>The <code translate="No">checkIfVideoInView()</code> event handler function generally checks if the player is in the viewport, then either plays or pauses the video. It is critical that the code determine which player is being used, the normal player or the ad player. The Boolean value <code translate="No">isAdPlaying</code> is toggled based on ad events (in the event handler at the bottom of the code), then a conditional (ternary) operator is used to assign the <code translate="No">currentPlayer</code> variable the correct player. The <code translate="No">isScrolledIntoView()</code> method is used in an if statement to check if the player is in the viewport. Naturally, the <code translate="No">isScrolledIntoView()</code> method returns a Boolean value.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Check if player is entirely in the viewport</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Checks if player is in view ###</code></pre>
+<code class="language-javascript" translate="No">// ### Checks if player is in view ###</code></pre>
     <p>This function, which returns a Boolean value, uses jQuery to determine if the player is entirely in the viewport.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Track which player is being used</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Set Boolean value for if ad is playing ###</code></pre>
+<code class="language-javascript" translate="No">// ### Set Boolean value for if ad is playing ###</code></pre>
     <p>A number of ad events are monitored and the Boolean value is set accordingly.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1215,13 +1215,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>
@@ -1249,7 +1249,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 25 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

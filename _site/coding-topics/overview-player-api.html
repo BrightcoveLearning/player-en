@@ -1082,13 +1082,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Referencing the player</h2>
     <p>To use the API functions, you need access to the player object. This is easy to do. You just need to make sure your video tag has an ID. The example embed code has an ID of <code translate="No">myPlayerID</code>, and the player object will be held in the <code translate="No">myPlayer</code> variable. If you have multiple videos on one page, make sure every video tag has a unique ID.</p>
     <pre class="line-numbers">
-<code class="language-javascript">var myPlayer = videojs.getPlayer('myPlayerID');</code></pre>
+<code class="language-javascript" translate="No">var myPlayer = videojs.getPlayer('myPlayerID');</code></pre>
   </section>
   <section class="bcls-section" id="waittilready">
     <h2>Player ready method</h2>
     <p>The time it takes Video.js to set up the video and API will vary depending on multiple factors, such as connection speed. For that reason we want to use the player's <code translate="No">ready()</code> method to trigger any code that requires the player's API.</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').<span class="bcls-highlight">ready(function() {</span>
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').<span class="bcls-highlight">ready(function() {</span>
   var myPlayer = this;
 
   // EXAMPLE: Handle an event
@@ -1097,7 +1097,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 });</code></pre>
     <aside class="bcls-aside bcls-aside--information">The code just above actually combines both the <code translate="No">getPlayer()</code> and <code translate="No">ready()</code> methods into the first, single line of code. You then assign the <code translate="No">myPlayer</code> variable the value <code translate="No">this</code>, which is the player instance. If you choose, you can use also the alternative shown here, but the code above is more common.
       <pre class="line-numbers">
-<code class="language-javascript">var myPlayer = videojs.getPlayer('myPlayerID');
+<code class="language-javascript" translate="No">var myPlayer = videojs.getPlayer('myPlayerID');
 <span class="bcls-highlight">myPlayer.ready</span>(function(){
 
   // EXAMPLE: Handle an event
@@ -1108,14 +1108,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Player ready vs. video in player ready</h3>
     <p>From what has been related in this document you might think this is a safe use of the API:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   // Play the video in the player
   myPlayer.play()
 });</code></pre>
     <p>The problem that just because the player is ready for interaction does NOT guarantee the video in the player is loaded and ready to be, in this example, played. For this reason, you will have to use the <code translate="No">loadedmetadata</code> event which guarantees the video is ready to play. The code would appear as follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   // Play the video in the player
   myPlayer.on('loadedmetadata',function(){
@@ -1124,7 +1124,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 });</code></pre>
     <p>If calling the <code translate="No">play()</code> method is the only task to perform in the function and you are not going to interact with the player in another way, this code could be simplified to this (no need to use the <code translate="No">ready()</code> method):</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').on('loadedmetadata',function(){
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('loadedmetadata',function(){
   var myPlayer = this;
   myPlayer.play();
 });</code></pre>
@@ -1133,7 +1133,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>API Methods</h2>
     <p>Now that you have access to a ready player, you can control the video, get values, or respond to video events. The Video.js API function names follow the <a href="https://html.spec.whatwg.org/#the-video-element">HTML5 media API</a>. The main difference is that getter/setter functions are used for video properties.</p>
     <pre class="line-numbers">
-<code class="language-javascript">// setting a property on a bare HTML5 video element
+<code class="language-javascript" translate="No">// setting a property on a bare HTML5 video element
 myVideoElement.currentTime = "120";
 
 // setting a property on a Video.js player
@@ -1157,7 +1157,7 @@ myPlayer.currentTime(120);</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 21 Feb 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

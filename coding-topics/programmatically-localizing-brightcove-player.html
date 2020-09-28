@@ -19,7 +19,7 @@ parent: Coding Topics
     <p>Once you have decided on what languages to support for localization, you must configure your player to include them. You do this using the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a>. You could use code patterned on the following curl statement to add language support when creating the player:</p>
     <aside class="bcls-aside bcls-aside--information">Note: If you have no experience using curl statements with the Player Management API, it is suggested you begin with the <a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html">Step-by-Step: Player Management.</a></aside>
     <pre class="line-numbers">
-<code class="language-json">curl \
+<code class="language-json" translate="No">curl \
   --header "Content-Type: application/json" \
   --user $EMAIL \
   --request POST \
@@ -41,7 +41,7 @@ parent: Coding Topics
     https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
     <p>If the player already exists, and you wish to add language support, you could use code patterned on the following curl statement to update the player:</p>
     <pre class="line-numbers">
-<code class="language-json">curl \
+<code class="language-json" translate="No">curl \
   --header "Content-Type: application/json" \
   --user $EMAIL \
   --request PATCH \
@@ -54,7 +54,7 @@ parent: Coding Topics
   https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
     Now you'll publish the player to make the changes to the published player. Enter the following command:
     <pre class="line-numbers">
-<code class="language-bash">curl \
+<code class="language-bash" translate="No">curl \
 --header "Content-Type: application/json" \
 --user $EMAIL \
 --request POST \
@@ -96,7 +96,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/pu
     <h2>Alter/Add to language</h2>
     <p>If you wish to change, or add to, the given localizations found at the <a href="//github.com/videojs/video.js/tree/master/lang">Video.js language page</a> it is quite easy to do. You can copy the given translations and then modify as you wish. For instance, below are the German translations with <strong>Hello</strong> and <strong>Goodbye</strong> added to the list. (For brevity's sake, not all the control elements translations are included.)</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.addLanguage("de", {
+<code class="language-javascript" translate="No">videojs.addLanguage("de", {
   "Play": "Wiedergabe",
   "Pause": "Pause",
   "Current Time": "Aktueller Zeitpunkt",
@@ -107,7 +107,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/pu
     <figure class="bcls-figure"><img class="bcls-image" alt="add script in Studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/localization/localization-studio-add-script.png" /></figure>
     <p>Once the added vocabulary is in the language file, you can use the player's <code translate="No">localize()</code> method to access it. The following code snippet shows the localized word for <strong>Hello</strong> being used in the HTML page, followed by a screenshot of the results.</p>
     <pre class="line-numbers">
-<code class="language-html">  &lt;p id="textTarget"&gt;In here: &lt;/p&gt;
+<code class="language-html" translate="No">  &lt;p id="textTarget"&gt;In here: &lt;/p&gt;
 
   &lt;script type="text/javascript"&gt;
     videojs.getPlayer('myPlayerID').ready(function() {

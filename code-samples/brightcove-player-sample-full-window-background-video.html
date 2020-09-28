@@ -136,7 +136,7 @@ parent: Code Samples
       <li>Add the attribute <code translate="No">style="object-fit: cover;"</code></li>
     </ul>
     <pre class="line-numbers">
-<code class="language-html"><span class="bcls-highlight">&lt;div class="full-bg"&gt;</span>
+<code class="language-html" translate="No"><span class="bcls-highlight">&lt;div class="full-bg"&gt;</span>
   &lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
     <span class="bcls-highlight">data-playlist-id="4450721964001"</span>
     data-account="1752604059001"
@@ -165,14 +165,14 @@ parent: Code Samples
     <h3>Set the playlist to repeat</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Set the playlist to repeat +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Set the playlist to repeat +++</code></pre>
     <p>The <code translate="No">repeat()</code> method from the Playlist API is used to keep the playlist playing indefinitely.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Display the title and description</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Display the title and description ###</code></pre>
+<code class="language-javascript" translate="No">// ### Display the title and description ###</code></pre>
     <p>An event handler is used to wait for the <code translate="No">loadstart</code> event. This is done as the <code translate="No">mediainfo</code> object is not populated until that event is dispatched. Then the <code translate="No">name</code> and <code translate="No">description</code> are injected into the HTML.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -196,13 +196,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

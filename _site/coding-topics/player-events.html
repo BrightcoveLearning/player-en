@@ -1155,23 +1155,23 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The <code translate="No">ready()</code> method has a dual personality in that it seems like an event, but you use it like a method. This method/event means the player is ready to receive commands.</p>
     <p>The <code translate="No">ready()</code> method differs from event listeners in that if the <code translate="No">ready</code> event has already happened it will trigger the <code translate="No">ready()</code> method immediately. You will often see the method used as follows to provide the starting point for development with Brightcove Player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function(){
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function(){
   var myPlayer = this;
 });</code></pre>
     <aside class="bcls-aside bcls-aside--tip language-editable">Note: It is important to realize that if the player has to switch playback technologies, say from HTML to Flash, to play a video the <code translate="No">ready</code> method/event event handlers will rerun once the new playback tech is up and running.</aside>
     <h3>ready() vs. on('loadedmetadata',...)</h3>
     <p>Note that using <code translate="No">ready()</code> functions correctly if you wish to interact with the player, for instance programmatically add a plugin. If you wish to immediately interact with the video, for instance use <code translate="No">play()</code>, the code snippet above will not always work correctly. A better approach would be to listen for the <code translate="No">loadedmetadata</code> to interact with the video, for instance:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').on('loadedmetadata',function(){
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('loadedmetadata',function(){
   var myPlayer = this;
   myPlayer.play();
 });</code></pre>
     <p>In summary, to interact with the player you can use this:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready()</code></pre>
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready()</code></pre>
     <p>If you wish to immediately interact with the video in the player use this:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').on('loadedmetadata',function(){})</code></pre>
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('loadedmetadata',function(){})</code></pre>
     <aside class="bcls-aside bcls-aside--information language-editable">Note: The reason you must wait for the <code translate="No">loadedmetadata</code> event to be dispatched is that it ensures the catalog has had time to retrieve the video before it tries to play.</aside>
   </section>
   <section id="fullscreenEvents">
@@ -1263,10 +1263,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Caution removing timeupdate listeners</h2>
     <p>In some cases you might want to remove an event listener you have added to the <code translate="No">timeupdate</code> event. A use case is shown in the <a href="/code-samples/brightcove-player-sample-register-play-after-preview.html">Brightcove Player Sample: Registering to Play after Preview</a> document. In this situation, you want the player to pause in some time range, and you are using <code translate="No">timeupdate</code> for the time check, then use an anonymous event handler function definition. You only want to pause once, so you need to remove the event listener. You do NOT want to simply do:</p>
     <pre class="line-numbers">
-<code class="language-javascript">myPlayer.off('timeupdate');</code></pre>
+<code class="language-javascript" translate="No">myPlayer.off('timeupdate');</code></pre>
     <p>Of course, this removes ALL event listeners to <code translate="No">timeupdate</code>, and among other issues doing this will prevent the time scrubber from advancing. What needs to be done is create a function using normal function definition syntax (a function declaration), then remove JUST the one event listener. The abbreviated code is shown here:</p>
     <pre class="line-numbers">
-<code class="language-javascript"> // Add the event handler
+<code class="language-javascript" translate="No"> // Add the event handler
 myPlayer.on('timeupdate', timeupdateHandler);
 
 // Handle the event then remove JUST this event listener on timeupdate
@@ -1301,7 +1301,7 @@ function timeupdateHandler(evt) {
 
 <hr>
 <div class="last-updated">
-  Page last updated on 08 May 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

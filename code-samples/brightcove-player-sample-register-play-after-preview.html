@@ -146,28 +146,28 @@ parent: Code Samples
     <h3>Configure the Overlay</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Configure the Overlay ###</code></pre>
+<code class="language-javascript" translate="No">// ### Configure the Overlay ###</code></pre>
     <p>The overlay is configured to display at 3 seconds (causing the form to be displayed). The form is built in a long string as used by the overlay as <code translate="No">overlayContent</code>.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Check, and act if preview time is passed</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Act if preview time is passed ###</code></pre>
+<code class="language-javascript" translate="No">// ### Act if preview time is passed ###</code></pre>
     <p>The code uses the <code translate="No">timeupdate</code> event to continually call the event handler that checks to see if 3 seconds have passed. Note the player controls are hidden so the user can't play the video under the form. Also, the event listener is removed so the check on the time is no longer performed.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Process the form</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Process the form ###</code></pre>
+<code class="language-javascript" translate="No">// ### Process the form ###</code></pre>
     <p>Standard HTML and JavaScript is used to process the form.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Play video when form filled out</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Plays video when form filled out ###</code></pre>
+<code class="language-javascript" translate="No">// ### Plays video when form filled out ###</code></pre>
     <p>When the form is filled out, the overlay form is hidden, the controls are displayed and the video is starts playing again.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -181,13 +181,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 );</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options)    var myPlayer = this;
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options)    var myPlayer = this;
    ...
 });</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->

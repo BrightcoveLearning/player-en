@@ -1175,7 +1175,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </ul>
       <p>If you are getting credentials directly from the API, these are the permissions you need:</p>
       <pre class="line-numbers">
-			<code class="language-json">[
+			<code class="language-json" translate="No">[
 				"video-cloud/analytics/read",
 				"video-cloud/video/read"
 			]</code></pre>
@@ -1214,14 +1214,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Other HTML</h3>
     <p>When using the Advanced (in-page embed) player, you need to add an HTML element to specify the location of the playlist. For details, see the <a href="/general/implementing-playlists.html#Advanced_in_page_embed_player">Implementing Playlists</a> document.</p>
     <pre>
-		<code class="language-html">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
+		<code class="language-html" translate="No">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video</code> tag in the player embed code.</p>
     <pre>
-		<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+		<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 		...</code></pre>
     <p>For testing purposes, we've added HTML elements below the player to display the <span translate="No">Analytics API</span> request and response.</p>
     <pre class="line-numbers">
-		<code class="language-html">&lt;p&gt;
+		<code class="language-html" translate="No">&lt;p&gt;
 			&lt;strong&gt;Analytics API request:&lt;/strong&gt;
 		&lt;/p&gt;
 		&lt;pre id="apiRequest"&gt;&lt;/pre&gt;
@@ -1247,35 +1247,35 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Set up the <span translate="No">Analytics API</span> request</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Set up <span translate="No">Analytics API</span> request +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Set up <span translate="No">Analytics API</span> request +++</code></pre>
     <p>Set up the URL parameters for the <span translate="No">Analytics API</span> request. This request will return 6 videos from our Brightcove account that have the most video views in the last 24 hours. They will be sorted in descending order.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Get data from the Analytics API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Get data from <span translate="No">Analytics API</span> +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Get data from <span translate="No">Analytics API</span> +++</code></pre>
     <p>This example calls a <a href="#proxy_code">server-side proxy</a> written in PHP to send your HTTP request to the Analytics API.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Extract the video ids</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Extract the video ids +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Extract the video ids +++</code></pre>
     <p>Extract the video ids from the API response data, and store them in an array.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Get the video objects</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Get the video objects +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Get the video objects +++</code></pre>
     <p>For each video id returned from the Analytics API, use the <code translate="No">catalog.getVideo()</code> method to get the video object.</p>
     <!-- UPDATE task 5 -->
     
     <h3>Load the playlist</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Load the playlist +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Load the playlist +++</code></pre>
     <p>Using the video object array, use the <code translate="No">playlist()</code> method to load the videos into the player's playlist.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1289,13 +1289,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-		<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+		<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 			var myPlayer = this;
 			...
 		});</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-		<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+		<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 			var myPlayer = this;
 			...
 		});</code></pre>

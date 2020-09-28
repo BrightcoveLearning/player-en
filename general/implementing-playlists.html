@@ -55,7 +55,7 @@ parent: General Information
     <div class="player-only">
       <p>To create a playlist you need to use the player's <code translate="No">playlist()</code> method along with JSON to define the videos in the playlist. The following code shows an example.</p>
       <pre class="line-numbers">
-  <code class="language-javascript">&lt;script type="text/javascript"&gt;
+  <code class="language-javascript" translate="No">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
       var myPlayer = this;
       myPlayer.playlist([{
@@ -127,7 +127,7 @@ parent: General Information
     <figure class="bcls-figure"><img class="bcls-image" alt="playlist enable studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/using-playlists/studio-code.png" /></figure>
     <p>If you wish to have a responsive player, which is an excellent option, the player code appears as shown here:</p>
     <pre class="line-numbers">
-  <code class="language-html">&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
+  <code class="language-html" translate="No">&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
     &lt;div style="padding-top: 56.25%;"&gt;
       &lt;iframe src="https://players.brightcove.net/1752604059001/S13cJdUBz_default/index.html?playlistId=5718313430001"
         allowfullscreen
@@ -162,14 +162,14 @@ parent: General Information
     </table>
     <p>This means if you are using a video of 16:9 aspect ration, the <code translate="No">padding-top</code> value should appear as follows:</p>
     <pre class="line-numbers">
-  <code class="language-html">&lt;div style="padding-top: 70.31%;"&gt;</code></pre>
+  <code class="language-html" translate="No">&lt;div style="padding-top: 70.31%;"&gt;</code></pre>
     <h3>Manually changing the playlist</h3>
     <p>If you wish to change the playlist used with the iframe implementation you simply need to change the <code translate="No">src</code> attribute of the iframe. If using an ID:</p>
     <pre class="line-numbers">
-  <code class="language-html">&lt;iframe src="https://players.brightcove.net/.../index.html<span class="bcls-highlight">?playlistId=1754200320001</span>"</code></pre>
+  <code class="language-html" translate="No">&lt;iframe src="https://players.brightcove.net/.../index.html<span class="bcls-highlight">?playlistId=1754200320001</span>"</code></pre>
     <p>or if you are using a reference ID:</p>
     <pre class="line-numbers">
-  <code class="language-html">&lt;iframe src="https://players.brightcove.net/.../index.html<span class="bcls-highlight">?playlistId=ref:myrefid001</span>"</code></pre>
+  <code class="language-html" translate="No">&lt;iframe src="https://players.brightcove.net/.../index.html<span class="bcls-highlight">?playlistId=ref:myrefid001</span>"</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="inpageembed">Advanced (in-page embed) player</h2>
@@ -179,7 +179,7 @@ parent: General Information
     <figure class="bcls-figure"><img class="bcls-image" alt="in-page embed playlist" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/using-playlists/in-page-vertical-demo.png" /></figure>
     <p>To use the Playlist Player Container, wrap the Advanced embed code with the following:</p>
     <pre>
-<code class="language-html">&lt;div class="vjs-playlist-player-container"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;div class="vjs-playlist-player-container"&gt;</code></pre>
     &nbsp;
     <h4>Fixed, vertical playlist</h4>
     <p>Follow these steps to create a fixed, vertical playlist:</p>
@@ -187,7 +187,7 @@ parent: General Information
       <li>
         <p>Get the Advanced embed code. After you publish the playlist using your configured player (as detailed in the section above), choose the <strong>Advanced</strong> code. It should be similar to this:</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;video-js
+<code class="language-html" translate="No">&lt;video-js
   data-account="1752604059001"
   data-player="5dBwlwbNk"
   data-embed="default"
@@ -207,7 +207,7 @@ parent: General Information
           </li>
         </ul>
         <pre class="line-numbers">
-<code class="language-html"><span class="bcls-highlight">&lt;div class="vjs-playlist-player-container" style="width: 960px;"&gt;</span>
+<code class="language-html" translate="No"><span class="bcls-highlight">&lt;div class="vjs-playlist-player-container" style="width: 960px;"&gt;</span>
   &lt;video-js
     data-account="1752604059001"
     data-player="5dBwlwbNk"
@@ -228,7 +228,7 @@ parent: General Information
       <li>
         <p>Get the Advanced embed code. After you publish the playlist using your configured player (as detailed in the section above), choose the <strong>Advanced</strong> code. It should be similar to this:</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;div style="max-width: 960px;"&gt;
+<code class="language-html" translate="No">&lt;div style="max-width: 960px;"&gt;
 	&lt;video-js
 		data-account="1752604059001"
 		data-player="5dBwlwbNk"
@@ -247,7 +247,7 @@ parent: General Information
       <li>
         <p>To the <code translate="No">&lt;div&gt;</code> wrapper around the <code translate="No">video-js</code> element, add the <code translate="No">vjs-playlist-player-container</code> class.</p>
         <pre class="line-numbers">
-<code class="language-html"><span class="bcls-highlight">&lt;div class="vjs-playlist-player-container" style="max-width: 960px;"&gt;</span>
+<code class="language-html" translate="No"><span class="bcls-highlight">&lt;div class="vjs-playlist-player-container" style="max-width: 960px;"&gt;</span>
 	&lt;video-js
 		data-account="1752604059001"
 		data-player="5dBwlwbNk"
@@ -267,7 +267,7 @@ parent: General Information
     <figure class="bcls-figure"><img class="bcls-image" alt="in-page embed playlist" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/using-playlists/in-page-horizontal-demo.png" /></figure>
     <p>To use the Playlist Player Container, wrap the Advanced embed code with the following:</p>
     <pre>
-<code class="language-html">&lt;div class="vjs-playlist-player-container"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;div class="vjs-playlist-player-container"&gt;</code></pre>
     &nbsp;
     <h4>Fixed, horizontal playlist</h4>
     <p>Follow these steps to create a fixed, horizontal playlist:</p>
@@ -275,7 +275,7 @@ parent: General Information
       <li>
         <p>Get the Advanced embed code. After you publish the playlist using your configured player (as detailed in the section above), choose the <strong>Advanced</strong> code. It should be similar to this:</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;video-js
+<code class="language-html" translate="No">&lt;video-js
   data-account="1752604059001"
   data-player="5dBwlwbNk"
   data-embed="default"
@@ -297,7 +297,7 @@ parent: General Information
           </li>
         </ul>
         <pre class="line-numbers">
-<code class="language-html"><span class="bcls-highlight">&lt;div class="vjs-playlist-player-container" style="width: 960px; height: 675px;"&gt;</span>
+<code class="language-html" translate="No"><span class="bcls-highlight">&lt;div class="vjs-playlist-player-container" style="width: 960px; height: 675px;"&gt;</span>
   &lt;video-js
     data-account="1752604059001"
     data-player="5dBwlwbNk"
@@ -318,7 +318,7 @@ parent: General Information
       <li>
         <p>Get the Advanced embed code. After you publish the playlist using your configured player (as detailed in the section above), choose the <strong>Advanced</strong> code. It should be similar to this:</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;div style="max-width: 960px;"&gt;
+<code class="language-html" translate="No">&lt;div style="max-width: 960px;"&gt;
 	&lt;video-js
 	  data-account="1752604059001"
 	  data-player="5dBwlwbNk"
@@ -337,17 +337,17 @@ parent: General Information
       <li>
         <p>In the <code translate="No">video-js</code> element, remove the <code translate="No">vjs-fluid</code> class and replace it with <code translate="No">vjs-fill</code>.</p>
         <pre>
-<code class="language-html">class="vjs-fill"</code></pre>
+<code class="language-html" translate="No">class="vjs-fill"</code></pre>
       </li>
       <li>
         <p>Wrap the <code translate="No">video-js</code> element with a <code translate="No">div</code> element as follows:</p>
         <pre>
-<code class="language-html">&lt;div class="vjs-playlist-player-container" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;div class="vjs-playlist-player-container" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;</code></pre>
       </li>
       <li>
         <p>Wrap the previous container in a <code translate="No">div</code> element with CSS <code translate="No">padding-top</code> equal to: <code translate="No">aspectRatioHeight / aspectRatioWidth / 0.8 * 100</code>.</p>
         <pre>
-<code class="language-html">&lt;div style="padding-top: 70.3125%;"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;div style="padding-top: 70.3125%;"&gt;</code></pre>
         &nbsp;
         <p>Because the horizontal playlist occupies 20% of the available space, we need the height of the player to occupy 80% of the available space. This is how we figured the math:</p>
         <ul>
@@ -367,12 +367,12 @@ parent: General Information
       <li>
         <p>Wrap the previous container with a <code translate="No">div</code> element as follows:</p>
         <pre>
-<code class="language-html">&lt;div style="position: relative; display: block; max-width: 960px;"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;div style="position: relative; display: block; max-width: 960px;"&gt;</code></pre>
       </li>
       <li>
         <p>The complete code should look similar to this:</p>
         <pre class="line-numbers">
-<code class="language-html"><span class="bcls-highlight">&lt;div style="position: relative; display: block; max-width: 960px;"&gt;
+<code class="language-html" translate="No"><span class="bcls-highlight">&lt;div style="position: relative; display: block; max-width: 960px;"&gt;
         &lt;div style="padding-top: 70.3125%;"&gt;
         &lt;div class="vjs-playlist-player-container" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;</span>
 			&lt;video-js
@@ -394,7 +394,7 @@ parent: General Information
     <!-- <p>If you viewed the player as shown above, you would NOT see a playlist. When using the Advanced implementation of the player you MUST add an HTML element that specifies the location of the playlist. The element is:</p>
 
 <pre class="line-numbers">
-  <code class="language-html">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
+  <code class="language-html" translate="No">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
 
 <aside class="bcls-aside bcls-aside--information">
 <p>The playlist is actually an HTML ordered list and is injected into the <code translate="No">div</code> element with the class <code translate="No">vjs-playlist</code>. The following screenshot shows the actual elements where the playlist is placed:</p>
@@ -405,7 +405,7 @@ parent: General Information
 <p>Chances are you will wish to style the player and playlist to appear the way you wish. For instance, the styles used in the screenshot of the player just above are:</p>
 
 <pre class="line-numbers">
-  <code class="language-html">&lt;style type="text/css"&gt;
+  <code class="language-html" translate="No">&lt;style type="text/css"&gt;
       .video-js {
         height: 350px;
         width: 640px;
@@ -420,7 +420,7 @@ parent: General Information
 <p>An example HTML page using the Advanced implementation with a vertical playlist follows (no responsive elements are used in this case):</p>
 
 <pre class="line-numbers">
-  <code class="language-html">&lt;!doctype html&gt;
+  <code class="language-html" translate="No">&lt;!doctype html&gt;
   &lt;html&gt;
 
   &lt;head&gt;
@@ -462,7 +462,7 @@ parent: General Information
 	<li>As shown above, use Studio to set the style of the player to use a horizontal playlist.</li>
 	<li>Style the player and playlist: Add the following CSS. Of course you may need to make minor adjustments to match your player to your video size.
 	<pre class="line-numbers">
-  <code class="language-css">&lt;style type="text/css"&gt;
+  <code class="language-css" translate="No">&lt;style type="text/css"&gt;
     .video-js {
       height: 350px;
       width: 640px;
@@ -478,7 +478,7 @@ parent: General Information
 <p>If you viewed the player as shown above you would NOT see a playlist. When using the Advanced implementation of the player you MUST add an HTML element that specifies the location of the playlist. The element is:</p>
 
 <pre class="line-numbers">
-  <code class="language-html">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
+  <code class="language-html" translate="No">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
 
 <aside class="bcls-aside bcls-aside--information">
 <p>The playlist is actually an HTML ordered list and is injected into the <code translate="No">div</code> element with the class <code translate="No">vjs-playlist</code>. The following screenshot shows the actual elements where the playlist is placed:</p>
@@ -493,7 +493,7 @@ parent: General Information
 <p>An example HTML page using the Advanced implementation with a horizontal playlist is (no responsive elements are used in this case):</p>
 
 <pre class="line-numbers">
-  <code class="language-html">&lt;!doctype html&gt;
+  <code class="language-html" translate="No">&lt;!doctype html&gt;
   &lt;html&gt;
 
   &lt;head&gt;
@@ -534,7 +534,7 @@ parent: General Information
     <ol>
       <li>If you are using the <strong>Advanced (in-page embed)</strong> player you can add the <code translate="No">data-playlist-video-id</code> as an attribute to set the initial video to play from the playlist, as shown here:
         <pre class="line-numbers">
-  <code class="language-html">&lt;video-js data-playlist-id="5455901760001"
+  <code class="language-html" translate="No">&lt;video-js data-playlist-id="5455901760001"
     <span class="bcls-highlight">data-playlist-video-id="5357926703001"</span>
     data-account="1507807800001"
     data-player="BJQXwfiuG"
@@ -547,14 +547,14 @@ parent: General Information
       </li>
       <li>If you are using the <strong>Advanced (in-page embed)</strong> player on a page. You can add the following URL parameter to the <strong>page</strong> request:
         <pre class="line-numbers">
-  <code class="language-html">?playlistVideoId=5510487311001</code></pre>
+  <code class="language-html" translate="No">?playlistVideoId=5510487311001</code></pre>
         The player will automatically play the desired video from the playlist. This is built in Brightcove Player functionality.</li>
       <li>If you are using a <strong>Standard (iframe)</strong> player on a page. You can add a URL parameter to the iframe's <code translate="No">src</code> attribute:
         <pre class="line-numbers">
-  <code class="language-html">&lt;iframe src=".../index.html<span class="bcls-highlight">?playlistId=5531423971001&amp;playlistVideoId=5510487311001</span>" ...</code></pre>
+  <code class="language-html" translate="No">&lt;iframe src=".../index.html<span class="bcls-highlight">?playlistId=5531423971001&amp;playlistVideoId=5510487311001</span>" ...</code></pre>
         The player will automatically play the desired video from the playlist. This is built in Brightcove Player functionality. A sample of this technique is shown here (You will need to scroll the code far to the right to see the use of the parameter):
         <pre class="line-numbers">
-  <code class="language-html">&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
+  <code class="language-html" translate="No">&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
   &lt;div style="padding-top: 56.25%;"&gt;
     &lt;iframe src="https://players.brightcove.net/1752604059001/HkYoUgMwW_default/index.html?playlistId=5531423971001<span class="bcls-input">&amp;playlistVideoId=5510487311001</span>"
         allowfullscreen
@@ -575,7 +575,7 @@ parent: General Information
       <li>The dynamically created iframe is inserted into the page.</li>
     </ul>
     <pre class="line-numbers">
-    <code class="language-html">&lt;!doctype html&gt;
+    <code class="language-html" translate="No">&lt;!doctype html&gt;
     &lt;html&gt;
 
     &lt;head&gt;
@@ -640,7 +640,7 @@ parent: General Information
     </ul>
     <p>An example implementation follows:</p>
     <pre class="line-numbers">
-  <code class="language-html">&lt;!doctype html&gt;
+  <code class="language-html" translate="No">&lt;!doctype html&gt;
   &lt;html&gt;
 
   &lt;head&gt;

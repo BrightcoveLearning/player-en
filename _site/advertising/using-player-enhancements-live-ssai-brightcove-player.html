@@ -1112,7 +1112,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>In the <code translate="No">&lt;iframe&gt;</code> tag, you should see an <code translate="No">src</code> attribute. To the end of this, add the <code translate="No">adConfigId</code> URL parameter with the value of your <a href="https://ssai.support.brightcove.com/live/guides/implementing-player-enhancements-live-ssai.html#Configure_the_player">playback token</a>.</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;iframe src="https://players.brightcove.net/6027103979001/IqljF4Olr_default/
+<code class="language-html" translate="No">&lt;iframe src="https://players.brightcove.net/6027103979001/IqljF4Olr_default/
 index.html?videoId=6089818309001&amp;<span class="bcls-highlight">adConfigId=live.aaB61234aabbccdd567890"</span>
   allowfullscreen=""
   allow="encrypted-media"
@@ -1131,7 +1131,7 @@ index.html?videoId=6089818309001&amp;<span class="bcls-highlight">adConfigId=liv
       <li>
         <p>In the <code translate="No">&lt;video-js&gt;</code> tag, add a <code translate="No">data-ad-config-id</code> attribute with the value of your <a href="https://ssai.support.brightcove.com/live/guides/implementing-player-enhancements-live-ssai.html#Configure_the_player">playback token</a>.</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;video-js
+<code class="language-html" translate="No">&lt;video-js
   data-account="6027103979001"
   data-player="IqljF4Olr"
   data-embed="default"
@@ -1152,7 +1152,7 @@ index.html?videoId=6089818309001&amp;<span class="bcls-highlight">adConfigId=liv
     <p>Unlike VOD SSAI sources, Live SSAI sources do not include an initial VMAP. This is because Live SSAI streams don't know in advance when ad breaks will be included. Instead, ad breaks are triggered from cue points that you add to the live job.</p>
     <p>Brightcove Live SSAI streams start with a standard HLS manifest URL with a specific naming scheme:</p>
     <pre>
-<code class="language-html">https://.../playlist_ssaiM.m3u8</code></pre>
+<code class="language-html" translate="No">https://.../playlist_ssaiM.m3u8</code></pre>
     <p>The SSAI plugin looks for the <code translate="No">_ssaiM.m3u8</code> suffix and the normal HLS MIME type</p>
     <p>When publishing a video from Video Cloud Studio's <strong>Media</strong> module, you can play a Live SSAI stream as follows:</p>
     <ol class="bcls-tasklist__restart">
@@ -1161,7 +1161,7 @@ index.html?videoId=6089818309001&amp;<span class="bcls-highlight">adConfigId=liv
       <li>
         <p>To your page code, add the following code:</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
   data-account="6027103979001"
   data-player="IqljF4Olr"
   data-embed="default"
@@ -1202,7 +1202,7 @@ index.html?videoId=6089818309001&amp;<span class="bcls-highlight">adConfigId=liv
 
 <hr>
 <div class="last-updated">
-  Page last updated on 19 Mar 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

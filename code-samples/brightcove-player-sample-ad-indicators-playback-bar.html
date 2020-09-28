@@ -110,14 +110,14 @@ parent: Code Samples
   <h3>Extract ad cue points from all cue points</h3>
   <p>Find the code which is labeled:</p>
   <pre>
-<code class="language-javascript">// ### Get ad cue points from all cue points ###</code></pre>
+<code class="language-javascript" translate="No">// ### Get ad cue points from all cue points ###</code></pre>
   <p class="language-editable">The key code in this section is using JavaScript's array <code translate="No">filter()</code> method to extract the ad cue points from all cue points. Note the helper function named <code translate="No">isAdCuePoint()</code> that is used by the <code translate="No">filter()</code> method.</p>
   <!-- UPDATE task 2 -->
   
   <h3>Place marks in the progress bar</h3>
   <p>Find the code which is labeled:</p>
   <pre>
-<code class="language-javascript">// ### Add AD cue point markers ###</code></pre>
+<code class="language-javascript" translate="No">// ### Add AD cue point markers ###</code></pre>
   <p>You first get a reference to the progress bar element using JavaScript's <code translate="No">document.getElementsByClassName()</code> method. Next you loop over the array of cue points, and for each cue point dynamically create a div, calculate a percentage of where it should be place on the progress bar, then use JavaScipt's <code translate="No">appendChild()</code> method to place the mark on the progress bar.</p>
 </section>
 <!-- UPDATE CSS description -->
@@ -131,13 +131,13 @@ parent: Code Samples
   <p class="language-editable">Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
   <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
   <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
   <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
   <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

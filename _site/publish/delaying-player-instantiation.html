@@ -1101,7 +1101,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The reason the attributes must be removed as any of those three attributes remain it will cause Brightcove Player to be instantiated.</p>
     <p>The Advanced code used should be patterned on the following code snippet. Note that an <code translate="No">id</code> is added to the tag.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-embed="default"
   class="video-js" controls&gt;&lt;/video-js&gt;
 
@@ -1112,7 +1112,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="JavaScript_used">JavaScript used</h2>
     <p>A very common practice is to use code similar to the following to prepare to programmatically interact with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
 });</code></pre>
     <p>This approach cannot be used as it would instantiate the player. Instead, you will use the <code translate="No">bc()</code> method to instantiate the player AFTER other preferences have been set. This <code translate="No">bc()</code> method is used to create a new instance of Brightcove Player and is normally automatically called when using the <code translate="No">&lt;video-js&gt;</code> tag, unless the steps detailed here are followed.</p>
@@ -1125,7 +1125,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Lines 12-15: Programmatically plays the video. Waiting for the <code translate="No">loadedmetadata</code> event to dispatch ensures the video has been retrieved by the catalog before it tries to play.</li>
       </ul>
       <pre class="line-numbers">
-<code class="language-html">&lt;script type="text/javascript"&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   var myPlayer,
     vTag = document.getElementById('myPlayerID');
   vTag.setAttribute('data-account', 1507807800001);
@@ -1151,7 +1151,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Line 13: Programmatically plays the video. Of course, this is not required.</li>
       </ul>
       <pre class="line-numbers">
-<code class="language-html">&lt;script type="text/javascript"&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   var myPlayer,
     vTag = document.getElementById('myPlayerID');
   vTag.setAttribute('data-account', 1507807800001);
@@ -1169,7 +1169,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--tip">
       <p>Alternatively, if you are comfortable addressing elements directly by ID you can use this more concise code:</p>
       <pre class="line-numbers">
-<code class="language-html">&lt;script type="text/javascript"&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   var myPlayer;
   myPlayerID.setAttribute('data-account', 1507807800001);
   myPlayerID.setAttribute('data-player', 'BdGVdOd36');
@@ -1196,7 +1196,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Lines 15-18: Programmatically plays the video. Waiting for the <code translate="No">loadedmetadata</code> event to dispatch ensures the video has been retrieved by the catalog before it tries to play.</li>
       </ul>
       <pre class="line-numbers">
-<code class="language-html">&lt;script type="text/javascript"&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   // Retrieve the element by tag name, returns an array so use the zeroth array element
   var myPlayer,
     vTag = document.getElementsByTagName('video-js')[0];
@@ -1225,7 +1225,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Line 16: Programmatically plays the video. Of course, this is not required.</li>
       </ul>
       <pre class="line-numbers">
-<code class="language-javascript">&lt;script type="text/javascript"&gt;
+<code class="language-javascript" translate="No">&lt;script type="text/javascript"&gt;
   // Retrieve the element by tag name, returns an array so use the zeroth array element
   var myPlayer,
     vTag = document.getElementsByTagName('video-js')[0];
@@ -1249,7 +1249,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>With ad failover turned on, the Brightcove Player detects if an ad blocker is present in the browser. If not, your client-side ads (CSAI) are played. If an ad blocker is detected, then the player automatically requests your server-side ads (SSAI). For details, see the <a href="https://ssai.support.brightcove.com/vod/guides/ssai-ad-block-detection-and-auto-failover.html">SSAI: Ad Block Detection and Auto-Failover</a> document.</p>
     <p>By default, calling the <code translate="No">bc()</code> method forces the player to initialize immediately. If you want to use ad failover with the <code translate="No">bc()</code> method, you need to wait for the player to check if an ad blocker is present. You can do this with the following code:</p>
     <pre class="line-numbers">
-<code class="language-javascript">bc.usingAdBlocker().then(function() {
+<code class="language-javascript" translate="No">bc.usingAdBlocker().then(function() {
   // The promise callback receives a true/false result, which is stored
   // internally, so future bc() calls will use it. There is no need to
   // handle it yourself.
@@ -1262,7 +1262,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h4>HTML</h4>
     <p>This is the HTML for the example.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
 	data-embed="default"
 	data-application-id
 	class="video-js"
@@ -1273,7 +1273,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h4>JavaScript</h4>
     <p>This is the JavaScript for the example.</p>
     <pre class="line-numbers">
-<code class="language-javascript">&lt;script type="text/javascript"&gt;
+<code class="language-javascript" translate="No">&lt;script type="text/javascript"&gt;
   // +++ Define the player options +++
   var options = {
     controlBar: {
@@ -1320,7 +1320,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 20 Mar 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

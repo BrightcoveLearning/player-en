@@ -1135,7 +1135,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>The picture-in-picture plugin requires that your player is wrapped by a container element with the class set to <code translate="No">vjs-pip-container</code>. Your code should look similar to this:</p>
         <pre class="line-numbers">
-<code class="language-html"><span class="bcls-highlight">&lt;div class="vjs-pip-container"&gt;</span>
+<code class="language-html" translate="No"><span class="bcls-highlight">&lt;div class="vjs-pip-container"&gt;</span>
   &lt;video-js id="myPlayerID"
     data-video-id="5701202551001"
     data-account="1752604059001"
@@ -1148,7 +1148,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <span class="bcls-highlight">&lt;/div&gt;</span></code></pre>
         <p>If the <code translate="No">&lt;div&gt;</code> element above is not found as the parent of the player, the plugin will fail to initialize and you will get the following log warning:</p>
         <pre>
-<code class="language-html">VIDEOJS: WARN: expected player to be a child of a "vjs-pip-container" element, cannot continue with picture-in-picture plugin</code></pre>
+<code class="language-html" translate="No">VIDEOJS: WARN: expected player to be a child of a "vjs-pip-container" element, cannot continue with picture-in-picture plugin</code></pre>
       </li>
       <li>When the video has starts playing, scroll down to see the picture-in-picture player pinned to the bottom of the page.</li>
     </ol>
@@ -1166,11 +1166,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist__restart">
       <li>Add the styles for the picture-in-picture plugin.
         <pre class="line-numbers">
-<code class="language-html">&lt;link href="https://players.brightcove.net/videojs-pip/1/videojs-pip.css" rel="stylesheet"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;link href="https://players.brightcove.net/videojs-pip/1/videojs-pip.css" rel="stylesheet"&gt;</code></pre>
       </li>
       <li>Add the JavaScript file to include the picture-in-picture plugin. <!-- <aside class="bcls-aside bcls-aside--tip">Note: This plugin script must be placed after the last <code translate="No">&lt;script&gt;</code> tag for your player embed code.</aside> -->
         <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-video-id="5701202551001"
   data-account="1752604059001"
   data-player="default"
@@ -1186,7 +1186,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>Wrap the player embed code in a container element with the class set to <code translate="No">vjs-pip-container</code>. The picture-in-picture plugin requires that your player is wrapped by this container element.</p>
         <pre class="line-numbers">
-<code class="language-html"><span class="bcls-highlight">&lt;div class="vjs-pip-container"&gt;</span>
+<code class="language-html" translate="No"><span class="bcls-highlight">&lt;div class="vjs-pip-container"&gt;</span>
     &lt;video-js id="myPlayerID"
       data-video-id="5701202551001"
       data-account="1752604059001"
@@ -1202,7 +1202,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         &lt;script src="https://players.brightcove.net/videojs-pip/1/videojs-pip.min.js"&gt;&lt;/script&gt;</code></pre>
         <p>If the <code translate="No">&lt;div&gt;</code> element above is not found as the parent of the player, the plugin will fail to initialize and you will get the following log warning:</p>
         <pre>
-<code class="language-html">expected player to be a child of a "vjs-pip-container" element, cannot continue with picture-in-picture plugin</code></pre>
+<code class="language-html" translate="No">expected player to be a child of a "vjs-pip-container" element, cannot continue with picture-in-picture plugin</code></pre>
       </li>
       <li>Add custom script code which does the following:
         <ul>
@@ -1210,7 +1210,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <li>Initializes the picture-in-picture plugin.</li>
         </ul>
         <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   // When the player is ready, get a reference to it
   var myPlayer = this;
   // Initialize the picture-in-picture plugin
@@ -1237,14 +1237,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
               <li>The website using the player is unlikely to be zoomed.</li>
               <li>Zooming has been disabled using a <code translate="No">user-scalable=no</code> directive. Using this directive will make <code translate="No">position: fixed</code> behave as it does on desktops, but it is not specifically recommended because it can be an accessibility concern.
                 <pre>
-<code class="language-html">&lt;meta name="viewport" content="width=device-width, user-scalable=no"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;meta name="viewport" content="width=device-width, user-scalable=no"&gt;</code></pre>
               </li>
             </ul>
           </li>
           <li>
             <p>Example:</p>
             <pre class="line-numbers">
-<code class="language-javascript">// Allow mobile (iOS and Android) devices to enter PIP mode.
+<code class="language-javascript" translate="No">// Allow mobile (iOS and Android) devices to enter PIP mode.
 player.pip({allowOnMobile: true});</code></pre>
           </li>
         </ul>
@@ -1261,7 +1261,7 @@ player.pip({allowOnMobile: true});</code></pre>
           <li>
             <p>Example:</p>
             <pre class="line-numbers">
-<code class="language-javascript">// Do not allow the user to close the PIP mode player.
+<code class="language-javascript" translate="No">// Do not allow the user to close the PIP mode player.
 player.pip({closeable: false});</code></pre>
           </li>
         </ul>
@@ -1277,13 +1277,13 @@ player.pip({closeable: false});</code></pre>
           <li>
             <p>Example:</p>
             <pre class="line-numbers">
-<code class="language-javascript">// Detach the player, but do not change its size.
+<code class="language-javascript" translate="No">// Detach the player, but do not change its size.
 player.pip({scale: 1});</code></pre>
           </li>
           <li>
             <p>Example 2:</p>
             <pre class="line-numbers">
-<code class="language-javascript">// Detach the player, and change its size to 1/2.
+<code class="language-javascript" translate="No">// Detach the player, and change its size to 1/2.
 player.pip({scale: 0.5});</code></pre>
           </li>
         </ul>
@@ -1302,7 +1302,7 @@ player.pip({scale: 0.5});</code></pre>
           <li>
             <p>Example:</p>
             <pre class="line-numbers">
-<code class="language-javascript">// Detach the player and set its width to 300 pixels. Scale its height to
+<code class="language-javascript" translate="No">// Detach the player and set its width to 300 pixels. Scale its height to
 // maintain its current aspect ratio.
 player.pip({width: 300});</code></pre>
           </li>
@@ -1321,7 +1321,7 @@ player.pip({width: 300});</code></pre>
           <li>
             <p>Example:</p>
             <pre class="line-numbers">
-<code class="language-javascript">// When the player is in PIP mode, align it to the left side of the viewport.
+<code class="language-javascript" translate="No">// When the player is in PIP mode, align it to the left side of the viewport.
 player.pip({posX: 'left'});</code></pre>
           </li>
         </ul>
@@ -1339,7 +1339,7 @@ player.pip({posX: 'left'});</code></pre>
           <li>
             <p>Example:</p>
             <pre class="line-numbers">
-<code class="language-javascript">// When the player is in PIP mode, align it to the top of the viewport.
+<code class="language-javascript" translate="No">// When the player is in PIP mode, align it to the top of the viewport.
 player.pip({posY: 'top'});</code></pre>
           </li>
         </ul>
@@ -1358,7 +1358,7 @@ player.pip({posY: 'top'});</code></pre>
           <li>
             <p>Example:</p>
             <pre class="line-numbers">
-<code class="language-javascript">// If more than half the player is outside of the viewport, activate PIP mode.
+<code class="language-javascript" translate="No">// If more than half the player is outside of the viewport, activate PIP mode.
 player.pip({viewable: 0.5});</code></pre>
           </li>
         </ul>
@@ -1378,13 +1378,13 @@ player.pip({viewable: 0.5});</code></pre>
           <li>
             <p>Example:</p>
             <pre class="line-numbers">
-<code class="language-javascript">// Implementation will handle sizing the container.
+<code class="language-javascript" translate="No">// Implementation will handle sizing the container.
 player.pip({manualContainerSize: true});</code></pre>
           </li>
           <li>
             <p>Example using the <code translate="No">data-manual-container-size</code> attribute on the container:</p>
             <pre class="line-numbers">
-<code class="language-html">&lt;div class="vjs-pip-container" data-manual-container-size&gt;
+<code class="language-html" translate="No">&lt;div class="vjs-pip-container" data-manual-container-size&gt;
   &lt;video-js class="video-js vjs-default-skin"&gt;
   &lt;/video-js&gt;
 &lt;/div&gt;</code></pre>
@@ -1408,7 +1408,7 @@ player.pip({manualContainerSize: true});</code></pre>
     <h3>Using JavaScript</h3>
     <p>To implement the options in code, you create an object, assign desired options their respective values, then pass the options object when calling the plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   // When the player is ready, get a reference to it
   var myPlayer = this,
       options = {};
@@ -1520,7 +1520,7 @@ player.pip({manualContainerSize: true});</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 08 May 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

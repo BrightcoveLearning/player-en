@@ -1089,19 +1089,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Copy the JavaScript from the HTML page, minus the <code translate="No">&lt;script&gt;</code> tags, and paste into the dedicated JavaScript file.</li>
       <li>In the JavaScript file, locate the code that resembles
         <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function () {</code></pre>
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function () {</code></pre>
         and replace it with the following, choosing a name for the plugin that reflects its functionality:
         <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('backForwardButtons', function() {</code></pre>
+<code class="language-javascript" translate="No">videojs.registerPlugin('backForwardButtons', function() {</code></pre>
         <aside class="bcls-aside bcls-aside--information language-editable">Note that the filenames for the CSS and JavaScript uses hyphens, while the plugin name is camelCase. This is simply a convention used by the writer of the code and you can name entities as you wish.</aside>
       </li>
       <li>From the original HTML page, remove the <code translate="No">&lt;style&gt;</code> block and replace it with a link to the CSS file:
         <pre class="line-numbers">
-<code class="language-html">&lt;link href="back-forward-buttons.css" rel="stylesheet"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;link href="back-forward-buttons.css" rel="stylesheet"&gt;</code></pre>
       </li>
       <li>From the original HTML page, and just below the <code translate="No">&lt;script&gt;</code> tag that links to the player's <code translate="No">index.min.js</code> file, add a second <code translate="No">&lt;script&gt;</code> tag to link to the plugin's JavaScript:
         <pre class="line-numbers">
-<code class="language-html">&lt;script src="back-forward-buttons.js"&gt;&lt;/script&gt;</code></pre>
+<code class="language-html" translate="No">&lt;script src="back-forward-buttons.js"&gt;&lt;/script&gt;</code></pre>
       </li>
       <li>From the original HTML page, remove the contents of the <code translate="No">&lt;script&gt;</code> block, and replace it code that performs the following:
         <ul>
@@ -1110,7 +1110,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <li>Call the plugin.</li>
         </ul>
         <pre class="line-numbers">
-<code class="language-html">&lt;script&gt;
+<code class="language-html" translate="No">&lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
     myPlayer.backForwardButtons();
@@ -1123,7 +1123,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Completed_Code">Complete Code</h2>
     <h3>Main HTML page</h3>
     <pre class="line-numbers">
-  <code class="language-html">&lt;!doctype html&gt;
+  <code class="language-html" translate="No">&lt;!doctype html&gt;
   &lt;html&gt;
 
   &lt;head&gt;
@@ -1158,7 +1158,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   &lt;/html&gt;</code></pre>
     <h3>Custom plugin's JavaScript</h3>
     <pre class="line-numbers">
-  <code class="language-javascript">videojs.registerPlugin('backForwardButtons', function() {
+  <code class="language-javascript" translate="No">videojs.registerPlugin('backForwardButtons', function() {
     var myPlayer = this,
         jumpAmount = 5,
         controlBar,
@@ -1218,7 +1218,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Custom plugin's CSS</h3>
     <aside class="bcls-aside bcls-aside--tip language-editable">Remember, NO &lt;style&gt; tags.</aside>
     <pre class="line-numbers">
-  <code class="language-css">#backButton img{
+  <code class="language-css" translate="No">#backButton img{
     margin-top: -7px;
     height: 45px;
     width: 45px;
@@ -1269,7 +1269,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 27 Feb 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

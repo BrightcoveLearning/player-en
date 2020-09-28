@@ -1085,7 +1085,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>As mentioned in the opening sentence of this document, the plugin relies on W3C's Media Source Extensions (MSE). MSE is a W3C specification that allows JavaScript to send byte streams to media codecs within web browsers that support HTML5 video. Among other possible uses, this allows the implementation of client-side prefetching and buffering code for streaming media entirely in JavaScript.</li>
       <li>With the plugin you can then use HLS (m3u8) video content in the player. For instance you could create a player using this configuration for the media section:
         <pre class="line-numbers">
-<code class="language-json">"media":{
+<code class="language-json" translate="No">"media":{
     "sources": [{
         "src": "http://example.com/video.m3u8",
         "type": "application/x-mpegURL"
@@ -1131,7 +1131,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--warning">Known Issue: <code translate="No">withCredentials</code> does NOT work with Safari on the desktop or devices.</aside>
     <p>You can configure the plugin using the <a href="https://apis.support.brightcove.com/player-management/getting-started/overview-player-management-api.html">Player Management API</a> using an HTTP <code translate="No">PATCH</code> method, as shown here:</p>
     <pre class="line-numbers">
-<code class="language-json">curl \
+<code class="language-json" translate="No">curl \
     --header "Content-Type: application/json" \
     --user YOUR_EMAIL \
     --request PATCH \
@@ -1139,7 +1139,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAYER_ID/configuration</code></pre>
     <p>You can also set the <code translate="No">withCredentials</code> option on a per source basis, rather than on a player basis as just shown. For instance, when setting the source you can include <code translate="No">withCredentials</code>, as shown here:</p>
     <pre class="line-numbers">
-<code class="language-json">curl \
+<code class="language-json" translate="No">curl \
   --header "Content-Type: application/json" \
   --user $EMAIL \
   --request POST \
@@ -1164,7 +1164,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
     </ul>
     <p>In the following code you are using the <code translate="No">player.hls.xhr.beforeRequest</code> to assign a function that will be called with an object containing options that will be used to create the <code translate="No">xhr</code> request. In this example you see only <code translate="No">withCredentials</code> is being configured.</p>
     <pre class="line-numbers">
-<code class="language-javascript">if (videojs.Hls) {
+<code class="language-javascript" translate="No">if (videojs.Hls) {
   videojs.Hls.xhr.beforeRequest = function (options) {
     options.withCredentials = true;
   }
@@ -1172,7 +1172,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
     <p>You can also set the <code translate="No">withCredentials</code> options when setting the video source. You use the <code translate="No">player.src()</code> method, as shown here:</p>
     <aside class="bcls-aside bcls-aside--warning">There is a current known issue that this configuration option does not work when using Firefox with IMA3 ads. You can use <code translate="No">player.hls.xhr.beforeRequest</code> to avoid this issue.</aside>
     <pre class="line-numbers">
-<code class="language-javascript">player.src({
+<code class="language-javascript" translate="No">player.src({
   src: 'https://adomain.com/bipbop_16x9_variant.m3u8',
   type: 'application/x-mpegURL',
   withCredentials: true
@@ -1189,7 +1189,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
                               <p>When the <code translate="No">useCueTags</code> property is set to <code translate="No">true</code>, a text track is created with label 'ad-cues' and kind 'metadata'. The track is then added to player.textTracks(). Changes in active cue may be tracked by following the <a href="https://docs.brightcove.com/brightcove-player/current-release/TextTrack.html">cue points API for text tracks</a>. For example:</p>
 
-                              <pre class="line-numbers"><code class="language-javascript">let textTracks = player.textTracks();
+                              <pre class="line-numbers"><code class="language-javascript" translate="No">let textTracks = player.textTracks();
                               let cuesTrack;
 
                               for (let i = 0; i &lt; textTracks.length; i++) {
@@ -1211,7 +1211,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
                               <p>You can configure the plugin using the <a href="https://apis.support.brightcove.com/player-management/getting-started/overview-player-management-api.html">Player Management API</a> using an HTTP <code translate="No">PATCH</code> method, as shown here:</p>
 
-                              <pre class="line-numbers"><code class="language-json">curl \
+                              <pre class="line-numbers"><code class="language-json" translate="No">curl \
                                   --header "Content-Type: application/json" \
                                   --user YOUR_EMAIL \
                                   --request PATCH \
@@ -1234,7 +1234,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
                               <p>You can configure the plugin using the <a href="https://apis.support.brightcove.com/player-management/getting-started/overview-player-management-api.html">Player Management API</a> using an HTTP <code translate="No">PATCH</code> method, as shown here:</p>
 
-                              <pre class="line-numbers"><code class="language-json">curl \
+                              <pre class="line-numbers"><code class="language-json" translate="No">curl \
                                   --header "Content-Type: application/json" \
                                   --user YOUR_EMAIL \
                                   --request PATCH \
@@ -1254,7 +1254,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
                               <p>You can configure the plugin using the <a href="https://apis.support.brightcove.com/player-management/getting-started/overview-player-management-api.html">Player Management API</a> using an HTTP <code translate="No">PATCH</code> method, as shown here:</p>
 
-                              <pre class="line-numbers"><code class="language-json">curl \
+                              <pre class="line-numbers"><code class="language-json" translate="No">curl \
                                   --header "Content-Type: application/json" \
                                   --user YOUR_EMAIL \
                                   --request PATCH \
@@ -1274,7 +1274,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
                               <p>You can configure the plugin using the <a href="https://apis.support.brightcove.com/player-management/getting-started/overview-player-management-api.html">Player Management API</a> using an HTTP <code translate="No">PATCH</code> method, as shown here:</p>
 
-                              <pre class="line-numbers"><code class="language-json">curl \
+                              <pre class="line-numbers"><code class="language-json" translate="No">curl \
                                   --header "Content-Type: application/json" \
                                   --user YOUR_EMAIL \
                                   --request PATCH \
@@ -1291,7 +1291,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
     <p>When <code translate="No">enableLowInitialPlaylist</code> is set to true, it will be used to select the lowest bitrate playlist initially. This helps to decrease playback start time.</p>
     <p>You can configure the plugin using the <a href="https://apis.support.brightcove.com/player-management/getting-started/overview-player-management-api.html">Player Management API</a> using an HTTP <code translate="No">PATCH</code> method, as shown here:</p>
     <pre class="line-numbers">
-<code class="language-json">curl \
+<code class="language-json" translate="No">curl \
     --header "Content-Type: application/json" \
     --user YOUR_EMAIL \
     --request PATCH \
@@ -1339,7 +1339,7 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
     <iframe src="https://players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5246169715001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" width="640" height="380"></iframe>
     <p>The syntax for the <code translate="No">reloadSourceOnError()</code> method is as follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript">reloadSourceOnError(optionsObject)</code></pre>
+<code class="language-javascript" translate="No">reloadSourceOnError(optionsObject)</code></pre>
     <p>The optional <code translate="No">optionsObject</code> has the following properties:</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
@@ -1375,7 +1375,7 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
       <li>Line 21: Call the <code translate="No">reloadSourceOnError()</code> method, passing the configuration object as an argument.</li>
     </ul>
     <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-video-id="4607746980001"
   data-account="1507807800001"
   data-player="HJLp3Hvmg"
@@ -1411,7 +1411,7 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
     <iframe src="https://players.brightcove.net/1752604059001/default_default/index.html?videoId=5427617218001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" width="640" height="360"></iframe>
     <p>Simply to see, as this is something you would not build yourself, here is the manifest for the video shown in the player above:</p>
     <pre class="line-numbers">
-<code class="language-javascript">#EXTM3U
+<code class="language-javascript" translate="No">#EXTM3U
 #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subs",NAME="Woofer",DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE="en",URI="subtitles/en/index.m3u8"
 #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subs",NAME="Woofer (Forced)",DEFAULT=NO,AUTOSELECT=NO,FORCED=YES,LANGUAGE="en",URI="subtitles/en_forced/index.m3u8"
 #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subs",NAME="Spanish",DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE="es",URI="subtitles/es/index.m3u8"
@@ -1445,7 +1445,7 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
     </ul>
     <p>Cues are created for all other frame types and the data is attached to the generated cue:</p>
     <pre class="line-numbers">
-<code class="language-javascript">cue.frame.data</code></pre>
+<code class="language-javascript" translate="No">cue.frame.data</code></pre>
     <p>For more information about text tracks in general see <a href="//www.html5rocks.com/en/tutorials/track/basics/">Getting Started With the Track Element</a>. For information on Brightcove Player and cue points see <a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a>.</p>
   </section>
   <section class="bcls-section">
@@ -1455,7 +1455,7 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
     <h3>Method: videojs.log.level()</h3>
     <p>The <code translate="No">videojs.log.level()</code> method gets or sets the current logging level. To turn on debugging you use:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.log.level('debug');</code></pre>
+<code class="language-javascript" translate="No">videojs.log.level('debug');</code></pre>
     <h3>Method: videojs.log.history()</h3>
     <p>The <code translate="No">history()</code> method returns an array containing everything that has been logged to the history.</p>
     <p>Any message that gets logged through the <code translate="No">videojs.log</code> API will be appended to the <code translate="No">history</code> array. What information is placed into that array is dependent on what plugins are in use that use the API, and the state of the player. This means that the history can easily contain non-HLS information. An example display from the console of the <code translate="No">history</code> array follows:</p>
@@ -1463,7 +1463,7 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
     <aside class="bcls-aside bcls-aside--tip">Both the <code translate="No">level()</code> and <code translate="No">history()</code> methods belong to the <code translate="No">log</code> class, whose reference document is located <a href="https://docs.brightcove.com/brightcove-player/current-release/module-create-logger-createLogger-log.html">here</a>.</aside>
     <p>If you need to send the <code translate="No">history</code> array to support, the best thing to do is at the console type the following:</p>
     <pre class="line-numbers">
-<code class="language-javascript">JSON.stringify(videojs.log.history())</code></pre>
+<code class="language-javascript" translate="No">JSON.stringify(videojs.log.history())</code></pre>
     <p>You will get information similar to what is shown here:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="console display of history stringified" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/stringify.png" /></figure>
     <p>Copy the JSON that is generated and that can then be sent to support.</p>
@@ -1577,7 +1577,7 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
     <h3>Code example</h3>
     <p>If you wish to experiment with these debugging features, code based on the following can server as a starting point:</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID" data-video-id="5622718636001"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID" data-video-id="5622718636001"
   data-account="1507807800001"
   data-player="SkxERgnQM"
   data-embed="default"
@@ -1637,7 +1637,7 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
 
 <hr>
 <div class="last-updated">
-  Page last updated on 03 Aug 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

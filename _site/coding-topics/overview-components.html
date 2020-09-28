@@ -1095,7 +1095,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>&nbsp;</p>
     <p>The default, hierarchical component structure of the player is as shown:</p>
     <pre class="line-numbers">
-<code class="language-javascript">Player
+<code class="language-javascript" translate="No">Player
   Player
       PosterImage
       TextTrackDisplay
@@ -1205,7 +1205,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <td>The component that contains the seek, load progress and play progress bars
             <aside class="bcls-aside bcls-aside--information">You can turn off viewer interaction with the progressControl and its children by using:
               <pre class="line-numbers">
-<code class="language-javascript">player.controlBar.progressControl.disable();</code></pre>
+<code class="language-javascript" translate="No">player.controlBar.progressControl.disable();</code></pre>
             </aside></td>
         </tr>
         <tr>
@@ -1279,13 +1279,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Class information</h2>
     <p>The player class, and all control classes, inherit from the Component class, or a subclass of Component.</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.Control = videojs.Component.extend();
+<code class="language-javascript" translate="No">videojs.Control = videojs.Component.extend();
 videojs.Button = videojs.Control.extend();
 videojs.PlayToggle = videojs.Button.extend();
 </code></pre>
     <p>The UI component architecture makes it easier to add child components to a parent component and build up an entire user interface, like the controls for the Video.js player. When you add a child component, it inserts the element of that child into the element of the parent and allows you to manipulate the element as needed, as shown here:</p>
     <pre class="line-numbers">
-<code class="language-javascript">myButton = myPlayer.controlBar.addChild('Button');
+<code class="language-javascript" translate="No">myButton = myPlayer.controlBar.addChild('Button');
 myButton.addClass('bc-download-button');
 myButton.on('click',function(){
   ...

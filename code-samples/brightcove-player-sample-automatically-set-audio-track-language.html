@@ -112,14 +112,14 @@ parent: Code Samples
     <h3>Get the browser language</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Get the browser language +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Get the browser language +++</code></pre>
     <p>Use <code translate="No">navigator.language</code> to determine the language being used in the browser. Check for <code translate="No">navigator.userLanguage</code> with IE browsers earlier than 10.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Retrieve the audio tracks</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Get the audio tracks +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Get the audio tracks +++</code></pre>
     <p>Use the <code translate="No">myPlayer.audioTracks()</code> method to retrieve all the available audio tracks. The object view of the <strong>audioTracks</strong> object is shown here:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="audio-track-object" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/auto-audio-track/audio-track-object.png" /></figure>
     <p>Notice that the object contains both the country label and country code (language). In the JavaScript code, we are searching for the <code translate="No">language</code> since it is possible that the <code translate="No">label</code> could be translated by the browser.</p>
@@ -128,14 +128,14 @@ parent: Code Samples
     <h3>Loop over the audio tracks</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Loop through the audio tracks +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Loop through the audio tracks +++</code></pre>
     <p>Loop over the available audio tracks.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Enable the correct audio track</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Set the enabled audio track language +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Set the enabled audio track language +++</code></pre>
     <p>When the audio track language is equal to the browser language, then enable that boolean property to true. Note that when one audio track is enabled the others are automatically disabled.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -149,12 +149,12 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 var myPlayer = this;
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 var myPlayer = this;
 ...
 });</code></pre>

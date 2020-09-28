@@ -1173,7 +1173,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>A player wrapper <code translate="No">&lt;div&gt;</code> element is added around the player embed code to dynamically control the size of the player.</p>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
   </section>
   <!-- UPDATE application flow -->
@@ -1196,21 +1196,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Change the size of the player</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Change the size of the player +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Change the size of the player +++</code></pre>
     <p>Add functions to make the player large and small.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Listen for the mouseout event</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Listen for the mouseout event +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Listen for the mouseout event +++</code></pre>
     <p>Listen for the <code translate="No">mouseout</code> event on the <code translate="No">playerWrapper</code>. When the event is triggered, make the player small.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Control the player size</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Control the player size +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Control the player size +++</code></pre>
     <p>Add logic to do the following:</p>
     <ul>
       <li>Initially make the player small.</li>
@@ -1231,13 +1231,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 var myPlayer = this;
 ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 var myPlayer = this;
 ...
 });</code></pre>
@@ -1276,7 +1276,7 @@ var myPlayer = this;
 
 <hr>
 <div class="last-updated">
-  Page last updated on 23 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

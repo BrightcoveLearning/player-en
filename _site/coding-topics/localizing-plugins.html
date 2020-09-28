@@ -1085,7 +1085,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Add language(s)</h2>
     <p>You can choose the languages to support in a plugin. For each language you wish to support you must have a set of key-value pairs with the English language as the key and the corresponding localized language as a value. You do this by using Videojs' <code translate="No">addLanguage()</code> method. The following code shows adding German translations to a page:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.addLanguage('de', {
+<code class="language-javascript" translate="No">videojs.addLanguage('de', {
   "Hello": "Guten Tag",
   "Goodbye": "Auf Wiedersehen",
 });</code></pre>
@@ -1094,7 +1094,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Localize content</h2>
     <p>Once you have added the languages and vocabulary you wish to use in the localization process you can use the player's <code translate="No">localize()</code> method to perform the actual localization. The following shows a string being injected into an HTML <code translate="No">&lt;span&gt;</code>, then appended to the end of the video tag:</p>
     <pre class="line-numbers">
-<code class="language-javascript">  textSpan = document.createElement('span');
+<code class="language-javascript" translate="No">  textSpan = document.createElement('span');
   textSpan.className = "localizeStyle"
   <span class="bcls-highlight">textSpan.innerHTML = myPlayer.localize("Hello") + "/" + myPlayer.localize("Goodbye");</span>
   myPlayer.el().appendChild(textSpan);</code></pre>
@@ -1117,7 +1117,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Lines 32-36: Dynamically creates an HTML <code translate="No">span</code> element, populates it and appends it to the player code.</li>
     </ul>
     <pre class="line-numbers" data-start="27">
-<code class="language-javascript">videojs.registerPlugin('pluginLocalize', function() {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginLocalize', function() {
   videojs.addLanguage('de', {
       "Hello": "Guten Tag",
       "Goodbye": "Auf Wiedersehen",
@@ -1130,7 +1130,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 });</code></pre>
     <p>For testing purposes, use the plugin locally in a page that utilizes the embed_in_page player implementation.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -1183,7 +1183,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <figure class="bcls-figure"><img class="bcls-image" alt="add localize plugin done" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/localize-plugins/localize-add-plugin-done.png" /></figure>
     <p>The plugin is now part of the player. This permits you to use the iframe player implementation with no other supporting code and have the plugin's functionality available.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -1216,7 +1216,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 24 Feb 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

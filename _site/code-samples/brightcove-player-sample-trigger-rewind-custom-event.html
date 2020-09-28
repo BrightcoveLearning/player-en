@@ -1177,7 +1177,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Other HTML</h3>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
   </section>
   <!-- UPDATE application flow -->
@@ -1196,28 +1196,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Add elements to the DOM</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Add elements to the DOM +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Add elements to the DOM +++</code></pre>
     <p>Create a new <code translate="No">&lt;div&gt;</code> element in the DOM and assign an <code translate="No">id</code> attribute with a value of <strong>backButton</strong>. Create a new <code translate="No">&lt;img&gt;</code> element in the DOM and assign the <code translate="No">src</code> attribute with the URL to your rewind button.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Add rewind button to the control bar</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Add rewind button to the control bar +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Add rewind button to the control bar +++</code></pre>
     <p>Get the <code translate="No">spacer</code> element in the control bar, and add the rewind button elements to it.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Listen for the rewind button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Listen for the rewind button +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Listen for the rewind button +++</code></pre>
     <p>To the <code translate="No">backButton</code> element, add a listener for the <code translate="No">onclick</code> event. When clicked, trigger your custom event with data.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Listen for rewind event</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Listen for rewind event +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Listen for rewind event +++</code></pre>
     <p>Listen for your custom event with data. When triggered, rewind video playback based on the <code translate="No">rewindAmt</code> defined in the code..</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1231,13 +1231,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>
@@ -1251,7 +1251,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Dispatch</h3>
     <p>To dispatch a custom event, use the <code translate="No">trigger()</code> method as follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript">// trigger a custom event
+<code class="language-javascript" translate="No">// trigger a custom event
 myPlayer.trigger('eventName');
 or
 // trigger a custom event with data
@@ -1263,12 +1263,12 @@ myPlayer.trigger('eventName', {data: 'some data'});</code></pre>
       <li>Sends a data object with a name of <code translate="No">amount</code> and a value of <code translate="No">5</code> - You'll see in the JavaScript code where this value is set</li>
     </ul>
     <pre class="line-numbers">
-<code class="language-javascript">// trigger a custom event with data
+<code class="language-javascript" translate="No">// trigger a custom event with data
 myPlayer.trigger('rewind', {'amount': rewindAmount});</code></pre>
     <h3>Listen</h3>
     <p>To listen for a custom event, you can use the <code translate="No">on()</code> method as follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript">// listen for a custom event
+<code class="language-javascript" translate="No">// listen for a custom event
 player.on('eventName', function(evt){});
 or
 // listen for a custom event with data
@@ -1280,7 +1280,7 @@ player.on('eventName', function(evt,data){});</code></pre>
       <li>Passes the event and data objects into a function</li>
     </ul>
     <pre class="line-numbers">
-<code class="language-javascript">// listen for a custom event with data
+<code class="language-javascript" translate="No">// listen for a custom event with data
  myPlayer.on('rewind',function(evt,data){
 });</code></pre>
     <p>When you display the event and data objects in the console, it should look similar to this:</p>
@@ -1305,7 +1305,7 @@ player.on('eventName', function(evt,data){});</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 25 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

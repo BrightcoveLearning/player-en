@@ -1213,35 +1213,35 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Dynamically create and place an HTML paragraph element</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Create the element to hold the video views +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Create the element to hold the video views +++</code></pre>
     <p>Here a paragraph element is created, styled and placed. Note that the code accounts for the existence of a playlist when determining placement.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Set listener for future requests</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Set listener for future requests +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Set listener for future requests +++</code></pre>
     <p>Because of some initialization tasks, the first <code translate="No">loadedmetadata</code> event is used with the <code translate="No">one()</code> method. After that the code uses the <code translate="No">on()</code> method to handle all following <code translate="No">loadedmetadata</code> event dispatching.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Get the ID of the video initially placed in player.</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Get the current video id from mediainfo then start process to get views count +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Get the current video id from mediainfo then start process to get views count +++</code></pre>
     <p>The ID is part of the <code translate="No">mediainfo</code> object.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Prepare information for request to proxy/Analytics API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Prepare information for request to proxy/Analytics API +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Prepare information for request to proxy/Analytics API +++</code></pre>
     <p>This is nearly standard code used for all Brightcove REST API calls and detail in the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Make actual call to proxy/Analytics API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="language-javascript">// +++ Prepare information for request to proxy/Analytics API +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Prepare information for request to proxy/Analytics API +++</code></pre>
     <p>This is nearly standard code used for all Brightcove REST API calls and detail in the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1255,13 +1255,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-		<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+		<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 			var myPlayer = this;
 			...
 		});</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-		<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+		<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 			var myPlayer = this;
 			...
 		});</code></pre>

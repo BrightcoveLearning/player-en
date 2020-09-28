@@ -268,25 +268,25 @@ document.getElementById('insertionPoint').innerHTML = downloadString;</code></pr
         <ol>
             <li>Add the following variable declaration at the top of the JavaScript file. The variable defines how to register a plugin for both version 5 and version 6:
                 <pre class="line-numbers">
-<code class="language-javascript">var registerPlugin = videojs.registerPlugin || videojs.plugin;</code></pre>
+<code class="language-javascript" translate="No">var registerPlugin = videojs.registerPlugin || videojs.plugin;</code></pre>
             </li>
             <li>Change the old first line of the JavaScript from:
                 <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {</code></pre>
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {</code></pre>
                 to
                 <pre class="line-numbers">
-<code class="language-javascript">registerPlugin("downloadButton", function() {</code></pre>
+<code class="language-javascript" translate="No">registerPlugin("downloadButton", function() {</code></pre>
             </li>
             <li>Create a function below all existing code that calls the now defined plugin:
                 <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var player = this;
   player.downloadButton();
 });</code></pre>
             </li>
             <li>Check to be sure the structure of the code appears as follows:
                 <pre class="line-numbers">
-<code class="language-javascript">var registerPlugin = videojs.registerPlugin || videojs.plugin;
+<code class="language-javascript" translate="No">var registerPlugin = videojs.registerPlugin || videojs.plugin;
 
 registerPlugin("downloadButton", function() {
   // Create variables and new div, anchor and image for download icon

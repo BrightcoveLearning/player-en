@@ -105,7 +105,7 @@ parent: Code Samples
     <h3>Player configuration</h3>
     <p>In addition to the standard inclusion of an <code translate="No">id</code> in the <code translate="No">video</code> tag, the <code translate="No">playsinline</code> attribute is added for iOS functionality:</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;div id="playerContainer" class="outer"&gt;
+<code class="language-html" translate="No">&lt;div id="playerContainer" class="outer"&gt;
    &lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
      data-video-id="5755775186001"
      data-account="1752604059001"
@@ -140,31 +140,31 @@ parent: Code Samples
     <h3>Try to play the video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Wait for loadedmetadata then try to play video ###</code></pre>
+<code class="language-javascript" translate="No">// ### Wait for loadedmetadata then try to play video ###</code></pre>
     <p>As per standard procedure, you wait for the <code translate="No">loadedmetadata</code> event before using the <code translate="No">play()</code> method. The promise returned from the method call is stored in the <code translate="No">promise</code> variable. If the video is playing, you can unmute the player and set the volume.</p>
     <h3>When autoplay prevented, mute player and play video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### If autoplay prevented: mute the video, play video and display unmute button ###</code></pre>
+<code class="language-javascript" translate="No">// ### If autoplay prevented: mute the video, play video and display unmute button ###</code></pre>
     <p>Here the <code translate="No">catch</code> logic for the promise lets you act when the video did not start in the player. The player is programmatically muted, so the video will play. The <code translate="No">play()</code> method is called again, which will start the video. Following this code, the button is dynamically created and configured.</p>
     <h3>Add a <code translate="No">click</code> event listener to the button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Add button's event listener ###</code></pre>
+<code class="language-javascript" translate="No">// ### Add button's event listener ###</code></pre>
     <p>Using JavaScript's <code translate="No">addEventListener()</code>, the event handler for a click is dynamically created. In the event handler the player is unmuted, the volume level set, and lastly the button removed from the DOM.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Configure the button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ###  Configure the button ###</code></pre>
+<code class="language-javascript" translate="No">// ###  Configure the button ###</code></pre>
     <p>In this code section the button's label is set, the look of the button is configured, and a <code translate="No">class</code> is added for a CSS reference that positions the button.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Add the button to the container</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Add the button to the container ###</code></pre>
+<code class="language-javascript" translate="No">// ### Add the button to the container ###</code></pre>
     <p>The single line of code places the button in the <code translate="No">div</code> that constrains the player.</p>
     <!-- UPDATE task 3 --></section>
   <!-- UPDATE CSS description -->
@@ -173,7 +173,7 @@ parent: Code Samples
     <h2 id="Using_a_pre-roll_ad">Using a pre-roll ad</h2>
     <p>Since the ad is playing when the unmute button appears, you need to unmute the ad player rather than the content player. To do this you would use the following for the click handler:</p>
     <pre class="line-numbers">
-<code class="language-javascript">button.addEventListener("click", function() {
+<code class="language-javascript" translate="No">button.addEventListener("click", function() {
   <span class="bcls-highlight">myPlayer.ima3.adPlayer.muted(false);
   myPlayer.ima3.adPlayer.volume(volumeLevel);</span>
   //myPlayer.muted(false);
@@ -198,13 +198,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

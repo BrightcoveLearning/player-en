@@ -110,7 +110,7 @@ parent: Plugins
       <li class="language-editable">
         Add the overlay plugin default style sheet. You can use the default style sheet, or create your own styles.
         <pre class="line-numbers">
-<code class="language-html">&lt;link href="https://players.brightcove.net/videojs-overlay/2/videojs-overlay.css" rel='stylesheet'&gt;</code></pre>
+<code class="language-html" translate="No">&lt;link href="https://players.brightcove.net/videojs-overlay/2/videojs-overlay.css" rel='stylesheet'&gt;</code></pre>
       </li>
       <li class="language-editable">
         Add the <code translate="No">videojs-overlay.js</code> script file to include the overlay plugin. This plugin will automatically register itself when included in your
@@ -119,7 +119,7 @@ parent: Plugins
           Note: This plugin script must be placed after the last <code translate="No">&lt;script&gt;</code> tag for your player embed code.
         </aside>
         <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
     data-account="1752604059001"
     data-player="a5bb5681-9bfb-4203-9dac-eb3b98c8b4b2"
     data-embed="default"
@@ -134,7 +134,7 @@ parent: Plugins
         Get a reference to the Brightcove Player. In this example, we are creating a variable named <code translate="No">myPlayer</code> and assigning it a reference to the
         player.
         <pre class="line-numbers">
-<code class="language-html">&lt;script&gt;
+<code class="language-html" translate="No">&lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
   });
@@ -177,7 +177,7 @@ parent: Plugins
         &nbsp;
         <p class="language-editable">If you include the overlay script in your code, you can define messages as follows:</p>
         <pre class="line-numbers">
-<code class="language-html">&lt;script id="pageScript" type="text/javascript"&gt;
+<code class="language-html" translate="No">&lt;script id="pageScript" type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
     myPlayer.overlay({
@@ -235,7 +235,7 @@ parent: Plugins
           <li class="language-editable">
             The option can set for all eligible alignments by using it at the top level:
             <pre class="line-numbers">
-<code class="language-javascript">myPlayer.overlay({
+<code class="language-javascript" translate="No">myPlayer.overlay({
   content: '<strong>Default overlay content</strong>',
   <span class="bcls-highlight">attachToControlBar : true,</span>
   overlays: [{
@@ -256,7 +256,7 @@ parent: Plugins
 });</code></pre>
             <p class="language-editable">Or for individual overlay objects:</p>
             <pre class="line-numbers">
-<code class="language-javascript">myPlayer.overlay({
+<code class="language-javascript" translate="No">myPlayer.overlay({
   content: '<strong>Default overlay content</strong>',
   overlays: [{
     align: "top",
@@ -319,7 +319,7 @@ parent: Plugins
             A custom HTML class to add to overlay elements. You define the style as you would any class selector, with the exception that you must use the
             <code translate="No">.video-js</code> selector along with the selector you choose (the specificity must be increased so the style is not overridden):
             <pre class="line-numbers">
-<code class="language-css">.video-js .customOverlay {
+<code class="language-css" translate="No">.video-js .customOverlay {
   color: yellow;
   background-color: red;
 }</code></pre>
@@ -327,7 +327,7 @@ parent: Plugins
           <li class="language-editable">
             The option can set for all eligible alignments by using it at the top level:
             <pre class="line-numbers">
-<code class="language-javascript">myPlayer.overlay({
+<code class="language-javascript" translate="No">myPlayer.overlay({
   content: '<strong>Default overlay content</strong>',
   <span class="bcls-highlight">class: 'customOverlay',</span>
   overlays: [{
@@ -344,7 +344,7 @@ parent: Plugins
 });</code></pre>
             <p class="language-editable">Or for individual overlay objects:</p>
             <pre class="line-numbers">
-<code class="language-javascript">myPlayer.overlay({
+<code class="language-javascript" translate="No">myPlayer.overlay({
   content: '<strong>Default overlay content</strong>',
   overlays: [{
     <span class="bcls-highlight">class: 'customOverlay',</span>
@@ -429,7 +429,7 @@ parent: Plugins
           <li>
             Here's an example that displays overlay text before the video starts playing:
             <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   myPlayer.overlay({
     content: '&lt;strong&gt;Default overlay content&lt;/strong&gt;',
@@ -522,7 +522,7 @@ parent: Plugins
       </li>
     </ul>
     <pre class="line-numbers" data-start="106">
-<code class="language-html">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;meta charset="utf-8"&gt;

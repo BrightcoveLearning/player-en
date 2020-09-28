@@ -151,7 +151,7 @@ Another benefit of this approach is that our API integration will not create fie
       After the Player embed code, add the following script for the Brightcove Google Analytics plugin. We are loading the plugin manually instead of configuring it in Video Cloud Studio.
     </p>
     <pre>
-    <code class="language-javascript">&lt;script src=&quot;//players.brightcove.net/videojs-bc-ga/1/videojs-bc-ga.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+    <code class="language-javascript" translate="No">&lt;script src=&quot;//players.brightcove.net/videojs-bc-ga/1/videojs-bc-ga.min.js&quot;&gt;&lt;/script&gt;</code></pre>
   </li>
 </ol>
 </section>
@@ -193,12 +193,12 @@ Another benefit of this approach is that our API integration will not create fie
       In the <strong>JS</strong> section of the CodePen, find the code where which is labeled:
     </p>
     <pre>
-    <code class="language-javascript">// Set up the Google Analytics plugin options</code></pre>
+    <code class="language-javascript" translate="No">// Set up the Google Analytics plugin options</code></pre>
     <p>
       The player calls the <a href="https://player.support.brightcove.com/plugins/plugin-registry.html">bcGa() method</a> to initialize the plugin. Notice that you can set parameters and events that you want to track.
     </p>
 <pre class="line-numbers">
-<code class="language-javascript">myPlayer.bcGa({
+<code class="language-javascript" translate="No">myPlayer.bcGa({
   &quot;paramsToTrack&quot;: {
     &quot;bcvideo_video_seconds_viewed&quot;: &quot;dimension7&quot;,
     &quot;bcvideo_range&quot;: &quot;dimension8&quot;,
@@ -236,7 +236,7 @@ Another benefit of this approach is that our API integration will not create fie
       In the JavaScript code above, replace the <code translate="No">tracker</code> value with your Google Analytics Tracking ID.
     </p>
     <pre>
-    <code class="language-javascript">&quot;tracker&quot;: &quot;<span class="bcls-input">your tracking id</span>&quot;</code></pre>
+    <code class="language-javascript" translate="No">&quot;tracker&quot;: &quot;<span class="bcls-input">your tracking id</span>&quot;</code></pre>
   </li>
   <li>
     <p>
@@ -262,7 +262,7 @@ Another benefit of this approach is that our API integration will not create fie
 <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
 
 <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
@@ -270,7 +270,7 @@ Another benefit of this approach is that our API integration will not create fie
 <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
 
 <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

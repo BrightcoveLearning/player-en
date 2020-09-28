@@ -1128,7 +1128,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Once the player is ready, call the plugin and pass any options.</li>
       <li>The following shows a generic outline of the needed code:
         <pre class="line-numbers">
-<code class="language-javascript">&lt;!doctype html&gt;
+<code class="language-javascript" translate="No">&lt;!doctype html&gt;
   &lt;html&gt;
 
   &lt;head&gt;
@@ -1183,22 +1183,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <ul>
           <li>Your email
             <pre class="line-numbers">
-<code class="language-bash">export EMAIL=YourEmailAddress</code></pre>
+<code class="language-bash" translate="No">export EMAIL=YourEmailAddress</code></pre>
           </li>
           <li>Your account number
             <pre class="line-numbers">
-<code class="language-bash">export ACCOUNT_ID=YourAccountID</code></pre>
+<code class="language-bash" translate="No">export ACCOUNT_ID=YourAccountID</code></pre>
           </li>
           <li>Your player ID, once the player is created
             <pre class="line-numbers">
-<code class="language-bash">export PLAYER_ID=MyPlayerID</code></pre>
+<code class="language-bash" translate="No">export PLAYER_ID=MyPlayerID</code></pre>
           </li>
         </ul>
         <p>In curl, you will use the variable preceded by a <strong>$</strong>, like so: <code translate="No">$EMAIL</code></p>
       </li>
       <li>To create a player named <strong>six-oh-player</strong> using version <strong>6.0.0</strong> you would paste the following curl statement into terminal (highlighted in yellow in the screenshot below):
         <pre class="line-numbers">
-<code class="language-bash">curl \
+<code class="language-bash" translate="No">curl \
   --header "Content-Type: application/json" \
   --user $EMAIL \
   --request POST \
@@ -1220,7 +1220,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <figure class="bcls-figure"><img class="bcls-image" alt="Creating a player in terminal" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/player-plugin-version-testing/terminal-create-player.png" /></figure>
         <p>The player JSON, more nicely formatted, is shown here:</p>
         <pre class="line-numbers">
-<code class="language-json">{
+<code class="language-json" translate="No">{
   "id": "B1JOH9o0e",
   "url": "https://players.brightcove.net/1507807800001/B1JOH9o0e_default/index.html",
   "embed_code": "&lt;iframe src='//players.brightcove.net/1507807800001/B1JOH9o0e_default/index.html' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;",
@@ -1231,7 +1231,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>Now that the player is created, you can go into Studio and use the player to publish a video. For instance, the <strong>Advanced</strong> player code would look something like this, but of course using your account information.
         <pre class="line-numbers">
-<code class="language-html">&lt;video-js data-video-id="5350958927001"
+<code class="language-html" translate="No">&lt;video-js data-video-id="5350958927001"
   data-account="1507807800001"
   data-player="B1JOH9o0e"
   data-embed="default"
@@ -1244,7 +1244,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>Now place the player code into an HTML page. Note that an <code translate="No">id</code> attribute has been added to the <code translate="No">video</code> tag with an assigned value of <code translate="No">myPlayerID</code>.
         <pre class="line-numbers">
-<code class="language-html">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -1272,7 +1272,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>Now you want to test your plugin (assume you have named your plugin <code translate="No">myPluginName</code>). The easiest process is to have your code saved locally, and simply load your plugin with a <code translate="No">script</code> tag. You then call the plugin to be loaded. The code for both steps is highlighted below. An example is shown here:
         <pre class="line-numbers">
-<code class="language-html">...
+<code class="language-html" translate="No">...
   &lt;video-js data-video-id="5350958927001"
     data-account="1507807800001"
     data-player="B1JOH9o0e"
@@ -1301,7 +1301,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Permanently add plugin to player</h3>
     <p>Once all is working well, and you want to include the plugin with the player whenever that player is used, you can assign the plugin to the player using curl and the Player Management API. The following curl statement is an example and you will need to add your specific configuration options and plugin name.</p>
     <pre class="line-numbers">
-<code class="language-bash">curl \
+<code class="language-bash" translate="No">curl \
   --header "Content-Type: application/json" \
 	 --user $EMAIL \
 	 --request PATCH \
@@ -1325,7 +1325,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
 </code></pre>
     <p>After adding the plugin, you will either want to go into Studio and publish the player (it will be marked as needing publishing), or you can use the following curl statement to publish the player:</p>
     <pre class="line-numbers">
-<code class="language-bash">curl \
+<code class="language-bash" translate="No">curl \
   --header "Content-Type: application/json" \
   --user $EMAIL  \
   --request POST \
@@ -1348,7 +1348,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
 
 <hr>
 <div class="last-updated">
-  Page last updated on 03 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

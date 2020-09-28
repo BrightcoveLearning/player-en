@@ -1152,7 +1152,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Place the middleware function either on the page with the player in a <code translate="No">script</code> tag, or include the middleware function using the <code translate="No">src</code> attribute with a <code translate="No">script</code> tag. Both implementations will be shown in this document.</li>
       <li>Register the middleware function with the player using the <code translate="No">use()</code> method, as shown here:
         <pre class="line-numbers">
-<code class="language-javascript">videojs.use('mimeType', functionName);</code></pre>
+<code class="language-javascript" translate="No">videojs.use('mimeType', functionName);</code></pre>
         <p>For the <strong>mimetype</strong> you can use a standard video mimetype, like <strong>video/mp4</strong>, or use an <strong>*</strong> if you wish the middleware function to act on all mimetypes.</p>
         <aside class="bcls-aside bcls-aside--tip">Plugins and middleware may be set up to automatically register themselves when their scripts are included. In this case, you would not need to use the <code translate="No">videojs.use()</code> method.</aside>
       </li>
@@ -1191,7 +1191,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Other HTML</h3>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video</code> tag in the player embed code.</p>
     <pre>
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
   </section>
   <!-- UPDATE application flow -->
@@ -1210,7 +1210,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Define the middleware functions</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Define the middleware functions +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Define the middleware functions +++</code></pre>
     <p>Create the following middleware functions:</p>
     <ol class="bcls-tasklist__restart">
       <li>Create a supporting middleware function that will re-calculate the playback start and end times based on the selected playback rate.</li>
@@ -1218,7 +1218,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>Create a middleware function that will update the start time, duration and even current time when seeking.</p>
         <p>The basic syntax for creating a middleware function is as follows:</p>
         <pre class="line-numbers">
-<code class="language-javascript">const playbackrateAdjuster = function(player) {
+<code class="language-javascript" translate="No">const playbackrateAdjuster = function(player) {
    return {
    ...
  };</code></pre>
@@ -1229,7 +1229,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <br />
           <li><strong>Implement the setSource() method</strong>: This is a required method for every middleware function. By using the syntax shown means the middleware will always be selected, irregardless of the video type:
             <pre>
-<code class="language-javascript">setSource(srcObj, next) {
+<code class="language-javascript" translate="No">setSource(srcObj, next) {
   next(null, srcObj);
 },</code></pre>
           </li>
@@ -1243,21 +1243,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Register the middleware with the player</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Register the middleware with the player +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Register the middleware with the player +++</code></pre>
     <p>Register the middleware function with the player using the <code translate="No">use()</code> method.</p>
     <!-- UPDATE task 6 -->
     
     <h3>Define the playback rate options</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Define the playback rate options +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Define the playback rate options +++</code></pre>
     <p>Define the playback rates that you want displayed in the playback rate menu button.</p>
     <!-- UPDATE task 7 -->
     
     <h3>Initialize the playback rate button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Initialize the playback rate button +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Initialize the playback rate button +++</code></pre>
     <p>Add the playback rate menu button to the player control bar, and initialize it with the values specified in the options object.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1274,7 +1274,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3 id="Code_in_a_separate_JavaScript_file">Code in a separate JavaScript file</h3>
     <p>In the following code, the JavaScript for the middleware functions and the <code translate="No">use()</code> method to register it are simply included in the page.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
 	  data-video-id="5604123528001"
 	  data-account="1752604059001"
 	  data-player="default"
@@ -1324,7 +1324,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 25 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

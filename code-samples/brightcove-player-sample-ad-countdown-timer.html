@@ -139,24 +139,24 @@ parent: Code Samples
     <h3>Set up listening for ad events</h3>
     <p>Find the code which is labeled:</p>
     <pre class="line-numbers">
-<code class="language-javascript">// +++ Start counter on start of ad +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Start counter on start of ad +++</code></pre>
     AND
     <pre class="line-numbers">
-<code class="language-javascript">// +++ Listen for ad end or skipped +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Listen for ad end or skipped +++</code></pre>
     <p>After the ad and video information is loaded into the player, you know this waiting for <code translate="No">loadedmetadata</code>, you use the <code translate="No">on()</code> method to listen for <code translate="No">ima3-started</code>, <code translate="No">ima3-complete</code> and <code translate="No">ads-ad-skipped</code>.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Show overlay on ad start</h3>
     <p>Find the code which is labeled:</p>
     <pre class="line-numbers">
-<code class="language-javascript">// +++ Start counter on start of ad +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Start counter on start of ad +++</code></pre>
     <p>A class is added to the overlay for styling, the overlay is displayed, then JavaScript's <code translate="No">setInterval()</code> method is used to call the custom <code translate="No">everySecond()</code> method. In the <code translate="No">everySecond()</code> method the current time of the ad playing is subtracted from the duration, and the formatted result injected into the overlay.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Hide overlay on ad completed or skipped</h3>
     <p>Find the code which is labeled:</p>
     <pre class="line-numbers">
-<code class="language-javascript">// +++ Listen for ad end or skipped +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Listen for ad end or skipped +++</code></pre>
     <p>Both of the ad events that could terminate the ad call a function named <code translate="No">videoCompleteOrSkipped</code>. In this function a variable, named <code translate="No">theInterval</code>, was created by the previously called <code translate="No">setInterval()</code>, needs to be cleared by JavaScript's <code translate="No">clearInterval()</code> method. This is needed as processing time is taken by the interval variable. Finally, the overlay is hidden and any injected HTML is cleared.</p>
   </section>
   <!-- UPDATE CSS description -->

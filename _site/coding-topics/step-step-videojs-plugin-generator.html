@@ -1119,7 +1119,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>In the Terminal app, install the plugin generator along with Yeoman:</p>
         <pre>
-<code class="language-javascript">$ npm install -g yo generator-videojs-plugin</code></pre>
+<code class="language-javascript" translate="No">$ npm install -g yo generator-videojs-plugin</code></pre>
         <p>The video.js plugin generator uses a Yeoman generator, which is a scaffolding tool to setup the foundation for any project. This sets up the basic files and folders. You do not need to understand Yeoman. You just need to install it with the plugin generator.</p>
         <!-- <aside class="bcls-aside bcls-aside--tip">If you are having permission issues, you may try using (super user do): <code translate="No">sudo npm</code></aside> --></li>
     </ol>
@@ -1131,7 +1131,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>In the Terminal, run the following command:</p>
         <pre>
-<code class="language-javascript">$ yo videojs-plugin</code></pre>
+<code class="language-javascript" translate="No">$ yo videojs-plugin</code></pre>
         <aside class="bcls-aside bcls-aside--tip">You can run this command as many times as you want. This is helpful if you decide to add an option to your plugin after working on it. The tool will remember your previous selections, but you may have to overwrite some files.</aside>
       </li>
       <li>
@@ -1241,7 +1241,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	</ul> -->
         
         <pre class="line-numbers">
-<code class="language-javascript">/* Note: all vars must be defined here, there are no "local" vars */
+<code class="language-javascript" translate="No">/* Note: all vars must be defined here, there are no "local" vars */
   :root {
     --main-color: red;
     --base-font-size: 9;
@@ -1281,7 +1281,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <li>Line 51: adds a version parameter to your plugin. When you run the <strong>npm version</strong> script, it will update this variable to the version you are on.</li>
         </ul>
         <pre class="line-numbers">
-<code class="language-javascript">import videojs from 'video.js';
+<code class="language-javascript" translate="No">import videojs from 'video.js';
 import {version as VERSION} from '../package.json';
 
 // Default options for the plugin.
@@ -1344,12 +1344,12 @@ export default demo;</code></pre>
       <li>
         <p>In the Terminal, enter the following command to start the development server:</p>
         <pre>
-<code class="language-javascript">$ npm start</code></pre>
+<code class="language-javascript" translate="No">$ npm start</code></pre>
       </li>
       <li>
         <p>In a browser, enter the following to open the development server:</p>
         <pre>
-<code class="language-javascript">http://localhost:9999/</code></pre>
+<code class="language-javascript" translate="No">http://localhost:9999/</code></pre>
         <p>You should see the player with a test video. The generator gives you a demo player that runs in the page. In the browser developer tools, open the <strong>Elements</strong> tab to see the HTML for the player.</p>
         <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Browser testing" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/browser-test.png" />
           <figcaption class="bcls-caption--image">Browser testing</figcaption>
@@ -1367,7 +1367,7 @@ export default demo;</code></pre>
       <li>
         <p>In the <code translate="No">onPlayerReady()</code> method, add code to start playback of the video.</p>
         <pre class="line-numbers">
-<code class="language-javascript">const onPlayerReady = (player, options) =&gt; {
+<code class="language-javascript" translate="No">const onPlayerReady = (player, options) =&gt; {
   player.addClass('vjs-demo');
   <span class="bcls-highlight">player.play();</span>
 };</code></pre>
@@ -1379,7 +1379,7 @@ export default demo;</code></pre>
       <li>
         <p>Remove the line of code to start playing the video.</p>
         <pre>
-<code class="language-javascript">player.play();</code></pre>
+<code class="language-javascript" translate="No">player.play();</code></pre>
         <aside class="bcls-aside bcls-aside--tip">In the Terminal, press CTRL-C to stop the development server.</aside>
       </li>
     </ol>
@@ -1392,7 +1392,7 @@ export default demo;</code></pre>
       <li>
         <p>In the <code translate="No">onPlayerReady()</code> function, add code to add a <code translate="No">&lt;p&gt;</code> element with custom text to the player.</p>
         <pre class="line-numbers">
-<code class="language-javascript">const onPlayerReady = (player, options) =&gt; {
+<code class="language-javascript" translate="No">const onPlayerReady = (player, options) =&gt; {
   player.addClass('vjs-demo');
 <span class="bcls-highlight">  var textDisplay = document.createElement('p');
   textDisplay.className = 'vjs-text';
@@ -1419,7 +1419,7 @@ export default demo;</code></pre>
       <li>
         <p>Add the <code translate="No">.vjs-text</code> selector with styles to display the custom text in the player.</p>
         <pre class="line-numbers">
-<code class="language-css">/* Note: all vars must be defined here, there are no "local" vars */
+<code class="language-css" translate="No">/* Note: all vars must be defined here, there are no "local" vars */
   :root {
     --main-color: red;
     --base-font-size: 9;
@@ -1456,7 +1456,7 @@ export default demo;</code></pre>
       <li>
         <p>In the Terminal, run the following command:</p>
         <pre>
-<code class="language-javascript">$ npm run build</code></pre>
+<code class="language-javascript" translate="No">$ npm run build</code></pre>
         <p>The build takes your ES6 source code and converts it into ES5 JavaScript code.</p>
       </li>
       <li>
@@ -1516,7 +1516,7 @@ export default demo;</code></pre>
           <li>Line 13: adds the display text element to the DOM</li>
         </ul>
         <pre class="line-numbers">
-<code class="language-javascript">const onPlayerReady = (player, options) =&gt; {
+<code class="language-javascript" translate="No">const onPlayerReady = (player, options) =&gt; {
   player.addClass('vjs-demo');
 
 <span class="bcls-highlight">  var textDisplay = document.createElement('p');
@@ -1549,7 +1549,7 @@ export default demo;</code></pre>
           <li>Line 30: calls our <code translate="No">demo</code> plugin and passes in the <code translate="No">options</code> object. Notice that the plugin name is <code translate="No">demo</code>, while the plugin files names are <code translate="No">videojs-demo</code>.</li>
         </ul>
         <pre class="line-numbers">
-<code class="language-html">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -1629,7 +1629,7 @@ export default demo;</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 20 Mar 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

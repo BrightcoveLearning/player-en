@@ -120,7 +120,7 @@ parent: Code Samples
     <h3>Other HTML</h3>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
-  <code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+  <code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
   ...</code></pre>
   </section>
   <!-- UPDATE application flow -->
@@ -139,35 +139,35 @@ parent: Code Samples
     <h3>Define playback rates</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-  <code class="language-javascript">// +++ Define the playback rate options +++</code></pre>
+  <code class="language-javascript" translate="No">// +++ Define the playback rate options +++</code></pre>
     <p>Define the playback rates which will be added to the playback rate menu.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Turn off the default source order</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-  <code class="language-javascript">// +++ Turn off the default source order +++</code></pre>
+  <code class="language-javascript" translate="No">// +++ Turn off the default source order +++</code></pre>
     <p>Setting sourceOrder to false means that old browsers that support HLS in Flash but not HTML5/MSE will use MP4.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Update the playback rate menu</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-  <code class="language-javascript">// +++ Update the existing playback rate menu +++</code></pre>
+  <code class="language-javascript" translate="No">// +++ Update the existing playback rate menu +++</code></pre>
     <p>If the playback rate button/menu exists in the control bar, then update it with your defined playback rates.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Add the playback rate menu</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-  <code class="language-javascript">// +++ Add the playback rate menu +++</code></pre>
+  <code class="language-javascript" translate="No">// +++ Add the playback rate menu +++</code></pre>
     <p>If it doesn't already exist, add the playback rate button and menu to the control bar.</p>
     <!-- UPDATE task 5 -->
     
     <h3>Support IE browsers</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-  <code class="language-javascript">// +++ Support for IE browsers +++</code></pre>
+  <code class="language-javascript" translate="No">// +++ Support for IE browsers +++</code></pre>
     <p>This section of code keeps the selected rate value from resetting to <strong>1x</strong> when you pause and play in IE. To test, follow these steps:</p>
     <ol class="bcls-tasklist">
       <li>Comment out this section of code, and run the sample in an IE 11 browser.</li>
@@ -188,13 +188,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 	var myPlayer = this;
 	...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 	var myPlayer = this;
 	...
 });</code></pre>
@@ -206,10 +206,10 @@ parent: Code Samples
     <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
     <p>After you have added the JavaScript file, add your plugin <strong>Name</strong>. It should be similar to this:</p>
     <pre class="line-numbers">
-<code class="language-json">variableSpeedPlayback</code></pre>
+<code class="language-json" translate="No">variableSpeedPlayback</code></pre>
     <p>For the <strong>plugin options</strong>, enter the playback rates that you would like to be displayed in the playback rate menu. It should look similar to this:</p>
     <pre class="line-numbers">
-<code class="language-json">{"playbackRates":
+<code class="language-json" translate="No">{"playbackRates":
   [0.5,1,2]
 }</code></pre>
   </section>

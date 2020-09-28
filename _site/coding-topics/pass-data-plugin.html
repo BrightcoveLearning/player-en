@@ -1083,13 +1083,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>When calling a plugin you can also use an additional <code translate="No">options</code> child property with <code translate="No">plugins</code>. The <code translate="No">options</code> property must be an object, but can contain a complex data structure such as an array of objects.</p>
     <p>Here is a portion of a curl statement that shows the plugins property with the required <code translate="No">name</code> child property and the optional <code translate="No">options</code> child property. The data passed in the <code translate="No">options</code> property can then be used in the plugin.</p>
     <pre class="line-numbers">
-<code class="language-javascript">"plugins": [{
+<code class="language-javascript" translate="No">"plugins": [{
   "name": "navigateOnVideoEnd",
   "options" : {"redirectURL": "http://docs.brightcove.com"}
 }]</code></pre>
     <p>You can also use the options property when using the <code translate="No">embed_in_page</code> player implementation, where the player tag sits in the HTML page, not in an iframe. To do this simply build the data object, and pass it in as an argument. An example is shown here:</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;script type="text/javascript"&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   var options = {"redirectURL": "http://docs.brightcove.com"};
 &lt;/script&gt;
 &lt;script&gt;videojs.getPlayer('myPlayerID').navigateOnVideoEnd(options);&lt;/script&gt;</code></pre>
@@ -1098,7 +1098,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Use options data</h2>
     <p>The <code translate="No">options</code> property gives you the ability to pass data to a plugin via the player configuration for use at plugin initialization. For instance, to use the <code translate="No">redirectURL</code> object shown above, you would do the following in the plugin itself:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('navigateOnVideoEnd', function (<strong>options</strong>) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('navigateOnVideoEnd', function (<strong>options</strong>) {
   var myPlayer = this;
   myPlayer.on("ended", function () {
     window.location.href = <strong>options.redirectURL</strong>;
@@ -1124,7 +1124,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 21 Feb 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

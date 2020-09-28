@@ -1200,7 +1200,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>You will need HTML to include the CSS and JavaScript for the Feature Carousel, as well as JavaScript for Handlebars and jQuery.</p>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
   </section>
   <!-- UPDATE application flow -->
@@ -1219,28 +1219,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Build video data array</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Build video data array +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Build video data array +++</code></pre>
     <p>Get the playlist data currently loaded in the player, and build an array.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Build feature carousel</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Build feature carousel +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Build feature carousel +++</code></pre>
     <p>Use the video data array to build the feature carousel.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Play selected video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Play selected video +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Play selected video +++</code></pre>
     <p>When a thumbnail image in the carousel is selected, then load the associated video into the player and start playback. Open the lightbox player with the playing video.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Close lightbox</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Close lightbox +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Close lightbox +++</code></pre>
     <p>When the <strong>Close</strong> button is selected, stop video playback and hide the lightbox.</p>
     <!-- UPDATE CSS description -->
     
@@ -1253,13 +1253,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
       <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
       <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 var myPlayer = this;
 ...
 });</code></pre>
       <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
       <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 var myPlayer = this;
 ...
 });</code></pre>
@@ -1293,7 +1293,7 @@ var myPlayer = this;
 
 <hr>
 <div class="last-updated">
-  Page last updated on 23 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

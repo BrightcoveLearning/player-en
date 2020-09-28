@@ -1153,7 +1153,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <br />
             For example, the following tells the system that the content is 1 minute long. This is used to insert ads accordingly.
             <pre>
-  <code class="language-json">"title_metadata": {  "duration": "1m" }</code></pre></td>
+  <code class="language-json" translate="No">"title_metadata": {  "duration": "1m" }</code></pre></td>
         </tr>
         <tr>
           <td><code translate="No">videocloud_metadata</code></td>
@@ -1212,7 +1212,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The response <code translate="No">body</code> consists of the ad server response that would include the VAST or ad server equivalent response.</p>
     <p>Sample response:</p>
     <pre class="line-numbers">
-  <code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+  <code class="language-xml" translate="No">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
   &lt;vmap:VMAP xmlns:bc="bc" xmlns:vmap="http://www.iab.net/vmap-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0"&gt;
     &lt;vmap:Extensions&gt;
       &lt;bc:Brightcove ttl="1800" contenturi="https://ssaiplayback.us-east-1.prod.boltdns.net/playback/once/v1/hls/v5/clear/1752604059001/debug/debug/195b46a6-f71b-432d-af0a-60c7f2131a7e/debug.m3u8?bc_token=NWIxNmQ4YWFfMzMwMzllMzIwMmZlYjRkNmJhY2ZkMWZiN2Y2NGQwOWVkZTYxYTBiOThhZmEwMTdkZjc5NjEzNGFkZDdiYTFjYw%3D%3D"
@@ -1324,7 +1324,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Response2</h3>
     <p>Sample response:</p>
     <pre class="line-numbers">
-  <code class="language-xml">&lt;vmap:VMAP xmlns:bc="bc" xmlns:vmap="http://www.iab.net/vmap-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0"&gt;
+  <code class="language-xml" translate="No">&lt;vmap:VMAP xmlns:bc="bc" xmlns:vmap="http://www.iab.net/vmap-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0"&gt;
   &lt;vmap:Extensions&gt;
   &lt;bc:Brightcove ttl="1800" contenturi="https://ssaiplayback.us-east-1.qa.boltdns.net/playback/once/v1/hls/v5/clear/accoutn_debug/debug/debug/7592e9c3-214f-4c68-a576-1e2494b7be06/debug.m3u8" contentlength="10.0000" payloadlength="70.0000" contenttype="application/x-mpegURL"&gt;&lt;/bc:Brightcove&gt;
   &lt;bc:BrightcoveDebug sessionID="7592e9c3-214f-4c68-a576-1e2494b7be06"&gt;&lt;/bc:BrightcoveDebug&gt;
@@ -1378,7 +1378,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The <code translate="No">session_id</code> specifies the caching session. Each session has its own length based on the video content length. You can get the id from the response for the API call in the previous step.</p>
     <p>The Session id can be found in the VMAP responses from the previous section. Here is an example:</p>
     <pre>
-  <code class="language-xml">&lt;bc:BrightcoveDebug sessionID="<span class="bcls-input">your session id</span>"&gt;&lt;/bc:BrightcoveDebug&gt;</code></pre>
+  <code class="language-xml" translate="No">&lt;bc:BrightcoveDebug sessionID="<span class="bcls-input">your session id</span>"&gt;&lt;/bc:BrightcoveDebug&gt;</code></pre>
     <h3>Request</h3>
     <p>To retrieve ad-call trace information by supplying a session id, use a GET request similar to the following:</p>
     <table class="bcls-table">
@@ -1405,7 +1405,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Response</h3>
     <p>Sample response:</p>
     <pre class="line-numbers">
-  <code class="language-json">{
+  <code class="language-json" translate="No">{
     "ad_calls": [
       {
         "timestamp": "2019-01-29T16:25:57.775607279Z",
@@ -1476,7 +1476,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>You can use a tool like <a href="https://www.base64decode.org/">BASE64</a> to make the response body readable.</p>
     <p>Sample decoded response body:</p>
     <pre class="line-numbers">
-  <code class="language-xml">&lt;vmap:VMAP xmlns:vmap="http://www.iab.net/videosuite/vmap" version="1.0"&gt;
+  <code class="language-xml" translate="No">&lt;vmap:VMAP xmlns:vmap="http://www.iab.net/videosuite/vmap" version="1.0"&gt;
 
     &lt;vmap:AdBreak timeOffset="start" breakType="linear" breakId="preroll"&gt;
       &lt;vmap:AdSource id="preroll-ad" allowMultipleAds="false" followRedirects="true"&gt;
@@ -1541,7 +1541,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 19 Mar 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

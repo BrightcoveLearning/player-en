@@ -111,10 +111,10 @@ parent: Code Samples
     <h3>Other HTML</h3>
     <p>When using the Advanced (in-page embed) player, you need to add an HTML element to specify the location of the playlist. For details, see the <a href="/general/implementing-playlists.html#Advanced_in_page_embed_player">Implementing Playlists</a> document.</p>
     <pre>
-<code class="language-html">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
+<code class="language-html" translate="No">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
   </section>
   <!-- UPDATE application flow -->
@@ -132,11 +132,11 @@ parent: Code Samples
     <h3>Define the search parameters</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Define the search parameters +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Define the search parameters +++</code></pre>
     <p>When using the <a href="../references/player-catalog.html#getSearch_method">catalog.getSearch()</a> method, you must first define the search parameters. This query will return 10 videos from your account, sorted in descending order by all-time video views (<code translate="No">plays_total</code>).</p>
     <aside class="bcls-aside bcls-aside--information">To perform a sort on all videos in your account, you must set the <code translate="No">query.q</code> parameter as follows:
       <pre>
-<code class="language-javascript">queryObject.q = '*';</code></pre>
+<code class="language-javascript" translate="No">queryObject.q = '*';</code></pre>
     </aside>
     <p>Since we are searching videos in our Video Cloud account, we must use a <a href="https://apis.support.brightcove.com/policy/getting-started/overview-policy-api.html#Search_videos">search-enabled Policy Key</a>.</p>
     <!-- UPDATE task 2 -->
@@ -144,14 +144,14 @@ parent: Code Samples
     <h3>Get the video objects</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Get the video objects +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Get the video objects +++</code></pre>
     <p>Retrieve an array of video objects based on the search parameters for the <code translate="No">catalog.getSearch()</code> method.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Load the playlist</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Load the playlist +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Load the playlist +++</code></pre>
     <p>Use the <code translate="No">playlist()</code> method to load the returned video objects into the player's playlist.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -165,13 +165,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

@@ -1088,7 +1088,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>The highlighted code pertains to Brightcove Player.</li>
     </ol>
     <pre class="line-numbers">
-<code class="language-html">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -1137,7 +1137,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Using_an_anonymous_module">Using an anonymous module</h2>
     <p>As you have seen in the code shown above, when using RequireJS with the Brightcove Player v6.x a module named <code translate="No">bc</code> is created. The approach recommended by RequireJS is to provide an anonymous AMD module, which makes including multiple Brightcove Players significantly easier. You can make the module anonymous by default. Brightcove highly recommends you make a player configuration change to opt-in to this default, and at the same time the change will remove the console warning from your player. Setting the player configuration <code translate="No">"require_js_anonymous": true</code> is the required change. The curl statement to make this update appears as follows:</p>
     <pre class="line-numbers">
-<code class="language-bash">curl \
+<code class="language-bash" translate="No">curl \
   --header "Content-Type: application/json" \
   --user $EMAIL \
   --request PATCH \
@@ -1147,7 +1147,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
     <p>If you wish to remove the console warning, but without opting-in to anonymous RequireJS modules, use the <code translate="No">"require_js_anonymous": false</code> configuration update, as shown here:</p>
     <pre class="line-numbers">
-<code class="language-bash">curl \
+<code class="language-bash" translate="No">curl \
   --header "Content-Type: application/json" \
   --user $EMAIL \
   --request PATCH \
@@ -1174,7 +1174,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 04 Mar 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

@@ -56,7 +56,7 @@ parent: General Information
     </table>
     <p>The following shows a simple implementation of the ModalDialog being created and used with Brightcove Player.</p>
     <pre class="line-numbers  video-cloud-only">
-<code class="language-html">  &lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">  &lt;video-js id="myPlayerID"
     data-video-id="5079788144001"
     data-account="1507807800001"
     data-player="HJLWns1Zbx"
@@ -73,7 +73,7 @@ parent: General Information
     });
   &lt;/script&gt;</code></pre>
     <pre class="line-numbers  player-only">
-<code class="language-html">  &lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">  &lt;video-js id="myPlayerID"
     data-account="3676484087001"
     data-player="S1lOCfk6Ze"
     data-embed="default"
@@ -91,7 +91,7 @@ parent: General Information
     <h3>Using the ModalDialog constructor</h3>
     <p>You can also use the class' constructor to implement the ModalDialog. This is a two step process, getting the class then instantiating an object. The syntax is as follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript">var ModalDialog = videojs.getComponent('ModalDialog');
+<code class="language-javascript" translate="No">var ModalDialog = videojs.getComponent('ModalDialog');
 var myModal = <span class="bcls-highlight">new ModalDialog(player, options);</span></code></pre>
     <table class="bcls-table">
       <thead class="bcls-table__head">
@@ -116,7 +116,7 @@ var myModal = <span class="bcls-highlight">new ModalDialog(player, options);</sp
     </table>
     <p>The following shows an implementation of the ModalDialog being created and used with Brightcove Player.</p>
     <pre class="line-numbers video-cloud-only">
-<code class="language-html">  &lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">  &lt;video-js id="myPlayerID"
     data-video-id="5079788144001"
     data-account="1507807800001"
     data-player="B1mMJs3Ge"
@@ -140,7 +140,7 @@ var myModal = <span class="bcls-highlight">new ModalDialog(player, options);</sp
     });
   &lt;/script&gt;</code></pre>
     <pre class="line-numbers player-only">
-<code class="language-html">  &lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">  &lt;video-js id="myPlayerID"
     data-account="3676484087001"
     data-player="S1lOCfk6Ze"
     data-embed="default"
@@ -268,7 +268,7 @@ var myModal = <span class="bcls-highlight">new ModalDialog(player, options);</sp
     <p>Up to this point, the content displayed in the modal has been simple strings. If you wish to use HTML elements as content you need to take a slightly different approach.</p>
     <p>The key to using HTML as content is that you need to create some HTML element you will later assign to the content. In the code below, JavaScript's <code translate="No">createElement()</code> method is used to create a container element in which you can place other HTML. The dynamically created element is then assigned to the <code translate="No">content</code> property. The code and screenshot of the result both are shown.</p>
     <pre class="line-numbers">
-<code class="language-javascript">//Create a div in which to place HTML content
+<code class="language-javascript" translate="No">//Create a div in which to place HTML content
 var newElement = document.createElement('div');
 //Place data in div
 newElement.innerHTML = "&lt;p style='font-size: 1em;'&gt;this is in a paragraph&lt;/p&gt;&lt;ul&gt;&lt;li&gt;in a list&lt;/li&gt;&lt;/ul&gt;";
@@ -285,7 +285,7 @@ options.content = newElement;</code></pre>
       <li>Programmatically add a class to the modal; in this document <code translate="No">.vjs-my-custom-modal</code> is used, but you can name this class whatever you wish</li>
       <li>Create the style using the newly added class and the class that is automatically a child of the modal; this class is <code translate="No">.vjs-modal-dialog-content</code>, for example:
         <pre class="line-numbers">
-<code class="language-css">.vjs-my-custom-modal .vjs-modal-dialog-content {
+<code class="language-css" translate="No">.vjs-my-custom-modal .vjs-modal-dialog-content {
   color: red;
   margin-top: 40px;
   margin-left: 40px;
@@ -296,7 +296,7 @@ options.content = newElement;</code></pre>
     <figure class="bcls-figure"><img class="bcls-image" alt="Styled look of ModalDialog" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/modal-dialog/styled-look.png" /></figure>
     <p>Here is the code to use a style with the <code translate="No">createModal()</code> helper function:</p>
     <pre class="line-numbers video-cloud-only">
-<code class="language-html">&lt;head&gt;
+<code class="language-html" translate="No">&lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;Untitled Document&lt;/title&gt;
   &lt;style&gt;
@@ -332,7 +332,7 @@ options.content = newElement;</code></pre>
     });
   &lt;/script&gt;</code></pre>
     <pre class="line-numbers player-only">
-<code class="language-html">&lt;head&gt;
+<code class="language-html" translate="No">&lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;Untitled Document&lt;/title&gt;
   &lt;style&gt;
@@ -368,7 +368,7 @@ options.content = newElement;</code></pre>
   &lt;/script&gt;</code></pre>
     <p>Here is the complete code to use a style with the <code translate="No">ModalDialog</code> constructor function:</p>
     <pre class="line-numbers video-cloud-only">
-<code class="language-html">&lt;head&gt;
+<code class="language-html" translate="No">&lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;Untitled Document&lt;/title&gt;
   &lt;style&gt;
@@ -412,7 +412,7 @@ options.content = newElement;</code></pre>
     });
   &lt;/script&gt;</code></pre>
     <pre class="line-numbers player-only">
-<code class="language-html">&lt;head&gt;
+<code class="language-html" translate="No">&lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;Untitled Document&lt;/title&gt;
   &lt;style&gt;

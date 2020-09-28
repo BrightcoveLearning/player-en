@@ -1186,7 +1186,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Retrieve the menu options</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Retrieve the menu options ###</code></pre>
+<code class="language-javascript" translate="No">// ### Retrieve the menu options ###</code></pre>
     <p>Use the <code translate="No">myPlayer.controlBar.subsCapsButton.menu.children()</code> method to retrieve all the options that are displayed in the captions menu. An example of one of the options which contains a language from which to choose appears as follows:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="console menu option object" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/add-flag-country-label/console-menu-option-object.png" /></figure>
     <p>Note that the object contains both the country label and country code. In the JavaScript the country code is searched for as it is possible the country label could be translated by the browser. Some of the menu items are automatically created, and then a menu item for each caption file, which is a text track, is added.</p>
@@ -1195,7 +1195,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Add flag to each menu option</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Add flag to each menu option ###</code></pre>
+<code class="language-javascript" translate="No">// ### Add flag to each menu option ###</code></pre>
     <p>First step is to setup a <code translate="No">for-each</code> loop to step over all the menu items. Once the proper menu item is found, the <code translate="No">innerHTML</code> is altered, adding the corresponding flag to the country label. In this case, the emoji for the country flag is used. These emojis can be found in numerous places, including <a href="https://emojiterra.com/">EmojiTerra</a>. You can copy the actual emoji, as is done in the supplied code, or if you prefer use the emoji code, for instance <strong>&amp;#127465;&amp;#127466;</strong> for the German flag.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1209,12 +1209,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 var myPlayer = this;
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 var myPlayer = this;
 ...
 });</code></pre>
@@ -1242,7 +1242,7 @@ var myPlayer = this;
 
 <hr>
 <div class="last-updated">
-  Page last updated on 25 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

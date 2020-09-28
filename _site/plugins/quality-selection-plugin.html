@@ -1111,7 +1111,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <h2 id="Buffering">Buffering</h2>
       <p>When changing the quality it is possible that some buffering will take place and you will see the loading spinner appear. This is because the quality is changed immediately on quality selection and segments will need to be downloaded. If you prefer to have the same smooth transition behavior seen with automatic rendition switches, you can manually initialize the player with the following option:</p>
       <pre class="line-numbers">
-<code class="language-javascript">var options = {
+<code class="language-javascript" translate="No">var options = {
   html5: {
     hls: {
       smoothQualityChange: true
@@ -1158,7 +1158,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             In the <code translate="No">head</code> section, add the quality selection plugin default style sheet.
           </p>
           <pre>
-<code class="language-html">&lt;link href=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.css&quot; rel='stylesheet'&gt;</code></pre>
+<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.css&quot; rel='stylesheet'&gt;</code></pre>
         </li>
         <li>
           <p>
@@ -1167,7 +1167,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <aside class="bcls-aside bcls-aside--tip language-editable">To the player embed code, we've added an <code translate="No">id</code> attribute so that we can get a reference to the player in a later script.
           </aside>
           <pre class="line-numbers">
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id=&quot;myPlayerID&quot;</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id=&quot;myPlayerID&quot;</span>
   data-account=&quot;1752604059001&quot;
   data-player=&quot;default&quot;
   data-embed=&quot;default&quot;
@@ -1183,7 +1183,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             After your player embed code, add the quality selection plugin script file.
           </p>
           <pre>
-<code class="language-html">&lt;script src=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+<code class="language-html" translate="No">&lt;script src=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js&quot;&gt;&lt;/script&gt;</code></pre>
         </li>
         <li>
           <p>
@@ -1201,7 +1201,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             </li>
           </ul>
           <pre class="line-numbers">
-<code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+<code class="language-html" translate="No">&lt;script type=&quot;text/javascript&quot;&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
     myPlayer.qualityMenu({
@@ -1215,7 +1215,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <summary><h2 id="Complete_code_example">Complete code example</h2></summary>
           <p>Here is a complete code example for using the quality selection plugin, setting the initial default resolution:</p>
           <pre class="line-numbers">
-<code class="language-html">&lt;!DOCTYPE html&gt;
+<code class="language-html" translate="No">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
       &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
@@ -1287,7 +1287,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           </ul>
           <p>To implement the <code translate="No">useResolutionLabels</code> option, you would enter the following in the plugin's options in Studio:</p>
           <pre class="line-numbers">
-<code class="language-json">{
+<code class="language-json" translate="No">{
   "useResolutionLabels": false
 }</code></pre>
           <p>The resulting quality options would appear as follows:</p>
@@ -1295,10 +1295,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <p>The player would then select the optimal rendition from the selected group. As detailed in this section, <code translate="No">sdBitrateLimit</code> is configurable to determine the renditions classified as <strong>SD</strong> and <strong>HD.</strong></p>
           <aside class="bcls-aside bcls-aside--tip language-editable">Contradictory settings will not work. For instance, neither of the following make sense to use as in both cases you are providing an illegal value for a label based on the <code translate="No">useResolutionLabels</code> setting.
             <pre class="line-numbers">
-<code class="language-json">"useResolutionLabels": true,
+<code class="language-json" translate="No">"useResolutionLabels": true,
 "defaultResolution": "HD"</code></pre>
             <pre class="line-numbers">
-<code class="language-json">"useResolutionLabels": false,
+<code class="language-json" translate="No">"useResolutionLabels": false,
 "defaultResolution": "1080p"</code></pre>
           </aside>
         </li>
@@ -1362,7 +1362,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/styled-menu.png" /></figure>
       <p>You would use this CSS:</p>
       <pre class="line-numbers">
-<code class="language-css">/* Style the icon */
+<code class="language-css" translate="No">/* Style the icon */
 button.vjs-quality-menu-button.vjs-menu-button.vjs-menu-button-popup.vjs-button {
   color: red;
 }
@@ -1421,7 +1421,7 @@ div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.v
 
 <hr>
 <div class="last-updated">
-  Page last updated on 20 Aug 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

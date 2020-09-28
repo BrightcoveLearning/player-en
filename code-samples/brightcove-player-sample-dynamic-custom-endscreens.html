@@ -115,28 +115,28 @@ parent: Code Samples
     <h3>Wait for <code translate="No">loadstart</code> event</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Wait for loadstart to read mediainfo data ###</code></pre>
+<code class="language-javascript" translate="No">// ### Wait for loadstart to read mediainfo data ###</code></pre>
     <p>Since the values you wish to use for the endscreen content are in the <code translate="No">mediainfo</code> object you must wait for the <code translate="No">loadstart</code> event as that is when you can be sure the <code translate="No">mediainfo</code> values are accessible.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Assign variables values used in custom endscreen content</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Retrieve info from mediainfo object ###</code></pre>
+<code class="language-javascript" translate="No">// ### Retrieve info from mediainfo object ###</code></pre>
     <p>In the custom endscreen you will provide an anchor, so here you assign variables the text and link needed for the anchor.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Build string used as endscreen content</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Build link string for the endscreen content ###</code></pre>
+<code class="language-javascript" translate="No">// ### Build link string for the endscreen content ###</code></pre>
     <p>Using the variables just created, build the anchor you will use.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Call custom endscreen plugin passing dynamically created content</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Call endscreen method ###</code></pre>
+<code class="language-javascript" translate="No">// ### Call endscreen method ###</code></pre>
     <p>Here you call the custom endscreen plugin, passing the dynamically created anchor as a value for the <code translate="No">content</code> property.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -150,13 +150,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">var myPlayer = videojs.getPlayer('myPlayerID');
+<code class="language-javascript" translate="No">var myPlayer = videojs.getPlayer('myPlayerID');
 myPlayer.ready(function(){
 ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 var myPlayer = this;
 ...
 });</code></pre>

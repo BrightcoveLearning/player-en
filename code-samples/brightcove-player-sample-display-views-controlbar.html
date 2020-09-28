@@ -85,7 +85,7 @@ parent: Code Samples
       </ul>
       <p>If you are getting credentials directly from the API, these are the permissions you need:</p>
       <pre class="line-numbers">
-			<code class="language-json">[
+			<code class="language-json" translate="No">[
 				"video-cloud/analytics/read",
 				"video-cloud/video/read"
 			]</code></pre>
@@ -142,25 +142,25 @@ parent: Code Samples
     
     <h3>Build the URL for the <span translate="No">Analytics API</span> request</h3>
     <p>Find the code which is labeled:</p>
-    <pre><code class="language-javascript">// ### Setup for video views <span translate="No">Analytics API</span> request ###</code></pre>
+    <pre><code class="language-javascript" translate="No">// ### Setup for video views <span translate="No">Analytics API</span> request ###</code></pre>
     <p>Use information from the <code translate="No">mediainfo</code> object to build the proper endpoint.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Request the views data from the Analytics API</h3>
     <p>Find the code which is labeled:</p>
-    <pre><code class="language-javascript">// ### Make the request to the <span translate="No">Analytics API</span> ###</code></pre>
+    <pre><code class="language-javascript" translate="No">// ### Make the request to the <span translate="No">Analytics API</span> ###</code></pre>
     <p>They key point here is that the anonymous function is the callback function used where the actual request to the <span translate="No">Analytics API</span> is used. At the end of this function the returned value of video views is passed to the <code translate="No">placeCountInControlbar</code> method for display in the controlbar.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Place count in controlbar</h3>
     <p>Find the code which is labeled:</p>
-    <pre><code class="language-javascript">// ### Build and place count in controlbar ###</code></pre>
+    <pre><code class="language-javascript" translate="No">// ### Build and place count in controlbar ###</code></pre>
     <p>Here an HTML <code translate="No">div</code> element is created and populated with the view information. Lastly, that <code translate="No">div</code> is placed in the controlbar's <code translate="No">spacer</code> element.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Make call to Analytics API</h3>
     <p>Find the code which is labeled:</p>
-    <pre><code class="language-javascript">// ### Standard functionality for <span translate="No">Analytics API</span> call ###</code></pre>
+    <pre><code class="language-javascript" translate="No">// ### Standard functionality for <span translate="No">Analytics API</span> call ###</code></pre>
     <p>This mostly standard code that make calls to Brightcove's REST APIs. See the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document for details.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -173,12 +173,12 @@ parent: Code Samples
     <h2 id="Plugin_code">Plugin code</h2>
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
-    <pre class="line-numbers"><code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+    <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 				var myPlayer = this;
 				...
 			});</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-    <pre class="line-numbers"><code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+    <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 				var myPlayer = this;
 				...
 			});</code></pre>

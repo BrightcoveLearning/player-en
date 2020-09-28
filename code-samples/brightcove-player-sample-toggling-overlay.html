@@ -98,7 +98,7 @@ parent: Code Samples
     <p>Define the <strong>Toggle Overlay</strong> button to show and hide the overlay.</p>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
   </section>
   <!-- UPDATE application flow -->&lt; class="bcls-section"&gt;
@@ -114,21 +114,21 @@ parent: Code Samples
   <h3>Initialize the Overlay</h3>
   <p>Find the code which is labeled:</p>
   <pre>
-<code class="language-javascript">// +++ Initialize the Overlay +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Initialize the Overlay +++</code></pre>
   <p>Initialize the Overlay to start when the video metadata has been loaded (<code translate="No">loadedmetadata</code>). Define a clickable image to display in the overlay.</p>
   <!-- UPDATE task 2 -->
   
   <h3>Hide the overlay</h3>
   <p>Find the code which is labeled:</p>
   <pre>
-<code class="language-javascript">// +++ Hide the overlay +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Hide the overlay +++</code></pre>
   <p>Use the <code translate="No">addClass()</code> method to hide the overlay.</p>
   <!-- UPDATE task 3 -->
   
   <h3>Listen for the click event</h3>
   <p>Find the code which is labeled:</p>
   <pre>
-<code class="language-javascript">// +++ Listen for the click event +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Listen for the click event +++</code></pre>
   <p>Listen for the <code translate="No">click</code> event on the <strong>Toggle Overlay</strong> button to show and hide the overlay.</p>
   <!-- UPDATE CSS description -->
   
@@ -141,13 +141,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 var myPlayer = this;
 ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 var myPlayer = this;
 ...
 });</code></pre>

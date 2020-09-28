@@ -78,7 +78,7 @@ iframe {
     <h3>The player code</h3>
     <p>Your In-Page embed code should look similar to this:</p>
     <pre class="line-numbers" data-start="44">
-<code class="language-html">    &lt;video-js id="video_1"
+<code class="language-html" translate="No">    &lt;video-js id="video_1"
       width="640px" height="360px"
       data-video-id="4172255216001"
       data-account="1752604059001"
@@ -99,7 +99,7 @@ iframe {
       <li>Lines 36-38: Add padding to the right of the volume control to make sure it does not overlap with the fullscreen button.</li>
     </ul>
     <pre class="line-numbers" data-start="7">
-<code class="language-css">    &lt;style type="text/css"&gt;
+<code class="language-css" translate="No">    &lt;style type="text/css"&gt;
         /* Order of controls in bar, should flow in before fullscreen button.  */
         .vjs-mute-control {
           order: 7;
@@ -146,7 +146,7 @@ iframe {
       <li>Line 63: Removes the default volume menu button from the control bar.</li>
     </ul>
     <pre class="line-numbers" data-start="53">
-<code class="language-html">    &lt;script id="pageScript" type="text/javascript"&gt;
+<code class="language-html" translate="No">    &lt;script id="pageScript" type="text/javascript"&gt;
         var myPlayer;
 
         videojs.getPlayer('video_1').ready(function(){
@@ -169,7 +169,7 @@ iframe {
       <li>Create a new file for your CSS styles. In this case, name it <code translate="No">horizontal-volume.css</code>.</li>
       <li>In the <code translate="No">&lt;head&gt;</code> section of your HTML file, add the following link to include your newly created CSS file.
         <pre class="line-numbers" data-start="91">
-<code class="language-html">&lt;link href="horizontal-volume.css" rel="stylesheet"&gt; </code></pre>
+<code class="language-html" translate="No">&lt;link href="horizontal-volume.css" rel="stylesheet"&gt; </code></pre>
       </li>
       <li>Browse the HTML page. You should see the horizontal volume control, except now your styles have been removed from the HTML page.</li>
     </ol>
@@ -184,7 +184,7 @@ iframe {
     </ul>
     <aside class="bcls-aside bcls-aside--information">Note: Line 85: Has a trailing semicolon at the end of the plugin's JavaScript code which is required.</aside>
     <pre class="line-numbers" data-start="74">
-<code class="language-javascript">/**
+<code class="language-javascript" translate="No">/**
  * Horizontal Volume
  */
 videojs.registerPlugin('horizontalVolume', function() {
@@ -199,7 +199,7 @@ videojs.registerPlugin('horizontalVolume', function() {
     <ol class="bcls-tasklist">
       <li>In the HTML file, add the following code just below the existing <code translate="No">&lt;script&gt;</code> tags. This code includes the JavaScript file and then calls the method defined in that JavaScript.
         <pre class="line-numbers" data-start="93">
-<code class="language-html">&lt;script type="text/javascript" src="horizontal-volume.js"&gt;&lt;/script&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript" src="horizontal-volume.js"&gt;&lt;/script&gt;
 &lt;script&gt;videojs.getPlayer('video_1').horizontalVolume();&lt;/script&gt;</code></pre>
       </li>
       <li>Browse the HTML page. You should see the horizontal volume control, except now your JavaScript code has been removed from the HTML page.</li>
@@ -231,7 +231,7 @@ videojs.registerPlugin('horizontalVolume', function() {
       <li>
         <p>Copy the iframe embed code and paste it into a new HTML file. Your code should look similar to this:</p>
         <pre class="line-numbers" data-start="99">
-<code class="language-html">&lt;!DOCTYPE html&gt;
+<code class="language-html" translate="No">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 
 &lt;head&gt;

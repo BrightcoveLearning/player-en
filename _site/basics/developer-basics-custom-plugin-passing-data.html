@@ -1085,14 +1085,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist">
       <li>In the custom plugin code, place an <code translate="No">options</code> parameter in the anonymous function that defines the plugin.
         <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('navigateOnVideoEnd', function (<span class="bcls-highlight">options</span>) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('navigateOnVideoEnd', function (<span class="bcls-highlight">options</span>) {
   var myPlayer = this;
   ...
 });</code></pre>
       </li>
       <li>Use desired properties of the parameter object in your plugin code for customization:
         <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('navigateOnVideoEnd', function (<span class="bcls-highlight">options</span>) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('navigateOnVideoEnd', function (<span class="bcls-highlight">options</span>) {
   var myPlayer = this;
   ...
   window.location.href = <span class="bcls-highlight">options.redirectURL</span>;
@@ -1100,7 +1100,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>In the HTML page that calls the plugin, build an object with the required property/properties:
         <pre class="line-numbers">
-<code class="language-javascript">&lt;script&gt;
+<code class="language-javascript" translate="No">&lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this,
        <span class="bcls-highlight">options = {"redirectURL": "http://support.brightcove.com"};</span>
@@ -1110,7 +1110,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>When calling the custom plugin, pass the <code translate="No">options</code> object as a parameter:
         <pre class="line-numbers">
-<code class="language-javascript">&lt;script&gt;
+<code class="language-javascript" translate="No">&lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this,
        options = {"redirectURL": "http://support.brightcove.com"};
@@ -1127,7 +1127,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Completed_Code">Complete Code</h2>
     <h3>Plugin code</h3>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('navigateOnVideoEnd', function (options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('navigateOnVideoEnd', function (options) {
   var myPlayer = this;
   myPlayer.on('ended', function () {
     window.location.href = options.redirectURL;
@@ -1135,7 +1135,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 });</code></pre>
     <h3>HTML page calling code</h3>
     <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-video-id="5701193190001"
   data-account="1752604059001"
   data-player="default"
@@ -1194,7 +1194,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 27 Feb 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

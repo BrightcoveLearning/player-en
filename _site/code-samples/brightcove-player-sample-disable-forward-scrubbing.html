@@ -1125,7 +1125,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Place the middleware function either on the page with the player in a <code translate="No">script</code> tag, or include the middleware function using the <code translate="No">src</code> attribute with a <code translate="No">script</code> tag. Both implementations will be shown in this document.</li>
       <li>Register the middleware function with the player using the <code translate="No">use()</code> method, as shown here:
         <pre class="line-numbers">
-<code class="language-javascript">videojs.use('mimeType', functionName);</code></pre>
+<code class="language-javascript" translate="No">videojs.use('mimeType', functionName);</code></pre>
         <p>For the <strong>mimetype</strong> you can use a standard video mimetype, like <strong>video/mp4</strong>, or use an <strong>*</strong> if you wish the middleware function to act on all mimetypes.</p>
       </li>
     </ol>
@@ -1155,10 +1155,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Create the skeleton for the middleware function</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Define the middleware function+++</code></pre>
+<code class="language-javascript" translate="No">// +++ Define the middleware function+++</code></pre>
     <p>The basic syntax for creating a middleware function is as follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript">var disableForwardScrubbing = function(player) {
+<code class="language-javascript" translate="No">var disableForwardScrubbing = function(player) {
   return {
   ...
 };</code></pre>
@@ -1168,10 +1168,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Implement the <code translate="No">setSource()</code> method</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Implement setSource() ###</code></pre>
+<code class="language-javascript" translate="No">// ### Implement setSource() ###</code></pre>
     <p>This is a required method for every middleware function. By using the syntax shown means the middleware will always be selected, irregardless of the video type:</p>
     <pre class="line-numbers">
-<code class="language-javascript">setSource: function setSource(srcObj, next) {
+<code class="language-javascript" translate="No">setSource: function setSource(srcObj, next) {
   next(null, srcObj);
 },</code></pre>
     <!-- UPDATE task 3 -->
@@ -1179,10 +1179,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Alter the setCurrentTime() method</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// ### Alter the setCurrentTime method ###</code></pre>
+<code class="language-javascript" translate="No">// ### Alter the setCurrentTime method ###</code></pre>
     <p>This code block is where the actual <code translate="No">setCurrentTime()</code> method is altered. To understand this, the first point to know is that the <code translate="No">ct</code> value passed to the function reflects the value to which the viewer is scrubbing. The <code translate="No">if</code> statement checks to see if the new value is smaller than the player's current time or exceeds the percentage to allow forward scrubbing. If either is true, the new value is returned, which causes the playhead to be moved to the new value. If the condition is false, which means the viewer is trying to scrub forward before being allowed, the player's current time is returned and playback is not altered.</p>
     <pre class="line-numbers">
-<code class="language-javascript">setCurrentTime: function setCurrentTime(ct) {
+<code class="language-javascript" translate="No">setCurrentTime: function setCurrentTime(ct) {
   var percentAllowForward = 50,
    // Determine percentage of video played
    percentPlayed = player.currentTime() / player.duration() * 100;
@@ -1209,7 +1209,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Code on same page as player</h3>
     <p>Here you define the middleware function on the same page as the player, then register it.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-video-id="5701202551001"
   data-account="1752604059001"
   data-player="default"
@@ -1252,7 +1252,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Code included on player page</h3>
     <p>In the following code, the JavaScript for the middleware function and the <code translate="No">use()</code> method to register it are simply included in the page.</p>
     <pre class="line-numbers">
-<code class="language-html">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-video-id="5701202551001"
   data-account="1752604059001"
   data-player="default"
@@ -1282,7 +1282,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 23 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 

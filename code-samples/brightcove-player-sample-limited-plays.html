@@ -121,11 +121,11 @@ parent: Code Samples
         <h3>Other HTML</h3>
         <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
         <pre>
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
         <p>For testing purposes, we've added an element to display the number of video views that have been watched. This field is updated when the browser is refreshed.</p>
         <pre>
-<code class="language-html">&lt;p&gt;Number of views = &lt;span id="cookieDisplay1"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
+<code class="language-html" translate="No">&lt;p&gt;Number of views = &lt;span id="cookieDisplay1"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
     </section>
     <!-- UPDATE application flow -->
 
@@ -143,28 +143,28 @@ parent: Code Samples
         <h3>Read the browser cookie</h3>
         <p>Find the code which is labeled:</p>
         <pre>
-<code class="language-javascript">// +++ Read browser cookie +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Read browser cookie +++</code></pre>
         <p>Initialize variables and read the browser cookie associated with Brightcove video views. The cookie is named <code translate="No">BC_views</code>.</p>
         <!-- UPDATE task 2 -->
 
         <h3>Define a custom error message</h3>
         <p>Find the code which is labeled:</p>
         <pre>
-<code class="language-javascript">// +++ Define custom error message +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Define custom error message +++</code></pre>
         <p>Define an error message for when the user has reached the max number of views. For details on how to do this, see the <a href="/plugins/display-error-messages-plugin.html">Display Error Messages Plugin</a> document.</p>
         <!-- UPDATE task 3 -->
 
         <h3>Increment the cookie</h3>
         <p>Find the code which is labeled:</p>
         <pre>
-<code class="language-javascript">// +++ Increment the cookie +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Increment the cookie +++</code></pre>
         <p>Each time the user plays the video and refreshes the browser, increment the browser cookie.</p>
         <!-- UPDATE task 4 -->
 
         <h3>Display the custom error message</h3>
         <p>Find the code which is labeled:</p>
         <pre>
-<code class="language-javascript">// +++ Display custom error message +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Display custom error message +++</code></pre>
         <p>If the cookie value is greater than or equal to 2, then display the custom error message. This will take place the next time the browser is refreshed.</p>
     </section>
     <!-- UPDATE CSS description -->
@@ -178,13 +178,13 @@ parent: Code Samples
         <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
         <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
         <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
         <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
         <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

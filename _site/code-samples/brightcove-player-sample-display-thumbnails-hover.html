@@ -1192,7 +1192,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </figure>
     <p>Here is the complete thumbnail array code:</p>
     <pre>
-<code class="language-json">{
+<code class="language-json" translate="No">{
   "thumbs": [{
     "image": "http://learning-services-media.brightcove.com/doc-assets/player-development/player-customization/modal-dialog/display-thumbnails/thumb1.png"
   }, {
@@ -1206,7 +1206,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Other HTML</h3>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
-<code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
   </section>
   <!-- UPDATE application flow -->
@@ -1227,21 +1227,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Get the player DOM element</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Get the player DOM element +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Get the player DOM element +++</code></pre>
     <p>Get a reference to the player's DOM element. We will use this to add the ModalDialog to the player.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Get the thumbnail array</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Get the thumbnail array +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Get the thumbnail array +++</code></pre>
     <p>Get the thumbnail URL array from the video's Long Description property. For details about adding this metadata to your video, see the <a href="#Video_configuration">Video configuration</a> section.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Format the overlay content</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Format the overlay content +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Format the overlay content +++</code></pre>
     <p>To format the overlay content, do the following:</p>
     <ol class="bcls-tasklist">
       <li>Get the thumbnail URLs from the video Long Description field and add to modal dialog content.</li>
@@ -1253,21 +1253,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Show the thumbnails</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Show the thumbnails +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Show the thumbnails +++</code></pre>
     <p>Listen for the <code translate="No">mouseover</code> event on the player. When triggered, display the Modal Dialog with the video section thumbnail images.</p>
     <!-- UPDATE task 5 -->
     
     <h3>Hide the thumbnails</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Hide the thumbnails +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Hide the thumbnails +++</code></pre>
     <p>Listen for the <code translate="No">mouseout</code> event on the player. When triggered, hide the Modal Dialog with the video section thumbnail images.</p>
     <!-- UPDATE task 6 -->
     
     <h3>Play the video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript">// +++ Play the video +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Play the video +++</code></pre>
     <p>When the thumbnail ModalDialog is clicked, remove the event listeners, close and dispose of the ModalDialog and start video playback.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1281,13 +1281,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>
@@ -1315,7 +1315,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 23 Jul 2020
+  Page last updated on 28 Sep 2020
 </div>
 
 
