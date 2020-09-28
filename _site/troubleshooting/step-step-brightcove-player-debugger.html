@@ -1119,15 +1119,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist">
       <li>
         <p>Review the <strong>README</strong> information for the <a href="https://github.com/marguinbc/brightcove-player-debugger">Brightcove Player debugger</a>. Here, you will find a code sample along with debugger options and display data.</p>
-        <p>The Brightcove Player debugger attaches itself to a Brightcove Player by using the <code>&lt;video&gt;</code> element's <code>id</code> attribute.</p>
+        <p>The Brightcove Player debugger attaches itself to a Brightcove Player by using the <code translate="No">&lt;video&gt;</code> element's <code translate="No">id</code> attribute.</p>
       </li>
       <li>
         <p>The features of the debugger include:</p>
         <ul>
           <li>A toggle button lets you minimize the debugger to reduce its footprint when testing players in the wild.</li>
-          <li>It listens to player events using the <code>player.on()</code> method, and displays them in the <strong>Log</strong> section.</li>
+          <li>It listens to player events using the <code translate="No">player.on()</code> method, and displays them in the <strong>Log</strong> section.</li>
           <li>It captures the browser's debug console messages and displays them in the <strong>Log</strong> section.</li>
-          <li>For the current video loaded in the player, the debugger records data from the <code>mediainfo</code> property.</li>
+          <li>For the current video loaded in the player, the debugger records data from the <code translate="No">mediainfo</code> property.</li>
           <li>When the IMA plugin is used, the debugger records IMA3 ad settings.</li>
           <li>When the FreeWheel plugin is used, the debugger records the FreeWheel ad settings.</li>
           <li>When an ad is playing, the debugger records the current ad information. Pause the player to make sure you can view this information in the <strong>Ad Settings</strong> tab.</li>
@@ -1156,7 +1156,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <aside class="bcls-aside bcls-aside--tip">For details on how to get this embed code, see the <a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a> document.</aside>
       </li>
       <li>
-        <p>In the opening <code>&lt;video&gt;</code> tag, add an <code>id</code> attribute with a value of <strong>myPlayer</strong>.</p>
+        <p>In the opening <code translate="No">&lt;video&gt;</code> tag, add an <code translate="No">id</code> attribute with a value of <strong>myPlayer</strong>.</p>
         <p>The embed code should look similar to this:</p>
         <pre class="line-numbers video-cloud-only" data-start="1">
 <code class="language-html">&lt;video-js id="myPlayerID"
@@ -1182,7 +1182,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	height="360"&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/3676484087001/BkE8DMCzl_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
       </li>
-      <!-- <li>In the <code>&lt;head&gt;</code> section of your HTML file, add CSS to size the player. Your code should look similar to this:
+      <!-- <li>In the <code translate="No">&lt;head&gt;</code> section of your HTML file, add CSS to size the player. Your code should look similar to this:
   	<pre class="line-numbers">
   <code class="language-html">&lt;style&gt;
   	.video-js {
@@ -1199,12 +1199,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--information">To ensure that you are using the latest versions of the debugger CSS and JS files, it is recommended that you download the files from <a href="https://github.com/marguinbc/brightcove-player-debugger">GitHub</a> and host them on an internet accessible URL.</aside>
     <ol class="bcls-tasklist">
       <li>
-        <p>Below the player code, add a <code>&lt;link&gt;</code> tag which points to your copy of the debugger CSS file. The tag should look similar to this:</p>
+        <p>Below the player code, add a <code translate="No">&lt;link&gt;</code> tag which points to your copy of the debugger CSS file. The tag should look similar to this:</p>
         <pre class="line-numbers" data-start="1">
   <code class="language-html">&lt;link href="//<span class="bcls-input">your web domain</span>/videojs-player-debugger.css" rel="stylesheet"&gt;</code></pre>
       </li>
       <li>
-        <p>Below the previous code, add a <code>&lt;script&gt;</code> tag which points to your copy of the debugger JavaScript file. The tag should look similar to this:</p>
+        <p>Below the previous code, add a <code translate="No">&lt;script&gt;</code> tag which points to your copy of the debugger JavaScript file. The tag should look similar to this:</p>
         <pre class="line-numbers" data-start="1">
   <code class="language-html">&lt;script src="//<span class="bcls-input">your web domain</span>/videojs-player-debugger.min.js"&gt;&lt;/script&gt;</code></pre>
       </li>
@@ -1247,7 +1247,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             </tr>
             <tr>
               <td>showMediaInfo</td>
-              <td>Include the <code>mediainfo</code> data in the Player Settings Pane.</td>
+              <td>Include the <code translate="No">mediainfo</code> data in the Player Settings Pane.</td>
               <td>true</td>
             </tr>
             <tr>
@@ -1279,7 +1279,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </table>
       </li>
       <li>
-        <p>In your HTML page code, before the closing <code>&lt;/body&gt;</code> tag, add the following script code:</p>
+        <p>In your HTML page code, before the closing <code translate="No">&lt;/body&gt;</code> tag, add the following script code:</p>
         <ul>
           <li>Line 2: gets a reference to your player.</li>
           <li>Line 3: waits for your player to be ready.</li>
@@ -1392,7 +1392,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Log section display" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/debugger/log-tab.png" />
           <figcaption class="bcls-caption--image">Log section display</figcaption>
         </figure>
-        <p>If an event exposes additional information, that information can also be displayed. For example, on <code>loadedmetadata</code>, the following data is also displayed:</p>
+        <p>If an event exposes additional information, that information can also be displayed. For example, on <code translate="No">loadedmetadata</code>, the following data is also displayed:</p>
         <ul>
           <li>account id</li>
           <li>video id</li>
@@ -1445,7 +1445,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="The_Player_Settings_tab">The Player Settings tab</h2>
-    <p>The <strong>Player Settings</strong> section displays player information, including player id and account id. It also displays the data from the <code>mediainfo</code> object for the currently loaded video, including renditions, sources, master files, etc.</p>
+    <p>The <strong>Player Settings</strong> section displays player information, including player id and account id. It also displays the data from the <code translate="No">mediainfo</code> object for the currently loaded video, including renditions, sources, master files, etc.</p>
     <ol class="bcls-tasklist">
       <li>
         <p>In the player debugger, select the <strong>Player Settings</strong> tab. The tab will appear green when selected.</p>
@@ -1461,7 +1461,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>First, we'll include the ad plugin and ad URL to our player. In this example, we are using IMA ads.</p>
     <ol class="bcls-tasklist">
       <li>
-        <p>Return to your HTML file. Below the player's <code>&lt;script&gt;</code> tag, add the following files for the IMA plugin:</p>
+        <p>Return to your HTML file. Below the player's <code translate="No">&lt;script&gt;</code> tag, add the following files for the IMA plugin:</p>
         <ul>
           <li>Line 4: defines the styles for the IMA plugin.</li>
           <li>Line 5: defines the JavaScript file for the IMA plugin.</li>
@@ -1482,7 +1482,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>In the page script section, add code to define the ad URL and call the IMA plugin.</p>
         <ul>
-          <li>Line 4: defines the options for the player debugger. Notice that <code>debugAds</code> option has been set to <code>true</code>.</li>
+          <li>Line 4: defines the options for the player debugger. Notice that <code translate="No">debugAds</code> option has been set to <code translate="No">true</code>.</li>
           <li>Line 5: defines the ad URL.</li>
           <li>Lines 7-11: call the IMA plugin with the ad URL and options.</li>
         </ul>

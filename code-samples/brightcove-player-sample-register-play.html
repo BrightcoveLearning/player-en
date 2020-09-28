@@ -19,7 +19,7 @@ parent: Code Samples
     
     <h3>Source code</h3>
           <p>View the <a href="https://github.com/BrightcoveLearning/18157-register-play">complete solution on GitHub</a>.</p>
-    <aside class="bcls-aside bcls-aside--tip">In the CSS for this player sample an <code>@import</code> is used to import the CSS for the Display Overlay Plugin. This is only done to address a behavior of the CodePen. In the CodePen the CSS in the tab is loaded before a link to CSS in the HTML tab. In this case, this caused the custom CSS to be overridden by the default plugin CSS, hence the need to use <code>@import</code> to be sure the custom CSS is loaded after the plugin's CSS. If you view the code in the GitHub repo, you will see the more standard approach of the HTML <code>link</code> tag, followed by the custom CSS in a <code>style</code> tag.</aside>
+    <aside class="bcls-aside bcls-aside--tip">In the CSS for this player sample an <code translate="No">@import</code> is used to import the CSS for the Display Overlay Plugin. This is only done to address a behavior of the CodePen. In the CodePen the CSS in the tab is loaded before a link to CSS in the HTML tab. In this case, this caused the custom CSS to be overridden by the default plugin CSS, hence the need to use <code translate="No">@import</code> to be sure the custom CSS is loaded after the plugin's CSS. If you view the code in the GitHub repo, you will see the more standard approach of the HTML <code translate="No">link</code> tag, followed by the custom CSS in a <code translate="No">style</code> tag.</aside>
   </section>
   <section class="bcls-section">
     <details>
@@ -147,14 +147,14 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Configure the Overlay ###</code></pre>
-    <p>The overlay is configured to display when the video starts playing (causing the form to be displayed). The form is built in a long string as used by the overlay as <code>overlayConent</code>.</p>
+    <p>The overlay is configured to display when the video starts playing (causing the form to be displayed). The form is built in a long string as used by the overlay as <code translate="No">overlayConent</code>.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Programmatically play the video to display the form</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Play video to trigger form display ###</code></pre>
-    <p>When the <code>loadedmetadata</code> event is dispatched you know it is safe to play the video, so the player's <code>play()</code> method is called.</p>
+    <p>When the <code translate="No">loadedmetadata</code> event is dispatched you know it is safe to play the video, so the player's <code translate="No">play()</code> method is called.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Process the form</h3>
@@ -178,7 +178,7 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

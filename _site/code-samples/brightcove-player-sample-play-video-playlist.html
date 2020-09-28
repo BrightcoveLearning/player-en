@@ -1177,7 +1177,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Player configuration</h3>
     <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
     <h3>Other HTML</h3>
-    <p>An HTML <code>&lt;div&gt; </code> tag is added, which specifies the location of the playlist.</p>
+    <p>An HTML <code translate="No">&lt;div&gt; </code> tag is added, which specifies the location of the playlist.</p>
   </section>
   <!-- UPDATE application flow -->
   
@@ -1203,21 +1203,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Retrieve playlist +++</code></pre>
-    <p>You use the <code>catalog.getPlaylist() </code> method to get the playlist. The neat feature here is that you can pass a second parameter of <code>-1 </code> which prevents the first video from the playlist being loaded into the player.</p>
+    <p>You use the <code translate="No">catalog.getPlaylist() </code> method to get the playlist. The neat feature here is that you can pass a second parameter of <code translate="No">-1 </code> which prevents the first video from the playlist being loaded into the player.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Retrieve non-playlist video and put in player</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Retrieve video to play before playlist and load it +++</code></pre>
-    <p>You use the <code>catalog.getVideo() </code> and <code>catalog.load() </code> methods to perform this task.</p>
+    <p>You use the <code translate="No">catalog.getVideo() </code> and <code translate="No">catalog.load() </code> methods to perform this task.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Play first video in playlist when non-playlist video ends</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Set event  handler so after first video plays playlist plays +++</code></pre>
-    <p>Use the <code>one() </code> method to create an event handler to listen for when the player dispatches the <code>ended </code> event. You then use the <code>playlist.currentItem() </code> to place the first video in the playlist into the player.</p>
+    <p>Use the <code translate="No">one() </code> method to create an event handler to listen for when the player dispatches the <code translate="No">ended </code> event. You then use the <code translate="No">playlist.currentItem() </code> to place the first video in the playlist into the player.</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -1227,7 +1227,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready() </code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready() </code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

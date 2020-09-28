@@ -1168,7 +1168,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
-    <aside class="bcls-aside bcls-aside--information">To understand the code for this sample you need to know that chapters are actually stored as cue points with the <code>kind</code> defined as <code>chapters</code>.</aside>
+    <aside class="bcls-aside bcls-aside--information">To understand the code for this sample you need to know that chapters are actually stored as cue points with the <code translate="No">kind</code> defined as <code translate="No">chapters</code>.</aside>
     <p>The basic logic behind this application is:</p>
     <ul>
       <li>Extract the cue points array from the video information.</li>
@@ -1181,21 +1181,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Use the array filter function to retrieve data structure that contains chapter cue points ###</code></pre>
-    <p>You need to extract the data from the video information that holds the cue points (acting as chapters). You need to use the JavaScript array function <code>filter</code>. Since we do not have an array with which we are interacting, simply use an empty array. Hence the code <code>[].filter</code>. For more information see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.prototype.filter()</a>.</p>
+    <p>You need to extract the data from the video information that holds the cue points (acting as chapters). You need to use the JavaScript array function <code translate="No">filter</code>. Since we do not have an array with which we are interacting, simply use an empty array. Hence the code <code translate="No">[].filter</code>. For more information see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.prototype.filter()</a>.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Extract chapter startTimes and store in array</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Loop over chapter cue points and get start time of each ###</code></pre>
-    <p>This is fairly straight forward code to loop over the array of cue points and place each cue point's <code>startTime</code> into an array.</p>
+    <p>This is fairly straight forward code to loop over the array of cue points and place each cue point's <code translate="No">startTime</code> into an array.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Place marks on the progress bar</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Call function to create marks in progressbar ###</code></pre>
-    <p>You call the method to place the marks on the progress bar. You pass the chapter's start times array and the video duration. In the function you first get a reference to the progress bar element using JavaScript's <code>document.getElementsByClassName()</code> method. Next you loop over the array of cue points, and for each cue point dynamically create a div, calculate a percentage of where it should be place on the progress bar, then use JavaScript's <code>appendChild()</code> method to place the mark on the progress bar.</p>
+    <p>You call the method to place the marks on the progress bar. You pass the chapter's start times array and the video duration. In the function you first get a reference to the progress bar element using JavaScript's <code translate="No">document.getElementsByClassName()</code> method. Next you loop over the array of cue points, and for each cue point dynamically create a div, calculate a percentage of where it should be place on the progress bar, then use JavaScript's <code translate="No">appendChild()</code> method to place the mark on the progress bar.</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -1213,7 +1213,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

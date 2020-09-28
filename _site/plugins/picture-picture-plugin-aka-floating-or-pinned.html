@@ -1081,7 +1081,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>Picture-in-picture mode allows users to multitask. Once video playback has started, as the user scrolls down the page, picture-in-picture mode will reposition and pin the player to a corner of the web page.</p>
-    <aside class="bcls-aside bcls-aside--information">The picture-in-picture plugin only works with the Advanced (<code>video</code>) embed code. It will not work with the Standard (<code>iframe</code>) implementation.</aside>
+    <aside class="bcls-aside bcls-aside--information">The picture-in-picture plugin only works with the Advanced (<code translate="No">video</code>) embed code. It will not work with the Standard (<code translate="No">iframe</code>) implementation.</aside>
     <h3>Why it is called Picture-in-Picture</h3>
     <p>The behavior this plugin enables is also commonly referred to as "floating" or "pinned" behavior. Brightcove uses the term "picture-in-picture" because of adoption of this verbiage by Apple and Google for their native browsers. W3C <a href="https://wicg.github.io/picture-in-picture/">standards</a> also reference "picture-in-picture".</p>
   </section>
@@ -1133,7 +1133,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>In an editor, copy the player embed code into your web page.</li>
       <li>
-        <p>The picture-in-picture plugin requires that your player is wrapped by a container element with the class set to <code>vjs-pip-container</code>. Your code should look similar to this:</p>
+        <p>The picture-in-picture plugin requires that your player is wrapped by a container element with the class set to <code translate="No">vjs-pip-container</code>. Your code should look similar to this:</p>
         <pre class="line-numbers">
 <code class="language-html"><span class="bcls-highlight">&lt;div class="vjs-pip-container"&gt;</span>
   &lt;video-js id="myPlayerID"
@@ -1146,7 +1146,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     controls&gt;&lt;/video-js&gt;
   &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
 <span class="bcls-highlight">&lt;/div&gt;</span></code></pre>
-        <p>If the <code>&lt;div&gt;</code> element above is not found as the parent of the player, the plugin will fail to initialize and you will get the following log warning:</p>
+        <p>If the <code translate="No">&lt;div&gt;</code> element above is not found as the parent of the player, the plugin will fail to initialize and you will get the following log warning:</p>
         <pre>
 <code class="language-html">VIDEOJS: WARN: expected player to be a child of a "vjs-pip-container" element, cannot continue with picture-in-picture plugin</code></pre>
       </li>
@@ -1157,10 +1157,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Implement_using_code">Implement using code</h2>
     <p>To implement the plugin using custom code, you will configure the following plugin properties:</p>
     <ul>
-      <li><code>scripts</code> - JavaScript supplied for the plugin and will not change for different plugin implementations</li>
-      <li><code>stylesheets </code>- CSS supplied to you for the plugin and will not change for different plugin implementations</li>
-      <li><code>plugin name</code> - Always <strong>pip</strong></li>
-      <li><code>plugin options</code> - Contains an array of properties and values</li>
+      <li><code translate="No">scripts</code> - JavaScript supplied for the plugin and will not change for different plugin implementations</li>
+      <li><code translate="No">stylesheets </code>- CSS supplied to you for the plugin and will not change for different plugin implementations</li>
+      <li><code translate="No">plugin name</code> - Always <strong>pip</strong></li>
+      <li><code translate="No">plugin options</code> - Contains an array of properties and values</li>
     </ul>
     <p>To add the plugin to your code, follow these steps:</p>
     <ol class="bcls-tasklist__restart">
@@ -1168,7 +1168,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <pre class="line-numbers">
 <code class="language-html">&lt;link href="https://players.brightcove.net/videojs-pip/1/videojs-pip.css" rel="stylesheet"&gt;</code></pre>
       </li>
-      <li>Add the JavaScript file to include the picture-in-picture plugin. <!-- <aside class="bcls-aside bcls-aside--tip">Note: This plugin script must be placed after the last <code>&lt;script&gt;</code> tag for your player embed code.</aside> -->
+      <li>Add the JavaScript file to include the picture-in-picture plugin. <!-- <aside class="bcls-aside bcls-aside--tip">Note: This plugin script must be placed after the last <code translate="No">&lt;script&gt;</code> tag for your player embed code.</aside> -->
         <pre class="line-numbers">
 <code class="language-html">&lt;video-js id="myPlayerID"
   data-video-id="5701202551001"
@@ -1184,7 +1184,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <span class="bcls-highlight">&lt;script src="https://players.brightcove.net/videojs-pip/1/videojs-pip.min.js"&gt;&lt;/script&gt;</span></code></pre>
       </li>
       <li>
-        <p>Wrap the player embed code in a container element with the class set to <code>vjs-pip-container</code>. The picture-in-picture plugin requires that your player is wrapped by this container element.</p>
+        <p>Wrap the player embed code in a container element with the class set to <code translate="No">vjs-pip-container</code>. The picture-in-picture plugin requires that your player is wrapped by this container element.</p>
         <pre class="line-numbers">
 <code class="language-html"><span class="bcls-highlight">&lt;div class="vjs-pip-container"&gt;</span>
     &lt;video-js id="myPlayerID"
@@ -1200,13 +1200,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
         &lt;!-- Script for the picture-in-picture plugin --&gt;
         &lt;script src="https://players.brightcove.net/videojs-pip/1/videojs-pip.min.js"&gt;&lt;/script&gt;</code></pre>
-        <p>If the <code>&lt;div&gt;</code> element above is not found as the parent of the player, the plugin will fail to initialize and you will get the following log warning:</p>
+        <p>If the <code translate="No">&lt;div&gt;</code> element above is not found as the parent of the player, the plugin will fail to initialize and you will get the following log warning:</p>
         <pre>
 <code class="language-html">expected player to be a child of a "vjs-pip-container" element, cannot continue with picture-in-picture plugin</code></pre>
       </li>
       <li>Add custom script code which does the following:
         <ul>
-          <li>When the player is ready, gets a reference to the Brightcove Player. In this example, we are creating a variable named <code>myPlayer</code> and assigning it a reference to the player.</li>
+          <li>When the player is ready, gets a reference to the Brightcove Player. In this example, we are creating a variable named <code translate="No">myPlayer</code> and assigning it a reference to the player.</li>
           <li>Initializes the picture-in-picture plugin.</li>
         </ul>
         <pre class="line-numbers">
@@ -1225,17 +1225,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
     <h3>allowOnMobile</h3>
     <ul>
-      <li><code>allowOnMobile</code>:
+      <li><code translate="No">allowOnMobile</code>:
         <ul>
-          <li>Type: <code>boolean</code></li>
-          <li>Default: <code>false</code></li>
+          <li>Type: <code translate="No">boolean</code></li>
+          <li>Default: <code translate="No">false</code></li>
           <li>
             <p>By default, picture-in-picture mode will not work on Android or iOS mobile devices. The reason for this is because these CSS fixed positioning does not work on zoomable devices with multiple viewports in the same way it does on desktop devices.</p>
             <p>If you want to enable picture-in-picture on supported mobile devices, you can do so with this option. There are some cases where you might want to enable support:</p>
             <ul>
               <li>The integrator is willing to take on the responsibility of managing positioning for picture-in-picture player mode.</li>
               <li>The website using the player is unlikely to be zoomed.</li>
-              <li>Zooming has been disabled using a <code>user-scalable=no</code> directive. Using this directive will make <code>position: fixed</code> behave as it does on desktops, but it is not specifically recommended because it can be an accessibility concern.
+              <li>Zooming has been disabled using a <code translate="No">user-scalable=no</code> directive. Using this directive will make <code translate="No">position: fixed</code> behave as it does on desktops, but it is not specifically recommended because it can be an accessibility concern.
                 <pre>
 <code class="language-html">&lt;meta name="viewport" content="width=device-width, user-scalable=no"&gt;</code></pre>
               </li>
@@ -1253,11 +1253,11 @@ player.pip({allowOnMobile: true});</code></pre>
     <aside class="bcls-aside bcls-aside--warning">On iOS devices before version 12.2 and Android devices, once the player has moved to its new location it will not pop back into the original player location, even when the original player location is fully visible in the browser.</aside>
     <h3>closeable</h3>
     <ul>
-      <li><code>closeable</code>:
+      <li><code translate="No">closeable</code>:
         <ul>
-          <li>Type: <code>boolean</code></li>
-          <li>Default: <code>true</code></li>
-          <li>By default, picture-in-picture mode can be disabled by the user by clicking the <strong>X</strong> button in the top, right corner of the player. This feature can be disabled by passing <code>false</code> for this option.</li>
+          <li>Type: <code translate="No">boolean</code></li>
+          <li>Default: <code translate="No">true</code></li>
+          <li>By default, picture-in-picture mode can be disabled by the user by clicking the <strong>X</strong> button in the top, right corner of the player. This feature can be disabled by passing <code translate="No">false</code> for this option.</li>
           <li>
             <p>Example:</p>
             <pre class="line-numbers">
@@ -1269,10 +1269,10 @@ player.pip({closeable: false});</code></pre>
     </ul>
     <h3>scale</h3>
     <ul>
-      <li><code>scale</code>:
+      <li><code translate="No">scale</code>:
         <ul>
-          <li>Type: <code>number</code></li>
-          <li>Default: <code>2 / 3</code></li>
+          <li>Type: <code translate="No">number</code></li>
+          <li>Default: <code translate="No">2 / 3</code></li>
           <li>The scaling factor applied to the player when it is in picture-in-picture mode. This value must be a number greater than zero and less than or equal to 1.</li>
           <li>
             <p>Example:</p>
@@ -1291,12 +1291,12 @@ player.pip({scale: 0.5});</code></pre>
     </ul>
     <h3>height and width</h3>
     <ul>
-      <li><code>height</code> and <code>width</code>:
+      <li><code translate="No">height</code> and <code translate="No">width</code>:
         <ul>
-          <li>Type: <code>number</code></li>
-          <li>Default: <code>null</code></li>
+          <li>Type: <code translate="No">number</code></li>
+          <li>Default: <code translate="No">null</code></li>
           <li>
-            <p>By default, the plugin will scale down the player's dimensions by a factor determined by the <code>scale</code> option. However, providing a <code>height</code> (or <code>width</code>) will override the default scaling and set the size of the scaled-down player explicitly.</p>
+            <p>By default, the plugin will scale down the player's dimensions by a factor determined by the <code translate="No">scale</code> option. However, providing a <code translate="No">height</code> (or <code translate="No">width</code>) will override the default scaling and set the size of the scaled-down player explicitly.</p>
             <p>If only one dimension is provided, the other will be scaled down to maintain the aspect ratio. If both dimensions are provided, the player will be set to the exact, specified size - allowing a change in aspect ratio.</p>
           </li>
           <li>
@@ -1311,10 +1311,10 @@ player.pip({width: 300});</code></pre>
     </ul>
     <h3>posX</h3>
     <ul>
-      <li><code>posX</code>:
+      <li><code translate="No">posX</code>:
         <ul>
-          <li>Type: <code>string</code></li>
-          <li>Default: <code>"right"</code></li>
+          <li>Type: <code translate="No">string</code></li>
+          <li>Default: <code translate="No">"right"</code></li>
           <li>
             <p>The horizontal alignment of the player when it is in picture-in-picture mode - either "right" or "left".</p>
           </li>
@@ -1329,10 +1329,10 @@ player.pip({posX: 'left'});</code></pre>
     </ul>
     <h3>posY</h3>
     <ul>
-      <li><code>posY</code>:
+      <li><code translate="No">posY</code>:
         <ul>
-          <li>Type: <code>string</code></li>
-          <li>Default: <code>"bottom"</code></li>
+          <li>Type: <code translate="No">string</code></li>
+          <li>Default: <code translate="No">"bottom"</code></li>
           <li>
             <p>The vertical alignment of the player when it is in picture-in-picture mode - either "top" or "bottom".</p>
           </li>
@@ -1347,13 +1347,13 @@ player.pip({posY: 'top'});</code></pre>
     </ul>
     <h3>viewable</h3>
     <ul>
-      <li><code>viewable</code>:
+      <li><code translate="No">viewable</code>:
         <ul>
-          <li>Type: <code>number</code></li>
-          <li>Default: <code>0.8</code></li>
+          <li>Type: <code translate="No">number</code></li>
+          <li>Default: <code translate="No">0.8</code></li>
           <li>
             <p>The threshold at which the player is considered viewable. In other words, when this percentage of the total player area (height and width) is visible in the browser's viewport, it is considered viewable.</p>
-            <p>For example, with the default of 0.8, the player is not considered viewable unless 80% of it is visible in the viewport. The <code>viewable</code> value must be a number greater than or equal to 0 and less than or equal to 1.</p>
+            <p>For example, with the default of 0.8, the player is not considered viewable unless 80% of it is visible in the viewport. The <code translate="No">viewable</code> value must be a number greater than or equal to 0 and less than or equal to 1.</p>
           </li>
           <li>
             <p>Example:</p>
@@ -1366,14 +1366,14 @@ player.pip({viewable: 0.5});</code></pre>
     </ul>
     <h3>manualContainerSize</h3>
     <ul>
-      <li><code>manualContainerSize</code>:
+      <li><code translate="No">manualContainerSize</code>:
         <ul>
-          <li>Type: <code>boolean</code></li>
-          <li>Default: <code>false</code></li>
+          <li>Type: <code translate="No">boolean</code></li>
+          <li>Default: <code translate="No">false</code></li>
           <li>
-            <p>By default, a player with this plugin enabled will keep the physical dimensions of the special container element in sync with the player's dimensions. However, this behavior may not work for all use-cases, so it can be disabled by setting this option to <code>true</code>.</p>
+            <p>By default, a player with this plugin enabled will keep the physical dimensions of the special container element in sync with the player's dimensions. However, this behavior may not work for all use-cases, so it can be disabled by setting this option to <code translate="No">true</code>.</p>
             <p>When doing so, the container element will behave like a normal block element. This means that users of the plugin will need to manage its size on their own.</p>
-            <p>This option can also be set in the embed code via the boolean <code>data-manual-container-size</code> attribute on the container. Its presence will set this option to true. Note that any value passed to the plugin will take precedence over any value defined in the embed code.</p>
+            <p>This option can also be set in the embed code via the boolean <code translate="No">data-manual-container-size</code> attribute on the container. Its presence will set this option to true. Note that any value passed to the plugin will take precedence over any value defined in the embed code.</p>
           </li>
           <li>
             <p>Example:</p>
@@ -1382,7 +1382,7 @@ player.pip({viewable: 0.5});</code></pre>
 player.pip({manualContainerSize: true});</code></pre>
           </li>
           <li>
-            <p>Example using the <code>data-manual-container-size</code> attribute on the container:</p>
+            <p>Example using the <code translate="No">data-manual-container-size</code> attribute on the container:</p>
             <pre class="line-numbers">
 <code class="language-html">&lt;div class="vjs-pip-container" data-manual-container-size&gt;
   &lt;video-js class="video-js vjs-default-skin"&gt;
@@ -1431,23 +1431,23 @@ player.pip({manualContainerSize: true});</code></pre>
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>myPlayer.pip().enable()</code></td>
+          <td><code translate="No">myPlayer.pip().enable()</code></td>
           <td>Enable automatic picture-in-picture behavior</td>
         </tr>
         <tr>
-          <td><code>myPlayer.pip().disable()</code></td>
+          <td><code translate="No">myPlayer.pip().disable()</code></td>
           <td>Disable automatic picture-in-picture behavior</td>
         </tr>
         <tr>
-          <td><code>myPlayer.pip().toggle()</code></td>
+          <td><code translate="No">myPlayer.pip().toggle()</code></td>
           <td>Manually activate or deactivate picture-in-picture mode based on the current state</td>
         </tr>
         <tr>
-          <td><code>myPlayer.pip().activate()</code></td>
+          <td><code translate="No">myPlayer.pip().activate()</code></td>
           <td>Manually put the player into picture-in-picture mode</td>
         </tr>
         <tr>
-          <td><code>myPlayer.pip().deactivate()</code></td>
+          <td><code translate="No">myPlayer.pip().deactivate()</code></td>
           <td>Manually take the player out of picture-in-picture mode</td>
         </tr>
       </tbody>
@@ -1465,35 +1465,35 @@ player.pip({manualContainerSize: true});</code></pre>
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>beforepipactive</code></td>
+          <td><code translate="No">beforepipactive</code></td>
           <td>Fires before pip mode is activated</td>
         </tr>
         <tr>
-          <td><code>pipactive</code></td>
+          <td><code translate="No">pipactive</code></td>
           <td>Fires after pip mode is activated</td>
         </tr>
         <tr>
-          <td><code>beforepipinactive</code></td>
+          <td><code translate="No">beforepipinactive</code></td>
           <td>Fires before pip mode is deactivated</td>
         </tr>
         <tr>
-          <td><code>pipinactive</code></td>
+          <td><code translate="No">pipinactive</code></td>
           <td>Fires after pip mode is deactivated</td>
         </tr>
         <tr>
-          <td><code>beforepipenabled</code></td>
+          <td><code translate="No">beforepipenabled</code></td>
           <td>Fires before the videojs-pip plugin is enabled</td>
         </tr>
         <tr>
-          <td><code>pipenabled</code></td>
+          <td><code translate="No">pipenabled</code></td>
           <td>Fires after the videojs-pip plugin is enabled</td>
         </tr>
         <tr>
-          <td><code>beforepipdisabled</code></td>
+          <td><code translate="No">beforepipdisabled</code></td>
           <td>Fires before the videojs-pip plugin is disabled</td>
         </tr>
         <tr>
-          <td><code>pipdisabled</code></td>
+          <td><code translate="No">pipdisabled</code></td>
           <td>Fires after the videojs-pip plugin is disabled</td>
         </tr>
       </tbody>

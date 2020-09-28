@@ -1093,8 +1093,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <dd>
         <p>These steps will provide the best chance for successful automatic playback in players without client-side ads or with SSAI:</p>
         <ul>
-          <li>Set <code>autoplay</code> to <code>"any"</code></li>
-          <li>Set <code>playsinline</code> to <code>true</code> (for iPhones)</li>
+          <li>Set <code translate="No">autoplay</code> to <code translate="No">"any"</code></li>
+          <li>Set <code translate="No">playsinline</code> to <code translate="No">true</code> (for iPhones)</li>
         </ul>
       </dd>
       <dt>
@@ -1103,8 +1103,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <dd>
         <p>These steps will provide the best chance for successful automatic playback in players with client-side ads (IMA3 or FreeWheel):</p>
         <ul>
-          <li>Set <code>autoplay</code> to <code>true</code></li>
-          <li>Set <code>playsinline</code> to <code>true</code> (for iPhones)</li>
+          <li>Set <code translate="No">autoplay</code> to <code translate="No">true</code></li>
+          <li>Set <code translate="No">playsinline</code> to <code translate="No">true</code> (for iPhones)</li>
           <li>Configure the advertising plugin via the player's JSON configuration, <em>not</em> via side-loading or custom bundling</li>
         </ul>
       </dd>
@@ -1112,11 +1112,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Configuring_Autoplay">Configuring Autoplay</h2>
-    <p>The Brightcove Player supports five possible values for autoplay. In the HTML5 spec, autoplay is a boolean attribute - it id either on (<code>true</code>) or off (<code>false</code>). In the Brightcove Player, we have three special values available:</p>
+    <p>The Brightcove Player supports five possible values for autoplay. In the HTML5 spec, autoplay is a boolean attribute - it id either on (<code translate="No">true</code>) or off (<code translate="No">false</code>). In the Brightcove Player, we have three special values available:</p>
     <ul>
-      <li><code>play</code>: This will cause the Brightcove Player to call <code>play()</code> when a source is set.</li>
-      <li><code>muted</code>: This will cause the Brightcove Player to mute the player and call <code>play()</code>.</li>
-      <li><code>any</code>: This will cause the Brightcove Player to call <code>play()</code>. If that fails, it will mute the player and call <code>play()</code> again.</li>
+      <li><code translate="No">play</code>: This will cause the Brightcove Player to call <code translate="No">play()</code> when a source is set.</li>
+      <li><code translate="No">muted</code>: This will cause the Brightcove Player to mute the player and call <code translate="No">play()</code>.</li>
+      <li><code translate="No">any</code>: This will cause the Brightcove Player to call <code translate="No">play()</code>. If that fails, it will mute the player and call <code translate="No">play()</code> again.</li>
     </ul>
     <p><em>These three values are not supported in tag attributes!</em></p>
     <h3>Priority</h3>
@@ -1124,8 +1124,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol>
       <li>
         <p><strong>Video Element Attribute</strong></p>
-        <p>Following the HTML5 standard, this can either be <code>true</code> (attribute
-          exists) or <code>false</code> (attribute does not exist).</p>
+        <p>Following the HTML5 standard, this can either be <code translate="No">true</code> (attribute
+          exists) or <code translate="No">false</code> (attribute does not exist).</p>
         <p>Unlike other properties where the query param values (iframes only in
           other cases) win, the attribute wins here because it wins in Video.js.</p>
 <pre class="line-numbers"><code class="language-html">&lt;video-js autoplay controls&gt;&lt;/video-js&gt;</code></pre>
@@ -1136,13 +1136,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           parameter is respected for ALL types of embeds for backward
           compatibility reasons.</p>
         <p><em>This should be removed for in-page embeds in a future major release.</em></p>
-        <p>Parameter existence is equivalent to <code>true</code>, i.e. <code>?autoplay&amp;foo=bar</code>,
-          but string values are supported, e.g. <code>?autoplay=muted&amp;foo=bar</code></p>
-        <p><em>You cannot set autoplay to <code>false</code> via query/hash param!</em></p>
+        <p>Parameter existence is equivalent to <code translate="No">true</code>, i.e. <code translate="No">?autoplay&amp;foo=bar</code>,
+          but string values are supported, e.g. <code translate="No">?autoplay=muted&amp;foo=bar</code></p>
+        <p><em>You cannot set autoplay to <code translate="No">false</code> via query/hash param!</em></p>
       </li>
       <li>
-        <p><strong><code>videojs()</code>/<code>bc()</code> Options</strong></p>
-        <p>The autoplay option can be passed to the <code>bc()</code> function.</p>
+        <p><strong><code translate="No">videojs()</code>/<code translate="No">bc()</code> Options</strong></p>
+        <p>The autoplay option can be passed to the <code translate="No">bc()</code> function.</p>
       </li>
       <li>
         <p><strong>JSON configuration</strong></p>
@@ -1151,7 +1151,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>
         <p><strong>Default</strong></p>
-        <p>Finally, if none of the above apply, we default to <code>false</code>.</p>
+        <p>Finally, if none of the above apply, we default to <code translate="No">false</code>.</p>
       </li>
     </ol>
     </section>
@@ -1171,7 +1171,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <ul>
         <li>Muted autoplay will always work</li>
         <li>Autoplay with sound requires user gesture</li>
-        <li>On iPhone, the <code>playsinline</code> attribute is required in all cases.</li>
+        <li>On iPhone, the <code translate="No">playsinline</code> attribute is required in all cases.</li>
       </ul>
       <p>Read <a href="https://webkit.org/blog/6784/new-video-policies-for-ios/" rel="nofollow">this WebKit blog post</a> for more specifics.</p>
       <h3>Chrome</h3>
@@ -1209,22 +1209,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <section class="bcls-section">
       <h2 id="Known_issues">Known issues</h2>
       <h3>In-Page Sources and Programmatic Autoplay</h3>
-      <p>There is a known issue when using in-page sources (e.g. via a <code>&lt;source&gt;</code> element) and calling <code>play()</code> or using string-based autoplay values - <code>"play"</code>, <code>"muted"</code>, and <code>"any"</code>.</p>
+      <p>There is a known issue when using in-page sources (e.g. via a <code translate="No">&lt;source&gt;</code> element) and calling <code translate="No">play()</code> or using string-based autoplay values - <code translate="No">"play"</code>, <code translate="No">"muted"</code>, and <code translate="No">"any"</code>.</p>
       <p>This has been seen in Firefox, but it may be present in other browsers.</p>
       <p><em>This is not a common use-case for Brightcove customers. Because Video Cloud sources are loaded after player creation, this issue does not occur.</em></p>
-      <p>Instead, you must wait for the <code>canplay</code> event to fire before calling <code>play()</code>. Alternatively, configuring <code>autoplay: true</code> will work as expected, depending on user settings/preferences.</p>
+      <p>Instead, you must wait for the <code translate="No">canplay</code> event to fire before calling <code translate="No">play()</code>. Alternatively, configuring <code translate="No">autoplay: true</code> will work as expected, depending on user settings/preferences.</p>
       <h3>IMA3/FreeWheel</h3>
       <h4>Autoplay String Values</h4>
-      <p>The special string-based autoplay values - <code>"play"</code>, <code>"muted"</code>, and <code>"any"</code> - are <strong>not currently supported</strong> in conjunction with the IMA3 and FreeWheel plugins.</p>
-      <p>However, these plugins have their own autoplay handling in place and, when <code>autoplay: true</code> is configured, they will behave as if <code>autoplay: "any"</code> were configured.</p>
+      <p>The special string-based autoplay values - <code translate="No">"play"</code>, <code translate="No">"muted"</code>, and <code translate="No">"any"</code> - are <strong>not currently supported</strong> in conjunction with the IMA3 and FreeWheel plugins.</p>
+      <p>However, these plugins have their own autoplay handling in place and, when <code translate="No">autoplay: true</code> is configured, they will behave as if <code translate="No">autoplay: "any"</code> were configured.</p>
       <h4>Missing or Faulty Prerolls</h4>
-      <p>If attempting to call <code>play()</code> with these plugins, there are cases where autoplay will fail and, when the play button is clicked, no preroll will play.</p>
+      <p>If attempting to call <code translate="No">play()</code> with these plugins, there are cases where autoplay will fail and, when the play button is clicked, no preroll will play.</p>
       <p>With FreeWheel, there have also been reports of prerolls playing <em>behind</em> the big play button.</p>
       <h4>Recommendation</h4>
       <p>When using these plugins, the recommended method of enabling autoplay is:</p>
       <ul>
         <li>Bundle the plugin into your player (e.g. via Studio). <em>Side-loading (in-page) is not recommended</em>.</li>
-        <li>Do not attempt to use the special autoplay values. Set autoplay to <code>true</code> and allow the ad plugin to attempt playback however it can.</li>
+        <li>Do not attempt to use the special autoplay values. Set autoplay to <code translate="No">true</code> and allow the ad plugin to attempt playback however it can.</li>
       </ul>
     </section>
   <!-- <section class="bcls-section">

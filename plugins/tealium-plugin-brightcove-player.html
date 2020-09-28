@@ -49,7 +49,7 @@ parent: Plugins
         </tr>
         <tr>
           <td><strong>Universal Data Object (UDO) utag_data object</strong></td>
-          <td>A JavaScript variable called <code>utag_data</code> which contains the collection of data that lives in the code of your web page. This JavaScript object is used to pass information from your website to your tag manager container. You can then use this information to populate variables and activate events in your tag configurations.</td>
+          <td>A JavaScript variable called <code translate="No">utag_data</code> which contains the collection of data that lives in the code of your web page. This JavaScript object is used to pass information from your website to your tag manager container. You can then use this information to populate variables and activate events in your tag configurations.</td>
         </tr>
       </tbody>
     </table>
@@ -92,11 +92,11 @@ parent: Plugins
       <li>
         <p>In the <strong>Options(JSON)</strong> text box, enter the events and attributes you would like to track. Field descriptions:</p>
         <ul>
-          <li><code>paramsToTrack</code> - List of attributes you want to track</li>
-          <li><code>eventsToTrack</code> - List of events you want to track</li>
-          <li><code>account</code> - Tealium account name</li>
-          <li><code>profile</code> - Tealium profile name</li>
-          <li><code>env</code> - Tealium environment name</li>
+          <li><code translate="No">paramsToTrack</code> - List of attributes you want to track</li>
+          <li><code translate="No">eventsToTrack</code> - List of events you want to track</li>
+          <li><code translate="No">account</code> - Tealium account name</li>
+          <li><code translate="No">profile</code> - Tealium profile name</li>
+          <li><code translate="No">env</code> - Tealium environment name</li>
         </ul>
         &nbsp;
         <p>Here is an example:</p>
@@ -153,50 +153,50 @@ parent: Plugins
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>video_load</code></td>
+          <td><code translate="No">video_load</code></td>
           <td>Standard</td>
           <td>When video metadata has finished loading in the player.</td>
         </tr>
         <tr>
-          <td><code>video_play</code></td>
+          <td><code translate="No">video_play</code></td>
           <td>Standard</td>
           <td>When playback has been initiated either by the user or with autoplay<br />
             Additional attributes sent:
             <ul>
-              <li><code>video_playhead</code></li>
+              <li><code translate="No">video_playhead</code></li>
             </ul></td>
         </tr>
         <tr>
-          <td><code>video_watch <sup><a href="#n1"> [1]</a></sup></code></td>
+          <td><code translate="No">video_watch <sup><a href="#n1"> [1]</a></sup></code></td>
           <td>Custom</td>
           <td>This Includes additional rendition selection, bitrate measurements, and buffering information.<br />
             Additional attributes sent:
             <ul>
-              <li><code>video_playhead</code></li>
-              <li><code>video_milestone</code></li>
+              <li><code translate="No">video_playhead</code></li>
+              <li><code translate="No">video_milestone</code></li>
             </ul></td>
         </tr>
         <tr>
-          <td><code>video_pause</code></td>
+          <td><code translate="No">video_pause</code></td>
           <td>Standard</td>
           <td>When the user pauses video playback<br />
             Additional attributes sent:
             <ul>
-              <li><code>video_playhead</code></li>
+              <li><code translate="No">video_playhead</code></li>
             </ul></td>
         </tr>
         <tr>
-          <td><code>ad_start</code></td>
+          <td><code translate="No">ad_start</code></td>
           <td>Custom</td>
           <td>When ad playback has been initiated</td>
         </tr>
         <tr>
-          <td><code>ad_end</code></td>
+          <td><code translate="No">ad_end</code></td>
           <td>Custom</td>
           <td>When ad playback has ended</td>
         </tr>
         <tr>
-          <td><code>video_complete</code></td>
+          <td><code translate="No">video_complete</code></td>
           <td>Standard</td>
           <td>Triggered when video playback ends.</td>
         </tr>
@@ -204,14 +204,14 @@ parent: Plugins
     </table>
     <h5>Notes</h5>
     <p>The following notes refer to the table above.</p>
-    <p id="n1"><sup>[1]</sup> The <code>video_watch</code> event is sent at the following milestones:</p>
+    <p id="n1"><sup>[1]</sup> The <code translate="No">video_watch</code> event is sent at the following milestones:</p>
     <ul>
       <li>25% Milestone – When the video has been watched in the range of 25% to 50% of the total video duration</li>
       <li>50% Milestone - When the video has been watched in the range of 50% to 75% of the total video duration</li>
       <li>75% Milestone - When the video has been watched in the range of 75% to 95% of the total video duration</li>
       <li>100% Milestone - When the video has been watched for 100% of the total video duration</li>
     </ul>
-    <p>The video watched percentage (<code>video_watch</code>) can be calculated as follows (similar to video_engagement event in Google and Adobe analytics):</p>
+    <p>The video watched percentage (<code translate="No">video_watch</code>) can be calculated as follows (similar to video_engagement event in Google and Adobe analytics):</p>
     <pre>
 <code class="language-json">Video watched percentage = duration the user actually watched / total video duration</code></pre>
     <p>For example, in a 20 second video, the 25% milestone can be achieved in both of the below cases</p>
@@ -232,22 +232,22 @@ parent: Plugins
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>video_id</code></td>
+          <td><code translate="No">video_id</code></td>
           <td>String</td>
           <td>Brightcove video Id that originated the event</td>
         </tr>
         <tr>
-          <td><code>video_length</code></td>
+          <td><code translate="No">video_length</code></td>
           <td>Number</td>
           <td>Length of the video specified by the video attribute</td>
         </tr>
         <tr>
-          <td><code>video_name</code></td>
+          <td><code translate="No">video_name</code></td>
           <td>String</td>
           <td>Name of the video specified by the video attribute</td>
         </tr>
         <tr>
-          <td><code>video_platform</code></td>
+          <td><code translate="No">video_platform</code></td>
           <td>String</td>
           <td>Platform in which video is running</td>
         </tr>
@@ -265,23 +265,23 @@ parent: Plugins
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>video_playhead</code></td>
+          <td><code translate="No">video_playhead</code></td>
           <td>Number</td>
           <td>The time in the video at which the event is triggered.<br />
             Sent with events:
             <ul>
-              <li><code>video_play</code></li>
-              <li><code>video_pause</code></li>
-              <li><code>video_watch</code></li>
+              <li><code translate="No">video_play</code></li>
+              <li><code translate="No">video_pause</code></li>
+              <li><code translate="No">video_watch</code></li>
             </ul></td>
         </tr>
         <tr>
-          <td><code>video_milestone</code></td>
+          <td><code translate="No">video_milestone</code></td>
           <td>Number</td>
           <td>The percentage of video completed at the time of triggering of event.<br />
             Sent with event:
             <ul>
-              <li><code>video_watch</code></li>
+              <li><code translate="No">video_watch</code></li>
             </ul></td>
         </tr>
       </tbody>

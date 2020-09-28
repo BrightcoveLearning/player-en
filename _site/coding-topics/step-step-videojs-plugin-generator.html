@@ -1121,7 +1121,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <pre>
 <code class="language-javascript">$ npm install -g yo generator-videojs-plugin</code></pre>
         <p>The video.js plugin generator uses a Yeoman generator, which is a scaffolding tool to setup the foundation for any project. This sets up the basic files and folders. You do not need to understand Yeoman. You just need to install it with the plugin generator.</p>
-        <!-- <aside class="bcls-aside bcls-aside--tip">If you are having permission issues, you may try using (super user do): <code>sudo npm</code></aside> --></li>
+        <!-- <aside class="bcls-aside bcls-aside--tip">If you are having permission issues, you may try using (super user do): <code translate="No">sudo npm</code></aside> --></li>
     </ol>
   </section>
   <section class="bcls-section">
@@ -1237,7 +1237,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         
         <p>Your code should look similar to the following:</p>
         <!-- <ul>
-		<li>Lines 6-8: add the <code>vjs-demo</code> class to the player.</li>
+		<li>Lines 6-8: add the <code translate="No">vjs-demo</code> class to the player.</li>
 	</ul> -->
         
         <pre class="line-numbers">
@@ -1275,8 +1275,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <aside class="bcls-aside bcls-aside--tip">The generator uses ES6, which is the latest JavaScript version. Learn more about the new features in <a href="http://es6-features.org/#Constants">ECMAScript 6</a>. The generator translates your ES6 code into ES5 code so that your distribution code will run on a majority of browsers.</aside>
         <p>Your code should look similar to the following:</p>
         <ul>
-          <li>Lines 25-27: call the <code>onPlayerReady()</code> function, when the player is ready. Here, you can pass variables into your plugin using the <code>options</code> object.</li>
-          <li>Line 26: adds the <code>vjs-demo</code> class to your player. By default, this is the only thing the skeleton code does. This is where you can add functionality to your plugin.</li>
+          <li>Lines 25-27: call the <code translate="No">onPlayerReady()</code> function, when the player is ready. Here, you can pass variables into your plugin using the <code translate="No">options</code> object.</li>
+          <li>Line 26: adds the <code translate="No">vjs-demo</code> class to your player. By default, this is the only thing the skeleton code does. This is where you can add functionality to your plugin.</li>
           <li>Line 48: registers your plugin with video.js.</li>
           <li>Line 51: adds a version parameter to your plugin. When you run the <strong>npm version</strong> script, it will update this variable to the version you are on.</li>
         </ul>
@@ -1356,7 +1356,7 @@ export default demo;</code></pre>
         </figure>
       </li>
       <li>
-        <p>Inspect the Elements of this web page. You should see that the <code>vjs-demo</code> class has been added to the player. Remember that we added this class to the player in the plugin code.</p>
+        <p>Inspect the Elements of this web page. You should see that the <code translate="No">vjs-demo</code> class has been added to the player. Remember that we added this class to the player in the plugin code.</p>
         <figure class="bcls-figure"><img class="bcls-image--no-border" alt="vjs-demo class" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/vjs-demo-class.png" />
           <figcaption class="bcls-caption--image">vjs-demo class</figcaption>
         </figure>
@@ -1365,7 +1365,7 @@ export default demo;</code></pre>
         <p>Now, let's try adding code to the plugin to automatically start playing the video when the player loads. Return to the <strong>src &gt; plugin.js</strong> file in your editor.</p>
       </li>
       <li>
-        <p>In the <code>onPlayerReady()</code> method, add code to start playback of the video.</p>
+        <p>In the <code translate="No">onPlayerReady()</code> method, add code to start playback of the video.</p>
         <pre class="line-numbers">
 <code class="language-javascript">const onPlayerReady = (player, options) =&gt; {
   player.addClass('vjs-demo');
@@ -1390,7 +1390,7 @@ export default demo;</code></pre>
     <ol class="bcls-tasklist">
       <li>In your editor, return to the <strong>src &gt; plugin.js</strong> file.</li>
       <li>
-        <p>In the <code>onPlayerReady()</code> function, add code to add a <code>&lt;p&gt;</code> element with custom text to the player.</p>
+        <p>In the <code translate="No">onPlayerReady()</code> function, add code to add a <code translate="No">&lt;p&gt;</code> element with custom text to the player.</p>
         <pre class="line-numbers">
 <code class="language-javascript">const onPlayerReady = (player, options) =&gt; {
   player.addClass('vjs-demo');
@@ -1403,7 +1403,7 @@ export default demo;</code></pre>
       <li>Save the file. Remember that your changes will be automatically updated in the testing browser.</li>
       <li>
         <p>Return to the testing browser. You will see nothing has changed in the player. The problem is that the text is there, but it is not visible. We'll fix that next.</p>
-        <p>To verify that the text element has been added to the player, use the development tools in the browser. In the <strong>Elements</strong> section, expand the player's <code>&lt;div&gt;</code> element. You should see the newly added paragraph tag.</p>
+        <p>To verify that the text element has been added to the player, use the development tools in the browser. In the <strong>Elements</strong> section, expand the player's <code translate="No">&lt;div&gt;</code> element. You should see the newly added paragraph tag.</p>
         <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Added paragraph tag" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/p-element.png" />
           <figcaption class="bcls-caption--image">Added paragraph tag</figcaption>
         </figure>
@@ -1417,7 +1417,7 @@ export default demo;</code></pre>
     <ol class="bcls-tasklist">
       <li>In your editor, return to the <strong>src &gt; plugin.css</strong> file.</li>
       <li>
-        <p>Add the <code>.vjs-text</code> selector with styles to display the custom text in the player.</p>
+        <p>Add the <code translate="No">.vjs-text</code> selector with styles to display the custom text in the player.</p>
         <pre class="line-numbers">
 <code class="language-css">/* Note: all vars must be defined here, there are no "local" vars */
   :root {
@@ -1500,18 +1500,18 @@ export default demo;</code></pre>
     <p>This section is optional. You can skip this section unless you want to learn how to pass data to your plugin.</p>
     <ol class="bcls-tasklist">
       <li>
-        <p>We'll use the <code>options</code> property to pass data from our HTML page into the plugin. For details on using this property, see the <a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a> document.</p>
+        <p>We'll use the <code translate="No">options</code> property to pass data from our HTML page into the plugin. For details on using this property, see the <a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a> document.</p>
       </li>
       <li>
         <p>In your editor, return to the <strong>src &gt; plugin.js</strong> file.</p>
       </li>
       <li>
-        <p>In the <code>onPlayerReady()</code> function, add code to use the text value in the <code>options</code> property if it exists, otherwise use a default text value.</p>
+        <p>In the <code translate="No">onPlayerReady()</code> function, add code to use the text value in the <code translate="No">options</code> property if it exists, otherwise use a default text value.</p>
         <ul>
           <li>Line 4: creates a paragraph element</li>
           <li>Line 5: assigns the text class type</li>
-          <li>Line 6: checks if the <code>displayText</code> object exists in the <code>options</code> property</li>
-          <li>Line 7: uses the <code>displayText</code> value to populate the text display</li>
+          <li>Line 6: checks if the <code translate="No">displayText</code> object exists in the <code translate="No">options</code> property</li>
+          <li>Line 7: uses the <code translate="No">displayText</code> value to populate the text display</li>
           <li>Line 9: uses the default text display value</li>
           <li>Line 13: adds the display text element to the DOM</li>
         </ul>
@@ -1532,12 +1532,12 @@ export default demo;</code></pre>
 };</code></pre>
       </li>
       <li>Save the file and return to the testing browser. You should not see any change to the text display.</li>
-      <li>If you haven't already done so, add the css for the <code>.vjs-text</code> selector from the <a href="#Edit_the_CSS_file">Edit the CSS file</a> section.</li>
+      <li>If you haven't already done so, add the css for the <code translate="No">.vjs-text</code> selector from the <a href="#Edit_the_CSS_file">Edit the CSS file</a> section.</li>
       <li>Build your plugin. We'll use the files in the <strong>dist</strong> folder in a test web page.</li>
       <li>In your local testing server, like MAMP, create a folder named <strong>plugin-generator</strong>.</li>
       <li>In this folder, copy the <strong>videojs-demo.css</strong> and <strong>videojs-demo.js</strong> files from the <strong>dist</strong> folder and paste them into your testing server folder, <strong>plugin-generator</strong>.</li>
       <li>
-        <p>Next, in this folder, create an HTML file with a player that calls our <code>demo</code> plugin and passes in a value for the display text. We'll name this file <strong>testing.html</strong>.</p>
+        <p>Next, in this folder, create an HTML file with a player that calls our <code translate="No">demo</code> plugin and passes in a value for the display text. We'll name this file <strong>testing.html</strong>.</p>
         <ul>
           <li>Line 8: includes our plugin styles.</li>
           <li>Lines 13-22: add a Brightcove Player to our web page.</li>
@@ -1545,8 +1545,8 @@ export default demo;</code></pre>
           <li>Lines 26-32: execute a custom page script.</li>
           <li>Line 27: waits for the player to be ready.</li>
           <li>Line 28: gets a reference to the player.</li>
-          <li>Line 29: defines the <code>options</code> object.</li>
-          <li>Line 30: calls our <code>demo</code> plugin and passes in the <code>options</code> object. Notice that the plugin name is <code>demo</code>, while the plugin files names are <code>videojs-demo</code>.</li>
+          <li>Line 29: defines the <code translate="No">options</code> object.</li>
+          <li>Line 30: calls our <code translate="No">demo</code> plugin and passes in the <code translate="No">options</code> object. Notice that the plugin name is <code translate="No">demo</code>, while the plugin files names are <code translate="No">videojs-demo</code>.</li>
         </ul>
         <pre class="line-numbers">
 <code class="language-html">&lt;!doctype html&gt;

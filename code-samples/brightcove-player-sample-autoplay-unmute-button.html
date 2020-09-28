@@ -103,7 +103,7 @@ parent: Code Samples
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
     <h3>Player configuration</h3>
-    <p>In addition to the standard inclusion of an <code>id</code> in the <code>video</code> tag, the <code>playsinline</code> attribute is added for iOS functionality:</p>
+    <p>In addition to the standard inclusion of an <code translate="No">id</code> in the <code translate="No">video</code> tag, the <code translate="No">playsinline</code> attribute is added for iOS functionality:</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;div id="playerContainer" class="outer"&gt;
    &lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
@@ -125,13 +125,13 @@ parent: Code Samples
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Use the <code>play()</code> method to attempt to play the video. The call to the method is assigned to a variable, which will hold the value returned by a JavaScript <a href="/playback/autoplay-considerations.html#Programmatic_autoplay_detection">promise</a>.</li>
+      <li>Use the <code translate="No">play()</code> method to attempt to play the video. The call to the method is assigned to a variable, which will hold the value returned by a JavaScript <a href="/playback/autoplay-considerations.html#Programmatic_autoplay_detection">promise</a>.</li>
       <li>If the promise is resolved (the video is playing), unmute the player and set the volume level.</li>
       <li>If the promise is rejected (the video is NOT playing), perform the following:
         <ul>
           <li>Mute the player, and start the video playing (which it will do now since the player is muted).</li>
           <li>Dynamically create an HTML button element, that acts as the <strong>unmute</strong> button.</li>
-          <li>Add a&nbsp;<code>click</code> event listener on the button.</li>
+          <li>Add a&nbsp;<code translate="No">click</code> event listener on the button.</li>
           <li>Configure the button's text, style, etc.</li>
           <li>Place the button over the player.</li>
         </ul>
@@ -141,31 +141,31 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Wait for loadedmetadata then try to play video ###</code></pre>
-    <p>As per standard procedure, you wait for the <code>loadedmetadata</code> event before using the <code>play()</code> method. The promise returned from the method call is stored in the <code>promise</code> variable. If the video is playing, you can unmute the player and set the volume.</p>
+    <p>As per standard procedure, you wait for the <code translate="No">loadedmetadata</code> event before using the <code translate="No">play()</code> method. The promise returned from the method call is stored in the <code translate="No">promise</code> variable. If the video is playing, you can unmute the player and set the volume.</p>
     <h3>When autoplay prevented, mute player and play video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### If autoplay prevented: mute the video, play video and display unmute button ###</code></pre>
-    <p>Here the <code>catch</code> logic for the promise lets you act when the video did not start in the player. The player is programmatically muted, so the video will play. The <code>play()</code> method is called again, which will start the video. Following this code, the button is dynamically created and configured.</p>
-    <h3>Add a <code>click</code> event listener to the button</h3>
+    <p>Here the <code translate="No">catch</code> logic for the promise lets you act when the video did not start in the player. The player is programmatically muted, so the video will play. The <code translate="No">play()</code> method is called again, which will start the video. Following this code, the button is dynamically created and configured.</p>
+    <h3>Add a <code translate="No">click</code> event listener to the button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Add button's event listener ###</code></pre>
-    <p>Using JavaScript's <code>addEventListener()</code>, the event handler for a click is dynamically created. In the event handler the player is unmuted, the volume level set, and lastly the button removed from the DOM.</p>
+    <p>Using JavaScript's <code translate="No">addEventListener()</code>, the event handler for a click is dynamically created. In the event handler the player is unmuted, the volume level set, and lastly the button removed from the DOM.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Configure the button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ###  Configure the button ###</code></pre>
-    <p>In this code section the button's label is set, the look of the button is configured, and a <code>class</code> is added for a CSS reference that positions the button.</p>
+    <p>In this code section the button's label is set, the look of the button is configured, and a <code translate="No">class</code> is added for a CSS reference that positions the button.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Add the button to the container</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Add the button to the container ###</code></pre>
-    <p>The single line of code places the button in the <code>div</code> that constrains the player.</p>
+    <p>The single line of code places the button in the <code translate="No">div</code> that constrains the player.</p>
     <!-- UPDATE task 3 --></section>
   <!-- UPDATE CSS description -->
   
@@ -181,21 +181,21 @@ parent: Code Samples
   playerContainer.removeChild(button);
 }</code></pre>
     <p>The two lines of code for the content player volume control are commented out and left in only for comparison's sake.</p>
-    <p>You do not need to make the same change for the non-iOS/Safari/Chrome code since the volume is altered BEFORE the ad is loaded (on the <code>loadstart</code> event), and those changes pass through to the ad player when it loads.</p>
+    <p>You do not need to make the same change for the non-iOS/Safari/Chrome code since the volume is altered BEFORE the ad is loaded (on the <code translate="No">loadstart</code> event), and those changes pass through to the ad player when it loads.</p>
     <p>See this <a href="https://codepen.io/team/rcrooks1969/pen/xWzPJX">CodePen</a> for a working example.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
     <p>The three CSS selectors perform the following:</p>
     <ul>
-      <li>Sets the video <code>height</code> and <code>width</code> to <strong>100%</strong> to fill the container in which it is placed.</li>
-      <li>Creates a class selector that is used with the <code>div</code> that surrounds the player. The values used correspond to the size of the player.</li>
-      <li>Creates another class selector that positions the unmute button in the center of the <code>div</code> that surrounds the player.</li>
+      <li>Sets the video <code translate="No">height</code> and <code translate="No">width</code> to <strong>100%</strong> to fill the container in which it is placed.</li>
+      <li>Creates a class selector that is used with the <code translate="No">div</code> that surrounds the player. The values used correspond to the size of the player.</li>
+      <li>Creates another class selector that positions the unmute button in the center of the <code translate="No">div</code> that surrounds the player.</li>
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

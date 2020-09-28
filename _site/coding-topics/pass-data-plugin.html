@@ -1080,14 +1080,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <summary>In this topic you will learn how you can pass data to the plugin for use at plugin initialization.</summary>
   <section id="defineoptions" class="bcls-section">
     <h2>Define options property</h2>
-    <p>When calling a plugin you can also use an additional <code>options</code> child property with <code>plugins</code>. The <code>options</code> property must be an object, but can contain a complex data structure such as an array of objects.</p>
-    <p>Here is a portion of a curl statement that shows the plugins property with the required <code>name</code> child property and the optional <code>options</code> child property. The data passed in the <code>options</code> property can then be used in the plugin.</p>
+    <p>When calling a plugin you can also use an additional <code translate="No">options</code> child property with <code translate="No">plugins</code>. The <code translate="No">options</code> property must be an object, but can contain a complex data structure such as an array of objects.</p>
+    <p>Here is a portion of a curl statement that shows the plugins property with the required <code translate="No">name</code> child property and the optional <code translate="No">options</code> child property. The data passed in the <code translate="No">options</code> property can then be used in the plugin.</p>
     <pre class="line-numbers">
 <code class="language-javascript">"plugins": [{
   "name": "navigateOnVideoEnd",
   "options" : {"redirectURL": "http://docs.brightcove.com"}
 }]</code></pre>
-    <p>You can also use the options property when using the <code>embed_in_page</code> player implementation, where the player tag sits in the HTML page, not in an iframe. To do this simply build the data object, and pass it in as an argument. An example is shown here:</p>
+    <p>You can also use the options property when using the <code translate="No">embed_in_page</code> player implementation, where the player tag sits in the HTML page, not in an iframe. To do this simply build the data object, and pass it in as an argument. An example is shown here:</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;script type="text/javascript"&gt;
   var options = {"redirectURL": "http://docs.brightcove.com"};
@@ -1096,7 +1096,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section id="useoptionsdata" class="bcls-section">
     <h2>Use options data</h2>
-    <p>The <code>options</code> property gives you the ability to pass data to a plugin via the player configuration for use at plugin initialization. For instance, to use the <code>redirectURL</code> object shown above, you would do the following in the plugin itself:</p>
+    <p>The <code translate="No">options</code> property gives you the ability to pass data to a plugin via the player configuration for use at plugin initialization. For instance, to use the <code translate="No">redirectURL</code> object shown above, you would do the following in the plugin itself:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.registerPlugin('navigateOnVideoEnd', function (<strong>options</strong>) {
   var myPlayer = this;
@@ -1104,8 +1104,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     window.location.href = <strong>options.redirectURL</strong>;
   });
 });</code></pre>
-    <p>Note: you use the standard plugin implementation, but use <code>options</code> as a parameter in the anonymous function. You can then access the value using <code>options.propertyName</code> notation.</p>
-    <aside class="bcls-aside bcls-aside--information">As stated earlier, the <code>options</code> property can be any data structure needed, for instance an array of objects. Just remember that if you pass in an array of objects, you must access the data as an array of objects.</aside>
+    <p>Note: you use the standard plugin implementation, but use <code translate="No">options</code> as a parameter in the anonymous function. You can then access the value using <code translate="No">options.propertyName</code> notation.</p>
+    <aside class="bcls-aside bcls-aside--information">As stated earlier, the <code translate="No">options</code> property can be any data structure needed, for instance an array of objects. Just remember that if you pass in an array of objects, you must access the data as an array of objects.</aside>
   </section>
 </article>
 

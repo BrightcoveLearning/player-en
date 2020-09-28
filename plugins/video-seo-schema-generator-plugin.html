@@ -24,7 +24,7 @@ parent: Plugins
         <figure class="bcls-figure"><img class="bcls-image" alt="Select Plugin" src="//learning-services-media.brightcove.com/doc-assets/general/players-plugin-options.png" /></figure>
       </li>
       <li>From the <strong>Add a Plugin</strong> select <strong>Custom Plugin</strong>.</li>
-      <li>For the <strong>Plugin Name</strong> enter <code>schema</code>.</li>
+      <li>For the <strong>Plugin Name</strong> enter <code translate="No">schema</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter:
         <pre>
 <code class="language-json">https://cdn.jsdelivr.net/npm/videojs-schema/dist/videojs-schema.min.js</code></pre>
@@ -94,7 +94,7 @@ var myPlayer = this;
     <h2 id="Plugin_options">Plugin options</h2>
     <p>There are six options you can use with this plugin:</p>
     <ul>
-      <li><code>schemaId</code>: The value to use as <code>@id</code> in the metadata. This must be a unique URI which represents the video, but not necessarily a "real" URL. This is arbitrary and might be values like:
+      <li><code translate="No">schemaId</code>: The value to use as <code translate="No">@id</code> in the metadata. This must be a unique URI which represents the video, but not necessarily a "real" URL. This is arbitrary and might be values like:
         <ul>
           <li><strong>https://mydomain.com/videos/{id}</strong></li>
           <li><strong>https://videos.mydomain.com#{id}</strong></li>
@@ -112,9 +112,9 @@ var myPlayer = this;
         <pre class="line-numbers">
 <code class="language-html">https://players.brightcove.net/{accountId}/{playerId}_{embedId}/index.html?videoId={id}</code></pre>
       </li>
-      <li><code>keywords</code>: If <strong>true</strong>, include tags as keywords; default is <strong>false</strong>.</li>
-      <li><code>excludeTags</code>: Array of tags to not include as keywords, e.g. <strong>["youtubesync"]</strong>.</li>
-      <li><code>baseObject</code>: An <strong>option</strong> object of properties onto which to build the video specific metadata. For example this could be used to include a publisher object:
+      <li><code translate="No">keywords</code>: If <strong>true</strong>, include tags as keywords; default is <strong>false</strong>.</li>
+      <li><code translate="No">excludeTags</code>: Array of tags to not include as keywords, e.g. <strong>["youtubesync"]</strong>.</li>
+      <li><code translate="No">baseObject</code>: An <strong>option</strong> object of properties onto which to build the video specific metadata. For example this could be used to include a publisher object:
         <pre class="line-numbers">
 <code class="language-json">"baseObject": {
   "publisher": {
@@ -129,8 +129,8 @@ var myPlayer = this;
   }
 }</code></pre>
       </li>
-      <li><code>includeEmbedUrl</code>: If <strong>false</strong>, no embed url is included. Including this URL may be expected by search engines. Default is <strong>true</strong>.</li>
-      <li><code>preferLongDescription</code>: If <strong>true</strong>, use the long description if available. If <strong>false</strong>, or <strong>true</strong> and long description is not set, then the (short) description field will be used. Default is <strong>false</strong>.</li>
+      <li><code translate="No">includeEmbedUrl</code>: If <strong>false</strong>, no embed url is included. Including this URL may be expected by search engines. Default is <strong>true</strong>.</li>
+      <li><code translate="No">preferLongDescription</code>: If <strong>true</strong>, use the long description if available. If <strong>false</strong>, or <strong>true</strong> and long description is not set, then the (short) description field will be used. Default is <strong>false</strong>.</li>
     </ul>
   </section>
 </article>

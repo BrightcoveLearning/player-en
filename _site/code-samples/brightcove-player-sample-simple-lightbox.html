@@ -1170,7 +1170,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
     <h3>Other HTML</h3>
     <p>This sample uses HTML around the Brightcove Player embed code to create a container for the video poster image, a container for the lightbox player and a container to wrap everything.</p>
-    <p>Remember to also add the <code>id</code> attribute to the <code>video-js</code> tag in the player embed code.</p>
+    <p>Remember to also add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
 <code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
@@ -1196,14 +1196,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Find the code which is labeled:</p>
     <pre>
 	<code class="language-javascript">// +++ Wait for loadstart +++</code></pre>
-    <p>Wait for the video to begin loading by listening for the <code>loadstart</code> event. This ensures that the video metadata, like the poster source and video name, will be available in the <code>mediainfo</code> object. Load the video poster image.</p>
+    <p>Wait for the video to begin loading by listening for the <code translate="No">loadstart</code> event. This ensures that the video metadata, like the poster source and video name, will be available in the <code translate="No">mediainfo</code> object. Load the video poster image.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Listen for poster click</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 	<code class="language-javascript">// +++ Listen for poster click +++</code></pre>
-    <p>Add a listener for the <code>onclick</code> event. When a user clicks on the poster image, then display the lightbox and start video playback.</p>
+    <p>Add a listener for the <code translate="No">onclick</code> event. When a user clicks on the poster image, then display the lightbox and start video playback.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Close the lightbox</h3>
@@ -1220,7 +1220,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

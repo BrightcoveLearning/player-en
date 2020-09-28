@@ -10,10 +10,10 @@ parent: Playback
   </header>
   <section class="bcls-section" id="bcTech">
     <h2>Brightcove Player techs</h2>
-    <p>The Brightcove Player will do everything it can to play your content using HTML5. Only when it cannot, it will fall back to using Flash. To do this, the Brightcove Player's default Tech order is <code>["html5","flash"]</code>. Let's examine these Techs:</p>
+    <p>The Brightcove Player will do everything it can to play your content using HTML5. Only when it cannot, it will fall back to using Flash. To do this, the Brightcove Player's default Tech order is <code translate="No">["html5","flash"]</code>. Let's examine these Techs:</p>
     <aside class="bcls-aside bcls-aside--information">Additional techs are supported by Video.js, but they are not part of the official Brightcove Player product. For details, see the <a href="//docs.videojs.com/docs/guides/tech.html">Video.js Playback Technology</a> guide.</aside>
     <h3>HTML5 tech</h3>
-    <p>The Brightcove Player uses the HTML5 playback technology supplied by the browser for handling the <code>&lt;video&gt;</code> or <code>&lt;audio&gt;</code> element. This means that the Brightcove Player will look for an appropriate rendition to be played using the browser's HTML5 playback technology, but it will vary between browsers.</p>
+    <p>The Brightcove Player uses the HTML5 playback technology supplied by the browser for handling the <code translate="No">&lt;video&gt;</code> or <code translate="No">&lt;audio&gt;</code> element. This means that the Brightcove Player will look for an appropriate rendition to be played using the browser's HTML5 playback technology, but it will vary between browsers.</p>
     <p>If you are curious to find out what your specific browser and player are using, try the <a href="#determineTech">playback app</a> in the next section.</p>
     <h3>Flash tech</h3>
     <p>If a browser does not support HTML5 media, then the Brightcove Player will fall back to using Flash. Brightcove has designed this tech to function similar to the video element.</p>
@@ -45,16 +45,16 @@ parent: Playback
       <p>First, let's see which rendition source type is currently being used. With your video in the Chrome browser, open Developer Tools to view the console messages. In the console's command prompt, enter the following:</p>
       <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayers().video_1.currentSrc()</code></pre>
-      <aside class="bcls-aside bcls-aside--information">Note: The <code>video_1</code> section of the entry represents the ID of the player in this case. If you are experimenting and have a player with an ID, that ID will replace <code>video_1</code>.</aside>
+      <aside class="bcls-aside bcls-aside--information">Note: The <code translate="No">video_1</code> section of the entry represents the ID of the player in this case. If you are experimenting and have a player with an ID, that ID will replace <code translate="No">video_1</code>.</aside>
       <p>You should see that the current source file has an extension value of <strong>m3u8</strong>.</p>
       <figure class="bcls-figure"><img class="bcls-image" alt="tech name" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/tech/hls-rendition.png" /></figure>
       <p>You might not expect the hls rendition to be playing in this browser, since Chrome does not natively support hls. But, the Brightcove Player plays hls using MSE (Media Source Extensions) in the Chrome browser.</p>
       <h3>vjs-tech class</h3>
-      <p>Next, let's verify that HTML5 is being used to play the hls rendition. In the console's command prompt, enter the following to return the first player element which uses the class named <code>vjs-tech</code>:</p>
+      <p>Next, let's verify that HTML5 is being used to play the hls rendition. In the console's command prompt, enter the following to return the first player element which uses the class named <code translate="No">vjs-tech</code>:</p>
       <pre class="line-numbers">
 <code class="language-javascript">document.getElementsByClassName("vjs-tech")[0]</code></pre>
       <figure class="bcls-figure"><img class="bcls-image" alt="tech name" src="//learning-services-media.brightcove.com/doc-assets/player-development/architecture/tech/tech-details.png" /></figure>
-      <p>Here, you can see that the HTML5 <code>video</code> element is being used.</p>
+      <p>Here, you can see that the HTML5 <code translate="No">video</code> element is being used.</p>
     </div>
   </section>
   <section>

@@ -45,7 +45,7 @@ parent: Plugins
     }
   }
 };</code></pre>
-      <p>Details on manually initializing the player using the <code>bc()</code> method can be found in the <a href="/coding-topics/using-bc-and-getplayer-methods.html#bc_method_details">Using bc() and getPlayer() Methods</a> document.</p>
+      <p>Details on manually initializing the player using the <code translate="No">bc()</code> method can be found in the <a href="/coding-topics/using-bc-and-getplayer-methods.html#bc_method_details">Using bc() and getPlayer() Methods</a> document.</p>
     </section>
     <section class="bcls-section">
       <h2 id="Gear_spinning">Gear spinning</h2>
@@ -82,16 +82,16 @@ parent: Plugins
         </li>
         <li>
           <p>
-            In the <code>head</code> section, add the quality selection plugin default style sheet.
+            In the <code translate="No">head</code> section, add the quality selection plugin default style sheet.
           </p>
           <pre>
 <code class="language-html">&lt;link href=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.css&quot; rel='stylesheet'&gt;</code></pre>
         </li>
         <li>
           <p>
-            In the <code>body</code> section, add the advanced player embed code.
+            In the <code translate="No">body</code> section, add the advanced player embed code.
           </p>
-          <aside class="bcls-aside bcls-aside--tip language-editable">To the player embed code, we've added an <code>id</code> attribute so that we can get a reference to the player in a later script.
+          <aside class="bcls-aside bcls-aside--tip language-editable">To the player embed code, we've added an <code translate="No">id</code> attribute so that we can get a reference to the player in a later script.
           </aside>
           <pre class="line-numbers">
 <code class="language-html">&lt;video-js <span class="bcls-highlight">id=&quot;myPlayerID&quot;</span>
@@ -124,7 +124,7 @@ parent: Plugins
               Register the quality selection plugin with the player.
             </li>
             <li>
-              Specify any plugin options that you want to use. In this example, we are setting the default quality selection to <code>720p</code>.
+              Specify any plugin options that you want to use. In this example, we are setting the default quality selection to <code translate="No">720p</code>.
             </li>
           </ul>
           <pre class="line-numbers">
@@ -190,37 +190,37 @@ parent: Plugins
       <p>The following options are available to configure the plugin if you are implementing the plugin using code:</p>
       <ul>
         <li>
-          <h3><code>defaultResolution</code></h3>
+          <h3><code translate="No">defaultResolution</code></h3>
           <ul>
-            <li>Type: <code>String</code></li>
-            <li>Default: <code>none</code></li>
+            <li>Type: <code translate="No">String</code></li>
+            <li>Default: <code translate="No">none</code></li>
             <li>Defines the default resolution or resolution mapping to use. Pass it either the horizontal resolution or <strong>SD</strong>/<strong>HD</strong>.</li>
           </ul>
         </li>
         <li>
-          <h3><code>sdBitrateLimit</code></h3>
+          <h3><code translate="No">sdBitrateLimit</code></h3>
           <ul>
-            <li>Type: <code>Number</code></li>
-            <li>Default: <code>2000000</code></li>
+            <li>Type: <code translate="No">Number</code></li>
+            <li>Default: <code translate="No">2000000</code></li>
             <li>Defines the upper bitrate limit (exclusive) for considering a rendition <strong>SD</strong>.</li>
           </ul>
         </li>
         <li>
-          <h3><code>useResolutionLabels</code></h3>
+          <h3><code translate="No">useResolutionLabels</code></h3>
           <ul>
-            <li>Type: <code>Boolean</code></li>
-            <li>Default: <code>true</code></li>
-            <li>When <code>true</code>, the plugin will attempt to categorize renditions by lines of horizontal resolution when available. Set to false to always use <strong>SD</strong>/<strong>HD</strong> categorization.</li>
+            <li>Type: <code translate="No">Boolean</code></li>
+            <li>Default: <code translate="No">true</code></li>
+            <li>When <code translate="No">true</code>, the plugin will attempt to categorize renditions by lines of horizontal resolution when available. Set to false to always use <strong>SD</strong>/<strong>HD</strong> categorization.</li>
           </ul>
-          <p>To implement the <code>useResolutionLabels</code> option, you would enter the following in the plugin's options in Studio:</p>
+          <p>To implement the <code translate="No">useResolutionLabels</code> option, you would enter the following in the plugin's options in Studio:</p>
           <pre class="line-numbers">
 <code class="language-json">{
   "useResolutionLabels": false
 }</code></pre>
           <p>The resulting quality options would appear as follows:</p>
           <figure class="bcls-figure"><img class="bcls-image" alt="Options SD and HD only" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/quality-options-sd-hd-only.png" /></figure>
-          <p>The player would then select the optimal rendition from the selected group. As detailed in this section, <code>sdBitrateLimit</code> is configurable to determine the renditions classified as <strong>SD</strong> and <strong>HD.</strong></p>
-          <aside class="bcls-aside bcls-aside--tip language-editable">Contradictory settings will not work. For instance, neither of the following make sense to use as in both cases you are providing an illegal value for a label based on the <code>useResolutionLabels</code> setting.
+          <p>The player would then select the optimal rendition from the selected group. As detailed in this section, <code translate="No">sdBitrateLimit</code> is configurable to determine the renditions classified as <strong>SD</strong> and <strong>HD.</strong></p>
+          <aside class="bcls-aside bcls-aside--tip language-editable">Contradictory settings will not work. For instance, neither of the following make sense to use as in both cases you are providing an illegal value for a label based on the <code translate="No">useResolutionLabels</code> setting.
             <pre class="line-numbers">
 <code class="language-json">"useResolutionLabels": true,
 "defaultResolution": "HD"</code></pre>
@@ -230,13 +230,13 @@ parent: Plugins
           </aside>
         </li>
         <li>
-          <h3><code>resolutionLabelBitrates</code></h3>
+          <h3><code translate="No">resolutionLabelBitrates</code></h3>
           <ul>
-            <li>Type: <code>Boolean</code></li>
-            <li>Default: <code>false</code></li>
-            <li>When <code>true</code>, the plugin will attach bitrate information to the resolution labels (e.g. 720p @ 13806 kbps). This option has no effect when <code>useResolutionLabels</code> is false or when resolution information is unavailable.</li>
+            <li>Type: <code translate="No">Boolean</code></li>
+            <li>Default: <code translate="No">false</code></li>
+            <li>When <code translate="No">true</code>, the plugin will attach bitrate information to the resolution labels (e.g. 720p @ 13806 kbps). This option has no effect when <code translate="No">useResolutionLabels</code> is false or when resolution information is unavailable.</li>
           </ul>
-          <p>When this configuration option is set the <code>true</code>, the quality selector will appear as follows:</p>
+          <p>When this configuration option is set the <code translate="No">true</code>, the quality selector will appear as follows:</p>
           <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/bitrates-displayed.png" /></figure>
         </li>
       </ul>
@@ -321,7 +321,7 @@ div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.v
         <li>The quality selector does not work in Safari.</li>
         <li>The quality selector does not appear in iOS.</li>
         <li>At times the quality switch will not happen at the desired time, it can take longer than expected.</li>
-        <li>Setting the source in the player configuration and building with single video template will cause the quality menu to not be initialized properly. This is because the source will be set through a call to the <code>videojs</code> constructor, which does not have access to the player or plugins. The source should be set by calling <code>player.src()</code>. This does not affect Video Cloud users.</li>
+        <li>Setting the source in the player configuration and building with single video template will cause the quality menu to not be initialized properly. This is because the source will be set through a call to the <code translate="No">videojs</code> constructor, which does not have access to the player or plugins. The source should be set by calling <code translate="No">player.src()</code>. This does not affect Video Cloud users.</li>
         <li>The quality menu will not be displayed when using DASH content with Silverlight.</li>
         <li>The Video Quality in the selector is re-set to <strong>Auto</strong> at every player load. It does not maintain any previous setting.</li>
       </ul>

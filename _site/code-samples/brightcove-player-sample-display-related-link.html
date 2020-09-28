@@ -1165,7 +1165,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Player configuration</h3>
     <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
     <h3>Other HTML</h3>
-    <p>An HTML <code>&lt;p&gt;</code> element is used as a target for the text extracted from the video's metatdata:</p>
+    <p>An HTML <code translate="No">&lt;p&gt;</code> element is used as a target for the text extracted from the video's metatdata:</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;p id="linkHere" style='color:red; font-weight: bold; font-size: 20px'&gt;&lt;/p&gt;</code></pre>
   </section>
@@ -1182,7 +1182,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Populate the <code>mediainfo</code> property in Studio.</li>
+      <li>Populate the <code translate="No">mediainfo</code> property in Studio.</li>
       <li>Dynamically build an HTML anchor tag with a link.</li>
       <li>Inject the dynamically built HMTL in the HTML page.</li>
     </ul>
@@ -1192,21 +1192,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ###  // +++ Wait for loadstart to read video information +++ ###</code></pre>
-    <p>Often you see the player's <code>ready()</code> method used to start JavaScript processing. This does not work in this instance as you have to wait for the video to be loaded in the player and have the metadata ready to read. The event to listen for is <code>loadstart</code>.</p>
+    <p>Often you see the player's <code translate="No">ready()</code> method used to start JavaScript processing. This does not work in this instance as you have to wait for the video to be loaded in the player and have the metadata ready to read. The event to listen for is <code translate="No">loadstart</code>.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Read data and build anchor tag</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Read test and link from video info and build anchor tag +++</code></pre>
-    <p>Once the <code>loadstart</code> event is dispatched, you can read properties from the <code>mediainfo</code> object. In this case the properties <code>link.text</code> and <code>link.url</code> are read. An anchor tag is then dynamically built using the extracted data.</p>
+    <p>Once the <code translate="No">loadstart</code> event is dispatched, you can read properties from the <code translate="No">mediainfo</code> object. In this case the properties <code translate="No">link.text</code> and <code translate="No">link.url</code> are read. An anchor tag is then dynamically built using the extracted data.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Inject anchor tag into HTML page</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Inject anchor tag into HTML ###</code></pre>
-    <p>A reference to the location for the anchor is obtained using the <code>getElementById()</code> method, and the anchor tag is placed in the HTML page.</p>
+    <p>A reference to the location for the anchor is obtained using the <code translate="No">getElementById()</code> method, and the anchor tag is placed in the HTML page.</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -1216,7 +1216,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

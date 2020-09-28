@@ -32,20 +32,20 @@ parent: Advertising
     <pre class="line-numbers">
   <code class="language-http">https://ssai.api.brightcove.com/v1</code></pre>
     <h4>Account path</h4>
-    <p>In all cases, requests will be made for a specific Video Cloud Account. So, you will always add the term <code>accounts</code> followed by your account id to the base URL:</p>
+    <p>In all cases, requests will be made for a specific Video Cloud Account. So, you will always add the term <code translate="No">accounts</code> followed by your account id to the base URL:</p>
     <pre class="line-numbers">
   <code class="language-http">https://ssai.api.brightcove.com/v1<strong>/accounts/</strong><span class="bcls-input">your account id</span></code></pre>
     <h3>Authorization</h3>
     <p>API requests require an Authorization header:</p>
     <pre class="line-numbers">
   <code class="language-http">Authorization: Bearer <span class="bcls-input">your access token</span></code></pre>
-    <p>The <code>access_token</code> is a temporary OAuth2 access token that must be obtained from the Brightcove OAuth service. For details on how to obtain client credentials and use them to retrieve access tokens, see the <a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html">Brightcove OAuth Overview</a>.</p>
+    <p>The <code translate="No">access_token</code> is a temporary OAuth2 access token that must be obtained from the Brightcove OAuth service. For details on how to obtain client credentials and use them to retrieve access tokens, see the <a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html">Brightcove OAuth Overview</a>.</p>
     <h3>Operations</h3>
     <p>When you request client credentials, you will need to specify the type of account access or operations that you want. The following is a list of the currently supported operations for the SSAI API:</p>
     <ul>
       <li>SSAI data:
-        <p><code>video-cloud/ssai/read</code><br />
-          <code>video-cloud/ssai/all</code></p>
+        <p><code translate="No">video-cloud/ssai/read</code><br />
+          <code translate="No">video-cloud/ssai/all</code></p>
       </li>
     </ul>
   </section>
@@ -64,17 +64,17 @@ parent: Advertising
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>account_id</code></td>
+          <td><code translate="No">account_id</code></td>
           <td>String</td>
           <td>User account id</td>
         </tr>
         <tr>
-          <td><code>playback_config</code></td>
+          <td><code translate="No">playback_config</code></td>
           <td>Object</td>
           <td>Fields are defined in the <a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html#Configuration_field_details">Configuration field details</a> section of the SSAI API document.</td>
         </tr>
         <tr>
-          <td><code>title_metadata</code></td>
+          <td><code translate="No">title_metadata</code></td>
           <td>Object</td>
           <td>Tells the system how long your content is in order to generate the correct ad response.<br />
             <br />
@@ -83,7 +83,7 @@ parent: Advertising
   <code class="language-json">"title_metadata": {  "duration": "1m" }</code></pre></td>
         </tr>
         <tr>
-          <td><code>videocloud_metadata</code></td>
+          <td><code translate="No">videocloud_metadata</code></td>
           <td>Object</td>
           <td>Optional.<br />
             Needed only if you are using template variables that reference metadata fields. These are defined in the <a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html#Ad_variables">Ad variables</a> section of the SSAI API document.</td>
@@ -112,7 +112,7 @@ parent: Advertising
         <tr>
           <th>Sample Body</th>
           <td><pre>
-  <code>{
+  <code translate="No">{
     "playback_config":{
       "name": "<span class="bcls-input">config_name</span>",
       "vmap_response_namespace": "<span class="bcls-input">config_namespace</span>",
@@ -136,7 +136,7 @@ parent: Advertising
       </tbody>
     </table>
     <h3>Response</h3>
-    <p>The response <code>body</code> consists of the ad server response that would include the VAST or ad server equivalent response.</p>
+    <p>The response <code translate="No">body</code> consists of the ad server response that would include the VAST or ad server equivalent response.</p>
     <p>Sample response:</p>
     <pre class="line-numbers">
   <code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
@@ -206,7 +206,7 @@ parent: Advertising
         <tr>
           <th>Sample Body</th>
           <td><pre>
-  <code>{
+  <code translate="No">{
     "playback_config":{
       "name": "<span class="bcls-input">config_name</span>",
       "vmap_response_namespace": "<span class="bcls-input">config_namespace</span>",
@@ -246,7 +246,7 @@ parent: Advertising
         </tr>
       </tbody>
     </table>
-    <!-- <aside class="bcls-aside bcls-aside--information">For data definitions within the <code>videocloud_metadata</code> object, see the <a href="http://docs.brightcove.com/en/staging/ssai-api.html#Metadata_variables">Metadata variables</a> section of the Video Cloud SSAI Ad Config API document.</aside> --><!-- <aside class="bcls-aside bcls-aside--information">Be sure to validate any server-side macros that they are correctly inserting values to that URL.</aside> -->
+    <!-- <aside class="bcls-aside bcls-aside--information">For data definitions within the <code translate="No">videocloud_metadata</code> object, see the <a href="http://docs.brightcove.com/en/staging/ssai-api.html#Metadata_variables">Metadata variables</a> section of the Video Cloud SSAI Ad Config API document.</aside> --><!-- <aside class="bcls-aside bcls-aside--information">Be sure to validate any server-side macros that they are correctly inserting values to that URL.</aside> -->
     
     <h3>Response2</h3>
     <p>Sample response:</p>
@@ -302,7 +302,7 @@ parent: Advertising
   <section class="bcls-section">
     <h2 id="Retrieve_trace_details">Retrieve trace details</h2>
     <p>Once you have run an ad trace as shown in the previous section, you can retrieve detailed information about the trace using the session Id.</p>
-    <p>The <code>session_id</code> specifies the caching session. Each session has its own length based on the video content length. You can get the id from the response for the API call in the previous step.</p>
+    <p>The <code translate="No">session_id</code> specifies the caching session. Each session has its own length based on the video content length. You can get the id from the response for the API call in the previous step.</p>
     <p>The Session id can be found in the VMAP responses from the previous section. Here is an example:</p>
     <pre>
   <code class="language-xml">&lt;bc:BrightcoveDebug sessionID="<span class="bcls-input">your session id</span>"&gt;&lt;/bc:BrightcoveDebug&gt;</code></pre>

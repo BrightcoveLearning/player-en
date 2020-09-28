@@ -93,7 +93,7 @@ parent: Code Samples
     <h3>Player configuration</h3>
     <p>No special configuration is required for the Brightcove Player you create for this sample. Of course, for this sample the player's code is NOT initially placed in the HTML page, it is dynamically built and injected.</p>
     <h3>Other HTML</h3>
-    <p>A <code>&lt;button&gt;</code> is added to the HTML page that triggers the building and injection of the player. Also, a <code>&lt;div&gt;</code> element is added as the injection location.</p>
+    <p>A <code translate="No">&lt;button&gt;</code> is added to the HTML page that triggers the building and injection of the player. Also, a <code translate="No">&lt;div&gt;</code> element is added as the injection location.</p>
   </section>
   <!-- UPDATE application flow -->
   
@@ -102,9 +102,9 @@ parent: Code Samples
     <p>The basic logic behind this application is:</p>
     <ul>
       <li>Set variable values with the account ID, player ID and video ID you wish to use.</li>
-      <li>On button click, a valid <code>&lt;video&gt;</code> tag is built using simple string concatenation and that string injected into the HTML page.</li>
-      <li>A valid player's <code>&lt;script&gt;</code> tag is also built and injected into the HTML page. When this is done, the JavaScript will be executed on the page, dispatching an <code>onload</code> event. In the <code>onload</code> event handler, call the function that initializes the player.</li>
-      <li>In the called function, use the <code>bc()</code> method to initialize the generic video tag into a Brightcove Player, then call the <code>play()</code> method.</li>
+      <li>On button click, a valid <code translate="No">&lt;video&gt;</code> tag is built using simple string concatenation and that string injected into the HTML page.</li>
+      <li>A valid player's <code translate="No">&lt;script&gt;</code> tag is also built and injected into the HTML page. When this is done, the JavaScript will be executed on the page, dispatching an <code translate="No">onload</code> event. In the <code translate="No">onload</code> event handler, call the function that initializes the player.</li>
+      <li>In the called function, use the <code translate="No">bc()</code> method to initialize the generic video tag into a Brightcove Player, then call the <code translate="No">play()</code> method.</li>
     </ul>
     <!-- UPDATE task 1 -->
     
@@ -119,14 +119,14 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Build the player and place in HTML DOM ###</code></pre>
-    <p>This is JavaScript work. Use string concatenation to build a valid <code>&lt;video&gt;</code> tag. You then inject the tag into the HTML page. Next you build a valid Brightcove Player <code>&lt;script&gt;</code> tag. When you append this to the HTML page, the JavaScript will automatically be executed. This creates an <code>onload</code> event, for which you can write a handler.</p>
+    <p>This is JavaScript work. Use string concatenation to build a valid <code translate="No">&lt;video&gt;</code> tag. You then inject the tag into the HTML page. Next you build a valid Brightcove Player <code translate="No">&lt;script&gt;</code> tag. When you append this to the HTML page, the JavaScript will automatically be executed. This creates an <code translate="No">onload</code> event, for which you can write a handler.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Initialize the player as a Brightcove Player, and play the video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Initialize the player and start the video ###</code></pre>
-    <p>You use the standard <code>bc()</code> method to initialize the generic player as a Brightcove Player, then play the video using the <code>play()</code> method.</p>
+    <p>You use the standard <code translate="No">bc()</code> method to initialize the generic player as a Brightcove Player, then play the video using the <code translate="No">play()</code> method.</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -144,6 +144,6 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Removing_a_player">Removing a player</h2>
-    <p>You may wish to dynamically remove a player. To do so you should use the <code>myPlayer.dispose()</code> method. You do NOT want to remove the player from the DOM via JavaScript as this could cause memory leaks. When you use the <code>dispose()</code> method, the player will remove itself from the DOM.</p>
+    <p>You may wish to dynamically remove a player. To do so you should use the <code translate="No">myPlayer.dispose()</code> method. You do NOT want to remove the player from the DOM via JavaScript as this could cause memory leaks. When you use the <code translate="No">dispose()</code> method, the player will remove itself from the DOM.</p>
   </section>
 </article>

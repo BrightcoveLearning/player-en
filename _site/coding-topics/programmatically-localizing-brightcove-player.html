@@ -1140,19 +1140,19 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/pu
     <p>To use the localized control names, the user can set the preferred language in the browser. The exact steps vary depending on browser and OS (broad guidance is given in the next paragraph). If the browser's preferred language is English, or a language not available, you will see the default, or English, text.</p>
     <p>Browsers do not have perfectly standardized locale detection, so it can be a bit complicated. Broadly, browsers look to determine the desired language in this order:</p>
     <ol>
-      <li>Check if the embedding page has a <code>lang</code> attribute on the <code>&lt;html&gt;</code> element.</li>
+      <li>Check if the embedding page has a <code translate="No">lang</code> attribute on the <code translate="No">&lt;html&gt;</code> element.</li>
       <li>Check browser specific locale configurations.</li>
       <li>Fall back to English.</li>
     </ol>
     <h4>iframe query parameter</h4>
-    <p>If you are using the iframe implementation of the player you can set the language for that player by including a query parameter in the <code>src</code> attribute. Added to the existing query parameter that has the video ID, for instance <code>?videoId=4607746980001</code>, you can set the language using <code>&amp;language=</code> followed by the language code. For example, here is an iframe player implementation setting the language to German:</p>
+    <p>If you are using the iframe implementation of the player you can set the language for that player by including a query parameter in the <code translate="No">src</code> attribute. Added to the existing query parameter that has the video ID, for instance <code translate="No">?videoId=4607746980001</code>, you can set the language using <code translate="No">&amp;language=</code> followed by the language code. For example, here is an iframe player implementation setting the language to German:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="iframe localization parameter" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/localization/iframe-language-parameter.png" /></figure>
   </section>
   <section id="results" class="bcls-section">
     <h2>Results</h2>
     <p>As mentioned in the opening paragraph of this document, the results of a localized player are not easily seen. To check for successful localization you can inspect the big-play-button. Use a browser's debugging tools to inspect the button.</p>
     <aside class="bcls-aside bcls-aside--information">
-      <p>Note: If you are comfortable with jQuery, you can quickly see the localized text by using the browser's Console and the expression <code>$(".vjs-big-play-button").firstChild</code>. You will see <strong>Play Video</strong> has been localized, as shown in this screenshot from the console:</p>
+      <p>Note: If you are comfortable with jQuery, you can quickly see the localized text by using the browser's Console and the expression <code translate="No">$(".vjs-big-play-button").firstChild</code>. You will see <strong>Play Video</strong> has been localized, as shown in this screenshot from the console:</p>
       <figure class="bcls-figure"><img class="bcls-image" alt="inspect play button" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/localization/console-video-abspielen.png" /></figure>
     </aside>
     <figure class="bcls-figure"><img class="bcls-image" alt="inspect play button" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/localization/localization-inspect-play-button.png" /></figure>
@@ -1176,9 +1176,9 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/pu
   "Hello": "Guten Tag",
   "Goodbye": "Auf Wiedersehen"
 });  </code></pre>
-    <p>This JavaScript could be in the HTML page itself, included as a source in a <code>&lt;script&gt;</code> tag, but the best approach is to simply add the script to the player's configuration using Studio. The URL to the file is added in the <strong>Plugins</strong> section of the player's properties. Use the <strong>Add a File</strong> button to add the JavaScript file, as shown here:</p>
+    <p>This JavaScript could be in the HTML page itself, included as a source in a <code translate="No">&lt;script&gt;</code> tag, but the best approach is to simply add the script to the player's configuration using Studio. The URL to the file is added in the <strong>Plugins</strong> section of the player's properties. Use the <strong>Add a File</strong> button to add the JavaScript file, as shown here:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="add script in Studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/localization/localization-studio-add-script.png" /></figure>
-    <p>Once the added vocabulary is in the language file, you can use the player's <code>localize()</code> method to access it. The following code snippet shows the localized word for <strong>Hello</strong> being used in the HTML page, followed by a screenshot of the results.</p>
+    <p>Once the added vocabulary is in the language file, you can use the player's <code translate="No">localize()</code> method to access it. The following code snippet shows the localized word for <strong>Hello</strong> being used in the HTML page, followed by a screenshot of the results.</p>
     <pre class="line-numbers">
 <code class="language-html">  &lt;p id="textTarget"&gt;In here: &lt;/p&gt;
 

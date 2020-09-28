@@ -1163,15 +1163,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
     <h3>Player configuration</h3>
-    <p>Because we want to modify the controlbar before the player is created, we will delay instantiation of the Brightcove Player by removing some of the attributes from the <code>&lt;video&gt;</code> tag. For more information about this, see the <a href="/publish/delaying-player-instantiation.html">Delaying Player Instantiation</a> document.</p>
+    <p>Because we want to modify the controlbar before the player is created, we will delay instantiation of the Brightcove Player by removing some of the attributes from the <code translate="No">&lt;video&gt;</code> tag. For more information about this, see the <a href="/publish/delaying-player-instantiation.html">Delaying Player Instantiation</a> document.</p>
     <p>Modify your player embed code as follows:</p>
     <ol class="bcls-tasklist">
-      <li>Add the <code>id</code> attribute to the <code>video</code> tag in the player embed code</li>
-      <li>Remove the following attributes from the <code>video</code> tag:
+      <li>Add the <code translate="No">id</code> attribute to the <code translate="No">video</code> tag in the player embed code</li>
+      <li>Remove the following attributes from the <code translate="No">video</code> tag:
         <ul>
-          <li><code>data-account</code></li>
-          <li><code>data-player</code></li>
-          <li><code>data-video-id</code></li>
+          <li><code translate="No">data-account</code></li>
+          <li><code translate="No">data-player</code></li>
+          <li><code translate="No">data-video-id</code></li>
         </ul>
       </li>
     </ol>
@@ -1186,7 +1186,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
     <!-- <h3>Other HTML</h3>
 
-<p>Remember to add the <code>id</code> attribute to the <code>video-js</code> tag in the player embed code.</p>
+<p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
 
 <pre><code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre> --></section>
@@ -1206,18 +1206,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Define the player options +++</code></pre>
-    <p>Define the <code>volumePanel</code> so that it is vertical and not inline with the controlbar.</p>
+    <p>Define the <code translate="No">volumePanel</code> so that it is vertical and not inline with the controlbar.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Add the player attributes</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Add the player attributes +++</code></pre>
-    <p>Add the following player attributes with your values to the <code>&lt;video&gt;</code> tag.</p>
+    <p>Add the following player attributes with your values to the <code translate="No">&lt;video&gt;</code> tag.</p>
     <ul>
-      <li><code>data-account</code></li>
-      <li><code>data-player</code></li>
-      <li><code>data-video-id</code></li>
+      <li><code translate="No">data-account</code></li>
+      <li><code translate="No">data-player</code></li>
+      <li><code translate="No">data-video-id</code></li>
     </ul>
     <!-- UPDATE task 3 -->
     
@@ -1235,9 +1235,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Updating_multiple_players">Updating multiple players</h2>
-    <p>To update all of the players on your HTML page, you can use a <code>videojs.hook()</code> function.</p>
+    <p>To update all of the players on your HTML page, you can use a <code translate="No">videojs.hook()</code> function.</p>
     <h3>Hook functions</h3>
-    <p>Hooks allow you to add functionality or change the player appearance at certain Video.js lifecycle moments. With a hook function, all of the players on your HTML page are updated by passing in the player options into the <code>videojs.hook()</code> function.</p>
+    <p>Hooks allow you to add functionality or change the player appearance at certain Video.js lifecycle moments. With a hook function, all of the players on your HTML page are updated by passing in the player options into the <code translate="No">videojs.hook()</code> function.</p>
     <p>For details, see <a href="https://docs.videojs.com/tutorial-hooks.html">Video.js hooks documentation</a>.</p>
     <h3 id="Player_example">Player example</h3>
     <p>This sample changes the volume control button to display a vertical volume slider for all of the players on the page.</p>
@@ -1260,18 +1260,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Define the hook function with player options +++</code></pre>
-    <p>Define the hook function for the <code>beforeSetup</code> lifecycle moment, which contains the player options. For the player options, set the <code>volumePanel</code> to appear vertical and not inline with the controlbar.</p>
+    <p>Define the hook function for the <code translate="No">beforeSetup</code> lifecycle moment, which contains the player options. For the player options, set the <code translate="No">volumePanel</code> to appear vertical and not inline with the controlbar.</p>
     <!-- UPDATE task 2 -->
     
     <h4>Add the player attributes</h4>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Add the player attributes +++</code></pre>
-    <p>Add the following player attributes with your values to the <code>&lt;video&gt;</code> tag for each player.</p>
+    <p>Add the following player attributes with your values to the <code translate="No">&lt;video&gt;</code> tag for each player.</p>
     <ul>
-      <li><code>data-account</code></li>
-      <li><code>data-player</code></li>
-      <li><code>data-video-id</code></li>
+      <li><code translate="No">data-account</code></li>
+      <li><code translate="No">data-player</code></li>
+      <li><code translate="No">data-video-id</code></li>
     </ul>
     <!-- UPDATE task 3 -->
     
@@ -1279,7 +1279,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Execute the hook function +++</code></pre>
-    <p>Modify the options passed to the players, using the <code>beforeSetup</code> lifecycle moment with the <a href="https://docs.videojs.com/tutorial-hooks.html">Video.js hook</a> function.</p>
+    <p>Modify the options passed to the players, using the <code translate="No">beforeSetup</code> lifecycle moment with the <a href="https://docs.videojs.com/tutorial-hooks.html">Video.js hook</a> function.</p>
     <!-- UPDATE task 4 -->
     
     <h4>Create the players</h4>

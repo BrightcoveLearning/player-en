@@ -4,7 +4,7 @@ parent: Code Samples
 ---
 <article class="bcls-article">
   <h1>Brightcove Player Sample: Scrolling Player into View</h1>
-  <summary>In this topic, you will learn how to use a Brightcove Player which starts playing the video as soon as you fully scroll the player into view, and pauses the video when you scroll it out of view. We call the Brightcove Player API's <code>play()</code> and <code>pause()</code> methods to start and stop the video based on the position of the player.</summary>
+  <summary>In this topic, you will learn how to use a Brightcove Player which starts playing the video as soon as you fully scroll the player into view, and pauses the video when you scroll it out of view. We call the Brightcove Player API's <code translate="No">play()</code> and <code translate="No">pause()</code> methods to start and stop the video based on the position of the player.</summary>
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
@@ -57,7 +57,7 @@ parent: Code Samples
         </tr>
       </tbody>
     </table>
-    <p>A key JavaScript event used in this code is <code>onscroll</code>. This event is dispatched, and in this code handled, every time the <code>window</code> element is scrolled.</p>
+    <p>A key JavaScript event used in this code is <code translate="No">onscroll</code>. This event is dispatched, and in this code handled, every time the <code translate="No">window</code> element is scrolled.</p>
     <aside class="bcls-aside bcls-aside--warning">
       <h4>3rd party libraries used in this example</h4>
       <p>Note: This example uses 3rd party libraries to simplify the JavaScript code. These libraries are not supported by Brightcove. All functionality can be reproduced in ordinary JavaScript.</p>
@@ -72,9 +72,9 @@ parent: Code Samples
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
     <h3>Player configuration</h3>
-    <p>The <code>muted</code> attribute has been added to the player so as to avoid autoplay issues. See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for details.</p>
+    <p>The <code translate="No">muted</code> attribute has been added to the player so as to avoid autoplay issues. See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for details.</p>
     <h3>Other HTML</h3>
-    <p>An HTML <code>&lt;script&gt;</code> tag is used to import the <strong>jQuery</strong> library.</p>
+    <p>An HTML <code translate="No">&lt;script&gt;</code> tag is used to import the <strong>jQuery</strong> library.</p>
   </section>
   <!-- UPDATE application flow -->
   
@@ -92,14 +92,14 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Execute every time page is scrolled ###</code></pre>
-    <p>This one line of code calls the <code>checkIfVideoInView()</code> method on every <code>window.onscroll</code> event dispatch.</p>
+    <p>This one line of code calls the <code translate="No">checkIfVideoInView()</code> method on every <code translate="No">window.onscroll</code> event dispatch.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Handle the scroll events</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Called on scroll, check if in view and the play/pause ###</code></pre>
-    <p>The <code>checkIfVideoInView()</code> event handler function checks if the player is in the viewport, then either plays or pauses the video. The <code>isScrolledIntoView()</code> method is used in an if statement to check if the player is in the viewport. Naturally, the <code>isScrolledIntoView()</code> method returns a Boolean value.</p>
+    <p>The <code translate="No">checkIfVideoInView()</code> event handler function checks if the player is in the viewport, then either plays or pauses the video. The <code translate="No">isScrolledIntoView()</code> method is used in an if statement to check if the player is in the viewport. Naturally, the <code translate="No">isScrolledIntoView()</code> method returns a Boolean value.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Check if player is entirely in the viewport</h3>
@@ -116,7 +116,7 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

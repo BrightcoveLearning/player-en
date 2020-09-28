@@ -143,21 +143,21 @@ parent: Code Samples
     AND
     <pre class="line-numbers">
 <code class="language-javascript">// +++ Listen for ad end or skipped +++</code></pre>
-    <p>After the ad and video information is loaded into the player, you know this waiting for <code>loadedmetadata</code>, you use the <code>on()</code> method to listen for <code>ima3-started</code>, <code>ima3-complete</code> and <code>ads-ad-skipped</code>.</p>
+    <p>After the ad and video information is loaded into the player, you know this waiting for <code translate="No">loadedmetadata</code>, you use the <code translate="No">on()</code> method to listen for <code translate="No">ima3-started</code>, <code translate="No">ima3-complete</code> and <code translate="No">ads-ad-skipped</code>.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Show overlay on ad start</h3>
     <p>Find the code which is labeled:</p>
     <pre class="line-numbers">
 <code class="language-javascript">// +++ Start counter on start of ad +++</code></pre>
-    <p>A class is added to the overlay for styling, the overlay is displayed, then JavaScript's <code>setInterval()</code> method is used to call the custom <code>everySecond()</code> method. In the <code>everySecond()</code> method the current time of the ad playing is subtracted from the duration, and the formatted result injected into the overlay.</p>
+    <p>A class is added to the overlay for styling, the overlay is displayed, then JavaScript's <code translate="No">setInterval()</code> method is used to call the custom <code translate="No">everySecond()</code> method. In the <code translate="No">everySecond()</code> method the current time of the ad playing is subtracted from the duration, and the formatted result injected into the overlay.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Hide overlay on ad completed or skipped</h3>
     <p>Find the code which is labeled:</p>
     <pre class="line-numbers">
 <code class="language-javascript">// +++ Listen for ad end or skipped +++</code></pre>
-    <p>Both of the ad events that could terminate the ad call a function named <code>videoCompleteOrSkipped</code>. In this function a variable, named <code>theInterval</code>, was created by the previously called <code>setInterval()</code>, needs to be cleared by JavaScript's <code>clearInterval()</code> method. This is needed as processing time is taken by the interval variable. Finally, the overlay is hidden and any injected HTML is cleared.</p>
+    <p>Both of the ad events that could terminate the ad call a function named <code translate="No">videoCompleteOrSkipped</code>. In this function a variable, named <code translate="No">theInterval</code>, was created by the previously called <code translate="No">setInterval()</code>, needs to be cleared by JavaScript's <code translate="No">clearInterval()</code> method. This is needed as processing time is taken by the interval variable. Finally, the overlay is hidden and any injected HTML is cleared.</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -167,7 +167,7 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript notranslate">videojs.getPlayer('myPlayerID').ready(function() {

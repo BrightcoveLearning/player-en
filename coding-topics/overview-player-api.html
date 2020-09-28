@@ -7,13 +7,13 @@ parent: Coding Topics
   <summary>The Brightcove Player API allows you to interact with the video through JavaScript, whether the browser is playing the video through HTML5 video, Flash, or any other supported playback technologies.</summary>
   <section id="Referencing_the_player" class="bcls-section">
     <h2>Referencing the player</h2>
-    <p>To use the API functions, you need access to the player object. This is easy to do. You just need to make sure your video tag has an ID. The example embed code has an ID of <code>myPlayerID</code>, and the player object will be held in the <code>myPlayer</code> variable. If you have multiple videos on one page, make sure every video tag has a unique ID.</p>
+    <p>To use the API functions, you need access to the player object. This is easy to do. You just need to make sure your video tag has an ID. The example embed code has an ID of <code translate="No">myPlayerID</code>, and the player object will be held in the <code translate="No">myPlayer</code> variable. If you have multiple videos on one page, make sure every video tag has a unique ID.</p>
     <pre class="line-numbers">
 <code class="language-javascript">var myPlayer = videojs.getPlayer('myPlayerID');</code></pre>
   </section>
   <section class="bcls-section" id="waittilready">
     <h2>Player ready method</h2>
-    <p>The time it takes Video.js to set up the video and API will vary depending on multiple factors, such as connection speed. For that reason we want to use the player's <code>ready()</code> method to trigger any code that requires the player's API.</p>
+    <p>The time it takes Video.js to set up the video and API will vary depending on multiple factors, such as connection speed. For that reason we want to use the player's <code translate="No">ready()</code> method to trigger any code that requires the player's API.</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').<span class="bcls-highlight">ready(function() {</span>
   var myPlayer = this;
@@ -22,7 +22,7 @@ parent: Coding Topics
   myPlayer.on('loadstart',doLoadstart);
 
 });</code></pre>
-    <aside class="bcls-aside bcls-aside--information">The code just above actually combines both the <code>getPlayer()</code> and <code>ready()</code> methods into the first, single line of code. You then assign the <code>myPlayer</code> variable the value <code>this</code>, which is the player instance. If you choose, you can use also the alternative shown here, but the code above is more common.
+    <aside class="bcls-aside bcls-aside--information">The code just above actually combines both the <code translate="No">getPlayer()</code> and <code translate="No">ready()</code> methods into the first, single line of code. You then assign the <code translate="No">myPlayer</code> variable the value <code translate="No">this</code>, which is the player instance. If you choose, you can use also the alternative shown here, but the code above is more common.
       <pre class="line-numbers">
 <code class="language-javascript">var myPlayer = videojs.getPlayer('myPlayerID');
 <span class="bcls-highlight">myPlayer.ready</span>(function(){
@@ -40,7 +40,7 @@ parent: Coding Topics
   // Play the video in the player
   myPlayer.play()
 });</code></pre>
-    <p>The problem that just because the player is ready for interaction does NOT guarantee the video in the player is loaded and ready to be, in this example, played. For this reason, you will have to use the <code>loadedmetadata</code> event which guarantees the video is ready to play. The code would appear as follows:</p>
+    <p>The problem that just because the player is ready for interaction does NOT guarantee the video in the player is loaded and ready to be, in this example, played. For this reason, you will have to use the <code translate="No">loadedmetadata</code> event which guarantees the video is ready to play. The code would appear as follows:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
@@ -49,7 +49,7 @@ parent: Coding Topics
     myPlayer.play();
   })
 });</code></pre>
-    <p>If calling the <code>play()</code> method is the only task to perform in the function and you are not going to interact with the player in another way, this code could be simplified to this (no need to use the <code>ready()</code> method):</p>
+    <p>If calling the <code translate="No">play()</code> method is the only task to perform in the function and you are not going to interact with the player in another way, this code could be simplified to this (no need to use the <code translate="No">ready()</code> method):</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').on('loadedmetadata',function(){
   var myPlayer = this;

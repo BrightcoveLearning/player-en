@@ -1198,10 +1198,10 @@ Remember, it never rains on the Oregon coast!</code></pre>
     <p>The basic logic behind this application is:</p>
     <ul>
       <li>Build a regular expression to remove the WebVTT formatting from the file.</li>
-      <li>Wait for the <code>loadstart</code> event and retrieve the URL to the captions WebVTT file.</li>
+      <li>Wait for the <code translate="No">loadstart</code> event and retrieve the URL to the captions WebVTT file.</li>
       <li>Build a button and place it in the controlbar.</li>
-      <li>On button click, download the remote WebVTT file using an <code>XMLHttpRequest()</code> object.</li>
-      <li>Use the <code>download</code> JavaScript library to have the browser download the file.</li>
+      <li>On button click, download the remote WebVTT file using an <code translate="No">XMLHttpRequest()</code> object.</li>
+      <li>Use the <code translate="No">download</code> JavaScript library to have the browser download the file.</li>
     </ul>
     <!-- UPDATE task 2 -->
     
@@ -1216,21 +1216,21 @@ Remember, it never rains on the Oregon coast!</code></pre>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Retrieve the URL for the text track, which is in this case a WebVTT caption file ###</code></pre>
-    <p>You must wait for the <code>loadstart</code> event to access the <code>mediainfo</code> property, which contains the text track information. Note that if the page is served from a secure (<strong>https</strong>) page, you must alter the URL to the file to also use a secure connection. Once you have the correct URL, you then call the <code>getFile()</code> method that actually returns the file. Finally, you use the JavaScript <code>replace()</code> method in conjunction with the regular expression to reformat the text.</p>
+    <p>You must wait for the <code translate="No">loadstart</code> event to access the <code translate="No">mediainfo</code> property, which contains the text track information. Note that if the page is served from a secure (<strong>https</strong>) page, you must alter the URL to the file to also use a secure connection. Once you have the correct URL, you then call the <code translate="No">getFile()</code> method that actually returns the file. Finally, you use the JavaScript <code translate="No">replace()</code> method in conjunction with the regular expression to reformat the text.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Build a button and place it in the controlbar</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Create button and place in player ###</code></pre>
-    <p>An HTML <strong>button</strong> element is built and placed in the controlbar. Note that the <code>click</code> event listener is also dynamically added. In this case, the button is place in the <code>spacer</code> region of the controlbar. For further details on the <code>spacer</code>, see the <a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a> document.</p>
+    <p>An HTML <strong>button</strong> element is built and placed in the controlbar. Note that the <code translate="No">click</code> event listener is also dynamically added. In this case, the button is place in the <code translate="No">spacer</code> region of the controlbar. For further details on the <code translate="No">spacer</code>, see the <a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a> document.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Get the file based on URL provided</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Function that gets the actual file based on URL ###</code></pre>
-    <p>This function uses AJAX, via an <code>XMLHttpRequest</code> object, to retrieve the file. Asynchronous behavior dictates the use of a callback function.</p>
+    <p>This function uses AJAX, via an <code translate="No">XMLHttpRequest</code> object, to retrieve the file. Asynchronous behavior dictates the use of a callback function.</p>
     <!-- UPDATE task 5 -->
     
     <h3>Download the modified file to the user computer</h3>
@@ -1247,7 +1247,7 @@ Remember, it never rains on the Oregon coast!</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

@@ -1083,7 +1083,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </summary>
   <section id="addlanguage" class="bcls-section">
     <h2>Add language(s)</h2>
-    <p>You can choose the languages to support in a plugin. For each language you wish to support you must have a set of key-value pairs with the English language as the key and the corresponding localized language as a value. You do this by using Videojs' <code>addLanguage()</code> method. The following code shows adding German translations to a page:</p>
+    <p>You can choose the languages to support in a plugin. For each language you wish to support you must have a set of key-value pairs with the English language as the key and the corresponding localized language as a value. You do this by using Videojs' <code translate="No">addLanguage()</code> method. The following code shows adding German translations to a page:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.addLanguage('de', {
   "Hello": "Guten Tag",
@@ -1092,13 +1092,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section id="localizecontent" class="bcls-section">
     <h2>Localize content</h2>
-    <p>Once you have added the languages and vocabulary you wish to use in the localization process you can use the player's <code>localize()</code> method to perform the actual localization. The following shows a string being injected into an HTML <code>&lt;span&gt;</code>, then appended to the end of the video tag:</p>
+    <p>Once you have added the languages and vocabulary you wish to use in the localization process you can use the player's <code translate="No">localize()</code> method to perform the actual localization. The following shows a string being injected into an HTML <code translate="No">&lt;span&gt;</code>, then appended to the end of the video tag:</p>
     <pre class="line-numbers">
 <code class="language-javascript">  textSpan = document.createElement('span');
   textSpan.className = "localizeStyle"
   <span class="bcls-highlight">textSpan.innerHTML = myPlayer.localize("Hello") + "/" + myPlayer.localize("Goodbye");</span>
   myPlayer.el().appendChild(textSpan);</code></pre>
-    <p>The <code>localize()</code> method takes the English key word as a string argument, <code>myPlayer.localize("Hello")</code>, and displays that string unless the browser's preferred language is available, in which case the localized word will be substituted.</p>
+    <p>The <code translate="No">localize()</code> method takes the English key word as a string argument, <code translate="No">myPlayer.localize("Hello")</code>, and displays that string unless the browser's preferred language is available, in which case the localized word will be substituted.</p>
   </section>
   <section id="setdisplaylanguage" class="bcls-section">
     <h2>Set display language</h2>
@@ -1114,7 +1114,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>Lines 27,37: Standard syntax to define a Brightcove Player plugin. Notice for later reference the name of the plugin is <strong>pluginLocalize</strong>.</li>
       <li>Lines 28-31: Adds German language localization.</li>
-      <li>Lines 32-36: Dynamically creates an HTML <code>span</code> element, populates it and appends it to the player code.</li>
+      <li>Lines 32-36: Dynamically creates an HTML <code translate="No">span</code> element, populates it and appends it to the player code.</li>
     </ul>
     <pre class="line-numbers" data-start="27">
 <code class="language-javascript">videojs.registerPlugin('pluginLocalize', function() {
@@ -1162,7 +1162,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Click the link for the player to open the player's properties.</li>
       <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
       <li>Next, click <strong>Add a Plugin</strong>.</li>
-      <li>For the <strong>Plugin Name</strong> enter <code>pluginLocalize</code>.</li>
+      <li>For the <strong>Plugin Name</strong> enter <code translate="No">pluginLocalize</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter:
         <pre>
 <code class="notranslate language-json">http://solutions.brightcove.com/bcls/brightcove-player/localization/localize-plugin.js</code></pre>

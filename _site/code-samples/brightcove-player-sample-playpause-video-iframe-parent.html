@@ -1149,14 +1149,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#play"><code>play()</code></a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#play"><code translate="No">play()</code></a></td>
         </tr>
         <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#pause"><code>pause()</code></a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#pause"><code translate="No">pause()</code></a></td>
         </tr>
       </tbody>
     </table>
-    <p>The code also uses JavaScript's <code>postMessage()</code> method in the parent page, and <code>addEventListener()</code> in the iframe.</p>
+    <p>The code also uses JavaScript's <code translate="No">postMessage()</code> method in the parent page, and <code translate="No">addEventListener()</code> in the iframe.</p>
   </section>
   <!-- UPDATE player and HTML configuration -->
   
@@ -1174,16 +1174,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>When the <strong>Play</strong> or <strong>Pause</strong> button is clicked, JavaScript's <code>postMessage()</code> method sends a corresponding string value into the iframe.</li>
-      <li>The iframe uses the <code>addEventListener()</code> event to listen for the message, then acts upon it accordingly.</li>
+      <li>When the <strong>Play</strong> or <strong>Pause</strong> button is clicked, JavaScript's <code translate="No">postMessage()</code> method sends a corresponding string value into the iframe.</li>
+      <li>The iframe uses the <code translate="No">addEventListener()</code> event to listen for the message, then acts upon it accordingly.</li>
     </ul>
     <!-- UPDATE task 1 -->
     
-    <h3>Create correct URL and object so <code>postMessage()</code> can be used</h3>
+    <h3>Create correct URL and object so <code translate="No">postMessage()</code> can be used</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Create functions that post either play or pause ###</code></pre>
-    <p>The <code>postMessage()</code> method is used to send a message to the iframe's Window object. The first argument is the data passed as part of the event. (In this case it is simply a string, but can be an object.) The second argument specifies the origin of the iframe. You can use the '*' wildcard to have the event sent to any content in the iframe, no matter where it came from, but this is considered a poor security practice. Using <code>theURL</code> variable (either http://players.brightcove.net or https://players.brightcove.net) as the argument means the event will only be sent to the iframe if the content originated from that URL.</p>
+    <p>The <code translate="No">postMessage()</code> method is used to send a message to the iframe's Window object. The first argument is the data passed as part of the event. (In this case it is simply a string, but can be an object.) The second argument specifies the origin of the iframe. You can use the '*' wildcard to have the event sent to any content in the iframe, no matter where it came from, but this is considered a poor security practice. Using <code translate="No">theURL</code> variable (either http://players.brightcove.net or https://players.brightcove.net) as the argument means the event will only be sent to the iframe if the content originated from that URL.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Listen for message in iframe</h3>
@@ -1191,7 +1191,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <pre>
 <code class="language-javascript">// ### This is the plugin code ###</code></pre>
     <p>The purpose of the sample is to show how you can communicate with the iframe from the parent, so using the in-page code implementation first makes no sense here. The best practice approach to associate code with an iframe player implementation is using a plugin, so that is what is done here. For convenience, the plugin code is shown commented in the CodePen.</p>
-    <p>The key method here is JavaScript's <code>addEventListener()</code> method. The <code>postMessage()</code> method dispatches an event of type <code>message</code> (that is always the event name with <code>postMessage()</code>). The defined event handler is <code>controlVideo</code> (the second argument). In the <code>controlVideo()</code> event handler, an <code>if</code> statement is used to check the value of the data passed by <code>postMessage()</code>, in this case either <code>playVideo</code> or <code>pauseVideo</code>. Based on the value of the data passed in, the video is either played or paused.</p>
+    <p>The key method here is JavaScript's <code translate="No">addEventListener()</code> method. The <code translate="No">postMessage()</code> method dispatches an event of type <code translate="No">message</code> (that is always the event name with <code translate="No">postMessage()</code>). The defined event handler is <code translate="No">controlVideo</code> (the second argument). In the <code translate="No">controlVideo()</code> event handler, an <code translate="No">if</code> statement is used to check the value of the data passed by <code translate="No">postMessage()</code>, in this case either <code translate="No">playVideo</code> or <code translate="No">pauseVideo</code>. Based on the value of the data passed in, the video is either played or paused.</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -1201,7 +1201,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

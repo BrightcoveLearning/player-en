@@ -1202,7 +1202,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <figure class="bcls-figure"><img class="bcls-image" alt="Select Plugin" src="//learning-services-media.brightcove.com/doc-assets/general/players-plugin-options.png" /></figure>
       </li>
       <li>From the <strong>Add a Plugin</strong> select <strong>Custom Plugin</strong>.</li>
-      <li>For the <strong>Plugin Name</strong> enter <code>ssai</code>.</li>
+      <li>For the <strong>Plugin Name</strong> enter <code translate="No">ssai</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter:
         <pre>
 <code class="notranslate language-json">https://players.brightcove.net/videojs-ssai/1/videojs-ssai.js</code></pre>
@@ -1432,63 +1432,63 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
 	});
 &lt;/script&gt;</code></pre>
     <h3>Timeline state methods</h3>
-    <p>The <code>*TimelineState</code> methods return a <code>TimelineState</code> object. A timeline state object is a plain object with a specific interface that details the playback state of an SSAI stream at any point in the absolute timeline.</p>
+    <p>The <code translate="No">*TimelineState</code> methods return a <code translate="No">TimelineState</code> object. A timeline state object is a plain object with a specific interface that details the playback state of an SSAI stream at any point in the absolute timeline.</p>
     <p>The "absolute time" refers to a point in the complete timeline of a stream (with both ads and content included). The term "relative time" refers to the time relative to the current content (either ad or content).</p>
-    <p><code>contentTimelineState()</code></p>
+    <p><code translate="No">contentTimelineState()</code></p>
     <ul>
-      <li>Argument: single numeric <code>time</code></li>
+      <li>Argument: single numeric <code translate="No">time</code></li>
       <li>Get the timeline state at the specified content time <strong>(content, not counting ads)</strong>. For example, if your content is 100 seconds long, you can get the timeline state at halfway through the content using:
         <pre>
 <code class="language-javascript">contentTimelineState(50)</code></pre>
       </li>
     </ul>
-    <p><code>absoluteTimelineState()</code></p>
+    <p><code translate="No">absoluteTimelineState()</code></p>
     <ul>
-      <li>Argument: single numeric <code>time</code></li>
+      <li>Argument: single numeric <code translate="No">time</code></li>
       <li>Get the timeline state at the specified absolute time <strong>(content + ads)</strong>. For example, if your content includes a 30 second pre-roll ad, you can get the timeline state at 30 seconds into your content using:
         <pre>
 <code class="language-javascript">absoluteTimelineState(50)</code></pre>
       </li>
     </ul>
     <p>Here is a list of additional timeline state methods:</p>
-    <p><code>currentTimelineState()</code><br />
-      <code>relativeTimelineState()</code><br />
-      <code>seekInAbsoluteTime()</code><br />
-      <code>seekInRelativeTime()</code><br />
-      <code>seekInContentTime()</code></p>
+    <p><code translate="No">currentTimelineState()</code><br />
+      <code translate="No">relativeTimelineState()</code><br />
+      <code translate="No">seekInAbsoluteTime()</code><br />
+      <code translate="No">seekInRelativeTime()</code><br />
+      <code translate="No">seekInContentTime()</code></p>
     <h3>Timeline state properties</h3>
     <p>To get the value of a timeline state property, you can use the following syntax:</p>
     <pre>
 <code class="language-javascript">myPlayer.ssai().absoluteTimelineState().absoluteDuration;
 </code></pre>
     &nbsp;
-    <p>Here is a list of properties associated with the <code>TimelineState</code> object:</p>
-    <p><code>absoluteTime</code></p>
+    <p>Here is a list of properties associated with the <code translate="No">TimelineState</code> object:</p>
+    <p><code translate="No">absoluteTime</code></p>
     <ul>
       <li>Type: Number</li>
       <li>The absolute time in the stream.</li>
     </ul>
-    <p><code>absoluteDuration</code></p>
+    <p><code translate="No">absoluteDuration</code></p>
     <ul>
       <li>Type: Number</li>
       <li>The absolute duration of the stream.</li>
     </ul>
-    <p><code>relativeTime</code></p>
+    <p><code translate="No">relativeTime</code></p>
     <ul>
       <li>Type: Number</li>
       <li>The time in the stream relative either to the current linear ad or to the content itself.</li>
     </ul>
-    <p><code>relativeDuration</code></p>
+    <p><code translate="No">relativeDuration</code></p>
     <ul>
       <li>Type: Number</li>
       <li>The duration of the current linear ad or the content itself.</li>
     </ul>
-    <p><code>linearAdRoll</code></p>
+    <p><code translate="No">linearAdRoll</code></p>
     <ul>
       <li>Type: LinearAdRoll</li>
       <li>An object representing the current linear ad for the absolute time.</li>
     </ul>
-    <p><code>linearAd</code></p>
+    <p><code translate="No">linearAd</code></p>
     <ul>
       <li>Type: LinearAd</li>
       <li>An object representing the current linear ad for the absolute time.</li>
@@ -1498,7 +1498,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
     <h2 id="Events">Events</h2>
     <p>At the current time there is one SSAI-specific event dispatched by this plugin.</p>
     <aside class="bcls-aside bcls-aside--tip">SSAI ads dispatch the standard Brightcove ad events, and provide access to ad objects. Details are detailed in the <a href="/advertising/ad-events-and-ad-objects.html">Ad Events and Ad Objects</a> document.</aside>
-    <p><code>bcov-ssai-click-through</code></p>
+    <p><code translate="No">bcov-ssai-click-through</code></p>
     <ul>
       <li>This event is dispatched internally by the plugin to indicate that an ad click-through was requested.</li>
     </ul>

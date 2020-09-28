@@ -1086,28 +1086,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="customFields">Required Fields</h2>
     <p>For this integration you may want to create one of more of the following custom fields in your account. The names below are the <em>internal</em> names for the fields - you can use whatever you like for the display names.</p>
     <ul>
-      <li><code>bcadobepassrequestorid</code></li>
-      <li><code>bcadobepasstitle</code></li>
-      <li><code>bcadobepassreferenceid</code></li>
-      <li><code>bcadobepassrating</code></li>
-      <li><code>bcadobepassratingscheme</code></li>
+      <li><code translate="No">bcadobepassrequestorid</code></li>
+      <li><code translate="No">bcadobepasstitle</code></li>
+      <li><code translate="No">bcadobepassreferenceid</code></li>
+      <li><code translate="No">bcadobepassrating</code></li>
+      <li><code translate="No">bcadobepassratingscheme</code></li>
     </ul>
     <p>In the following section, you will see how these fields are used, if present, and what values are used instead if they are not.</p>
   </section>
   <section class="bcls-articlesection">
-    <h2 id="autoGeneratation">Auto-generation of <code>resourceID</code> and <code>requestorID</code> fields</h2>
-    <p>When a user retrieves a video via the Playback API from a TVE-enabled account, the API will return a value for <code>bcadobepassrequestorid</code> according to the following rules:</p>
+    <h2 id="autoGeneratation">Auto-generation of <code translate="No">resourceID</code> and <code translate="No">requestorID</code> fields</h2>
+    <p>When a user retrieves a video via the Playback API from a TVE-enabled account, the API will return a value for <code translate="No">bcadobepassrequestorid</code> according to the following rules:</p>
     <ul>
-      <li>If a custom field value for <code>bcadobepassrequestorid</code> exists on the video, the API will return the video-level value.</li>
-      <li>If no value is set for the <code>bcadobepassrequestorid</code> field, the API will return the requestor ID value stored in the account settings.</li>
+      <li>If a custom field value for <code translate="No">bcadobepassrequestorid</code> exists on the video, the API will return the video-level value.</li>
+      <li>If no value is set for the <code translate="No">bcadobepassrequestorid</code> field, the API will return the requestor ID value stored in the account settings.</li>
     </ul>
     <p>&nbsp;</p>
-    <p>When a user retrieves a video via the Playback API from a TVE-enabled account, the API will return a value for <code>bcadobepassresourceid</code> according to the following rules:</p>
+    <p>When a user retrieves a video via the Playback API from a TVE-enabled account, the API will return a value for <code translate="No">bcadobepassresourceid</code> according to the following rules:</p>
     <ul>
-      <li>If a custom field value for <code>bcadobepassresourceid</code> exists on the video, the API will return the field-level value</li>
-      <li>If no value is set for the <code>bcadobepassresourceid</code> field, the API will return a calculated value based on the fields and XML format noted below.</li>
+      <li>If a custom field value for <code translate="No">bcadobepassresourceid</code> exists on the video, the API will return the field-level value</li>
+      <li>If no value is set for the <code translate="No">bcadobepassresourceid</code> field, the API will return a calculated value based on the fields and XML format noted below.</li>
     </ul>
-    <p>The generated <code>bcadobepassresourceid</code> field should follow the MRSS format specified by Adobe and used in almost all integrations with Comcast.</p>
+    <p>The generated <code translate="No">bcadobepassresourceid</code> field should follow the MRSS format specified by Adobe and used in almost all integrations with Comcast.</p>
     <pre class="line-numbers">
 <code class="language-xml">&lt;rss version='2.0' xmlns:media='http://search.yahoo.com/mrss/'&gt;
 &lt;channel&gt;
@@ -1131,40 +1131,40 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>channel</code></td>
+          <td><code translate="No">channel</code></td>
           <td><ul>
-              <li>If present, use <code>bcadobepassrequestorid</code></li>
+              <li>If present, use <code translate="No">bcadobepassrequestorid</code></li>
               <li>If not present, use the value set in the account settings</li>
             </ul></td>
         </tr>
         <tr>
-          <td><code>item-title</code></td>
+          <td><code translate="No">item-title</code></td>
           <td><ul>
-              <li>If present, use <code>bcadobepasstitle</code></li>
-              <li>If not present, use <code>name</code></li>
+              <li>If present, use <code translate="No">bcadobepasstitle</code></li>
+              <li>If not present, use <code translate="No">name</code></li>
             </ul></td>
         </tr>
         <tr>
-          <td><code>guid</code></td>
+          <td><code translate="No">guid</code></td>
           <td><ul>
-              <li>If present, use <code>bcadobepassreferenceid</code></li>
-              <li>If not present, use <code>reference_id</code></li>
+              <li>If present, use <code translate="No">bcadobepassreferenceid</code></li>
+              <li>If not present, use <code translate="No">reference_id</code></li>
             </ul></td>
         </tr>
         <tr>
-          <td><code>rating</code></td>
+          <td><code translate="No">rating</code></td>
           <td><ul>
-              <li>If present, use <code>bcadobepassrequestorid</code></li>
-              <li>Only send if both <code>bcadobepassrating</code> and <code>bcadobepassratingscheme</code> are present</li>
+              <li>If present, use <code translate="No">bcadobepassrequestorid</code></li>
+              <li>Only send if both <code translate="No">bcadobepassrating</code> and <code translate="No">bcadobepassratingscheme</code> are present</li>
             </ul></td>
         </tr>
         <tr>
-          <td><code>rating-scheme</code></td>
+          <td><code translate="No">rating-scheme</code></td>
           <td><ul>
-              <li>If present, use <code>bcadobepassratingscheme</code></li>
-              <li>Only send if both <code>bcadobepassrating</code> and <code>bcadobepassratingscheme</code> are present</li>
+              <li>If present, use <code translate="No">bcadobepassratingscheme</code></li>
+              <li>Only send if both <code translate="No">bcadobepassrating</code> and <code translate="No">bcadobepassratingscheme</code> are present</li>
             </ul>
-            <aside class="bcls-aside bcls-aside--information">Note: Currently, the only values in use are ≈<code>Note: Currently, the only values in use are ‘v-chip’ or ‘mpaa’ but others may be used in the future</code> or <code>mpaa</code> but others may be used in the future</aside></td>
+            <aside class="bcls-aside bcls-aside--information">Note: Currently, the only values in use are ≈<code translate="No">Note: Currently, the only values in use are ‘v-chip’ or ‘mpaa’ but others may be used in the future</code> or <code translate="No">mpaa</code> but others may be used in the future</aside></td>
         </tr>
       </tbody>
     </table>

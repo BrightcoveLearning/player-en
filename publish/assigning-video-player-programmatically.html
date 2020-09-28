@@ -10,7 +10,7 @@ parent: 'Publishing Videos & Players'
   </summary>
   <section class="bcls-section">
     <h2 id="urldynamicvideo">Set video ID via URL</h2>
-    <p>It is possible to use the URL implementation and dynamically change the video that is played. To do this you use a query string at the end of the URL in the form <code>?videoId=<em>YOUR_VIDEO_ID</em></code> as shown in the following example.</p>
+    <p>It is possible to use the URL implementation and dynamically change the video that is played. To do this you use a query string at the end of the URL in the form <code translate="No">?videoId=<em>YOUR_VIDEO_ID</em></code> as shown in the following example.</p>
     <pre class="line-numbers">
 <code class="language-html">https://players.brightcove.net/..._default/index.html?videoId=2114345471001</code></pre>
   </section>
@@ -23,7 +23,7 @@ https://players.brightcove.net/..._default/index.html?videoId=ref:1234abcd</code
   </section>
   <section id="tag" class="bcls-section">
     <h2>Set video ID via tag attribute</h2>
-    <p>The In-page embed code contains the <code>&lt;video&gt;</code> tag. The Video Cloud ID for the video is associated with the <code>data-video-id</code> HTML 5 <strong>data</strong> attribute.</p>
+    <p>The In-page embed code contains the <code translate="No">&lt;video&gt;</code> tag. The Video Cloud ID for the video is associated with the <code translate="No">data-video-id</code> HTML 5 <strong>data</strong> attribute.</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;video-js
   data-account="1507807800001"
@@ -33,17 +33,17 @@ https://players.brightcove.net/..._default/index.html?videoId=ref:1234abcd</code
   class="video-js"
   controls&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/1507807800001/dadff0fb-5635-4eac-a1b8-ab8c37a72be9_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
-    <aside class="bcls-aside bcls-aside--tip">Note: When the player JavaScript executes, it reads the video ID from the <code>data-video-id</code> attribute. However, it does so only at startup. Changing the value with, for example, JavaScript's <code>setAttribute()</code> method, does not cause the player to load the video. To change the video after the player has loaded, you should use the JavaScript method described below.</aside>
+    <aside class="bcls-aside bcls-aside--tip">Note: When the player JavaScript executes, it reads the video ID from the <code translate="No">data-video-id</code> attribute. However, it does so only at startup. Changing the value with, for example, JavaScript's <code translate="No">setAttribute()</code> method, does not cause the player to load the video. To change the video after the player has loaded, you should use the JavaScript method described below.</aside>
   </section>
   <section class="bcls-section">
     <h2 id="setvideousingjavascript">Set video using JavaScript</h2>
-    <p>In many cases, you want user interactions to control which video is played. To accomplish this, you can use JavaScript and the player catalog's <code>getVideo()</code> and <code>load()</code> methods to dynamically retrieve and play the desired video.</p>
+    <p>In many cases, you want user interactions to control which video is played. To accomplish this, you can use JavaScript and the player catalog's <code translate="No">getVideo()</code> and <code translate="No">load()</code> methods to dynamically retrieve and play the desired video.</p>
     <ul>
-      <li>Lines 1-8: Advanced (In-page embed) code with no value for the <code>data-video-id</code> attribute.</li>
-      <li>Lines 11,17: Use the <code>ready()</code> method to be sure player is ready to act upon.</li>
-      <li>Line 12: Associate the player, referred to as <code>this</code> in the function, with a variable.</li>
-      <li>Line 13,16: Use the catalog's <code>getVideo()</code> method using the Video Cloud ID and a callback function as parameters.</li>
-      <li>Line 15: Use the catalog's <code>load()</code> method to load the video and play it.</li>
+      <li>Lines 1-8: Advanced (In-page embed) code with no value for the <code translate="No">data-video-id</code> attribute.</li>
+      <li>Lines 11,17: Use the <code translate="No">ready()</code> method to be sure player is ready to act upon.</li>
+      <li>Line 12: Associate the player, referred to as <code translate="No">this</code> in the function, with a variable.</li>
+      <li>Line 13,16: Use the catalog's <code translate="No">getVideo()</code> method using the Video Cloud ID and a callback function as parameters.</li>
+      <li>Line 15: Use the catalog's <code translate="No">load()</code> method to load the video and play it.</li>
     </ul>
     <pre class="line-numbers">
 <code class="language-html">  &lt;video-js id="myPlayerID"
@@ -73,16 +73,16 @@ https://players.brightcove.net/..._default/index.html?videoId=ref:1234abcd</code
     allowfullscreen
     webkitallowfullscreen
     mozallowfullscreen&gt;&lt;/iframe&gt; </code></pre>
-    <p>You can also use JavaScript to change the query string for the iframe's <code>src</code> attribute to tell the player which new video to play.</p>
+    <p>You can also use JavaScript to change the query string for the iframe's <code translate="No">src</code> attribute to tell the player which new video to play.</p>
     <ul>
       <li>Lines 1-2: The iframe implementation code. Note the query string (text after the <strong>?</strong> character) supplies the ID for the video to be played.</li>
       <li>Line 5: Define the function to be called when video should change.</li>
-      <li>Line 6: Use JavaScript's <code>getElementsByTagName()</code> method to place the <code>&lt;iframe&gt;</code> tag into a variable. Note that the method returns an array of all matching elements on the page, and since you are using the first (and only) iframe tag on the page, you can use the zeroth element of the array.</li>
+      <li>Line 6: Use JavaScript's <code translate="No">getElementsByTagName()</code> method to place the <code translate="No">&lt;iframe&gt;</code> tag into a variable. Note that the method returns an array of all matching elements on the page, and since you are using the first (and only) iframe tag on the page, you can use the zeroth element of the array.</li>
       <li>Line 7: Creates a query string that will replace the old one. This defines the new video to be played.</li>
-      <li>Line 8: Assigns to a variable the <code>src</code> property of the <code>iframe</code> tag.</li>
+      <li>Line 8: Assigns to a variable the <code translate="No">src</code> property of the <code translate="No">iframe</code> tag.</li>
       <li>Line 9: Extracts the source for the player, minus the old query string.</li>
-      <li>Line 10: Builds the new value for the <code>src</code> property by combining the player source with the new video's query string definition.</li>
-      <li>Line 11: Assigns the new source/video information to the <code>&lt;iframe&gt;</code> tag's <code>src</code> property.</li>
+      <li>Line 10: Builds the new value for the <code translate="No">src</code> property by combining the player source with the new video's query string definition.</li>
+      <li>Line 11: Assigns the new source/video information to the <code translate="No">&lt;iframe&gt;</code> tag's <code translate="No">src</code> property.</li>
     </ul>
     <pre class="line-numbers">
 <code class="language-html">&lt;iframe src='https://players.brightcove.net/...c_default/index.html?videoId=4341341161001'

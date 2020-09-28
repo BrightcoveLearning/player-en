@@ -76,12 +76,12 @@ parent: Code Samples
     <p>The simplest way to use a middleware function is to:</p>
     <ol class="bcls-tasklist__restart">
       <li>Write the middleware function.</li>
-      <li>Place the middleware function either on the page with the player in a <code>script</code> tag, or include the middleware function using the <code>src</code> attribute with a <code>script</code> tag. Both implementations will be shown in this document.</li>
-      <li>Register the middleware function with the player using the <code>use()</code> method, as shown here:
+      <li>Place the middleware function either on the page with the player in a <code translate="No">script</code> tag, or include the middleware function using the <code translate="No">src</code> attribute with a <code translate="No">script</code> tag. Both implementations will be shown in this document.</li>
+      <li>Register the middleware function with the player using the <code translate="No">use()</code> method, as shown here:
         <pre class="line-numbers">
 <code class="language-javascript">videojs.use('mimeType', functionName);</code></pre>
         <p>For the <strong>mimetype</strong> you can use a standard video mimetype, like <strong>video/mp4</strong>, or use an <strong>*</strong> if you wish the middleware function to act on all mimetypes.</p>
-        <aside class="bcls-aside bcls-aside--tip">Plugins and middleware may be set up to automatically register themselves when their scripts are included. In this case, you would not need to use the <code>videojs.use()</code> method.</aside>
+        <aside class="bcls-aside bcls-aside--tip">Plugins and middleware may be set up to automatically register themselves when their scripts are included. In this case, you would not need to use the <code translate="No">videojs.use()</code> method.</aside>
       </li>
     </ol>
   </section>
@@ -116,7 +116,7 @@ parent: Code Samples
     <h3>Player configuration</h3>
     <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
     <h3>Other HTML</h3>
-    <p>Remember to add the <code>id</code> attribute to the <code>video</code> tag in the player embed code.</p>
+    <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video</code> tag in the player embed code.</p>
     <pre>
 <code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
@@ -149,10 +149,10 @@ parent: Code Samples
    return {
    ...
  };</code></pre>
-        <p>Note that the <code>player</code> object is passed to the function.</p>
+        <p>Note that the <code translate="No">player</code> object is passed to the function.</p>
         <p>This middleware function does the following:</p>
         <ol>
-          <li><strong>Listen for the ratechange event</strong>: When the playback rate is changed, then trigger the <code>durationchange</code> and <code>timeupdate</code> events.</li>
+          <li><strong>Listen for the ratechange event</strong>: When the playback rate is changed, then trigger the <code translate="No">durationchange</code> and <code translate="No">timeupdate</code> events.</li>
           <br />
           <li><strong>Implement the setSource() method</strong>: This is a required method for every middleware function. By using the syntax shown means the middleware will always be selected, irregardless of the video type:
             <pre>
@@ -161,7 +161,7 @@ parent: Code Samples
 },</code></pre>
           </li>
           <br />
-          <li><strong>Override methods using current playback rate</strong>: Override the methods for <code>duration</code>, <code>currentTime</code>, <code>buffered</code>, <code>seekable</code> and <code>played</code> with values calculated using the current playback rate.</li>
+          <li><strong>Override methods using current playback rate</strong>: Override the methods for <code translate="No">duration</code>, <code translate="No">currentTime</code>, <code translate="No">buffered</code>, <code translate="No">seekable</code> and <code translate="No">played</code> with values calculated using the current playback rate.</li>
         </ol>
       </li>
     </ol>
@@ -171,7 +171,7 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Register the middleware with the player +++</code></pre>
-    <p>Register the middleware function with the player using the <code>use()</code> method.</p>
+    <p>Register the middleware function with the player using the <code translate="No">use()</code> method.</p>
     <!-- UPDATE task 6 -->
     
     <h3>Define the playback rate options</h3>
@@ -199,7 +199,7 @@ parent: Code Samples
     <h3>Code on same page as player</h3>
     <p>This is where you define the middleware function on the same page as the player, and then register it. The <a href="#Player_example">player example</a> in the Codepen above uses this method.</p>
     <h3 id="Code_in_a_separate_JavaScript_file">Code in a separate JavaScript file</h3>
-    <p>In the following code, the JavaScript for the middleware functions and the <code>use()</code> method to register it are simply included in the page.</p>
+    <p>In the following code, the JavaScript for the middleware functions and the <code translate="No">use()</code> method to register it are simply included in the page.</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;video-js id="myPlayerID"
 	  data-video-id="5604123528001"

@@ -70,7 +70,7 @@ parent: Code Samples
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
     <h3>Player configuration</h3>
-    <p>No special configuration is required for the Brightcove Player, but there are three distinct players on the page inside HTML <code>&lt;div&gt;</code> tags for layout control.</p>
+    <p>No special configuration is required for the Brightcove Player, but there are three distinct players on the page inside HTML <code translate="No">&lt;div&gt;</code> tags for layout control.</p>
     <h3>Other HTML</h3>
     <p>No other HTML elements are added to the page.</p>
   </section>
@@ -81,8 +81,8 @@ parent: Code Samples
     <p>The basic logic behind this application is:</p>
     <ul>
       <li>Determine how many players are on the page.</li>
-      <li>Loop over the players, initializing them as Brightcove Players and also setting a <code>play</code> event listener on each.</li>
-      <li>Each time a <code>play</code> event is handled, loop over the players and pause all players that do not have the name of the player that dispatched the event.</li>
+      <li>Loop over the players, initializing them as Brightcove Players and also setting a <code translate="No">play</code> event listener on each.</li>
+      <li>Each time a <code translate="No">play</code> event is handled, loop over the players and pause all players that do not have the name of the player that dispatched the event.</li>
     </ul>
     <!-- UPDATE task 1 -->
     
@@ -90,10 +90,10 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Determine the available player IDs ###</code></pre>
-    <p>If you have multiple players on a page they are stored in an object name <code>videojs.players</code> with keys that are the names of the players. You use JavaScript <code>Object.keys()</code> method to extract the names of the players, which you want for the loop, not the actual player objects. In the loop you assign an event handler then push the player into an array.</p>
+    <p>If you have multiple players on a page they are stored in an object name <code translate="No">videojs.players</code> with keys that are the names of the players. You use JavaScript <code translate="No">Object.keys()</code> method to extract the names of the players, which you want for the loop, not the actual player objects. In the loop you assign an event handler then push the player into an array.</p>
     <!-- UPDATE task 2 -->
     
-    <h3>Handle the <code>play</code> event and stop other player playing</h3>
+    <h3>Handle the <code translate="No">play</code> event and stop other player playing</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Handle all players' play event ###</code></pre>

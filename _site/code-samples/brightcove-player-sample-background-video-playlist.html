@@ -1195,7 +1195,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h3>Other HTML</h3>
 
-<p>First, the in-page embed player code is nested in TWO HTML <code>div</code> elements. Both of the <code>div</code>s contain the appropriate styles to fill the entire browser window, and behave responsively. Next, another <code>div</code> element is used to define where the text that is placed over the background video should be located.</p>
+<p>First, the in-page embed player code is nested in TWO HTML <code translate="No">div</code> elements. Both of the <code translate="No">div</code>s contain the appropriate styles to fill the entire browser window, and behave responsively. Next, another <code translate="No">div</code> element is used to define where the text that is placed over the background video should be located.</p>
 </section>
 <!-- UPDATE application flow -->
 
@@ -1218,7 +1218,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <pre>
 <code class="language-javascript">// +++ Set the playlist to repeat, but stop after 2 times through +++</code></pre>
 
-<p>The <code>repeat()</code> method from the Playlist API is used to keep the playlist playing indefinitely. If you wish to halt the repeating use the <code>playlistitem</code> event, which is dispatched every time a video from the playlist is played. In this case, since there are four videos in the playlist, and you wish to stop the playlist after 2 repetitions, you would count the number of times <code>playlistitem</code> is dispatched. When the counter is great than four (or greater than or equal to 4, both will work), stop the playlist from repeating. When you set <code>myPlayer.playlist.repeat(false);</code>, the playlist will finish the current loop through all the videos.</p>
+<p>The <code translate="No">repeat()</code> method from the Playlist API is used to keep the playlist playing indefinitely. If you wish to halt the repeating use the <code translate="No">playlistitem</code> event, which is dispatched every time a video from the playlist is played. In this case, since there are four videos in the playlist, and you wish to stop the playlist after 2 repetitions, you would count the number of times <code translate="No">playlistitem</code> is dispatched. When the counter is great than four (or greater than or equal to 4, both will work), stop the playlist from repeating. When you set <code translate="No">myPlayer.playlist.repeat(false);</code>, the playlist will finish the current loop through all the videos.</p>
 <!-- UPDATE task 2 -->
 
 <h3>Display the title and description</h3>
@@ -1228,7 +1228,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <pre>
 <code class="language-javascript">// ### Display the title and description ###</code></pre>
 
-<p>An event handler is used to wait for the <code>loadstart</code> event. This is done as the <code>mediainfo</code> object is not populated until that event is dispatched. Then the <code>name</code> and <code>description</code> are injected into the HTML.</p>
+<p>An event handler is used to wait for the <code translate="No">loadstart</code> event. This is done as the <code translate="No">mediainfo</code> object is not populated until that event is dispatched. Then the <code translate="No">name</code> and <code translate="No">description</code> are injected into the HTML.</p>
 </section>
 <!-- UPDATE CSS description -->
 
@@ -1242,14 +1242,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	<li>Hides the player controls for the background video player.</li>
 	<li>Disables pointer events on the player.</li>
 	<li>Styles the box that overlays the text. Depending on the size of your player and the amount of content display these styles may need to be adjusted.</li>
-	<li>Styles the <code>h1</code> used in the overlay text.</li>
+	<li>Styles the <code translate="No">h1</code> used in the overlay text.</li>
 </ul>
 </section>
 
 <section class="bcls-section">
 <h2 id="Plugin_code">Plugin code</h2>
 
-<p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+<p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
 
 <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
 

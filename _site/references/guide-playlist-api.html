@@ -1475,7 +1475,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><strong class="notranslate">newPlaylist</strong>: An array of video sources/objects. <span class="video-cloud-only">The objects can either be manually created or simply a Video Cloud playlist ID or reference ID.</span></li>
     </ul>
     <p class="video-cloud-only">Although you can use the <code class="notranslate">playlist()</code> method as a setter, it is a best practice to utilize Brightcove Player's catalog functionality to load a playlist, for example&nbsp;<code class="notranslate">myPlayer.catalog.getPlaylist( playlistID )</code> and <code class="notranslate">myPlayer.catalog.load( playlist )</code>. See the <a href="/references/player-catalog.html">Player Catalog</a> document for more information.</p>
-    <aside class="bcls-aside bcls-aside--tip language-editable">If you wish to load the playlist, but NOT have the first video in the playlist placed in the player, in the <code>playlist()</code> method you can set a second parameter to <code>-1</code>. For instance, the following code retrieves a playlist, puts it in the player, but does not load the first video into the player:
+    <aside class="bcls-aside bcls-aside--tip language-editable">If you wish to load the playlist, but NOT have the first video in the playlist placed in the player, in the <code translate="No">playlist()</code> method you can set a second parameter to <code translate="No">-1</code>. For instance, the following code retrieves a playlist, puts it in the player, but does not load the first video into the player:
       <pre class="line-numbers">
 <code class="language-javascript">myPlayer.catalog.getPlaylist(playlistID, function(error, myPlaylist) {
   // deal with error

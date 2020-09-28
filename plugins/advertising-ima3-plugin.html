@@ -163,7 +163,7 @@ parent: Plugins
                 </figure>
             </li>
             <li>From the <strong>Add a Plugin</strong> select <strong>Custom Plugin</strong>.</li>
-            <li>For the <strong>Plugin Name</strong> enter <code>ima3</code>.</li>
+            <li>For the <strong>Plugin Name</strong> enter <code translate="No">ima3</code>.</li>
             <li>
                 For the <strong>JavaScript</strong> URL, enter:
                 <pre>
@@ -277,24 +277,24 @@ parent: Plugins
         <h3 id="debugContribAds">debugContribAds</h3>
 
         <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
-        <p>Used to enable debug logging for videojs-contrib-ads. For ID3 <code>oncue</code> requests to work, the ID3 TXXX frame received must contain JSON data with the following fields:</p>
+        <p>Used to enable debug logging for videojs-contrib-ads. For ID3 <code translate="No">oncue</code> requests to work, the ID3 TXXX frame received must contain JSON data with the following fields:</p>
         <ul>
             <li>Ad cue tag format:
                 <ul>
-                    <li>name: Required - must be the string <code>adCue</code>></li>
+                    <li>name: Required - must be the string <code translate="No">adCue</code>></li>
                     <li>id: Required - a unique value to identify the ad given that times are relative in live streams</li>
-                    <li>serverUrl: Optional - Override the <code>serverUrl</code> in the IMA3 config for this ad only</li>
-                    <li>duration: Optional - appended as a <code>breaklength</code> parameter to the server url</li>
+                    <li>serverUrl: Optional - Override the <code translate="No">serverUrl</code> in the IMA3 config for this ad only</li>
+                    <li>duration: Optional - appended as a <code translate="No">breaklength</code> parameter to the server url</li>
                 </ul>
-                Example: <code>{"name": "adCue", "id": 123}</code>
+                Example: <code translate="No">{"name": "adCue", "id": 123}</code>
             </li>
             <li>Ad cancellation tag format:
                 <ul>
-                    <li>name: Required - must be the string value <code>adCancel</code></li>
+                    <li>name: Required - must be the string value <code translate="No">adCancel</code></li>
                     <li>id: Required - a unique value to identify the ad cancellation given that times are relative in live streams</li>
 
                 </ul>
-                Example: <code>{"name": "adCancel", "id": 234}</code>
+                Example: <code translate="No">{"name": "adCancel", "id": 234}</code>
             </li>
         </ul>
 
@@ -527,8 +527,8 @@ myPlayer.ima3({
         </ul>
 
         <p>
-            If you are using Studio to setup advertising, when you select <strong>On cue point</strong> the <code>useMediaCuePoints</code> and
-            <code>requestMode</code> options will be set correctly for you.
+            If you are using Studio to setup advertising, when you select <strong>On cue point</strong> the <code translate="No">useMediaCuePoints</code> and
+            <code translate="No">requestMode</code> options will be set correctly for you.
         </p>
 
         <h3 id="vpaidMode">vpaidMode</h3>
@@ -672,7 +672,7 @@ myPlayer.ima3({
         </table>
 
         <aside class="bcls-aside bcls-aside--tip">
-            NOTE: When retrieving the parent URL of an iframe player or Gallery In-Page Experience, using <code>window.location.href</code> is recommended. The reason
+            NOTE: When retrieving the parent URL of an iframe player or Gallery In-Page Experience, using <code translate="No">window.location.href</code> is recommended. The reason
             for this is that In-Page experiences using the standard embed code construct an iframe dynamically at run-time to avoid styling and scripting issues.
             Since the iframe is generated via JavaScript, it takes on the same <code class="notransalate">window.location</code> of the parent page and follows the
             same-origin policy. Browsers unfortunately treat <code class="notransalate">document.referrer</code> differently for these generated iframes. Chrome,
@@ -806,7 +806,7 @@ myPlayer.ima3({
         <h2 id="Methods">Methods</h2>
 
         <p>
-            When you need to interact with the IMA SDK you need to wait for the <code>ima3-ready</code> event to be dispatched before successful use of the SDK can
+            When you need to interact with the IMA SDK you need to wait for the <code translate="No">ima3-ready</code> event to be dispatched before successful use of the SDK can
             take place. This includes the following two methods.
         </p>
 
@@ -1510,7 +1510,7 @@ myPlayer.ready(function() {
         </p>
 
         <h3><em>Learn More</em> and <em>Ad Countdown Timer</em> no longer displayed by default</h3>
-        <p>A work around exists using the <code>useStyledLinearAds</code> property from Google's IMA SDK. Set this value to true, as shown here:</p>
+        <p>A work around exists using the <code translate="No">useStyledLinearAds</code> property from Google's IMA SDK. Set this value to true, as shown here:</p>
         <pre class="line-numbers"><code class="language-javascript">adsRenderingSettings.useStyledLinearAds=true;</code></pre>
         <p>For more details, see Google's <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/reference/js/google.ima.AdsRenderingSettings#useStyledLinearAds">google.ima.AdsRenderingSettings</a> documentation.</p>
 
@@ -1637,10 +1637,10 @@ myPlayer.ready(function() {
             <li><strong class="notranslate">iPad</strong> - Ads are played inline but skip is not available in fullscreen mode</li>
         </ul>
 
-        <h3>iOS 10 iPad and iPhone: Preroll ads not working when using <code>playsinline</code> and going fulscreen</h3>
+        <h3>iOS 10 iPad and iPhone: Preroll ads not working when using <code translate="No">playsinline</code> and going fulscreen</h3>
 
         <p>
-            If using <code>playsinline</code> on iOS 10 iPad and iPhone to allow viewing a video not fullscreen, then a preroll ad starts, and the fullscreen button
+            If using <code translate="No">playsinline</code> on iOS 10 iPad and iPhone to allow viewing a video not fullscreen, then a preroll ad starts, and the fullscreen button
             is clicked, the ad will NOT continue to play. This is a limitation of the Google's IMA implementation, and Google does not have plans to correct the
             issue.
         </p>

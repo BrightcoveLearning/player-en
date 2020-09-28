@@ -1273,7 +1273,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         Copy your Google Analytics account id for later use.
       </li>
       <li>
-        Copy your Google Tag Manager tracking id for later use. This should be formatted as <code>GTM-XXXXXX</code>.
+        Copy your Google Tag Manager tracking id for later use. This should be formatted as <code translate="No">GTM-XXXXXX</code>.
       </li> -->
     </ol>
   </section>
@@ -1294,63 +1294,63 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td>Player Load</td>
-          <td><code>bcvideo_player_load</code></td>
+          <td><code translate="No">bcvideo_player_load</code></td>
           <td>
             Sent when a player has been loaded and is ready for playback
           </td>
         </tr>
         <tr>
           <td>Video Impression</td>
-          <td><code>bcvideo_video_impression</code></td>
+          <td><code translate="No">bcvideo_video_impression</code></td>
           <td>
             Sent when a video has been loaded into a player and is ready for playback
           </td>
         </tr>
         <tr>
           <td>Video View</td>
-          <td><code>bcvideo_video_view</code></td>
+          <td><code translate="No">bcvideo_video_view</code></td>
           <td>
             Sent when a video has started playing back either through auto-play or due to user interaction
           </td>
         </tr>
         <tr>
           <td>Video Engagement</td>
-          <td><code>bcvideo_video_engagement</code></td>
+          <td><code translate="No">bcvideo_video_engagement</code></td>
           <td>
             A user watched a range of seconds of a video's timeline. This event is a heartbeat for tracking video engagement and will likely be sent many times during playback, depending on the user interaction and the length of the video.
           </td>
         </tr>
         <tr>
           <td>Play Request</td>
-          <td><code>bcvideo_play_request</code></td>
+          <td><code translate="No">bcvideo_play_request</code></td>
           <td>
             Sent when playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario
           </td>
         </tr>
         <tr>
           <td>Ad Start</td>
-          <td><code>bcvideo_ad_start</code></td>
+          <td><code translate="No">bcvideo_ad_start</code></td>
           <td>
             Sent when control is handed over to an advertising agent by the playback platform
           </td>
         </tr>
         <tr>
           <td>Ad End</td>
-          <td><code>bcvideo_ad_end</code></td>
+          <td><code translate="No">bcvideo_ad_end</code></td>
           <td>
             Sent when control is handed back from the advertising agent to the playback platform
           </td>
         </tr>
         <tr>
           <td>Error</td>
-          <td><code>bcvideo_error</code></td>
+          <td><code translate="No">bcvideo_error</code></td>
           <td>
             Sent when fatal errors which disrupt the playback experience are encountered
           </td>
         </tr>
         <tr>
           <td>Video Complete</td>
-          <td><code>bcvideo_video_complete</code></td>
+          <td><code translate="No">bcvideo_video_complete</code></td>
           <td>
             Sent when video playback finishes
           </td>
@@ -1708,10 +1708,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </p>
 
         <ul>
-          <li><code>tracker</code> - Your Google Tag Manager tracking id (GTM-XXXXXXX)</li>
-          <li><code>eventsToTrack</code> - Events you want to track</li>
+          <li><code translate="No">tracker</code> - Your Google Tag Manager tracking id (GTM-XXXXXXX)</li>
+          <li><code translate="No">eventsToTrack</code> - Events you want to track</li>
           <li>
-            <code>paramsToTrack</code> - Custom dimensions you want to track
+            <code translate="No">paramsToTrack</code> - Custom dimensions you want to track
           </li>
         </ul>
         <p>Here is an example:</p>
@@ -1843,13 +1843,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>Copy the following custom app script code to an editor, and update the following values:</p>
       <ul>
         <li>
-          <code>accountId</code> - Your Google Analytics account ID
+          <code translate="No">accountId</code> - Your Google Analytics account ID
         </li>
         <li>
-          <code>webPropertyId</code> - Your Google account tracking ID
+          <code translate="No">webPropertyId</code> - Your Google account tracking ID
         </li>
         <li>
-          <code>dimensions</code> - The custom dimensions to be added. The current list contains all of the custom dimensions. Notice that the dimensions are prefixed with <code>bcvideo_</code>. This is to ensure there are no naming conflicts with these variables.
+          <code translate="No">dimensions</code> - The custom dimensions to be added. The current list contains all of the custom dimensions. Notice that the dimensions are prefixed with <code translate="No">bcvideo_</code>. This is to ensure there are no naming conflicts with these variables.
         </li>
       </ul>
 
@@ -1883,14 +1883,14 @@ function createGACustomDimensions() {
 }</code></pre>
 
         <aside class="bcls-aside bcls-aside--tip">
-        In this example, we are putting the dimensions in an object named <code>customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code>customDimensions.{dimension}</code>
+        In this example, we are putting the dimensions in an object named <code translate="No">customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code translate="No">customDimensions.{dimension}</code>
       </aside>
 
         <!-- <aside class="bcls-aside bcls-aside--tip">The script should be configured to access the <a href="https://developers.google.com/analytics/devguides/reporting/core/v4">Google Analytics API</a> from the resource menu.</aside> -->
       </li>
       <li>
         <p>
-          Replace the <code>function myFunction(){}</code> code block, as shown
+          Replace the <code translate="No">function myFunction(){}</code> code block, as shown
           below, with your custom app script.
         </p>
 
@@ -2051,10 +2051,10 @@ function createGACustomDimensions() {
         </p>
         <ul>
           <li>
-            <code>publicID</code> - Your GTM tracker ID (GTM-XXXXXX)
+            <code translate="No">publicID</code> - Your GTM tracker ID (GTM-XXXXXX)
           </li>
           <li>
-             <code>value</code> - Your GA tracker ID (UA-111111111-1)
+             <code translate="No">value</code> - Your GA tracker ID (UA-111111111-1)
           </li>
         </ul>
         <p>
@@ -2141,26 +2141,26 @@ function createGACustomDimensions() {
     <p>These events come from your player.</p>
 
     <ul>
-      <li><code>player_load</code></li>
-      <li><code>video_impression</code></li>
-      <li><code>play_request</code></li>
-      <li><code>video_view</code></li>
+      <li><code translate="No">player_load</code></li>
+      <li><code translate="No">video_impression</code></li>
+      <li><code translate="No">play_request</code></li>
+      <li><code translate="No">video_view</code></li>
       <li>
-        <code>video_engagement</code>
+        <code translate="No">video_engagement</code>
         <ul>
-          <li><code>video_engagement</code> - 25% Milestone</li>
-          <li><code>video_engagement</code> - 50% Milestone</li>
-          <li><code>video_engagement</code> - 75% Milestone</li>
+          <li><code translate="No">video_engagement</code> - 25% Milestone</li>
+          <li><code translate="No">video_engagement</code> - 50% Milestone</li>
+          <li><code translate="No">video_engagement</code> - 75% Milestone</li>
         </ul>
       </li>
-      <li><code>ad_start</code></li>
-      <li><code>ad_end</code></li>
-      <li><code>error</code></li>
-      <li><code>video_complete</code> - 100% Milestone</li>
+      <li><code translate="No">ad_start</code></li>
+      <li><code translate="No">ad_end</code></li>
+      <li><code translate="No">error</code></li>
+      <li><code translate="No">video_complete</code> - 100% Milestone</li>
     </ul>
 
     <p>
-      The video watched percentage (<code>video_engagement</code>) can be
+      The video watched percentage (<code translate="No">video_engagement</code>) can be
       calculated as follows (similar to video_engagement event in Google and
       Adobe analytics):
     </p>
@@ -2191,18 +2191,18 @@ function createGACustomDimensions() {
     <p>These parameters come from your player.</p>
 
     <ul>
-      <li><code>account</code></li>
-      <li><code>player</code></li>
-      <li><code>player_name</code></li>
-      <li><code>video</code></li>
-      <li><code>video_name</code></li>
-      <li><code>video_duration</code></li>
-      <li><code>range</code></li>
-      <li><code>video_seconds_viewed</code></li>
-      <li><code>session</code></li>
-      <li><code>platform_version</code></li>
-      <li><code>video_percent_viewed</code></li>
-      <li><code>video_playhead</code></li>
+      <li><code translate="No">account</code></li>
+      <li><code translate="No">player</code></li>
+      <li><code translate="No">player_name</code></li>
+      <li><code translate="No">video</code></li>
+      <li><code translate="No">video_name</code></li>
+      <li><code translate="No">video_duration</code></li>
+      <li><code translate="No">range</code></li>
+      <li><code translate="No">video_seconds_viewed</code></li>
+      <li><code translate="No">session</code></li>
+      <li><code translate="No">platform_version</code></li>
+      <li><code translate="No">video_percent_viewed</code></li>
+      <li><code translate="No">video_playhead</code></li>
     </ul>
 
     <h3>Automatic parameters</h3>
@@ -2213,18 +2213,18 @@ function createGACustomDimensions() {
     </p>
 
     <ul>
-      <li><code>country</code></li>
-      <li><code>country_name</code></li>
-      <li><code>region</code></li>
-      <li><code>region_name</code></li>
-      <li><code>city</code></li>
-      <li><code>browser</code></li>
-      <li><code>browser_type</code></li>
-      <li><code>destination</code></li>
-      <li><code>source</code></li>
-      <li><code>device_type</code></li>
-      <li><code>device_os</code></li>
-      <li><code>device_os_version</code></li>
+      <li><code translate="No">country</code></li>
+      <li><code translate="No">country_name</code></li>
+      <li><code translate="No">region</code></li>
+      <li><code translate="No">region_name</code></li>
+      <li><code translate="No">city</code></li>
+      <li><code translate="No">browser</code></li>
+      <li><code translate="No">browser_type</code></li>
+      <li><code translate="No">destination</code></li>
+      <li><code translate="No">source</code></li>
+      <li><code translate="No">device_type</code></li>
+      <li><code translate="No">device_os</code></li>
+      <li><code translate="No">device_os_version</code></li>
     </ul>
   </section>
 

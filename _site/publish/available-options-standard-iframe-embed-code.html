@@ -1086,7 +1086,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section id="usage" class="bcls-section">
     <h2>Usage</h2>
-    <aside class="bcls-aside bcls-aside--information player-only">Note: If you are a Brightcove Player customer, you will not use the <code>videoId</code> query parameter to assign a video to your player. You would either assign the video in the <strong>Players</strong> module or using curl.</aside>
+    <aside class="bcls-aside bcls-aside--information player-only">Note: If you are a Brightcove Player customer, you will not use the <code translate="No">videoId</code> query parameter to assign a video to your player. You would either assign the video in the <strong>Players</strong> module or using curl.</aside>
     <p>To use the <strong>iframe</strong> code follow these steps:</p>
     <ol class="bcls-tasklist">
       <li class="language-editable">Use the&nbsp;<strong>PLAYERS</strong> module to create a player.</li>
@@ -1098,7 +1098,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         webkitallowfullscreen
         mozallowfullscreen&gt;&lt;/iframe&gt;</code></pre>
       </li>
-      <li class="language-editable">Copy the HTML from the browser and paste into the <code>body</code> of a full HTML page.</li>
+      <li class="language-editable">Copy the HTML from the browser and paste into the <code translate="No">body</code> of a full HTML page.</li>
       <li class="language-editable">Browse the HTML page to see the player functioning.</li>
     </ol>
   </section>
@@ -1106,8 +1106,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Query parameters</h2>
     <p>Numerous query parameters are available for the <strong>iframe</strong> tag to provide additional information about how a player should behave. The table below details available parameters.</p>
     <aside class="bcls-aside bcls-aside--tip">
-      <p>When using query parameters that can only be true or false (data type <strong>Boolean</strong>), you simply include the query parameter to turn it on, or exclude it to turn it off. An example is shown here using <code>muted</code>.</p>
-      <p><code>&lt;iframe src="https://players...index.html?videoId=4784463159001<span class="bcls-highlight">&amp;muted"</span></code></p>
+      <p>When using query parameters that can only be true or false (data type <strong>Boolean</strong>), you simply include the query parameter to turn it on, or exclude it to turn it off. An example is shown here using <code translate="No">muted</code>.</p>
+      <p><code translate="No">&lt;iframe src="https://players...index.html?videoId=4784463159001<span class="bcls-highlight">&amp;muted"</span></code></p>
     </aside>
     <table class="bcls-table">
       <thead class="bcls-table__head">
@@ -1141,62 +1141,62 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             If any of the above fail, the player will display the "Big Play Button" as if autoplay was set to false.<br />
             <br />
             Getting a video to autoplay can be a complex situation. See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for further details.
-            <aside class="bcls-aside bcls-aside--information language-editable">If <strong>autoplay</strong> is enabled at the player level (using either Studio or Player Management API), there is no way to disable it. For instance, <code>&amp;autoplay=false</code> will not stop autoplay. In fact, the last query parameter would actually turn on autoplay as if the URL contains the string <strong>autoplay</strong>, autoplay will be enabled, no matter what value might be assigned to it.</aside></td>
+            <aside class="bcls-aside bcls-aside--information language-editable">If <strong>autoplay</strong> is enabled at the player level (using either Studio or Player Management API), there is no way to disable it. For instance, <code translate="No">&amp;autoplay=false</code> will not stop autoplay. In fact, the last query parameter would actually turn on autoplay as if the URL contains the string <strong>autoplay</strong>, autoplay will be enabled, no matter what value might be assigned to it.</aside></td>
           <td class="language-editable">Boolean or String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code>crossorigin</code></td>
+          <td class="language-editable"><code translate="No">crossorigin</code></td>
           <td class="language-editable">If <strong>true</strong>, the underlying <strong>&lt;video&gt;</strong> element will have <strong>crossorigin="anonymous"</strong>. This means that any videos or text tracks pulled into the player must have CORS headers.
             <aside class="bcls-aside bcls-aside--information language-editable">Note: This feature should only be used if you know that all your content (video and text tracks) have CORS headers applied to them.</aside></td>
           <td class="language-editable">Boolean</td>
         </tr>
         <tr>
-          <td class="language-editable"><code>language</code></td>
+          <td class="language-editable"><code translate="No">language</code></td>
           <td class="language-editable">Sets the language (using a valid language code, usually two letters) for the player.</td>
           <td class="language-editable">String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code>loop</code></td>
+          <td class="language-editable"><code translate="No">loop</code></td>
           <td class="language-editable">Causes the video to start over as soon as it ends.</td>
           <td class="language-editable">String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code>muted</code></td>
+          <td class="language-editable"><code translate="No">muted</code></td>
           <td class="language-editable">Mutes the video's sound.</td>
           <td class="language-editable">Boolean</td>
         </tr>
         <tr>
-          <td class="language-editable"><code>playlistId</code></td>
+          <td class="language-editable"><code translate="No">playlistId</code></td>
           <td class="language-editable">Sets the ID or reference ID of the playlist in the player.</td>
           <td class="language-editable">String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code>playlistVideoId</code></td>
+          <td class="language-editable"><code translate="No">playlistVideoId</code></td>
           <td class="language-editable">Sets the initial video to be played in the video, which must be in the designated playlist.</td>
           <td class="language-editable">String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code>playsinline</code></td>
+          <td class="language-editable"><code translate="No">playsinline</code></td>
           <td class="language-editable">If the platform and OS allow it, will display video content within the player's playback area, meaning it won't be displayed fullscreen or in an independent, resizable window; does work on iPhone and iPad</td>
           <td class="language-editable">Boolean</td>
         </tr>
         <tr>
           <td class="language-editable">preload</td>
-          <td class="language-editable">Informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. Possible values are <code>none</code>, <code>metadata</code> or <code>auto</code>. See the next section for further details.</td>
+          <td class="language-editable">Informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. Possible values are <code translate="No">none</code>, <code translate="No">metadata</code> or <code translate="No">auto</code>. See the next section for further details.</td>
           <td class="language-editable">String</td>
         </tr>
         <tr>
           <td class="language-editable">referrer</td>
-          <td class="language-editable">Allows you to pass in the <code>document.referrer</code> along with other parameters to the iframe, allowing you to accurately track the referrer URL for the video. Note that you will need to URI encode the value - for example: <code>referrer=http%3A%2F%2Ffoo.com</code>. Also note that this parameter is available for the 6.25 version of the player or later.</td>
+          <td class="language-editable">Allows you to pass in the <code translate="No">document.referrer</code> along with other parameters to the iframe, allowing you to accurately track the referrer URL for the video. Note that you will need to URI encode the value - for example: <code translate="No">referrer=http%3A%2F%2Ffoo.com</code>. Also note that this parameter is available for the 6.25 version of the player or later.</td>
           <td class="language-editable">String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code>t</code></td>
+          <td class="language-editable"><code translate="No">t</code></td>
           <td class="language-editable">Sets the time offset from which a video will start playing. See the <a href="https://studio.support.brightcove.com/publish/deep-linking.html">Deep Linking</a> document for details.</td>
           <td class="language-editable">String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code>videoId</code></td>
+          <td class="language-editable"><code translate="No">videoId</code></td>
           <td class="language-editable">Sets the ID or reference ID of the video in the player.</td>
           <td class="language-editable">String</td>
         </tr>
@@ -1224,7 +1224,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <code class="language-html">&lt;video-js preload ...&gt;
       or
       { "preload": "auto" } </code></pre>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: When using Server-Side Ad Insertion (SSAI), Brightcove recommends setting <code>preload=none</code>. If <code>preload</code> is set to <code>auto</code> or <code>metadata</code>, the first frames of the video stream will be requested, which counts the ad as delivered even if the user does not start playback.</aside>
+    <aside class="bcls-aside bcls-aside--information language-editable">Note: When using Server-Side Ad Insertion (SSAI), Brightcove recommends setting <code translate="No">preload=none</code>. If <code translate="No">preload</code> is set to <code translate="No">auto</code> or <code translate="No">metadata</code>, the first frames of the video stream will be requested, which counts the ad as delivered even if the user does not start playback.</aside>
   </section>
 </article>
 

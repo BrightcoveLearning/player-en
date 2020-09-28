@@ -130,7 +130,7 @@ layout: staging
 <section class="bcls-section">
 <h2 id="Implementing_WebVTT_thumbnails">Implementing WebVTT thumbnails</h2>
 
-<p>If you choose to use your own thumbnail images, you can create a custom WebVTT file and pass it to the player using the <code>player.addRemoteTextTrack()</code> method. Here are the steps:</p>
+<p>If you choose to use your own thumbnail images, you can create a custom WebVTT file and pass it to the player using the <code translate="No">player.addRemoteTextTrack()</code> method. Here are the steps:</p>
 
 <ol class="bcls-tasklist-restart">
 	<li>
@@ -143,18 +143,18 @@ layout: staging
   </li>
 	<li>In Video Cloud Studio, choose a video ingested for Dynamic Delivery. Copy the Advanced Embed code for a player with version 6.41.0+.</li>
 	<li>In the HTML file for your web page, paste the Advanced Embed code.</li>
-  <li>In the <code>head</code> section of your HTML code add the thumbnails CSS file:
+  <li>In the <code translate="No">head</code> section of your HTML code add the thumbnails CSS file:
 	<pre>
 <code class="notranslate language-json">//players.brightcove.net/videojs-thumbnails/1/videojs-thumbnails.css</code></pre>
 	</li>
-  <li>In the <code>body</code> section of your HTML code add the thumbnails JavaScript file:
+  <li>In the <code translate="No">body</code> section of your HTML code add the thumbnails JavaScript file:
 	<pre>
 <code class="notranslate language-json">//players.brightcove.net/videojs-thumbnails/1/videojs-thumbnails.js</code></pre>
 	</li>
-	<li>To the <code>video</code> tag, add an <code>id</code> property.
+	<li>To the <code translate="No">video</code> tag, add an <code translate="No">id</code> property.
 	</li>
   <li>
-    Before the closing <code>body</code> tag, add a <code>script</code> block.
+    Before the closing <code translate="No">body</code> tag, add a <code translate="No">script</code> block.
   </li>
   <li>
     <p>
@@ -169,11 +169,11 @@ layout: staging
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>type</code></td>
+          <td><code translate="No">type</code></td>
           <td>The mime-type for your video</td>
         </tr>
         <tr>
-          <td><code>src</code></td>
+          <td><code translate="No">src</code></td>
           <td>The source URL for your video</td>
         </tr>
       </tbody>
@@ -198,7 +198,7 @@ player.ready(() =&gt; {
       In the same script block, add the following:
     </p>
     <p>
-      After the plugin is initialized and the player is ready, you will pass thumbnail image sources to the plugin in a WebVTT file using the <code>addRemoteTextTrack()</code> method. When calling the method with the thumbnail file, you must also set:
+      After the plugin is initialized and the player is ready, you will pass thumbnail image sources to the plugin in a WebVTT file using the <code translate="No">addRemoteTextTrack()</code> method. When calling the method with the thumbnail file, you must also set:
     </p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
@@ -209,24 +209,24 @@ player.ready(() =&gt; {
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>src</code></td>
+          <td><code translate="No">src</code></td>
           <td>The location of your WebVTT file with thumbnail images</td>
         </tr>
         <tr>
-          <td><code>kind</code></td>
-          <td>Set to <code>metadata</code></td>
+          <td><code translate="No">kind</code></td>
+          <td>Set to <code translate="No">metadata</code></td>
         </tr>
         <tr>
-          <td><code>label</code></td>
-          <td>Set to <code>thumbnails</code></td>
+          <td><code translate="No">label</code></td>
+          <td>Set to <code translate="No">thumbnails</code></td>
         </tr>
         <tr>
-          <td><code>mode</code></td>
-          <td>Set to <code>hidden</code></td>
+          <td><code translate="No">mode</code></td>
+          <td>Set to <code translate="No">hidden</code></td>
         </tr>
         <tr>
-          <td><code>addRemoteTextTrack()</code> <code>manualCleanup</code></td>
-          <td>Set to <code>false</code> so that the track is automatically removed when the source changes</td>
+          <td><code translate="No">addRemoteTextTrack()</code> <code translate="No">manualCleanup</code></td>
+          <td>Set to <code translate="No">false</code> so that the track is automatically removed when the source changes</td>
         </tr>
 
       </tbody>

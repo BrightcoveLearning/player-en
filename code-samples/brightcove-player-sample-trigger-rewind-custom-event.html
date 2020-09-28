@@ -102,7 +102,7 @@ parent: Code Samples
     <h3>Player configuration</h3>
     <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
     <h3>Other HTML</h3>
-    <p>Remember to add the <code>id</code> attribute to the <code>video-js</code> tag in the player embed code.</p>
+    <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
 <code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
@@ -124,28 +124,28 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Add elements to the DOM +++</code></pre>
-    <p>Create a new <code>&lt;div&gt;</code> element in the DOM and assign an <code>id</code> attribute with a value of <strong>backButton</strong>. Create a new <code>&lt;img&gt;</code> element in the DOM and assign the <code>src</code> attribute with the URL to your rewind button.</p>
+    <p>Create a new <code translate="No">&lt;div&gt;</code> element in the DOM and assign an <code translate="No">id</code> attribute with a value of <strong>backButton</strong>. Create a new <code translate="No">&lt;img&gt;</code> element in the DOM and assign the <code translate="No">src</code> attribute with the URL to your rewind button.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Add rewind button to the control bar</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Add rewind button to the control bar +++</code></pre>
-    <p>Get the <code>spacer</code> element in the control bar, and add the rewind button elements to it.</p>
+    <p>Get the <code translate="No">spacer</code> element in the control bar, and add the rewind button elements to it.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Listen for the rewind button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Listen for the rewind button +++</code></pre>
-    <p>To the <code>backButton</code> element, add a listener for the <code>onclick</code> event. When clicked, trigger your custom event with data.</p>
+    <p>To the <code translate="No">backButton</code> element, add a listener for the <code translate="No">onclick</code> event. When clicked, trigger your custom event with data.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Listen for rewind event</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Listen for rewind event +++</code></pre>
-    <p>Listen for your custom event with data. When triggered, rewind video playback based on the <code>rewindAmt</code> defined in the code..</p>
+    <p>Listen for your custom event with data. When triggered, rewind video playback based on the <code translate="No">rewindAmt</code> defined in the code..</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -155,7 +155,7 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
@@ -176,7 +176,7 @@ parent: Code Samples
     <h2 id="Understanding_Custom_events">Understanding Custom events</h2>
     <p>Custom events allow you to decouple and eliminate dependencies between DOM objects and event listeners, creating an event-driven architectural model.</p>
     <h3>Dispatch</h3>
-    <p>To dispatch a custom event, use the <code>trigger()</code> method as follows:</p>
+    <p>To dispatch a custom event, use the <code translate="No">trigger()</code> method as follows:</p>
     <pre class="line-numbers">
 <code class="language-javascript">// trigger a custom event
 myPlayer.trigger('eventName');
@@ -186,24 +186,24 @@ myPlayer.trigger('eventName', {data: 'some data'});</code></pre>
     <p>For details about dispatching custom events, see the <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#trigger__anchor">Player API index</a>.</p>
     <p>In this sample, the code does the following:</p>
     <ul>
-      <li>Dispatches a custom event, named <code>rewind</code></li>
-      <li>Sends a data object with a name of <code>amount</code> and a value of <code>5</code> - You'll see in the JavaScript code where this value is set</li>
+      <li>Dispatches a custom event, named <code translate="No">rewind</code></li>
+      <li>Sends a data object with a name of <code translate="No">amount</code> and a value of <code translate="No">5</code> - You'll see in the JavaScript code where this value is set</li>
     </ul>
     <pre class="line-numbers">
 <code class="language-javascript">// trigger a custom event with data
 myPlayer.trigger('rewind', {'amount': rewindAmount});</code></pre>
     <h3>Listen</h3>
-    <p>To listen for a custom event, you can use the <code>on()</code> method as follows:</p>
+    <p>To listen for a custom event, you can use the <code translate="No">on()</code> method as follows:</p>
     <pre class="line-numbers">
 <code class="language-javascript">// listen for a custom event
 player.on('eventName', function(evt){});
 or
 // listen for a custom event with data
 player.on('eventName', function(evt,data){});</code></pre>
-    <p>You can also use the <code>one()</code> method if you want the event listener to be triggered only once and then removed. For details about listening for events, see the <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#on__anchor">Player API index</a>.</p>
+    <p>You can also use the <code translate="No">one()</code> method if you want the event listener to be triggered only once and then removed. For details about listening for events, see the <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#on__anchor">Player API index</a>.</p>
     <p>In this sample, the code does the following:</p>
     <ul>
-      <li>Listens for a custom event, named <code>rewind</code></li>
+      <li>Listens for a custom event, named <code translate="No">rewind</code></li>
       <li>Passes the event and data objects into a function</li>
     </ul>
     <pre class="line-numbers">

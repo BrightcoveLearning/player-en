@@ -70,7 +70,7 @@ parent: Code Samples
     <details>
       <summary><h2 id="gettingCredentials">Getting Credentials</h2></summary> 
     
-      <p>To get a <code>client_id</code> and <code>client_secret</code>, you will need to go to the OAuth UI and register this app:</p>
+      <p>To get a <code translate="No">client_id</code> and <code translate="No">client_secret</code>, you will need to go to the OAuth UI and register this app:</p>
       <ul>
         <li><a href="https://studio.support.brightcove.com/admin/managing-api-authentication-credentials.html">Managing API Authentication Credentials</a></li>
       </ul>
@@ -132,30 +132,30 @@ parent: Code Samples
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Creates and populates an <code>options</code> object that is passed to the <code>makeRequest()</code> function that calls the Analytics API.</li>
-      <li>Uses properties of the <code>mediainfo</code> object to dynamically build the proper endpoint needed by the Analytics API. Note that the <code>loadstart</code> event must be dispatched before <code>mediainfo</code> is populated.</li>
-      <li>Calls the <code>makeRequest()</code> function, with a callback function that extracts the actual views value.</li>
+      <li>Creates and populates an <code translate="No">options</code> object that is passed to the <code translate="No">makeRequest()</code> function that calls the Analytics API.</li>
+      <li>Uses properties of the <code translate="No">mediainfo</code> object to dynamically build the proper endpoint needed by the Analytics API. Note that the <code translate="No">loadstart</code> event must be dispatched before <code translate="No">mediainfo</code> is populated.</li>
+      <li>Calls the <code translate="No">makeRequest()</code> function, with a callback function that extracts the actual views value.</li>
       <li>Performs a request to the Analytics API. When the data is returned it is passed to the callback function.</li>
-      <li>Calls the <code>placeCountInControlbar()</code> function at the end of the callback function. This function places the views data in the control bar.</li>
+      <li>Calls the <code translate="No">placeCountInControlbar()</code> function at the end of the callback function. This function places the views data in the control bar.</li>
     </ul>
     <!-- UPDATE task 1 -->
     
     <h3>Build the URL for the <span translate="No">Analytics API</span> request</h3>
     <p>Find the code which is labeled:</p>
     <pre><code class="language-javascript">// ### Setup for video views <span translate="No">Analytics API</span> request ###</code></pre>
-    <p>Use information from the <code>mediainfo</code> object to build the proper endpoint.</p>
+    <p>Use information from the <code translate="No">mediainfo</code> object to build the proper endpoint.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Request the views data from the Analytics API</h3>
     <p>Find the code which is labeled:</p>
     <pre><code class="language-javascript">// ### Make the request to the <span translate="No">Analytics API</span> ###</code></pre>
-    <p>They key point here is that the anonymous function is the callback function used where the actual request to the <span translate="No">Analytics API</span> is used. At the end of this function the returned value of video views is passed to the <code>placeCountInControlbar</code> method for display in the controlbar.</p>
+    <p>They key point here is that the anonymous function is the callback function used where the actual request to the <span translate="No">Analytics API</span> is used. At the end of this function the returned value of video views is passed to the <code translate="No">placeCountInControlbar</code> method for display in the controlbar.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Place count in controlbar</h3>
     <p>Find the code which is labeled:</p>
     <pre><code class="language-javascript">// ### Build and place count in controlbar ###</code></pre>
-    <p>Here an HTML <code>div</code> element is created and populated with the view information. Lastly, that <code>div</code> is placed in the controlbar's <code>spacer</code> element.</p>
+    <p>Here an HTML <code translate="No">div</code> element is created and populated with the view information. Lastly, that <code translate="No">div</code> is placed in the controlbar's <code translate="No">spacer</code> element.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Make call to Analytics API</h3>
@@ -171,7 +171,7 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers"><code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
 				var myPlayer = this;

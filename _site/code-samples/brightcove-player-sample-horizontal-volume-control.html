@@ -1126,8 +1126,8 @@ iframe {
     <p>The following sections detail resources used from various APIs.</p>
     <h3>Brightcove Player API methods</h3>
     <ul>
-      <li><code>control_bar.addChild()</code></li>
-      <li><code>control_bar.removeChild()</code></li>
+      <li><code translate="No">control_bar.addChild()</code></li>
+      <li><code translate="No">control_bar.removeChild()</code></li>
     </ul>
   </section>
   <section class="bcls-section">
@@ -1164,7 +1164,7 @@ iframe {
     <ul>
       <li>
         <p>Lines 9-22: Set the order of elements in the control bar. This example places the mute control and the volume control after the progress bar, but before the fullscreen button.</p>
-        <aside class="bcls-aside bcls-aside--information">Note: the control bar uses a flex container to layout its elements. By default, flex items are laid out as they appear in the HTML source code. The CSS <code>order</code> property allows you to control the position of flex elements. For older browsers, you need to include additional prefixed order properties.</aside>
+        <aside class="bcls-aside bcls-aside--information">Note: the control bar uses a flex container to layout its elements. By default, flex items are laid out as they appear in the HTML source code. The CSS <code translate="No">order</code> property allows you to control the position of flex elements. For older browsers, you need to include additional prefixed order properties.</aside>
         <p>For more details about setting the control bar icon order, see the <a href="/styling/customizing-player-appearance.html#Controlbar_icon_manipulation">Customize Player Appearance</a> document.</p>
       </li>
       <li>Lines 24-26: Remove the default shadow around the volume control to better match the progress bar.</li>
@@ -1214,7 +1214,7 @@ iframe {
       <li>
         <p>Lines 61-62: Add the mute button and volume control elements to the control bar.</p>
         <aside class="bcls-aside bcls-aside--information">Note: By default, the flex items in the control bar are laid out as they appear in the HTML source code. For older browsers, like IE9, the order in which you add these elements is important. Here, we add the mute button last, so that it appears to the left of the volume control.</aside>
-        <aside class="bcls-aside bcls-aside--information">Note: the <code>MuteToggle</code> and <code>VolumeControl</code> clases can be found in the <a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">Brightcove Player API Index</a>.</aside>
+        <aside class="bcls-aside bcls-aside--information">Note: the <code translate="No">MuteToggle</code> and <code translate="No">VolumeControl</code> clases can be found in the <a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">Brightcove Player API Index</a>.</aside>
       </li>
       <li>Line 63: Removes the default volume menu button from the control bar.</li>
     </ul>
@@ -1239,8 +1239,8 @@ iframe {
     <h3>Create the CSS file</h3>
     <p>Move the CSS styles into a file and place it in an Internet accessible URL.</p>
     <ol class="bcls-tasklist">
-      <li>Create a new file for your CSS styles. In this case, name it <code>horizontal-volume.css</code>.</li>
-      <li>In the <code>&lt;head&gt;</code> section of your HTML file, add the following link to include your newly created CSS file.
+      <li>Create a new file for your CSS styles. In this case, name it <code translate="No">horizontal-volume.css</code>.</li>
+      <li>In the <code translate="No">&lt;head&gt;</code> section of your HTML file, add the following link to include your newly created CSS file.
         <pre class="line-numbers" data-start="91">
 <code class="language-html">&lt;link href="horizontal-volume.css" rel="stylesheet"&gt; </code></pre>
       </li>
@@ -1249,9 +1249,9 @@ iframe {
     <h3>Create the JavaScript file</h3>
     <p>Move the plugin's JavaScript code into a file and place it in an Internet accessible URL.</p>
     <ul>
-      <li>Create a new file for your plugin JavaScript code. In this case, name it <code>horizontal-volume.js</code>.</li>
+      <li>Create a new file for your plugin JavaScript code. In this case, name it <code translate="No">horizontal-volume.js</code>.</li>
       <li>Cut and paste the JavaScript code from your main HTML file into this new file.</li>
-      <li>Lines 77,85: Wrap your JavaScript code using the <code>videojs.registerPlugin()</code> function. The first argument, <code>horizontalVolume</code>, is the plugin name.</li>
+      <li>Lines 77,85: Wrap your JavaScript code using the <code translate="No">videojs.registerPlugin()</code> function. The first argument, <code translate="No">horizontalVolume</code>, is the plugin name.</li>
       <li>Line 78: Gets a reference to your player.</li>
       <li>The rest is your JavaScript code which was reviewed in a previous section.</li>
     </ul>
@@ -1270,7 +1270,7 @@ videojs.registerPlugin('horizontalVolume', function() {
     control_bar.removeChild(vmb);
 });</code></pre>
     <ol class="bcls-tasklist">
-      <li>In the HTML file, add the following code just below the existing <code>&lt;script&gt;</code> tags. This code includes the JavaScript file and then calls the method defined in that JavaScript.
+      <li>In the HTML file, add the following code just below the existing <code translate="No">&lt;script&gt;</code> tags. This code includes the JavaScript file and then calls the method defined in that JavaScript.
         <pre class="line-numbers" data-start="93">
 <code class="language-html">&lt;script type="text/javascript" src="horizontal-volume.js"&gt;&lt;/script&gt;
 &lt;script&gt;videojs.getPlayer('video_1').horizontalVolume();&lt;/script&gt;</code></pre>

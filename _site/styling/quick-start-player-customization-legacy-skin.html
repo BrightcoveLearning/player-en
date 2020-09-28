@@ -1096,15 +1096,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li class="language-editable">Using your HTML editor, create a new HTML page.</li>
       <li class="language-editable">Paste the publishing code into the body of your HTML page.</li>
       <li class="language-editable">Browse the newly created page. By default, the player will be sized with default dimensions of 300 x 150 pixels.</li>
-      <li class="language-editable">Open your browser's development tools and drill down into the HTML to find the <code>div</code> tag that surrounds the player. You will see the <code>div</code> tag has a class of <code>video-js</code>. The <code>div</code> that contains the player will always have a class of <code>video-js</code>. <code>video-js</code> is the class name we will need when styling the player.</li>
+      <li class="language-editable">Open your browser's development tools and drill down into the HTML to find the <code translate="No">div</code> tag that surrounds the player. You will see the <code translate="No">div</code> tag has a class of <code translate="No">video-js</code>. The <code translate="No">div</code> that contains the player will always have a class of <code translate="No">video-js</code>. <code translate="No">video-js</code> is the class name we will need when styling the player.</li>
       <li class="language-editable">Check the screenshot below to see the class highlighted in red. Highlighted in green is the video tag, which is Brightcove Player.
         <figure class="bcls-figure"><img class="bcls-image" alt="player-div-with-video" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/player-div-with-video.png" /></figure>
         <aside class="bcls-aside bcls-aside--tip language-editable">
-          <p>Note: Depending on the operating system and browser being used, the Flash fallback version of the player may be displayed. If your player is using the Flash fallback version of the player, you will not see a <code>video</code> tag. Instead you will see the <code>div</code> surrounding an <code>object</code>tag, as highlighted below.</p>
+          <p>Note: Depending on the operating system and browser being used, the Flash fallback version of the player may be displayed. If your player is using the Flash fallback version of the player, you will not see a <code translate="No">video</code> tag. Instead you will see the <code translate="No">div</code> surrounding an <code translate="No">object</code>tag, as highlighted below.</p>
           <figure class="bcls-figure"><img class="bcls-image" alt="player-div-with-object" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/player-div-with-object.png" /></figure>
         </aside>
       </li>
-      <li class="language-editable">Now that you know the correct class to use for a CSS selector, we can use that class selector to change the size of the player. The <code>style</code> block below should be placed just above the end of the <code>head</code> section of your HTML page. In CSS terminology, this is an example of using a <strong>class selector</strong>.
+      <li class="language-editable">Now that you know the correct class to use for a CSS selector, we can use that class selector to change the size of the player. The <code translate="No">style</code> block below should be placed just above the end of the <code translate="No">head</code> section of your HTML page. In CSS terminology, this is an example of using a <strong>class selector</strong>.
         <pre class="line-numbers">
       <code class="language-html">  &lt;style&gt;
           .video-js {
@@ -1123,7 +1123,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist">
       <li class="language-editable">Browse your HTML page.</li>
       <li class="language-editable">Right click on the play button that overlays the player and select <strong>Inspect Element</strong>.</li>
-      <li class="language-editable">Note that the <code>div</code> tag that is highlighted represents the play button and has a class of <code>vjs-big-play-button</code>.
+      <li class="language-editable">Note that the <code translate="No">div</code> tag that is highlighted represents the play button and has a class of <code translate="No">vjs-big-play-button</code>.
         <figure class="bcls-figure"><img class="bcls-image" alt="big-play-button-div" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/big-play-button-div.png" /></figure>
       </li>
       <li class="language-editable">Alter your styles to include CSS that changes the color and opacity of the play button (lines 17-18) as well as centers the button inside the player (lines 19-23).
@@ -1152,10 +1152,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <aside class="bcls-aside bcls-aside--information language-editable">Note: In Safari, the style may not be crossed out even though it is being overridden.</aside>
         <p>What has happened is that numerous changes are made to the background color. The style you set has been overridden in the "cascading" part of CSS. You can change this by utilizing functionality of CSS called <strong>specificity</strong>. Specificity determines which CSS rule is applied by browsers and is a type of weighting that has a bearing on how your cascading style sheet (CSS) rules are displayed. Using specificity, you can make your style more important than others, forcing it to be used. There is a brief introduction to CSS specificity in the <a href="/styling/customizing-player-appearance-legacy-skin.html#specificity">Customize Player Appearance - Legacy Skin</a> doc, and numerous references in any search.</p>
       </li>
-      <li class="language-editable">Note that the <code>div</code> tag surrounds the player has numerous classes associated with it.
+      <li class="language-editable">Note that the <code translate="No">div</code> tag surrounds the player has numerous classes associated with it.
         <figure class="bcls-figure"><img class="bcls-image" alt="multiple-classes" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/multiple-classes.png" /></figure>
       </li>
-      <li class="language-editable">In this case, using the combination of <code>video-js</code> and <code>vjs-mouse</code> will "boost" your styles to take precedence. Alter your styles to use the new combination selector. Note that there is no space between the first two classes, but there is one before the last class (details of why can be found in rules for specificity).
+      <li class="language-editable">In this case, using the combination of <code translate="No">video-js</code> and <code translate="No">vjs-mouse</code> will "boost" your styles to take precedence. Alter your styles to use the new combination selector. Note that there is no space between the first two classes, but there is one before the last class (details of why can be found in rules for specificity).
         <pre class="line-numbers">
       <code class="language-css">    <span class="bcls-highlight">.video-js.vjs-mouse .vjs-big-play-button</span> {
             background-color: #ff0000;
@@ -1214,8 +1214,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       &lt;/body&gt;
       &lt;/html&gt; </code></pre>
-    <p>This is a very common way to use CSS with an HTML page. You see the <code>style</code> block is on the page with the <code>video</code> tag.</p>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: Depending upon your CSS experience, you may be wondering why the code above did not assign an <code>id</code> attribute to the <code>video</code> tag. You could then use a selector like <code>#myPlayer .vjs-big-play-button</code>. In fact, you could have and it would have worked. The problem is, the CSS created using id selectors will not work when using the iframe player implementation, so only existing class names were used. By not using an <code>id</code> attribute, the styles will be directly applicable to iframe player implementations.</aside>
+    <p>This is a very common way to use CSS with an HTML page. You see the <code translate="No">style</code> block is on the page with the <code translate="No">video</code> tag.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Note: Depending upon your CSS experience, you may be wondering why the code above did not assign an <code translate="No">id</code> attribute to the <code translate="No">video</code> tag. You could then use a selector like <code translate="No">#myPlayer .vjs-big-play-button</code>. In fact, you could have and it would have worked. The problem is, the CSS created using id selectors will not work when using the iframe player implementation, so only existing class names were used. By not using an <code translate="No">id</code> attribute, the styles will be directly applicable to iframe player implementations.</aside>
   </section>
   <section id="iframe" class="bcls-section">
     <h2>iframe</h2>
@@ -1229,7 +1229,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist">
       <li class="language-editable">In Studio, publish a video and copy the code for an iframe implementation of the player.</li>
       <li class="language-editable">In your HTML page, replace the in-page embed code with the iframe code.</li>
-      <li class="language-editable">Change the <code>.video-js</code> class selector to an element selector using <code>iframe</code> as the element. Leave <code>width</code> and <code>height</code> the same, as shown here:
+      <li class="language-editable">Change the <code translate="No">.video-js</code> class selector to an element selector using <code translate="No">iframe</code> as the element. Leave <code translate="No">width</code> and <code translate="No">height</code> the same, as shown here:
         <pre class="line-numbers">
   <code class="language-css">iframe {
       height: 344px;
@@ -1269,7 +1269,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li class="language-editable">Browse the page and you will see the iframe player is sized correctly. As mentioned earlier, the styles for the button will NOT be functioning.</li>
       <li class="language-editable">Create a file named <strong>customize-qs.css</strong> and save it in an Internet accessible location.</li>
-      <li class="language-editable">Cut the styles for the button and paste them into the file and save it. Cut only the styles for the button, you cannot include the <code>style</code> tags. The file should contain only this content:
+      <li class="language-editable">Cut the styles for the button and paste them into the file and save it. Cut only the styles for the button, you cannot include the <code translate="No">style</code> tags. The file should contain only this content:
         <pre class="line-numbers">
       <code class="language-css">.video-js.vjs-mouse .vjs-big-play-button {
         background-color: red;
@@ -1318,7 +1318,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section id="explorestyles" class="bcls-section">
     <h2>Explore styles</h2>
     <p>In this section a JSBin is used to allow you to explore styles and make more customizations to the big play button than what is shown above. Once you get a look you like, you can simply copy the CSS generated and use it with either player implementation as shown above.</p>
-    <p>One issue that may seem confusing is that the actual arrow in the button is not an image but part of a font family. That is why you control its size using <code>font-size</code> and use <code>ems</code> as units.</p>
+    <p>One issue that may seem confusing is that the actual arrow in the button is not an image but part of a font family. That is why you control its size using <code translate="No">font-size</code> and use <code translate="No">ems</code> as units.</p>
     <a class="jsbin-embed" href="http://jsbin.com/fobuhi/embed?css,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.34.3"></script></section>
 </article>
 

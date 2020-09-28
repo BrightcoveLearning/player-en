@@ -1194,16 +1194,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Get the browser language +++</code></pre>
-    <p>Use <code>navigator.language</code> to determine the language being used in the browser. Check for <code>navigator.userLanguage</code> with IE browsers earlier than 10.</p>
+    <p>Use <code translate="No">navigator.language</code> to determine the language being used in the browser. Check for <code translate="No">navigator.userLanguage</code> with IE browsers earlier than 10.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Retrieve the caption tracks</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Get the captions +++</code></pre>
-    <p>Use the <code>myPlayer.textTracks()</code> method to retrieve all the tracks that are displayed in the captions menu. An example of one of the captions is shown here:</p>
+    <p>Use the <code translate="No">myPlayer.textTracks()</code> method to retrieve all the tracks that are displayed in the captions menu. An example of one of the captions is shown here:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="console menu option object" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/auto-language/caption_options.png" /></figure>
-    <p>Notice that the object contains both the country label and country code (language). In the JavaScript code, we are searching for the <code>item.track.language</code> since it is possible that the <code>item.track.label</code> could be translated by the browser.</p>
+    <p>Notice that the object contains both the country label and country code (language). In the JavaScript code, we are searching for the <code translate="No">item.track.language</code> since it is possible that the <code translate="No">item.track.label</code> could be translated by the browser.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Loop over the captions</h3>
@@ -1211,15 +1211,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <pre>
 <code class="language-javascript">// +++ Loop over the captions +++</code></pre>
     <p>Loop over the available captions tracks.</p>
-    <p>The first two items returned are created automatically and will not have a language defined. These are for the <code>captions settings</code> and <code>captions off</code> items that appear when you select the <strong>cc</strong> button.</p>
+    <p>The first two items returned are created automatically and will not have a language defined. These are for the <code translate="No">captions settings</code> and <code translate="No">captions off</code> items that appear when you select the <strong>cc</strong> button.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Set the default caption language</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Set the default caption language +++</code></pre>
-    <p>When the caption language is equal to the browser language, then set it as the default, by setting the <code>item.track.mode</code> to a value of <code>"showing"</code>.</p>
-    <p>Turn the other caption tracks off by setting the <code>item.track.mode</code> to a value of <code>"disabled"</code>.</p>
+    <p>When the caption language is equal to the browser language, then set it as the default, by setting the <code translate="No">item.track.mode</code> to a value of <code translate="No">"showing"</code>.</p>
+    <p>Turn the other caption tracks off by setting the <code translate="No">item.track.mode</code> to a value of <code translate="No">"disabled"</code>.</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -1229,7 +1229,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

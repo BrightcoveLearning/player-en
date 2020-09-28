@@ -1084,7 +1084,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <!-- UPDATE description -->
     
     <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-    <p>After you start the video playing, you can click the back or forward buttons (actually clickable <code>&lt;div&gt;</code> elements) to jump five seconds either way. The five seconds can be easily modified in the code with one change, if you wish to change the number of seconds jumped.</p>
+    <p>After you start the video playing, you can click the back or forward buttons (actually clickable <code translate="No">&lt;div&gt;</code> elements) to jump five seconds either way. The five seconds can be easily modified in the code with one change, if you wish to change the number of seconds jumped.</p>
     <!-- UPDATE codepen here -->
     
     <p class="codepen" data-height="462" data-theme-id="34967" data-default-tab="result" data-user="rcrooks1969" data-slug-hash="qgbRgR" style="height: 462px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Back and Forward Buttons"><span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/qgbRgR/"> Back and Forward Buttons</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</span></p>
@@ -1177,48 +1177,48 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Create HTML <code>&lt;div&gt;</code> tags to hold the buttons.</li>
-      <li>Assign IDs to the <code>&lt;div&gt;</code> tags.</li>
-      <li>Assign images of buttons to the <code>&lt;div&gt;</code> tags.</li>
-      <li>Insert the <code>&lt;div&gt;</code> tags into the controlbar.</li>
-      <li>Add <code>click</code> event handlers to the <code>&lt;div&gt;</code> tags to actually change playback.</li>
+      <li>Create HTML <code translate="No">&lt;div&gt;</code> tags to hold the buttons.</li>
+      <li>Assign IDs to the <code translate="No">&lt;div&gt;</code> tags.</li>
+      <li>Assign images of buttons to the <code translate="No">&lt;div&gt;</code> tags.</li>
+      <li>Insert the <code translate="No">&lt;div&gt;</code> tags into the controlbar.</li>
+      <li>Add <code translate="No">click</code> event handlers to the <code translate="No">&lt;div&gt;</code> tags to actually change playback.</li>
     </ul>
     <!-- UPDATE task 1 -->
     
-    <h3>Create HTML <code>&lt;div&gt;</code> tags</h3>
+    <h3>Create HTML <code translate="No">&lt;div&gt;</code> tags</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Create divs for buttons ###</code></pre>
-    <p>Two <code>&lt;div&gt;</code> tags are created, one for each button.</p>
+    <p>Two <code translate="No">&lt;div&gt;</code> tags are created, one for each button.</p>
     <!-- UPDATE task 2 -->
     
-    <h3>Assign IDs to the <code>&lt;div&gt;</code> tags</h3>
+    <h3>Assign IDs to the <code translate="No">&lt;div&gt;</code> tags</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Assign IDs for later element manipulation ###</code></pre>
-    <p>An ID is assigned to each <code>&lt;div&gt;</code> tag so they can be addressed and changes can be dynamically made to them later in the code.</p>
+    <p>An ID is assigned to each <code translate="No">&lt;div&gt;</code> tag so they can be addressed and changes can be dynamically made to them later in the code.</p>
     <!-- UPDATE task 3 -->
     
-    <h3>Assign images of buttons to the <code>&lt;div&gt;</code> tags</h3>
+    <h3>Assign images of buttons to the <code translate="No">&lt;div&gt;</code> tags</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Assign properties to elements and assign to parents ###</code></pre>
-    <p>Appropriate images are dynamically assigned to <code>&lt;img&gt;</code> tags, then those images assigned to the <code>&lt;div&gt;</code> tags.</p>
+    <p>Appropriate images are dynamically assigned to <code translate="No">&lt;img&gt;</code> tags, then those images assigned to the <code translate="No">&lt;div&gt;</code> tags.</p>
     <!-- UPDATE task 4 -->
     
-    <h3>Insert the <code>&lt;div&gt;</code> tags into the controlbar</h3>
+    <h3>Insert the <code translate="No">&lt;div&gt;</code> tags into the controlbar</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Get controlbar and insert elements ###</code></pre>
-    <p>A reference is obtained to the control bar using the <code>$()</code> method (no relation to jQuery) in this line of code:</p>
+    <p>A reference is obtained to the control bar using the <code translate="No">$()</code> method (no relation to jQuery) in this line of code:</p>
     <pre class="line-numbers">
 <code class="language-javascript">controlBar = myPlayer.$('.vjs-control-bar');</code></pre>
     <p>This is equivalent to using this JavaScript:</p>
     <pre class="line-numbers">
 <code class="language-javascript">document.getElementsByClassName('vjs-control-bar')[0];</code></pre>
-    <p>The advantage of the <code>$()</code> method is that it can be scoped to the player, so multiple players won't cause an issue. Also it returns the single element, not an array.</p>
-    <aside class="bcls-aside bcls-aside--tip language-editable">Basically <code>$</code> = <code>querySelector</code> and <code>$$</code> = <code>querySelectorAll</code>. They are shorthand for <code>myPlayer.el().querySelector</code> and <code>myPlayer.el().querySelectorAll</code>.</aside>
-    <p>Once you have a reference to the controlbar, a reference to the element containing the volume control is obtained as a reference where to place the buttons. Finally, both <code>&lt;div&gt;</code> tags are inserted into the control bar.</p>
+    <p>The advantage of the <code translate="No">$()</code> method is that it can be scoped to the player, so multiple players won't cause an issue. Also it returns the single element, not an array.</p>
+    <aside class="bcls-aside bcls-aside--tip language-editable">Basically <code translate="No">$</code> = <code translate="No">querySelector</code> and <code translate="No">$$</code> = <code translate="No">querySelectorAll</code>. They are shorthand for <code translate="No">myPlayer.el().querySelector</code> and <code translate="No">myPlayer.el().querySelectorAll</code>.</aside>
+    <p>Once you have a reference to the controlbar, a reference to the element containing the volume control is obtained as a reference where to place the buttons. Finally, both <code translate="No">&lt;div&gt;</code> tags are inserted into the control bar.</p>
     <!-- UPDATE task 5 -->
     
     <h3>Add event handlers</h3>
@@ -1231,11 +1231,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
-    <p>The CSS controls the size and positioning of the images in the <code>&lt;div&gt;</code> tags.</p>
+    <p>The CSS controls the size and positioning of the images in the <code translate="No">&lt;div&gt;</code> tags.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

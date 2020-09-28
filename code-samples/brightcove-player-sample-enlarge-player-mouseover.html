@@ -66,7 +66,7 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Implementation_details">Implementation details</h2>
-    <p>There is additional logic using the <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html">Player API</a> to remove the shrink behavior while the video is playing, and then restore it again when the video is paused or ends. As created here, this sample must use the <code>Advanced</code> (in-page) player embed. You could create this functionality using the <code>iframe</code> embed code also, but the logic would be a little different and would not lend itself to being turned into a plugin.</p>
+    <p>There is additional logic using the <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html">Player API</a> to remove the shrink behavior while the video is playing, and then restore it again when the video is paused or ends. As created here, this sample must use the <code translate="No">Advanced</code> (in-page) player embed. You could create this functionality using the <code translate="No">iframe</code> embed code also, but the logic would be a little different and would not lend itself to being turned into a plugin.</p>
   </section>
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
@@ -95,10 +95,10 @@ parent: Code Samples
   
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
-    <p>In this example, the Brightcove Player code uses a <code>style</code> attribute with the <code>width</code> and <code>height</code> properties set to <code>100%</code>.</p>
+    <p>In this example, the Brightcove Player code uses a <code translate="No">style</code> attribute with the <code translate="No">width</code> and <code translate="No">height</code> properties set to <code translate="No">100%</code>.</p>
     <h3>Other HTML</h3>
-    <p>A player wrapper <code>&lt;div&gt;</code> element is added around the player embed code to dynamically control the size of the player.</p>
-    <p>Remember to add the <code>id</code> attribute to the <code>video-js</code> tag in the player embed code.</p>
+    <p>A player wrapper <code translate="No">&lt;div&gt;</code> element is added around the player embed code to dynamically control the size of the player.</p>
+    <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
 <code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
@@ -111,7 +111,7 @@ parent: Code Samples
     <ul>
       <li>Define the large and small player sizes.</li>
       <li>Add functions to make the player large or small.</li>
-      <li>Add listeners for the <code>mouseover</code> and <code>mouseout</code> events.</li>
+      <li>Add listeners for the <code translate="No">mouseover</code> and <code translate="No">mouseout</code> events.</li>
       <li>On mouseover, make the player large. On mouseout, make the player small. While the video is playing, keep the player large. When the video is paused or the video ends, make the player small.</li>
     </ul>
     <!-- UPDATE task 1 -->
@@ -131,7 +131,7 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Listen for the mouseout event +++</code></pre>
-    <p>Listen for the <code>mouseout</code> event on the <code>playerWrapper</code>. When the event is triggered, make the player small.</p>
+    <p>Listen for the <code translate="No">mouseout</code> event on the <code translate="No">playerWrapper</code>. When the event is triggered, make the player small.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Control the player size</h3>
@@ -141,21 +141,21 @@ parent: Code Samples
     <p>Add logic to do the following:</p>
     <ul>
       <li>Initially make the player small.</li>
-      <li>On <code>mouseover</code>, make the player large.</li>
-      <li>On <code>play</code> event, keep the player large.</li>
-      <li>On <code>pause</code> or <code>ended</code> events, make the player small.</li>
-      <li>On <code>mouseout</code>, make the player small.</li>
+      <li>On <code translate="No">mouseover</code>, make the player large.</li>
+      <li>On <code translate="No">play</code> event, keep the player large.</li>
+      <li>On <code translate="No">pause</code> or <code translate="No">ended</code> events, make the player small.</li>
+      <li>On <code translate="No">mouseout</code>, make the player small.</li>
     </ul>
   </section>
   <!-- UPDATE CSS description -->
   
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
-    <p>The CSS initially sets the <code>playerWrapper</code> and defines the transition between the small and large player.</p>
+    <p>The CSS initially sets the <code translate="No">playerWrapper</code> and defines the transition between the small and large player.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

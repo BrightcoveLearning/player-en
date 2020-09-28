@@ -1085,8 +1085,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>These steps assume you have written the code to enhance the Brightcove Player on a single, HTML page.</p>
     <ol class="bcls-tasklist">
       <li>Create empty files for the JavaScript and CSS. As a best practice, the filenames should reflect the plugin's functionality. In the video <strong>back-forward-buttons.js</strong> and <strong>back-forward-buttons.css</strong> are used.</li>
-      <li>Copy the CSS from the HTML page, minus the <code>&lt;style&gt;</code> tags, and paste into the dedicated CSS file.</li>
-      <li>Copy the JavaScript from the HTML page, minus the <code>&lt;script&gt;</code> tags, and paste into the dedicated JavaScript file.</li>
+      <li>Copy the CSS from the HTML page, minus the <code translate="No">&lt;style&gt;</code> tags, and paste into the dedicated CSS file.</li>
+      <li>Copy the JavaScript from the HTML page, minus the <code translate="No">&lt;script&gt;</code> tags, and paste into the dedicated JavaScript file.</li>
       <li>In the JavaScript file, locate the code that resembles
         <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function () {</code></pre>
@@ -1095,18 +1095,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-javascript">videojs.registerPlugin('backForwardButtons', function() {</code></pre>
         <aside class="bcls-aside bcls-aside--information language-editable">Note that the filenames for the CSS and JavaScript uses hyphens, while the plugin name is camelCase. This is simply a convention used by the writer of the code and you can name entities as you wish.</aside>
       </li>
-      <li>From the original HTML page, remove the <code>&lt;style&gt;</code> block and replace it with a link to the CSS file:
+      <li>From the original HTML page, remove the <code translate="No">&lt;style&gt;</code> block and replace it with a link to the CSS file:
         <pre class="line-numbers">
 <code class="language-html">&lt;link href="back-forward-buttons.css" rel="stylesheet"&gt;</code></pre>
       </li>
-      <li>From the original HTML page, and just below the <code>&lt;script&gt;</code> tag that links to the player's <code>index.min.js</code> file, add a second <code>&lt;script&gt;</code> tag to link to the plugin's JavaScript:
+      <li>From the original HTML page, and just below the <code translate="No">&lt;script&gt;</code> tag that links to the player's <code translate="No">index.min.js</code> file, add a second <code translate="No">&lt;script&gt;</code> tag to link to the plugin's JavaScript:
         <pre class="line-numbers">
 <code class="language-html">&lt;script src="back-forward-buttons.js"&gt;&lt;/script&gt;</code></pre>
       </li>
-      <li>From the original HTML page, remove the contents of the <code>&lt;script&gt;</code> block, and replace it code that performs the following:
+      <li>From the original HTML page, remove the contents of the <code translate="No">&lt;script&gt;</code> block, and replace it code that performs the following:
         <ul>
-          <li>Get a reference to the player using the <code>getPlayer()</code> and <code>ready()</code> methods, that has a related anonymous event handler function.</li>
-          <li>In the event handler function, assign a variable named <code>myPlayer</code> the <code>this</code> keyword, which represents the player in this context.</li>
+          <li>Get a reference to the player using the <code translate="No">getPlayer()</code> and <code translate="No">ready()</code> methods, that has a related anonymous event handler function.</li>
+          <li>In the event handler function, assign a variable named <code translate="No">myPlayer</code> the <code translate="No">this</code> keyword, which represents the player in this context.</li>
           <li>Call the plugin.</li>
         </ul>
         <pre class="line-numbers">

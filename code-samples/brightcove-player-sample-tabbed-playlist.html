@@ -100,7 +100,7 @@ parent: Code Samples
     <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Playlist enabled" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/tabbed-playlist/display-playlist-enabled.png" /></figure>
     <p>If you want, you can add your player dimensions. Notice that, by default, these dimensions are adjusted to include the playlist. In this example, we will use CSS to control the player and playlist sizes.</p>
     <h3>Other HTML</h3>
-    <p>The tabs in the tabbed navigation are defined in a <code>div</code> block above the player embed code. Notice that each tab defines the playlist name and contains an <code>onclick</code> event, which calls the <code>processTab()</code> function with an index value. You will find this function defined in the JavaScript code.</p>
+    <p>The tabs in the tabbed navigation are defined in a <code translate="No">div</code> block above the player embed code. Notice that each tab defines the playlist name and contains an <code translate="No">onclick</code> event, which calls the <code translate="No">processTab()</code> function with an index value. You will find this function defined in the JavaScript code.</p>
     <p>Since the current playlist version does not include an HTML element for the playlist, the following code has been added directly after the player embed code:</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
@@ -125,7 +125,7 @@ parent: Code Samples
     <ul>
       <li>Reset (un-highlight) all of the tabs.</li>
       <li>Highlight the selected tab.</li>
-      <li>Call the <code>loadPlaylist()</code> function.</li>
+      <li>Call the <code translate="No">loadPlaylist()</code> function.</li>
     </ul>
     <!-- UPDATE task 2 -->
     
@@ -137,7 +137,7 @@ parent: Code Samples
     <ul>
       <li>Reset (un-highlight) all of the tabs.</li>
       <li>Highlight the selected tab.</li>
-      <li>Call the <code>loadPlaylist()</code> function.</li>
+      <li>Call the <code translate="No">loadPlaylist()</code> function.</li>
     </ul>
     <!-- UPDATE task 3 -->
     
@@ -155,7 +155,7 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
@@ -189,8 +189,8 @@ parent: Code Samples
     <p>The player code and JavaScript are the same as the static example. The HTML around the player code has a few differences. Compare the two files to see the changes.</p>
     <h3>Application styling</h3>
     <p>CSS is used to size and style the player along with the tabbed playlist. It also controls the responsive layout. Media Queries are used to change the layout from playlist on the right, to playlist under the player to stacked below the player based on the view size.</p>
-    <aside class="bcls-aside bcls-aside--information">The use of CSS <code>!important</code> declarations ensure those values take precedence over later rules. This is needed to make the player responsive in IE11.</aside>
-    <aside class="bcls-aside bcls-aside--warning">Be careful with the pseudo selectors. An extra space will cause the player to <strong>not</strong> be visible. For example, you do not want this <code>.myplayer: after {</code></aside>
+    <aside class="bcls-aside bcls-aside--information">The use of CSS <code translate="No">!important</code> declarations ensure those values take precedence over later rules. This is needed to make the player responsive in IE11.</aside>
+    <aside class="bcls-aside bcls-aside--warning">Be careful with the pseudo selectors. An extra space will cause the player to <strong>not</strong> be visible. For example, you do not want this <code translate="No">.myplayer: after {</code></aside>
   </section>
   <!-- <section class="bcls-section">
     <h2 id="Using_the_Social_Media_plugin">Using the Social Media plugin</h2>

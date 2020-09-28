@@ -32,7 +32,7 @@ parent: Plugins
   <p>v5.13.0</p>
   <ul>
     <li>Use webwackify for webworkers to support webpack bundle</li>
-    <li>Fix <code>tech.play()</code> throwing unresolved promise errors on Chrome</li>
+    <li>Fix <code translate="No">tech.play()</code> throwing unresolved promise errors on Chrome</li>
     <li>update url-toolkit to version 2.1.3</li>
     <li>Add jsDelivr link</li>
     <li>Update karma reconnect configuration to match video.js
@@ -40,7 +40,7 @@ parent: Plugins
         <li>Increase karma's browserDisconnectTolerance to 3</li>
       </ul>
     </li>
-    <li>Add <code>nvmrc</code> and update travis' chrome reference
+    <li>Add <code translate="No">nvmrc</code> and update travis' chrome reference
       <ul>
         <li>Update karma-chrome-launcher to version 2.2.0</li>
         <li>Update karma to version 1.7.1 and remove firefox from travis configuration</li>
@@ -56,7 +56,7 @@ parent: Plugins
     <li>Remove unused expected manifest JavaScript files</li>
     <li>Remove extraneous methods from <strong>PlaylistLoader</strong>
       <ul>
-        <li>Move <code>isLowestEnabledRendition</code> to Playlist module</li>
+        <li>Move <code translate="No">isLowestEnabledRendition</code> to Playlist module</li>
       </ul>
     </li>
     <li>Update <strong>contrib-media-sources</strong> to 4.6.2
@@ -86,7 +86,7 @@ parent: Plugins
   <h4>19 Oct 2017</h4>
   <p>v5.12.0</p>
   <ul>
-    <li>Use <code>lastSegmentDuration + 2 * targetDuration</code> for safe live point instead of 3 segments
+    <li>Use <code translate="No">lastSegmentDuration + 2 * targetDuration</code> for safe live point instead of 3 segments
       <ul>
         <li>Do not let back buffer trimming remove within target duration of current time</li>
         <li>Increase threshold for stuck playlist checking</li>
@@ -94,7 +94,7 @@ parent: Plugins
     </li>
     <li>Fix video corruption on rendition switches in IE11 Win 8.1+ and Edge
       <ul>
-        <li><code>segment-time-mapping</code> event</li>
+        <li><code translate="No">segment-time-mapping</code> event</li>
         <li>Update <strong>contrib-media-sources</strong> to 4.6.0</li>
       </ul>
     </li>
@@ -119,7 +119,7 @@ parent: Plugins
         </li>
       </ul>
     </li>
-    <li>fix <code>InvalidStateError</code> for live playback in IE11</li>
+    <li>fix <code translate="No">InvalidStateError</code> for live playback in IE11</li>
   </ul>
   <h4>20 Sep 2017</h4>
   <p>v5.11.0</p>
@@ -160,9 +160,9 @@ parent: Plugins
   <ul>
     <li>Added option to select lowest bitrate video rendition available on startup</li>
     <li>Always activate loading in segment loaders after a seek</li>
-    <li>Wait for <code>canplay</code> event from tech before <code>PlaybackWatcher</code> begins monitoring
+    <li>Wait for <code translate="No">canplay</code> event from tech before <code translate="No">PlaybackWatcher</code> begins monitoring
       <ul>
-        <li>Fixed <code>InvalidStateError</code> in Win10 IE11</li>
+        <li>Fixed <code translate="No">InvalidStateError</code> in Win10 IE11</li>
       </ul>
     </li>
     <li>Blacklisted playlist for 2 minutes on early abort to prevent cache loop
@@ -200,9 +200,9 @@ parent: Plugins
     <li>ABR Improvements
       <ul>
         <li>Use a starting bandwidth value of 0.0625 MB/s on Android devices</li>
-        <li>Do not allow an up-switch in quality until a certain amount of forward buffer has been filled, <code>BUFFER_LOW_WATER_LINE</code></li>
-        <li>Dynamically increase the <code>BUFFER_LOW_WATER_LINE</code> and <code>GOAL_BUFFER_LENGTH</code> from 0 - &gt; 30 and 30 -&gt; 60 respectively during the first 30 seconds of playback</li>
-        <li>Abort segment requests before completion if bandwidth reported by the XHR <code>progress</code> event shows that network conditions are not fast enough to complete the request without causing rebuffering</li>
+        <li>Do not allow an up-switch in quality until a certain amount of forward buffer has been filled, <code translate="No">BUFFER_LOW_WATER_LINE</code></li>
+        <li>Dynamically increase the <code translate="No">BUFFER_LOW_WATER_LINE</code> and <code translate="No">GOAL_BUFFER_LENGTH</code> from 0 - &gt; 30 and 30 -&gt; 60 respectively during the first 30 seconds of playback</li>
+        <li>Abort segment requests before completion if bandwidth reported by the XHR <code translate="No">progress</code> event shows that network conditions are not fast enough to complete the request without causing rebuffering</li>
       </ul>
     </li>
   </ul>
@@ -235,7 +235,7 @@ parent: Plugins
       </ul>
     </li>
     <li>Prevents crash when segment metadata cues can't be created</li>
-    <li>Allow <code>overrideNative</code> to be set as a player-level option</li>
+    <li>Allow <code translate="No">overrideNative</code> to be set as a player-level option</li>
     <li>Create a moving-average playlist selector
       <ul>
         <li>Define a variant of the standard playlist selector that calculates a moving average of bandwidth and uses that to select a playlist.</li>
@@ -249,7 +249,7 @@ parent: Plugins
     <li>Updated <strong>mux.js</strong> to 4.1.4 and <strong>videojs-contrib-media-sources</strong> to 4.4.5
       <ul>
         <li>ts probe searches packets for first it can successfully parse</li>
-        <li>Fixed an issue that could cause <code>updateend</code> events to fire more than once per append or remove under very specific conditions on Firefox</li>
+        <li>Fixed an issue that could cause <code translate="No">updateend</code> events to fire more than once per append or remove under very specific conditions on Firefox</li>
       </ul>
     </li>
     <li>Trigger error events when received empty response</li>
@@ -260,18 +260,18 @@ parent: Plugins
     <li>Fixed playback stalls when everything appears okay
       <ul>
         <li>Add playback watcher check for unknown player waiting</li>
-        <li>Do not do <code>unknownwaiting</code> check when the tech fires a native waiting event</li>
+        <li>Do not do <code translate="No">unknownwaiting</code> check when the tech fires a native waiting event</li>
         <li>Don't track current time waiting when at the end of the buffer</li>
-        <li>Call <code>techWaiting_</code> when we detect a stall at the end of buffer</li>
+        <li>Call <code translate="No">techWaiting_</code> when we detect a stall at the end of buffer</li>
       </ul>
     </li>
   </ul>
   <h4>4 May 2017</h4>
   <p>v5.5.1</p>
   <ul>
-    <li>Use specified <code>mediasequence</code> for VOD expired sync instead of assuming 0
+    <li>Use specified <code translate="No">mediasequence</code> for VOD expired sync instead of assuming 0
       <ol>
-        <li>Used <code>synccontroller</code> for expired</li>
+        <li>Used <code translate="No">synccontroller</code> for expired</li>
       </ol>
     </li>
     <li>Fixed: CODEC to mime-type conversion now takes into account all possible scenarios</li>
@@ -281,8 +281,8 @@ parent: Plugins
   <ul>
     <li>Update <strong>mux.js</strong> to 4.1.3 and <strong>media-sources</strong> to 4.4.4</li>
     <li>Trigger an event when a playlist is blacklisted or retried</li>
-    <li>Triggers <code>blacklistplaylist</code> when a playlist is blacklisted</li>
-    <li>Triggers <code>retryplaylist</code> when retrying to load an errored playlist</li>
+    <li>Triggers <code translate="No">blacklistplaylist</code> when a playlist is blacklisted</li>
+    <li>Triggers <code translate="No">retryplaylist</code> when retrying to load an errored playlist</li>
     <li>Added option to modify blacklist duration</li>
   </ul>
   <h4>10 Apr 2017</h4>
@@ -291,10 +291,10 @@ parent: Plugins
     <li>Updated <strong>contrib-media-sources</strong> to 4.4.3</li>
     <li>Fixed: Exceptions from calling endOfStream when the media source isn't ready</li>
     <li>Fixed: Segment time mapping for fmp4 playback</li>
-    <li>If <code>beforeRequest</code> is set, reuse it on source changes
+    <li>If <code translate="No">beforeRequest</code> is set, reuse it on source changes
       <ul>
-        <li>Allow changing global xhr <code>beforeRequest</code> at runtime</li>
-        <li>Always use latest <code>beforeRequest</code> instead of setting it when creating hls object</li>
+        <li>Allow changing global xhr <code translate="No">beforeRequest</code> at runtime</li>
+        <li>Always use latest <code translate="No">beforeRequest</code> instead of setting it when creating hls object</li>
       </ul>
     </li>
   </ul>
@@ -354,7 +354,7 @@ parent: Plugins
         <li>Updated <strong>videojs-contrib-media-sources</strong> to 4.4.0</li>
       </ul>
     </li>
-    <li>Reorganized the functions in <code>SegmentLoader</code> to better follow the flow of execution from top-down</li>
+    <li>Reorganized the functions in <code translate="No">SegmentLoader</code> to better follow the flow of execution from top-down</li>
     <li>Removed ad-hoc logging in favor of a config-enabled logging like playback-watcher</li>
     <li>isLowestEnabledRendition worked with redundant streams</li>
     <li>Renamed Worker to DecrypterWorker</li>
@@ -372,7 +372,7 @@ parent: Plugins
   <h4>8 Feb 2017</h4>
   <p>v5.2.0</p>
   <ul>
-    <li>Updated dependencies for 4.3.0 <code>mediasources</code></li>
+    <li>Updated dependencies for 4.3.0 <code translate="No">mediasources</code></li>
     <li>Removed HLS object events from README</li>
   </ul>
   <h4>3 Feb 2017</h4>
@@ -381,9 +381,9 @@ parent: Plugins
     <li>Introduced Video.js 6 forward compatibility while maintaining backward compatibilty
       <ul>
         <li>Swap to use getTech and null-check Flash tech</li>
-        <li>Only <code>registerComponent</code> HLS in older Video.js</li>
-        <li>Use <code>registerPlugin</code> if it exists</li>
-        <li><code>addTrack</code> cross compatibility</li>
+        <li>Only <code translate="No">registerComponent</code> HLS in older Video.js</li>
+        <li>Use <code translate="No">registerPlugin</code> if it exists</li>
+        <li><code translate="No">addTrack</code> cross compatibility</li>
       </ul>
     </li>
     <li>Added events for underflow and live resync
@@ -402,19 +402,19 @@ parent: Plugins
     </li>
     <li>Remove <strong>hls-audio-track.js</strong> as this file was no longer being used</li>
     <li>Stop blacklisting audio codecs as there is now wide support for switching between audio codecs on-the-fly among all modern browsers</li>
-    <li>Fix <code>qualityLevels</code> setup for videos with a source element</li>
-    <li>Error early for misconfigured <code>overrideNative</code></li>
+    <li>Fix <code translate="No">qualityLevels</code> setup for videos with a source element</li>
+    <li>Error early for misconfigured <code translate="No">overrideNative</code></li>
   </ul>
   <h4>25 Jan 2017</h4>
   <p>v5.0.0</p>
   <ul>
     <li>Updated issue template to use unpkg for latest versions</li>
     <li>Used a snapshot of the issue template JSBin to protect from changes by owner</li>
-    <li>Fixed any possible <code>fillBuffer_</code> race conditions by debouncing all <code>fillBuffers_</code>
+    <li>Fixed any possible <code translate="No">fillBuffer_</code> race conditions by debouncing all <code translate="No">fillBuffers_</code>
       <ul>
-        <li>Converted all calls to <code>fillBuffer_</code> to calls to <code>monitorBuffer_</code></li>
-        <li>Renamed <code>monitorBuffer_</code> to <code>monitorBufferTick_</code> which becomes the 500ms buffer check timer loop</li>
-        <li>Made <code>monitorBuffer_</code> schedule an immediate timer for <code>monitorBufferTick_</code></li>
+        <li>Converted all calls to <code translate="No">fillBuffer_</code> to calls to <code translate="No">monitorBuffer_</code></li>
+        <li>Renamed <code translate="No">monitorBuffer_</code> to <code translate="No">monitorBufferTick_</code> which becomes the 500ms buffer check timer loop</li>
+        <li>Made <code translate="No">monitorBuffer_</code> schedule an immediate timer for <code translate="No">monitorBufferTick_</code></li>
       </ul>
     </li>
     <li>Made it possible for processing segment reachable even after playlist update removes it
@@ -431,13 +431,13 @@ parent: Plugins
       </ul>
     </li>
     <li>Running decryption in a webworker no longer supported for IE10</li>
-    <li>Fixed <code>mediaIndex</code> tracking so that it is consistent when the playlist updates during a live stream
+    <li>Fixed <code translate="No">mediaIndex</code> tracking so that it is consistent when the playlist updates during a live stream
       <ul>
-        <li>Fixed <code>mediaIndex</code> tracking so that it is consistent when the playlist updates during a live stream</li>
-        <li>Removed any code in <code>SegmentLoader#handleUpdateEnd_</code> that changed the <code>mediaIndex</code></li>
-        <li>Reordered <code>SegmentLoader#playlist</code> to make it easier to follow</li>
-        <li>All changes to both <code>mediaIndexes</code> (SegmentLoader's and segmentInfo's) now happen in <code>SegmentLoader#playlist</code></li>
-        <li>Added tests for proper <code>mediaIndex</code> tracking with live playlists</li>
+        <li>Fixed <code translate="No">mediaIndex</code> tracking so that it is consistent when the playlist updates during a live stream</li>
+        <li>Removed any code in <code translate="No">SegmentLoader#handleUpdateEnd_</code> that changed the <code translate="No">mediaIndex</code></li>
+        <li>Reordered <code translate="No">SegmentLoader#playlist</code> to make it easier to follow</li>
+        <li>All changes to both <code translate="No">mediaIndexes</code> (SegmentLoader's and segmentInfo's) now happen in <code translate="No">SegmentLoader#playlist</code></li>
+        <li>Added tests for proper <code translate="No">mediaIndex</code> tracking with live playlists</li>
       </ul>
     </li>
   </ul>
@@ -511,12 +511,12 @@ parent: Plugins
   <h4>14 Nov 2016</h4>
   <p>v3.6.12</p>
   <ul>
-    <li>Changed <code>resolveUrl</code> to use JavaScript only</li>
+    <li>Changed <code translate="No">resolveUrl</code> to use JavaScript only</li>
   </ul>
   <h4>11 Nov 2016</h4>
   <p>v3.6.11</p>
   <ul>
-    <li>Updated the reloadSourceOnErrors plugin: Don't try to set the source if <code>getSource</code> returns <code>undefined</code> or <code>null</code></li>
+    <li>Updated the reloadSourceOnErrors plugin: Don't try to set the source if <code translate="No">getSource</code> returns <code translate="No">undefined</code> or <code translate="No">null</code></li>
     <li><strong>resolve-url.js</strong> now uses an iframe to contain the base and anchor elements used to resolve relative urls</li>
   </ul>
   <h4>10 Nov 2016</h4>
@@ -529,7 +529,7 @@ parent: Plugins
         <li>Plugin now cleans up event bindings when initialized multiple times</li>
       </ul>
     </li>
-    <li>Fixed <code>trimBuffer</code> to compare correct segments and correctly trim in the live case</li>
+    <li>Fixed <code translate="No">trimBuffer</code> to compare correct segments and correctly trim in the live case</li>
   </ul>
   <h4>9 Nov 2016</h4>
   <p>v3.6.9</p>
@@ -554,7 +554,7 @@ parent: Plugins
   <h4>21 Oct 2016</h4>
   <p>v3.6.6</p>
   <ul>
-    <li>Use <code>setTimeout</code> in gap skipper instead of relying on <code>timeupdate</code> events</li>
+    <li>Use <code translate="No">setTimeout</code> in gap skipper instead of relying on <code translate="No">timeupdate</code> events</li>
     <li>Updated <strong>videojs-contrib-media-sources</strong> to 4.0.4
       <ul>
         <li>Append init segment to video buffer for every segment</li>
@@ -641,13 +641,13 @@ parent: Plugins
   <h4>15 Aug 2016</h4>
   <p>v3.5.0</p>
   <ul>
-    <li>Updated support for <code>#ext-x-cue-out</code>, <code>#ext-x-cue-in</code>, and <code>#ext-x-cue-out-cont</code> to create a single cue spanning the range of time covered by the ad break</li>
-    <li>Updated to videojs-media-sources 3.1.4 to increase the values of the <code>FlashConstants</code> to push more data into flash per chunk-interval</li>
+    <li>Updated support for <code translate="No">#ext-x-cue-out</code>, <code translate="No">#ext-x-cue-in</code>, and <code translate="No">#ext-x-cue-out-cont</code> to create a single cue spanning the range of time covered by the ad break</li>
+    <li>Updated to videojs-media-sources 3.1.4 to increase the values of the <code translate="No">FlashConstants</code> to push more data into flash per chunk-interval</li>
   </ul>
   <h4>29 Jul 2016</h4>
   <p>v3.4.0</p>
   <ul>
-    <li>Added support for <code>#ext-x-cue-out</code>, <code>#ext-x-cue-in</code>, and <code>#ext-x-cue-out-cont</code> via a special TextTrack</li>
+    <li>Added support for <code translate="No">#ext-x-cue-out</code>, <code translate="No">#ext-x-cue-in</code>, and <code translate="No">#ext-x-cue-out-cont</code> via a special TextTrack</li>
     <li>Added the ability to skip gaps caused by video underflow behavior in Chrome</li>
   </ul>
   <h4>25 Jul 2016</h4>
@@ -665,7 +665,7 @@ parent: Plugins
   <h4>9 Jun 2016</h4>
   <p>v3.1.0</p>
   <ul>
-    <li>Added manual rendition selection API via the <code>representations()</code> function on each instance of the <code>HlsHandler</code> class</li>
+    <li>Added manual rendition selection API via the <code translate="No">representations()</code> function on each instance of the <code translate="No">HlsHandler</code> class</li>
     <li>Pulled out and moved m3u8 parsing functionality into it's own project at https://github.com/videojs/m3u8-parser</li>
   </ul>
   <h4>2 Jun 2016</h4>
@@ -795,7 +795,7 @@ parent: Plugins
   </ul>
   <h4 id="toc_21">v0.5.0</h4>
   <ul>
-    <li>cookie-based content protection support (see <code>withCredentials</code>)</li>
+    <li>cookie-based content protection support (see <code translate="No">withCredentials</code>)</li>
   </ul>
   <h4 id="toc_22">v0.4.0</h4>
   <ul>

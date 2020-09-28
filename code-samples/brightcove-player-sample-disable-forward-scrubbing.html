@@ -49,8 +49,8 @@ parent: Code Samples
     <p>The simplest way to use a middleware function is to:</p>
     <ol>
       <li>Write the middleware function.</li>
-      <li>Place the middleware function either on the page with the player in a <code>script</code> tag, or include the middleware function using the <code>src</code> attribute with a <code>script</code> tag. Both implementations will be shown in this document.</li>
-      <li>Register the middleware function with the player using the <code>use()</code> method, as shown here:
+      <li>Place the middleware function either on the page with the player in a <code translate="No">script</code> tag, or include the middleware function using the <code translate="No">src</code> attribute with a <code translate="No">script</code> tag. Both implementations will be shown in this document.</li>
+      <li>Register the middleware function with the player using the <code translate="No">use()</code> method, as shown here:
         <pre class="line-numbers">
 <code class="language-javascript">videojs.use('mimeType', functionName);</code></pre>
         <p>For the <strong>mimetype</strong> you can use a standard video mimetype, like <strong>video/mp4</strong>, or use an <strong>*</strong> if you wish the middleware function to act on all mimetypes.</p>
@@ -73,9 +73,9 @@ parent: Code Samples
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Implement the basic syntax for a middleware function, naming the function <code>disableForwardScrubbing</code>.</li>
-      <li>Implement the required <code>setSource()</code> method.</li>
-      <li>Alter the <code>setCurrentTime()</code> method to check if the time to which the viewer is trying to scrub is less than the current time in the player, or the scrub forward percentage has passed. If either is true, move the playhead to that time. If false, keep the video playing at the current time.</li>
+      <li>Implement the basic syntax for a middleware function, naming the function <code translate="No">disableForwardScrubbing</code>.</li>
+      <li>Implement the required <code translate="No">setSource()</code> method.</li>
+      <li>Alter the <code translate="No">setCurrentTime()</code> method to check if the time to which the viewer is trying to scrub is less than the current time in the player, or the scrub forward percentage has passed. If either is true, move the playhead to that time. If false, keep the video playing at the current time.</li>
     </ul>
     <!-- UPDATE task 1 -->
     
@@ -89,10 +89,10 @@ parent: Code Samples
   return {
   ...
 };</code></pre>
-    <p>Note that the <code>player</code> object is passed to the function.</p>
+    <p>Note that the <code translate="No">player</code> object is passed to the function.</p>
     <!-- UPDATE task 2 -->
     
-    <h3>Implement the <code>setSource()</code> method</h3>
+    <h3>Implement the <code translate="No">setSource()</code> method</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Implement setSource() ###</code></pre>
@@ -107,7 +107,7 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Alter the setCurrentTime method ###</code></pre>
-    <p>This code block is where the actual <code>setCurrentTime()</code> method is altered. To understand this, the first point to know is that the <code>ct</code> value passed to the function reflects the value to which the viewer is scrubbing. The <code>if</code> statement checks to see if the new value is smaller than the player's current time or exceeds the percentage to allow forward scrubbing. If either is true, the new value is returned, which causes the playhead to be moved to the new value. If the condition is false, which means the viewer is trying to scrub forward before being allowed, the player's current time is returned and playback is not altered.</p>
+    <p>This code block is where the actual <code translate="No">setCurrentTime()</code> method is altered. To understand this, the first point to know is that the <code translate="No">ct</code> value passed to the function reflects the value to which the viewer is scrubbing. The <code translate="No">if</code> statement checks to see if the new value is smaller than the player's current time or exceeds the percentage to allow forward scrubbing. If either is true, the new value is returned, which causes the playhead to be moved to the new value. If the condition is false, which means the viewer is trying to scrub forward before being allowed, the player's current time is returned and playback is not altered.</p>
     <pre class="line-numbers">
 <code class="language-javascript">setCurrentTime: function setCurrentTime(ct) {
   var percentAllowForward = 50,
@@ -177,7 +177,7 @@ parent: Code Samples
 
 &lt;/script&gt;</code></pre>
     <h3>Code included on player page</h3>
-    <p>In the following code, the JavaScript for the middleware function and the <code>use()</code> method to register it are simply included in the page.</p>
+    <p>In the following code, the JavaScript for the middleware function and the <code translate="No">use()</code> method to register it are simply included in the page.</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;video-js id="myPlayerID"
   data-video-id="5701202551001"

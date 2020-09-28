@@ -1077,14 +1077,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <article class="bcls-article">
   <h1>RequireJS and Brightcove Player</h1>
-  <summary>In this topic, you will learn how to use RequireJS, a JavaScript file and module loader, with Brightcove Player. RequireJS assists in managing dependencies when using multiple JavaScript scripts. Since Brightcove Player has its own script per player, the <code>index.min.js</code> file, this document provides the code to use Brightcove Player in a RequireJS implementation.</summary>
+  <summary>In this topic, you will learn how to use RequireJS, a JavaScript file and module loader, with Brightcove Player. RequireJS assists in managing dependencies when using multiple JavaScript scripts. Since Brightcove Player has its own script per player, the <code translate="No">index.min.js</code> file, this document provides the code to use Brightcove Player in a RequireJS implementation.</summary>
   <section class="bcls-section">
     <h2 id="Instantiate_Brightcove_Player">Instantiate Brightcove Player</h2>
     <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>The following code details implementing Brightcove Player when utilizing RequireJS. Three key points:</p>
     <ol>
       <li>The code insures that the player gets initialized before the callback gets called.</li>
-      <li>The use of the <code>on()</code> and <code>play()</code> methods (lines 36-38) are only for demonstration purposes, and not required for the use of the player. Those three lines of code only indicate where you could begin using Brightcove Player's API.</li>
+      <li>The use of the <code translate="No">on()</code> and <code translate="No">play()</code> methods (lines 36-38) are only for demonstration purposes, and not required for the use of the player. Those three lines of code only indicate where you could begin using Brightcove Player's API.</li>
       <li>The highlighted code pertains to Brightcove Player.</li>
     </ol>
     <pre class="line-numbers">
@@ -1135,7 +1135,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Using_an_anonymous_module">Using an anonymous module</h2>
-    <p>As you have seen in the code shown above, when using RequireJS with the Brightcove Player v6.x a module named <code>bc</code> is created. The approach recommended by RequireJS is to provide an anonymous AMD module, which makes including multiple Brightcove Players significantly easier. You can make the module anonymous by default. Brightcove highly recommends you make a player configuration change to opt-in to this default, and at the same time the change will remove the console warning from your player. Setting the player configuration <code>"require_js_anonymous": true</code> is the required change. The curl statement to make this update appears as follows:</p>
+    <p>As you have seen in the code shown above, when using RequireJS with the Brightcove Player v6.x a module named <code translate="No">bc</code> is created. The approach recommended by RequireJS is to provide an anonymous AMD module, which makes including multiple Brightcove Players significantly easier. You can make the module anonymous by default. Brightcove highly recommends you make a player configuration change to opt-in to this default, and at the same time the change will remove the console warning from your player. Setting the player configuration <code translate="No">"require_js_anonymous": true</code> is the required change. The curl statement to make this update appears as follows:</p>
     <pre class="line-numbers">
 <code class="language-bash">curl \
   --header "Content-Type: application/json" \
@@ -1145,7 +1145,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <span class="bcls-highlight">"require_js_anonymous": true</span>
   }' \
   https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
-    <p>If you wish to remove the console warning, but without opting-in to anonymous RequireJS modules, use the <code>"require_js_anonymous": false</code> configuration update, as shown here:</p>
+    <p>If you wish to remove the console warning, but without opting-in to anonymous RequireJS modules, use the <code translate="No">"require_js_anonymous": false</code> configuration update, as shown here:</p>
     <pre class="line-numbers">
 <code class="language-bash">curl \
   --header "Content-Type: application/json" \

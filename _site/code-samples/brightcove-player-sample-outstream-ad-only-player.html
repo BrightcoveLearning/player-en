@@ -1087,7 +1087,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
     
-    <p>This sample provides helper JavaScript functions that demonstrate how to dynamically adjust the size of a <code>&lt;div&gt;</code> element in the page DOM, inject the Brightcove Player there, load and play an ad, and then remove the player. The ad that plays is configured either from an ad tag or in a VAST XML document. The player is set to autoplay and muted by default, which is the only way it will work in some browsers. You can change these settings if you choose.</p>
+    <p>This sample provides helper JavaScript functions that demonstrate how to dynamically adjust the size of a <code translate="No">&lt;div&gt;</code> element in the page DOM, inject the Brightcove Player there, load and play an ad, and then remove the player. The ad that plays is configured either from an ad tag or in a VAST XML document. The player is set to autoplay and muted by default, which is the only way it will work in some browsers. You can change these settings if you choose.</p>
     <p>This sample can be used as-is or can be copied and modified to work with your custom page design.</p>
     <!-- UPDATE codepen here -->
     
@@ -1149,7 +1149,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The basic logic behind this application is:</p>
     <ul>
       <li>
-        <p>This sample shows a text-article-style web page with a hidden <code>&lt;div&gt;</code> element placed within the article. After a timer goes off, this hidden div is expanded and the player appears within it.</p>
+        <p>This sample shows a text-article-style web page with a hidden <code translate="No">&lt;div&gt;</code> element placed within the article. After a timer goes off, this hidden div is expanded and the player appears within it.</p>
         <aside class="bcls-aside bcls-aside--tip">You could modify this example to react to other conditions rather than a timer, for example user scrolling that brings a certain section of the page into view.</aside>
       </li>
       <li>The player uses in-line VAST to play an ad. You can comment this out and un-comment the ad tag section if you want to use an ad tag adsResponse.</li>
@@ -1166,7 +1166,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Other HTML</h3>
     <p>In your HTML file, you will include the following:</p>
     <ol class="bcls-tasklist">
-      <li>A <code>&lt;div&gt;</code> element with an <code>id</code> attribute assigned to a value of your choice. The JavaScript code will create your Brightcove Player within this <code>&lt;div&gt;</code> element.
+      <li>A <code translate="No">&lt;div&gt;</code> element with an <code translate="No">id</code> attribute assigned to a value of your choice. The JavaScript code will create your Brightcove Player within this <code translate="No">&lt;div&gt;</code> element.
         <pre class="line-numbers">
 <code class="language-html">&lt;div id="adPlayerDiv"&gt;&lt;/div&gt;</code></pre>
       </li>
@@ -1197,51 +1197,51 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Public_functions">Public functions</h2>
     <p>The <strong>adonly.js</strong> library has two public functions that it exposes:</p>
     <ul>
-      <li><code>expandAndInjectAdOnlyPlayer()</code> : Expands a <code>&lt;div&gt;</code> and injects an ad-only player in it.</li>
-      <li><code>injectAdOnlyPlayer()</code> : Injects an ad-only player into a given <code>&lt;div&gt;</code> (without animation).</li>
+      <li><code translate="No">expandAndInjectAdOnlyPlayer()</code> : Expands a <code translate="No">&lt;div&gt;</code> and injects an ad-only player in it.</li>
+      <li><code translate="No">injectAdOnlyPlayer()</code> : Injects an ad-only player into a given <code translate="No">&lt;div&gt;</code> (without animation).</li>
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
-    <p>The <code>expandAndInjectAdOnlyPlayer()</code> function takes the following parameters:</p>
+    <p>The <code translate="No">expandAndInjectAdOnlyPlayer()</code> function takes the following parameters:</p>
     <ul>
-      <li><code>muted</code>
+      <li><code translate="No">muted</code>
         <ul>
           <li>Optional. Values: <strong>true</strong>, <strong>false</strong>. Default: <strong>true</strong></li>
         </ul>
       </li>
-      <li><code>autoplay</code>
+      <li><code translate="No">autoplay</code>
         <ul>
           <li>Optional. Values: <strong>true</strong>, <strong>false</strong>. Default: <strong>true</strong></li>
         </ul>
       </li>
-      <li><code>adTag</code>
+      <li><code translate="No">adTag</code>
         <ul>
           <li>The ad tag</li>
         </ul>
       </li>
-      <li><code>adsResponse</code>
+      <li><code translate="No">adsResponse</code>
         <ul>
           <li>In-line VAST string. If provided, it overrides the ad tag. Either the adTag or adsResponse must be supplied</li>
         </ul>
       </li>
-      <li><code>div</code>
+      <li><code translate="No">div</code>
         <ul>
           <li>The div where you want the ad player to be injected</li>
         </ul>
       </li>
-      <li><code>height</code>
+      <li><code translate="No">height</code>
         <ul>
           <li>The height in pixels you want to expand the div</li>
         </ul>
       </li>
-      <li><code>animationDuration</code>
+      <li><code translate="No">animationDuration</code>
         <ul>
           <li>How long in ms to take to animate the expansion of the div height</li>
         </ul>
       </li>
     </ul>
-    <p>The <code>injectAdOnlyPlayer()</code> function takes the same parameters except for height and animation duration.</p>
+    <p>The <code translate="No">injectAdOnlyPlayer()</code> function takes the same parameters except for height and animation duration.</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -1252,7 +1252,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
     <p>This sample uses JavaScript code that is already built as a plugin. You can see this code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18065-ad-only-plugin/blob/master/plugin/adonly.js">adonly.js</a>.</p>
-    <!-- <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <!-- <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
 
           <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
 

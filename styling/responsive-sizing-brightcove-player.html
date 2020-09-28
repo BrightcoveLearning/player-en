@@ -50,12 +50,12 @@ parent: 'Styling & Appearance'
       <li>Copy either the Standard (iframe) or Advanced (In-Page) embed code and paste it into a new HTML file.</li>
     </ol>
     <h3>The player embed code</h3>
-    <p>When you copy the Standard (iframe) embed code into your HTML page, notice that the player is wrapped in two <code>&lt;div&gt; </code> containers. Your code should look similar to the following:</p>
+    <p>When you copy the Standard (iframe) embed code into your HTML page, notice that the player is wrapped in two <code translate="No">&lt;div&gt; </code> containers. Your code should look similar to the following:</p>
     <ul>
       <li>Lines 1-10: Is the embed code that you copied when publishing a video with the player.</li>
       <li>Line 1: Defines an outer container that sets the maximum width for the player. The default is set to 100%. If you set a width in Studio, your player will be responsive up to the maximum width size.</li>
       <li>Line 2: Defines an inner container that uses an intrinsic ratio to set the height and maintain the correct aspect ratio. To learn more, see the <a href="#Understanding_intrinsic_ratio">Understand intrinsic ratio</a> section.</li>
-      <li>Lines 3-8: Contain the player code for the iframe implementation. Notice that line 3 has a <code>style </code> attribute which positions the player to fill its parent container. This allows the player to change size as the browser changes size.</li>
+      <li>Lines 3-8: Contain the player code for the iframe implementation. Notice that line 3 has a <code translate="No">style </code> attribute which positions the player to fill its parent container. This allows the player to change size as the browser changes size.</li>
     </ul>
     <pre class="line-numbers">
 <code class="language-html">&lt;div style="position: relative; display: block; max-width: 100%;"&gt;
@@ -163,7 +163,7 @@ parent: 'Styling & Appearance'
   </section>
   <section class="bcls-section">
     <h2 id="Understanding_intrinsic_ratio">Understanding intrinsic ratio</h2>
-    <p>In this solution, we used an intrinsic ratio, which is a CSS technique to fluidly constrain a child element to a ratio set in their parent element. To do this, we added a <code>&lt;div&gt; </code> container around the video player and set the <code>padding-top </code> property with the desired aspect ratio for the video.</p>
+    <p>In this solution, we used an intrinsic ratio, which is a CSS technique to fluidly constrain a child element to a ratio set in their parent element. To do this, we added a <code translate="No">&lt;div&gt; </code> container around the video player and set the <code translate="No">padding-top </code> property with the desired aspect ratio for the video.</p>
     <p>The padding property is the magic that styles a box with an intrinsic ratio. This is because the padding property is set as a percentage of the width of the containing block. It works well since padding styles are supported in all major browsers.</p>
     <aside class="bcls-aside bcls-aside--information">This solution is borrowed from a blog post by Thierry Koblentz. For more details about browser compatibility, refer to his <a href="http://alistapart.com/article/creating-intrinsic-ratios-for-video"> blog post</a>.</aside>
     <p>The aspect ratio is determined by a simple calculation to determine a percentage. For instance, calculate the percentage for a video with a 16:9 aspect ratio by dividing 9 by 16 (i.e. 9/16 = .5625) to get 56.25%. For a 16:9 video, you want the height to be 9/16ths of the width.</p>
@@ -182,28 +182,28 @@ parent: 'Styling & Appearance'
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>vjs-fluid</code></td>
+          <td><code translate="No">vjs-fluid</code></td>
           <td>Yes</td>
           <td>2.4:1</td>
         </tr>
         <tr>
-          <td><code>vjs-16-9</code></td>
+          <td><code translate="No">vjs-16-9</code></td>
           <td>No</td>
           <td>16:9</td>
         </tr>
         <tr>
-          <td><code>vjs-4-3</code></td>
+          <td><code translate="No">vjs-4-3</code></td>
           <td>No</td>
           <td>4:3</td>
         </tr>
         <!-- <tr>
-              <td><code>vjs-fill</code></td>
+              <td><code translate="No">vjs-fill</code></td>
               <td>No</td>
               <td>The player will fill its container regardless of aspect ratio</td>
           </tr> -->
       </tbody>
     </table>
-    <p>The fluid classes listed above apply the responsive sizing to the player. They accomplish this by applying a <code>padding-top</code> attribute to the <code>video</code> element.</p>
+    <p>The fluid classes listed above apply the responsive sizing to the player. They accomplish this by applying a <code translate="No">padding-top</code> attribute to the <code translate="No">video</code> element.</p>
     <p>To create a responsive player which fills the browser, add one of the fluid classes to your player embed code. For example, to use a 16:9 aspect ratio, your code should look similar to this:</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;video-js data-video-id="5802784116001"
@@ -214,7 +214,7 @@ parent: 'Styling & Appearance'
   class="video-js <span class="bcls-highlight">vjs-16-9</span>"
   controls&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
-    <p>If you want to set a maximum size for your player, simply add a <code>div</code> container around your embed code and set the <code>max-width</code> or <code>max-height</code> attribute. For example, this code limits the size of the player to 640px:</p>
+    <p>If you want to set a maximum size for your player, simply add a <code translate="No">div</code> container around your embed code and set the <code translate="No">max-width</code> or <code translate="No">max-height</code> attribute. For example, this code limits the size of the player to 640px:</p>
     <pre class="line-numbers">
 <code class="language-html"><span class="bcls-highlight">&lt;div style="max-width: 640px;"&gt;</span>
   &lt;video-js data-video-id="5802784116001"

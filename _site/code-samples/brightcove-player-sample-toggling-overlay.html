@@ -1169,7 +1169,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>In this example, the <a href="/plugins/display-overlay-plugin.html">Overlay plugin</a> is defined and initialized in the JavaScript code. You can also add it to the player in the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Video Cloud Players module</a>.</p>
     <h3>Other HTML</h3>
     <p>Define the <strong>Toggle Overlay</strong> button to show and hide the overlay.</p>
-    <p>Remember to add the <code>id</code> attribute to the <code>video-js</code> tag in the player embed code.</p>
+    <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
     <pre>
 <code class="language-html">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
@@ -1180,7 +1180,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <ul>
     <li>Initialize the Overlay.</li>
     <li>Hide the overlay.</li>
-    <li>Listen for the <code>click</code> event on the <strong>Toggle Overlay</strong> button.</li>
+    <li>Listen for the <code translate="No">click</code> event on the <strong>Toggle Overlay</strong> button.</li>
   </ul>
   <!-- UPDATE task 1 -->
   
@@ -1188,21 +1188,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <p>Find the code which is labeled:</p>
   <pre>
 <code class="language-javascript">// +++ Initialize the Overlay +++</code></pre>
-  <p>Initialize the Overlay to start when the video metadata has been loaded (<code>loadedmetadata</code>). Define a clickable image to display in the overlay.</p>
+  <p>Initialize the Overlay to start when the video metadata has been loaded (<code translate="No">loadedmetadata</code>). Define a clickable image to display in the overlay.</p>
   <!-- UPDATE task 2 -->
   
   <h3>Hide the overlay</h3>
   <p>Find the code which is labeled:</p>
   <pre>
 <code class="language-javascript">// +++ Hide the overlay +++</code></pre>
-  <p>Use the <code>addClass()</code> method to hide the overlay.</p>
+  <p>Use the <code translate="No">addClass()</code> method to hide the overlay.</p>
   <!-- UPDATE task 3 -->
   
   <h3>Listen for the click event</h3>
   <p>Find the code which is labeled:</p>
   <pre>
 <code class="language-javascript">// +++ Listen for the click event +++</code></pre>
-  <p>Listen for the <code>click</code> event on the <strong>Toggle Overlay</strong> button to show and hide the overlay.</p>
+  <p>Listen for the <code translate="No">click</code> event on the <strong>Toggle Overlay</strong> button to show and hide the overlay.</p>
   <!-- UPDATE CSS description -->
   
   <section class="bcls-section">
@@ -1211,7 +1211,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

@@ -1130,9 +1130,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <span class="bcls-highlight">myPlayer.ads();</span>
   });
 &lt;/script&gt;</code></pre>
-    <aside class="bcls-aside bcls-aside--tip">Note: While the <code>ready()</code> method is used to indicate that the player is loaded and ready, the <code>loadedmetadata</code> event is used to indicate that the player content, like ads, is ready to interact with. Here, we are also using the <code>one()</code> method so that our function is executed the first time the plugin is loaded and not every time a video is loaded. For details, see the <a href="/coding-topics/player-events.html">Player Events</a> document.</aside>
+    <aside class="bcls-aside bcls-aside--tip">Note: While the <code translate="No">ready()</code> method is used to indicate that the player is loaded and ready, the <code translate="No">loadedmetadata</code> event is used to indicate that the player content, like ads, is ready to interact with. Here, we are also using the <code translate="No">one()</code> method so that our function is executed the first time the plugin is loaded and not every time a video is loaded. For details, see the <a href="/coding-topics/player-events.html">Player Events</a> document.</aside>
     <h3>Configuration options</h3>
-    <p>There are a number of configuration options available for the framework. For instance, there is a <code>timeout</code> option. To set this option you would use the following code:</p>
+    <p>There are a number of configuration options available for the framework. For instance, there is a <code translate="No">timeout</code> option. To set this option you would use the following code:</p>
     <pre class="line-numbers">
 <code class="language-html">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').one('loadedmetadata', function(){
@@ -1156,25 +1156,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>timeout</code></td>
+          <td><code translate="No">timeout</code></td>
           <td>number</td>
           <td>5000</td>
           <td>The maximum amount of time to wait for an ad implementation to initialize before playback, in milliseconds</td>
         </tr>
         <tr>
-          <td><code>prerollTimeout</code></td>
+          <td><code translate="No">prerollTimeout</code></td>
           <td>number</td>
           <td>1000</td>
           <td>The maximum amount of time to wait for an ad implementation to initiate a preroll, in milliseconds</td>
         </tr>
         <tr>
-          <td><code>postrollTimeout</code></td>
+          <td><code translate="No">postrollTimeout</code></td>
           <td>number</td>
           <td>100</td>
           <td>The maximum amount of time to wait for an ad implementation to initiate a postroll, in milliseconds</td>
         </tr>
         <tr>
-          <td><code>debug</code></td>
+          <td><code translate="No">debug</code></td>
           <td>boolean</td>
           <td>false</td>
           <td>If debug is set to true, the ads plugin will output additional information about its current state during playback</td>
@@ -1184,7 +1184,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Events</h3>
     <p>The following events are grouped into two different types. The groupings and their descriptions follow.</p>
     <aside class="bcls-aside bcls-aside--information">Note: For complete details on framework events see the <a href="https://github.com/videojs/videojs-contrib-ads">https://github.com/videojs/videojs-contrib-ads</a> GitHub repository.</aside>
-    <p>The <code>adstart</code> and <code>adend</code> events are triggered by the framework in response to method calls from the ad integrator. These events should not be triggered by the ad integrator directly.</p>
+    <p>The <code translate="No">adstart</code> and <code translate="No">adend</code> events are triggered by the framework in response to method calls from the ad integrator. These events should not be triggered by the ad integrator directly.</p>
     <table class="table-styles">
       <thead>
         <tr>
@@ -1203,7 +1203,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
       </tbody>
     </table>
-    <p>The <code>adskip</code> and <code>adtimeout</code> events are optional events that the ad integrator can choose trigger to indicate the player should skip a preroll or postroll opportunity.</p>
+    <p>The <code translate="No">adskip</code> and <code translate="No">adtimeout</code> events are optional events that the ad integrator can choose trigger to indicate the player should skip a preroll or postroll opportunity.</p>
     <table class="table-styles">
       <thead>
         <tr>
@@ -1235,7 +1235,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody>
         <tr>
           <td>contentSrc</td>
-          <td>This property is used to determine when a new video loads so that the player can be reset to the "get ready to show a preroll" state. Ad providers would not typically interact with it, but a plugin author who wished to change the video source to implement a rendition selector, for instance, could modify the <code>contentSrc</code> so that a preroll wasn't initiated when a rendition switch occurred.</td>
+          <td>This property is used to determine when a new video loads so that the player can be reset to the "get ready to show a preroll" state. Ad providers would not typically interact with it, but a plugin author who wished to change the video source to implement a rendition selector, for instance, could modify the <code translate="No">contentSrc</code> so that a preroll wasn't initiated when a rendition switch occurred.</td>
         </tr>
       </tbody>
     </table>
@@ -1282,7 +1282,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p class="bcls-question">How should an ad plugin support Flash-based ads?</p>
     <p class="bcls-answer">Brightcove recommends packaging a Flash-based ad player as part of your ad plugin implementation and overlaying that player over the content while the player is in linear ad mode.</p>
     <p class="bcls-question">How can cue points trigger mid-rolls?</p>
-    <p class="bcls-answer">On cue change, call <code>startLinearAdMode()</code> to begin the midroll. For information on listening for, and setting, cue points see the <a href="/advertising/displaying-ads-using-ad-cue-points.html">Using Cue Points</a> document.</p>
+    <p class="bcls-answer">On cue change, call <code translate="No">startLinearAdMode()</code> to begin the midroll. For information on listening for, and setting, cue points see the <a href="/advertising/displaying-ads-using-ad-cue-points.html">Using Cue Points</a> document.</p>
   </section>
 </article>
 

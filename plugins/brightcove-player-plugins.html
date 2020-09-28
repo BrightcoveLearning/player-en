@@ -48,7 +48,7 @@ parent: Plugins
       <li><strong>Errors</strong> - Allows the player to display user friendly messages when it encounters an error. The display is an overlay that is semi-transparent and styled by the default style sheet.</li>
       <li><strong>HLS</strong> - Plays HLS video on platforms that don't support HLS but do have Flash Player. The enables the video content in the m3u8 manifest to be played in the player.</li>
     </ul>
-    <p>If you do not wish to have a certain plugin loaded, you can prevent that by setting the particular default plugin(s) to <code>false</code> when creating/updating a player or child player. Note that the <code>hls</code>, <code>debugger</code> and <code>errors</code> fields are nested under the <code>configuration</code> property, and not in any other grouping property, when using a <strong>POST</strong> to create a new player:</p>
+    <p>If you do not wish to have a certain plugin loaded, you can prevent that by setting the particular default plugin(s) to <code translate="No">false</code> when creating/updating a player or child player. Note that the <code translate="No">hls</code>, <code translate="No">debugger</code> and <code translate="No">errors</code> fields are nested under the <code translate="No">configuration</code> property, and not in any other grouping property, when using a <strong>POST</strong> to create a new player:</p>
     <pre class="line-numbers">
 <code class="language-json">curl \
   --header "Content-Type: application/json" \
@@ -68,7 +68,7 @@ parent: Plugins
       }
     }' \
     https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
-    <p>If you wish to turn off the <code>hls</code>, <code>debugger</code> and/or <code>errors</code> plugin(s) with an existing player, you must use a <strong>PATCH</strong> as follows:</p>
+    <p>If you wish to turn off the <code translate="No">hls</code>, <code translate="No">debugger</code> and/or <code translate="No">errors</code> plugin(s) with an existing player, you must use a <strong>PATCH</strong> as follows:</p>
     <pre class="line-numbers">
 <code class="language-json">curl \
   --header "Content-Type: application/json" \
@@ -87,12 +87,12 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="passdata">Pass data</h2>
-    <p>You can also use an additional <code>options</code> child property with <code>plugins</code>. This allows you to pass data to the plugin for use at initialization time. It also makes plugins more flexible as reuse of plugins is greatly enhanced when you can can pass different implementation data for different uses of a single plugin.</p>
-    <p>For a complete discussion of the <code>option</code> property see the <a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a> document.</p>
+    <p>You can also use an additional <code translate="No">options</code> child property with <code translate="No">plugins</code>. This allows you to pass data to the plugin for use at initialization time. It also makes plugins more flexible as reuse of plugins is greatly enhanced when you can can pass different implementation data for different uses of a single plugin.</p>
+    <p>For a complete discussion of the <code translate="No">option</code> property see the <a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a> document.</p>
   </section>
   <section class="bcls-section">
     <h2 id="pluginpostmessage">Plugin and postMessage()</h2>
-    <p>In an iframe player implementation you may wish to send data into the iframe from the parent page. This is possible using JavaScript's <code>postMessage()</code> method. Briefly, in the parent page you use <code>postMessage()</code> to send a message into the iframe, which uses an event listener to get the message and act upon it.</p>
+    <p>In an iframe player implementation you may wish to send data into the iframe from the parent page. This is possible using JavaScript's <code translate="No">postMessage()</code> method. Briefly, in the parent page you use <code translate="No">postMessage()</code> to send a message into the iframe, which uses an event listener to get the message and act upon it.</p>
     <p>See the <a href="/code-samples/brightcove-player-sample-playpause-video-iframe-parent.html">Play Video from iframe Parent</a> document for a complete explanation and working example.</p>
   </section>
   <section class="bcls-section">
@@ -103,7 +103,7 @@ parent: Plugins
         <li>A plugin should have an associated stylesheet to perform tasks stylesheets do best. Only do styling in the plugin if it cannot be done in a stylesheet, for example, dynamic selection of stylesheets.</li>
       </ul>
     </div>
-    <aside class="bcls-aside bcls-aside--information">Note: If you create your own stylesheets and store them on a server belonging to you, you must have CORS enabled on that server. See the <a href="https://general.support.brightcove.com/developer/concepts-cors.html">CORS</a> document for more information. Also, do not use the CSS <code>@import</code> rule in player stylesheets. Parsing issues will occur on player build and does not allow the player to be published successfully.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: If you create your own stylesheets and store them on a server belonging to you, you must have CORS enabled on that server. See the <a href="https://general.support.brightcove.com/developer/concepts-cors.html">CORS</a> document for more information. Also, do not use the CSS <code translate="No">@import</code> rule in player stylesheets. Parsing issues will occur on player build and does not allow the player to be published successfully.</aside>
   </section>
   <section class="bcls-section">
     <h2 id="compatibility">Compatibility</h2>

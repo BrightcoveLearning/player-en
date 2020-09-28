@@ -127,13 +127,13 @@ parent: Code Samples
       <figcaption class="bcls-caption--image">Playback Settings</figcaption>
     </figure>
     <h3>Other HTML</h3>
-    <p>First, the in-page embed player code is nested in TWO HTML <code>div</code> elements. Both of the <code>div</code>s should be removed, and replaced by a <code>div</code> with the class <code>full-bg</code>.</p>
-    <p>You will also need to modify the attributes of the <code>video-js</code> tag:</p>
+    <p>First, the in-page embed player code is nested in TWO HTML <code translate="No">div</code> elements. Both of the <code translate="No">div</code>s should be removed, and replaced by a <code translate="No">div</code> with the class <code translate="No">full-bg</code>.</p>
+    <p>You will also need to modify the attributes of the <code translate="No">video-js</code> tag:</p>
     <ul>
-      <li>Add the attribute <code>data-playlist-id="<span class="bcls-input">{your playlist id}</span>"</code></li>
-      <li>Add the attribute <code>id="myPlayerID"</code></li>
-      <li>Remove the attribute <code>class="video-js"</code></li>
-      <li>Add the attribute <code>style="object-fit: cover;"</code></li>
+      <li>Add the attribute <code translate="No">data-playlist-id="<span class="bcls-input">{your playlist id}</span>"</code></li>
+      <li>Add the attribute <code translate="No">id="myPlayerID"</code></li>
+      <li>Remove the attribute <code translate="No">class="video-js"</code></li>
+      <li>Add the attribute <code translate="No">style="object-fit: cover;"</code></li>
     </ul>
     <pre class="line-numbers">
 <code class="language-html"><span class="bcls-highlight">&lt;div class="full-bg"&gt;</span>
@@ -166,14 +166,14 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// +++ Set the playlist to repeat +++</code></pre>
-    <p>The <code>repeat()</code> method from the Playlist API is used to keep the playlist playing indefinitely.</p>
+    <p>The <code translate="No">repeat()</code> method from the Playlist API is used to keep the playlist playing indefinitely.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Display the title and description</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript">// ### Display the title and description ###</code></pre>
-    <p>An event handler is used to wait for the <code>loadstart</code> event. This is done as the <code>mediainfo</code> object is not populated until that event is dispatched. Then the <code>name</code> and <code>description</code> are injected into the HTML.</p>
+    <p>An event handler is used to wait for the <code translate="No">loadstart</code> event. This is done as the <code translate="No">mediainfo</code> object is not populated until that event is dispatched. Then the <code translate="No">name</code> and <code translate="No">description</code> are injected into the HTML.</p>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -186,14 +186,14 @@ parent: Code Samples
       <li>Disables pointer events on the player.</li>
       <li>Styles the box that overlays the text. Depending on the size of your player and the amount of content display these styles may need to be adjusted.</li>
       <li>Styles the player to completely fill the container</li>
-      <li>Styles the <code>h1</code> used in the overlay text.</li>
-      <li>Styles the <code>div</code> container for the player</li>
-      <li>Styles the <code>vjs-tech</code> component to make the video fully fill the player</li>
+      <li>Styles the <code translate="No">h1</code> used in the overlay text.</li>
+      <li>Styles the <code translate="No">div</code> container for the player</li>
+      <li>Styles the <code translate="No">vjs-tech</code> component to make the video fully fill the player</li>
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code>ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

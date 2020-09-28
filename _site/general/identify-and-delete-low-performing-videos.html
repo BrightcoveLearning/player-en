@@ -1113,19 +1113,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li class="language-editable">In Studio, move into the <strong>ANALYTICS</strong> module.</li>
       <li class="language-editable">On the left side menu, click <strong>Custom</strong>.</li>
       <li class="language-editable">Use the <strong>Include Accounts</strong> dropdown to choose the desired account(s) for the report.</li>
-      <li class="language-editable">Choose the <strong>Report Type</strong> to be <code>One-time</code>.</li>
+      <li class="language-editable">Choose the <strong>Report Type</strong> to be <code translate="No">One-time</code>.</li>
       <li class="language-editable">Select a <strong>Date Range</strong> for the report using the calendars.
         <figure class="bcls-figure"><img class="bcls-image" alt="date range" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/low-performing/date-range.png" /></figure>
       </li>
-      <li class="language-editable">For the <strong>Data Groups</strong> choose <code>Video</code>.</li>
-      <li class="language-editable">For the <strong>Data Fields</strong> choose the three fields <code>Video Name</code>, <code>Video Views</code> and <code>Video Impressions</code>:
+      <li class="language-editable">For the <strong>Data Groups</strong> choose <code translate="No">Video</code>.</li>
+      <li class="language-editable">For the <strong>Data Fields</strong> choose the three fields <code translate="No">Video Name</code>, <code translate="No">Video Views</code> and <code translate="No">Video Impressions</code>:
         <figure class="bcls-figure"><img class="bcls-image" alt="data fields" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/low-performing/data-fields.png" /></figure>
       </li>
       <li class="language-editable">Below the fields you see a preview of your report. Note that the video ID is automatically included in the report:
         <figure class="bcls-figure"><img class="bcls-image" alt="report preview" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/low-performing/report-preview.png" /></figure>
       </li>
       <li class="language-editable">Supply a <strong>Report Name</strong> or accept the default.</li>
-      <li class="language-editable">Choose the <strong>Format</strong> to be <code>CSV</code>.</li>
+      <li class="language-editable">Choose the <strong>Format</strong> to be <code translate="No">CSV</code>.</li>
       <li class="language-editable">Choose to get an email or not when the report is ready. Mostly likely you will just wait for the report unless your account contains a very large number of videos.</li>
       <li class="language-editable">Click the <strong>Request Report</strong> button.</li>
       <li class="language-editable">After some delay, you will see the report is downloaded.</li>
@@ -1168,7 +1168,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist">
       <li class="language-editable">While still in the Analytics report sheet, click on the uppercase <strong>A</strong> at the top of the first column.</li>
       <li class="language-editable">Right click somewhere in the column and select <strong>Define named range...</strong></li>
-      <li class="language-editable">A panel will open on the right side of the spreadsheet. Change the default name of <code>NamedRange1</code> to <code>IDsWithViews</code>.</li>
+      <li class="language-editable">A panel will open on the right side of the spreadsheet. Change the default name of <code translate="No">NamedRange1</code> to <code translate="No">IDsWithViews</code>.</li>
       <li class="language-editable">After pressing enter, you will see the range defined.
         <figure class="bcls-figure"><img class="bcls-image" alt="named range" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/low-performing/named-range.png" /></figure>
       </li>
@@ -1176,33 +1176,33 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Add_column_for_no_views_determination">Add column for no views determination</h2>
-    <p>You will now add a column and add a <code>VLOOKUP()</code> function which will report if a specific video has any views.</p>
+    <p>You will now add a column and add a <code translate="No">VLOOKUP()</code> function which will report if a specific video has any views.</p>
     <ol class="bcls-tasklist">
       <li class="language-editable">Return to the all videos sheet, named with your account ID.</li>
       <li class="language-editable">Click on column <strong>B</strong>.</li>
       <li class="language-editable">From the spreadsheet menu, select <strong>Insert &gt; Column left</strong>. This creates a new, blank column B.</li>
       <li class="language-editable">Click in cell <strong>B2</strong>.</li>
-      <li class="language-editable">Enter <code>=VLOOKUP(</code>. This starts the use of the function.</li>
+      <li class="language-editable">Enter <code translate="No">=VLOOKUP(</code>. This starts the use of the function.</li>
       <li class="language-editable">Just after the opening parentheses, click on the <strong>A2</strong> cell. That cell location will be inserted. This defines for what the function will be looking.</li>
-      <li class="language-editable">Enter a comma after the cell, then type <code>id</code>. You will see you can select the named range, and do select it.
+      <li class="language-editable">Enter a comma after the cell, then type <code translate="No">id</code>. You will see you can select the named range, and do select it.
         <figure class="bcls-figure"><img class="bcls-image" alt="select named range" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/low-performing/select-named-range.png" /></figure>
         This defines where the function will be looking for the value in A2.</li>
-      <li class="language-editable">Enter a comma after the named range, then type the number <code>1</code>. This defines the column index to be returned. For you, this means that if the ID in A2 is found in the named range, the ID will be placed in the cell.</li>
-      <li class="language-editable">Enter a comma after the number 1, then enter <code>FALSE</code>, then type the closing parentheses. This option tells the <code>VLOOKUP()</code> function if columns are sorted and the exact value cannot be found, the closest value should be returned. Since you do not want this to occur, <code>FALSE</code> is the correct value to enter.</li>
+      <li class="language-editable">Enter a comma after the named range, then type the number <code translate="No">1</code>. This defines the column index to be returned. For you, this means that if the ID in A2 is found in the named range, the ID will be placed in the cell.</li>
+      <li class="language-editable">Enter a comma after the number 1, then enter <code translate="No">FALSE</code>, then type the closing parentheses. This option tells the <code translate="No">VLOOKUP()</code> function if columns are sorted and the exact value cannot be found, the closest value should be returned. Since you do not want this to occur, <code translate="No">FALSE</code> is the correct value to enter.</li>
       <li class="language-editable">Ensure your function is defined correctly, as shown here, and press <strong>Enter</strong>.
         <figure class="bcls-figure"><img class="bcls-image" alt="complete vlookup" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/low-performing/complete-vlookup.png" /></figure>
-        Cell B2 will either display the ID from A2 , or <code>#N/A</code>.</li>
+        Cell B2 will either display the ID from A2 , or <code translate="No">#N/A</code>.</li>
       <li class="language-editable">Click back in cell B2 and be sure it is highlighted.</li>
       <li class="language-editable">To copy the formula down the entire spreadsheet, double click on the blue square at the bottom right of the highlighted cell, which is currently B2.
         <figure class="bcls-figure"><img class="bcls-image" alt="blue square" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/low-performing/blue-square.png" /></figure>
-        In column B you will now see either IDs repeated from column A, or <code>#N/A</code>. If you see the ID, it tells you that the video represented by that ID was found in the Analytics report. In other words, it has video views. And as you can surmise, if you see <code>#N/A</code> the video represented by the ID in column A has no views.</li>
+        In column B you will now see either IDs repeated from column A, or <code translate="No">#N/A</code>. If you see the ID, it tells you that the video represented by that ID was found in the Analytics report. In other words, it has video views. And as you can surmise, if you see <code translate="No">#N/A</code> the video represented by the ID in column A has no views.</li>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="Determine_low-performing_videos_and_delete_them">Delete videos with no views</h2>
     <p>You will now sort the spreadsheet so all videos IDs with no views are grouped together. You will then copy those IDs and format for bulk video deletion.</p>
     <ol class="bcls-tasklist">
-      <li class="language-editable">Highlight column B, then from the spreadsheet menu select <strong>Data &gt; Sort sheet by column B, Z -&gt; A</strong>. This groups all the videos with no views at the top of the spreadsheet, represented by <code>#N/A</code> in the cell.</li>
+      <li class="language-editable">Highlight column B, then from the spreadsheet menu select <strong>Data &gt; Sort sheet by column B, Z -&gt; A</strong>. This groups all the videos with no views at the top of the spreadsheet, represented by <code translate="No">#N/A</code> in the cell.</li>
       <li class="language-editable">You now have two options on how to proceed. They are:
         <ul>
           <li class="language-editable">If you have a small number of videos to delete, you can simply go into Studio and manually delete in the <strong>MEDIA</strong> module.</li>
@@ -1215,8 +1215,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li class="language-editable">Open a Google Doc document.</li>
       <li class="language-editable">From the document menu, select <strong>Edit &gt; Paste without formatting</strong>. You will simply see the video IDs in a column. To bulk erase the videos they must be in the format <strong>id:12345678 id:23456789 ...</strong>. Rather than editing the list by hand, continue with these steps.</li>
       <li class="language-editable">Select <strong>Edit &gt; Find and replace...</strong></li>
-      <li class="language-editable">For the <strong>Find</strong> value enter <code>\n</code>. This represents a carriage return.</li>
-      <li class="language-editable">For the <strong>Replace with</strong> value enter a space followed by <code>id:</code>. The space in front of the <code>id:</code> is crucial for correct formatting.</li>
+      <li class="language-editable">For the <strong>Find</strong> value enter <code translate="No">\n</code>. This represents a carriage return.</li>
+      <li class="language-editable">For the <strong>Replace with</strong> value enter a space followed by <code translate="No">id:</code>. The space in front of the <code translate="No">id:</code> is crucial for correct formatting.</li>
       <li class="language-editable">Check the <strong>Match using regular expressions</strong> checkbox.</li>
       <li class="language-editable">Click the <strong>Replace all</strong> button, then close the dialog.</li>
       <li class="language-editable">Ensure your list of video IDs now appears similarly formatted to following:
@@ -1226,7 +1226,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   id:4874718207001 id:4997278349001 id:5686632029001 id:5998203290001
   id:5998205402001 id:5998658922001 id:5998662608001 id:</code></pre>
       </li>
-      <li class="language-editable">To finish the formatting, you will need to place an <code>id:</code> in front of the first video ID. Then remove the <code>id:</code> at the end of the list that has no matching actual video ID.</li>
+      <li class="language-editable">To finish the formatting, you will need to place an <code translate="No">id:</code> in front of the first video ID. Then remove the <code translate="No">id:</code> at the end of the list that has no matching actual video ID.</li>
       <li class="language-editable">Copy the correctly formatted list of video IDs.
         <pre class="line-numbers">
   <code class="language-html">id:1754261702001 id:4082515861001 id:5185914204001 id:5324448023001

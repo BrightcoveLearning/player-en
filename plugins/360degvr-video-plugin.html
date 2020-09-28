@@ -33,7 +33,7 @@ parent: Plugins
       <li><strong>Gyroscope integration on mobile devices</strong>: The perspective changes as you rotate your phone.</li>
       <li><strong>Cardboard/VR mode support</strong>: On devices that support it, the Cardboard viewer icon will appear in the control bar. When pressed, the projection will be adjusted to work with Cardboard-style VR goggles.</li>
       <li><strong>Video Cloud Media 360° Setting</strong>: If you are using Video Cloud videos, the plugin respects Video Cloud’s setting for 360° on Video Cloud media. If the value is not present it will play the video as a normal video. You do not have to ensure that only 360° videos are played on players using the 360°/VR Plugin.</li>
-      <li><strong>Non-Video Cloud Media</strong>: If you are <em>not using media served from Video Cloud</em>, you can still use the plugin. You will need to call the <code>vr</code> plugin passing an object with a <code>projection</code> value set as follows:
+      <li><strong>Non-Video Cloud Media</strong>: If you are <em>not using media served from Video Cloud</em>, you can still use the plugin. You will need to call the <code translate="No">vr</code> plugin passing an object with a <code translate="No">projection</code> value set as follows:
         <pre class="line-numbers">
 <code class="notranslate language-javascript">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
@@ -41,7 +41,7 @@ parent: Plugins
     myPlayer.vr({projection: '360'});
   });
 &lt;/script&gt;</code></pre>
-        <aside class="bcls-aside bcls-aside--tip">Setting the <code>projection</code> property to <code>360</code>, <code>equirectangular</code> or <code>Sphere</code> are all logically equivalent.</aside>
+        <aside class="bcls-aside bcls-aside--tip">Setting the <code translate="No">projection</code> property to <code translate="No">360</code>, <code translate="No">equirectangular</code> or <code translate="No">Sphere</code> are all logically equivalent.</aside>
         <p>Of course, the code above assumes you have included the JavaScript and CSS files for the plugin, as described later in this document.</p>
       </li>
     </ul>
@@ -62,7 +62,7 @@ parent: Plugins
     </ul>
     <aside class="bcls-aside bcls-aside--information">
       <super>* </super>
-      When using the plugin on Safari, if you are using a non-Video Cloud video (a video NOT ingested via Video Cloud), note that you need to set the <code>crossorigin</code> configuration property to <code>anonymous</code>.</aside>
+      When using the plugin on Safari, if you are using a non-Video Cloud video (a video NOT ingested via Video Cloud), note that you need to set the <code translate="No">crossorigin</code> configuration property to <code translate="No">anonymous</code>.</aside>
     <p>The plugin does <strong>NOT</strong> work with Internet Explorer.</p>
     <h3>Limitations</h3>
     <p>You should be aware of the following when using the 360°/VR Plugin:</p>
@@ -120,18 +120,18 @@ parent: Plugins
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
     <h3>forceCardboard</h3>
-    <p>Type: <code>boolean</code> Default Value: false</p>
+    <p>Type: <code translate="No">boolean</code> Default Value: false</p>
     <p>Force the cardboard button to display on all devices.</p>
     <h3>motionControls</h3>
-    <p>Type: <code>boolean</code> Default Value: true on iOS and Android</p>
+    <p>Type: <code translate="No">boolean</code> Default Value: true on iOS and Android</p>
     <p>Determines whether motion/gyro controls should be enabled.</p>
     <h3>projection</h3>
-    <p>Type: <code>string</code> Default Value: auto</p>
+    <p>Type: <code translate="No">string</code> Default Value: auto</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
           <th width="65%">Video Type</th>
-          <th>Value for <code>projection</code> Option</th>
+          <th>Value for <code translate="No">projection</code> Option</th>
         </tr>
       </thead>
       <tbody class="bcls-table__body">
@@ -148,7 +148,7 @@ parent: Plugins
           <td><strong>None</strong></td>
         </tr>
         <tr>
-          <td>If you want to check if the current video is a 360° video via <code>player.mediainfo.projection</code></td>
+          <td>If you want to check if the current video is a 360° video via <code translate="No">player.mediainfo.projection</code></td>
           <td><strong>AUTO</strong></td>
         </tr>
         <tr>
@@ -162,10 +162,10 @@ parent: Plugins
       </tbody>
     </table>
     <h3>player.mediainfo.projection</h3>
-    <p>Type: <code>string</code> Default Value: undefined</p>
+    <p>Type: <code translate="No">string</code> Default Value: undefined</p>
     <p>This value should be set on a source-by-source basis to turn 360° videos on an off depending upon the video.</p>
     <h3>debug</h3>
-    <p>Type: <code>boolean</code> Default Value: false</p>
+    <p>Type: <code translate="No">boolean</code> Default Value: false</p>
     <p>Enable debug logging for this plugin.</p>
   </section>
   <section class="bcls-section">
@@ -188,7 +188,7 @@ parent: Plugins
       <li>On iOS, for the 360° plugin to render videos correctly the <strong>Preload Video Before Playback</strong> setting must be set to <strong>Preload Video (fastest)</strong> in the player:
         <figure class="bcls-figure"><img class="bcls-image" alt="ios preload" src="/assets/images/plugins/360-video/preload-options.png" /></figure>
       </li>
-      <li>On iOS, the fullscreen mode button is disabled since the 360°/VR Plugin does not work with the iOS native player. Because of this, it is recommended that you set the <code>playsinline</code> attribute for non-fullscreen video playback, as shown in the <a href="/playback/ios-and-brightcove-player.html#Playing_a_video_non_fullscreen">iOS and Brightcove Player</a> document.</li>
+      <li>On iOS, the fullscreen mode button is disabled since the 360°/VR Plugin does not work with the iOS native player. Because of this, it is recommended that you set the <code translate="No">playsinline</code> attribute for non-fullscreen video playback, as shown in the <a href="/playback/ios-and-brightcove-player.html#Playing_a_video_non_fullscreen">iOS and Brightcove Player</a> document.</li>
     </ul>
   </section>
   <section class="bcls-section">
