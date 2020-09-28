@@ -1231,28 +1231,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Request the video count from the CMS API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-	<code class="notranslate language-javascript">// ### Setup for video count <span translate="No">CMS API</span> request ###</code></pre>
+	<code class="language-javascript" translate="No">// ### Setup for video count <span translate="No">CMS API</span> request ###</code></pre>
     <p>The first call to the <code translate="No">getCMSAPIData()</code> is for the total count of videos. Note the in the callback function there is another call to the function inside of the <code translate="No">do-while</code> loop.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Play next video on end of a video playing</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-	<code class="notranslate language-javascript">// ### Get next video ###</code></pre>
+	<code class="language-javascript" translate="No">// ### Get next video ###</code></pre>
     <p>Uses the <code translate="No">on('ended',...)</code> logic to play the next video in the list. Note the <code translate="No">currentlyPlayingIndex</code> tracks the videos playing.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Retrieve data with the CMS API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-	<code class="notranslate language-javascript">// ### Standard functionality for CSM API call ###</code></pre>
+	<code class="language-javascript" translate="No">// ### Standard functionality for CSM API call ###</code></pre>
     <p>This is standard code discussed in the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Extract video IDs and retrieve video objects</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-	<code class="notranslate language-javascript">// ### Extract video IDs ###</code></pre>
+	<code class="language-javascript" translate="No">// ### Extract video IDs ###</code></pre>
     <p>This series of functions takes the returned video information, extracts the IDs, then uses the <span translate="No">CMS API</span> to retrieve video objects needed for the player to actually playback the video content.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1266,13 +1266,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

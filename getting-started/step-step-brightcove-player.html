@@ -223,11 +223,11 @@ parent: Getting Started
     <ol class="bcls-tasklist">
       <li > Add an <code translate="No">id</code> attribute to the <code translate="No">video</code> tag with a value of <strong>myPlayerID</strong> .
         <pre class="line-numbers">
-<code class="notranslate language-javascript">&lt;video id="myPlayerID" </code></pre>
+<code class="language-javascript" translate="No">&lt;video id="myPlayerID" </code></pre>
       </li>
       <li > Just above the closing <code translate="No">body</code> tag, insert a <code translate="No">script</code> block.
         <pre class="line-numbers">
-<code class="notranslate language-javascript">&lt;script&gt;
+<code class="language-javascript" translate="No">&lt;script&gt;
 &lt;/script&gt;
 
 &lt;/body&gt;</code></pre>
@@ -235,28 +235,28 @@ parent: Getting Started
       <li > In the script block, use the <code translate="No">on()</code> method to listen for the <code translate="No">loadedmetadata</code> event. When the event is dispatched an anonymous event handler function
         is called.
         <pre class="line-numbers">
- <code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {
+ <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {
 });</code></pre>
         <aside class="bcls-aside bcls-aside--information language-editable"> Note: For more information about Brightcove Player's startup events
           see the <a href="/coding-topics/player-events.html#startupevents">Startup events</a> section of the <strong>Understanding Player Events</strong> document. </aside>
       </li>
       <li > Create a variable local to the function, named <code translate="No">myPlayer</code> , that assigns the player instance, referenced as <code translate="No">this</code> , to that variable.
         <pre class="line-numbers">
-<code class="notranslate language-javascript">var myPlayer = this;</code></pre>
+<code class="language-javascript" translate="No">var myPlayer = this;</code></pre>
       </li>
       <li > Since most browsers no longer allow autoplay for videos with an audio
         track, it is best to use the <code translate="No">muted()</code> method to mute the video and ensure the video will autoplay.
         <pre class="line-numbers">
-<code class="notranslate language-javascript">myPlayer.muted(true);</code></pre>
+<code class="language-javascript" translate="No">myPlayer.muted(true);</code></pre>
         <p > See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for more information on the autoplay issue. </p>
       </li>
       <li > Use the player's <code translate="No">play()</code> method to start the video.
         <pre class="line-numbers">
-<code class="notranslate language-javascript">myPlayer.play();</code></pre>
+<code class="language-javascript" translate="No">myPlayer.play();</code></pre>
       </li>
       <li > Confirm your script block appears as follows.
         <pre class="line-numbers">
- <code class="notranslate language-javascript">&lt;script&gt;
+ <code class="language-javascript" translate="No">&lt;script&gt;
   videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {
     var myPlayer = this;
     myPlayer.muted(true);
@@ -282,13 +282,13 @@ parent: Getting Started
       <li > Just above the closing <code translate="No">head</code> tag, insert the following link statement which points to the location of
         the CSS for the overlay plugin.
         <pre class="line-numbers">
- <code class="notranslate language-javascript">&lt;link href="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.css" rel='stylesheet'&gt;
+ <code class="language-javascript" translate="No">&lt;link href="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.css" rel='stylesheet'&gt;
 &lt;/head&gt;</code></pre>
       </li>
       <li > Just above the script block you added earlier, add the following <code translate="No">script</code> tag that is the actual JavaScript code that implements the overlay
         plugin functionality.
         <pre class="line-numbers">
-<code class="notranslate language-javascript"><span class="bcls-highlight">&lt;script src="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.js"&gt;&lt;/script&gt;</span>
+<code class="language-javascript" translate="No"><span class="bcls-highlight">&lt;script src="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.js"&gt;&lt;/script&gt;</span>
 
 &lt;script&gt;
   videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {</code></pre>
@@ -296,7 +296,7 @@ parent: Getting Started
       <li > Just after where the <code translate="No">play()</code> method is used, call the player's <code translate="No">overlay()</code> method, and add braces as a parameter to prepare for passing a JSON
         configuration object.
         <pre class="line-numbers">
-<code class="notranslate language-javascript">myPlayer.overlay({
+<code class="language-javascript" translate="No">myPlayer.overlay({
 });</code></pre>
       </li>
       <li > Multiple overlay objects can be passed as an array to the plugin to
@@ -306,7 +306,7 @@ parent: Getting Started
         paused the overlay will not be displayed. To implement this, add the
         following overlay object as a configuration parameter.
         <pre class="line-numbers">
- <code class="notranslate language-javascript">overlays: [{
+ <code class="language-javascript" translate="No">overlays: [{
   content: 'This event-triggered overlay message appears when the video is playing',
   start: 'play',
   end: 'pause'

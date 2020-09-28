@@ -150,28 +150,28 @@ parent: Code Samples
     <h3>Wait for loadedmetadata</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-    <code class="notranslate language-javascript">// +++ Wait for loadedmetadata +++</code></pre>
+    <code class="language-javascript" translate="No">// +++ Wait for loadedmetadata +++</code></pre>
     <p>Wait for the video to begin loading by listening for the <code translate="No">loadedmetadata</code> event. This ensures that the video metadata, like the account id, name and tag values will be available in the <code translate="No">mediainfo</code> object.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Setup the API request</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-    <code class="notranslate language-javascript">// +++ Setup the API request +++</code></pre>
+    <code class="language-javascript" translate="No">// +++ Setup the API request +++</code></pre>
     <p>Using the information from the video currently loaded in the player, create a <span translate="No">CMS API</span> search request for videos in the same account. The search will look for videos which have the same value as the first tag in the current video. It will exclude any video with the same name as the current video, and it will limit the number of videos returned to 9. That is how many will fit in our overlay layout.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Make the <span translate="No">CMS API</span> request</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-    <code class="notranslate language-javascript">// +++ Make the <span translate="No">CMS API</span> request +++</code></pre>
+    <code class="language-javascript" translate="No">// +++ Make the <span translate="No">CMS API</span> request +++</code></pre>
     <p>Use the proxy code to send an HTTP GET request to the <span translate="No">CMS API</span> RESTful web service. Parse the returned data into JSON format. If an error occurs, display an error message.</p>
     <!-- UPDATE task 5 -->
     
     <h3>Format the overlay content</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-    <code class="notranslate language-javascript">// +++ Format the overlay content +++</code></pre>
+    <code class="language-javascript" translate="No">// +++ Format the overlay content +++</code></pre>
     <p>To format the overlay content, you will do the following:</p>
     <ul>
       <li>Extract the id, name and thumbnail for each related video returned from the CMS API, and store it in an array.</li>
@@ -183,7 +183,7 @@ parent: Code Samples
     <h3>Load and play related video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-    <code class="notranslate language-javascript">// +++ Load and play related video +++</code></pre>
+    <code class="language-javascript" translate="No">// +++ Load and play related video +++</code></pre>
     <p>Create a function that loads and starts playback for the related video that is selected by the user.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -197,13 +197,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-    <code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+    <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
       var myPlayer = this;
       ...
     });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-    <code class="notranslate language-javascript">videojs.registerPlugin('pluginName', function(options) {
+    <code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
       var myPlayer = this;
       ...
     });</code></pre>

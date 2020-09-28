@@ -1201,28 +1201,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Remove overlay</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="notranslate language-javascript">// ### Remove overlay ###</code></pre>
+<code class="language-javascript" translate="No">// ### Remove overlay ###</code></pre>
     <p>This function is called when the overlay image is initially displayed. The logic in the function checks for when the overlay image should be removed, including if a expiration time has been set. Also, the <code translate="No">timeupdate</code> event listener is removed.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Add overlay</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="notranslate language-javascript">// ### Add overlay function ###</code></pre>
+<code class="language-javascript" translate="No">// ### Add overlay function ###</code></pre>
     <p>The Overlay Plugin is called here using the user configuration settings. The settings determine what should be displayed, where it is displayed, and for how long. The <code translate="No">timeupdate</code> event listener is added to check for an expiration time.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Build an <code translate="No">overlayOptions</code> object</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="notranslate language-javascript">// ### Call function to merge default options with passed in options ###</code></pre>
+<code class="language-javascript" translate="No">// ### Call function to merge default options with passed in options ###</code></pre>
     <p>Both the custom configuration options and default options are passed to a function. The function uses the default options only if a corresponding custom option is not passed in.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Call the <code translate="No">showoverlay</code> method</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="notranslate language-javascript">// ### Show overlay ###</code></pre>
+<code class="language-javascript" translate="No">// ### Show overlay ###</code></pre>
     <p>The function that displays the overlay image is called. Depending on the options, the image may be displayed immediately or at a later time.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1236,13 +1236,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>
@@ -1252,7 +1252,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed. In the case of this plugin, options will most likely be passed to the plugin, in the form:</p>
     <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   myPlayer.logoOverlay(
     {

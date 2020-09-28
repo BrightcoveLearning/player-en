@@ -1112,7 +1112,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Add an <code translate="No">id</code> attribute to the <code translate="No">&lt;video-js&gt;</code> tag with a value of <code translate="No">player</code>.</li>
       <li>Check to be sure your HTML page appears similar to the following <span class="player-only">(Brightcove Player customers will not have a <code translate="No">data-video-id</code> property)</span>:
         <pre class="line-numbers">
-<code class="language-html notranslate">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -1163,7 +1163,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>In the HTML file, add the following code just below the existing <code translate="No">&lt;script&gt;</code> tags. This code includes the JavaScript file and then calls the method defined in that JavaScript.
         <pre class="line-numbers">
-<code class="language-html notranslate">&lt;script type="text/javascript" src="plugin-dev.js"&gt;&lt;/script&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript" src="plugin-dev.js"&gt;&lt;/script&gt;
 &lt;script&gt;videojs.getPlayer('myPlayerID').pluginDev();&lt;/script&gt;</code></pre>
       </li>
       <li>Browse the HTML page again, and you will see nothing visible has changed. The problem is that the overlay is there, but not visible. You will change this later.</li>
@@ -1188,7 +1188,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>In the HTML file, add the following code just below the existing <code translate="No">&lt;link&gt;</code> tag. This code links to your newly created CSS file.
         <pre class="line-numbers">
-<code class="language-html notranslate">&lt;link href="plugin-dev.css" rel="stylesheet"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;link href="plugin-dev.css" rel="stylesheet"&gt;</code></pre>
       </li>
       <li>Browse the HTML page and you will see the overlay is now visible.
         <figure class="bcls-figure"><img class="bcls-image" alt="quick-start-overlay-showing" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/qs-plugin-dev/quick-start-overlay-showing.png" /></figure>
@@ -1201,7 +1201,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist">
       <li>Open the HTML page and alter the <code translate="No">&lt;script&gt;</code> tags so a variable named <code translate="No">options</code> is created and assigned an object with a key-value pair of <em>"overlayText":"This data is supplied at initialization"</em>. Also, pass the <code translate="No">options</code> variable as an argument when calling the <code translate="No">pluginDev()</code> method. The changes should appear as follows:
         <pre class="line-numbers">
-<code class="language-html notranslate">&lt;script type="text/javascript" src="plugin-dev-copy.js"&gt;&lt;/script&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript" src="plugin-dev-copy.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   <span class="bcls-highlight">var options = {"overlayText": "This data supplied at initialization"};</span>
 &lt;/script&gt;
@@ -1264,7 +1264,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li class="video-cloud-only">Copy the <strong translate="No">Standard</strong> code and paste into the body of the <code translate="No">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:</li>
       <li class="player-only">From the <strong translate="No">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong translate="No">Standard Embed Code</strong> code and paste into the body of the <code translate="No">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:
         <pre class="line-numbers">
-<code class="language-html notranslate">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;

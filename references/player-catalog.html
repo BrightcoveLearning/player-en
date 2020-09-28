@@ -95,7 +95,7 @@ parent: References
         <li>
           <p>Use the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> to overwrite the player's default policy key. You can use a curl statement similar to the following to do so:</p>
           <pre class="line-numbers">
-<code class="language-bash notranslate">curl \
+<code class="language-bash" translate="No">curl \
   --header "Content-Type: application/json" \
   --user $EMAIL \
   --request PATCH \
@@ -141,7 +141,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
     <h3>Example: Video ID as string</h3>
     <p>The following example shows a use of the <code translate="No">getVideo()</code> method:</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-account="1507807800001"
   data-player="3bc25a34-086a-4060-8745-dd87af3d53b4"
   data-embed="default"
@@ -162,7 +162,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
     <h3>Example: Using catalogParams</h3>
     <p>The equivalent of the code just above, but using the CatalogParams object appears as follows:</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">&lt;script&gt;
+<code class="language-html" translate="No">&lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this,
       catalogParams = {};
@@ -203,7 +203,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
     <h3>Example</h3>
     <p>The following example shows a use of the <code translate="No">getPlaylist()</code> method follows:</p>
     <pre class="line-numbers" data-start="26">
-<code class="language-html notranslate">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-account="1752604059001"
   data-player="f50a2d3c-af51-4d8c-84e3-0c7cdec0edbe"
   data-embed="default"
@@ -241,7 +241,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
     <h3>Example</h3>
     <p>THe following example retrieves a video and loads it into the player.</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">&lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-account="1507807800001"
   data-player="3bc25a34-086a-4060-8745-dd87af3d53b4"
   data-embed="default"
@@ -315,7 +315,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
     <h3>Promise example</h3>
     <p>In this code the same search is done using <code translate="No">get()</code> method as shown just above, but the result is handled as a Promise.</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">&lt;script type="text/javascript"&gt;
+<code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this,
       catalogParams = {};
@@ -550,7 +550,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
     </ul>
     <p>An example use of the method follows:</p>
     <pre class="line-numbers">
-<code class="language-html notranslate"> for (var i=0; i&lt;limitValue; i++) {
+<code class="language-html" translate="No"> for (var i=0; i&lt;limitValue; i++) {
   	mediaData.videos[i] = myPlayer.catalog.transformVideoResponse (mediaData.videos[i], myPlayer);
   }</code></pre>
     <p>For the complete code sample, see the <a href="/code-samples/brightcove-player-sample-playback-api-paging.html">Playback API Paging</a> document.</p>
@@ -711,7 +711,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
     <p>If this is a possibility in your implementation, your error handling code should use the <code translate="No">one()</code> event handling method to listen for the <code translate="No">bc-catalog-error</code> in a separate code block rather than inside the <code translate="No">ready()</code> section.</p>
     <p>In the code sample below, you see a code block handle the <code translate="No">bc-catalog-error</code> (line 62), and also a code block for <code translate="No">ready</code> (line 71).</p>
     <pre class="line-numbers" data-start="50">
-<code class="language-html notranslate">  &lt;video-js id="myPlayerID"
+<code class="language-html" translate="No">  &lt;video-js id="myPlayerID"
     data-account="1486906377"
     data-player="77a8e8b7-e8d1-4a3c-8a1b-292ba8233006"
     data-embed="default"
@@ -762,7 +762,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
 });</code></pre>
     <p>The code to use the plugin, utilizing an in-page embed player implementation, follows:</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">&lt;video-js id="myPlayerID" data-video-id="5350958927001"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID" data-video-id="5350958927001"
   data-account="1507807800001"
   data-player="default"
   data-embed="default"

@@ -1220,21 +1220,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Create an HTML <code translate="No">&lt;div&gt;</code> element to hold the playlist</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="notranslate language-javascript">// ### Create div for playlist ###</code></pre>
+<code class="language-javascript" translate="No">// ### Create div for playlist ###</code></pre>
     <p>You use JavaScript's <code translate="No">createElement()</code> method to create the <code translate="No">&lt;div&gt;</code> element, named <code translate="No">playlistWrapper</code>.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Manually create playlist</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="notranslate language-javascript">// ### Manually create playlist  ###</code></pre>
+<code class="language-javascript" translate="No">// ### Manually create playlist  ###</code></pre>
     <p>Start off by copying the playlist's array data structure into a new variable called <code translate="No">playlistIData</code>. Later you loop over this data structure to build the individual list items.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Loop over playlist data to create items and add to playlist</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="notranslate language-javascript">// ### Create playlist items and add to playlist ###</code></pre>
+<code class="language-javascript" translate="No">// ### Create playlist items and add to playlist ###</code></pre>
     <p>You dynamically create another <code translate="No">&lt;div&gt;</code> which holds an individual playlist item. The playlist item is populated and styled, then added to the <code translate="No">playlistWrapper</code>.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1254,13 +1254,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="notranslate language-javascript">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

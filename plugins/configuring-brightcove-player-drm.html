@@ -207,7 +207,7 @@ parent: Plugins
             <p>&nbsp;</p>
             <p>If your account is NOT set up for <a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html">Dynamic Delivery</a>, then you need to call and configure the EME plugin with FairPlay credential information.</p>
             <pre class="line-numbers">
-    <code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+    <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
       var myPlayer = this;
       myPlayer.eme({
         "applicationId": "<span class="bcls-input">YOUR_APPLICATION_ID</span>",
@@ -260,7 +260,7 @@ parent: Plugins
         </ol>
         <p>Note that the FairPlay information can also be passed as part of each <strong>src</strong> object. The <strong>emeOptions</strong> are provided as a parameter to all functions. They are a reference to plugin options merged with (overwritten by) the source options of the current source. It is available to make it easier to access options so that you don't have to maintain them yourself.</p>
         <pre class="line-numbers">
-    <code class="notranslate language-javascript">player.src({
+    <code class="language-javascript" translate="No">player.src({
       type: 'application/vnd.apple.mpegurl',
       src: 'http://www.example.com/path/to/master.m3u8',
       keySystems: {
@@ -273,7 +273,7 @@ parent: Plugins
     });</code></pre>
         <p>For example, if you need to use an <strong>applicationId</strong> and <strong>publisherId</strong> for the <strong>getCertificate</strong> request, you can pass in plugin options this way:</p>
         <pre class="line-numbers">
-    <code class="notranslate language-javascript">{
+    <code class="language-javascript" translate="No">{
       keySystems: {
         "com.apple.fps.1_0": {
           getCertificate: function(emeOptions, callback) {
@@ -289,7 +289,7 @@ parent: Plugins
     }</code></pre>
         <p>Or, if you need a source-specific <strong>publisherId</strong> you can overwrite it via the source options:</p>
         <pre class="line-numbers">
-    <code class="notranslate language-javascript">// plugin options
+    <code class="language-javascript" translate="No">// plugin options
     {
       keySystems: {
         "com.apple.fps.1_0": {
@@ -312,7 +312,7 @@ parent: Plugins
     });</code></pre>
         <p>The following is an example implementation, passing the options in as <strong>src</strong> options, retrieving the content ID from the hostname, fixed license and certificate URIs, and a license URI that requires a POST with a body of the key message:</p>
         <pre class="line-numbers">
-    <code class="notranslate language-javascript">var uint8ArrayToString = function(array) {
+    <code class="language-javascript" translate="No">var uint8ArrayToString = function(array) {
     return String.fromCharCode.apply(null, new Uint16Array(array.buffer));
     };
     var getHostnameFromUri = function(uri) {
@@ -427,7 +427,7 @@ parent: Plugins
     <h2 id="Supporting_other_DRM_providers">Supporting other DRM providers</h2>
     <p>The plugin has implemented a path that allows customers to implement support for other DRM providers. This is mostly useful for Fairplay, as Fairplay requires custom logic necessary to get license information. Adding a <code translate="No">vendor.name </code> to <code translate="No">keySystems </code> on a given source will attempt to utilize this logic, and include the necessary certificate and license information. An example for Azure follows:</p>
     <pre class="line-numbers">
-    <code class="notranslate language-javascript">player.ready(function(){
+    <code class="language-javascript" translate="No">player.ready(function(){
       player.eme();
       player.src({
       src: 'http://example.com/src-url.m3u8'
@@ -445,7 +445,7 @@ parent: Plugins
     });</code></pre>
     <p>Here is an example for castLabs:</p>
     <pre class="line-numbers">
-    <code class="notranslate language-javascript">var player = videojs.getPlayer('myPlayerID');
+    <code class="language-javascript" translate="No">var player = videojs.getPlayer('myPlayerID');
     player.ready(function(){
       player.eme();
       player.src({
@@ -468,7 +468,7 @@ parent: Plugins
     });</code></pre>
     <p>This example loads Widevine and PlayReady sources:</p>
     <pre class="line-numbers">
-    <code class="notranslate language-javascript">player.src({
+    <code class="language-javascript" translate="No">player.src({
       type: 'application/dash+xml',
       src: '&lt;some src&gt;',
       <span class="bcls-highlight">   keySystems: {
@@ -484,7 +484,7 @@ parent: Plugins
       To test HLS content, you can use the same methods as found in the <a href="/plugins/hls-plugin.html#Debugging">Debugging section of the HLS plugin</a> document.</aside>
     <p>To enable debugging for your DRM DASH content, add the following shaka scripts to your Brightcove Player:</p>
     <pre>
-    <code class="notranslate language-javascript">&lt;!-- Script for the drm plugin --&gt;
+    <code class="language-javascript" translate="No">&lt;!-- Script for the drm plugin --&gt;
     &lt;script src="https://players.brightcove.net/videojs-drm/5/videojs-drm.min.js"&gt;&lt;/script&gt;
     &lt;!-- Script for the shaka plugin --&gt;
     <span class="bcls-highlight">&lt;script src="https://players.brightcove.net/videojs-shaka/1/videojs-shaka.js"&gt;&lt;/script&gt;</span>

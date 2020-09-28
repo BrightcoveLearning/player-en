@@ -27,7 +27,7 @@ parent: General Information
     <h2 id="captionsfile">Creating caption files</h2>
     <p>To add captions to a video, you first need to create a caption file. The Brightcove Player requires that captions be in Web Video Text Tracks Format (WebVTT). (If you ingest captions to a Dynamic Delivery account, you can add DFXP or SRT captions, and these will be automatically converted to WebVTT captions.) The WebVTT file format is in plain text and contains time text data followed by the desired caption or subtitle text. A portion of a WebVTT file is shown below.</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">WEBVTT
+<code class="language-html" translate="No">WEBVTT
 
 00:00:00.000 --&gt; 00:00:07.080 align:middle line:90%
 
@@ -57,14 +57,14 @@ you can accomplish using it.</code></pre>
     <h2 id="pubcode">Including a &lt;track&gt; tag</h2>
     <p>To associate WebVTT caption file(s) to a Brightcove Player, you need to modify the In-Page embed code to include <code translate="No">&lt;track&gt;</code> tag for each caption file you have. For example:</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">&lt;track kind="captions" src="&lt;location of caption file&gt;" srclang="en" label="English"&gt;</code></pre>
+<code class="language-html" translate="No">&lt;track kind="captions" src="&lt;location of caption file&gt;" srclang="en" label="English"&gt;</code></pre>
     <p>The <code translate="No">&lt;track&gt;</code> tag is used to specify subtitles, caption files or other files containing text, that should be visible when the media is playing. The steps to do this are outlined below.</p>
     <aside class="bcls-aside bcls-aside--information">Note that 2- or 4-letter language codes can be used for the <code translate="No">srclang</code> attribute (e.g. <code translate="No">en</code> or <code translate="No">en-us</code>).</aside>
     <ol class="bcls-tasklist">
       <li>Generate the <strong>Advanced</strong> (In-Page) embed code for your player. <span class="video-cloud-only">This can be done using the <a href="https://studio.support.brightcove.com/players/generating-player-embed-code.html">Media module</a>.</span><br />
         Your code should look similar to this:
         <pre class="video-cloud-only">
-<code class="language-html notranslate">&lt;video-js 
+<code class="language-html" translate="No">&lt;video-js 
 	id=&quot;myPlayerID&quot; 
     data-video-id=&quot;4230322585001&quot; 
     data-account=&quot;20318290001&quot; 
@@ -76,7 +76,7 @@ you can accomplish using it.</code></pre>
 &lt;/video-js&gt;
 &lt;script src=&quot;https://players.brightcove.net/20318290001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
         <pre class="player-only">
-<code class="language-html notranslate">&lt;video-js 
+<code class="language-html" translate="No">&lt;video-js 
 	id=&quot;myPlayerID&quot; 
     data-account=&quot;20318290001&quot; 
     data-player=&quot;d508c6e1-efa7-4aad-ba91-1a8db9761b8c&quot; 
@@ -92,7 +92,7 @@ you can accomplish using it.</code></pre>
         <br />
         In the example below, English, Japanese and French caption files have been specified. For a complete list of language codes, see the <a href="http://www.w3schools.com/tags/ref_language_codes.asp">HTML Language Code Reference</a>.
         <pre class="video-cloud-only">
-<code class="language-html notranslate">&lt;video-js 
+<code class="language-html" translate="No">&lt;video-js 
 	id=&quot;myPlayerID&quot; 
     data-video-id=&quot;4230322585001&quot; 
     data-account=&quot;20318290001&quot; 
@@ -107,7 +107,7 @@ you can accomplish using it.</code></pre>
 &lt;/video-js&gt;
 &lt;script src=&quot;https://players.brightcove.net/20318290001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
         <pre class="player-only">
-<code class="language-html notranslate">&lt;video-js id=&quot;myPlayerID&quot; 
+<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot; 
 	data-account=&quot;20318290001&quot; 
     data-player=&quot;d508c6e1-efa7-4aad-ba91-1a8db9761b8c&quot; 
     data-embed=&quot;default&quot; 
@@ -123,7 +123,7 @@ you can accomplish using it.</code></pre>
       </li>
       <li><strong>(Optional)</strong> To have captions automatically display when the video starts playing you have to make a couple of changes to your page. You have to add the <code translate="No">default</code> attribute to the <code translate="No">&lt;track&gt;</code> tag for the language to display and set and add a small amount of code. Note that the <code translate="No">default</code> attribute should only appear on one <code translate="No">&lt;track&gt;</code> tag. For example, to have the English captions display when the video starts playing, the <code translate="No">&lt;track&gt;</code> tag would be modified as follows:
         <pre class="line-numbers">
-<code class="language-html notranslate">&lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs.vtt" srclang="en" label="English" default&gt;
+<code class="language-html" translate="No">&lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs.vtt" srclang="en" label="English" default&gt;
 &lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-jp.vtt" srclang="ja" label="Japanese"&gt;
 &lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-fr.vtt" srclang="fr" label="French"&gt;</code></pre>
         <p>The code needed to start the designated captions automatically is:</p>
@@ -308,7 +308,7 @@ you can accomplish using it.</code></pre>
 });</code></pre>
     <p>You must wait for the <code translate="No">loadedmetadata</code> event to be dispatched before you use the <code translate="No">addRemoteTextTrack()</code> method. The following example shows the script block for adding English and French captions to a video.</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">&lt;script type=&quot;text/javascript&quot;&gt;
+<code class="language-html" translate="No">&lt;script type=&quot;text/javascript&quot;&gt;
   videojs.getPlayer('myPlayerID').ready(function () {
     var myPlayer = this;
     myPlayer.one(&quot;loadedmetadata&quot;, function () {

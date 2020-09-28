@@ -237,7 +237,7 @@ overlay.id = 'download-overlay';
 myPlayer.el().appendChild(overlay);</code></pre>
         <p>You will also need to use CSS to style and place the overlay, which obviously can be changed to suit your implementation.</p>
         <pre class="line-numbers" data-start="1">
-<code class="language-css notranslate">#download-overlay {
+<code class="language-css" translate="No">#download-overlay {
     background-color: #FFFFFF;
     color: #000000;
     font-size: 1em;
@@ -256,7 +256,7 @@ myPlayer.el().appendChild(overlay);</code></pre>
         <aside class="bcls-aside bcls-aside--warning">Note: This implementation will NOT work as a plugin when using the iframe player implementation. This is because the <code translate="No">&lt;p&gt;</code> tag set as the insertion point is external to the player code, and thus not reachable by the plugin, whose context is the player which is in the iframe.</aside>
         <p>First, in your HTML page determine where you wish to insert the link and place the following HTML there.</p>
         <pre class="line-numbers" data-start="1">
-<code class="language-html notranslate">&lt;p id="insertionPoint"&gt;&lt;/p&gt;</code></pre>
+<code class="language-html" translate="No">&lt;p id="insertionPoint"&gt;&lt;/p&gt;</code></pre>
         <p>Next, in the JavaScript remove all the code that creates and displays the linked icon. Replace that code with code that creates a hyperlink and dynamically injects that hyperlink into the HTML page at your insertion point.</p>
         <pre class="line-numbers" data-start="1">
 <code class="language-javascript" translate="No">downloadString = "&lt;a href='" + highestQuality + "' download='" + videoName + "'&gt;Download the Video&lt;/a&gt;";

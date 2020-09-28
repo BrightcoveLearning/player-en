@@ -1202,14 +1202,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Get the playlist</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="notranslate language-javascript">// +++ Get the playlist +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Get the playlist +++</code></pre>
     <p>Use the <a href="/references/player-catalog.html#getPlaylist">catalog.getPlaylist()</a> method to retrieve the playlist associated with the given playlist ID. Save the first 9 videos in the playlist to be used for the overlay.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Format the overlay content</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="notranslate language-javascript">// +++ Format the overlay content +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Format the overlay content +++</code></pre>
     <p>To format the overlay content, you will do the following:</p>
     <ol class="bcls-tasklist">
       <li>Save the each related video object in an array.</li>
@@ -1224,14 +1224,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Initialize the overlay</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="notranslate language-javascript">// +++ Initialize the overlay +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Initialize the overlay +++</code></pre>
     <p>Call the <a href="/plugins/display-overlay-plugin.html">Overlay</a> plugin with the related video thumbnails, and set the overlay to display on <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:pause">pause</a> or video end.</p>
     <!-- UPDATE task 4 -->
     
     <h3>Load and play related video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-		<code class="notranslate language-javascript">// +++ Load and play related video +++</code></pre>
+		<code class="language-javascript" translate="No">// +++ Load and play related video +++</code></pre>
     <p>Create a function that loads and starts playback for the related video that is selected by the user.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -1245,13 +1245,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-		<code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {
+		<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 			var myPlayer = this;
 			...
 		});</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-		<code class="notranslate language-javascript">videojs.registerPlugin('pluginName', function(options) {
+		<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
 			var myPlayer = this;
 			...
 		});</code></pre>

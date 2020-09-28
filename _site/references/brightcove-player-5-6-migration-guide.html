@@ -1096,12 +1096,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p >In Video.js 4, the player was sized via JavaScript. Video.js 5 introduced a new CSS based sizing scheme that caused some issues with player dimensions. The shim rolled these changes back, such that they behaved more like they did in version 4.</p>
     <p >In practice, when using Brightcove Player v6 the <code translate="No">height</code> and <code translate="No">width</code> on the video tag are measured in pixels <strong>only</strong>. In fact, you do not enter any units at all for the <code translate="No">height</code> and <code translate="No">width</code> attributes:</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">width="480"</code></pre>
+<code class="language-html" translate="No">width="480"</code></pre>
     <p >You could set the width and height to <strong>100%</strong> in version 5, this no longer works in version 6. You can accomplish this using CSS in two different ways:</p>
     <ul>
       <li >Using a <code translate="No">style</code> attribute in the <code translate="No">video</code> tag.
         <pre class="line-numbers">
-<code class="language-html notranslate">&lt;video-js data-video-id="5622718636001"
+<code class="language-html" translate="No">&lt;video-js data-video-id="5622718636001"
   data-account="1507807800001"
   data-player="default"
   data-embed="default"
@@ -1113,7 +1113,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li >Using a <code translate="No">style</code> tag.
         <pre class="line-numbers">
-  <code class="language-html" notranslate="">...
+  <code class="language-html" translate="No">...
   <span class="bcls-highlight">&lt;style&gt;
       .video-js {
         height: 100%;
@@ -1227,13 +1227,13 @@ registerPlugin('pluginName', function(){
     </ul>
     <p >If these criteria are met, you will have to use a <strong>crossdomain.xml</strong> file at the root domain from where the media is being served. For example, if you are serving content from</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">https://www.domain.com/media/video.m3u8</code></pre>
+<code class="language-html" translate="No">https://www.domain.com/media/video.m3u8</code></pre>
     <p >then a <strong>crossdomain.xml</strong> file must exist on</p>
     <pre class="line-numbers">
-<code class="language-html notranslate">https://www.domain.com/crossdomain.xml</code></pre>
+<code class="language-html" translate="No">https://www.domain.com/crossdomain.xml</code></pre>
     <p >Since the player swf is hosted on <code translate="No">players.brightcove.net</code>, it is recommended to use <code translate="No">*.brightcove.net</code>. An example <strong>crossdomain.xml</strong> appears as follows:</p>
     <pre class="line-numbers">
-<code class="language-xml notranslate">&lt;?xml version="1.0"?&gt;
+<code class="language-xml" translate="No">&lt;?xml version="1.0"?&gt;
 &lt;cross-domain-policy&gt;
 &lt;allow-access-from domain="*.brightcove.net" /&gt;
 &lt;/cross-domain-policy&gt;</code></pre>
@@ -1241,7 +1241,7 @@ registerPlugin('pluginName', function(){
     <h3>Working with HTTPS</h3>
     <p >When you are loading an HTTPS asset from an HTTP page or vice versa, you need to include the <code translate="No">secure</code> attribute with a value of <code translate="No">false</code> as follows:</p>
     <pre class="line-numbers">
-<code class="language-xml notranslate">&lt;?xml version="1.0"?&gt;
+<code class="language-xml" translate="No">&lt;?xml version="1.0"?&gt;
 &lt;cross-domain-policy&gt;
 &lt;allow-access-from domain="*.brightcove.net" secure="false"/&gt;
 &lt;/cross-domain-policy&gt;</code></pre>
