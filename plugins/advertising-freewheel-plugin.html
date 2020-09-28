@@ -26,7 +26,7 @@ iframe {
 </style>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p>This plugin enables FreeWheel ad technology, for either Flash or HTML5, in Brightcove Player. The default rendering option for the FreeWheel plugin is set to <strong class="notranslate">Html5</strong> (for more information see the <code translate="No">adTechOrder</code> option below).</p>
+    <p>This plugin enables FreeWheel ad technology, for either Flash or HTML5, in Brightcove Player. The default rendering option for the FreeWheel plugin is set to <strong translate="No">Html5</strong> (for more information see the <code translate="No">adTechOrder</code> option below).</p>
   </section>
   <section class="bcls-section">
     <h2 id="Using_versions_of_the_plugin">Using versions of the plugin</h2>
@@ -62,7 +62,7 @@ iframe {
   <section class="bcls-section">
     <h2 id="Testing_the_ad_server">Testing the ad server</h2>
     <p>The first thing you should do is verify the validity of the ad tag you are planning to use. Be sure you have copied its URL and browse to the following page: <a target="_blank" rel="noopener noreferrer" href="//vi.freewheel.tv/apc/dropzone">Ad Previewer</a> (clicking this link will cause the page to open in a new window or tab).</p>
-    <p>Paste your ad tag URL into the indicated form input field. Click <strong class="notranslate">OPEN IN AD PREVIEWER</strong>. A popup titled <strong class="notranslate">Open In Ad Previewer</strong> will display, and you then click the <strong class="notranslate">OPEN</strong> button to test your ad. Click <strong class="notranslate">PLAY</strong> and, if functioning correctly, your ad will display interspersed with a video. If your ad tag is not working in this test environment, it will not work with Brightcove Player.</p>
+    <p>Paste your ad tag URL into the indicated form input field. Click <strong translate="No">OPEN IN AD PREVIEWER</strong>. A popup titled <strong translate="No">Open In Ad Previewer</strong> will display, and you then click the <strong translate="No">OPEN</strong> button to test your ad. Click <strong translate="No">PLAY</strong> and, if functioning correctly, your ad will display interspersed with a video. If your ad tag is not working in this test environment, it will not work with Brightcove Player.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Using_the_correct_SDK_URL">Using the correct SDK URL</h2>
@@ -128,7 +128,7 @@ iframe {
 https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</code></pre>
     <p>The name of the plugin is <code translate="No">FreeWheelPlugin</code>. The options configure playback technology where <code translate="No">Flash</code> and <code translate="No">Html5</code> configuration sections are provided by FreeWheel. A slightly altered (for security reasons) complete configuration is shown <a href="#exampleconfiguration">below</a> . A stub example is shown here:</p>
     <pre class="line-numbers">
-<code class="language-json notranslate">{
+<code class="language-json" translate="No">{
   adTechOrder: ["html5"],
   Flash: {
     sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
@@ -145,7 +145,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <p>The following shows using the In-Page Embed implementation of the player to associate the FreeWheel Plugin with a single instance of a player.</p>
     <ul>
       <li>Line 90: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.</li>
-      <li>Line 92: Gives the <code translate="No">video</code> tag an <code translate="No">id</code> attribute, with some value, in this case <strong class="notranslate">myPlayerID</strong>.</li>
+      <li>Line 92: Gives the <code translate="No">video</code> tag an <code translate="No">id</code> attribute, with some value, in this case <strong translate="No">myPlayerID</strong>.</li>
       <li>Line 100: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML page.</li>
       <li>Lines 105-125: Initialize the plugin and pass in custom options.</li>
       <li>Line 107: Creates a reference to the player.</li>
@@ -249,110 +249,110 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <h2 id="Configuration">Configuration</h2>
     <p>The following settings are used to configure the FreeWheel plugin:</p>
     <ul>
-      <li><strong class="notranslate">adTechOrder</strong>:
+      <li><strong translate="No">adTechOrder</strong>:
         <ul>
           <li>Type: <code translate="No">Array</code> Default Value: <code translate="No">["html5"]</code></li>
           <li>The array contains the ad integration technologies to attempt to use, in order of descending precedence.</li>
         </ul>
       </li>
-      <li><strong class="notranslate">Flash</strong>:
+      <li><strong translate="No">Flash</strong>:
         <ul>
           <li>Type: <code translate="No">Object</code></li>
           <li>An object for Tech specific FreeWheel configuration (provided by FreeWheel). The object contains the following options:
             <aside class="bcls-aside bcls-aside--information">These options can either be set dynamically (shown <a href="#Dynamic_server_URL_assignment">here</a>) or as part of the initial configuration (shown <a href="#exampleconfiguration">here</a>).</aside>
           </li>
-          <li><strong class="notranslate">swfurl</strong>:
+          <li><strong translate="No">swfurl</strong>:
             <ul>
               <li>Type: <code translate="No">string</code> Default Value: <code translate="No">https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf</code> (compatible with FW Flash SDK v6.4.6)</li>
-              <li>Optional values can be used based on FreeWheel Flash Plugin Version. Those values can be found in the <strong class="notranslate">Using versions of the plugin</strong> section near the top of this document.</li>
+              <li>Optional values can be used based on FreeWheel Flash Plugin Version. Those values can be found in the <strong translate="No">Using versions of the plugin</strong> section near the top of this document.</li>
               <li>Must be a child property of the <code translate="No">Flash</code> object. This will be directly applied to the object element if the Flash ad tech is used.</li>
             </ul>
           </li>
-          <li><strong class="notranslate">autoplay</strong>:
+          <li><strong translate="No">autoplay</strong>:
             <ul>
               <li>Type: <code translate="No">boolean</code> Default Value: <code translate="No">true</code></li>
               <li>Indicates if the content is autoplayed.</li>
               <li>Must be a child property of the <code translate="No">Flash</code> object. This will be directly applied to the object element if the Flash ad tech is used.</li>
             </ul>
           </li>
-          <li><strong class="notranslate">unattendedPlay</strong>:
+          <li><strong translate="No">unattendedPlay</strong>:
             <ul>
               <li>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></li>
               <li>When <code translate="No">autoPlay</code> is set to true, <code translate="No">unattendedPlay</code> indicates whether the user is aware of the autoplaying.</li>
               <li>Must be a child property of the <code translate="No">Flash</code> object. This will be directly applied to the object element if the Flash ad tech is used.</li>
             </ul>
           </li>
-          <li><strong class="notranslate">visitorCustomId</strong>:
+          <li><strong translate="No">visitorCustomId</strong>:
             <ul>
               <li>Type: <code translate="No">string</code> Default Value: <code translate="No">unset</code></li>
-              <li>Allows publishers to pass a custom visitor id for the ad request. When set, this value will be passed in the visitor block of the request payload as <strong class="notranslate">customId="CustomID_001"</strong>. The id will be returned in the response to the ad request in the opening visitor tag as an attribute: <strong class="notranslate">customId="CustomID_001"</strong>.</li>
+              <li>Allows publishers to pass a custom visitor id for the ad request. When set, this value will be passed in the visitor block of the request payload as <strong translate="No">customId="CustomID_001"</strong>. The id will be returned in the response to the ad request in the opening visitor tag as an attribute: <strong translate="No">customId="CustomID_001"</strong>.</li>
               <li>Must be a child property of the <code translate="No">Flash</code> object. This will be directly applied to the object element if the Flash ad tech is used.</li>
             </ul>
           </li>
         </ul>
       </li>
-      <li><strong class="notranslate">Html5</strong>:
+      <li><strong translate="No">Html5</strong>:
         <ul>
           <li>Type: <code translate="No">Object</code></li>
           <li>An object for Tech specific FreeWheel configuration (provided by FreeWheel). The object contains the following options:
             <aside class="bcls-aside bcls-aside--information">These options can either be set dynamically (shown <a href="#Dynamic_server_URL_assignment">here</a>) or as part of the initial configuration (shown <a href="#exampleconfiguration">here</a>).</aside>
           </li>
-          <li><strong class="notranslate">autoPlayType</strong>:
+          <li><strong translate="No">autoPlayType</strong>:
             <ul>
               <li>Type: <code translate="No">integer</code> Default Value: <code translate="No">1</code></li>
               <li>Indicates that the content video will autoPlay and the user is aware the content is autoplaying.</li>
               <li>The values passed into autoPlayType sets flags in the ad request url sent to the FreeWheel ad server and can be one of three integer values which equate to the related FreeWheel SDK constants:
                 <ul>
-                  <li><strong class="notranslate">1: tv.freewheel.SDK.VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED</strong>: Means <code translate="No">autoPlay</code> is <strong class="notranslate">true</strong> and <code translate="No">unattendedPlay</code> is <strong class="notranslate">false</strong>. This sets flag = <strong class="notranslate">+play-uapl</strong>.</li>
-                  <li><strong class="notranslate">2: tv.freewheel.SDK.VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED</strong>: means <code translate="No">autoPlay</code> is <strong class="notranslate">true</strong> and <code translate="No">unattendedPlay</code> is also <strong class="notranslate">true</strong>. This sets flag = <strong class="notranslate">+play+uapl</strong>.</li>
-                  <li><strong class="notranslate">3: tv.freewheel.SDK.VIDEO_ASSET_AUTO_PLAY_TYPE_NONE</strong>: means <code translate="No">autoPlay</code> is <strong class="notranslate">false</strong> and <code translate="No">unattendedPlay</code> is <strong class="notranslate">unset</strong>. This sets flag = <strong class="notranslate">-play</strong>.</li>
+                  <li><strong translate="No">1: tv.freewheel.SDK.VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED</strong>: Means <code translate="No">autoPlay</code> is <strong translate="No">true</strong> and <code translate="No">unattendedPlay</code> is <strong translate="No">false</strong>. This sets flag = <strong translate="No">+play-uapl</strong>.</li>
+                  <li><strong translate="No">2: tv.freewheel.SDK.VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED</strong>: means <code translate="No">autoPlay</code> is <strong translate="No">true</strong> and <code translate="No">unattendedPlay</code> is also <strong translate="No">true</strong>. This sets flag = <strong translate="No">+play+uapl</strong>.</li>
+                  <li><strong translate="No">3: tv.freewheel.SDK.VIDEO_ASSET_AUTO_PLAY_TYPE_NONE</strong>: means <code translate="No">autoPlay</code> is <strong translate="No">false</strong> and <code translate="No">unattendedPlay</code> is <strong translate="No">unset</strong>. This sets flag = <strong translate="No">-play</strong>.</li>
                 </ul>
               </li>
               <li>Must be a child property of the <code translate="No">Html5</code> object. This will be directly applied to the object element if the Html5 ad tech is used.</li>
             </ul>
           </li>
-          <li><strong class="notranslate">visitorCustomId</strong>:
+          <li><strong translate="No">visitorCustomId</strong>:
             <ul>
               <li>Type: <code translate="No">string</code> Default Value: <code translate="No">(optional)</code></li>
-              <li>The <code translate="No">visitorCustomId</code> option allows publishers to pass a custom visitor id for the ad request. When set, this value will be passed in the ad request URL as the queryString <strong class="notranslate">vcid=CustomID_001</strong>. The id will be returned in response of the ad request in the visitor JSON block as <strong class="notranslate">"customId" : "CustomID_001"</strong>.</li>
+              <li>The <code translate="No">visitorCustomId</code> option allows publishers to pass a custom visitor id for the ad request. When set, this value will be passed in the ad request URL as the queryString <strong translate="No">vcid=CustomID_001</strong>. The id will be returned in response of the ad request in the visitor JSON block as <strong translate="No">"customId" : "CustomID_001"</strong>.</li>
               <li>Must be a child property of the <code translate="No">Html5</code> object. This will be directly applied to the object element if the Html5 ad tech is used.</li>
             </ul>
           </li>
-          <li id="subsessionToken"><strong class="notranslate">subsessionToken</strong>:
+          <li id="subsessionToken"><strong translate="No">subsessionToken</strong>:
             <ul>
               <li>Type: <code translate="No">int</code> Default Value: <code translate="No">(optional)</code></li>
               <li>The <code translate="No">subsessionToken</code> option allows publishers to start a subsession with the given token. When set, this value will be passed in the ad request URL as the queryString:
                 <pre>
-<code class="language-javascript notranslate"><strong class="notranslate">ssto=1234567890</strong></code></pre>
+<code class="language-javascript" translate="No"><strong translate="No">ssto=1234567890</strong></code></pre>
               </li>
               <li>Must be a child property of the <code translate="No">Html5</code> object. This will be directly applied to the object element if the Html5 ad tech is used.
                 <aside class="bcls-aside bcls-aside--information">Note: For the <code translate="No">subsessionToken</code> to function properly you must also include a capability in the ad request of <code translate="No">[flag=+sync]</code> as a parameter.</aside>
               </li>
             </ul>
           </li>
-          <li id="compatibleDimensions"><strong class="notranslate">compatibleDimensions</strong>:
+          <li id="compatibleDimensions"><strong translate="No">compatibleDimensions</strong>:
             <ul>
               <li>Type: <code translate="No">array</code> Default Value: <code translate="No">(optional)</code></li>
               <li>
                 <p>The <code translate="No">compatibleDimensions</code> option allows publishers to pass an array of compatible dimensions. For example:</p>
                 <pre>
-<code class="language-javascript notranslate">compatibleDimensions: [ {width: A, height: B}, {width: X, height: Y} ]</code></pre>
+<code class="language-javascript" translate="No">compatibleDimensions: [ {width: A, height: B}, {width: X, height: Y} ]</code></pre>
                 <p>When set, this value will be passed in the ad request URL as the queryString:</p>
                 <pre>
-<code class="language-javascript notranslate"><strong class="notranslate">cd=widthA,heightA|widthX,heightY</strong></code></pre>
+<code class="language-javascript" translate="No"><strong translate="No">cd=widthA,heightA|widthX,heightY</strong></code></pre>
               </li>
               <li>Must be a child property of the <code translate="No">Html5</code> object. This will be directly applied to the object element if the Html5 ad tech is used.</li>
             </ul>
           </li>
         </ul>
       </li>
-      <li id="loadWithCookie"><strong class="notranslate">loadWithCookie</strong>:
+      <li id="loadWithCookie"><strong translate="No">loadWithCookie</strong>:
         <ul>
           <li>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></li>
           <li>Enables or disables cookies for VAST requests.</li>
         </ul>
       </li>
-      <li id="reqestAdsMode"><strong class="notranslate">requestAdsMode</strong>:
+      <li id="reqestAdsMode"><strong translate="No">requestAdsMode</strong>:
         <ul>
           <li>Type: <code translate="No">string</code> Default Value: <code translate="No">onload</code></li>
           <li>Possible values for the property are:
@@ -371,7 +371,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
         </ul>
         <aside class="bcls-aside bcls-aside--warning">Note: When using cue point ads with the FreeWheel plugin, post-roll ads are not supported.</aside>
       </li>
-      <li><strong class="notranslate">useMediaCuePoints</strong>:
+      <li><strong translate="No">useMediaCuePoints</strong>:
         <ul>
           <li>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></li>
           <li>Must be set to true to use Video Cloud ad cue points to trigger ads. Must be used in conjunction with <code translate="No">requestAdsMode: 'oncue'</code> property and assigned value.</li>
@@ -423,7 +423,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
           <td>{mediainfo.ad_keys}</td>
           <td>Free form text string that can be added and edited in the Media module of Studio; you should use the query parameter in the form
             <pre class="line-numbers">
-<code class="language-javascript notranslate">cust_params={mediainfo.ad_keys}</code></pre></td>
+<code class="language-javascript" translate="No">cust_params={mediainfo.ad_keys}</code></pre></td>
         </tr>
         <tr>
           <td>{player.duration}</td>
@@ -454,8 +454,8 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <aside class="bcls-aside bcls-aside--information">
       <p>Note: If you are wishing to use the video ID as your FreeWheel <code translate="No">videoAssetCustomId</code>, you can do this using the <code translate="No">{mediainfo.id}</code> ad macro. For instance, in the configurations below you could do the following:</p>
       <pre class="line-numbers">
-<code class="language-javascript notranslate">'videoAssetCustomId' = '{mediainfo.id}';</code></pre>
-      <p>One FreeWheel configuration issue to be aware of: If the video ID is not configured as an <code translate="No">Asset ID</code> in the FreeWheel Ad Manager configuration on the server, FreeWheel will return an error of <strong class="notranslate">INVALID_ASSET_CUSTOM_ID</strong>.</p>
+<code class="language-javascript" translate="No">'videoAssetCustomId' = '{mediainfo.id}';</code></pre>
+      <p>One FreeWheel configuration issue to be aware of: If the video ID is not configured as an <code translate="No">Asset ID</code> in the FreeWheel Ad Manager configuration on the server, FreeWheel will return an error of <strong translate="No">INVALID_ASSET_CUSTOM_ID</strong>.</p>
     </aside>/
   </section>
   <section class="bcls-section">
@@ -478,7 +478,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     </aside>
     <p>&nbsp;</p>
     <pre class="line-numbers">
-<code class="language-json notranslate">"plugins": [{
+<code class="language-json" translate="No">"plugins": [{
   "name": "FreeWheelPlugin",
   "options": {
     "Flash": {
@@ -486,7 +486,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
       "profile": "2aaa_profile",
       "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
       "serverUrl": "http://cue.v.fwmrm.net/ad/h/5",
-      "siteSectionCustomId": "<strong class="notranslate">your value here</strong>",
+      "siteSectionCustomId": "<strong translate="No">your value here</strong>",
       "swfurl": "https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf",
       "temporalSlots": [{
         "adUnit": "preroll",
@@ -505,7 +505,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
         "id": "Overlay_1",
         "timePosition": 10
       }],
-      "videoAssetCustomId": "<strong class="notranslate">your value here</strong>",
+      "videoAssetCustomId": "<strong translate="No">your value here</strong>",
       "videoAssetDuration": 500
     },
     "Html5": {
@@ -519,7 +519,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
       "profile": "global-js",
       "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
       "serverUrl": "http://cue.v.fwmrm.net/ad/h/5",
-      "siteSectionCustomId": "<strong class="notranslate">your value here</strong>",
+      "siteSectionCustomId": "<strong translate="No">your value here</strong>",
       "temporalSlots": [{
         "adUnit": "preroll",
         "id": "Preroll_1",
@@ -533,7 +533,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
         "id": "Overlay_1",
         "timePosition": 5
       }],
-      "videoAssetCustomId": "<strong class="notranslate">your value here</strong>",
+      "videoAssetCustomId": "<strong translate="No">your value here</strong>",
       "videoAssetDuration": 500
     },
     "adTechOrder": [
@@ -550,7 +550,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <h2 id="Events">Events</h2>
     <p>The plugin emits some custom event types during loading, initialization, and playback. You can listen for the ad framework events just like you would any other event:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">player.on('ads-ad-started', function(event) {
+<code class="language-javascript" translate="No">player.on('ads-ad-started', function(event) {
   console.log('event', event);
 });</code></pre>
     <table class="bcls-table">
@@ -628,7 +628,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <h2 id="Dynamic_server_URL_assignment">Dynamic server URL assignment</h2>
     <p>You can use the <code translate="No">fw-before-ad-request</code> event to dynamically assign the server URL. You will use the <code translate="No">on()</code> method to listen for the ad request, then assign the desired server URL. Of course, you will need to supply your desired server URLs for the placeholders in the code:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">player.on('fw-before-ad-request', function () {
+<code class="language-javascript" translate="No">player.on('fw-before-ad-request', function () {
   player.FreeWheelPlugin.settings.Html5.serverUrl = '[your server url]'
   player.FreeWheelPlugin.settings.Flash.serverUrl = '[your server url]'
 })</code></pre>
@@ -638,7 +638,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <h2 id="Demos">Demos</h2>
     <p>The following demos use slightly different FreeWheel configurations and the resulting player. Both configurations will play a pre-roll, a mid-roll at 5 seconds and then a post-roll. The configurations are the same, except that the <code translate="No">adtechOrder</code> is different. In the first demo <code translate="No">html5</code> is first, as shown here:</p>
     <pre class="line-numbers">
-<code class="language-json notranslate">"adTechOrder": [
+<code class="language-json" translate="No">"adTechOrder": [
   "html5",
   "flash"
 ],</code></pre>
@@ -646,15 +646,15 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <h3>adtech order: html5, flash</h3>
     <p>This demo uses <code translate="No">html5</code> first in the <code translate="No">adtechOder</code>.</p>
     <iframe src="https://players.brightcove.net/1752604059001/24351871-efb6-4c3a-9002-dc8acd9192c6_default/index.html?videoId=4172255216001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
-    <p>Following is the actual configuration used with the player. Note that this can be used for the <strong class="notranslate">options</strong> value in Studio.</p>
+    <p>Following is the actual configuration used with the player. Note that this can be used for the <strong translate="No">options</strong> value in Studio.</p>
     <pre class="line-numbers">
-<code class="language-json notranslate">{
+<code class="language-json" translate="No">{
   "Flash": {
     "networkId": 90750,
     "profile": "3pqa_profile",
     "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
     "serverUrl": "//cue.v.fwmrm.net/ad/g/1",
-    "siteSectionCustomId": "<strong class="notranslate">your value here</strong>",
+    "siteSectionCustomId": "<strong translate="No">your value here</strong>",
     "swfurl": "https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf",
     "temporalSlots": [{
       "adUnit": "preroll",
@@ -669,7 +669,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
       "id": "Midroll_1",
       "timePosition": 5
     }],
-    "videoAssetCustomId": "<strong class="notranslate">your value here</strong>",
+    "videoAssetCustomId": "<strong translate="No">your value here</strong>",
     "videoAssetDuration": 500
   },
   "Html5": {
@@ -683,7 +683,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     "profile": "global-js",
     "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
     "serverUrl": "//demo.v.fwmrm.net/ad/g/1",
-    "siteSectionCustomId": "<strong class="notranslate">your value here</strong>",
+    "siteSectionCustomId": "<strong translate="No">your value here</strong>",
     "temporalSlots": [{
       "adUnit": "preroll",
       "id": "Preroll_1",
@@ -697,7 +697,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
       "id": "Midroll_1",
       "timePosition": 5
     }],
-    "videoAssetCustomId": "<strong class="notranslate">your value here</strong>",
+    "videoAssetCustomId": "<strong translate="No">your value here</strong>",
     "videoAssetDuration": 500
   },
   "adTechOrder": [
@@ -711,15 +711,15 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <h3>adtech order: flash, html5</h3>
     <p>This demo uses <code translate="No">flash</code> first in the <code translate="No">adtechOder</code>.</p>
     <iframe src="https://players.brightcove.net/1752604059001/616d343c-33f6-45c3-8484-b889eb8095e1_default/index.html?videoId=4172255216001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
-    <p>Following is the actual configuration used with the player. Note that this can be used for the <strong class="notranslate">options</strong> value in Studio.</p>
+    <p>Following is the actual configuration used with the player. Note that this can be used for the <strong translate="No">options</strong> value in Studio.</p>
     <pre class="line-numbers">
-<code class="language-json notranslate">{
+<code class="language-json" translate="No">{
   "Flash": {
     "networkId": 90750,
     "profile": "3pqa_profile",
     "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
     "serverUrl": "http://cue.v.fwmrm.net/ad/g/1",
-    "siteSectionCustomId": "<strong class="notranslate">your value here</strong>",
+    "siteSectionCustomId": "<strong translate="No">your value here</strong>",
     "temporalSlots": [{
       "adUnit": "preroll",
       "id": "Preroll_1",
@@ -733,7 +733,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
       "id": "Midroll_1",
       "timePosition": 5
     }],
-    "videoAssetCustomId": "<strong class="notranslate">your value here</strong>",
+    "videoAssetCustomId": "<strong translate="No">your value here</strong>",
     "videoAssetDuration": 500
   },
   "Html5": {
@@ -747,7 +747,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     "profile": "global-js",
     "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
     "serverUrl": "http://cue.v.fwmrm.net/ad/g/1",
-    "siteSectionCustomId": "<strong class="notranslate">your value here</strong>",
+    "siteSectionCustomId": "<strong translate="No">your value here</strong>",
     "temporalSlots": [{
       "adUnit": "preroll",
       "id": "Preroll_1",
@@ -761,7 +761,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
       "id": "Midroll_1",
       "timePosition": 5
     }],
-    "videoAssetCustomId": "<strong class="notranslate">your value here</strong>",
+    "videoAssetCustomId": "<strong translate="No">your value here</strong>",
     "videoAssetDuration": 500
   },
   "adTechOrder": [
@@ -780,7 +780,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <h2 id="Player_Ad_Libraries">Player Ad Libraries</h2>
     <p>The <a href="https://github.com/videojs/videojs-contrib-ads">videojs/videojs-contrib-ads</a> GitHub repository contains a plugin which provides common functionality needed by video advertisement libraries working with Brightcove Player. The plugin provides common functionality needed by video ad integrations and takes care of a number of concerns for ad integrators, reducing the code you have to write for your ad integration.</p>
     <h3 id="contrib-ads-properties">Properties</h3>
-    <p><strong class="notranslate">videojs-contrib-ads</strong> provides some properties that can be helpful. They are:</p>
+    <p><strong translate="No">videojs-contrib-ads</strong> provides some properties that can be helpful. They are:</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -808,7 +808,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
         <tr>
           <td>ads.ad.type</td>
           <td>String</td>
-          <td>Either <strong class="notranslate">PREROLL</strong>, <strong class="notranslate">MIDROLL</strong> or <strong class="notranslate">POSTROLL</strong></td>
+          <td>Either <strong translate="No">PREROLL</strong>, <strong translate="No">MIDROLL</strong> or <strong translate="No">POSTROLL</strong></td>
         </tr>
         <tr>
           <td>ads.ad.currentTime()</td>
@@ -819,7 +819,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     </table>
     <p>The following code demonstrates the use of the properties:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">myPlayer.on('ads-ad-started',function( evt ){
+<code class="language-javascript" translate="No">myPlayer.on('ads-ad-started',function( evt ){
   console.log('*****ads-ad-started event passed to event handler', evt);
 <span class="bcls-highlight">  console.log('myPlayer.ads.ad.id',myPlayer.ads.ad.id);
   console.log('myPlayer.ads.ad.index',myPlayer.ads.ad.index);
@@ -835,7 +835,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <p>The output in the console from the above code is shown here:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="console of contrib-ads properties" src="//learning-services-media.brightcove.com/doc-assets/player-development/advertising/freewheel-plugin/contrib-ads-properties.png" /></figure>
     <h3 id="contrib-ads-methods">Methods</h3>
-    <p><strong class="notranslate">videojs-contrib-ads</strong> provides some methods that can be helpful. They are:</p>
+    <p><strong translate="No">videojs-contrib-ads</strong> provides some methods that can be helpful. They are:</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -850,7 +850,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
         </tr>
         <tr>
           <td>isAdPlaying()</td>
-          <td><strong class="notranslate">Deprecated</strong></td>
+          <td><strong translate="No">Deprecated</strong></td>
         </tr>
         <tr>
           <td>isContentResuming()</td>
@@ -876,7 +876,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <p>When using <code translate="No">player.dimensions(width,height)</code> to resize the player, you will have to trigger the <code translate="No">fw-resizeplayer</code> event so that the plugin will know the dimensions have changed. This is because some VPAID ads retain the default dimensions of the ad and will not automatically resize when the player resizes.</p>
     <p>Here is an example:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">player.dimensions(960,540);
+<code class="language-javascript" translate="No">player.dimensions(960,540);
 player.trigger('fw-resizeplayer');</code></pre>
     <h3>Overlay ads</h3>
     <p>If the FreeWheel plugin is rendering an ad in Flash, overlay ads are not clickable. If the FreeWheel plugin is rendering an ad in HTML5, overlays are not displayed at correct coordinates. Clicking on an HTML5 overlay ad will not pause the content player when the click-url is followed.</p>

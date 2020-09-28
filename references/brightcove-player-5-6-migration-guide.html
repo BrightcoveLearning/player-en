@@ -10,7 +10,7 @@ parent: References
     <p class="language-editable">While backward-incompatible changes in Video.js 6 are documented on the <a href="//github.com/videojs/video.js/wiki/Video.js-6-Migration-Guide">Video.js wiki</a>, this document can be used for additional migration guidelines specific to the Brightcove Player 6 that don’t apply to migration from Video.js 5 to 6.</p>
     <p class="language-editable">A significant piece of the Brightcove Player 5 was the compatibility plugin, triggered by the player configuration value:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">"compatibility": true</code></pre>
+<code class="language-javascript" translate="No">"compatibility": true</code></pre>
     <p class="language-editable">This configuration is on by default for 5.x players. Its effect is to include a plugin that will “shim” the Video.js 4 API, which allowed more customer plugins and integrations to work seamlessly in the automatic update to Brightcove Player 5.</p>
     <p class="language-editable">As of Brightcove Player 6, this shim is no longer a part of the player. Anyone who wants to update from 5 to 6 should ensure that their code is compatible with the Video.js 6 API by following the aforementioned documentation on the <a href="//github.com/videojs/video.js/wiki/Video.js-6-Migration-Guide">Video.js wiki</a>. The following sections document changes you will need to consider when updating.</p>
   </section>
@@ -63,10 +63,10 @@ parent: References
     <h2 id="Component_constructors">Component constructors</h2>
     <p class="language-editable">In Video.js 4, and version 5 via the shim, component constructors (such as <code translate="No">Player</code> and <code translate="No">ControlBar</code>) were available as properties of the <code translate="No">videojs</code> function:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate"> videojs.${ComponentName}</code></pre>
+<code class="language-javascript" translate="No"> videojs.${ComponentName}</code></pre>
     <p class="language-editable">This is no longer the case. The <code translate="No">videojs.getComponent</code> function should be used instead:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">var ControlBar = videojs.getComponent('ControlBar');</code></pre>
+<code class="language-javascript" translate="No">var ControlBar = videojs.getComponent('ControlBar');</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="SliderHandle_component">SliderHandle component</h2>
@@ -122,19 +122,19 @@ parent: References
     <h2 id="Creating_a_custom_plugin">Creating a custom plugin</h2>
     <p class="language-editable">In version 5 of Brightcove Player when you created a custom plugin the first line of the plugin used the <code translate="No">videojs.plugin()</code> method. For example:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.plugin('scrollIntoView', function() {
+<code class="language-javascript" translate="No">videojs.plugin('scrollIntoView', function() {
   var myPlayer = this,
     isAdPlaying = false;
   ...</code></pre>
     <p class="language-editable">You should now use the <code translate="No">videojs.registerPlugin()</code> method instead. For example:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.registerPlugin('scrollIntoView', function() {
+<code class="language-javascript" translate="No">videojs.registerPlugin('scrollIntoView', function() {
   var myPlayer = this,
     isAdPlaying = false;</code></pre>
     <p class="language-editable">Although <code translate="No">videojs.plugin()</code> is deprecated in version 6, if used it will not error but you will see a warning in the console. You cannot use <code translate="No">videojs.registerPlugin()</code> with version 5 players.</p>
     <aside class="bcls-aside bcls-aside--tip language-editable">If you find you need to use a plugin with both versions of the player, you can use this technique to provide Video.js 5/6 cross-compatibility:
       <pre class="line-numbers">
-<code class="language-javascript notranslate">var registerPlugin =   videojs.registerPlugin || videojs.plugin;
+<code class="language-javascript" translate="No">var registerPlugin =   videojs.registerPlugin || videojs.plugin;
 registerPlugin('pluginName', function(){
   ...
 });</code></pre>

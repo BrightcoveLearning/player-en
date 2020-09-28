@@ -31,11 +31,11 @@ parent: Code Samples
       <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
-        <li>Toggle the actual display of the player by clicking the <strong class="notranslate">Result</strong> button.</li>
-        <li>Click the <strong class="notranslate">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
+        <li>Click the <strong translate="No">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
         <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
           <ol>
-            <li>Click the <strong class="notranslate">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>Click the <strong translate="No">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
             <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
             <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
           </ol>
@@ -125,7 +125,7 @@ parent: Code Samples
     <h3>Get audio asset name and extract the MP4 renditions from the sources array</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Get video name and the MP4 renditions ###</code></pre>
+<code class="language-javascript" translate="No">// ### Get video name and the MP4 renditions ###</code></pre>
     <p>First the <code translate="No">videoName</code> variable is assigned the name of the video&nbsp;(with spaces removed) for use in the HTML anchor tag dynamically built later in the code. Next the <code translate="No">renditionsAra</code> variable is assigned all the possible renditions for the video.</p>
     <p>Of course, for this plugin to function correctly you must have at least one MP4 rendition in the sources.</p>
     <!-- UPDATE task 2 -->
@@ -133,7 +133,7 @@ parent: Code Samples
     <h3>Loop over all the video renditions and extract the MP4 versions</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Loop over videos and extract only MP4 versions ###</code></pre>
+<code class="language-javascript" translate="No">// ### Loop over videos and extract only MP4 versions ###</code></pre>
     <p>Loop over the array and assign to the <code translate="No">mp4Ara</code> variable renditions where the <code translate="No">container</code> is <strong>MP4</strong>, AND the rendition has a <code translate="No">src</code> property. The MP4 renditions appear twice in the <code translate="No">sources</code> array, once with a <code translate="No">src</code> property and once with a <code translate="No">stream_name</code> property. The first is for progressive download and the second for streaming.</p>
     <p>The following screenshots show the console displaying all renditions and then the filtered renditions showing on MP4 renditions.</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="All renditions" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/download-button/console-all-renditions.png" />
@@ -147,21 +147,21 @@ parent: Code Samples
     <h3>Sort the MP4 array on the <code translate="No">size</code> attribute, largest to smallest</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Sort the renditions from highest to lowest on size ###</code></pre>
+<code class="language-javascript" translate="No">// ### Sort the renditions from highest to lowest on size ###</code></pre>
     <p>Sort the <code translate="No">mp4Ara</code> using JavaScript's <code translate="No">sort()</code> method</p>
     <!-- UPDATE task 3 -->
     
     <h3>Assign the largest video to a variable</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Extract the highest rendition ###</code></pre>
+<code class="language-javascript" translate="No">// ### Extract the highest rendition ###</code></pre>
     <p>Assign the <code translate="No">highestQuality</code> variable the zeroth index value from the sorted MP4 renditions array.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Create an element that contains an clickable image inside an HTML <code translate="No">div</code> element</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Build the download image element ###</code></pre>
+<code class="language-javascript" translate="No">// ### Build the download image element ###</code></pre>
     <p>At the top of the JavaScript code HTML <code translate="No">div</code> and <code translate="No">img</code> elements are created and stored in variables. Those elements are then manipulated to dynamically build an HTML element that functions as a download button. An example of how the dynamically created element might appear follows:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="dynamically built download element" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/download-button/download-element.png" /></figure>
     <!-- UPDATE task 3 -->
@@ -169,7 +169,7 @@ parent: Code Samples
     <h3>Place the download button element in the DOM</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Place the download button ###</code></pre>
+<code class="language-javascript" translate="No">// ### Place the download button ###</code></pre>
     <p>In this case, the download button is placed in the controlbar's spacer. First, a reference to the spacer element is obtained, then an attribute set to position the new element in the spacer is defined, and lastly the new element placed in the spacer.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -187,13 +187,13 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>
@@ -201,7 +201,7 @@ parent: Code Samples
     
     <aside class="bcls-aside bcls-aside--tip">Since the plugin does not work with iOS, you may wish to add this code to the plugin to prevent the plugin from even trying to download on iOS:
       <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.registerPlugin('downloadVideo', function() {
+<code class="language-javascript" translate="No">videojs.registerPlugin('downloadVideo', function() {
   if (videojs.browser.IS_IOS) {
     return;
   }

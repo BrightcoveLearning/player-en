@@ -166,8 +166,8 @@ parent: References
     <aside class="bcls-aside bcls-aside--information">
       <p>Vocabulary Review:</p>
       <ul>
-        <li>When a method retrieves a value it is called a <strong class="notranslate">getter</strong>.</li>
-        <li>When a method assigns a value it is called a <strong class="notranslate">setter</strong>.</li>
+        <li>When a method retrieves a value it is called a <strong translate="No">getter</strong>.</li>
+        <li>When a method assigns a value it is called a <strong translate="No">setter</strong>.</li>
       </ul>
       <p>Note: It is not unusual for one method to act both as a getter and setter. When the method uses an argument the method acts as a setter, with no argument the method acts as a getter.</p>
     </aside>
@@ -211,7 +211,7 @@ parent: References
     <p>The <code translate="No">player.playlist.autoadvance( )</code> method acts as a setter only, and sets playlist auto advancement. Once enabled it will wait the specified amount of seconds at the end of a video before proceeding automatically to the next video. Any value which is not a positive, finite integer will be treated as a request to cancel and reset the auto advancing. If you change the auto advance feature during a timeout period, the auto advance will be canceled and it will not advance to the next video, but it will use the new timeout value for the following videos.</p>
     <h5>Parameter:</h5>
     <ul>
-      <li><strong class="notranslate">timeout</strong>: An integer number in seconds to delay before loading the next video in the playlist</li>
+      <li><strong translate="No">timeout</strong>: An integer number in seconds to delay before loading the next video in the playlist</li>
     </ul>
     <h5>Returned value:</h5>
     <p>The method does not return a value.</p>
@@ -225,24 +225,24 @@ parent: References
     <p>The <code translate="No">player.playlist.contains( item )</code> method checks a playlist for the presence of the object in the <code translate="No">item</code> parameter. If the <code translate="No">item</code> is in the playlist <code translate="No">true</code> is returned, if not present <code translate="No">false</code> is returned.</p>
     <h5>Parameters:</h5>
     <ul>
-      <li><strong class="notranslate">item</strong>: A value that represents a video element in the playlist.</li>
+      <li><strong translate="No">item</strong>: A value that represents a video element in the playlist.</li>
     </ul>
     <p>Valid forms for the item parameter include:</p>
     <ul>
       <li>URL to a video as a string
         <pre class="line-numbers">
-<code class="language-javascript notranslate">'//media.w3.org/2010/05/sintel/trailer.mp4'</code></pre>
+<code class="language-javascript" translate="No">'//media.w3.org/2010/05/sintel/trailer.mp4'</code></pre>
       </li>
       <li>Array containing an object with the source and type defined
         <pre class="line-numbers">
-<code class="language-javascript notranslate">[{
+<code class="language-javascript" translate="No">[{
   src: '//media.w3.org/2010/05/sintel/poster.png',
   type: 'image/png'
 }]</code></pre>
       </li>
       <li>Object containing an item from the sources array
         <pre class="line-numbers">
-<code class="language-javascript notranslate">{
+<code class="language-javascript" translate="No">{
   sources: [{
     src: '//media.w3.org/2010/05/sintel/trailer.mp4',
     type: 'video/mp4'
@@ -251,11 +251,11 @@ parent: References
       </li>
       <li class="video-cloud-only">In Video Cloud, you can use the <code translate="No">currentSrc()</code> method with the <code translate="No">contains()</code> method to be sure the currently playing video is from the currently loaded playlist.
         <pre class="line-numbers">
-<code class="language-javascript notranslate">myPlayer.playlist.contains(myPlayer.currentSrc());</code></pre>
+<code class="language-javascript" translate="No">myPlayer.playlist.contains(myPlayer.currentSrc());</code></pre>
       </li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns an object of type <strong class="notranslate">boolean</strong>.</p>
+    <p>The method returns an object of type <strong translate="No">boolean</strong>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="currentIndex">currentIndex( ) method</h2>
@@ -265,20 +265,20 @@ parent: References
       <li>None</li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns a value of type number. The returned value represents the array position of the video currently playing in the player. If the player is currently playing a non-playlist video, <code translate="No">currentIndex()</code> will return <strong class="notranslate">-1</strong>.</p>
+    <p>The method returns a value of type number. The returned value represents the array position of the video currently playing in the player. If the player is currently playing a non-playlist video, <code translate="No">currentIndex()</code> will return <strong translate="No">-1</strong>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="currentitem">currentItem( ) method</h2>
     <p>The <code translate="No">player.playlist.currentItem(index)</code> method acts as both a getter and setter, either retrieving the current video from the playlist playing in the player, or assigning a new video to play in the player, based on the index. If called without an argument the method performs the retrieval and acts as a getter, with an argument is assigns the value and acts as a setter.</p>
     <h5>Parameter (setter):</h5>
     <ul>
-      <li><strong class="notranslate">index</strong>: A number that represents the zero-based array index from the playlist of the video to be loaded into the player.</li>
+      <li><strong translate="No">index</strong>: A number that represents the zero-based array index from the playlist of the video to be loaded into the player.</li>
     </ul>
     <h5>Returned value (getter):</h5>
-    <p>The method returns a value of type <strong class="notranslate">number</strong>. The returned value represents the array position of the video currently playing in the player. If the player is currently playing a non-playlist video, <code translate="No">currentItem()</code> will return <strong class="notranslate">-1</strong>.</p>
+    <p>The method returns a value of type <strong translate="No">number</strong>. The returned value represents the array position of the video currently playing in the player. If the player is currently playing a non-playlist video, <code translate="No">currentItem()</code> will return <strong translate="No">-1</strong>.</p>
     <p>An example use of the method in a function to jump to a specific video follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">function goto2(){
+<code class="language-javascript" translate="No">function goto2(){
   myPlayer.playlist.currentItem(2);
 }</code></pre>
   </section>
@@ -290,39 +290,39 @@ parent: References
       <li>None</li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns an object of type <strong class="notranslate">object</strong>. An example of this object for a manually created playlist follows:</p>
+    <p>The method returns an object of type <strong translate="No">object</strong>. An example of this object for a manually created playlist follows:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="playlist object" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vidobject-perform.png" /></figure>
     <p class="video-cloud-only">An example of this object for a Video Cloud playlist follows:</p>
     <figure class="bcls-figure video-cloud-only"><img class="bcls-image" alt="playlist object from Video Cloud" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vidobject-vc.png" /></figure>
     <p>An example use of the method in a function to move to the next video follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">function goToBeginning() {
+<code class="language-javascript" translate="No">function goToBeginning() {
   var nextVidObject = myPlayer.playlist.first();
 }</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="indexof">indexOf( ) method</h2>
-    <p>The <code translate="No">player.playlist.indexOf( item )</code> method checks the playlist for the presence of the object in the <code translate="No">item</code> parameter, and if found, returns the zero-based index of the item. The method returns <strong class="notranslate">-1</strong> if the item is not found.</p>
+    <p>The <code translate="No">player.playlist.indexOf( item )</code> method checks the playlist for the presence of the object in the <code translate="No">item</code> parameter, and if found, returns the zero-based index of the item. The method returns <strong translate="No">-1</strong> if the item is not found.</p>
     <h5>Parameters:</h5>
     <ul>
-      <li><strong class="notranslate">item</strong>: A value that represents a video element in the playlist.</li>
+      <li><strong translate="No">item</strong>: A value that represents a video element in the playlist.</li>
     </ul>
     <p>Valid forms for the item parameter include:</p>
     <ul>
       <li>URL to a video as a string
         <pre class="line-numbers">
-<code class="language-javascript notranslate">'//media.w3.org/2010/05/sintel/trailer.mp4'</code></pre>
+<code class="language-javascript" translate="No">'//media.w3.org/2010/05/sintel/trailer.mp4'</code></pre>
       </li>
       <li>Array containing an object with the source and type defined
         <pre class="line-numbers">
-<code class="language-javascript notranslate">[{
+<code class="language-javascript" translate="No">[{
   src: '//media.w3.org/2010/05/sintel/poster.png',
   type: 'image/png'
 }]</code></pre>
       </li>
       <li>Object containing an item from the sources array
         <pre class="line-numbers">
-<code class="language-javascript notranslate">{
+<code class="language-javascript" translate="No">{
   sources: [{
     src: '//media.w3.org/2010/05/sintel/trailer.mp4',
     type: 'video/mp4'
@@ -331,11 +331,11 @@ parent: References
       </li>
       <li class="video-cloud-only">In Video Cloud you can use the <code translate="No">currentSrc()</code> method with the <code translate="No">indexOf()</code> method to find the location of the currently playing video in the playlist.
         <pre class="line-numbers">
-<code class="language-javascript notranslate">myPlayer.playlist.indexOf(myPlayer.currentSrc());</code></pre>
+<code class="language-javascript" translate="No">myPlayer.playlist.indexOf(myPlayer.currentSrc());</code></pre>
       </li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns a value of type <strong class="notranslate">number</strong>. The value represents the zero-indexed position of the element, or -1 if the object is not found.</p>
+    <p>The method returns a value of type <strong translate="No">number</strong>. The value represents the zero-indexed position of the element, or -1 if the object is not found.</p>
   </section>
   <section class="bcls-section">
     <h2 id="last">last( ) method</h2>
@@ -345,13 +345,13 @@ parent: References
       <li>None</li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns an object of type <strong class="notranslate">object</strong>. An example of this object for a manually created playlist follows:</p>
+    <p>The method returns an object of type <strong translate="No">object</strong>. An example of this object for a manually created playlist follows:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="playlist object" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vidobject-perform.png" /></figure>
     <p class="video-cloud-only">An example of this object for a Video Cloud playlist follows:</p>
     <figure class="bcls-figure video-cloud-only"><img class="bcls-image" alt="playlist object from Video Cloud" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vidobject-vc.png" /></figure>
     <p>An example use of the method in a function to move to the next video follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">function goToEnd() {
+<code class="language-javascript" translate="No">function goToEnd() {
   var nextVidObject = myPlayer.playlist.last();
 }</code></pre>
   </section>
@@ -363,7 +363,7 @@ parent: References
       <li>None</li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns a value of type <strong class="notranslate">number</strong>. The returned value represents the array position of the last video in the playlist.</p>
+    <p>The method returns a value of type <strong translate="No">number</strong>. The returned value represents the array position of the last video in the playlist.</p>
   </section>
   <section class="bcls-section">
     <h2 id="next">next( ) method</h2>
@@ -373,13 +373,13 @@ parent: References
       <li>None</li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns an object of type <strong class="notranslate">object</strong>. An example of this object for a manually created playlist follows:</p>
+    <p>The method returns an object of type <strong translate="No">object</strong>. An example of this object for a manually created playlist follows:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="playlist object" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vidobject-perform.png" /></figure>
     <p class="video-cloud-only">An example of this object for a Video Cloud playlist follows:</p>
     <figure class="bcls-figure video-cloud-only"><img class="bcls-image" alt="playlist object from Video Cloud" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vidobject-vc.png" /></figure>
     <p>An example use of the method in a function to move to the next video follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">function nextVideo() {
+<code class="language-javascript" translate="No">function nextVideo() {
   var nextVidObject = myPlayer.playlist.next();
 }</code></pre>
   </section>
@@ -391,15 +391,15 @@ parent: References
       <li>None</li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns a value of type <strong class="notranslate">number</strong>. The returned value represents the array position of the next video that will be played in the playlist.</p>
-    <p>If the player is on the last item, this method returns the last item's index. However, if the playlist repeats and is on the last item, the method returns <strong class="notranslate">0</strong>. If the player is currently playing a non-playlist video, it will return <strong class="notranslate">-1</strong>.</p>
+    <p>The method returns a value of type <strong translate="No">number</strong>. The returned value represents the array position of the next video that will be played in the playlist.</p>
+    <p>If the player is on the last item, this method returns the last item's index. However, if the playlist repeats and is on the last item, the method returns <strong translate="No">0</strong>. If the player is currently playing a non-playlist video, it will return <strong translate="No">-1</strong>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="playlist">playlist( ) method</h2>
     <p>The <code translate="No">player.playlist(newPlayList)</code> method acts as both a getter and setter, either retrieving the playlist currently playing in the player, or assigning a playlist to the player to play. If called without an argument the method performs the retrieval and acts as a getter, with an argument is assigns the value and acts as a setter.</p>
     <h5>Parameter (setter):</h5>
     <ul>
-      <li><strong class="notranslate">newPlaylist</strong>: An array of video sources/objects. <span class="video-cloud-only">The objects can either be manually created or simply a Video Cloud playlist ID or reference ID.</span></li>
+      <li><strong translate="No">newPlaylist</strong>: An array of video sources/objects. <span class="video-cloud-only">The objects can either be manually created or simply a Video Cloud playlist ID or reference ID.</span></li>
     </ul>
     <p class="video-cloud-only">Although you can use the <code translate="No">playlist()</code> method as a setter, it is a best practice to utilize Brightcove Player's catalog functionality to load a playlist, for example&nbsp;<code translate="No">myPlayer.catalog.getPlaylist( playlistID )</code> and <code translate="No">myPlayer.catalog.load( playlist )</code>. See the <a href="/references/player-catalog.html">Player Catalog</a> document for more information.</p>
     <aside class="bcls-aside bcls-aside--tip language-editable">If you wish to load the playlist, but NOT have the first video in the playlist placed in the player, in the <code translate="No">playlist()</code> method you can set a second parameter to <code translate="No">-1</code>. For instance, the following code retrieves a playlist, puts it in the player, but does not load the first video into the player:
@@ -412,7 +412,7 @@ parent: References
       Of course, you then have to load the video manually. See the <a href="/code-samples/brightcove-player-sample-play-video-playlist.html">Brightcove Player Sample: Play Video Before Playlist</a> for an example of this technique.</aside>
     <p class="player-only">An example use of the method with a manually created playlist follows:</p>
     <pre class="line-numbers player-only">
-<code class="language-javascript notranslate">myPlayer = this;
+<code class="language-javascript" translate="No">myPlayer = this;
 myPlayer.playlist([{
   "sources": [{
     "src": "//solutions.brightcove.com/bcls/assets/videos/Sea_SeaHorse.mp4", "type": "video/mp4"
@@ -446,13 +446,13 @@ myPlayer.playlist([{
     "src": "//solutions.brightcove.com/bcls/assets/videos/Sea_LionFish.mp4", "type": "video/mp4"
   }],</code></pre>
     <h5>Returned value (getter):</h5>
-    <p>The method returns an <strong class="notranslate">array of objects</strong>.</p>
+    <p>The method returns an <strong translate="No">array of objects</strong>.</p>
     <p class="video-cloud-only">An example of a returned Video Cloud playlist (an array of Video Cloud video objects) follows:</p>
     <figure class="bcls-figure"><img class="bcls-image video-cloud-only" alt="Video Cloud playlist object" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vc-object.png" /></figure>
     <figure class="bcls-figure player-only"><img class="bcls-image" alt="playlist object perform" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-perform-object.png" /></figure>
     <p class="video-cloud-only">The following example shows using the catalog object's <code translate="No">getPlaylist()</code> and <code translate="No">load()</code> methods to load a Video Cloud playlist. As mentioned previously, this is the recommended approach when using Video Cloud playlists. For more information see the <a href="/references/player-catalog.html">Player Catalog</a> document.</p>
     <pre class="line-numbers video-cloud-only">
-<code class="language-javascript notranslate">myPlayer = this;
+<code class="language-javascript" translate="No">myPlayer = this;
 myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
   myPlayer.catalog.load(playlist);
   console.log('mediainfo', myPlayer.mediainfo);
@@ -460,7 +460,7 @@ myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
     <div class="video-cloud-only">
       <p>You can use the object returned by the <code translate="No">options()</code> method to retrieve the playlist ID. Here is a <code translate="No">console.log</code> showing the syntax:</p>
       <pre class="line-numbers">
-<code class="language-javascript notranslate">console.log('playlist id: ', myPlayer.options()['data-playlist-id']);</code></pre>
+<code class="language-javascript" translate="No">console.log('playlist id: ', myPlayer.options()['data-playlist-id']);</code></pre>
     </div>
   </section>
   <section class="bcls-section">
@@ -471,13 +471,13 @@ myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
       <li>None</li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns an object of type <strong class="notranslate">object</strong>. An example of this object for a manually created playlist follows:</p>
+    <p>The method returns an object of type <strong translate="No">object</strong>. An example of this object for a manually created playlist follows:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="playlist object" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vidobject-perform.png" /></figure>
     <p class="video-cloud-only">An example of this object for a Video Cloud playlist follows:</p>
     <figure class="bcls-figure video-cloud-only"><img class="bcls-image" alt="Video Cloud playlist object" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-vidobject-vc.png" /></figure>
     <p>An example use of the method in a function to move to the previous video follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">function previousVideo() {
+<code class="language-javascript" translate="No">function previousVideo() {
   myPlayer.playlist.previous();
 }</code></pre>
   </section>
@@ -489,8 +489,8 @@ myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
       <li>None</li>
     </ul>
     <h5>Returned value:</h5>
-    <p>The method returns a value of type <strong class="notranslate">number</strong>. The returned value represents the array position of the video proceeding the video currently playing in the player.</p>
-    <p>If the player is on the first item, the method returns <strong class="notranslate">0</strong>. However, if the playlist repeats and is on the first item, returns the last item's index. If the player is currently playing a non-playlist video, it will return <strong class="notranslate">-1</strong>.</p>
+    <p>The method returns a value of type <strong translate="No">number</strong>. The returned value represents the array position of the video proceeding the video currently playing in the player.</p>
+    <p>If the player is on the first item, the method returns <strong translate="No">0</strong>. However, if the playlist repeats and is on the first item, returns the last item's index. If the player is currently playing a non-playlist video, it will return <strong translate="No">-1</strong>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="repeat">repeat() method</h2>
@@ -547,7 +547,7 @@ myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
     <ul>
       <li>Optional <code translate="No">rest</code> option: By default, the entire playlist is randomized. However, this may not be desirable in all cases, such as when a user is already watching a video. When <code translate="No">true</code> is passed for this option, it will only shuffle playlist items after the current item. For example, when on the first item, the method will shuffle only the second item and beyond. The syntax to use the parameter is:
         <pre class="line-numbers">
-<code class="language-javascript notranslate">player.playlist.shuffle({rest: true});</code></pre>
+<code class="language-javascript" translate="No">player.playlist.shuffle({rest: true});</code></pre>
       </li>
     </ul>
     <h5>Returned value:</h5>
@@ -556,7 +556,7 @@ myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
     <p>The method dispatches the <code translate="No">playlistsorted</code> event after shuffling.</p>
     <p>If you wish to shuffle a playlist when the player is first loading, you must use this&nbsp;method in an event handler for the <code translate="No">playlistsorted</code> event. This prevents the condition where the method tries to shuffle the playlist before it is loaded into the player. Sample syntax is:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">myPlayer.on("duringplaylistchange", function() {
+<code class="language-javascript" translate="No">myPlayer.on("duringplaylistchange", function() {
   myPlayer.playlist.shuffle();
 });</code></pre>
   </section>
@@ -565,13 +565,13 @@ myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
     <p>The <code translate="No">player.playlist.sort( )</code> method sorts the videos in a playlist in a manner identical to JavaScript's <a href="//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">Array.prototype.sort()</a> method.</p>
     <h5>Parameter:</h5>
     <ul>
-      <li><strong class="notranslate">compareFunction</strong>: A function that defines how the videos should be sorted.</li>
+      <li><strong translate="No">compareFunction</strong>: A function that defines how the videos should be sorted.</li>
     </ul>
     <h5>Returned value:</h5>
     <p>The method does not return a value.</p>
     <p>An example use of the method to sort the videos by <code translate="No">duration</code> follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   myPlayer.on('loadedmetadata', function(){
     myPlayer.playlist.sort(function(a, b) {
@@ -607,7 +607,7 @@ myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
     <h3>Why use this event</h3>
     <p>This event provides an opportunity to intercept the playlist setting process before a new source is set on the player and before the <code translate="No">playlistchange</code> event fires, while providing a consistent playlist API. One use-case might be shuffling a playlist that has just come from a server, but before its initial source is loaded into the player or the playlist UI is updated:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">player.on('duringplaylistchange', function() {
+<code class="language-javascript" translate="No">player.on('duringplaylistchange', function() {
   // Remember, this will not trigger a "playlistsorted" event!
   player.playlist.shuffle();
 });
@@ -635,18 +635,18 @@ player.on('playlistchange', function() {
   </section>
   <section id="visualplaylist" class="bcls-section">
     <h2>Visual playlists</h2>
-    <p>If you wish to have a visual representation of the playlist in your page you must configure the player to do so. You can update the configuration using Studio, in the <strong class="notranslate">PLAYERS &gt; Styling</strong> section, as shown here (you can choose either a vertical or horizontal playlist):</p>
+    <p>If you wish to have a visual representation of the playlist in your page you must configure the player to do so. You can update the configuration using Studio, in the <strong translate="No">PLAYERS &gt; Styling</strong> section, as shown here (you can choose either a vertical or horizontal playlist):</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="enable playlist in Studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/general-information/playlist-api/playlist-enable-in-studio.png" /></figure>
-    <p>If you wish, you can also so use the Player Management API to configure you player for playlists. See the <strong class="notranslate">Playlists</strong> section of the <a href="/general/player-configuration-guide.html#playlists">Player Configuration Guide</a> for complete information.</p>
+    <p>If you wish, you can also so use the Player Management API to configure you player for playlists. See the <strong translate="No">Playlists</strong> section of the <a href="/general/player-configuration-guide.html#playlists">Player Configuration Guide</a> for complete information.</p>
     <p>You can programmatically check to see if playlists are enabled by checking if the value of <code translate="No">player.playlistUi</code> is defined.</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">console.log('myPlayer.playlistUi:', myPlayer.playlistUi);</code></pre>
+<code class="language-javascript" translate="No">console.log('myPlayer.playlistUi:', myPlayer.playlistUi);</code></pre>
   </section>
   <section id="catalogplaylists" class="section video-cloud-only">
     <h2>Catalog playlists</h2>
     <p>As mentioned earlier in the document the playlist can be a Video Cloud playlist. You can retrieve a Video Cloud playlist using the <code translate="No">player.catalog.getPlaylist()</code> method. You then load the playlist into the player using the <code translate="No">player.catalog.load()</code> method. The following code shows this usage:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">myPlayer = this;
+<code class="language-javascript" translate="No">myPlayer = this;
 myPlayer.catalog.getPlaylist('1754200320001', function(error, playlist){
   myPlayer.catalog.load(playlist);
   console.log('mediainfo', myPlayer.mediainfo);

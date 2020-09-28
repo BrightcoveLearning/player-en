@@ -1095,11 +1095,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
-        <li>Toggle the actual display of the player by clicking the <strong class="notranslate">Result</strong> button.</li>
-        <li>Click the <strong class="notranslate">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
+        <li>Click the <strong translate="No">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
         <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
           <ol>
-            <li>Click the <strong class="notranslate">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>Click the <strong translate="No">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
             <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
             <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
           </ol>
@@ -1185,12 +1185,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Start playing of playlist</h3>
     <p>At the top of the JavaScript, find the code which is labeled:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">// +++ Check for loadedmetadata before acting on the playlist +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Check for loadedmetadata before acting on the playlist +++</code></pre>
     <p>Note that the <code translate="No">ready()</code> method is not used, rather the code waits for the <code translate="No">loadedmetadata</code> event to be dispatched. This is because the player itself can be ready to communicate with, but the video or playlist loading into the player will NOT be ready to interact with. Waiting for <code translate="No">loadedmetadata</code> ensures that the video or playlist can be started. This issue can be difficult to see as it is both browser and download speed dependent.</p>
     <h3>Check if last video is played, and if so, load desired video</h3>
     <p>Find the code which is labeled:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">// +++ Define on event handler +++</code></pre>
+<code class="language-javascript" translate="No">// +++ Define on event handler +++</code></pre>
     <p>When each video is finished playing the anonymous function that is the event handler will be called. To check if it is the last video, you compare the length of the array that contains the videos for the playlist to the position of the last video played. Note that <code translate="No">currentItem()</code> returns the zero indexed value from the array, so you must add 1 to the value. You then use the standard <code translate="No">catalog</code> methods to get and load the desired video.</p>
     <aside class="bcls-aside bcls-aside--information">Based on the logic of the application, and the information in the <a href="#Development_sequence">Development sequence</a> section earlier in this document, you will see that you cannot use this code as a plugin with the iframe player implementation because the script that specifies, fetches, and plays the extra video needs to communicate with the player.</aside>
   </section>
@@ -1207,13 +1207,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

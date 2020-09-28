@@ -29,11 +29,11 @@ parent: Code Samples
       <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
-        <li>Toggle the actual display of the player by clicking the <strong class="notranslate">Result</strong> button.</li>
-        <li>Click the <strong class="notranslate">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+        <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
+        <li>Click the <strong translate="No">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
         <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
           <ol>
-            <li>Click the <strong class="notranslate">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+            <li>Click the <strong translate="No">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
             <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
             <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
           </ol>
@@ -106,7 +106,7 @@ parent: Code Samples
     <h3>Player configuration</h3>
     <p>For the player you are using, in the <strong>PLUGINS</strong> section, use the <strong>Add a File</strong> button four time to add the JavaScript and CSS for both the Overlay and Custom Endscreen plugins.</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.min.js
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.min.js
 https://players.brightcove.net/videojs-overlay/2/videojs-overlay.css
 https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js
 https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css</code></pre>
@@ -133,35 +133,35 @@ https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscre
     <h3>Build an anchor tag with information from the mediainfo object</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Build dynamic anchor tag ###</code></pre>
+<code class="language-javascript" translate="No">// ### Build dynamic anchor tag ###</code></pre>
     <p>Once the <code translate="No">loadstart</code> event has fired, which you must wait for to have access to the <code translate="No">mediainfo</code> data, extract the link and associated text and dynamically build an anchor tag.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Inject the dynamically build anchor tag into the HTML page</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Inject dynamic HTML into p element ###</code></pre>
+<code class="language-javascript" translate="No">// ### Inject dynamic HTML into p element ###</code></pre>
     <p>Get a reference to the HTML paragraph element, then assign its <code translate="No">innerHTML</code> the dynamically built anchor tag.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Configure the overlay</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Configure dynamic overlay ###</code></pre>
+<code class="language-javascript" translate="No">// ### Configure dynamic overlay ###</code></pre>
     <p>Use the dynamically built anchor tag as the content, and set the rest of the values so the overlay will display on video pause.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Configure the custom endscreen</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Configure dynamic endscreen ###</code></pre>
+<code class="language-javascript" translate="No">// ### Configure dynamic endscreen ###</code></pre>
     <p>Use the dynamically built anchor tag as the content for the custom endscreen</p>
     <!-- UPDATE task 3 -->
     
     <h3>Hide the overlay when video ends</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-<code class="language-javascript notranslate">// ### Remove overlay after video has ended ###</code></pre>
+<code class="language-javascript" translate="No">// ### Remove overlay after video has ended ###</code></pre>
     <p>The overlay will display on the customer endscreen by default, so hide it on video end.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -175,13 +175,13 @@ https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscre
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.registerPlugin('pluginName', function(options) {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>

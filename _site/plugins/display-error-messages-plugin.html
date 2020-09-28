@@ -1180,7 +1180,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <h3>Using in page code</h3>
         <p>If you include the errors script in your code, you can override message text as follows:</p>
         <pre class="line-numbers">
-<code class="language-javascript notranslate">myPlayer.errors({
+<code class="language-javascript" translate="No">myPlayer.errors({
   "errors": {
     "4": {
       "headline": "This is a custom error message",
@@ -1315,7 +1315,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 }</code></pre> -->
         <p>If you include the errors script in your code, you can add custom messages as follows:</p>
         <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.getPlayer('myPlayerID').ready(function() {
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   //custom error
   myPlayer.errors({
@@ -1329,7 +1329,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <h3>Displaying custom errors</h3>
         <p>When you define custom errors, you need to let Brightcove Player know when you want to display it. To do this, create your own code to determine when the message should be displayed. Then use the <code translate="No">error()</code> function to display the message as follows:</p>
         <pre class="line-numbers">
-<code class="language-javascript notranslate">//display custom message
+<code class="language-javascript" translate="No">//display custom message
 var age_appropriate = false;
 myPlayer.on("loadstart", function () {
   if(!age_appropriate) {
@@ -1347,7 +1347,7 @@ myPlayer.on("loadstart", function () {
         <figure class="bcls-figure"><img class="bcls-image" alt="dismissible error message" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/dismissible.png" /></figure>
         <p>If you wish to NOT permit the video viewer to dismiss the error message, you can do that. When you call the <code translate="No">error()</code> method, you can set the <code translate="No">dismiss</code> property to <code translate="No">false</code>.</p>
         <pre class="line-numbers">
-<code class="language-javascript notranslate">myPlayer.error({code:'age-gate-error', <span class="bcls-highlight">dismiss: false</span>});</code></pre>
+<code class="language-javascript" translate="No">myPlayer.error({code:'age-gate-error', <span class="bcls-highlight">dismiss: false</span>});</code></pre>
         <p>When you do this the error message will appear as follows, with no way to dismiss the error.</p>
         <figure class="bcls-figure"><img class="bcls-image" alt="not dismissible error message" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/not-dismissible.png" /></figure>
     </section>
@@ -1355,7 +1355,7 @@ myPlayer.on("loadstart", function () {
         <h2 id="getAll_method">getAll() method</h2>
         <p>You can use the <code translate="No">getAll()</code> method to see all the errors registered for a specific player. You can call the <code translate="No">getAll()</code> method anytime after the <strong>errors</strong> plugin has been initialized, for instance after <code translate="No">player.errors()</code> has been called. An example of calling the method is:</p>
         <pre class="line-numbers">
-<code class="language-javascript notranslate">console.log('myPlayer.errors.getAll()',myPlayer.errors.getAll());</code></pre>
+<code class="language-javascript" translate="No">console.log('myPlayer.errors.getAll()',myPlayer.errors.getAll());</code></pre>
         <p>An example of the console display, with some errors expanded for details is:</p>
         <figure class="bcls-figure"><img class="bcls-image" alt="getAll console display" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/troubleshooting/errors-plugin/getAll-method.png" /></figure>
     </section>
@@ -1393,7 +1393,7 @@ myPlayer.on("loadstart", function () {
         <p>It is possible that handling errors in the normal <code translate="No">ready()</code> section in the script block can cause issues. For instance, it can happen that the bc-catalog-error event could be dispatched before the player is ready, and if you listen for the error in the <code translate="No">ready()</code> section, you will not be able to handle the error. This issue can occur when using geo-filtering, a video is inactive, a video is out of scheduling range, or in a different account. You may find that there is not a problem in your code, but the issue can browser dependent, so use caution.</p>
         <p>For example, here is plugin code that displays a message when a video is inactive:</p>
         <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.registerPlugin('inactiveErrorCheck', function() {
+<code class="language-javascript" translate="No">videojs.registerPlugin('inactiveErrorCheck', function() {
   var myPlayer = this;
   myPlayer.one('bc-catalog-error', function(){
     var specificError;
@@ -1420,10 +1420,10 @@ myPlayer.on("loadstart", function () {
         <p>If you are getting what seems like an unreasonable number of reported errors, it is important to know that you can get duplicate error events for the same session, creating this exaggerated error rate. Brightcove Player sends errors to analytics at the exact time, and in the same quantity, as they are reported to the player. For instance, if there is no media in a player, and code somehow calls <code translate="No">play()</code> one thousand times in a row, one thousand <strong>PLAYER_ERR_NO_SRC</strong> errors will be reported to analytics.</p>
         <p>If there are a few sessions with tons of errors skewing the analytics, you should consider using the following logic to get a better sense of the actual issues:</p>
         <pre class="line-numbers">
-<code class="language-javascript notranslate">number_of_sessions_with_errors / total_number_of_sessions</code></pre>
+<code class="language-javascript" translate="No">number_of_sessions_with_errors / total_number_of_sessions</code></pre>
         rather than
         <pre class="line-numbers">
-<code class="language-javascript notranslate">count of errors/number of views</code></pre>
+<code class="language-javascript" translate="No">count of errors/number of views</code></pre>
     </section>
     <section class="bcls-section">
         <h2 id="Known_issues">Known issues</h2>
@@ -1439,7 +1439,7 @@ myPlayer.on("loadstart", function () {
                 <p>On Android devices and iPhones, the tap events for error messages do not bubble up to the parent video element. This means that you can not close an error message once it appears. This behavior may be a problem if the user is in fullscreen mode, because they will have no way to leave this state.</p>
                 <p>This issue is currently being worked on and should be fixed in a future player release. For now, you can try a work-around like this:</p>
                 <pre class="line-numbers">
-<code class="language-javascript notranslate">player.on("touchstart", function(e) {
+<code class="language-javascript" translate="No">player.on("touchstart", function(e) {
   if (player.error_) {
     player.error(null);
     e.preventDefault();

@@ -1244,11 +1244,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--warning">Warning: Using the <code translate="No">autoplay </code> attribute in the <code translate="No">&lt;video&gt; </code> tag or the query parameter in the iframe is NOT the same as configuring the player to use autoplay. Consistent behavior cannot be guaranteed if the attribute/query parameter is used.</aside>
   </section>
   <section class="bcls-section">
-    <h2 id="Programmatic_autoplay_using_the_play()_method">Programmatic autoplay using the <span class="notranslate">play()</span> method</h2>
+    <h2 id="Programmatic_autoplay_using_the_play()_method">Programmatic autoplay using the <span translate="No">play()</span> method</h2>
     <p>For whatever reason, you may not be able to configure the player to use autoplay as discussed in the previous section of this document. In this case you can use the <code translate="No">play()</code> method to start the video on page load. Be aware, this approach is still governed by all the browser/platform rules mentioned earlier.</p>
     <p>Remember that you must wait for the media to be loaded into the player before using the <code translate="No">play() </code> method. Waiting for the <code translate="No">loadedmetadata </code> event will do the trick:</p>
     <pre class="line-numbers">
-  <code class="language-javascript notranslate">&lt;script type="text/javascript"&gt;
+  <code class="language-javascript" translate="No">&lt;script type="text/javascript"&gt;
     var myPlayer = videojs.getPlayer('myPlayerId');
     myPlayer.on('loadedmetadata',function() {
       myPlayer.play();
@@ -1270,7 +1270,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </figure>
     <p>As per standard JavaScript handling of a Promise, here is a code snippet using the <code translate="No">play()</code>'s Promise. See the next section in this document for a specific use case that plays with audio of the video autoplays, or plays without audio if the video does not autoplay.</p>
     <pre class="line-numbers">
-  <code class="language-javascript notranslate">var myPlayer = videojs.getPlayer('myPlayerID');
+  <code class="language-javascript" translate="No">var myPlayer = videojs.getPlayer('myPlayerID');
   myPlayer.on('loadedmetadata',function() {
     var promise = myPlayer.play();
     if (promise !== undefined) {
@@ -1286,7 +1286,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>You can use this snippet to implement your use case rules.</p>
     <aside class="bcls-aside bcls-aside--warning">Note that with live content the <code translate="No">loadedmetadata </code> event is fired after the <code translate="No">play </code> event, except in Safari where the behavior is as shown above. When using live content with Chrome, for example, you would need to listen for the <code translate="No">durationchange </code> instead of <code translate="No">loadedmetadata </code>. The following code can be used for either VOD or live:
       <pre class="line-numbers">
-    <code class="language-javascript notranslate">var autoPlayEvents = ['loadedmetadata', 'durationchange'];
+    <code class="language-javascript" translate="No">var autoPlayEvents = ['loadedmetadata', 'durationchange'];
     myPlayer.on(autoPlayEvents, autoplayableListener);
   
     function autoplayableListener(event) {

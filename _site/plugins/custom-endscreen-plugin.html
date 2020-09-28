@@ -1096,7 +1096,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Next, for the <strong>Player End Screen</strong> type, click the down arrow and select <strong>Custom</strong>.</li>
       <li>Enter the configuration options in the <strong>Custom HTML</strong> text box.
         <pre class="line-numbers">
-<code class="language-json notranslate">{
+<code class="language-json" translate="No">{
   "content": "&lt;strong&gt;Content&lt;/strong&gt; for &lt;em&gt;custom&lt;/em&gt; end screen"
 }</code></pre>
       </li>
@@ -1110,12 +1110,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <div class="video-cloud-only">
       <p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the plugin code and stylesheet are as follows:</p>
       <pre class="line-numbers">
-<code class="language-javascript notranslate">https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js</code></pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js</code></pre>
       <pre class="line-numbers">
-<code class="language-javascript notranslate">https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css</code></pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css</code></pre>
       <p>The name of the plugin is <code translate="No">customEndscreen</code>, and an example set of options is:</p>
       <pre class="line-numbers">
-<code class="language-javascript notranslate">{
+<code class="language-javascript" translate="No">{
   "content": "<strong>Content</strong> for <em>custom</em> end screen"
 }</code></pre>
       <p>The following shows using the In-Page Embed implementation of the player to associate the Custom Endscreen plugin with a single instance of a player.</p>
@@ -1157,7 +1157,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </ul>
       <p>The name of the plugin is <code translate="No">customEndscreen</code>, and an example set of options is:</p>
       <pre class="line-numbers">
-<code class="language-javascript notranslate">{
+<code class="language-javascript" translate="No">{
   "content": "<strong>Content</strong> for <em>custom</em> end screen"
 }</code></pre>
       <p>The following shows using the In-Page Embed implementation of the player to associate the Custom Endscreen plugin with a single instance of a player.</p>
@@ -1215,19 +1215,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Instead, since these buttons are XML text files, you can change their size by using the <code translate="No">font-size</code> CSS property.</p>
     <p>Use the code below to make both buttons smaller:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">.vjs-overlay-buttons {
+<code class="language-javascript" translate="No">.vjs-overlay-buttons {
   font-size: .5em;
 }</code></pre>
     <p>Using a percentage value should have the same effect:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">.vjs-overlay-buttons {
+<code class="language-javascript" translate="No">.vjs-overlay-buttons {
   font-size: 50%;
 }</code></pre>
     <p>The result should look like this:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="small endscreen buttons" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-small-buttons.png" /></figure>
     <p>Or you can control the size of each button independently:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">.vjs-restart-control {
+<code class="language-javascript" translate="No">.vjs-restart-control {
   font-size: .5em;
 }
 .vjs-trigger-social-control {
@@ -1236,7 +1236,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Move content below buttons</h3>
     <p>Earlier in this document, you learned how to add content to the endscreen. To review, you can add any HTML to the plugin. The code below adds a link to our homepage to the endscreen:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">{
+<code class="language-javascript" translate="No">{
   "content": "&lt;a href='https://www.brightcove.com'&gt;Visit our home page&lt;/a&gt;"
 }</code></pre>
     <p>By default, your added content displays above the endscreen buttons:</p>
@@ -1248,7 +1248,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Lines 197-202: Position your custom text from the bottom and center it horizontally.</li>
     </ul>
     <pre class="line-numbers" data-start="190">
-<code class="language-javascript notranslate">.vjs-overlay-buttons {
+<code class="language-javascript" translate="No">.vjs-overlay-buttons {
   position: absolute;
   top: 5em;
 }
@@ -1274,7 +1274,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
     </ul>
     <pre class="line-numbers" data-start="205">
-<code class="language-javascript notranslate">.vjs-overlay-buttons {
+<code class="language-javascript" translate="No">.vjs-overlay-buttons {
   position: absolute;
   width: 10%;
   top: 20%;
@@ -1418,7 +1418,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <td>{mediainfo.ad_keys}</td>
           <td>Free form text string that can be added and edited in the Media module of Studio; you should use the query parameter in the form
             <pre class="line-numbers">
-  <code class="language-javascript notranslate">cust_params={mediainfo.ad_keys}</code></pre></td>
+  <code class="language-javascript" translate="No">cust_params={mediainfo.ad_keys}</code></pre></td>
         </tr>
         <tr>
           <td>{player.duration}</td>

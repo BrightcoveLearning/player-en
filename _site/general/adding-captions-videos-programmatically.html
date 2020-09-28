@@ -1201,7 +1201,7 @@ you can accomplish using it.</code></pre>
 &lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-fr.vtt" srclang="fr" label="French"&gt;</code></pre>
         <p>The code needed to start the designated captions automatically is:</p>
         <pre class="line-numbers">
-<code class="language-javascript notranslate">&lt;script type=&quot;text/javascript&quot;&gt;
+<code class="language-javascript" translate="No">&lt;script type=&quot;text/javascript&quot;&gt;
   videojs.getPlayer('myPlayerID').ready(function () {
     var myPlayer = this;
     myPlayer.on(&quot;loadedmetadata&quot;, function () {
@@ -1357,7 +1357,7 @@ you can accomplish using it.</code></pre>
     <h2 id="implementcode">Implement using code</h2>
     <p>It is possible to programmatically add text tracks for captions. The key method for this functionality is <code translate="No">addRemoteTextTrack()</code>, the syntax of which is:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">playerObject.addRemoteTextTrack({
+<code class="language-javascript" translate="No">playerObject.addRemoteTextTrack({
   kind: string,
   language: string,
   label: string,
@@ -1373,7 +1373,7 @@ you can accomplish using it.</code></pre>
     <p>The function call returns an object of type <code translate="No">vjs.TextTrack</code>.</p>
     <p>Example usage:</p>
     <pre class="line-numbers">
-<code class="language-javascript notranslate">var frTrack = myPlayer.addRemoteTextTrack({
+<code class="language-javascript" translate="No">var frTrack = myPlayer.addRemoteTextTrack({
   kind: 'captions',
   language: 'fr',
   label: 'French',

@@ -26,16 +26,16 @@ parent: Coding Topics
       <li>Create a folder named <code translate="No">plugin-dev</code> that can be browsed using an actual HTTP server. The server is necessary for the iframe implementation testing later in this document.</li>
       <li>In the folder, create three files with the following names:
         <ul>
-          <li><strong class="notranslate">plugin-dev.html</strong> (Insert the basic elements for an HTML page into the file)</li>
-          <li><strong class="notranslate">plugin-dev.js</strong></li>
-          <li><strong class="notranslate">plugin-dev.css</strong></li>
+          <li><strong translate="No">plugin-dev.html</strong> (Insert the basic elements for an HTML page into the file)</li>
+          <li><strong translate="No">plugin-dev.js</strong></li>
+          <li><strong translate="No">plugin-dev.css</strong></li>
         </ul>
       </li>
-      <li>Using Studio's <strong class="notranslate">Players</strong> module, create a new player.</li>
-      <li class="video-cloud-only">In the <strong class="notranslate">Media</strong> module, select a video and publish it with the newly created player.</li>
-      <li class="player-only">Using the <strong class="notranslate">VIDEO CONTENT</strong> section, associate a video with the player, then save and publish the player.</li>
-      <li class="video-cloud-only">Copy the <strong class="notranslate">Advanced</strong> code and paste into the body of the <code translate="No">plugin-dev.html</code> page.</li>
-      <li class="player-only">From the <strong class="notranslate">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong class="notranslate">Advanced Embed Code</strong> code and paste into the body of the <code translate="No">plugin-dev.html</code> page.</li>
+      <li>Using Studio's <strong translate="No">Players</strong> module, create a new player.</li>
+      <li class="video-cloud-only">In the <strong translate="No">Media</strong> module, select a video and publish it with the newly created player.</li>
+      <li class="player-only">Using the <strong translate="No">VIDEO CONTENT</strong> section, associate a video with the player, then save and publish the player.</li>
+      <li class="video-cloud-only">Copy the <strong translate="No">Advanced</strong> code and paste into the body of the <code translate="No">plugin-dev.html</code> page.</li>
+      <li class="player-only">From the <strong translate="No">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong translate="No">Advanced Embed Code</strong> code and paste into the body of the <code translate="No">plugin-dev.html</code> page.</li>
       <li>Add an <code translate="No">id</code> attribute to the <code translate="No">&lt;video-js&gt;</code> tag with a value of <code translate="No">player</code>.</li>
       <li>Check to be sure your HTML page appears similar to the following <span class="player-only">(Brightcove Player customers will not have a <code translate="No">data-video-id</code> property)</span>:
         <pre class="line-numbers">
@@ -68,7 +68,7 @@ parent: Coding Topics
     <ol class="bcls-tasklist">
       <li>Open the file <code translate="No">plugin-dev.js</code> and paste in the following JavaScript code:
         <pre class="line-numbers">
-<code class="language-javascript notranslate">videojs.registerPlugin('pluginDev', function() {
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginDev', function() {
   var player = this,
   overlay = document.createElement('p');
   overlay.className = 'vjs-overlay';
@@ -105,7 +105,7 @@ parent: Coding Topics
     <ol class="bcls-tasklist">
       <li>Open the file <code translate="No">plugin-dev.css</code> and paste in the following styles:
         <pre class="line-numbers">
-<code class="language-javascript notranslate">.vjs-overlay {
+<code class="language-javascript" translate="No">.vjs-overlay {
     background-color: #333333;
     color: white;
     position: absolute;
@@ -136,7 +136,7 @@ parent: Coding Topics
       </li>
       <li>You now need to alter the plugin's JavaScript to use the data passed to the function. Line 110 shows the function accepting the data as a parameter, and line 114 uses the object's data.
         <pre class="line-numbers">
-<code class="language-javascript notranslate"><span class="bcls-highlight">videojs.registerPlugin('pluginDev', function(options) {</span>
+<code class="language-javascript" translate="No"><span class="bcls-highlight">videojs.registerPlugin('pluginDev', function(options) {</span>
   var player = this,
   overlay = document.createElement('p');
   overlay.className = 'vjs-overlay';
@@ -165,7 +165,7 @@ parent: Coding Topics
         <aside class="bcls-aside bcls-aside--information">If you choose, you can use the files at the location shown below in the example. You could also use the <a href="https://apis.support.brightcove.com/delivery-system/">Delivery System API</a> to store the files in your own repo.</aside>
       </li>
       <li>In the folder in which you are working, create another file called <code translate="No">plugin-dev-iframe.html</code>.</li>
-      <li>Use Studio's <strong class="notranslate">Players</strong> module to edit the player you created earlier.</li>
+      <li>Use Studio's <strong translate="No">Players</strong> module to edit the player you created earlier.</li>
       <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
       <li>Next click <strong>Add a Plugin</strong>.</li>
       <li>For the <strong>Plugin Name</strong> enter <code translate="No">pluginDev</code>.</li>
@@ -179,7 +179,7 @@ parent: Coding Topics
       </li>
       <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box.
         <pre class="line-numbers">
- <code class="language-json notranslate">{"overlayText": "This data is supplied at initialization"}</code></pre>
+ <code class="language-json" translate="No">{"overlayText": "This data is supplied at initialization"}</code></pre>
       </li>
       <li>Your configuration dialog should appear similar to the following:
         <figure class="bcls-figure"><img class="bcls-image" alt="Plugins dialog" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/qs-plugin-dev/plugins-dialog.png" /></figure>
@@ -187,9 +187,9 @@ parent: Coding Topics
       <li>Click <strong>Save</strong>.</li>
       <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
       <li>To close the open dialog, click <strong>Close</strong>.</li>
-      <li class="video-cloud-only">In the <strong class="notranslate">Media</strong> module, select a video and publish it with the newly updated and published player.</li>
-      <li class="video-cloud-only">Copy the <strong class="notranslate">Standard</strong> code and paste into the body of the <code translate="No">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:</li>
-      <li class="player-only">From the <strong class="notranslate">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong class="notranslate">Standard Embed Code</strong> code and paste into the body of the <code translate="No">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:
+      <li class="video-cloud-only">In the <strong translate="No">Media</strong> module, select a video and publish it with the newly updated and published player.</li>
+      <li class="video-cloud-only">Copy the <strong translate="No">Standard</strong> code and paste into the body of the <code translate="No">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:</li>
+      <li class="player-only">From the <strong translate="No">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong translate="No">Standard Embed Code</strong> code and paste into the body of the <code translate="No">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:
         <pre class="line-numbers">
 <code class="language-html notranslate">&lt;!doctype html&gt;
 &lt;html&gt;
@@ -212,8 +212,8 @@ parent: Coding Topics
     <h2>3rd party libraries</h2>
     <p>If your plugin has dependencies on 3rd party libraries, for instance jQuery, you need to include them in one of these two ways:</p>
     <ul>
-      <li>Add the library as another JavaScript file in the <strong class="notranslate">Plugins</strong> section of <strong class="notranslate">Players</strong> module in <span class="video-cloud-only">Video Cloud</span> Studio.</li>
-      <li>Add multiple entries in the <strong class="notranslate">scripts</strong> section of the player configuration in a curl statement.</li>
+      <li>Add the library as another JavaScript file in the <strong translate="No">Plugins</strong> section of <strong translate="No">Players</strong> module in <span class="video-cloud-only">Video Cloud</span> Studio.</li>
+      <li>Add multiple entries in the <strong translate="No">scripts</strong> section of the player configuration in a curl statement.</li>
     </ul>
     <p>BE SURE you put the libraries on which your plugin is dependent before your plugin's JavaScript entry in both scenarios listed above. The order of entry DOES matter.</p>
   </section>
