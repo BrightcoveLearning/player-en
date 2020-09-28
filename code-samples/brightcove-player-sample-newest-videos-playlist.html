@@ -94,8 +94,8 @@ parent: Code Samples
   <section class="bcls-section">
     <details>
       <summary><h2 id="getCredentials">Get credentials</h2></summary>
-      <p>To use the CMS API you will need proper credentials.</p>
-      <p>The easiest way to get credentials in most cases is through the Studio Admin API Authentication section (requires admin permissions on your account). See <a href="https://studio.support.brightcove.com/admin/managing-api-authentication-credentials.html">Managing API Authentication Credentials</a> for details. In most cases, you probably just want to get permissions for all CMS API operation:</p>
+      <p>To use the <span translate="No">CMS API</span> you will need proper credentials.</p>
+      <p>The easiest way to get credentials in most cases is through the Studio Admin API Authentication section (requires admin permissions on your account). See <a href="https://studio.support.brightcove.com/admin/managing-api-authentication-credentials.html">Managing API Authentication Credentials</a> for details. In most cases, you probably just want to get permissions for all <span translate="No">CMS API</span> operation:</p>
       <figure class="bcls-figure"><img class="bcls-image" alt="CMS API Permissions" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/cms-api/cms-permissions.png" />
         <figcaption class="bcls-caption--image">CMS API Permissions</figcaption>
       </figure>
@@ -131,8 +131,8 @@ parent: Code Samples
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Prepare to make the call to the CMS API by setting the search criteria, in this case return the 10 newest videos created.</li>
-      <li>Make the actual request using the CMS API for the data. This step will use a callback function, which means the callback function is passed as a parameter to another, second, function. The callback function is then called inside the second function's logic.</li>
+      <li>Prepare to make the call to the <span translate="No">CMS API</span> by setting the search criteria, in this case return the 10 newest videos created.</li>
+      <li>Make the actual request using the <span translate="No">CMS API</span> for the data. This step will use a callback function, which means the callback function is passed as a parameter to another, second, function. The callback function is then called inside the second function's logic.</li>
       <li>Once the data is retrieved, data is extracted to build an array of the video IDs for the newest videos.</li>
       <li>The array of video IDs is then passed as a parameter to another function which retrieves the complete video object for each ID. The returned objects are stored in an array. A callback function is used in this step also.</li>
       <li>The array of video objects is assigned as the player's playlist.</li>
@@ -142,7 +142,7 @@ parent: Code Samples
     <h3>Initialize values</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-      <code class="language-javascript" translate="No">// ### Set up data for CMS API request ###</code></pre>
+      <code class="language-javascript" translate="No">// ### Set up data for <span translate="No">CMS API</span> request ###</code></pre>
     <p>A function is called where variables are created that setup for the call to the CMS API. For instance, the request URL is built, and appears as follows:</p>
     <pre class="line-numbers">
       <code class="language-javascript" translate="No">https://cms.api.brightcove.com/v1/accounts/1752604059001/videos?sort=-created_at&amp;limit=10</code></pre>
@@ -151,7 +151,7 @@ parent: Code Samples
     <h3>Make the call to the CMS API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-      <code class="language-javascript" translate="No">// ### Make the CMS API request to get matching video IDs ###</code></pre>
+      <code class="language-javascript" translate="No">// ### Make the <span translate="No">CMS API</span> request to get matching video IDs ###</code></pre>
     <p>The function <code translate="No">getNewestVideos</code> is called. Passed to the function are the configuration options previously built and a callback function. The callback function is used as the transport to return data from the API. For further details on this technique see the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</p>
     <!-- UPDATE task 3 -->
     
@@ -159,7 +159,7 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
       <code class="language-javascript" translate="No">// ### Standard code to extract videos from returned data ###</code></pre>
-    <p>The CMS API returns more than just the video IDs, so all IDs need to be extracted from the returned, raw data.</p>
+    <p>The <span translate="No">CMS API</span> returns more than just the video IDs, so all IDs need to be extracted from the returned, raw data.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Retrieve video objects using IDs and place in an array</h3>

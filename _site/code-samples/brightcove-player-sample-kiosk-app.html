@@ -1168,8 +1168,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <details>
       <summary><h2 id="Get_credentials">Get credentials</h2></summary>
-      <p>To use the CMS API you will need proper credentials.</p>
-      <p>The easiest way to get credentials in most cases is through the Studio Admin API Authentication section (requires admin permissions on your account). See <a href="https://studio.support.brightcove.com/admin/managing-api-authentication-credentials.html">Managing API Authentication Credentials</a> for details. In most cases, you probably just want to get permissions for all CMS API operation:</p>
+      <p>To use the <span translate="No">CMS API</span> you will need proper credentials.</p>
+      <p>The easiest way to get credentials in most cases is through the Studio Admin API Authentication section (requires admin permissions on your account). See <a href="https://studio.support.brightcove.com/admin/managing-api-authentication-credentials.html">Managing API Authentication Credentials</a> for details. In most cases, you probably just want to get permissions for all <span translate="No">CMS API</span> operation:</p>
       <figure class="bcls-figure"><img class="bcls-image" alt="CMS API Permissions" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/cms-api/cms-permissions.png" />
         <figcaption class="bcls-caption--image">CMS API Permissions</figcaption>
       </figure>
@@ -1203,8 +1203,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Use the CMS API to get a total count of videos in the targeted account.</li>
-      <li>Since it is a best practice to retrieve information for no more than 25 videos at a time (the CMS API does NOT return video objects, but information on the videos), calculate the number of calls needed from the total count.</li>
+      <li>Use the <span translate="No">CMS API</span> to get a total count of videos in the targeted account.</li>
+      <li>Since it is a best practice to retrieve information for no more than 25 videos at a time (the <span translate="No">CMS API</span> does NOT return video objects, but information on the videos), calculate the number of calls needed from the total count.</li>
       <li>On retrieving the information for 25 videos, extract the IDs and then use the Video Cloud catalog to retrieve the video objects.</li>
       <li>Once all the video objects are returned, play the first video.</li>
       <li>When a video ends, play the next video.</li>
@@ -1212,12 +1212,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ul>
     <p>More details are added in this description:</p>
     <ol>
-      <li>Prepare to make the call to the CMS API that returns the count of total videos in the account.</li>
-      <li>Make the actual request using the CMS API for the count. This step will use a callback function, which means the callback function is passed as a parameter to another, second, function. The callback function is then called inside the second function's logic. In this case the callback function simply extracts the count property from an object returned by the CMS API.</li>
-      <li>Determine the number of calls needed to the CMS API to retrieve all the videos. This code follows the best practice of asking for 25 videos per call. This is done by dividing the count of all the videos by 25.</li>
+      <li>Prepare to make the call to the <span translate="No">CMS API</span> that returns the count of total videos in the account.</li>
+      <li>Make the actual request using the <span translate="No">CMS API</span> for the count. This step will use a callback function, which means the callback function is passed as a parameter to another, second, function. The callback function is then called inside the second function's logic. In this case the callback function simply extracts the count property from an object returned by the CMS API.</li>
+      <li>Determine the number of calls needed to the <span translate="No">CMS API</span> to retrieve all the videos. This code follows the best practice of asking for 25 videos per call. This is done by dividing the count of all the videos by 25.</li>
       <li>Create a <code class="notranslate">do-while</code> loop that iterates for the required number of calls determined in the previous step. This loop must be in the callback function of the request for the video count.</li>
-      <li>In the loop, prepare to make the call to the CMS API that will return 25 videos from the account.</li>
-      <li>Still in the loop, make the actual request using the CMS API for the video data. This step will use a callback function, which means the callback function is passed as a parameter to another, second, function. The callback function is then called inside the second function's logic. In this case the callback function will perform these tasks:
+      <li>In the loop, prepare to make the call to the <span translate="No">CMS API</span> that will return 25 videos from the account.</li>
+      <li>Still in the loop, make the actual request using the <span translate="No">CMS API</span> for the video data. This step will use a callback function, which means the callback function is passed as a parameter to another, second, function. The callback function is then called inside the second function's logic. In this case the callback function will perform these tasks:
         <ul>
           <li>Extract data to build an array of video IDs for the returned video information.</li>
           <li>The array of video IDs is then passed as a parameter to another function which retrieves the complete video object for each ID. The returned objects are stored in an array of all video objects. A callback function is used in this step also.</li>
@@ -1231,7 +1231,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3>Request the video count from the CMS API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
-	<code class="notranslate language-javascript">// ### Setup for video count CMS API request ###</code></pre>
+	<code class="notranslate language-javascript">// ### Setup for video count <span translate="No">CMS API</span> request ###</code></pre>
     <p>The first call to the <code class="notranslate">getCMSAPIData()</code> is for the total count of videos. Note the in the callback function there is another call to the function inside of the <code class="notranslate">do-while</code> loop.</p>
     <!-- UPDATE task 2 -->
     
@@ -1253,7 +1253,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Find the code which is labeled:</p>
     <pre>
 	<code class="notranslate language-javascript">// ### Extract video IDs ###</code></pre>
-    <p>This series of functions takes the returned video information, extracts the IDs, then uses the CMS API to retrieve video objects needed for the player to actually playback the video content.</p>
+    <p>This series of functions takes the returned video information, extracts the IDs, then uses the <span translate="No">CMS API</span> to retrieve video objects needed for the player to actually playback the video content.</p>
   </section>
   <!-- UPDATE CSS description -->
   
