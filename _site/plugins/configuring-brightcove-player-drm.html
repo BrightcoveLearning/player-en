@@ -1164,7 +1164,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>As of player 6.26.0 the player supports DASH multi-period. For earlier versions of the player, the Shaka player is required for DASH multi-period.</p>
     <p>If you want to use the Shaka Player for DASH playback, like it did in version 4, you can include the following script along with <strong>videojs-drm</strong> version 5 script:</p>
     <pre>
-    <code class="notranslate language-html">https://players.brightcove.net/videojs-shaka/1/videojs-shaka.js</code></pre>
+    <code class="language-html" translate="No">https://players.brightcove.net/videojs-shaka/1/videojs-shaka.js</code></pre>
     &nbsp;
     <p>The <strong>videojs-silverlight</strong> plugin allows for playback of DASH content on certain Internet Explorer browsers.</p>
     <p>The <strong>videojs-contrib-eme</strong> plugin allows for playback of FairPlay HLS content.</p>
@@ -1260,18 +1260,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <ol>
           <li >In the header of your HTML page, include the plugin's stylesheet:
             <pre>
-    <code class="notranslate language-html">&lt;link href="https://players.brightcove.net/videojs-drm/5/videojs-drm.css" rel="stylesheet"&gt;
+    <code class="language-html" translate="No">&lt;link href="https://players.brightcove.net/videojs-drm/5/videojs-drm.css" rel="stylesheet"&gt;
     </code>
     </pre>
           </li>
           <li >Include the plugin's JavaScript:
             <pre>
-    <code class="notranslate language-html">&lt;script src="https://players.brightcove.net/videojs-drm/5/videojs-drm.min.js"&gt;&lt;/script&gt;</code></pre>
+    <code class="language-html" translate="No">&lt;script src="https://players.brightcove.net/videojs-drm/5/videojs-drm.min.js"&gt;&lt;/script&gt;</code></pre>
           </li>
           <li >
             <p>If your account is set up for <a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html">Dynamic Delivery</a>, simply call the EME plugin to initialize it.</p>
             <pre class="line-numbers">
-    <code class="notranslate language-html">&lt;script type="text/javascript"&gt;
+    <code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
       videojs.getPlayer('myPlayerID').ready(function() {
         var myPlayer = this;
         myPlayer.eme();
@@ -1297,15 +1297,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <ol class="bcls-tasklist__restart">
           <li >In the header of your HTML page, include the plugin's stylesheet:
             <pre>
-    <code class="notranslate language-html">&lt;link href="https://players.brightcove.net/videojs-drm/5/videojs-drm.css" rel="stylesheet"&gt;</code></pre>
+    <code class="language-html" translate="No">&lt;link href="https://players.brightcove.net/videojs-drm/5/videojs-drm.css" rel="stylesheet"&gt;</code></pre>
           </li>
           <li >Include the plugin's JavaScript:
             <pre>
-    <code class="notranslate language-html">&lt;script src="https://players.brightcove.net/videojs-drm/5/videojs-drm.min.js"&gt;&lt;/script&gt;</code></pre>
+    <code class="language-html" translate="No">&lt;script src="https://players.brightcove.net/videojs-drm/5/videojs-drm.min.js"&gt;&lt;/script&gt;</code></pre>
           </li>
           <li >In a JavaScript block in the page, call and configure the EME plugin with FairPlay credential information by providing <strong>getCertificate</strong>, <strong>getContentId</strong> and <strong>getLicense</strong> functions to the EME plugin. These functions are specific to your own FairPlay license server implementation, and may be passed directly to the EME plugin before a <strong>src</strong> is set:
             <pre class="line-numbers">
-    <code class="notranslate language-html">&lt;script type="text/javascript"&gt;
+    <code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
       videojs.getPlayer('myPlayerID').ready(function() {
         var myPlayer = this;
         myPlayer.eme({
@@ -1449,15 +1449,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <ol>
           <li >In the header of your HTML page, include the plugin's stylesheet:
             <pre>
-    <code class="notranslate language-html">&lt;link href="https://players.brightcove.net/videojs-drm/5/videojs-drm.css" rel="stylesheet"&gt;</code></pre>
+    <code class="language-html" translate="No">&lt;link href="https://players.brightcove.net/videojs-drm/5/videojs-drm.css" rel="stylesheet"&gt;</code></pre>
           </li>
           <li >Include the plugin's JavaScript:
             <pre>
-    <code class="notranslate language-html">&lt;script src="https://players.brightcove.net/videojs-drm/5/videojs-drm.min.js"&gt;&lt;/script&gt;</code></pre>
+    <code class="language-html" translate="No">&lt;script src="https://players.brightcove.net/videojs-drm/5/videojs-drm.min.js"&gt;&lt;/script&gt;</code></pre>
           </li>
           <li >Next, simply call the EME plugin to initialize it.
             <pre class="line-numbers">
-    <code class="notranslate language-html">&lt;script type="text/javascript"&gt;
+    <code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
       videojs.getPlayer('myPlayerID').ready(function() {
         var myPlayer = this;
         myPlayer.eme();
@@ -1582,7 +1582,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li >The <strong>Default (Auto Display)</strong> caption setting in the&nbsp;<strong>Media</strong> module's <strong>TEXT TRACK</strong> section is not supported when used in conjunction with DRM and in-manifest captions. In-manifest captions are used with the Brightcove products Dynamic Delivery and SSAI, for example. A workaround for this issue is to use the <code translate="No">&lt;track&gt;</code> tag with the Advanced Brightcove Player implementation. This is detailed in the <a href="/general/adding-captions-videos-programmatically.html">Adding Captions to Videos Programmatically</a> document. Note you must use the <code translate="No">default</code> attribute with the <code translate="No">&lt;track&gt;</code> tag.</li>
       <li ><strong>DRM assets and Chrome</strong>: When using the Standard (iframe) player implementation with the DRM plugin, <code translate="No">allow="encrypted-media" </code> is required to be able to play DRM assets in Chrome.
         <pre class="line-numbers">
-    <code class="notranslate language-html">&lt;iframe src="https://players.brightcove.net/123456789/BydO6uuuu_default/index.html?videoId=5783262319001"
+    <code class="language-html" translate="No">&lt;iframe src="https://players.brightcove.net/123456789/BydO6uuuu_default/index.html?videoId=5783262319001"
     allowfullscreen
     webkitallowfullscreen
     mozallowfullscreen
