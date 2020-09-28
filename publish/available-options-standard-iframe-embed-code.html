@@ -16,17 +16,17 @@ parent: 'Publishing Videos & Players'
     <aside class="bcls-aside bcls-aside--information player-only">Note: If you are a Brightcove Player customer, you will not use the <code translate="No">videoId</code> query parameter to assign a video to your player. You would either assign the video in the <strong>Players</strong> module or using curl.</aside>
     <p>To use the <strong>iframe</strong> code follow these steps:</p>
     <ol class="bcls-tasklist">
-      <li class="language-editable">Use the&nbsp;<strong>PLAYERS</strong> module to create a player.</li>
-      <li class="language-editable">Go to the <strong>MEDIA</strong> module and publish a video using the newly created player.</li>
-      <li class="language-editable">Copy the <strong>Standard</strong>&nbsp;embed code. The HTML will be similar to the following:
+      <li >Use the&nbsp;<strong>PLAYERS</strong> module to create a player.</li>
+      <li >Go to the <strong>MEDIA</strong> module and publish a video using the newly created player.</li>
+      <li >Copy the <strong>Standard</strong>&nbsp;embed code. The HTML will be similar to the following:
         <pre class="line-numbers">
       <code class="language-html" translate="No">&lt;iframe src="https://players.brightcove.net/921483702001/default_default/index.html?videoId=4570583963001"
         allowfullscreen
         webkitallowfullscreen
         mozallowfullscreen&gt;&lt;/iframe&gt;</code></pre>
       </li>
-      <li class="language-editable">Copy the HTML from the browser and paste into the <code translate="No">body</code> of a full HTML page.</li>
-      <li class="language-editable">Browse the HTML page to see the player functioning.</li>
+      <li >Copy the HTML from the browser and paste into the <code translate="No">body</code> of a full HTML page.</li>
+      <li >Browse the HTML page to see the player functioning.</li>
     </ol>
   </section>
   <section id="Query_parameters" class="bcls-section">
@@ -46,86 +46,86 @@ parent: 'Publishing Videos & Players'
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td class="language-editable">adConfigId</td>
-          <td class="language-editable">A Dynamic Delivery SSAI ad configuration ID.</td>
-          <td class="language-editable">String</td>
+          <td >adConfigId</td>
+          <td >A Dynamic Delivery SSAI ad configuration ID.</td>
+          <td >String</td>
         </tr>
         <tr>
-          <td class="language-editable">applicationId</td>
-          <td class="language-editable">Allows re-use of a single player, but differentiates analytics on a per-site or per-application basis. See the <a href="https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html">Adding an Application ID to the Player Embed Code</a> document for full details.</td>
-          <td class="language-editable">String</td>
+          <td >applicationId</td>
+          <td >Allows re-use of a single player, but differentiates analytics on a per-site or per-application basis. See the <a href="https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html">Adding an Application ID to the Player Embed Code</a> document for full details.</td>
+          <td >String</td>
         </tr>
         <tr>
-          <td class="language-editable">autoplay</td>
-          <td class="language-editable">Indicates that the player should start playing immediately, on platforms where this is allowed.<br />
+          <td >autoplay</td>
+          <td >Indicates that the player should start playing immediately, on platforms where this is allowed.<br />
             <br />
             If <code translate="No">autoplay</code> is set to a Boolean value the browser's native autoplay behavior is used. If it is set to one of the following three valid string values, the following occurs:
             <ul>
-              <li class="language-editable"><code translate="No">play</code>: The player will manually try to call play.</li>
-              <li class="language-editable"><code translate="No">muted</code>: The player will manually mute the player and call play.</li>
-              <li class="language-editable"><code translate="No">any</code>: The player will first try to call play. If that fails, mute the player and call play.</li>
+              <li ><code translate="No">play</code>: The player will manually try to call play.</li>
+              <li ><code translate="No">muted</code>: The player will manually mute the player and call play.</li>
+              <li ><code translate="No">any</code>: The player will first try to call play. If that fails, mute the player and call play.</li>
             </ul>
             If any of the above fail, the player will display the "Big Play Button" as if autoplay was set to false.<br />
             <br />
             Getting a video to autoplay can be a complex situation. See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for further details.
             <aside class="bcls-aside bcls-aside--information language-editable">If <strong>autoplay</strong> is enabled at the player level (using either Studio or Player Management API), there is no way to disable it. For instance, <code translate="No">&amp;autoplay=false</code> will not stop autoplay. In fact, the last query parameter would actually turn on autoplay as if the URL contains the string <strong>autoplay</strong>, autoplay will be enabled, no matter what value might be assigned to it.</aside></td>
-          <td class="language-editable">Boolean or String</td>
+          <td >Boolean or String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code translate="No">crossorigin</code></td>
-          <td class="language-editable">If <strong>true</strong>, the underlying <strong>&lt;video&gt;</strong> element will have <strong>crossorigin="anonymous"</strong>. This means that any videos or text tracks pulled into the player must have CORS headers.
+          <td ><code translate="No">crossorigin</code></td>
+          <td >If <strong>true</strong>, the underlying <strong>&lt;video&gt;</strong> element will have <strong>crossorigin="anonymous"</strong>. This means that any videos or text tracks pulled into the player must have CORS headers.
             <aside class="bcls-aside bcls-aside--information language-editable">Note: This feature should only be used if you know that all your content (video and text tracks) have CORS headers applied to them.</aside></td>
-          <td class="language-editable">Boolean</td>
+          <td >Boolean</td>
         </tr>
         <tr>
-          <td class="language-editable"><code translate="No">language</code></td>
-          <td class="language-editable">Sets the language (using a valid language code, usually two letters) for the player.</td>
-          <td class="language-editable">String</td>
+          <td ><code translate="No">language</code></td>
+          <td >Sets the language (using a valid language code, usually two letters) for the player.</td>
+          <td >String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code translate="No">loop</code></td>
-          <td class="language-editable">Causes the video to start over as soon as it ends.</td>
-          <td class="language-editable">String</td>
+          <td ><code translate="No">loop</code></td>
+          <td >Causes the video to start over as soon as it ends.</td>
+          <td >String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code translate="No">muted</code></td>
-          <td class="language-editable">Mutes the video's sound.</td>
-          <td class="language-editable">Boolean</td>
+          <td ><code translate="No">muted</code></td>
+          <td >Mutes the video's sound.</td>
+          <td >Boolean</td>
         </tr>
         <tr>
-          <td class="language-editable"><code translate="No">playlistId</code></td>
-          <td class="language-editable">Sets the ID or reference ID of the playlist in the player.</td>
-          <td class="language-editable">String</td>
+          <td ><code translate="No">playlistId</code></td>
+          <td >Sets the ID or reference ID of the playlist in the player.</td>
+          <td >String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code translate="No">playlistVideoId</code></td>
-          <td class="language-editable">Sets the initial video to be played in the video, which must be in the designated playlist.</td>
-          <td class="language-editable">String</td>
+          <td ><code translate="No">playlistVideoId</code></td>
+          <td >Sets the initial video to be played in the video, which must be in the designated playlist.</td>
+          <td >String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code translate="No">playsinline</code></td>
-          <td class="language-editable">If the platform and OS allow it, will display video content within the player's playback area, meaning it won't be displayed fullscreen or in an independent, resizable window; does work on iPhone and iPad</td>
-          <td class="language-editable">Boolean</td>
+          <td ><code translate="No">playsinline</code></td>
+          <td >If the platform and OS allow it, will display video content within the player's playback area, meaning it won't be displayed fullscreen or in an independent, resizable window; does work on iPhone and iPad</td>
+          <td >Boolean</td>
         </tr>
         <tr>
-          <td class="language-editable">preload</td>
-          <td class="language-editable">Informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. Possible values are <code translate="No">none</code>, <code translate="No">metadata</code> or <code translate="No">auto</code>. See the next section for further details.</td>
-          <td class="language-editable">String</td>
+          <td >preload</td>
+          <td >Informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. Possible values are <code translate="No">none</code>, <code translate="No">metadata</code> or <code translate="No">auto</code>. See the next section for further details.</td>
+          <td >String</td>
         </tr>
         <tr>
-          <td class="language-editable">referrer</td>
-          <td class="language-editable">Allows you to pass in the <code translate="No">document.referrer</code> along with other parameters to the iframe, allowing you to accurately track the referrer URL for the video. Note that you will need to URI encode the value - for example: <code translate="No">referrer=http%3A%2F%2Ffoo.com</code>. Also note that this parameter is available for the 6.25 version of the player or later.</td>
-          <td class="language-editable">String</td>
+          <td >referrer</td>
+          <td >Allows you to pass in the <code translate="No">document.referrer</code> along with other parameters to the iframe, allowing you to accurately track the referrer URL for the video. Note that you will need to URI encode the value - for example: <code translate="No">referrer=http%3A%2F%2Ffoo.com</code>. Also note that this parameter is available for the 6.25 version of the player or later.</td>
+          <td >String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code translate="No">t</code></td>
-          <td class="language-editable">Sets the time offset from which a video will start playing. See the <a href="https://studio.support.brightcove.com/publish/deep-linking.html">Deep Linking</a> document for details.</td>
-          <td class="language-editable">String</td>
+          <td ><code translate="No">t</code></td>
+          <td >Sets the time offset from which a video will start playing. See the <a href="https://studio.support.brightcove.com/publish/deep-linking.html">Deep Linking</a> document for details.</td>
+          <td >String</td>
         </tr>
         <tr>
-          <td class="language-editable"><code translate="No">videoId</code></td>
-          <td class="language-editable">Sets the ID or reference ID of the video in the player.</td>
-          <td class="language-editable">String</td>
+          <td ><code translate="No">videoId</code></td>
+          <td >Sets the ID or reference ID of the video in the player.</td>
+          <td >String</td>
         </tr>
       </tbody>
     </table>
@@ -134,15 +134,15 @@ parent: 'Publishing Videos & Players'
     <h2>preload details</h2>
     <p>The preload parameter informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. The options are <strong>auto</strong>, <strong>metadata</strong>, and <strong>none</strong>. For HLS playback technology the settings mean slightly different things and noted below.</p>
     <ul>
-      <li class="language-editable">
+      <li >
         <p><strong>auto</strong> (default): Start loading the video immediately (if the browser agrees). Some mobile devices like iPhones and iPads will not preload the video in order to protect their users' bandwidth. This is why the value is called <strong>auto</strong> and not something more final like <strong>true</strong>.</p>
         <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>auto</strong> means the player downloads the m3u8 manifest file and only 1 segment instead of 3-4, as was the case before version 5.3 of Brightcove Player.</aside>
       </li>
-      <li class="language-editable">
+      <li >
         <p><strong>metadata</strong>: Load only the meta data of the video, which includes information like the duration and dimensions of the video.</p>
         <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>metadata</strong> is the same as <strong>auto</strong>.</aside>
       </li>
-      <li class="language-editable">
+      <li >
         <p><strong>none</strong>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading. Note that on iOS there may be segment downloading even with this setting. See the <a href="/playback/ios-and-brightcove-player.html">Brightcove Player and iOS</a> document for more information.</p>
         <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>none</strong> means player will no longer load anything, including the m3u8 manifest, until the user presses play.</aside>
       </li>

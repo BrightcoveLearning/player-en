@@ -17,12 +17,12 @@ parent: Plugins
   </style>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p class="language-editable">You can control the display of the overlay message based on:</p>
-    <ul class="language-editable">
-      <li class="language-editable">Player events - such as <code translate="No">play</code>, <code translate="No">pause</code> or custom events</li>
-      <li class="language-editable">Time interval - at a specified time during video playback</li>
+    <p >You can control the display of the overlay message based on:</p>
+    <ul >
+      <li >Player events - such as <code translate="No">play</code>, <code translate="No">pause</code> or custom events</li>
+      <li >Time interval - at a specified time during video playback</li>
     </ul>
-    <p class="language-editable">
+    <p >
       The sample video below demonstrates the use of the Overlay Plugin. An overlay will appear on start as well as different time periods, one starting at five
       seconds. Start and pause the video to see the overlay react to those events.
     </p>
@@ -32,41 +32,41 @@ parent: Plugins
       webkitallowfullscreen=""
       mozallowfullscreen=""
     ></iframe>
-    <p class="language-editable">This topic contains the following sections:</p>
-    <ul class="language-editable">
-      <li class="language-editable"><a href="#playersmodule">Implementing using Players module</a></li>
-      <li class="language-editable"><a href="#implementcode">Implementing using custom code</a></li>
-      <li class="language-editable"><a href="#options">Overlay Plugin options</a></li>
+    <p >This topic contains the following sections:</p>
+    <ul >
+      <li ><a href="#playersmodule">Implementing using Players module</a></li>
+      <li ><a href="#implementcode">Implementing using custom code</a></li>
+      <li ><a href="#options">Overlay Plugin options</a></li>
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="playersmodule">Implement using Players module</h2>
-    <p class="language-editable">To implement the Overlay Plugin using the Players module, follow these steps:</p>
+    <p >To implement the Overlay Plugin using the Players module, follow these steps:</p>
     <ol class="bcls-tasklist">
-      <li class="language-editable">
+      <li >
         Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.
       </li>
-      <li class="language-editable">Click the link for the player to open the player's properties.</li>
-      <li class="language-editable">Click <strong>Plugins</strong> in the left navigation menu.</li>
-      <li class="language-editable">
+      <li >Click the link for the player to open the player's properties.</li>
+      <li >Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li >
         Next click <strong>Plugins</strong> from the three options.
         <figure class="bcls-figure">
           <img class="bcls-image" alt="Select Plugin" src="//learning-services-media.brightcove.com/doc-assets/general/players-plugin-options.png" />
         </figure>
       </li>
-      <li class="language-editable">From the <strong>Add a Plugin</strong> select <strong>Custom Plugin</strong>.</li>
-      <li class="language-editable">For the <strong>Plugin Name</strong> enter <code translate="No">overlay</code>.</li>
-      <li class="language-editable">
+      <li >From the <strong>Add a Plugin</strong> select <strong>Custom Plugin</strong>.</li>
+      <li >For the <strong>Plugin Name</strong> enter <code translate="No">overlay</code>.</li>
+      <li >
         For the <strong>JavaScript</strong> URL, enter:
         <pre>
 <code class="language-json" translate="No">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.min.js</code></pre>
       </li>
-      <li class="language-editable">
+      <li >
         For the <strong>CSS</strong> URL, enter:
         <pre>
 <code class="language-json" translate="No">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.css</code></pre>
       </li>
-      <li class="language-editable">
+      <li >
         Enter the configuration options in the <strong>Options(JSON)</strong> text box. The example below will display an anchor at the bottom of the player
         starting at the 2 second mark and ending at the 6 second mark.
         <pre class="line-numbers">
@@ -81,7 +81,7 @@ parent: Plugins
   ]
 }</code></pre>
       </li>
-      <li class="language-editable">
+      <li >
         Check to be sure the form appears as follows:
         <figure class="bcls-figure">
           <img
@@ -91,28 +91,28 @@ parent: Plugins
           />
         </figure>
       </li>
-      <li class="language-editable">Click <strong>Save</strong>.</li>
-      <li class="language-editable">To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
-      <li class="language-editable">To close the open dialog, click <strong>Close</strong>.</li>
+      <li >Click <strong>Save</strong>.</li>
+      <li >To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li >To close the open dialog, click <strong>Close</strong>.</li>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="implementcode">Implement using code</h2>
-    <p class="language-editable">To implement the plugin using custom code, you will configure the following plugin properties:</p>
-    <ul class="language-editable">
-      <li class="language-editable"><code translate="No">scripts</code> - JavaScript supplied for the plugin and will not change for different plugin implementations</li>
-      <li class="language-editable"><code translate="No">stylesheets</code> - CSS supplied to you for the plugin and will not change for different plugin implementations</li>
-      <li class="language-editable"><code translate="No">plugin name</code> - Always <code translate="No">overlay</code></li>
-      <li class="language-editable"><code translate="No">plugin options</code> - Contains an array of properties and values</li>
+    <p >To implement the plugin using custom code, you will configure the following plugin properties:</p>
+    <ul >
+      <li ><code translate="No">scripts</code> - JavaScript supplied for the plugin and will not change for different plugin implementations</li>
+      <li ><code translate="No">stylesheets</code> - CSS supplied to you for the plugin and will not change for different plugin implementations</li>
+      <li ><code translate="No">plugin name</code> - Always <code translate="No">overlay</code></li>
+      <li ><code translate="No">plugin options</code> - Contains an array of properties and values</li>
     </ul>
-    <p class="language-editable">To add the plugin to your code, follow these steps:</p>
+    <p >To add the plugin to your code, follow these steps:</p>
     <ol class="bcls-tasklist">
-      <li class="language-editable">
+      <li >
         Add the overlay plugin default style sheet. You can use the default style sheet, or create your own styles.
         <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;link href="https://players.brightcove.net/videojs-overlay/2/videojs-overlay.css" rel='stylesheet'&gt;</code></pre>
       </li>
-      <li class="language-editable">
+      <li >
         Add the <code translate="No">videojs-overlay.js</code> script file to include the overlay plugin. This plugin will automatically register itself when included in your
         page.
         <aside class="bcls-aside bcls-aside--tip">
@@ -130,7 +130,7 @@ parent: Plugins
 
 <span class="bcls-highlight">&lt;script src="https://players.brightcove.net/videojs-overlay/2/videojs-overlay.min.js"&gt;&lt;/script&gt;</span></code></pre>
       </li>
-      <li class="language-editable">
+      <li >
         Get a reference to the Brightcove Player. In this example, we are creating a variable named <code translate="No">myPlayer</code> and assigning it a reference to the
         player.
         <pre class="line-numbers">
@@ -139,35 +139,35 @@ parent: Plugins
     var myPlayer = this;
   });
 &lt;/script&gt;</code></pre>
-        <p class="language-editable">
+        <p >
           To display an overlay message, use the <code translate="No">options</code> property to pass data to the plugin. This example shows how to include 3 overlay messages:
         </p>
-        <ul class="language-editable">
-          <li class="language-editable">
+        <ul >
+          <li >
             First overlay:
-            <ul class="language-editable">
-              <li class="language-editable">
+            <ul >
+              <li >
                 This is displayed when the <code translate="No">play</code> event is dispatched and is hidden when the <code translate="No">pause</code> event is dispatched.
               </li>
             </ul>
           </li>
-          <li class="language-editable">
+          <li >
             Second overlay:
-            <ul class="language-editable">
-              <li class="language-editable">
+            <ul >
+              <li >
                 This is displayed when the video playback passes 5 seconds and is hidden when the video playback passes 10 seconds.
               </li>
-              <li class="language-editable">This is positioned in the bottom right corner of the player.</li>
+              <li >This is positioned in the bottom right corner of the player.</li>
             </ul>
           </li>
-          <li class="language-editable">
+          <li >
             Third overlay:
-            <ul class="language-editable">
-              <li class="language-editable">
+            <ul >
+              <li >
                 This is displayed when the video playback passes 12 seconds and is hidden when the video playback passes 17 seconds.
               </li>
-              <li class="language-editable">This is positioned in the bottom left corner of the player.</li>
-              <li class="language-editable">
+              <li >This is positioned in the bottom left corner of the player.</li>
+              <li >
                 Since this overlay does not have a <code translate="No">content</code> option defined, it uses the default value of <strong>Default overlay content</strong>,
                 defined before the <code translate="No">overlays</code> array.
               </li>
@@ -175,7 +175,7 @@ parent: Plugins
           </li>
         </ul>
         &nbsp;
-        <p class="language-editable">If you include the overlay script in your code, you can define messages as follows:</p>
+        <p >If you include the overlay script in your code, you can define messages as follows:</p>
         <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;script id="pageScript" type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
@@ -205,34 +205,34 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="options">Options</h2>
-    <p class="language-editable">The following plugin options are used to control the overlay object:</p>
-    <ul class="language-editable">
-      <li class="language-editable">
+    <p >The following plugin options are used to control the overlay object:</p>
+    <ul >
+      <li >
         <code translate="No">align</code>:
-        <ul class="language-editable">
-          <li class="language-editable">The value must be a supported string value.</li>
-          <li class="language-editable">
+        <ul >
+          <li >The value must be a supported string value.</li>
+          <li >
             This defines where to show the overlay. If you include the default stylesheet, the following values are supported: <code translate="No">top-left</code>,
             <code translate="No">top</code>, <code translate="No">top-right</code>, <code translate="No">right</code>, <code translate="No">bottom-right</code>, <code translate="No">bottom</code>, <code translate="No">bottom-left</code>,
             <code translate="No">left</code>.
           </li>
         </ul>
       </li>
-      <li class="language-editable">
+      <li >
         <code translate="No">attachToControlBar</code>:
-        <ul class="language-editable">
-          <li class="language-editable">
+        <ul >
+          <li >
             The value can be a string or boolean. If the value is a string, the value must be the name of a ControlBar component.
           </li>
-          <li class="language-editable">
-            <p class="language-editable">
+          <li >
+            <p >
               If set to <code translate="No">true</code> or a string value, bottom aligned overlays will adjust positioning when the control bar minimizes. This has no effect
               on overlays that are not aligned to bottom, bottom-left, or bottom-right. The option is for use with the default control bar, and may not work for
               custom control bars. Bottom aligned overlays will be inserted before the specified component. Otherwise, bottom aligned overlays are inserted
               before the first child component of the ControlBar. All other overlays are inserted before the ControlBar component.
             </p>
           </li>
-          <li class="language-editable">
+          <li >
             The option can set for all eligible alignments by using it at the top level:
             <pre class="line-numbers">
 <code class="language-javascript" translate="No">myPlayer.overlay({
@@ -254,7 +254,7 @@ parent: Plugins
     align: 'bottom-left'
   }]
 });</code></pre>
-            <p class="language-editable">Or for individual overlay objects:</p>
+            <p >Or for individual overlay objects:</p>
             <pre class="line-numbers">
 <code class="language-javascript" translate="No">myPlayer.overlay({
   content: '<strong>Default overlay content</strong>',
@@ -275,9 +275,9 @@ parent: Plugins
     <span class="bcls-highlight">attachToControlBar : true</span>
   }]
 });</code></pre>
-            <p class="language-editable"><em>A top level setting can be overridden by option use on individual overlay objects.</em></p>
+            <p ><em>A top level setting can be overridden by option use on individual overlay objects.</em></p>
           </li>
-          <li class="language-editable">
+          <li >
             The visual impact can be seen in these screenshots:
             <figure class="bcls-figure">
               <img
@@ -312,10 +312,10 @@ parent: Plugins
           </li>
         </ul>
       </li>
-      <li class="language-editable">
+      <li >
         <code translate="No">class</code>:
-        <ul class="language-editable">
-          <li class="language-editable">
+        <ul >
+          <li >
             A custom HTML class to add to overlay elements. You define the style as you would any class selector, with the exception that you must use the
             <code translate="No">.video-js</code> selector along with the selector you choose (the specificity must be increased so the style is not overridden):
             <pre class="line-numbers">
@@ -324,7 +324,7 @@ parent: Plugins
   background-color: red;
 }</code></pre>
           </li>
-          <li class="language-editable">
+          <li >
             The option can set for all eligible alignments by using it at the top level:
             <pre class="line-numbers">
 <code class="language-javascript" translate="No">myPlayer.overlay({
@@ -342,7 +342,7 @@ parent: Plugins
     align: 'bottom-right'
   }]
 });</code></pre>
-            <p class="language-editable">Or for individual overlay objects:</p>
+            <p >Or for individual overlay objects:</p>
             <pre class="line-numbers">
 <code class="language-javascript" translate="No">myPlayer.overlay({
   content: '<strong>Default overlay content</strong>',
@@ -360,27 +360,27 @@ parent: Plugins
     align: 'bottom-right'
   }]
 });</code></pre>
-            <p class="language-editable"><em>A top level setting can be overridden by option use on individual overlay objects.</em></p>
+            <p ><em>A top level setting can be overridden by option use on individual overlay objects.</em></p>
           </li>
         </ul>
       </li>
-      <li class="language-editable">
+      <li >
         <code translate="No">content</code>:
-        <ul class="language-editable">
-          <li class="language-editable">The value can be a string or DOM object.</li>
-          <li class="language-editable">
+        <ul >
+          <li >The value can be a string or DOM object.</li>
+          <li >
             This is the HTML that will be contained in the overlay. You can pass in a string, an HTML element or a
             <a href="//www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-B63ED1A3">DOM DocumentFragment</a>.
           </li>
-          <li class="language-editable">The default value is the string <code translate="No">This overlay will show up while the video is playing</code>.</li>
-          <li class="language-editable">This option can be set at the top level, or for individual overlay objects.</li>
+          <li >The default value is the string <code translate="No">This overlay will show up while the video is playing</code>.</li>
+          <li >This option can be set at the top level, or for individual overlay objects.</li>
         </ul>
       </li>
-      <li class="language-editable">
+      <li >
         <code translate="No">end</code>:
-        <ul class="language-editable">
-          <li class="language-editable">The value can be a string or number.</li>
-          <li class="language-editable">
+        <ul >
+          <li >The value can be a string or number.</li>
+          <li >
             This defines when to hide an overlay. If the value is a string, it is interpreted as an event name. If it is a number, the overlay will be hidden
             when that time (in seconds) in the video playback has passed. If the value is a string, it is interpreted as a&nbsp;Brightcove Player event name,
             like <code translate="No">play</code>, <code translate="No">pause</code> or <code translate="No">ended</code>. A list of all player events is located in the
@@ -388,33 +388,33 @@ parent: Plugins
           </li>
         </ul>
       </li>
-      <li class="language-editable">
+      <li >
         <code translate="No">overlays</code>:
-        <ul class="language-editable">
-          <li class="language-editable">An array of overlay objects.</li>
-          <li class="language-editable">
+        <ul >
+          <li >An array of overlay objects.</li>
+          <li >
             An overlay object should consist of at least an <code translate="No">start</code> and <code translate="No">end</code> option. Other options used as desired.
           </li>
         </ul>
       </li>
-      <li class="language-editable">
+      <li >
         <code translate="No">showBackground</code>:
-        <ul class="language-editable">
-          <li class="language-editable">The value is boolean.</li>
-          <li class="language-editable">
+        <ul >
+          <li >The value is boolean.</li>
+          <li >
             Determines whether or not to include background styling &amp; padding around the overlay.
             <em>This setting can be overridden by being set on individual overlay objects.</em>
           </li>
         </ul>
       </li>
-      <li class="language-editable">
+      <li >
         <code translate="No">start</code>:
-        <ul class="language-editable">
-          <li class="language-editable">The value can be a string or number. This defines when to show an overlay. </li>
-          <li class="language-editable">
+        <ul >
+          <li >The value can be a string or number. This defines when to show an overlay. </li>
+          <li >
              If it is a number, the overlay will be displayed when that time (in seconds) in the video playback has passed.
           </li>
-          <li class="language-editable">
+          <li >
             If the value is a string, it is interpreted as a&nbsp;Brightcove Player event name, like <code translate="No">play</code>, <code translate="No">pause</code> or
             <code translate="No">ended</code>. Here are some helpful links: 
             <ul>
@@ -445,21 +445,21 @@ parent: Plugins
         </ul>
       </li>
     </ul>
-    <p class="language-editable">
+    <p >
       You can use any event dispatched from the player, which are defined in the
       <a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html">Player Methods/Events API</a> document, or you can use your own custom
       events.
     </p>
-    <p class="language-editable">
+    <p >
       All of these properties are optional, but you may get strange results if you don't include at least the <code translate="No">start</code> and
       <code translate="No">end</code> properties.
     </p>
   </section>
   <section class="bcls-section">
     <h2 id="Styling_the_overlay">Styling the overlay</h2>
-    <p class="language-editable">Two styles could be helpful for you when working with the overlay. They are detailed here.</p>
+    <p >Two styles could be helpful for you when working with the overlay. They are detailed here.</p>
     <h3>Hide the background</h3>
-    <p class="language-editable">The following CSS will hide the background:</p>
+    <p >The following CSS will hide the background:</p>
     <pre class="line-numbers">
 <code class="language-css notranslate">.vjs-overlay.vjs-overlay-top.vjs-overlay-background {
   width: 100 % ;
@@ -469,19 +469,19 @@ parent: Plugins
 }
 </code></pre>
     <h3>Hide the overlay</h3>
-    <p class="language-editable">The following CSS will hide the background:</p>
+    <p >The following CSS will hide the background:</p>
     <pre class="line-numbers">
 <code class="language-css notranslate">.hide-overlay.vjs-overlay {
   display: none;
 }</code></pre>
-    <p class="language-editable">
+    <p >
       Both of these styles are helpful in the
       <a href="/code-samples/brightcove-player-sample-toggling-overlay.html">Brightcove Player Sample: Toggling an Overlay</a> document.
     </p>
   </section>
   <section class="bcls-section video-cloud-only">
     <h2 id="displaymetadata">Display video metadata</h2>
-    <p class="language-editable">
+    <p >
       You may wish to display information about the video in the overlay. For instance, display some message from one of the video's custom fields, before the
       video starts to play, as shown in the <strong>screenshot</strong> below.
     </p>
@@ -492,30 +492,30 @@ parent: Plugins
         src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/overlays/overlay-plugin-doc/overlay-showing-video-name.png"
       />
     </figure>
-    <p class="language-editable">
+    <p >
       The following section explains how to do that particular task, but moreover, once you have data from the
       <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object, any video metadata could be displayed whenever you choose.
     </p>
-    <ul class="language-editable">
-      <li class="language-editable">Line 112: Include the CSS for the overlay plugin.</li>
-      <li class="language-editable">
+    <ul >
+      <li >Line 112: Include the CSS for the overlay plugin.</li>
+      <li >
         Lines 113-124: CSS to perform the following:
-        <ul class="language-editable">
-          <li class="language-editable">Change the size of the player</li>
-          <li class="language-editable">Set the font size and color for the message</li>
-          <li class="language-editable">Set the width of the overlay</li>
-          <li class="language-editable">Change the background-color of the overlay</li>
+        <ul >
+          <li >Change the size of the player</li>
+          <li >Set the font size and color for the message</li>
+          <li >Set the width of the overlay</li>
+          <li >Change the background-color of the overlay</li>
         </ul>
       </li>
-      <li class="language-editable">Lines 128-135: Standard in-page embed code used. Note an <code translate="No">id</code> is added.</li>
-      <li class="language-editable">Line 136: Specify the source for the JavaScript code for the overlay plugin.</li>
-      <li class="language-editable">Lines 139,140,152: Standard setup for using code with the player.</li>
-      <li class="language-editable">
+      <li >Lines 128-135: Standard in-page embed code used. Note an <code translate="No">id</code> is added.</li>
+      <li >Line 136: Specify the source for the JavaScript code for the overlay plugin.</li>
+      <li >Lines 139,140,152: Standard setup for using code with the player.</li>
+      <li >
         Lines 141,151: Use the <code translate="No">on()</code> method to add an event listener for the <code translate="No">loadstart</code> event. In the anonymous event handler function
         you can act upon the video in the player, like mute it and use information from the <code translate="No">mediainfo</code> object.
       </li>
-      <li class="language-editable">Lines 143,150: Call the <code translate="No">overlay()</code> method.</li>
-      <li class="language-editable">
+      <li >Lines 143,150: Call the <code translate="No">overlay()</code> method.</li>
+      <li >
         Lines 144-149: Define a single overlay using the <code translate="No">content</code> to display message stored in the custom field, using the JavaScript variable
         <code translate="No">myPlayer.mediainfo.customfield1</code>. The overlay will display once the video is loaded ( <code translate="No">start: 'loadedmetadata'</code>) and disappear
         once the video starts (<code translate="No">end: 'play'</code>).

@@ -1091,20 +1091,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Determine player selector</h2>
     <p>CSS selectors allow you to select and manipulate HTML elements on a page. CSS selectors are used to "find" (or select) HTML elements based on their id, class, type, attribute, and more. The first thing you must do when trying to alter the look of an element on an HTML page is determine the selector to use to address the element. The following steps show how to find the selector for the player and then change the size of the player.</p>
     <ol class="bcls-tasklist">
-      <li class="language-editable">In Video Cloud Studio, open the Media module and select a video to publish.</li>
-      <li class="language-editable">Copy the <strong>In-Page</strong> publishing code.</li>
-      <li class="language-editable">Using your HTML editor, create a new HTML page.</li>
-      <li class="language-editable">Paste the publishing code into the body of your HTML page.</li>
-      <li class="language-editable">Browse the newly created page. By default, the player will be sized with default dimensions of 300 x 150 pixels.</li>
-      <li class="language-editable">Open your browser's development tools and drill down into the HTML to find the <code translate="No">div</code> tag that surrounds the player. You will see the <code translate="No">div</code> tag has a class of <code translate="No">video-js</code>. The <code translate="No">div</code> that contains the player will always have a class of <code translate="No">video-js</code>. <code translate="No">video-js</code> is the class name we will need when styling the player.</li>
-      <li class="language-editable">Check the screenshot below to see the class highlighted in red. Highlighted in green is the video tag, which is Brightcove Player.
+      <li >In Video Cloud Studio, open the Media module and select a video to publish.</li>
+      <li >Copy the <strong>In-Page</strong> publishing code.</li>
+      <li >Using your HTML editor, create a new HTML page.</li>
+      <li >Paste the publishing code into the body of your HTML page.</li>
+      <li >Browse the newly created page. By default, the player will be sized with default dimensions of 300 x 150 pixels.</li>
+      <li >Open your browser's development tools and drill down into the HTML to find the <code translate="No">div</code> tag that surrounds the player. You will see the <code translate="No">div</code> tag has a class of <code translate="No">video-js</code>. The <code translate="No">div</code> that contains the player will always have a class of <code translate="No">video-js</code>. <code translate="No">video-js</code> is the class name we will need when styling the player.</li>
+      <li >Check the screenshot below to see the class highlighted in red. Highlighted in green is the video tag, which is Brightcove Player.
         <figure class="bcls-figure"><img class="bcls-image" alt="player-div-with-video" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/player-div-with-video.png" /></figure>
         <aside class="bcls-aside bcls-aside--tip language-editable">
           <p>Note: Depending on the operating system and browser being used, the Flash fallback version of the player may be displayed. If your player is using the Flash fallback version of the player, you will not see a <code translate="No">video</code> tag. Instead you will see the <code translate="No">div</code> surrounding an <code translate="No">object</code>tag, as highlighted below.</p>
           <figure class="bcls-figure"><img class="bcls-image" alt="player-div-with-object" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/player-div-with-object.png" /></figure>
         </aside>
       </li>
-      <li class="language-editable">Now that you know the correct class to use for a CSS selector, we can use that class selector to change the size of the player. The <code translate="No">style</code> block below should be placed just above the end of the <code translate="No">head</code> section of your HTML page. In CSS terminology, this is an example of using a <strong>class selector</strong>.
+      <li >Now that you know the correct class to use for a CSS selector, we can use that class selector to change the size of the player. The <code translate="No">style</code> block below should be placed just above the end of the <code translate="No">head</code> section of your HTML page. In CSS terminology, this is an example of using a <strong>class selector</strong>.
         <pre class="line-numbers">
       <code class="language-html" translate="No">  &lt;style&gt;
           .video-js {
@@ -1114,19 +1114,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         &lt;/style&gt;
       &lt;/head&gt;</code></pre>
       </li>
-      <li class="language-editable">Save and browse your HTML page and you will see the player has a new size.</li>
+      <li >Save and browse your HTML page and you will see the player has a new size.</li>
     </ol>
   </section>
   <section id="buttonselector" class="bcls-section">
     <h2>Play button selector</h2>
     <p>Another approach is going to be used to find the selector for the play button. The following steps show you how to find the correct selector for the play button and then change its appearance.</p>
     <ol class="bcls-tasklist">
-      <li class="language-editable">Browse your HTML page.</li>
-      <li class="language-editable">Right click on the play button that overlays the player and select <strong>Inspect Element</strong>.</li>
-      <li class="language-editable">Note that the <code translate="No">div</code> tag that is highlighted represents the play button and has a class of <code translate="No">vjs-big-play-button</code>.
+      <li >Browse your HTML page.</li>
+      <li >Right click on the play button that overlays the player and select <strong>Inspect Element</strong>.</li>
+      <li >Note that the <code translate="No">div</code> tag that is highlighted represents the play button and has a class of <code translate="No">vjs-big-play-button</code>.
         <figure class="bcls-figure"><img class="bcls-image" alt="big-play-button-div" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/big-play-button-div.png" /></figure>
       </li>
-      <li class="language-editable">Alter your styles to include CSS that changes the color and opacity of the play button (lines 17-18) as well as centers the button inside the player (lines 19-23).
+      <li >Alter your styles to include CSS that changes the color and opacity of the play button (lines 17-18) as well as centers the button inside the player (lines 19-23).
         <pre class="line-numbers">
       <code class="language-html" translate="No">&lt;style&gt;
           .video-js {
@@ -1144,18 +1144,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           }
         &lt;/style&gt;  </code></pre>
       </li>
-      <li class="language-editable">Browse your page and you will see not all the styles have been used. The button is not red.
+      <li >Browse your page and you will see not all the styles have been used. The button is not red.
         <figure class="bcls-figure"><img class="bcls-image" alt="button-not-red" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/button-not-red.png" /></figure>
       </li>
-      <li class="language-editable">Look to the right of your developer tools and you will see a summary of your styles. You can look down and see that changing the background to red is overridden, represented by it being crossed out.
+      <li >Look to the right of your developer tools and you will see a summary of your styles. You can look down and see that changing the background to red is overridden, represented by it being crossed out.
         <figure class="bcls-figure"><img class="bcls-image" alt="styles-background-overridden" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/styles-background-overridden.png" /></figure>
         <aside class="bcls-aside bcls-aside--information language-editable">Note: In Safari, the style may not be crossed out even though it is being overridden.</aside>
         <p>What has happened is that numerous changes are made to the background color. The style you set has been overridden in the "cascading" part of CSS. You can change this by utilizing functionality of CSS called <strong>specificity</strong>. Specificity determines which CSS rule is applied by browsers and is a type of weighting that has a bearing on how your cascading style sheet (CSS) rules are displayed. Using specificity, you can make your style more important than others, forcing it to be used. There is a brief introduction to CSS specificity in the <a href="/styling/customizing-player-appearance-legacy-skin.html#specificity">Customize Player Appearance - Legacy Skin</a> doc, and numerous references in any search.</p>
       </li>
-      <li class="language-editable">Note that the <code translate="No">div</code> tag surrounds the player has numerous classes associated with it.
+      <li >Note that the <code translate="No">div</code> tag surrounds the player has numerous classes associated with it.
         <figure class="bcls-figure"><img class="bcls-image" alt="multiple-classes" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/multiple-classes.png" /></figure>
       </li>
-      <li class="language-editable">In this case, using the combination of <code translate="No">video-js</code> and <code translate="No">vjs-mouse</code> will "boost" your styles to take precedence. Alter your styles to use the new combination selector. Note that there is no space between the first two classes, but there is one before the last class (details of why can be found in rules for specificity).
+      <li >In this case, using the combination of <code translate="No">video-js</code> and <code translate="No">vjs-mouse</code> will "boost" your styles to take precedence. Alter your styles to use the new combination selector. Note that there is no space between the first two classes, but there is one before the last class (details of why can be found in rules for specificity).
         <pre class="line-numbers">
       <code class="language-css" translate="No">    <span class="bcls-highlight">.video-js.vjs-mouse .vjs-big-play-button</span> {
             background-color: #ff0000;
@@ -1167,10 +1167,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             margin: auto;
           }</code></pre>
       </li>
-      <li class="language-editable">Browse your page and see that all styles are now applied.
+      <li >Browse your page and see that all styles are now applied.
         <figure class="bcls-figure"><img class="bcls-image" alt="styles-background-working" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/styles-background-working.png" /></figure>
       </li>
-      <li class="language-editable">Again look to the right of your developer tools and you will see a summary of your styles. Now you see that your background color change is not overridden.
+      <li >Again look to the right of your developer tools and you will see a summary of your styles. Now you see that your background color change is not overridden.
         <figure class="bcls-figure"><img class="bcls-image" alt="styles-background-NOT-overridden" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/styles-background-NOT-overridden.png" /></figure>
       </li>
     </ol>
@@ -1222,21 +1222,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The iframe implementation, not surprisingly, places the Brightcove Player in an iframe that you then place in an HTML page. You can style the actual iframe itself, change its size for instance, using styles on the page that contains the iframe, but styles on page of the iframe DO NOT cascade into the iframe itself. The iframe literally pulls in a separate HTML page, so desired styles for the contents of the iframe must be associated with the HTML page in the iframe.</p>
     <p>When using the iframe implementation of the Brightcove Player, the steps to apply CSS are:</p>
     <ul>
-      <li class="language-editable">Place styles in an Internet accessible file</li>
-      <li class="language-editable">Link the stylesheet to the player (done using Studio or the Player Management API)</li>
+      <li >Place styles in an Internet accessible file</li>
+      <li >Link the stylesheet to the player (done using Studio or the Player Management API)</li>
     </ul>
     <aside class="bcls-aside bcls-aside--information language-editable">Note: The following steps assume you will be working from the HTML you completed in the previous steps and shown in the code snippet above. If you wish to keep that as a working example, simply copy the code into another file and start the following steps in the new file.</aside>
     <ol class="bcls-tasklist">
-      <li class="language-editable">In Studio, publish a video and copy the code for an iframe implementation of the player.</li>
-      <li class="language-editable">In your HTML page, replace the in-page embed code with the iframe code.</li>
-      <li class="language-editable">Change the <code translate="No">.video-js</code> class selector to an element selector using <code translate="No">iframe</code> as the element. Leave <code translate="No">width</code> and <code translate="No">height</code> the same, as shown here:
+      <li >In Studio, publish a video and copy the code for an iframe implementation of the player.</li>
+      <li >In your HTML page, replace the in-page embed code with the iframe code.</li>
+      <li >Change the <code translate="No">.video-js</code> class selector to an element selector using <code translate="No">iframe</code> as the element. Leave <code translate="No">width</code> and <code translate="No">height</code> the same, as shown here:
         <pre class="line-numbers">
   <code class="language-css" translate="No">iframe {
       height: 344px;
       width: 610px;
     }</code></pre>
       </li>
-      <li class="language-editable">Check to be sure your HTML page looks similar to the following:
+      <li >Check to be sure your HTML page looks similar to the following:
         <pre class="line-numbers">
       <code class="language-html" translate="No">&lt;!doctype html&gt;
       &lt;html&gt;
@@ -1267,9 +1267,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       &lt;/body&gt;
       &lt;/html&gt;</code></pre>
       </li>
-      <li class="language-editable">Browse the page and you will see the iframe player is sized correctly. As mentioned earlier, the styles for the button will NOT be functioning.</li>
-      <li class="language-editable">Create a file named <strong>customize-qs.css</strong> and save it in an Internet accessible location.</li>
-      <li class="language-editable">Cut the styles for the button and paste them into the file and save it. Cut only the styles for the button, you cannot include the <code translate="No">style</code> tags. The file should contain only this content:
+      <li >Browse the page and you will see the iframe player is sized correctly. As mentioned earlier, the styles for the button will NOT be functioning.</li>
+      <li >Create a file named <strong>customize-qs.css</strong> and save it in an Internet accessible location.</li>
+      <li >Cut the styles for the button and paste them into the file and save it. Cut only the styles for the button, you cannot include the <code translate="No">style</code> tags. The file should contain only this content:
         <pre class="line-numbers">
       <code class="language-css" translate="No">.video-js.vjs-mouse .vjs-big-play-button {
         background-color: red;
@@ -1281,7 +1281,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         margin: auto;
       }  </code></pre>
       </li>
-      <li class="language-editable">Check to be sure your HTML page looks similar to the following:
+      <li >Check to be sure your HTML page looks similar to the following:
         <pre class="line-numbers">
       <code class="language-html" translate="No">&lt;!doctype html&gt;
       &lt;html&gt;
@@ -1303,16 +1303,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       &lt;/body&gt;
       &lt;/html&gt;</code></pre>
       </li>
-      <li class="language-editable">In Studio, go into the <strong>Players</strong> module and edit the player you are using for this quick start.</li>
-      <li class="language-editable">Locate the <strong>PLUGINS</strong> section and click the <strong>Edit</strong> button.</li>
-      <li class="language-editable">Click the <strong>CSS</strong> entry and enter the path to your CSS file, as shown here:
+      <li >In Studio, go into the <strong>Players</strong> module and edit the player you are using for this quick start.</li>
+      <li >Locate the <strong>PLUGINS</strong> section and click the <strong>Edit</strong> button.</li>
+      <li >Click the <strong>CSS</strong> entry and enter the path to your CSS file, as shown here:
         <figure class="bcls-figure"><img class="bcls-image" alt="studio-enter-css" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-quick-start/studio-enter-css.png" /></figure>
       </li>
-      <li class="language-editable">Click <strong>Save</strong> to save your changes in the <strong>PLUGINS</strong> section.
+      <li >Click <strong>Save</strong> to save your changes in the <strong>PLUGINS</strong> section.
         <aside class="bcls-aside bcls-aside--information language-editable">The preview player at the top of the page will update to show the CSS styles applied to the button.</aside>
       </li>
-      <li class="language-editable">At the top of the page, click <strong>Publish</strong> to publish your player.</li>
-      <li class="language-editable">Return to your browser and refresh the page. Once the published changes are active, you will see your styles applied to the iframe player. It can be several minutes before the published changes are visible.</li>
+      <li >At the top of the page, click <strong>Publish</strong> to publish your player.</li>
+      <li >Return to your browser and refresh the page. Once the published changes are active, you will see your styles applied to the iframe player. It can be several minutes before the published changes are visible.</li>
     </ol>
   </section>
   <section id="explorestyles" class="bcls-section">

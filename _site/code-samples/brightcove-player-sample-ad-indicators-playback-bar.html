@@ -1174,9 +1174,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <h2 id="Application_flow">Application flow</h2>
   <p>The basic logic behind this application is:</p>
   <ul>
-    <li class="language-editable">Retrieve the cue points from the <code translate="No">mediainfo</code> object.</li>
-    <li class="language-editable">Filter the ad cue points from all cue points.</li>
-    <li class="language-editable">Loop over all ad cue points and place a marker on the progress bar for each.</li>
+    <li >Retrieve the cue points from the <code translate="No">mediainfo</code> object.</li>
+    <li >Filter the ad cue points from all cue points.</li>
+    <li >Loop over all ad cue points and place a marker on the progress bar for each.</li>
   </ul>
   <!-- UPDATE task 1 -->
   
@@ -1184,7 +1184,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <p>Find the code which is labeled:</p>
   <pre>
 <code class="language-javascript" translate="No">// ### Get ad cue points from all cue points ###</code></pre>
-  <p class="language-editable">The key code in this section is using JavaScript's array <code translate="No">filter()</code> method to extract the ad cue points from all cue points. Note the helper function named <code translate="No">isAdCuePoint()</code> that is used by the <code translate="No">filter()</code> method.</p>
+  <p >The key code in this section is using JavaScript's array <code translate="No">filter()</code> method to extract the ad cue points from all cue points. Note the helper function named <code translate="No">isAdCuePoint()</code> that is used by the <code translate="No">filter()</code> method.</p>
   <!-- UPDATE task 2 -->
   
   <h3>Place marks in the progress bar</h3>
@@ -1201,7 +1201,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </section>
 <section class="bcls-section">
   <h2 id="Plugin_code">Plugin code</h2>
-  <p class="language-editable">Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
+  <p >Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
   <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
   <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
