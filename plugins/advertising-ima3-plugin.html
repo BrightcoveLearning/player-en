@@ -86,7 +86,7 @@ parent: Plugins
                     <li><strong class="notranslate">On play</strong> - The first ad request is delayed until playback is initiated.</li>
                     <li>
                         <strong class="notranslate">On demand</strong> - All ad requests will be initiated programmatically using the
-                        <code class="notranslate">player.ima3.adrequest()</code> method. This mode does not support preroll or postroll ads.
+                        <code translate="No">player.ima3.adrequest()</code> method. This mode does not support preroll or postroll ads.
                     </li>
                     <li>
                         <strong class="notranslate">On cue point</strong> - Ad requests will be initiated on a dispatched ad cue point. See the
@@ -136,9 +136,9 @@ parent: Plugins
         </p>
 
         <aside class="bcls-aside bcls-aside--tip">
-            Note: You may want to dynamically build the <code class="notranslate">serverUrl</code> at the client (which means the IMA3 plugin would already be
+            Note: You may want to dynamically build the <code translate="No">serverUrl</code> at the client (which means the IMA3 plugin would already be
             initialized), for example after a user login. You can do this by setting that value to an empty string in the
-            <strong class="notranslate">options</strong> <code class="notranslate">{ "serverUrl": "" }</code>, then later assign the value programmatically.
+            <strong class="notranslate">options</strong> <code translate="No">{ "serverUrl": "" }</code>, then later assign the value programmatically.
         </aside>
     </section>
 
@@ -241,7 +241,7 @@ parent: Plugins
 
         <h3 id="clickTrackingElement">clickTrackingElement</h3>
 
-        <p>Type: <code class="notranslate">HTMLElement</code> Default Value: undefined</p>
+        <p>Type: <code translate="No">HTMLElement</code> Default Value: undefined</p>
 
         <p>
             If the HTML ad tech is being used in <a href="https://developers.google.com/web/fundamentals/design-and-ux/input/touch">custom ad playback</a> mode, this
@@ -254,7 +254,7 @@ parent: Plugins
 
         <h3 id="debug">debug</h3>
 
-        <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
+        <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
 
         <p>
             If debug is set to true, the ads framework will output additional information about its current state during playback. This can be handy for diagnosing
@@ -276,7 +276,7 @@ parent: Plugins
 
         <h3 id="debugContribAds">debugContribAds</h3>
 
-        <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
+        <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
         <p>Used to enable debug logging for videojs-contrib-ads. For ID3 <code translate="No">oncue</code> requests to work, the ID3 TXXX frame received must contain JSON data with the following fields:</p>
         <ul>
             <li>Ad cue tag format:
@@ -300,10 +300,10 @@ parent: Plugins
 
         <h3 id="disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</h3>
 
-        <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
+        <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
 
         <p>
-            This property is part of the <code class="notranslate">ima3SdkSettings</code> object. It acts as a getter and setter to control whether to disable custom
+            This property is part of the <code translate="No">ima3SdkSettings</code> object. It acts as a getter and setter to control whether to disable custom
             playback on iOS 10+ browsers. Behavior is as follows:
         </p>
 
@@ -321,11 +321,11 @@ parent: Plugins
 
         <h3 id="hardTimeouts">hardTimeouts</h3>
 
-        <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">true</code></p>
+        <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">true</code></p>
 
         <p>
             Abandon ads that finish loading after they have timed out. This will prevent slow preroll ads from interrupting after the
-            <code class="notranslate">timeout</code> has elapsed and content video has begun playing.
+            <code translate="No">timeout</code> has elapsed and content video has begun playing.
         </p>
 
         <p>This option is part of the ad framework and is configured as follows:</p>
@@ -335,11 +335,11 @@ parent: Plugins
   hardTimeouts: true
 });</code></pre>
 
-        <p>Setting this option to <code class="notranslate">false</code> will result in content flash before ads.</p>
+        <p>Setting this option to <code translate="No">false</code> will result in content flash before ads.</p>
 
         <h3 id="ima3SdkSettings">ima3SdkSettings</h3>
 
-        <p>Type: <code class="notranslate">object</code> Default Value: undefined</p>
+        <p>Type: <code translate="No">object</code> Default Value: undefined</p>
 
         <p>
             If provided, the properties of this object are used to set the page-level
@@ -365,7 +365,7 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
 
         <h3 id="requestMode">requestMode</h3>
 
-        <p>Type: <code class="notranslate">string</code> Default Value: <code class="notranslate">onload</code></p>
+        <p>Type: <code translate="No">string</code> Default Value: <code translate="No">onload</code></p>
 
         <p>This option is part of the ad framework is configured as follows:</p>
 
@@ -378,20 +378,20 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
 
         <ul>
             <li>
-                <code class="notranslate">onload</code>: Ads are requested immediately when the player loads. This is normally the best experience for DFP / VPAID.
+                <code translate="No">onload</code>: Ads are requested immediately when the player loads. This is normally the best experience for DFP / VPAID.
             </li>
             <li>
-                <code class="notranslate">onplay</code>: The first ad request is delayed until playback is initiated. This is important for ad networks which consider
+                <code translate="No">onplay</code>: The first ad request is delayed until playback is initiated. This is important for ad networks which consider
                 ad requests to be plays, so you would not want an ad request before a play request. This will cause ads trafficked to eventually drop, or the customer
                 will receive less for the ads shown.
             </li>
             <li>
-                <code class="notranslate">ondemand</code>: Ads will only play when initiated using the <code class="notranslate">player.ima3.adrequest()</code> method
+                <code translate="No">ondemand</code>: Ads will only play when initiated using the <code translate="No">player.ima3.adrequest()</code> method
                 manually. This mode does not support preroll or postroll ads.
             </li>
             <li>
-                <code class="notranslate">oncue</code>:This option behaves differently depending upon if it is use with the
-                <code class="notranslate">useMediaCuePoints</code> option.
+                <code translate="No">oncue</code>:This option behaves differently depending upon if it is use with the
+                <code translate="No">useMediaCuePoints</code> option.
                 <h4>Using cue points with Video Cloud</h4>
 
                 <p>
@@ -407,10 +407,10 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
                 </p>
 
                 <ul>
-                    <li><code class="notranslate">name</code>: Required; must be the string value <code class="notranslate">adCue</code></li>
-                    <li><code class="notranslate">id</code>: Required; A unique value to identify the ad given that times are relative in live streams</li>
-                    <li><code class="notranslate">serverUrl</code>: Optional; Appended as a break length parameter to the server url</li>
-                    <li><code class="notranslate">duration</code>: Optional; ad duration</li>
+                    <li><code translate="No">name</code>: Required; must be the string value <code translate="No">adCue</code></li>
+                    <li><code translate="No">id</code>: Required; A unique value to identify the ad given that times are relative in live streams</li>
+                    <li><code translate="No">serverUrl</code>: Optional; Appended as a break length parameter to the server url</li>
+                    <li><code translate="No">duration</code>: Optional; ad duration</li>
                 </ul>
 
                 <p>Example:</p>
@@ -419,14 +419,14 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
 <code class="language-json notranslate">{"name": "adCue", "id": 123}</code></pre>
 
                 <p>
-                    You can also cancel ID3 cue points in a live stream created by an <code class="notranslate">adCue</code> by using
-                    <code class="notranslate">adCancel</code>. The following format must be used for the object sent:
+                    You can also cancel ID3 cue points in a live stream created by an <code translate="No">adCue</code> by using
+                    <code translate="No">adCancel</code>. The following format must be used for the object sent:
                 </p>
 
                 <pre class="line-numbers">
 <code class="language-json notranslate">{"name": "adCancel", "id": 123}</code></pre>
 
-                <p>Both the <code class="notranslate">name</code> and <code class="notranslate">id</code> are required.</p>
+                <p>Both the <code translate="No">name</code> and <code translate="No">id</code> are required.</p>
 
                 <ul>
                     <li>Live ID3 ad cues are not supported on Android.</li>
@@ -437,7 +437,7 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
 
         <h3 id="serverUrl">serverUrl</h3>
 
-        <p>Type: <code class="notranslate">string</code> or <code class="notranslate">function</code></p>
+        <p>Type: <code translate="No">string</code> or <code translate="No">function</code></p>
 
         <p>Default Value (a generic Google ad):</p>
 
@@ -458,9 +458,9 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
 });</code></pre>
 
         <p>
-            If the value is a function, the function parameter is a <code class="notranslate">callback</code> function that should be called with your server URL as
+            If the value is a function, the function parameter is a <code translate="No">callback</code> function that should be called with your server URL as
             the argument. This provides support for asynchronous processes such as header bidding. In the following example you see information from the
-            <code class="notranslate">mediainfo</code> object used to determine which ads URL should be used based on an account ID:
+            <code translate="No">mediainfo</code> object used to determine which ads URL should be used based on an account ID:
         </p>
 
         <pre class="line-numbers">
@@ -480,10 +480,10 @@ myPlayer.ima3({
 
         <h3 id="showVpaidControls">showVpaidControls</h3>
 
-        <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
+        <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
 
         <p>
-            Set to <code class="notranslate">true</code> to show custom Brightcove controls over VPAID ads. They may or may not work depending on the VPAID
+            Set to <code translate="No">true</code> to show custom Brightcove controls over VPAID ads. They may or may not work depending on the VPAID
             implementation, so Brightcove suggests testing this feature with your ads before enabling it in production.
         </p>
 
@@ -491,7 +491,7 @@ myPlayer.ima3({
 
         <h3 id="timeout">timeout</h3>
 
-        <p>Type: <code class="notranslate">number</code> Default Value: <code class="notranslate">4000</code></p>
+        <p>Type: <code translate="No">number</code> Default Value: <code translate="No">4000</code></p>
 
         <p>The maximum amount of time, in milliseconds, to wait for ads to play before an ad break is skipped.</p>
 
@@ -514,16 +514,16 @@ myPlayer.ima3({
 
         <h3 id="useMediaCuePoints">useMediaCuePoints</h3>
 
-        <p>Type: <code class="notranslate">boolean</code> Default Value: <code class="notranslate">false</code></p>
+        <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
 
         <p>Enables the use of <strong class="notranslate">ad</strong> cue points (as defined in Studio) to trigger an ad to play.</p>
 
         <p>For Video Cloud ad cuepoints to be used to trigger ads, the following is required in the plugin configuration:</p>
 
         <ul>
-            <li><code class="notranslate">useMediaCuePoints</code>: true</li>
-            <li><code class="notranslate">requestMode</code>: The string <code class="notranslate">oncue</code></li>
-            <li><code class="notranslate">serverUrl</code>: Must point to a valid VAST ad</li>
+            <li><code translate="No">useMediaCuePoints</code>: true</li>
+            <li><code translate="No">requestMode</code>: The string <code translate="No">oncue</code></li>
+            <li><code translate="No">serverUrl</code>: Must point to a valid VAST ad</li>
         </ul>
 
         <p>
@@ -533,16 +533,16 @@ myPlayer.ima3({
 
         <h3 id="vpaidMode">vpaidMode</h3>
 
-        <p>Type: <code class="notranslate">string</code> Default Value: <code class="notranslate">ENABLED</code></p>
+        <p>Type: <code translate="No">string</code> Default Value: <code translate="No">ENABLED</code></p>
 
         <p>Specify VPAID 2 mode in the IMA HTML5 SDK.</p>
 
         <p>There are three possible values for this option:</p>
 
         <ul>
-            <li><code class="notranslate">ENABLED</code>: Play VPAID ads in an iframe with a different domain.</li>
-            <li><code class="notranslate">INSECURE</code>: Play VPAID ads in an iframe with the same domain.</li>
-            <li><code class="notranslate">DISABLED</code>: VPAID ads throw an error.</li>
+            <li><code translate="No">ENABLED</code>: Play VPAID ads in an iframe with a different domain.</li>
+            <li><code translate="No">INSECURE</code>: Play VPAID ads in an iframe with the same domain.</li>
+            <li><code translate="No">DISABLED</code>: VPAID ads throw an error.</li>
         </ul>
 
         <p>This option is configured as follows:</p>
@@ -626,7 +626,7 @@ myPlayer.ima3({
                 <tr>
                     <td>{player.duration}</td>
                     <td>
-                        Duration of video as measured by player (possibly slightly different from <code class="notranslate">mediainfo.duration</code> and probably more accurate). Note that this returns 0 if video is not loaded. Be careful timing your ad request with this macro.
+                        Duration of video as measured by player (possibly slightly different from <code translate="No">mediainfo.duration</code> and probably more accurate). Note that this returns 0 if video is not loaded. Be careful timing your ad request with this macro.
                     </td>
                 </tr>
                 <tr>
@@ -696,7 +696,7 @@ myPlayer.ima3({
         <pre class="line-numbers">
 <code class="language-javascript notranslate">http://example.com/ad/{pageVariable.adConf=1234}</code></pre>
 
-        <p>would resolve to the following if <code class="notranslate">window.adConf</code> is undefined:</p>
+        <p>would resolve to the following if <code translate="No">window.adConf</code> is undefined:</p>
 
         <pre class="line-numbers">
 <code class="language-javascript notranslate">http://example.com/ad/1234</code></pre>
@@ -708,8 +708,8 @@ myPlayer.ima3({
         <p>Dynamic macros provide access to values in the following:</p>
 
         <ul>
-            <li>The video's <code class="notranslate">customFields</code> object through the <code class="notranslate">mediainfo.customFields</code> variable.</li>
-            <li>The DOM's <code class="notranslate">window</code> object through the <code class="notranslate">pageVariable</code> variable.</li>
+            <li>The video's <code translate="No">customFields</code> object through the <code translate="No">mediainfo.customFields</code> variable.</li>
+            <li>The DOM's <code translate="No">window</code> object through the <code translate="No">pageVariable</code> variable.</li>
         </ul>
 
         <p>For example, you could use the following in your ad request:</p>
@@ -717,7 +717,7 @@ myPlayer.ima3({
         <pre class="line-numbers">
 <code class="language-html notranslate">//myadserver.com/ad?l={<span class="bcls-highlight">pageVariable.navigator.language</span>}&amp;category={<span class="bcls-highlight">mediainfo.customFields.type</span>}</code></pre>
 
-        <p>For the <code class="notranslate">pageVariable</code> values, only certain value types are allowed to be used, as shown in this table:</p>
+        <p>For the <code translate="No">pageVariable</code> values, only certain value types are allowed to be used, as shown in this table:</p>
 
         <table class="bcls-table">
             <thead class="bcls-table__head">
@@ -761,14 +761,14 @@ myPlayer.ima3({
         <p>
             Although the <strong class="notranslate">Dynamic macros</strong> technique described just above is the much preferred method to access specific
             information via macros, you may have defined custom values you use when requesting ads from your ad server that you cannot reach via dynamic macros. In
-            this case, you can utilize your values by overriding the <code class="notranslate">adMacroReplacement()</code> method. When you override this method it
+            this case, you can utilize your values by overriding the <code translate="No">adMacroReplacement()</code> method. When you override this method it
             allows you to pass your specialized values for the ad request.
         </p>
 
         <p>
-            The following is an example of overriding the <code class="notranslate">adMacroReplacement()</code> method. In this example, the custom values are defined
+            The following is an example of overriding the <code translate="No">adMacroReplacement()</code> method. In this example, the custom values are defined
             as part of the page DOM, thus enabling ad requests to be customized on a per page basis. In this example,
-            <code class="notranslate">mySite.category</code> is the location where the ad request information is stored.
+            <code translate="No">mySite.category</code> is the location where the ad request information is stored.
         </p>
 
         <pre class="line-numbers">
@@ -788,8 +788,8 @@ myPlayer.ima3({
 <code class="language-html notranslate">//myadserver.com/myads?adWord={category}</code></pre>
 
         <p>
-            And assume the value dynamically assigned to <code class="notranslate">mySite.category</code> in the page is the string
-            <strong class="notranslate">fishing-pole</strong>. Then after your version of the <code class="notranslate">adMacroReplacement()</code> method is called
+            And assume the value dynamically assigned to <code translate="No">mySite.category</code> in the page is the string
+            <strong class="notranslate">fishing-pole</strong>. Then after your version of the <code translate="No">adMacroReplacement()</code> method is called
             your ad request URL would appear as:
         </p>
 
@@ -797,7 +797,7 @@ myPlayer.ima3({
 <code class="language-html notranslate">//myadserver.com/myads?adWord=fishing-pole</code></pre>
 
         <p>
-            To summarize, when you override the <code class="notranslate">adMacroReplacement()</code> method it allows you to use custom values as ad macros, and
+            To summarize, when you override the <code translate="No">adMacroReplacement()</code> method it allows you to use custom values as ad macros, and
             dynamically assign values to the URL ad request.
         </p>
     </section>
@@ -819,7 +819,7 @@ myPlayer.ima3({
             cases, it makes sense to put all ad data in the initial VAST call on plugin initialization.
         </p>
 
-        <p>The following are two important points to consider when using <code class="notranslate">player.ima3.adrequest( )</code>:</p>
+        <p>The following are two important points to consider when using <code translate="No">player.ima3.adrequest( )</code>:</p>
 
         <ul>
             <li>The method is for use with the <strong class="notranslate">ondemand</strong> request mode only.</li>
@@ -830,8 +830,8 @@ myPlayer.ima3({
 
         <ul>
             <li>
-                <strong class="notranslate">adRequestUrl</strong> <code class="notranslate">String</code> Path to a VAST ad tag. You can and should pass relative URLs.
-                This parameter is optional and the configured <code class="notranslate">serverUrl</code> is used if no parameter is passed.
+                <strong class="notranslate">adRequestUrl</strong> <code translate="No">String</code> Path to a VAST ad tag. You can and should pass relative URLs.
+                This parameter is optional and the configured <code translate="No">serverUrl</code> is used if no parameter is passed.
             </li>
         </ul>
 
@@ -853,7 +853,7 @@ myPlayer.ima3({
         <p>
             If there is no Ads Manager yet, this method saves your settings and when an Ads Manager is created it uses the settings you provided. If an Ads Manager
             already exists, it is updated to use your settings. In either case, any new Ads Managers created in the future will also use the most recent settings you
-            provided. You can create an <code class="notranslate">AdsRenderingSettings</code> object by accessing the IMA SDK directly.
+            provided. You can create an <code translate="No">AdsRenderingSettings</code> object by accessing the IMA SDK directly.
             <a href="https://developers.google.com/interactive-media-ads/docs/sdks/android/v3/api/reference/com/google/ads/interactivemedia/v3/api/AdsRenderingSettings">A variety of settings are available.</a>
         </p>
 
@@ -885,15 +885,15 @@ player.ima3.setAdsRenderingSettings(adsRenderingSettings);</code></pre>
             There are methods and properties available from Google's
             <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/reference/js/ima.AdsManager">google.ima.AdsManager</a> Interface. You can
             use the interface's properties/methods that retrieve information. It is not advised to use the methods that perform actions, like
-            <code class="notranslate">destroy</code>, <code class="notranslate">setAutoPlayAdBreaks</code> and <code class="notranslate">stop</code>. For example, one
+            <code translate="No">destroy</code>, <code translate="No">setAutoPlayAdBreaks</code> and <code translate="No">stop</code>. For example, one
             method you can use is shown here:
         </p>
 
         <h3>AdsManager.getRemainingTime</h3>
 
-        <p>Type: <code class="notranslate">google.ima.AdsManager.getRemainingTime</code></p>
+        <p>Type: <code translate="No">google.ima.AdsManager.getRemainingTime</code></p>
 
-        <p>Usage: <code class="notranslate">myPlayer.ima3.adsManager.getRemainingTime()</code></p>
+        <p>Usage: <code translate="No">myPlayer.ima3.adsManager.getRemainingTime()</code></p>
 
         <p>
             Calling this method returns the amount of time remaining for the current ad. If an ad isn't available or has finished playing, it returns -1. For more
@@ -918,37 +918,37 @@ player.ima3.setAdsRenderingSettings(adsRenderingSettings);</code></pre>
 
         <h3>adsLoader</h3>
 
-        <p>Type: <code class="notranslate">google.ima.AdsLoader</code></p>
+        <p>Type: <code translate="No">google.ima.AdsLoader</code></p>
 
         <p>
             The object used to create ads requests. See
             <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/reference/js#ima.AdsManager">ima.AdsLoader</a>. The Ads Loader may not be
-            available until <code class="notranslate">adsready</code> has been fired by the plugin.
+            available until <code translate="No">adsready</code> has been fired by the plugin.
         </p>
 
         <h3>adsManager</h3>
 
-        <p>Type: <code class="notranslate">google.ima.AdsManager</code></p>
+        <p>Type: <code translate="No">google.ima.AdsManager</code></p>
 
         <p>
             The object responsible for playing ads. See
             <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/reference/js#ima.AdsManager">ima.AdsManager</a>. The Ads Manager is not
-            available until <code class="notranslate">adsready</code> has been fired by the plugin.
+            available until <code translate="No">adsready</code> has been fired by the plugin.
         </p>
 
         <h3>adDisplayContainer</h3>
 
-        <p>Type: <code class="notranslate">google.ima.AdDisplayContainer</code></p>
+        <p>Type: <code translate="No">google.ima.AdDisplayContainer</code></p>
 
         <p>
             The object responsible for managing the display elements for ads. See
             <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/reference/js#ima.AdDisplayContainer">ima.AdDisplayContainer</a>. The Ads
-            Display container may not be available until <code class="notranslate">adsready</code> has been fired by the plugin.
+            Display container may not be available until <code translate="No">adsready</code> has been fired by the plugin.
         </p>
 
         <h3>currentAd</h3>
 
-        <p>Type: <code class="notranslate">google.ima.Ad</code></p>
+        <p>Type: <code translate="No">google.ima.Ad</code></p>
 
         <p>
             When an ad is playing, an object that encapsulates information about the current ad. See
@@ -1056,12 +1056,12 @@ player.ima3.setAdsRenderingSettings(adsRenderingSettings);</code></pre>
             </tbody>
         </table>
 
-        <h3 id="Re-dispatched_events">Re-dispatched <code class="notranslate">ima3-</code> prefixed events</h3>
+        <h3 id="Re-dispatched_events">Re-dispatched <code translate="No">ima3-</code> prefixed events</h3>
 
         <p>
             When the IMA3 plugin is used in HTML mode, all <strong class="notranslate">AdErrorEvents</strong>, <strong class="notranslate">AdEvents</strong> and
             <strong class="notranslate">AdsManagerLoadedEvents</strong> are re-dispatched onto the player. When the events are re-dispatched, they are prefixed with
-            <code class="notranslate">ima3-</code>. The following table shows the re-dispatched events:
+            <code translate="No">ima3-</code>. The following table shows the re-dispatched events:
         </p>
 
         <table class="bcls-table">
@@ -1169,15 +1169,15 @@ player.ima3.setAdsRenderingSettings(adsRenderingSettings);</code></pre>
             <tbody class="bcls-table__body">
                 <tr>
                     <td>isInAdMode()</td>
-                    <td>Returns <code class="notranslate">true</code> if the player is in ad mode.</td>
+                    <td>Returns <code translate="No">true</code> if the player is in ad mode.</td>
                 </tr>
                 <tr>
                     <td>isWaitingForAdBreak()</td>
-                    <td>This method returns <code class="notranslate">true</code> during ad mode if an ad break hasn’t started yet.</td>
+                    <td>This method returns <code translate="No">true</code> during ad mode if an ad break hasn’t started yet.</td>
                 </tr>
                 <tr>
                     <td>isContentResuming()</td>
-                    <td>This method returns <code class="notranslate">true</code> during ad mode after an ad break has ended but before content has resumed playing.</td>
+                    <td>This method returns <code translate="No">true</code> during ad mode after an ad break has ended but before content has resumed playing.</td>
                 </tr>
             </tbody>
         </table>
@@ -1194,15 +1194,15 @@ player.ima3.setAdsRenderingSettings(adsRenderingSettings);</code></pre>
             <tbody class="bcls-table__body">
                 <tr>
                     <td>adstart</td>
-                    <td>Fired directly as a consequence of calling <code class="notranslate">startLinearAdMode()</code>.</td>
+                    <td>Fired directly as a consequence of calling <code translate="No">startLinearAdMode()</code>.</td>
                 </tr>
                 <tr>
                     <td>adend</td>
-                    <td>fired directly as a consequence of calling <code class="notranslate">endLinearAdMode()</code>.</td>
+                    <td>fired directly as a consequence of calling <code translate="No">endLinearAdMode()</code>.</td>
                 </tr>
                 <tr>
                     <td>readyforpreroll</td>
-                    <td>Indicates that your ad plugin may start a preroll ad break by calling <code class="notranslate">startLinearAdMode()</code>.</td>
+                    <td>Indicates that your ad plugin may start a preroll ad break by calling <code translate="No">startLinearAdMode()</code>.</td>
                 </tr>
             </tbody>
         </table>
@@ -1298,7 +1298,7 @@ player.ready(function () {
         <pre class="line-numbers">
 <code class="language-html notranslate">https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css</code></pre>
 
-        <p>The name of the plugin is <code class="notranslate">ima3</code>, and an example set of options is:</p>
+        <p>The name of the plugin is <code translate="No">ima3</code>, and an example set of options is:</p>
 
         <pre class="line-numbers">
 <code class="language-json notranslate">{
@@ -1309,30 +1309,30 @@ player.ready(function () {
         <p>The following example uses the In-Page Embed implementation of the player to associate the IMA Plugin with a single instance of a player.</p>
 
         <aside class="bcls-aside bcls-aside--information">
-            In the code below, you see the <code class="notranslate">bc()</code> method is called to initialize the Brightcove Player, then the IMA3 plugin is
+            In the code below, you see the <code translate="No">bc()</code> method is called to initialize the Brightcove Player, then the IMA3 plugin is
             initialized immediately thereafter. This is because for the IMA3 plugin to function properly it needs to be loaded right after player initialization,
-            before any other plugins are initialized. Initializing the IMA3 plugin in <code class="notranslate">videojs.getPlayer('myPlayerID').ready(...)</code> or
-            when the <code class="notranslate">loadedmetadata</code> event is dispatched, will cause the plugin to NOT function as intended.
+            before any other plugins are initialized. Initializing the IMA3 plugin in <code translate="No">videojs.getPlayer('myPlayerID').ready(...)</code> or
+            when the <code translate="No">loadedmetadata</code> event is dispatched, will cause the plugin to NOT function as intended.
         </aside>
 
         <ul>
             <li>
-                Line 12: Uses a <code class="notranslate">link</code> tag to include the plugin's CSS in the <code class="notranslate">head</code> of the HTML page.
+                Line 12: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.
             </li>
             <li>
-                Line 15: Gives the <code class="notranslate">video</code> tag an <code class="notranslate">id</code> attribute, with some value, in this case
+                Line 15: Gives the <code translate="No">video</code> tag an <code translate="No">id</code> attribute, with some value, in this case
                 <strong class="notranslate">myPlayerID</strong>.
             </li>
             <li>
-                Line 23: Uses a <code class="notranslate">script</code> tag to include the plugin's JavaScript in the <code class="notranslate">body</code> of the HTML
+                Line 23: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML
                 page.
             </li>
             <li>
-                Lines 26-29: Initializes the player using the <code class="notranslate">bc()</code> method, and then calls the
-                <code class="notranslate">ima3()</code> method.
+                Lines 26-29: Initializes the player using the <code translate="No">bc()</code> method, and then calls the
+                <code translate="No">ima3()</code> method.
             </li>
             <li>
-                Lines 30-33: On player <code class="notranslate">ready</code>, a reference to the player is created. The comment is shown to indicate where you can
+                Lines 30-33: On player <code translate="No">ready</code>, a reference to the player is created. The comment is shown to indicate where you can
                 place code to add other player behaviors beyond IMA3 plugin setup and configuration.
             </li>
         </ul>
@@ -1377,11 +1377,11 @@ player.ready(function () {
     </section>
     <!-- <section class="bcls-section">
       <h2 id="Creating_an_ad_tag_based_on_media_info">Creating an ad tag based on media info</h2>
-      <p>A common use-case for programmatic ads is to create an ad tag based on media info, retrieved from the <code class="notranslate">mediainfo</code> object. Because the ad tag can be passed in as an option during plugin initialization, it may seem appropriate to defer
+      <p>A common use-case for programmatic ads is to create an ad tag based on media info, retrieved from the <code translate="No">mediainfo</code> object. Because the ad tag can be passed in as an option during plugin initialization, it may seem appropriate to defer
       plugin initialization until media info is available. As seen in the <a href="#Implement_using_code"> previous section</a>, however, plugin initialization cannot be deferred. Instead, initialization can happen at the usual time, but the ad
       tag can be set later when the necessary media info becomes available.</p>
-      <p>Here is an example of how this works. Note that the properties of the <code class="notranslate">mediainfo</code> object cannot be used until the <code class="notranslate">loadedmetadata</code> event has been dispatched, which is standard practice.</p>
-      <aside class="bcls-aside bcls-aside--warning">This technique will NOT work if <code class="notranslate">autoplay</code> is true AND the ad request type is <code class="notranslate">onplay</code>. In this case you MUST set the <code class="notranslate">serverUrl</code> in the initial IMA3 plugin configuration.</aside>
+      <p>Here is an example of how this works. Note that the properties of the <code translate="No">mediainfo</code> object cannot be used until the <code translate="No">loadedmetadata</code> event has been dispatched, which is standard practice.</p>
+      <aside class="bcls-aside bcls-aside--warning">This technique will NOT work if <code translate="No">autoplay</code> is true AND the ad request type is <code translate="No">onplay</code>. In this case you MUST set the <code translate="No">serverUrl</code> in the initial IMA3 plugin configuration.</aside>
       <pre class="line-numbers">
       <code class="language-javascript notranslate">var myPlayer;
       // Initialize player
@@ -1566,13 +1566,13 @@ myPlayer.ready(function() {
         <p>With the IMA3 plugin, skippable ads can be played on iPhones when the following conditions are met:</p>
 
         <ul>
-            <li>The <code class="notranslate">playsinline</code> attribute is present on the <code class="notranslate">video</code> element</li>
+            <li>The <code translate="No">playsinline</code> attribute is present on the <code translate="No">video</code> element</li>
             <li>
-                The <code class="notranslate">disableCustomPlaybackForIOS10Plus</code> setting is passed to the plugin, and set to <code class="notranslate">true</code>
+                The <code translate="No">disableCustomPlaybackForIOS10Plus</code> setting is passed to the plugin, and set to <code translate="No">true</code>
             </li>
         </ul>
 
-        <p>For the <code class="notranslate">playsinline</code> attribute, simply include it as an attribute in the <code class="notranslate">video</code> tag:</p>
+        <p>For the <code translate="No">playsinline</code> attribute, simply include it as an attribute in the <code translate="No">video</code> tag:</p>
 
         <pre class="line-numbers">
 <code class="language-html notranslate">&lt;video-js id="player"
@@ -1587,11 +1587,11 @@ myPlayer.ready(function() {
   controls&gt;&lt;/video-js&gt;
 </code></pre>
 
-        <aside class="bcls-aside bcls-aside--information">Note: The <code class="notranslate">playsinline</code> attribute only works with iOS 10+.</aside>
+        <aside class="bcls-aside bcls-aside--information">Note: The <code translate="No">playsinline</code> attribute only works with iOS 10+.</aside>
 
         <p>
-            For the <code class="notranslate">disableCustomPlaybackForIOS10Plus</code> setting, assign it as a property of
-            <code class="notranslate">ima3SdkSettings</code>:
+            For the <code translate="No">disableCustomPlaybackForIOS10Plus</code> setting, assign it as a property of
+            <code translate="No">ima3SdkSettings</code>:
         </p>
 
         <pre class="line-numbers">
@@ -1614,7 +1614,7 @@ myPlayer.ready(function() {
 
         <p>
             For full details of this setting, see the <a href="#disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</a> entry in the
-            <code class="notranslate">ima3SdkSettings</code> section of this document.
+            <code translate="No">ima3SdkSettings</code> section of this document.
         </p>
 
         <p><strong class="notranslate">Skippable ad limitations:</strong></p>
@@ -1626,12 +1626,12 @@ myPlayer.ready(function() {
                 mobile devices to be able to click it.
             </li>
             <li>
-                <strong class="notranslate">iPhone</strong> without <code class="notranslate">playsinline</code> and
-                <code class="notranslate">disableCustomPlaybackForIOS10Plus</code> - Skippable ads are not played.
+                <strong class="notranslate">iPhone</strong> without <code translate="No">playsinline</code> and
+                <code translate="No">disableCustomPlaybackForIOS10Plus</code> - Skippable ads are not played.
             </li>
             <li>
-                <strong class="notranslate">iPhone</strong> with <code class="notranslate">playsinline</code> and
-                <code class="notranslate">disableCustomPlaybackForIOS10Plus</code> - Ads are played inline, but if using fullscreen, ads do not show, but audio for the
+                <strong class="notranslate">iPhone</strong> with <code translate="No">playsinline</code> and
+                <code translate="No">disableCustomPlaybackForIOS10Plus</code> - Ads are played inline, but if using fullscreen, ads do not show, but audio for the
                 ad will play. In other words, skippable ads in fullscreen do not function correctly.
             </li>
             <li><strong class="notranslate">iPad</strong> - Ads are played inline but skip is not available in fullscreen mode</li>
@@ -1665,7 +1665,7 @@ myPlayer.ready(function() {
         <h3>Ads will not autoplay on iOS</h3>
 
         <p>
-            Although not specific to the IMA3 plugin, know that <code class="notranslate">autoplay</code> is restricted iOS, so ads will not start until a user
+            Although not specific to the IMA3 plugin, know that <code translate="No">autoplay</code> is restricted iOS, so ads will not start until a user
             gesture is made.
         </p>
 

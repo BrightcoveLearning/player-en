@@ -14,7 +14,7 @@ parent: Code Samples
     <p>The plugin can be used to display any web-ready image overlay on top of the player. You can control the display of the message based on:</p>
     <ul>
       <li>Location - the image can be displayed in different locations over the player</li>
-      <li>Player events - such as <code class="notranslate">play</code>, <code class="notranslate">pause</code> or custom events</li>
+      <li>Player events - such as <code translate="No">play</code>, <code translate="No">pause</code> or custom events</li>
       <li>Time interval - at a specified time during video playback</li>
     </ul>
     <p>In the following example you see a logo displayed in the lower-left of the player. At five seconds into the video the logo will slowly fade out.</p>
@@ -110,7 +110,7 @@ parent: Code Samples
     <h3>Player configuration</h3>
     <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
     <h3>Other HTML</h3>
-    <p>The <strong>Display Overlay Plugin</strong> JavaScript file is linked to the page using a <code class="notranslate">&lt;script&gt;</code> tag. Note that the CSS for the <strong>Display Overlay Plugin</strong> is NOT linked into the page. Custom CSS is used in the page to make for easier changes.</p>
+    <p>The <strong>Display Overlay Plugin</strong> JavaScript file is linked to the page using a <code translate="No">&lt;script&gt;</code> tag. Note that the CSS for the <strong>Display Overlay Plugin</strong> is NOT linked into the page. Custom CSS is used in the page to make for easier changes.</p>
   </section>
   <!-- UPDATE application flow -->
   
@@ -129,24 +129,24 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="notranslate language-javascript">// ### Remove overlay ###</code></pre>
-    <p>This function is called when the overlay image is initially displayed. The logic in the function checks for when the overlay image should be removed, including if a expiration time has been set. Also, the <code class="notranslate">timeupdate</code> event listener is removed.</p>
+    <p>This function is called when the overlay image is initially displayed. The logic in the function checks for when the overlay image should be removed, including if a expiration time has been set. Also, the <code translate="No">timeupdate</code> event listener is removed.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Add overlay</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="notranslate language-javascript">// ### Add overlay function ###</code></pre>
-    <p>The Overlay Plugin is called here using the user configuration settings. The settings determine what should be displayed, where it is displayed, and for how long. The <code class="notranslate">timeupdate</code> event listener is added to check for an expiration time.</p>
+    <p>The Overlay Plugin is called here using the user configuration settings. The settings determine what should be displayed, where it is displayed, and for how long. The <code translate="No">timeupdate</code> event listener is added to check for an expiration time.</p>
     <!-- UPDATE task 3 -->
     
-    <h3>Build an <code class="notranslate">overlayOptions</code> object</h3>
+    <h3>Build an <code translate="No">overlayOptions</code> object</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="notranslate language-javascript">// ### Call function to merge default options with passed in options ###</code></pre>
     <p>Both the custom configuration options and default options are passed to a function. The function uses the default options only if a corresponding custom option is not passed in.</p>
     <!-- UPDATE task 3 -->
     
-    <h3>Call the <code class="notranslate">showoverlay</code> method</h3>
+    <h3>Call the <code translate="No">showoverlay</code> method</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="notranslate language-javascript">// ### Show overlay ###</code></pre>
@@ -160,7 +160,7 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code class="notranslate">ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="notranslate language-javascript">videojs.getPlayer('myPlayerID').ready(function() {

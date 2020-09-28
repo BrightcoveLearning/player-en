@@ -1195,13 +1195,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Destroy ads manager on player dispose</li>
       <li>Fix issue related to volume persistence on iOS</li>
       <li>Fix IE/Edge ad control bar visibility on hover</li>
-      <li>Fix case with <code class="notranslate">playonselect:false</code> where you are before preroll and you change source to an <code class="notranslate">economics:ad_supported</code> video and ad/content automatically plays</li>
+      <li>Fix case with <code translate="No">playonselect:false</code> where you are before preroll and you change source to an <code translate="No">economics:ad_supported</code> video and ad/content automatically plays</li>
       <li>Remove dead Flash code</li>
       <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 6.6.1
         <ul>
           <li>Improved support for stitched ad scenarios</li>
           <li>Avoid multiple-registration warning messages by accepting only the first <strong class="notranslate">contrib-ads</strong> per context</li>
-          <li>Fix play event <code class="notranslate">redispatch</code> issue on IE</li>
+          <li>Fix play event <code translate="No">redispatch</code> issue on IE</li>
           <li>Improved player dispose handling</li>
         </ul>
       </li>
@@ -1209,21 +1209,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h4>15 Aug 2018</h4>
     <p>v3.1.0</p>
     <ul>
-      <li>Fixed a bug where the progress bar wasn't updated and <code class="notranslate">player.ima3.adPlayer.currentTime()</code> returned 0 instead of current time of the ad</li>
-      <li>Added <code class="notranslate">isVpaid</code> convenience method to IMA plugin</li>
+      <li>Fixed a bug where the progress bar wasn't updated and <code translate="No">player.ima3.adPlayer.currentTime()</code> returned 0 instead of current time of the ad</li>
+      <li>Added <code translate="No">isVpaid</code> convenience method to IMA plugin</li>
       <li>Added IMA Live preroll support</li>
       <li>Updated <strong class="notranslate">videojs-contrib-ads</strong> to 6.5.0 which includes 6.4.3 changes as well
         <ul>
-          <li>Added <code class="notranslate">liveCuePoints</code> option</li>
+          <li>Added <code translate="No">liveCuePoints</code> option</li>
           <li>Restore all sources instead of single source on snapshot restore</li>
-          <li>Send <code class="notranslate">pause</code> event when autoplay blocked on Chrome to be consistent with Safari</li>
+          <li>Send <code translate="No">pause</code> event when autoplay blocked on Chrome to be consistent with Safari</li>
         </ul>
       </li>
     </ul>
     <h4>6 Aug 2018</h4>
     <p>v3.0.3</p>
     <ul>
-      <li>Fixed a bug that results from plugin init order. Specifically, the value for the <code class="notranslate">{player.url}</code> macro has changed to remove a dependency on the Analytics plugin. This macro could be used to uniquely identify the player, but we recommend using the <code class="notranslate">{player.id}</code> macro instead.</li>
+      <li>Fixed a bug that results from plugin init order. Specifically, the value for the <code translate="No">{player.url}</code> macro has changed to remove a dependency on the Analytics plugin. This macro could be used to uniquely identify the player, but we recommend using the <code translate="No">{player.id}</code> macro instead.</li>
       <li>Improved dispose handling</li>
       <li>Code organization improvements</li>
       <li>Updated videojs-contrib-ads to 6.4.2
@@ -1237,14 +1237,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>v3.0.2</p>
     <ul>
       <li>Fixed a poster flash when restoring after preroll</li>
-      <li><code class="notranslate">player.ads.ad.currentTime</code> used to be the time offset: now it is the current time</li>
-      <li>Added <code class="notranslate">player.ads.ad.timeOffset</code></li>
-      <li>Bug fix to economics <code class="notranslate">mediainfo</code> handling related to initialization</li>
-      <li>Removed <code class="notranslate">loadingSpinner</code> option because it did not do anything</li>
+      <li><code translate="No">player.ads.ad.currentTime</code> used to be the time offset: now it is the current time</li>
+      <li>Added <code translate="No">player.ads.ad.timeOffset</code></li>
+      <li>Bug fix to economics <code translate="No">mediainfo</code> handling related to initialization</li>
+      <li>Removed <code translate="No">loadingSpinner</code> option because it did not do anything</li>
       <li>Updated <strong class="notranslate">videojs-contrib-ads</strong> to 6.4.1
         <ul>
           <li>Updated documentation link in initialization error message</li>
-          <li>Added <code class="notranslate">contentIsLive</code> setting, which can be used for live streams that do not report their duration as infinity</li>
+          <li>Added <code translate="No">contentIsLive</code> setting, which can be used for live streams that do not report their duration as infinity</li>
           <li>Fixed a bug where a loading spinner could appear at the end of the video if there was no postroll</li>
           <li>Allow default values for macros</li>
         </ul>
@@ -1253,7 +1253,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h4>4 May 2018</h4>
     <p>v3.0.1</p>
     <ul>
-      <li>Fixed a bug where ad doesn't play when <code class="notranslate">mediainfo.economics</code> is set to <code class="notranslate">undefined</code></li>
+      <li>Fixed a bug where ad doesn't play when <code translate="No">mediainfo.economics</code> is set to <code translate="No">undefined</code></li>
     </ul>
     <h4>1 May 2018</h4>
     <p>v3.0.0</p>
@@ -1261,19 +1261,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Updated <strong class="notranslate">videojs-contrib-ads</strong> from 5.1.6 to 6.2.1</li>
       <li>Initialization now uses middleware to reduce risk of content flash</li>
       <li>The plugin's handling of source changes has been reworked, resulting in far greater reliability when used with playlists</li>
-      <li>The <code class="notranslate">serverUrl</code> option can now be a function, facilitating asynchronous workflows such as header bidding</li>
+      <li>The <code translate="No">serverUrl</code> option can now be a function, facilitating asynchronous workflows such as header bidding</li>
       <li>Fixed a bug that could have led to a longer timeout than expected</li>
       <li>Various other bug fixes and reliability improvements; see the <a href="https://github.com/videojs/videojs-contrib-ads/blob/master/CHANGELOG.md">videojs-contrib-ads</a> changelog for more information</li>
     </ul>
     <h4>13 Apr 2018</h4>
     <p>v2.22.3</p>
     <ul>
-      <li>Fixed autoplay issue on iOS and adds support on iOS for IMA SDK <code class="notranslate">setAdWillPlayMuted()</code> and <code class="notranslate">setAdWillAutoPlay()</code></li>
+      <li>Fixed autoplay issue on iOS and adds support on iOS for IMA SDK <code translate="No">setAdWillPlayMuted()</code> and <code translate="No">setAdWillAutoPlay()</code></li>
     </ul>
     <h4>28 Mar 2018</h4>
     <p>v2.22.2</p>
     <ul>
-      <li>Fixed a bug with a specific IMA3 configuration of <code class="notranslate">autoplay</code> and requestMode <code class="notranslate">onplay</code></li>
+      <li>Fixed a bug with a specific IMA3 configuration of <code translate="No">autoplay</code> and requestMode <code translate="No">onplay</code></li>
     </ul>
     <h4>21 Mar 2018</h4>
     <p>v2.22.1</p>
@@ -1284,12 +1284,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>v2.22.0</p>
     <ul>
       <li>Added support to detect <strong class="notranslate">can autoplay</strong> and <strong class="notranslate">can autoplay muted</strong></li>
-      <li>Implemented IMA SDK <code class="notranslate">setAdWillPlayMuted</code> and <code class="notranslate">setAdWillAutoPlay</code></li>
+      <li>Implemented IMA SDK <code translate="No">setAdWillPlayMuted</code> and <code translate="No">setAdWillAutoPlay</code></li>
     </ul>
     <h4>30 Jan 2018</h4>
     <p>v2.21.0</p>
     <ul>
-      <li>Added <code class="notranslate">showVpaidControls</code> option</li>
+      <li>Added <code translate="No">showVpaidControls</code> option</li>
       <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 5.1.6</li>
     </ul>
     <h4>27 Nov 2017</h4>
@@ -1321,10 +1321,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>v2.19.4</p>
     <ul>
       <li>Fix a bug that timed out on postrolls when an empty vast ad is seen</li>
-      <li>Remove redundant <code class="notranslate">ads-request</code> event trigger</li>
+      <li>Remove redundant <code translate="No">ads-request</code> event trigger</li>
       <li>Added logic to check the version of Chrome independently from the player version</li>
-      <li>Fixed a bug where the <code class="notranslate">adtimeupdate</code> event would fire during content</li>
-      <li>Fixed a bug with <code class="notranslate">autoplay</code> on Android devices</li>
+      <li>Fixed a bug where the <code translate="No">adtimeupdate</code> event would fire during content</li>
+      <li>Fixed a bug with <code translate="No">autoplay</code> on Android devices</li>
       <li>Fixed a bug with waiting for postroll ads after an ad error</li>
     </ul>
     <h4>28 Jul 2017</h4>
@@ -1339,8 +1339,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Mobile autoplay support</li>
       <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 5.0.2
         <ul>
-          <li>Fixed dispatching of <code class="notranslate">loadeddata</code> and <code class="notranslate">loadedmetadata</code> events</li>
-          <li>Fixed bug with empty ad response when using <code class="notranslate">ondemand</code> mode</li>
+          <li>Fixed dispatching of <code translate="No">loadeddata</code> and <code translate="No">loadedmetadata</code> events</li>
+          <li>Fixed bug with empty ad response when using <code translate="No">ondemand</code> mode</li>
         </ul>
       </li>
     </ul>
@@ -1348,11 +1348,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>v2.19.1</p>
     <p>Note: This version includes fixes to support autoplay of HMTL5 ads on iOS 10 and Android devices.</p>
     <ul>
-      <li>Autoplay HTML5 ads in players that are not muted and/or do not include <code class="notranslate">playsinline</code> will correctly play when the user initiates playback via a tap or click on iOS 10 and Android devices</li>
-      <li>Autoplay HTML5 ads in players that include <code class="notranslate">muted</code> AND <code class="notranslate">playsinline</code> will correctly autoplay on iOS 10 and Android devices</li>
+      <li>Autoplay HTML5 ads in players that are not muted and/or do not include <code translate="No">playsinline</code> will correctly play when the user initiates playback via a tap or click on iOS 10 and Android devices</li>
+      <li>Autoplay HTML5 ads in players that include <code translate="No">muted</code> AND <code translate="No">playsinline</code> will correctly autoplay on iOS 10 and Android devices</li>
       <li>Fixes the Mute button on iOS 10 and Android HTML5 ads
         <ul>
-          <li>When the <code class="notranslate">muted</code> attribute is present, the mute button will display allowing the user to un-mute the ad</li>
+          <li>When the <code translate="No">muted</code> attribute is present, the mute button will display allowing the user to un-mute the ad</li>
           <li>The mute button will no longer display on devices that do not support controlling the volume programmatically</li>
           <li>The mute button will correctly mute/un-mute the ad when tapped or clicked</li>
           <li>The mute/unmute setting will persist from the ad to main content</li>
@@ -1382,13 +1382,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h4>4 Apr 2017</h4>
     <p>v2.18.0</p>
     <ul>
-      <li>Added <code class="notranslate">player.ima3.setAdsRenderingSettings</code>, which allows users to set ads rendering settings for the IMA SDK for HTML5</li>
+      <li>Added <code translate="No">player.ima3.setAdsRenderingSettings</code>, which allows users to set ads rendering settings for the IMA SDK for HTML5</li>
       <li>Updated for Video.js 5 and 6 cross-compatibility</li>
     </ul>
     <h4>23 Mar 2017</h4>
     <p>v2.17.0</p>
     <ul>
-      <li>Exposed <code class="notranslate">adsLoader.contentComplete</code> in Flash to allow resetting the IMA correlator</li>
+      <li>Exposed <code translate="No">adsLoader.contentComplete</code> in Flash to allow resetting the IMA correlator</li>
     </ul>
     <h4>9 Mar 2017</h4>
     <p>v2.16.4</p>
@@ -1396,20 +1396,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Adding back ES3 support</li>
       <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.2.5
         <ul>
-          <li>Added a way to estimate <code class="notranslate">adType</code></li>
-          <li>Reverted "No longer take postroll snapshot when there will be no postroll" to fix a bug with missing <code class="notranslate">ended</code> events</li>
+          <li>Added a way to estimate <code translate="No">adType</code></li>
+          <li>Reverted "No longer take postroll snapshot when there will be no postroll" to fix a bug with missing <code translate="No">ended</code> events</li>
         </ul>
       </li>
     </ul>
     <h4>3 Mar 2017</h4>
     <p>v2.16.3</p>
     <ul>
-      <li>Roll back to <strong class="notranslate">videojs-contrib-ads</strong> 4.2.3 to fix a bug with missing <code class="notranslate">ended</code> events</li>
+      <li>Roll back to <strong class="notranslate">videojs-contrib-ads</strong> 4.2.3 to fix a bug with missing <code translate="No">ended</code> events</li>
     </ul>
     <h4>1 Mar 2017</h4>
     <p>v2.16.2</p>
     <ul>
-      <li>Don't allow cues without IDs to be used in <code class="notranslate">oncue</code> request mode</li>
+      <li>Don't allow cues without IDs to be used in <code translate="No">oncue</code> request mode</li>
       <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.2.4
         <ul>
           <li>No longer take postroll snapshot when there will be no postroll</li>
@@ -1422,7 +1422,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>This is a bugfix update.</p>
     <ul>
       <li>Make HTML5 ads in iframes responsive when possible</li>
-      <li>Prevent erroneous <code class="notranslate">admuted</code> tracking in DFP</li>
+      <li>Prevent erroneous <code translate="No">admuted</code> tracking in DFP</li>
       <li>Localize ad control bar for both HTML5 and Flash</li>
       <li>Allow right-clicking to enable Flash in Chrome</li>
       <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.2.2</li>
@@ -1447,8 +1447,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.1.6
         <ul>
-          <li>Fixed placeholder <code class="notranslate">div</code> on iOS 10 <code class="notranslate">playsinline</code></li>
-          <li>No longer sends an undocumented <code class="notranslate">adcontentplaying</code> event, which was only sent to cancel an extra <code class="notranslate">adplaying</code> event; code has been refactored to not need this extra event</li>
+          <li>Fixed placeholder <code translate="No">div</code> on iOS 10 <code translate="No">playsinline</code></li>
+          <li>No longer sends an undocumented <code translate="No">adcontentplaying</code> event, which was only sent to cancel an extra <code translate="No">adplaying</code> event; code has been refactored to not need this extra event</li>
         </ul>
       </li>
     </ul>
@@ -1473,7 +1473,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </ul>
       </li>
       <li>Fixed to show ad duration in Video.js 6</li>
-      <li>Fixed to initialize <code class="notranslate">adDisplayContainer</code> on <code class="notranslate">touchend</code> instead of <code class="notranslate">touchstart</code></li>
+      <li>Fixed to initialize <code translate="No">adDisplayContainer</code> on <code translate="No">touchend</code> instead of <code translate="No">touchstart</code></li>
     </ul>
     <h4>10 Nov 2016</h4>
     <p>v2.15.2</p>
@@ -1501,20 +1501,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>New page variable feature in ad macros
         <ul>
           <li>In IMA, ad macros are supported in the ad server URL</li>
-          <li>A URL with a page variable macro might look like this: <code class="notranslate">http://example.com?foo={pageVariable.foo}</code> (that macro would be replaced with the value of the variable <code class="notranslate">foo</code> in the browser's JavaScript context when the ad request is made)</li>
+          <li>A URL with a page variable macro might look like this: <code translate="No">http://example.com?foo={pageVariable.foo}</code> (that macro would be replaced with the value of the variable <code translate="No">foo</code> in the browser's JavaScript context when the ad request is made)</li>
           <li>When your ad request is made if the page variable isn't yet available, your macro will not work</li>
           <li>You can learn technical details on the new ad macro feature here: <a href="https://github.com/videojs/videojs-contrib-ads#macros">https://github.com/videojs/videojs-contrib-ads#macros</a></li>
         </ul>
       </li>
-      <li>Now use <code class="notranslate">try/catch</code> when destroying ads manager in case it isn't created yet
+      <li>Now use <code translate="No">try/catch</code> when destroying ads manager in case it isn't created yet
         <ul>
           <li>This is for extra safety in edge cases, you shouldn't expect to see any difference</li>
         </ul>
       </li>
-      <li>Temporarily re-added <code class="notranslate">contentplayback</code> event
+      <li>Temporarily re-added <code translate="No">contentplayback</code> event
         <ul>
           <li>This event was part of the integration between the Brightcove IMA plugin and the open source <strong class="notranslate">videojs-contrib-ads</strong> project; Brightcove plans to remove it in the future</li>
-          <li>The <code class="notranslate">playing</code> event is probably what you would want to use instead</li>
+          <li>The <code translate="No">playing</code> event is probably what you would want to use instead</li>
         </ul>
       </li>
     </ul>
@@ -1523,10 +1523,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>Updated to use <strong class="notranslate">videojs-contrib-ads</strong> 4.0.0
         <ul>
-          <li><code class="notranslate">playing</code> event no longer sent before preroll</li>
-          <li><code class="notranslate">contentplayback</code> event removed</li>
+          <li><code translate="No">playing</code> event no longer sent before preroll</li>
+          <li><code translate="No">contentplayback</code> event removed</li>
           <li>Fixed a flash of content introduced in Chrome 53 where ads-loading class was being removed too soon</li>
-          <li>Added <code class="notranslate">player.ads.VERSION</code></li>
+          <li>Added <code translate="No">player.ads.VERSION</code></li>
           <li>Updated to use conventions put forward by <strong class="notranslate">generator-videojs-plugin</strong></li>
           <li>Created separate files for feature modules</li>
         </ul>
@@ -1547,8 +1547,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h4>3 Oct 2016</h4>
     <p>v2.12.0</p>
     <ul>
-      <li>Prevent extra <code class="notranslate">playing</code> event after a hard timeout</li>
-      <li><code class="notranslate">{player.id}</code> macro now refers to the correct value</li>
+      <li>Prevent extra <code translate="No">playing</code> event after a hard timeout</li>
+      <li><code translate="No">{player.id}</code> macro now refers to the correct value</li>
       <li>Smooth progress bar movement</li>
     </ul>
     <h4>23 Sep 2016</h4>
@@ -1618,8 +1618,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>v2.10.2</p>
     <ul>
       <li>Fix to account for adrequests made when requestmode is onplay and content is already playing</li>
-      <li>Fixed bug where <code class="notranslate">ImaSdkSettings</code> did not reflect locale setting</li>
-      <li>Fixed bug where IMA3 Plugin did not respect the <code class="notranslate">setNumRedirects</code> setting</li>
+      <li>Fixed bug where <code translate="No">ImaSdkSettings</code> did not reflect locale setting</li>
+      <li>Fixed bug where IMA3 Plugin did not respect the <code translate="No">setNumRedirects</code> setting</li>
       <li>Updated to videojs-contrib-ads 3.3.9
         <ul>
           <li>Fix a bug in which contentupdate is missed in postroll</li>
@@ -1658,8 +1658,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h4>26 May 2016</h4>
     <p>v2.8.0</p>
     <ul>
-      <li>Add default <code class="notranslate">postrollTimeout</code> of 1000 milliseconds</li>
-      <li>Add missing logic for flash ad tech to destroy ads manager on <code class="notranslate">adserror</code></li>
+      <li>Add default <code translate="No">postrollTimeout</code> of 1000 milliseconds</li>
+      <li>Add missing logic for flash ad tech to destroy ads manager on <code translate="No">adserror</code></li>
       <li>No longer send nopreroll for VAST ads</li>
       <li>No longer send adrequest for empty string content source</li>
       <li>Cancel multiple ad requests for the same content source</li>
@@ -1674,21 +1674,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h4>28 Apr 2016</h4>
     <p>v2.7.0</p>
     <ul>
-      <li>Added <code class="notranslate">ad_keys</code> to ad macros</li>
-      <li>Code maintenance to enable <code class="notranslate">vjsstandard</code></li>
-      <li>No longer plays ads when Economics flag is set to <code class="notranslate">FREE</code></li>
+      <li>Added <code translate="No">ad_keys</code> to ad macros</li>
+      <li>Code maintenance to enable <code translate="No">vjsstandard</code></li>
+      <li>No longer plays ads when Economics flag is set to <code translate="No">FREE</code></li>
     </ul>
     <h4>20 Apr 2016</h4>
     <p>v2.6.0</p>
     <ul>
       <li>Ability to play and cancel ads in live streams based on ID3 metadata</li>
-      <li>Quicker load time when <code class="notranslate">requestmode</code> is set to <code class="notranslate">ondemand</code> or <code class="notranslate">oncue</code></li>
-      <li>Fixed and restored <code class="notranslate">nopostroll</code> feature</li>
+      <li>Quicker load time when <code translate="No">requestmode</code> is set to <code translate="No">ondemand</code> or <code translate="No">oncue</code></li>
+      <li>Fixed and restored <code translate="No">nopostroll</code> feature</li>
     </ul>
     <h4>31 Mar 2016</h4>
     <p>v2.5.2</p>
     <ul>
-      <li>Rollback nopostroll feature as it was preventing <code class="notranslate">ended</code> events</li>
+      <li>Rollback nopostroll feature as it was preventing <code translate="No">ended</code> events</li>
     </ul>
     <h4>31 Mar 2016</h4>
     <p>v2.5.1</p>
@@ -1699,16 +1699,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>v2.5.0</p>
     <h5 id="toc_4">Features</h5>
     <ul>
-      <li>HTML5 <code class="notranslate">hardTimeouts</code> option. Will prevent "flash of content" when using VMAP for HTML5 ads by discarding overdue ads. Disabled by default; planned to be enabled by default in a later major version update.</li>
+      <li>HTML5 <code translate="No">hardTimeouts</code> option. Will prevent "flash of content" when using VMAP for HTML5 ads by discarding overdue ads. Disabled by default; planned to be enabled by default in a later major version update.</li>
       <li>Quicker load time when using IMA3 plugin with no preroll ads.</li>
-      <li>Expose <code class="notranslate">player.ima3.currentAd.wrapperAdIds</code> and <code class="notranslate">player.ima3.currentAd.wrapperAdSystems</code> when using Flash ad tech.</li>
+      <li>Expose <code translate="No">player.ima3.currentAd.wrapperAdIds</code> and <code translate="No">player.ima3.currentAd.wrapperAdSystems</code> when using Flash ad tech.</li>
     </ul>
     <h5 id="toc_5">Bugfixes</h5>
     <ul>
       <li>Fix display of volume slider in graphite skin</li>
       <li>Fix bug where progress slider would continue when paused in Flash</li>
       <li>Fix bug where play/pause icon would not update correctly in Flash</li>
-      <li>Fix several situations where invalid <code class="notranslate">adtimeout</code> events would be sent</li>
+      <li>Fix several situations where invalid <code translate="No">adtimeout</code> events would be sent</li>
     </ul>
     <h4 id="toc_6">28 Mar 2016</h4>
     <p>v2.4.0</p>
@@ -1720,7 +1720,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>Hide dock during ad playback</li>
       <li>Fix bug where iPad overlay ads would not click-through</li>
-      <li>Use versioned URL for default <code class="notranslate">adSwf</code> value</li>
+      <li>Use versioned URL for default <code translate="No">adSwf</code> value</li>
       <li>Fix clickthroughs for HTML5 ads in IE10</li>
     </ul>
     <h4 id="toc_9">20 Jan 2016</h4>

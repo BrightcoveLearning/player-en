@@ -61,7 +61,7 @@ parent: Coding Topics
 <section class="bcls-section">
 <h2 id="Including_the_library">Including the library</h2>
 
-<p>To include the <code class="notranslate">@brightcove/react-player-loader</code> library for your website or web application, you can use any of the methods shown in the <a href="https://github.com/brightcove/react-player-loader">GitHub repo</a>. The sample in the CodePen above uses the <code class="notranslate">&lt;script&gt;</code> Tags method.</p>
+<p>To include the <code translate="No">@brightcove/react-player-loader</code> library for your website or web application, you can use any of the methods shown in the <a href="https://github.com/brightcove/react-player-loader">GitHub repo</a>. The sample in the CodePen above uses the <code translate="No">&lt;script&gt;</code> Tags method.</p>
 </section>
 
 <section class="bcls-section">
@@ -69,7 +69,7 @@ parent: Coding Topics
 
 <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
 
-<p>In the HTML code, include <code class="notranslate">&lt;script&gt;</code> tags for the following minified JavaScript files:</p>
+<p>In the HTML code, include <code translate="No">&lt;script&gt;</code> tags for the following minified JavaScript files:</p>
 
 <ul>
 	<li>The React library.</li>
@@ -82,7 +82,7 @@ parent: Coding Topics
 	<!-- <li><a href="/node/18359">Media API EOL Dec 31, 2017 - Migrate to the Playback API</a></li> -->
 </ul>
 
-<p>Next, include a <code class="notranslate">&lt;div&gt;</code> tag with an <code class="notranslate">id</code> attribute. This is the location where your Brightcove Player will be rendered by React.</p>
+<p>Next, include a <code translate="No">&lt;div&gt;</code> tag with an <code translate="No">id</code> attribute. This is the location where your Brightcove Player will be rendered by React.</p>
 
 <pre class="line-numbers">
 <code class="notranslate language-javascript">&lt;div id='container'&gt;&lt;/div&gt;</code></pre>
@@ -114,16 +114,16 @@ parent: Coding Topics
 <pre>
 <code class="language-javascript" translate="No">// +++ Add the Brightcove Player +++</code></pre>
 
-<p>Use the <code class="notranslate">ReactDOM.render()</code> method in conjunction with the <code class="notranslate">React.createElement()</code> method to add the Brightcove Player to the HTML page.</p>
+<p>Use the <code translate="No">ReactDOM.render()</code> method in conjunction with the <code translate="No">React.createElement()</code> method to add the Brightcove Player to the HTML page.</p>
 
 <p>This sample uses the following parameters to play a video from the specified account:</p>
 
 <ul>
-	<li><code class="notranslate">accountId</code></li>
-	<li><code class="notranslate">videoId</code></li>
+	<li><code translate="No">accountId</code></li>
+	<li><code translate="No">videoId</code></li>
 </ul>
 
-<p>Note that the Player Loader uses your default player if the <code class="notranslate">playerId</code> parameter is not included.</p>
+<p>Note that the Player Loader uses your default player if the <code translate="No">playerId</code> parameter is not included.</p>
 
 <p>For a list of available parameters, see the <a href="#Parameters">Parameters</a> section of this document.</p>
 </section>
@@ -140,10 +140,10 @@ parent: Coding Topics
 <p>For a list of available parameters that can be used with the Brightcove Player Loader, see the <a href="/publish/brightcove-player-loader.html#Available_parameters">Player Loader Overview</a> document. All of the parameters listed can be used with the React Player Loader, except as follows:</p>
 
 <ul>
-	<li>You need to use the <code class="notranslate">onSuccess</code> and <code class="notranslate">onFailure</code> callbacks, since promises cannot be exported easily.</li>
-	<li>If you don't provide the <code class="notranslate">onFailure</code> callback, failure will be handled by throwing an error.</li>
-	<li>The <code class="notranslate">refNode</code> and <code class="notranslate">refNodeInsert</code> parameters cannot be used with the React Player Loader since they are used internally.</li>
-	<li>Use the <code class="notranslate">baseUrl</code> parameter to change the base URL. The Brightcove Player Loader uses the <code class="notranslate">setBaseUrl()</code> method to do this, but the React Player Loader does not have access to this method.</li>
+	<li>You need to use the <code translate="No">onSuccess</code> and <code translate="No">onFailure</code> callbacks, since promises cannot be exported easily.</li>
+	<li>If you don't provide the <code translate="No">onFailure</code> callback, failure will be handled by throwing an error.</li>
+	<li>The <code translate="No">refNode</code> and <code translate="No">refNodeInsert</code> parameters cannot be used with the React Player Loader since they are used internally.</li>
+	<li>Use the <code translate="No">baseUrl</code> parameter to change the base URL. The Brightcove Player Loader uses the <code translate="No">setBaseUrl()</code> method to do this, but the React Player Loader does not have access to this method.</li>
 </ul>
 </section>
 

@@ -55,11 +55,11 @@ you can accomplish using it.</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="pubcode">Including a &lt;track&gt; tag</h2>
-    <p>To associate WebVTT caption file(s) to a Brightcove Player, you need to modify the In-Page embed code to include <code class="notranslate">&lt;track&gt;</code> tag for each caption file you have. For example:</p>
+    <p>To associate WebVTT caption file(s) to a Brightcove Player, you need to modify the In-Page embed code to include <code translate="No">&lt;track&gt;</code> tag for each caption file you have. For example:</p>
     <pre class="line-numbers">
 <code class="language-html notranslate">&lt;track kind="captions" src="&lt;location of caption file&gt;" srclang="en" label="English"&gt;</code></pre>
-    <p>The <code class="notranslate">&lt;track&gt;</code> tag is used to specify subtitles, caption files or other files containing text, that should be visible when the media is playing. The steps to do this are outlined below.</p>
-    <aside class="bcls-aside bcls-aside--information">Note that 2- or 4-letter language codes can be used for the <code class="notranslate">srclang</code> attribute (e.g. <code class="notranslate">en</code> or <code class="notranslate">en-us</code>).</aside>
+    <p>The <code translate="No">&lt;track&gt;</code> tag is used to specify subtitles, caption files or other files containing text, that should be visible when the media is playing. The steps to do this are outlined below.</p>
+    <aside class="bcls-aside bcls-aside--information">Note that 2- or 4-letter language codes can be used for the <code translate="No">srclang</code> attribute (e.g. <code translate="No">en</code> or <code translate="No">en-us</code>).</aside>
     <ol class="bcls-tasklist">
       <li>Generate the <strong>Advanced</strong> (In-Page) embed code for your player. <span class="video-cloud-only">This can be done using the <a href="https://studio.support.brightcove.com/players/generating-player-embed-code.html">Media module</a>.</span><br />
         Your code should look similar to this:
@@ -86,9 +86,9 @@ you can accomplish using it.</code></pre>
     width=&quot;640&quot; height=&quot;360&quot;&gt;
 &lt;/video-js&gt;
 &lt;script src=&quot;https://players.brightcove.net/20318290001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-        <aside class="bcls-aside bcls-aside--tip">To the <code class="notranslate">&lt;video-js&gt;</code> element, we added an <code class="notranslate">id</code> attribute with a value of <strong>myPlayerID</strong>. This is needed to get a reference to the player in step 3.</aside>
+        <aside class="bcls-aside bcls-aside--tip">To the <code translate="No">&lt;video-js&gt;</code> element, we added an <code translate="No">id</code> attribute with a value of <strong>myPlayerID</strong>. This is needed to get a reference to the player in step 3.</aside>
       </li>
-      <li>Add <code class="notranslate">&lt;track&gt;</code> tag(s) inside of the <code class="notranslate">&lt;video-js&gt;</code> tag that point to location of all caption files. <span class="player-only">Player Studio does not currently provide a way for publishers to upload WebVTT caption files.</span> The URL for the caption file location must be less than 250 characters.<br />
+      <li>Add <code translate="No">&lt;track&gt;</code> tag(s) inside of the <code translate="No">&lt;video-js&gt;</code> tag that point to location of all caption files. <span class="player-only">Player Studio does not currently provide a way for publishers to upload WebVTT caption files.</span> The URL for the caption file location must be less than 250 characters.<br />
         <br />
         In the example below, English, Japanese and French caption files have been specified. For a complete list of language codes, see the <a href="http://www.w3schools.com/tags/ref_language_codes.asp">HTML Language Code Reference</a>.
         <pre class="video-cloud-only">
@@ -121,7 +121,7 @@ you can accomplish using it.</code></pre>
 &lt;script src=&quot;https://players.brightcove.net/20318290001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
       </li>
-      <li><strong>(Optional)</strong> To have captions automatically display when the video starts playing you have to make a couple of changes to your page. You have to add the <code class="notranslate">default</code> attribute to the <code class="notranslate">&lt;track&gt;</code> tag for the language to display and set and add a small amount of code. Note that the <code class="notranslate">default</code> attribute should only appear on one <code class="notranslate">&lt;track&gt;</code> tag. For example, to have the English captions display when the video starts playing, the <code class="notranslate">&lt;track&gt;</code> tag would be modified as follows:
+      <li><strong>(Optional)</strong> To have captions automatically display when the video starts playing you have to make a couple of changes to your page. You have to add the <code translate="No">default</code> attribute to the <code translate="No">&lt;track&gt;</code> tag for the language to display and set and add a small amount of code. Note that the <code translate="No">default</code> attribute should only appear on one <code translate="No">&lt;track&gt;</code> tag. For example, to have the English captions display when the video starts playing, the <code translate="No">&lt;track&gt;</code> tag would be modified as follows:
         <pre class="line-numbers">
 <code class="language-html notranslate">&lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs.vtt" srclang="en" label="English" default&gt;
 &lt;track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-jp.vtt" srclang="ja" label="Japanese"&gt;
@@ -282,7 +282,7 @@ you can accomplish using it.</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="implementcode">Implement using code</h2>
-    <p>It is possible to programmatically add text tracks for captions. The key method for this functionality is <code class="notranslate">addRemoteTextTrack()</code>, the syntax of which is:</p>
+    <p>It is possible to programmatically add text tracks for captions. The key method for this functionality is <code translate="No">addRemoteTextTrack()</code>, the syntax of which is:</p>
     <pre class="line-numbers">
 <code class="language-javascript notranslate">playerObject.addRemoteTextTrack({
   kind: string,
@@ -292,12 +292,12 @@ you can accomplish using it.</code></pre>
 });</code></pre>
     <p>where:</p>
     <ul>
-      <li><code class="notranslate">kind</code> - Type of text track, for this use <strong>'captions'</strong></li>
-      <li><code class="notranslate">language</code> - Two letter language code, for example <strong>'en'</strong></li>
-      <li><code class="notranslate">label</code> - The language label which appears in the captions UI, for example <strong>'English'</strong></li>
-      <li><code class="notranslate">src</code> - URL to the WebVTT formatted caption file</li>
+      <li><code translate="No">kind</code> - Type of text track, for this use <strong>'captions'</strong></li>
+      <li><code translate="No">language</code> - Two letter language code, for example <strong>'en'</strong></li>
+      <li><code translate="No">label</code> - The language label which appears in the captions UI, for example <strong>'English'</strong></li>
+      <li><code translate="No">src</code> - URL to the WebVTT formatted caption file</li>
     </ul>
-    <p>The function call returns an object of type <code class="notranslate">vjs.TextTrack</code>.</p>
+    <p>The function call returns an object of type <code translate="No">vjs.TextTrack</code>.</p>
     <p>Example usage:</p>
     <pre class="line-numbers">
 <code class="language-javascript notranslate">var frTrack = myPlayer.addRemoteTextTrack({
@@ -306,7 +306,7 @@ you can accomplish using it.</code></pre>
   label: 'French',
   src: 'https://solutions.brightcove.com/bcls/captions/adding_captions_to_videos_french.vtt'
 });</code></pre>
-    <p>You must wait for the <code class="notranslate">loadedmetadata</code> event to be dispatched before you use the <code class="notranslate">addRemoteTextTrack()</code> method. The following example shows the script block for adding English and French captions to a video.</p>
+    <p>You must wait for the <code translate="No">loadedmetadata</code> event to be dispatched before you use the <code translate="No">addRemoteTextTrack()</code> method. The following example shows the script block for adding English and French captions to a video.</p>
     <pre class="line-numbers">
 <code class="language-html notranslate">&lt;script type=&quot;text/javascript&quot;&gt;
   videojs.getPlayer('myPlayerID').ready(function () {
@@ -327,7 +327,7 @@ you can accomplish using it.</code></pre>
     });
   });
 &lt;/script&gt;</code></pre>
-    <p>The complementary method <code class="notranslate">textTracks()</code> enables you to retrieve all text tracks assigned to a player. The method returns an object of type <code class="notranslate">vjs.TextTrackList</code>.</p>
+    <p>The complementary method <code translate="No">textTracks()</code> enables you to retrieve all text tracks assigned to a player. The method returns an object of type <code translate="No">vjs.TextTrackList</code>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="livestreamwithcaptions">Live streaming with captions</h2>

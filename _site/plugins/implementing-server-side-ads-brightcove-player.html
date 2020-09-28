@@ -1205,11 +1205,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>For the <strong>Plugin Name</strong> enter <code translate="No">ssai</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter:
         <pre>
-<code class="notranslate language-json">https://players.brightcove.net/videojs-ssai/1/videojs-ssai.js</code></pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ssai/1/videojs-ssai.js</code></pre>
       </li>
       <li>For the <strong>CSS</strong> URL, enter:
         <pre>
-<code class="notranslate language-json">https://players.brightcove.net/videojs-ssai/1/videojs-ssai.css</code></pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ssai/1/videojs-ssai.css</code></pre>
       </li>
       <li>You do not have to enter any options for this plugin.</li>
       <li>Click <strong>Save</strong>.</li>
@@ -1226,7 +1226,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <!-- <li><a href="#Using_the_src_method">Using the src method</a></li> -->
     </ul>
     <h4 id="Standard_embed_code">Standard (iframe) embed code</h4>
-    <p>With the Standard embed code, include the <code class="notranslate">adConfigId</code> query string parameter with the value of your ad config id:</p>
+    <p>With the Standard embed code, include the <code translate="No">adConfigId</code> query string parameter with the value of your ad config id:</p>
     <pre class="line-numbers">
 <code class="notranslate language-javascript">&lt;iframe src="https://players.brightcove.net/1752604059001/default_default/
 index.html?videoId=5625751316001&amp;<span class="bcls-highlight">adConfigId</span>=<span class="bcls-input">your ad config id</span>"
@@ -1236,7 +1236,7 @@ index.html?videoId=5625751316001&amp;<span class="bcls-highlight">adConfigId</sp
 	width="640"
 	height="360"&gt;&lt;/iframe&gt;</code></pre>
     <h4 id="Advanced_embed_code">Advanced embed code</h4>
-    <p>With the Advanced embed code, include the <code class="notranslate">data-ad-config-id</code> attribute with the value of your ad config id:</p>
+    <p>With the Advanced embed code, include the <code translate="No">data-ad-config-id</code> attribute with the value of your ad config id:</p>
     <pre class="line-numbers">
 <code class="notranslate language-javascript">&lt;video-js data-video-id="5625751316001"
   data-account="1752604059001"
@@ -1250,12 +1250,12 @@ index.html?videoId=5625751316001&amp;<span class="bcls-highlight">adConfigId</sp
   height="360"&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
     <h4 id="Using_the_catalog">Using the catalog</h4>
-    <p>You can use the <code class="notranslate">player catalog</code> to associate ads with your video. The catalog works by making two requests:</p>
+    <p>You can use the <code translate="No">player catalog</code> to associate ads with your video. The catalog works by making two requests:</p>
     <ol class="bcls-tasklist__restart">
       <li>Request video data from the player catalog. This will include a VMAP URL.</li>
       <li>The player source is set with the VMAP URL, triggering a request for a VMAP document from Dynamic Delivery. The player source is set again with a valid VMAP XML document.</li>
     </ol>
-    <p>When using the <code class="notranslate">catalog</code> with SSAI, append your ad configuration id to the <code class="notranslate">getVideo()</code> call to the Playback API as follows:</p>
+    <p>When using the <code translate="No">catalog</code> with SSAI, append your ad configuration id to the <code translate="No">getVideo()</code> call to the Playback API as follows:</p>
     <pre class="line-numbers">
 <code class="notranslate language-javascript"><span class="bcls-highlight">var adConfigId</span> = "<span class="bcls-input">your ad config id</span>";
 var myPlayer = videojs.getPlayer('myPlayerId');
@@ -1275,9 +1275,9 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
     <p>Another way to associate ads is to include your ad config id in your Brightcove Player configuration. To do this, you can use the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> as follows:</p>
     <ol class="bcls-tasklist__restart">
       <li>
-        <p>Use the <code class="notranslate">PATCH</code> command to include your <code class="notranslate">ad_config_id</code>. Here is an example of updating your player using cURL:</p>
+        <p>Use the <code translate="No">PATCH</code> command to include your <code translate="No">ad_config_id</code>. Here is an example of updating your player using cURL:</p>
         <pre class="line-numbers" data-start="1">
-<code class="notranslate language-json">curl \
+<code class="language-json" translate="No">curl \
   --header "Content-Type: application/json" \
   --user <span class="bcls-input">$EMAIL</span> \
   --request PATCH \
@@ -1290,7 +1290,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
       <li>
         <p>You can then publish your changes as follows:</p>
         <pre class="line-numbers" data-start="1">
-<code class="notranslate language-json">curl \
+<code class="language-json" translate="No">curl \
   --header "Content-Type: application/json" \
   --user <span class="bcls-input">$EMAIL</span> \
   --request POST \
@@ -1298,7 +1298,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
 </code></pre>
       </li>
       <li>
-        <p>Verify that the configuration for your Brightcove Player includes <code class="notranslate">ad_config_id</code> set to your config id value and the ssai plugin with the associated plugin files. To do this, follow these steps:</p>
+        <p>Verify that the configuration for your Brightcove Player includes <code translate="No">ad_config_id</code> set to your config id value and the ssai plugin with the associated plugin files. To do this, follow these steps:</p>
         <ol>
           <li>Navigate to your player in the Studio Players module. Click on the player name link to see details.</li>
           <li>Select the <strong>Embed Code &amp; URL</strong> (either Preview or Published will work). Click on the <strong>Player URL</strong> link.</li>
@@ -1306,7 +1306,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
         </ol>
         <p>Your player configuration should look similar to this:</p>
         <pre class="line-numbers">
-<code class="notranslate language-json">{
+<code class="language-json" translate="No">{
   "account_id": "1752604059001",
 <span class="bcls-highlight">  "ad_config_id": "d6190656-2095-4ff3-8afe-123abcde",</span>
   "compatibility": true,
@@ -1344,32 +1344,32 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
     <ul>
-      <li><code class="notranslate">debug</code>
+      <li><code translate="No">debug</code>
         <ul>
           <li>If true, sets up debug messages in contrib-ads and logs extra information in the presence of videojs-bc-analytics-logger.</li>
         </ul>
       </li>
-      <li><code class="notranslate">hideOverlays</code>
+      <li><code translate="No">hideOverlays</code>
         <ul>
           <li>If true, the countdown timer and <strong>Learn More</strong> click through overlays will not be shown while ads are playing.</li>
         </ul>
       </li>
-      <li><code class="notranslate">trackingBeacons</code>
+      <li><code translate="No">trackingBeacons</code>
         <ul>
           <li>If false, the tracking beacons parsed from the VMAP for ad view, impression, quartiles, etc. will not be sent.</li>
         </ul>
       </li>
-      <li><code class="notranslate">timeout</code>
+      <li><code translate="No">timeout</code>
         <ul>
           <li>The number of milliseconds after which an XHR to fetch a VMAP will time out.</li>
         </ul>
       </li>
-      <!-- <li><code class="notranslate">vmapXML</code>
+      <!-- <li><code translate="No">vmapXML</code>
 	<ul>
 		<li>Used to provide an initial VMAP XML document, which will be loaded into the player. See the <a href="#Using_the_src_method">Using the src() method</a> section.</li>
 	</ul>
 	</li>
-	<li><code class="notranslate">vmapURL</code>
+	<li><code translate="No">vmapURL</code>
 	<ul>
 		<li>Used to provide an initial URL to a VMAP, which will be fetched and loaded into the player. See the <a href="#Setting_from_a_URL">Setting from a URL</a> section.</li>
 	</ul>
@@ -1388,32 +1388,32 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td style="width: 20%;"><code class="notranslate">vjs-ssai</code></td>
+          <td style="width: 20%;"><code translate="No">vjs-ssai</code></td>
           <td>Indicates that the SSAI plugin has been instantiated, but is not necessarily enabled. This will be present even when not playing an SSAI source.</td>
         </tr>
         <tr>
-          <td><code class="notranslate">vjs-ssai-enabled</code></td>
+          <td><code translate="No">vjs-ssai-enabled</code></td>
           <td>The SSAI plugin is currently enabled. In other words, an SSAI source has been set on the player.</td>
         </tr>
         <tr>
-          <td><code class="notranslate">vjs-ssai-disabled</code></td>
+          <td><code translate="No">vjs-ssai-disabled</code></td>
           <td>The SSAI plugin is not currently enabled.</td>
         </tr>
         <tr>
-          <td><code class="notranslate">vjs-ssai-waiting</code></td>
+          <td><code translate="No">vjs-ssai-waiting</code></td>
           <td>The SSAI plugin is waiting for data or some other external process.</td>
         </tr>
         <tr>
-          <td><code class="notranslate">vjs-ssai-not-waiting</code></td>
+          <td><code translate="No">vjs-ssai-not-waiting</code></td>
           <td>The SSAI plugin is not waiting for anything.</td>
         </tr>
         <tr>
-          <td><code class="notranslate">vjs-ssai-hide-overlays</code></td>
-          <td>The <code class="notranslate">hideOverlays</code> option has been set to <strong>true</strong>.</td>
+          <td><code translate="No">vjs-ssai-hide-overlays</code></td>
+          <td>The <code translate="No">hideOverlays</code> option has been set to <strong>true</strong>.</td>
         </tr>
         <tr>
-          <td><code class="notranslate">vjs-ssai-show-overlays</code></td>
-          <td>The <code class="notranslate">showOverlays</code> option is set to <strong>true</strong>. This is the default.</td>
+          <td><code translate="No">vjs-ssai-show-overlays</code></td>
+          <td>The <code translate="No">showOverlays</code> option is set to <strong>true</strong>. This is the default.</td>
         </tr>
       </tbody>
     </table>

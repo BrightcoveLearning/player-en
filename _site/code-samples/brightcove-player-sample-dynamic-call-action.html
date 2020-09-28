@@ -1196,7 +1196,7 @@ https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscre
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Wait for <code class="notranslate">loadstart</code> event to be dispatched, the dynamically assemble an anchor tag.</li>
+      <li>Wait for <code translate="No">loadstart</code> event to be dispatched, the dynamically assemble an anchor tag.</li>
       <li>Use the anchor tag to display a CTA in the HTML page.</li>
       <li>Use the anchor tag to configure the overlay.</li>
       <li>Use the anchor tag to configure the custom endscreen.</li>
@@ -1207,14 +1207,14 @@ https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscre
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript notranslate">// ### Build dynamic anchor tag ###</code></pre>
-    <p>Once the <code class="notranslate">loadstart</code> event has fired, which you must wait for to have access to the <code class="notranslate">mediainfo</code> data, extract the link and associated text and dynamically build an anchor tag.</p>
+    <p>Once the <code translate="No">loadstart</code> event has fired, which you must wait for to have access to the <code translate="No">mediainfo</code> data, extract the link and associated text and dynamically build an anchor tag.</p>
     <!-- UPDATE task 2 -->
     
     <h3>Inject the dynamically build anchor tag into the HTML page</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript notranslate">// ### Inject dynamic HTML into p element ###</code></pre>
-    <p>Get a reference to the HTML paragraph element, then assign its <code class="notranslate">innerHTML</code> the dynamically built anchor tag.</p>
+    <p>Get a reference to the HTML paragraph element, then assign its <code translate="No">innerHTML</code> the dynamically built anchor tag.</p>
     <!-- UPDATE task 3 -->
     
     <h3>Configure the overlay</h3>
@@ -1245,7 +1245,7 @@ https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscre
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code class="notranslate">ready()</code> method with the code that defines a plugin.</p>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers">
 <code class="language-javascript notranslate">videojs.getPlayer('myPlayerID').ready(function() {

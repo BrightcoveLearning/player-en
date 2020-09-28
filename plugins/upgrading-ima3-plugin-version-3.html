@@ -30,7 +30,7 @@ parent: Plugins
         <p>For instance,</p>
         <pre class="line-numbers">
 <code class="language-javascript notranslate">http://example.com/ad/{pageVariable.adConf=1234}</code></pre>
-        <p>would resolve to the following if <code class="notranslate">window.adConf</code> is undefined:</p>
+        <p>would resolve to the following if <code translate="No">window.adConf</code> is undefined:</p>
         <pre class="line-numbers">
 http://example.com/ad/1234</pre>
       </li>
@@ -48,14 +48,14 @@ http://example.com/ad/1234</pre>
     <p>Following is a list of changes that may require integrations to be updated:</p>
     <ul>
       <li>You may want to test to make sure you were not depending on a timeout longer than what is specified in your configuration.</li>
-      <li>The <code class="notranslate">ended</code> events are no longer delayed by one second. If your integration responds to <code class="notranslate">ended</code> events, you should test that the integration continues to work as expected. Generally, this means that such integrations will perform better.</li>
-      <li>The <code class="notranslate">player.ads.state</code> property is now deprecated. Brightcove has seen it used in some integrations to check if the player is in ad mode, but it is generally done incorrectly. A better alternative is to use the <code class="notranslate">player.ads.isInAdMode()</code> method.</li>
-      <li>The <code class="notranslate">contentplayback</code> event has been removed. It is an implementation detail that is no longer needed, but we have found that some integrations use it. Use the <code class="notranslate">playing</code> event instead.</li>
-      <li>Beginning of ad playback is indicated by the <code class="notranslate">ads-ad-started</code> event, which fires exactly once when each ad begins. While the <code class="notranslate">adplaying</code> event will continue to be emitted, it may now be emitted multiple times per ad play, so Brightcove therefore recommends using the <code class="notranslate">ads-ad-started</code> event instead.</li>
+      <li>The <code translate="No">ended</code> events are no longer delayed by one second. If your integration responds to <code translate="No">ended</code> events, you should test that the integration continues to work as expected. Generally, this means that such integrations will perform better.</li>
+      <li>The <code translate="No">player.ads.state</code> property is now deprecated. Brightcove has seen it used in some integrations to check if the player is in ad mode, but it is generally done incorrectly. A better alternative is to use the <code translate="No">player.ads.isInAdMode()</code> method.</li>
+      <li>The <code translate="No">contentplayback</code> event has been removed. It is an implementation detail that is no longer needed, but we have found that some integrations use it. Use the <code translate="No">playing</code> event instead.</li>
+      <li>Beginning of ad playback is indicated by the <code translate="No">ads-ad-started</code> event, which fires exactly once when each ad begins. While the <code translate="No">adplaying</code> event will continue to be emitted, it may now be emitted multiple times per ad play, so Brightcove therefore recommends using the <code translate="No">ads-ad-started</code> event instead.</li>
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="Why_a_major_version_update?">Why a major version update?</h2>
-    <p>Although the changes may seem modest, several key aspects of the interface have changed, prompting a major version update. Specifically, the elimination of the <code class="notranslate">contentplayback</code> event, as well as the specific behavior of the <code class="notranslate">timeout</code> parameter. While these may seem minor, some integrations may depend on their particular behavior. Since even small changes can make a big difference in some customer implementations, Brightcove feels a major version increment was appropriate to indicate integrations should be thoroughly tested before use in production.</p>
+    <p>Although the changes may seem modest, several key aspects of the interface have changed, prompting a major version update. Specifically, the elimination of the <code translate="No">contentplayback</code> event, as well as the specific behavior of the <code translate="No">timeout</code> parameter. While these may seem minor, some integrations may depend on their particular behavior. Since even small changes can make a big difference in some customer implementations, Brightcove feels a major version increment was appropriate to indicate integrations should be thoroughly tested before use in production.</p>
   </section>
 </article>

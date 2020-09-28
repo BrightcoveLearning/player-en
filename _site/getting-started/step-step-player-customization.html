@@ -1095,11 +1095,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Using your HTML editor, create a new HTML page.</li>
       <li>Paste the publishing code into the body of your HTML page.</li>
       <li>Browse the newly created page.</li>
-      <li>Open your browser's development tools and drill down into the HTML to find the <code translate="No">&lt;video-js&gt;</code> tag. You will see the <code class="notranslate">&lt;video-js&gt;</code> tag has a class also named <code class="notranslate">video-js</code>. The <code class="notranslate">&lt;video-js&gt;</code> tag will always have a class of <code class="notranslate">video-js</code>. You will utilize the <code class="notranslate">video-js</code> class frequently when styling the player.</li>
+      <li>Open your browser's development tools and drill down into the HTML to find the <code translate="No">&lt;video-js&gt;</code> tag. You will see the <code translate="No">&lt;video-js&gt;</code> tag has a class also named <code translate="No">video-js</code>. The <code translate="No">&lt;video-js&gt;</code> tag will always have a class of <code translate="No">video-js</code>. You will utilize the <code translate="No">video-js</code> class frequently when styling the player.</li>
       <li>Check the screenshot below to see the class highlighted in red. Highlighted in green is the <code translate="No">&lt;video-js&gt;</code> tag, which is, of course, Brightcove Player.
         <figure class="bcls-figure"><img class="bcls-image" alt="player selectors" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/player-div-with-video.png" /></figure>
         <!-- <aside class="bcls-aside bcls-aside--information">
-	<p>Note: Depending on the operating system and browser being used, the Flash fallback version of the player may be displayed. If your player is using the Flash fallback version of the player, you will not see a <code class="notranslate">&lt;video-js&gt;</code> tag. Instead you will see the <code class="notranslate">&lt;div&gt;</code> surrounding an <code class="notranslate">&lt;object&gt;</code> tag, as highlighted below.</p>
+	<p>Note: Depending on the operating system and browser being used, the Flash fallback version of the player may be displayed. If your player is using the Flash fallback version of the player, you will not see a <code translate="No">&lt;video-js&gt;</code> tag. Instead you will see the <code translate="No">&lt;div&gt;</code> surrounding an <code translate="No">&lt;object&gt;</code> tag, as highlighted below.</p>
 	</aside>
 
 	<figure class="bcls-figure"><img class="bcls-image" alt="player div with object" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/player-div-with-object.png" /></figure> --></li>
@@ -1111,7 +1111,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist">
       <li>Browse your HTML page.</li>
       <li>Right click on the play button that overlays the player and select <strong>Inspect Element</strong>.</li>
-      <li>Note that the <code class="notranslate">&lt;div&gt;</code> tag that is highlighted represents the play button and has a class of <code class="notranslate">vjs-big-play-button</code>.
+      <li>Note that the <code translate="No">&lt;div&gt;</code> tag that is highlighted represents the play button and has a class of <code translate="No">vjs-big-play-button</code>.
         <figure class="bcls-figure"><img class="bcls-image" alt="big play button div" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/big-play-button-div.png" /></figure>
       </li>
       <li>Alter your styles to include CSS that changes the color and opacity of the play button.
@@ -1131,7 +1131,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <aside class="bcls-aside bcls-aside--information">Note: In Safari, the style may not be crossed out even though it is being overridden.</aside>
         <p>What has happened is that numerous changes are made to the background color. The style you set has been overridden in the "cascading" part of CSS. You can change this by utilizing functionality of CSS called <strong>specificity</strong>. Specificity determines which CSS rule is applied by browsers and is a type of weighting that has a bearing on how your cascading style sheet (CSS) rules are displayed. Using specificity, you can make your style more important than others, forcing it to be used. There is a brief introduction to CSS specificity in the <a href="/styling/customizing-player-appearance.html#CSS_specificity">Customize Player Appearance</a> doc, and numerous references in any search.</p>
       </li>
-      <li>In this case, using the <code class="notranslate">video-js</code> class will "boost" your styles to take precedence. Alter your styles to use the new combination selector. Note there is one space before the last class (details of why can be found in rules for specificity).
+      <li>In this case, using the <code translate="No">video-js</code> class will "boost" your styles to take precedence. Alter your styles to use the new combination selector. Note there is one space before the last class (details of why can be found in rules for specificity).
         <pre class="line-numbers">
 <code class="language-css notranslate">&lt;style&gt;
   .video-js .vjs-big-play-button {
@@ -1182,8 +1182,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
-    <p>This is a very common way to use CSS with an HTML page. You see the <code class="notranslate">&lt;style&gt;</code> block is on the page with the <code class="notranslate">&lt;video-js&gt;</code> tag.</p>
-    <p class="BCL-aside">Note: Depending upon your CSS experience, you may be wondering why the code above did not assign an <code class="notranslate">id</code> attribute to the <code class="notranslate">&lt;video-js&gt;</code> tag. You could then use a selector like <code class="notranslate">#myPlayer .vjs-big-play-button</code>. In fact, you could have and it would have worked. The problem is, the CSS created using id selectors will not work when using the iframe player implementation, so only existing class names were used. By not using an <code class="notranslate">id</code> attribute, the styles will be directly applicable to iframe player implementations.</p>
+    <p>This is a very common way to use CSS with an HTML page. You see the <code translate="No">&lt;style&gt;</code> block is on the page with the <code translate="No">&lt;video-js&gt;</code> tag.</p>
+    <p class="BCL-aside">Note: Depending upon your CSS experience, you may be wondering why the code above did not assign an <code translate="No">id</code> attribute to the <code translate="No">&lt;video-js&gt;</code> tag. You could then use a selector like <code translate="No">#myPlayer .vjs-big-play-button</code>. In fact, you could have and it would have worked. The problem is, the CSS created using id selectors will not work when using the iframe player implementation, so only existing class names were used. By not using an <code translate="No">id</code> attribute, the styles will be directly applicable to iframe player implementations.</p>
   </section>
   <section id="iframe" class="bcls-section">
     <h2>Standard code implementation</h2>
@@ -1226,7 +1226,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>Browse the page and you will see the styles for the button are NOT being used.</li>
       <li>Create a file named <strong>customize-qs.css</strong> and save it in an Internet accessible location.</li>
-      <li>Cut the styles for the button and paste them into the file and save it. Cut only the styles for the button, you cannot include the <code class="notranslate">&lt;style&gt;</code> tags. The file should contain only this content:
+      <li>Cut the styles for the button and paste them into the file and save it. Cut only the styles for the button, you cannot include the <code translate="No">&lt;style&gt;</code> tags. The file should contain only this content:
         <pre class="line-numbers">
 <code class="language-css notranslate">.video-js .vjs-big-play-button {
   background-color: red;
@@ -1268,7 +1268,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section id="explorestyles" class="bcls-section">
     <h2>Explore styles</h2>
     <p>In this section a CodePen is used to allow you to explore styles and make more customizations to the big play button than what is shown above. Once you get a look you like, you can simply copy the CSS generated and use it with either player implementation as shown above.</p>
-    <p>One issue that may seem confusing is that the actual arrow in the button is not an image but part of a font family. That is why you control its size using <code class="notranslate">font-size</code> and use <code class="notranslate">ems</code> as units.</p>
+    <p>One issue that may seem confusing is that the actual arrow in the button is not an image but part of a font family. That is why you control its size using <code translate="No">font-size</code> and use <code translate="No">ems</code> as units.</p>
     <p data-height="414" data-theme-id="14832" data-slug-hash="KVVNLX" data-default-tab="result" data-user="mboles" class="codepen">See the Pen <a href="http://codepen.io/mboles/pen/KVVNLX/">5.x Big Play Button Customization</a> by Matt Boles (<a href="http://codepen.io/mboles">@mboles</a>) on <a href="http://codepen.io">CodePen</a>.</p>
     <script async src="//assets.codepen.io/assets/embed/ei.js"></script></section>
 </article>

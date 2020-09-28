@@ -1084,10 +1084,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>Create a file to contain your JavaScript plugin code</li>
       <li>Create a file to contain your CSS plugin code (if needed)</li>
-      <li>Create an HTML file for testing. Use the <code class="notranslate">embed_in_page</code> implementation for the player</li>
-      <li>Add an <code class="notranslate">id</code> to the <code class="notranslate">&lt;video-js&gt;</code> tag</li>
+      <li>Create an HTML file for testing. Use the <code translate="No">embed_in_page</code> implementation for the player</li>
+      <li>Add an <code translate="No">id</code> to the <code translate="No">&lt;video-js&gt;</code> tag</li>
       <li>Link to the JavaScript and CSS pages</li>
-      <li>Use a <code class="notranslate">&lt;script&gt;</code> tag to call the function</li>
+      <li>Use a <code translate="No">&lt;script&gt;</code> tag to call the function</li>
       <li>Develop and debug your code</li>
     </ul>
     <p>The rest of this document guides you through these steps to build and deploy a simple plugin.</p>
@@ -1096,7 +1096,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Build the basics</h2>
     <p>To begin the process of building a plugin, you need to perform some of the foundational, high-level steps mentioned above.</p>
     <ol class="bcls-tasklist">
-      <li>Create a folder named <code class="notranslate">plugin-dev</code> that can be browsed using an actual HTTP server. The server is necessary for the iframe implementation testing later in this document.</li>
+      <li>Create a folder named <code translate="No">plugin-dev</code> that can be browsed using an actual HTTP server. The server is necessary for the iframe implementation testing later in this document.</li>
       <li>In the folder, create three files with the following names:
         <ul>
           <li><strong class="notranslate">plugin-dev.html</strong> (Insert the basic elements for an HTML page into the file)</li>
@@ -1107,10 +1107,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Using Studio's <strong class="notranslate">Players</strong> module, create a new player.</li>
       <li class="video-cloud-only">In the <strong class="notranslate">Media</strong> module, select a video and publish it with the newly created player.</li>
       <li class="player-only">Using the <strong class="notranslate">VIDEO CONTENT</strong> section, associate a video with the player, then save and publish the player.</li>
-      <li class="video-cloud-only">Copy the <strong class="notranslate">Advanced</strong> code and paste into the body of the <code class="notranslate">plugin-dev.html</code> page.</li>
-      <li class="player-only">From the <strong class="notranslate">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong class="notranslate">Advanced Embed Code</strong> code and paste into the body of the <code class="notranslate">plugin-dev.html</code> page.</li>
-      <li>Add an <code class="notranslate">id</code> attribute to the <code class="notranslate">&lt;video-js&gt;</code> tag with a value of <code class="notranslate">player</code>.</li>
-      <li>Check to be sure your HTML page appears similar to the following <span class="player-only">(Brightcove Player customers will not have a <code class="notranslate">data-video-id</code> property)</span>:
+      <li class="video-cloud-only">Copy the <strong class="notranslate">Advanced</strong> code and paste into the body of the <code translate="No">plugin-dev.html</code> page.</li>
+      <li class="player-only">From the <strong class="notranslate">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong class="notranslate">Advanced Embed Code</strong> code and paste into the body of the <code translate="No">plugin-dev.html</code> page.</li>
+      <li>Add an <code translate="No">id</code> attribute to the <code translate="No">&lt;video-js&gt;</code> tag with a value of <code translate="No">player</code>.</li>
+      <li>Check to be sure your HTML page appears similar to the following <span class="player-only">(Brightcove Player customers will not have a <code translate="No">data-video-id</code> property)</span>:
         <pre class="line-numbers">
 <code class="language-html notranslate">&lt;!doctype html&gt;
 &lt;html&gt;
@@ -1139,7 +1139,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Create JavaScript</h2>
     <p>Next you will create and test the JavaScript code to build an overlay for the video.</p>
     <ol class="bcls-tasklist">
-      <li>Open the file <code class="notranslate">plugin-dev.js</code> and paste in the following JavaScript code:
+      <li>Open the file <code translate="No">plugin-dev.js</code> and paste in the following JavaScript code:
         <pre class="line-numbers">
 <code class="language-javascript notranslate">videojs.registerPlugin('pluginDev', function() {
   var player = this,
@@ -1148,26 +1148,26 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   overlay.innerHTML = "Becoming a plugin developer";
   player.el().appendChild(overlay);
 });</code></pre>
-        <aside class="bcls-aside bcls-aside--information">Note: for version 5.x and earlier players, you must use <code class="notranslate">videojs.plugin()</code> instead of <code class="notranslate">videojs.registerPlugin()</code></aside>
+        <aside class="bcls-aside bcls-aside--information">Note: for version 5.x and earlier players, you must use <code translate="No">videojs.plugin()</code> instead of <code translate="No">videojs.registerPlugin()</code></aside>
       </li>
       <li>Check your understanding of each line inserted:
         <ul>
-          <li>Lines 1 and 7 are the standard syntax to begin and end a new player plugin. In this case, the plugin name is <code class="notranslate">pluginDev</code>.</li>
+          <li>Lines 1 and 7 are the standard syntax to begin and end a new player plugin. In this case, the plugin name is <code translate="No">pluginDev</code>.</li>
           <li>Line 2 is a standard way to have a way to get a handle to the player. This is necessary to call methods of the player, which you will do later.</li>
-          <li>Line 3 creates a paragraph element in the document and assigns it to the <code class="notranslate">overlay</code> variable.</li>
+          <li>Line 3 creates a paragraph element in the document and assigns it to the <code translate="No">overlay</code> variable.</li>
           <li>Line 4 assigns a class to the overlay which will be used later in conjunction with CSS.</li>
           <li>Line 5 adds text to the paragraph element.</li>
-          <li>Line 6 uses the <code class="notranslate">el()</code> method of the player to retrieve the player's DOM element, then appends the new paragraph element to that DOM.</li>
+          <li>Line 6 uses the <code translate="No">el()</code> method of the player to retrieve the player's DOM element, then appends the new paragraph element to that DOM.</li>
         </ul>
         <aside class="bcls-aside bcls-aside--information">Note: The trailing semicolon at the end of the plugin's JavaScript code (line 7 above) is required.</aside>
       </li>
-      <li>In the HTML file, add the following code just below the existing <code class="notranslate">&lt;script&gt;</code> tags. This code includes the JavaScript file and then calls the method defined in that JavaScript.
+      <li>In the HTML file, add the following code just below the existing <code translate="No">&lt;script&gt;</code> tags. This code includes the JavaScript file and then calls the method defined in that JavaScript.
         <pre class="line-numbers">
 <code class="language-html notranslate">&lt;script type="text/javascript" src="plugin-dev.js"&gt;&lt;/script&gt;
 &lt;script&gt;videojs.getPlayer('myPlayerID').pluginDev();&lt;/script&gt;</code></pre>
       </li>
       <li>Browse the HTML page again, and you will see nothing visible has changed. The problem is that the overlay is there, but not visible. You will change this later.</li>
-      <li>To verify the overlay is present, use the development tools of your browser. In the <em>Elements</em> section, check the player's <code class="notranslate">&lt;div&gt;</code> element, and you will see the newly inserted paragraph element, as shown here:
+      <li>To verify the overlay is present, use the development tools of your browser. In the <em>Elements</em> section, check the player's <code translate="No">&lt;div&gt;</code> element, and you will see the newly inserted paragraph element, as shown here:
         <figure class="bcls-figure"><img class="bcls-image" alt="quick-start-overlay-in-elements" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/qs-plugin-dev/quick-start-overlay-in-elements.png" /></figure>
       </li>
     </ol>
@@ -1176,7 +1176,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2>Style the plugin</h2>
     <p>You know the overlay is now part of the player, but not visible. Next you will style the overlay so it becomes visible. In this section of the document, you will use a very simple CSS to ensure the overlay is visible.</p>
     <ol class="bcls-tasklist">
-      <li>Open the file <code class="notranslate">plugin-dev.css</code> and paste in the following styles:
+      <li>Open the file <code translate="No">plugin-dev.css</code> and paste in the following styles:
         <pre class="line-numbers">
 <code class="language-javascript notranslate">.vjs-overlay {
     background-color: #333333;
@@ -1186,7 +1186,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     margin-left: 20px;
 }</code></pre>
       </li>
-      <li>In the HTML file, add the following code just below the existing <code class="notranslate">&lt;link&gt;</code> tag. This code links to your newly created CSS file.
+      <li>In the HTML file, add the following code just below the existing <code translate="No">&lt;link&gt;</code> tag. This code links to your newly created CSS file.
         <pre class="line-numbers">
 <code class="language-html notranslate">&lt;link href="plugin-dev.css" rel="stylesheet"&gt;</code></pre>
       </li>
@@ -1197,9 +1197,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section id="passdatatoplugin" class="bcls-section">
     <h2>Pass data to the plugin</h2>
-    <p>It will often be the case that you want to change the behavior of your plugin at initialization time. This is possible by passing data into the plugin using the <code class="notranslate">options</code> property. In this example you will pass in the text to be displayed in the overlay.</p>
+    <p>It will often be the case that you want to change the behavior of your plugin at initialization time. This is possible by passing data into the plugin using the <code translate="No">options</code> property. In this example you will pass in the text to be displayed in the overlay.</p>
     <ol class="bcls-tasklist">
-      <li>Open the HTML page and alter the <code class="notranslate">&lt;script&gt;</code> tags so a variable named <code class="notranslate">options</code> is created and assigned an object with a key-value pair of <em>"overlayText":"This data is supplied at initialization"</em>. Also, pass the <code class="notranslate">options</code> variable as an argument when calling the <code class="notranslate">pluginDev()</code> method. The changes should appear as follows:
+      <li>Open the HTML page and alter the <code translate="No">&lt;script&gt;</code> tags so a variable named <code translate="No">options</code> is created and assigned an object with a key-value pair of <em>"overlayText":"This data is supplied at initialization"</em>. Also, pass the <code translate="No">options</code> variable as an argument when calling the <code translate="No">pluginDev()</code> method. The changes should appear as follows:
         <pre class="line-numbers">
 <code class="language-html notranslate">&lt;script type="text/javascript" src="plugin-dev-copy.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
@@ -1237,18 +1237,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Move your plugin JavaScript and CSS files to an Internet accessible location of your choice.
         <aside class="bcls-aside bcls-aside--information">If you choose, you can use the files at the location shown below in the example. You could also use the <a href="https://apis.support.brightcove.com/delivery-system/">Delivery System API</a> to store the files in your own repo.</aside>
       </li>
-      <li>In the folder in which you are working, create another file called <code class="notranslate">plugin-dev-iframe.html</code>.</li>
+      <li>In the folder in which you are working, create another file called <code translate="No">plugin-dev-iframe.html</code>.</li>
       <li>Use Studio's <strong class="notranslate">Players</strong> module to edit the player you created earlier.</li>
       <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
       <li>Next click <strong>Add a Plugin</strong>.</li>
       <li>For the <strong>Plugin Name</strong> enter <code translate="No">pluginDev</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter (or your URL):
         <pre>
- <code class="notranslate language-json">https://solutions.brightcove.com/bcls/brightcove-player/plugins/plugin-dev.js</code></pre>
+ <code class="language-json" translate="No">https://solutions.brightcove.com/bcls/brightcove-player/plugins/plugin-dev.js</code></pre>
       </li>
       <li>For the <strong>CSS</strong> URL, enter (or your URL):
         <pre>
- <code class="notranslate language-json">https://solutions.brightcove.com/bcls/brightcove-player/plugins/plugin-dev.css</code></pre>
+ <code class="language-json" translate="No">https://solutions.brightcove.com/bcls/brightcove-player/plugins/plugin-dev.css</code></pre>
       </li>
       <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box.
         <pre class="line-numbers">
@@ -1261,8 +1261,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
       <li>To close the open dialog, click <strong>Close</strong>.</li>
       <li class="video-cloud-only">In the <strong class="notranslate">Media</strong> module, select a video and publish it with the newly updated and published player.</li>
-      <li class="video-cloud-only">Copy the <strong class="notranslate">Standard</strong> code and paste into the body of the <code class="notranslate">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:</li>
-      <li class="player-only">From the <strong class="notranslate">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong class="notranslate">Standard Embed Code</strong> code and paste into the body of the <code class="notranslate">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:
+      <li class="video-cloud-only">Copy the <strong class="notranslate">Standard</strong> code and paste into the body of the <code translate="No">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:</li>
+      <li class="player-only">From the <strong class="notranslate">Embed Code &amp; URL &gt; Published Player</strong> menu, copy the <strong class="notranslate">Standard Embed Code</strong> code and paste into the body of the <code translate="No">plugin-dev-iframe.html</code> page. Your page should appear similar to the following:
         <pre class="line-numbers">
 <code class="language-html notranslate">&lt;!doctype html&gt;
 &lt;html&gt;

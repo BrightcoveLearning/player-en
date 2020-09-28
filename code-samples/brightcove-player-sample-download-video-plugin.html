@@ -101,14 +101,14 @@ parent: Code Samples
             </thead>
             <tbody class="bcls-table__body">
                 <tr>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on"><code class="notranslate">on()</code></a></td>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:loadstart"><code class="notranslate">loadstart</code></a></td>
-                    <td><a href="/references/video-metadata-mediainfo.html"><code class="notranslate">player.mediainfo</code></a></td>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on"><code translate="No">on()</code></a></td>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:loadstart"><code translate="No">loadstart</code></a></td>
+                    <td><a href="/references/video-metadata-mediainfo.html"><code translate="No">player.mediainfo</code></a></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/CustomControlSpacer.html"><code class="notranslate">player.controlBar.customControlSpacer</code></a></td>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/CustomControlSpacer.html"><code translate="No">player.controlBar.customControlSpacer</code></a></td>
                 </tr>
             </tbody>
         </table>
@@ -131,9 +131,9 @@ parent: Code Samples
         <ul>
             <li>Get video name and extract the MP4 renditions from the video sources array.</li>
             <li>Loop over all the video renditions and extract the MP4 versions.</li>
-            <li>Sort the MP4 array on the <code class="notranslate">size</code> attribute, largest to smallest.</li>
+            <li>Sort the MP4 array on the <code translate="No">size</code> attribute, largest to smallest.</li>
             <li>Assign the largest video to a variable.</li>
-            <li>Create a clickable image that downloads the video inside an HTML <code class="notranslate">div</code> element.</li>
+            <li>Create a clickable image that downloads the video inside an HTML <code translate="No">div</code> element.</li>
             <li>Place the download video image element in the DOM.</li>
         </ul>
         <!-- UPDATE task 1 -->
@@ -142,14 +142,14 @@ parent: Code Samples
         <p>Find the code which is labeled:</p>
         <pre>
 <code class="language-javascript notranslate">// ### Get video name and the MP4 renditions ###</code></pre>
-        <p>First the <code class="notranslate">videoName</code> variable is assigned the name of the video&nbsp;(with spaces removed) for use in the HTML anchor tag dynamically built later in the code. Next the <code class="notranslate">renditionsAra</code> variable is assigned all the possible renditions for the video.</p>
+        <p>First the <code translate="No">videoName</code> variable is assigned the name of the video&nbsp;(with spaces removed) for use in the HTML anchor tag dynamically built later in the code. Next the <code translate="No">renditionsAra</code> variable is assigned all the possible renditions for the video.</p>
         <!-- UPDATE task 2 -->
 
         <h3>Loop over all the video renditions and extract the MP4 versions</h3>
         <p>Find the code which is labeled:</p>
         <pre>
 <code class="language-javascript notranslate">// ### Loop over videos and extract only MP4 versions ###</code></pre>
-        <p>Loop over the array and assign to the <code class="notranslate">mp4Ara</code> variable renditions where the <code class="notranslate">container</code> is <strong>MP4</strong>, AND the rendition has a <code class="notranslate">src</code> property. The MP4 renditions appear twice in the <code class="notranslate">sources</code> array, once with a <code class="notranslate">src</code> property and once with a <code class="notranslate">stream_name</code> property. The first is for progressive download and the second for streaming.</p>
+        <p>Loop over the array and assign to the <code translate="No">mp4Ara</code> variable renditions where the <code translate="No">container</code> is <strong>MP4</strong>, AND the rendition has a <code translate="No">src</code> property. The MP4 renditions appear twice in the <code translate="No">sources</code> array, once with a <code translate="No">src</code> property and once with a <code translate="No">stream_name</code> property. The first is for progressive download and the second for streaming.</p>
         <p>The following screenshots show the console displaying all renditions and then the filtered renditions showing on MP4 renditions.</p>
         <figure class="bcls-figure"><img class="bcls-image" alt="All renditions" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/download-button/console-all-renditions.png" />
             <figcaption class="bcls-caption--image">All renditions</figcaption>
@@ -159,25 +159,25 @@ parent: Code Samples
         </figure>
         <!-- UPDATE task 3 -->
 
-        <h3>Sort the MP4 array on the <code class="notranslate">size</code> attribute, largest to smallest</h3>
+        <h3>Sort the MP4 array on the <code translate="No">size</code> attribute, largest to smallest</h3>
         <p>Find the code which is labeled:</p>
         <pre>
 <code class="language-javascript notranslate">// ### Sort the renditions from highest to lowest on size ###</code></pre>
-        <p>Sort the <code class="notranslate">mp4Ara</code> using JavaScript's <code class="notranslate">sort()</code> method</p>
+        <p>Sort the <code translate="No">mp4Ara</code> using JavaScript's <code translate="No">sort()</code> method</p>
         <!-- UPDATE task 3 -->
 
         <h3>Assign the largest video to a variable</h3>
         <p>Find the code which is labeled:</p>
         <pre>
 <code class="language-javascript notranslate">// ### Extract the highest rendition ###</code></pre>
-        <p>Assign the <code class="notranslate">highestQuality</code> variable the zeroth index value from the sorted MP4 renditions array.</p>
+        <p>Assign the <code translate="No">highestQuality</code> variable the zeroth index value from the sorted MP4 renditions array.</p>
         <!-- UPDATE task 3 -->
 
-        <h3>Create an element that contains an clickable image inside an HTML <code class="notranslate">div</code> element</h3>
+        <h3>Create an element that contains an clickable image inside an HTML <code translate="No">div</code> element</h3>
         <p>Find the code which is labeled:</p>
         <pre>
 <code class="language-javascript notranslate">// ### Build the download image element ###</code></pre>
-        <p>At the top of the JavaScript code HTML <code class="notranslate">div</code> and <code class="notranslate">img</code> elements are created and stored in variables. Those elements are then manipulated to dynamically build an HTML element that functions as a download button. An example of how the dynamically created element might appear follows:</p>
+        <p>At the top of the JavaScript code HTML <code translate="No">div</code> and <code translate="No">img</code> elements are created and stored in variables. Those elements are then manipulated to dynamically build an HTML element that functions as a download button. An example of how the dynamically created element might appear follows:</p>
         <figure class="bcls-figure"><img class="bcls-image" alt="dynamically built download element" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/download-button/download-element.png" /></figure>
         <!-- UPDATE task 3 -->
 
@@ -195,7 +195,7 @@ parent: Code Samples
     </section>
     <section class="bcls-section">
         <h2 id="Plugin_code">Plugin code</h2>
-        <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code class="notranslate">ready()</code> method with the code that defines a plugin.</p>
+        <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
         <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
         <pre class="line-numbers">
 <code class="language-javascript notranslate">videojs.getPlayer('myPlayerID').ready(function() {
@@ -253,7 +253,7 @@ myPlayer.el().appendChild(overlay);</code></pre>
     <section class="bcls-section">
         <h2 id="HTML_page_implementation">HTML page implementation</h2>
         <p>To replace the icon in the control bar, and define a location in your HTML page for a download link, you need to make a few changes.</p>
-        <aside class="bcls-aside bcls-aside--warning">Note: This implementation will NOT work as a plugin when using the iframe player implementation. This is because the <code class="notranslate">&lt;p&gt;</code> tag set as the insertion point is external to the player code, and thus not reachable by the plugin, whose context is the player which is in the iframe.</aside>
+        <aside class="bcls-aside bcls-aside--warning">Note: This implementation will NOT work as a plugin when using the iframe player implementation. This is because the <code translate="No">&lt;p&gt;</code> tag set as the insertion point is external to the player code, and thus not reachable by the plugin, whose context is the player which is in the iframe.</aside>
         <p>First, in your HTML page determine where you wish to insert the link and place the following HTML there.</p>
         <pre class="line-numbers" data-start="1">
 <code class="language-html notranslate">&lt;p id="insertionPoint"&gt;&lt;/p&gt;</code></pre>

@@ -15,7 +15,7 @@ parent: Plugins
     <p>You will need to set a width and height for the player for two reasons:</p>
     <ol>
       <li>If no width or height are set there will be no values to pass to Twitter, which will cause the Twitter card not to validate.</li>
-      <li>The width needs to be wide enough to accommodate the social plugin's interface as shown in the screenshot above. You can also have the interface automatically appear on video end using the <code class="notranslate">displayAfterVideo </code> property, documented below.</li>
+      <li>The width needs to be wide enough to accommodate the social plugin's interface as shown in the screenshot above. You can also have the interface automatically appear on video end using the <code translate="No">displayAfterVideo </code> property, documented below.</li>
     </ol>
     <aside class="bcls-aside bcls-aside--tip">
       <p>Note: In Studio, there is an option to add social sharing to your player and in many cases will be sufficient for your needs. This document covers all aspects of using the social media plugin. The following screenshot pictures Studio's UI.</p>
@@ -93,11 +93,11 @@ parent: Plugins
       <li>For the <strong>Plugin Name</strong> enter <code translate="No">social</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter:
         <pre>
-		<code class="notranslate language-json">https://players.brightcove.net/videojs-social/3/videojs-social.min.js</code></pre>
+		<code class="language-json" translate="No">https://players.brightcove.net/videojs-social/3/videojs-social.min.js</code></pre>
       </li>
       <li>For the <strong>CSS</strong> URL, enter:
         <pre>
-		<code class="notranslate language-json">https://players.brightcove.net/videojs-social/3/videojs-social.css</code></pre>
+		<code class="language-json" translate="No">https://players.brightcove.net/videojs-social/3/videojs-social.css</code></pre>
       </li>
       <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box. In this example, the options do the following:
         <ul>
@@ -134,7 +134,7 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="Properties">Properties</h2>
-    <p>For plugins in general, the <code class="notranslate">options </code> object is used to pass data to the plugin to customize initialization. In this case, you can use the following properties in this object:</p>
+    <p>For plugins in general, the <code translate="No">options </code> object is used to pass data to the plugin to customize initialization. In this case, you can use the following properties in this object:</p>
     <h3>title</h3>
     <ul>
       <li>Type: string</li>
@@ -161,19 +161,19 @@ parent: Plugins
     <h3>removeEmbed</h3>
     <ul>
       <li>Type: boolean</li>
-      <li>Default: <code class="notranslate">false </code></li>
-      <li>If set to <code class="notranslate">true</code>, turns off (hides) the iframe embed code</li>
+      <li>Default: <code translate="No">false </code></li>
+      <li>If set to <code translate="No">true</code>, turns off (hides) the iframe embed code</li>
     </ul>
     <h3>displayAfterVideo</h3>
     <ul>
       <li>Type: boolean</li>
-      <li>Default: <code class="notranslate">false </code></li>
-      <li>Causes the social screen to automatically show on an <code class="notranslate">ended </code> event</li>
+      <li>Default: <code translate="No">false </code></li>
+      <li>Causes the social screen to automatically show on an <code translate="No">ended </code> event</li>
     </ul>
     <h3>deeplinking</h3>
     <ul>
       <li>Type: boolean</li>
-      <li>Default: <code class="notranslate">false </code></li>
+      <li>Default: <code translate="No">false </code></li>
       <li>
         <p>This enables/disables deep linking for the shared video. This feature allows a user to start viewing a video from a specific offset. For more details, view the <a href="https://studio.support.brightcove.com/publish/deep-linking.html">Deep Linking</a> document.</p>
         <aside class="bcls-aside bcls-aside--warning">Note: The deep linking feature currently only works with Twitter.</aside>
@@ -182,44 +182,44 @@ parent: Plugins
     <h3>offset</h3>
     <ul>
       <li>Type: string</li>
-      <li>Format: <code class="notranslate">00h00m00s </code></li>
-      <li>This is used with the <code class="notranslate">deeplinking </code> property and defines when to start playing the video. To offset 1 minute and 5 seconds, you would write: <code class="notranslate">00h01m05s </code></li>
+      <li>Format: <code translate="No">00h00m00s </code></li>
+      <li>This is used with the <code translate="No">deeplinking </code> property and defines when to start playing the video. To offset 1 minute and 5 seconds, you would write: <code translate="No">00h01m05s </code></li>
     </ul>
     <h3>services</h3>
     <p>Include all service properties in this object. To enable or disable support for a service, set the property value to true or false instead of removing them.</p>
     <ul>
-      <li><code class="notranslate">facebook </code>
+      <li><code translate="No">facebook </code>
         <ul>
           <li>Type: boolean</li>
-          <li>Default: <code class="notranslate">true </code></li>
+          <li>Default: <code translate="No">true </code></li>
           <li>This enables the Facebook sharing icon.</li>
         </ul>
       </li>
-      <li><code class="notranslate">twitter </code>
+      <li><code translate="No">twitter </code>
         <ul>
           <li>Type: boolean</li>
-          <li>Default: <code class="notranslate">true </code></li>
+          <li>Default: <code translate="No">true </code></li>
           <li>This enables the Twitter sharing icon.</li>
         </ul>
       </li>
-      <li><code class="notranslate">tumblr </code>
+      <li><code translate="No">tumblr </code>
         <ul>
           <li>Type: boolean</li>
-          <li>Default: <code class="notranslate">true </code></li>
+          <li>Default: <code translate="No">true </code></li>
           <li>This enables the Tumblr sharing icon.</li>
         </ul>
       </li>
-      <li><code class="notranslate">pinterest </code>
+      <li><code translate="No">pinterest </code>
         <ul>
           <li>Type: boolean</li>
-          <li>Default: <code class="notranslate">true </code></li>
+          <li>Default: <code translate="No">true </code></li>
           <li>This enables the Pinterest sharing icon.</li>
         </ul>
       </li>
-      <li><code class="notranslate">linkedin </code>
+      <li><code translate="No">linkedin </code>
         <ul>
           <li>Type: boolean</li>
-          <li>Default: <code class="notranslate">true </code></li>
+          <li>Default: <code translate="No">true </code></li>
           <li>This enables the LinkedIn sharing icon.</li>
         </ul>
       </li>
@@ -227,12 +227,12 @@ parent: Plugins
     <h3>buttonParent</h3>
     <ul>
       <li>Type: text</li>
-      <li>Default: <code class="notranslate">shelf </code></li>
+      <li>Default: <code translate="No">shelf </code></li>
       <li>Determines where the sharing icon should be located. If set to <strong>shelf</strong>, the default, the sharing icon appears in the dock. If the value is set to <strong>controlBar</strong>, the sharing icon will appear in the controlbar.</li>
     </ul>
     <p>Example:</p>
     <pre class="line-numbers">
-	<code class="notranslate language-json">{
+	<code class="language-json" translate="No">{
 		"services": {
 			"linkedin": true,
 			"pinterest": true,
@@ -251,33 +251,33 @@ parent: Plugins
   <section class="bcls-section">
     <h2 id="Getter_and_setter_configuration_methods">Getter and setter configuration methods</h2>
     <p>There are a number of methods available to both set and retrieve configuration options. All of the methods are associated with the <strong>SocialOverlay</strong> component, which extends the <strong>videojs.ModalDialog</strong> class. (Information on this class can be found in the <a href="/general/implementing-modaldialog.html">Implementing the ModalDialog</a> document.)</p>
-    <p>When the social plugin is initialized, an instance of the <strong>SocialOverlay</strong> component becomes available at <code class="notranslate">player.socialOverlay </code>. The general format for using the getter and setter methods is as follows:</p>
+    <p>When the social plugin is initialized, an instance of the <strong>SocialOverlay</strong> component becomes available at <code translate="No">player.socialOverlay </code>. The general format for using the getter and setter methods is as follows:</p>
     <pre>
 	<code class="notranslate language-javascript">player.socialOverlay.methodName()</code></pre>
     <h3>setDirectLink(string)</h3>
     <ul>
-      <li>Usage: <code class="notranslate">player.socialOverlay.setDirectLink(string) </code></li>
+      <li>Usage: <code translate="No">player.socialOverlay.setDirectLink(string) </code></li>
       <li>Purpose: Updates the URL used by the social overlay. Setting the value to the empty string ('') causes the URL to be determined on demand.</li>
     </ul>
     <h3>getDirectLink()</h3>
     <ul>
-      <li>Usage: <code class="notranslate">player.socialOverlay.getDirectLink() </code></li>
+      <li>Usage: <code translate="No">player.socialOverlay.getDirectLink() </code></li>
       <li>Purpose: Returns the URL used by the social overlay.</li>
     </ul>
     <h3>setEmbedCode(string)</h3>
     <ul>
-      <li>Usage: <code class="notranslate">player.socialOverlay.setEmbedCode(string) </code></li>
+      <li>Usage: <code translate="No">player.socialOverlay.setEmbedCode(string) </code></li>
       <li>Purpose: Updates the embed code used by the social overlay.</li>
     </ul>
     <h3 id="getembedcode">getEmbedCode()</h3>
     <ul>
-      <li>Usage: <code class="notranslate">player.socialOverlay.getEmbedCode() </code></li>
+      <li>Usage: <code translate="No">player.socialOverlay.getEmbedCode() </code></li>
       <li>Purpose: Gets the embed code used by the social overlay.</li>
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="SocialButton">SocialButton</h2>
-    <p>When the social plugin is initialized, an instance of the <strong>SocialButton</strong> component becomes available at <code class="notranslate">player.socialButton </code>. This component extends the <strong>videojs.Button</strong> class.</p>
+    <p>When the social plugin is initialized, an instance of the <strong>SocialButton</strong> component becomes available at <code translate="No">player.socialButton </code>. This component extends the <strong>videojs.Button</strong> class.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Generate_meta_tags">Generate meta tags</h2>
@@ -371,7 +371,7 @@ parent: Plugins
     </div>
     &nbsp;
     <ol class="bcls-tasklist">
-      <li>Press the <strong>Select the code</strong> button. Then, copy and paste the selected code into the <code class="notranslate">&lt;head&gt; </code> section of your HTML player page.</li>
+      <li>Press the <strong>Select the code</strong> button. Then, copy and paste the selected code into the <code translate="No">&lt;head&gt; </code> section of your HTML player page.</li>
     </ol>
     <h4>The Generated Social Sharing Meta Tags</h4>
     <!-- <fieldset>
@@ -392,7 +392,7 @@ parent: Plugins
     <ol class="bcls-tasklist">
       <li>Save your changes. You are now ready to use the social media sharing interface with your player.</li>
     </ol>
-    <aside class="bcls-aside bcls-aside--tip">You will want to provide a secure URL value for your HTML player page ( <code class="notranslate">&lt;meta property="og:video:secure_url" content=""/&gt; </code>) for Facebook users that use secure browsing (HTTPS).</aside>
+    <aside class="bcls-aside bcls-aside--tip">You will want to provide a secure URL value for your HTML player page ( <code translate="No">&lt;meta property="og:video:secure_url" content=""/&gt; </code>) for Facebook users that use secure browsing (HTTPS).</aside>
     <!-- script for the social meta tag generator form - calls playback api --> <script src="https://solutions.brightcove.com/bcls/brightcove-player/social-plugin/social.js">
 			</script></section>
   <section class="bcls-section">
@@ -537,7 +537,7 @@ parent: Plugins
         <li>Save your changes and publish your player.</li>
         <li>Once you have generated your <a href="#Generate_meta_tags">social meta tags</a>, update them as follows:
           <ul>
-            <li>Lines 64-67: define the Twitter card type as <code class="notranslate">player </code>, your Twitter site, the title and description.</li>
+            <li>Lines 64-67: define the Twitter card type as <code translate="No">player </code>, your Twitter site, the title and description.</li>
             <li>
               <p>Line 68: points to a thumbnail image for your video.</p>
               <aside class="bcls-aside bcls-aside--information">Because media URLs expire, it is recommended that you do either:
@@ -547,7 +547,7 @@ parent: Plugins
                 </ul>
                 For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.</aside>
             </li>
-            <li>Line 69: points to the URL for your Brightcove Player. Notice that the query parameters define the <code class="notranslate">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
+            <li>Line 69: points to the URL for your Brightcove Player. Notice that the query parameters define the <code translate="No">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
             <li>Lines 70-71: provide the player dimensions.</li>
             <li>Line 72: points to the URL for your HTML page with your Brightcove Player.</li>
           </ul>
@@ -591,7 +591,7 @@ parent: Plugins
         <li>Save your changes and publish your player.</li>
         <li>Once you have generated your <a href="#Generate_meta_tags">social meta tags</a>, update them as follows:
           <ul>
-            <li>Lines 139-142: define the Twitter card type as <code class="notranslate">player </code>, your Twitter site, the title and description.</li>
+            <li>Lines 139-142: define the Twitter card type as <code translate="No">player </code>, your Twitter site, the title and description.</li>
             <li>
               <p>Line 143: points to a thumbnail image for your video.</p>
               <aside class="bcls-aside bcls-aside--information">Because media URLs expire, it is recommended that you do either:
@@ -601,7 +601,7 @@ parent: Plugins
                 </ul>
                 For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.</aside>
             </li>
-            <li>Line 144: points to the URL for your Brightcove Player. Notice that the query parameters define the <code class="notranslate">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
+            <li>Line 144: points to the URL for your Brightcove Player. Notice that the query parameters define the <code translate="No">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
             <li>Lines 145-146: provide the player dimensions.</li>
             <li>Line 147: points to the URL for your HTML page with your Brightcove Player.</li>
           </ul>
@@ -660,7 +660,7 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="Customizing_sharing_URLs">Customizing sharing URLs</h2>
-    <p>A more advanced implementation for the social media plugin is to use the <strong>In-Page Embed Code</strong> from the Players module. This will allow you to pass configuration options from within your page code. One reason to do this, would be to provide custom <code class="notranslate">embedCode </code> values to share a different player than the one on your page.</p>
+    <p>A more advanced implementation for the social media plugin is to use the <strong>In-Page Embed Code</strong> from the Players module. This will allow you to pass configuration options from within your page code. One reason to do this, would be to provide custom <code translate="No">embedCode </code> values to share a different player than the one on your page.</p>
     <p>To implement the plugin using custom code, follow these steps:</p>
     <ol class="bcls-tasklist__restart">
       <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
@@ -672,12 +672,12 @@ parent: Plugins
       </li>
       <li>For the <strong>CSS URL</strong>, enter:
         <pre>
-		<code class="notranslate language-json">https://players.brightcove.net/videojs-social/3/videojs-social.css</code></pre>
+		<code class="language-json" translate="No">https://players.brightcove.net/videojs-social/3/videojs-social.css</code></pre>
       </li>
       <li>Select <strong>Scripts</strong> and select the <strong>Add a Script</strong> button.</li>
       <li>For the <strong>JavaScript URL</strong>, enter:
         <pre>
-		<code class="notranslate language-json">https://players.brightcove.net/videojs-social/3/videojs-social.min.js</code></pre>
+		<code class="language-json" translate="No">https://players.brightcove.net/videojs-social/3/videojs-social.min.js</code></pre>
       </li>
       <li>Select <strong>Save</strong>.</li>
       <li>Publish the changes to the player.</li>
@@ -822,7 +822,7 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="Custom_services">Custom services</h2>
-    <p>The plugin has built in support for six popular social media platforms, but you can also add others using custom services. To do this you configure an <code class="notranslate">options.customServices </code> object. This object is an array of custom service objects. A short example configuration is shown, then the details of the example provided.</p>
+    <p>The plugin has built in support for six popular social media platforms, but you can also add others using custom services. To do this you configure an <code translate="No">options.customServices </code> object. This object is an array of custom service objects. A short example configuration is shown, then the details of the example provided.</p>
     <p>The following example would add three buttons. The first and second buttons for Xing and WhatsApp. The WhatsApp button will only appear on mobile. These two examples are using Font Awesome for the icon, which is convenient if the player is an in-page embed in a page already using the font, but any other styling could be used. The third is a Facebook share button using Facebook's feed API which allows a Facebook app id to be included for attribution. You would want to disable the regular Facebook button when using this.</p>
     <pre class="line-numbers">
 	<code class="notranslate language-javascript">[{
@@ -857,17 +857,17 @@ parent: Plugins
     <h4>customService.classSuffix</h4>
     <ul>
       <li>Type: string</li>
-      <li>The suffix is appended to <code class="notranslate">vjs-icon- </code> to generate the button's class. Only used if <code class="notranslate">className </code> is not specified. Only useful if replacing one of the standard destinations, since the Video.js font contains no additional social destination icons.</li>
+      <li>The suffix is appended to <code translate="No">vjs-icon- </code> to generate the button's class. Only used if <code translate="No">className </code> is not specified. Only useful if replacing one of the standard destinations, since the Video.js font contains no additional social destination icons.</li>
     </ul>
     <h4>customService.hrefTemplate</h4>
     <ul>
       <li>Type: string</li>
-      <li>A sting template to generate the sharing URL, which may contain the macros <code class="notranslate">{{url}} </code>, <code class="notranslate">{{poster}} </code>, <code class="notranslate">{{title}} </code> and <code class="notranslate">{{description}} </code>. May be used instead of <code class="notranslate">customService.href </code> where it is not possible to specify a function, e.g. providing the options in a JSON string to the Player Management API.</li>
+      <li>A sting template to generate the sharing URL, which may contain the macros <code translate="No">{{url}} </code>, <code translate="No">{{poster}} </code>, <code translate="No">{{title}} </code> and <code translate="No">{{description}} </code>. May be used instead of <code translate="No">customService.href </code> where it is not possible to specify a function, e.g. providing the options in a JSON string to the Player Management API.</li>
     </ul>
     <h4>customService.href</h4>
     <ul>
       <li>Type: string</li>
-      <li>A function to generate the sharing url. Must take an object and return a string. Unless specified this is generated from <code class="notranslate">hrefTemplate </code>.</li>
+      <li>A function to generate the sharing url. Must take an object and return a string. Unless specified this is generated from <code translate="No">hrefTemplate </code>.</li>
     </ul>
     <h4>customService.bgColor</h4>
     <ul>
@@ -878,7 +878,7 @@ parent: Plugins
     <ul>
       <li>Type: boolean</li>
       <li>Default: false</li>
-      <li>If <code class="notranslate">true </code>, the button will only display on Android and iOS.</li>
+      <li>If <code translate="No">true </code>, the button will only display on Android and iOS.</li>
     </ul>
   </section>
   <section class="bcls-section">
