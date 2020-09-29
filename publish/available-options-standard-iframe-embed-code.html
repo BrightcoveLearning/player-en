@@ -16,17 +16,17 @@ parent: 'Publishing Videos & Players'
     <aside class="bcls-aside bcls-aside--information player-only">Note: If you are a Brightcove Player customer, you will not use the <code translate="No">videoId</code> query parameter to assign a video to your player. You would either assign the video in the <strong>Players</strong> module or using curl.</aside>
     <p>To use the <strong>iframe</strong> code follow these steps:</p>
     <ol class="bcls-tasklist">
-      <li >Use the&nbsp;<strong>PLAYERS</strong> module to create a player.</li>
-      <li >Go to the <strong>MEDIA</strong> module and publish a video using the newly created player.</li>
-      <li >Copy the <strong>Standard</strong>&nbsp;embed code. The HTML will be similar to the following:
+      <li>Use the&nbsp;<strong>PLAYERS</strong> module to create a player.</li>
+      <li>Go to the <strong>MEDIA</strong> module and publish a video using the newly created player.</li>
+      <li>Copy the <strong>Standard</strong>&nbsp;embed code. The HTML will be similar to the following:
         <pre class="line-numbers">
       <code class="language-html" translate="No">&lt;iframe src="https://players.brightcove.net/921483702001/default_default/index.html?videoId=4570583963001"
         allowfullscreen
         webkitallowfullscreen
         mozallowfullscreen&gt;&lt;/iframe&gt;</code></pre>
       </li>
-      <li >Copy the HTML from the browser and paste into the <code translate="No">body</code> of a full HTML page.</li>
-      <li >Browse the HTML page to see the player functioning.</li>
+      <li>Copy the HTML from the browser and paste into the <code translate="No">body</code> of a full HTML page.</li>
+      <li>Browse the HTML page to see the player functioning.</li>
     </ol>
   </section>
   <section id="Query_parameters" class="bcls-section">
@@ -61,9 +61,9 @@ parent: 'Publishing Videos & Players'
             <br />
             If <code translate="No">autoplay</code> is set to a Boolean value the browser's native autoplay behavior is used. If it is set to one of the following three valid string values, the following occurs:
             <ul>
-              <li ><code translate="No">play</code>: The player will manually try to call play.</li>
-              <li ><code translate="No">muted</code>: The player will manually mute the player and call play.</li>
-              <li ><code translate="No">any</code>: The player will first try to call play. If that fails, mute the player and call play.</li>
+              <li><code translate="No">play</code>: The player will manually try to call play.</li>
+              <li><code translate="No">muted</code>: The player will manually mute the player and call play.</li>
+              <li><code translate="No">any</code>: The player will first try to call play. If that fails, mute the player and call play.</li>
             </ul>
             If any of the above fail, the player will display the "Big Play Button" as if autoplay was set to false.<br />
             <br />
@@ -134,15 +134,15 @@ parent: 'Publishing Videos & Players'
     <h2>preload details</h2>
     <p>The preload parameter informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. The options are <strong>auto</strong>, <strong>metadata</strong>, and <strong>none</strong>. For HLS playback technology the settings mean slightly different things and noted below.</p>
     <ul>
-      <li >
+      <li>
         <p><strong>auto</strong> (default): Start loading the video immediately (if the browser agrees). Some mobile devices like iPhones and iPads will not preload the video in order to protect their users' bandwidth. This is why the value is called <strong>auto</strong> and not something more final like <strong>true</strong>.</p>
         <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>auto</strong> means the player downloads the m3u8 manifest file and only 1 segment instead of 3-4, as was the case before version 5.3 of Brightcove Player.</aside>
       </li>
-      <li >
+      <li>
         <p><strong>metadata</strong>: Load only the meta data of the video, which includes information like the duration and dimensions of the video.</p>
         <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>metadata</strong> is the same as <strong>auto</strong>.</aside>
       </li>
-      <li >
+      <li>
         <p><strong>none</strong>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading. Note that on iOS there may be segment downloading even with this setting. See the <a href="/playback/ios-and-brightcove-player.html">Brightcove Player and iOS</a> document for more information.</p>
         <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>none</strong> means player will no longer load anything, including the m3u8 manifest, until the user presses play.</aside>
       </li>

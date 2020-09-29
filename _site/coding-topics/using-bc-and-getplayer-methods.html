@@ -1082,19 +1082,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Introduction">Introduction</h2>
     <p>A basic requirement when doing development with Brightcove Player is obtaining a reference to the player. The best practice for performing this has changed over the life of Brightcove Player 6.x. Here are best practices you should follow (details for each bullet are later in this document):</p>
     <ul>
-      <li >To get a reference to the player when using a version of the <code translate="No">&lt;video&gt;</code> tag, do one the following:
+      <li>To get a reference to the player when using a version of the <code translate="No">&lt;video&gt;</code> tag, do one the following:
         <ul>
-          <li ><strong>v6.16.0+</strong> use the <code translate="No">videojs.getPlayer()</code> method.</li>
-          <li ><strong>Before v6.16.0</strong> use the <code translate="No">videojs()</code> method.</li>
+          <li><strong>v6.16.0+</strong> use the <code translate="No">videojs.getPlayer()</code> method.</li>
+          <li><strong>Before v6.16.0</strong> use the <code translate="No">videojs()</code> method.</li>
         </ul>
       </li>
-      <li >When using the <strong>Advanced (in-page embed)</strong> player implementation, the best practice is:
+      <li>When using the <strong>Advanced (in-page embed)</strong> player implementation, the best practice is:
         <ul>
-          <li ><strong>v6.11.0+</strong> use the <code translate="No">&lt;video-js&gt;</code> tag.</li>
-          <li ><strong>Before v6.11.0</strong> use the <code translate="No">&lt;video&gt;</code> tag.</li>
+          <li><strong>v6.11.0+</strong> use the <code translate="No">&lt;video-js&gt;</code> tag.</li>
+          <li><strong>Before v6.11.0</strong> use the <code translate="No">&lt;video&gt;</code> tag.</li>
         </ul>
       </li>
-      <li >If you are manually instantiating the player on the page, use the <code translate="No">bc()</code> method, which will generate a reference to the player.</li>
+      <li>If you are manually instantiating the player on the page, use the <code translate="No">bc()</code> method, which will generate a reference to the player.</li>
     </ul>
   </section>
   <section class="bcls-section">
@@ -1115,10 +1115,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="versus"><code translate="No">video-js</code> tag versus <code translate="No">video</code> tag</h2>
     <p>For Brightcove Player <strong>v6.11.0+</strong> it is a best practice to use <code translate="No">&lt;video-js&gt;</code> over <code translate="No">&lt;video&gt;</code>. The reasons for this are:</p>
     <ul>
-      <li >Using <code translate="No">&lt;video-js&gt;</code> will prevent the flash of native controls problem you can get with a <code translate="No">&lt;video&gt;</code> element. An example of this is in Chrome versions 67+. Chrome will display a broken video icon momentarily until the <code translate="No">&lt;video&gt;</code> tag gets converted into a Brightcove Player. The icon appears as follows:
+      <li>Using <code translate="No">&lt;video-js&gt;</code> will prevent the flash of native controls problem you can get with a <code translate="No">&lt;video&gt;</code> element. An example of this is in Chrome versions 67+. Chrome will display a broken video icon momentarily until the <code translate="No">&lt;video&gt;</code> tag gets converted into a Brightcove Player. The icon appears as follows:
         <figure class="bcls-figure"><img class="bcls-image" width="200" height="109" alt="chrome broken video icon" src="//learning-services-media.brightcove.com/doc-assets/general/chrome-broken-video-icon.png" /></figure>
       </li>
-      <li >In some cases, such as when using non-Video Cloud media, using <code translate="No">&lt;video-js&gt;</code> will give the player more control over the initialization process. This prevents any automatic browser behaviors that may be associated with the <code translate="No">&lt;video&gt;</code> element.</li>
+      <li>In some cases, such as when using non-Video Cloud media, using <code translate="No">&lt;video-js&gt;</code> will give the player more control over the initialization process. This prevents any automatic browser behaviors that may be associated with the <code translate="No">&lt;video&gt;</code> element.</li>
     </ul>
   </section>
   <section class="bcls-section">
@@ -1129,21 +1129,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <code class="language-javascript" translate="No">bc(id,options)</code></pre>
     <p>where:</p>
     <ul>
-      <li ><code translate="No">id</code>:
+      <li><code translate="No">id</code>:
         <ul>
-          <li >Description: Video element or video element ID</li>
-          <li >Datatype: string|Element</li>
-          <li >Required: true</li>
+          <li>Description: Video element or video element ID</li>
+          <li>Datatype: string|Element</li>
+          <li>Required: true</li>
         </ul>
       </li>
-      <li ><code translate="No">options</code>:
+      <li><code translate="No">options</code>:
         <ul>
-          <li >Description: Options object for providing settings</li>
-          <li >Datatype: Object</li>
-          <li >Required: false</li>
+          <li>Description: Options object for providing settings</li>
+          <li>Datatype: Object</li>
+          <li>Required: false</li>
         </ul>
       </li>
-      <li >The method returns a Brightcove Player instance</li>
+      <li>The method returns a Brightcove Player instance</li>
     </ul>
     <p>For example, you could have the following <code translate="No">video-js</code> tag and then JavaScript to configure the player:</p>
     <pre class="line-numbers">

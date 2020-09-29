@@ -195,14 +195,14 @@ parent: 'Styling & Appearance'
     <h3>Update using options object</h3>
     <p >To change the layout of the volume control, you can pass the <code translate="No">options</code> object into the <a href="/publish/delaying-player-instantiation.html">bc() method</a> as follows:</p>
     <ol class="bcls-tasklist">
-      <li >Delay player creation by removing the following attributes from the <code translate="No">video</code> tag:
+      <li>Delay player creation by removing the following attributes from the <code translate="No">video</code> tag:
         <ul>
-          <li ><code translate="No">data-account</code></li>
-          <li ><code translate="No">data-player</code></li>
-          <li ><code translate="No">data-video-id</code></li>
+          <li><code translate="No">data-account</code></li>
+          <li><code translate="No">data-player</code></li>
+          <li><code translate="No">data-video-id</code></li>
         </ul>
       </li>
-      <li >Define the <code translate="No">options</code> object so that the <code translate="No">volumePanel</code> is vertical and not inline with the controlbar.
+      <li>Define the <code translate="No">options</code> object so that the <code translate="No">volumePanel</code> is vertical and not inline with the controlbar.
         <pre class="line-numbers">
 <code class="language-css" translate="No">var options = {
   controlBar: {
@@ -213,12 +213,12 @@ parent: 'Styling & Appearance'
   }
 };</code></pre>
       </li>
-      <li >Add the player attributes that were initially removed.</li>
-      <li >Create the player by calling the <a href="/publish/delaying-player-instantiation.html">bc() method</a> with the <code translate="No">options</code> object.
+      <li>Add the player attributes that were initially removed.</li>
+      <li>Create the player by calling the <a href="/publish/delaying-player-instantiation.html">bc() method</a> with the <code translate="No">options</code> object.
         <pre>
 <code class="language-css" translate="No">bc("myPlayerID", options);</code></pre>
       </li>
-      <li >For details, see the <a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">Vertical Volume Control</a> player sample.
+      <li>For details, see the <a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">Vertical Volume Control</a> player sample.
         <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/vertical-volume.png" /></figure>
       </li>
     </ol>
@@ -252,10 +252,10 @@ parent: 'Styling & Appearance'
     <figure class="bcls-figure"><img class="bcls-image" alt="elements-controlbar-div" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/elements-controlbar-div.png" /></figure>
     <p >Generally, this is the approach to take when placing in icon in the controlbar:</p>
     <ul>
-      <li >Dynamically build the element you wish to insert into the controlbar.</li>
-      <li >Get a reference to the controlbar element.</li>
-      <li >Get a reference to the element you wish to insert your new element in front of in the controlbar.</li>
-      <li >Use the JavaScript <code translate="No">insertBefore()</code> method to place the icon.</li>
+      <li>Dynamically build the element you wish to insert into the controlbar.</li>
+      <li>Get a reference to the controlbar element.</li>
+      <li>Get a reference to the element you wish to insert your new element in front of in the controlbar.</li>
+      <li>Use the JavaScript <code translate="No">insertBefore()</code> method to place the icon.</li>
     </ul>
     <aside class="bcls-aside bcls-aside--tip language-editable">
       <p >The syntax for <code translate="No">insertBefore()</code> is:</p>
@@ -265,22 +265,22 @@ parent: 'Styling & Appearance'
     </aside>
     <p >Specifically, the following code is used to insert a download video icon in front of the volume icon:</p>
     <ul>
-      <li >Lines 280-285: Style for the download button.</li>
-      <li >Lines 291-295: Assign variables and create HTML elements for:
+      <li>Lines 280-285: Style for the download button.</li>
+      <li>Lines 291-295: Assign variables and create HTML elements for:
         <ul>
-          <li >The <code translate="No">&lt;div&gt;</code> which will contain the icon for the download icon.</li>
-          <li >The anchor tag which make the icon clickable.</li>
-          <li >The icon image itself.</li>
+          <li>The <code translate="No">&lt;div&gt;</code> which will contain the icon for the download icon.</li>
+          <li>The anchor tag which make the icon clickable.</li>
+          <li>The icon image itself.</li>
         </ul>
       </li>
-      <li >Lines 297-2980: Assign and id and CSS classes to the new element.</li>
-      <li >Line 300: Assign a source to the image.</li>
-      <li >Line 301: Assign an <code translate="No">href</code> to the link.</li>
-      <li >Line 302: Append the image to the link.</li>
-      <li >Line 303: Append the link to the dynamically created <code translate="No">&lt;div&gt;</code>.</li>
-      <li >Line 306: Get a reference to the controlbar to use with <code translate="No">insertBefore()</code>.</li>
-      <li >Line 308: Get a reference to the element which the new icon will be insert in front of, to use with <code translate="No">insertBefore()</code>.</li>
-      <li >Line 310: Insert the dynamically created element.</li>
+      <li>Lines 297-2980: Assign and id and CSS classes to the new element.</li>
+      <li>Line 300: Assign a source to the image.</li>
+      <li>Line 301: Assign an <code translate="No">href</code> to the link.</li>
+      <li>Line 302: Append the image to the link.</li>
+      <li>Line 303: Append the link to the dynamically created <code translate="No">&lt;div&gt;</code>.</li>
+      <li>Line 306: Get a reference to the controlbar to use with <code translate="No">insertBefore()</code>.</li>
+      <li>Line 308: Get a reference to the element which the new icon will be insert in front of, to use with <code translate="No">insertBefore()</code>.</li>
+      <li>Line 310: Insert the dynamically created element.</li>
     </ul>
     <pre class="line-numbers" data-start="279">
 <code class="language-javascript" translate="No">&lt;!-- styles for page --&gt;
@@ -411,9 +411,9 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <figure class="bcls-figure"><img class="bcls-image" alt="play-button-classes" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/customize-appearance/play-button-classes.png" /></figure>
     <p >Here are three approaches to customize the big play button:</p>
     <ul>
-      <li >Reference an id assigned to the player.</li>
-      <li >Use multiple classes to raise the relevance of the properties.</li>
-      <li >Use JavaScript to set the id attribute on the player and then reference it in the CSS.</li>
+      <li>Reference an id assigned to the player.</li>
+      <li>Use multiple classes to raise the relevance of the properties.</li>
+      <li>Use JavaScript to set the id attribute on the player and then reference it in the CSS.</li>
     </ul>
     <h3>Referencing an id</h3>
     <p >Since an <code translate="No">id</code> attribute has a high relevance regarding CSS specificity, adding an <code translate="No">id</code> to the CSS selector will override the <code translate="No">background-color</code> property.</p>
@@ -458,8 +458,8 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <p >You can also use JavaScript to dynamically add an id to the big play button. Then you can reference that id from the CSS.</p>
     <p >Add code to add an id to the big play button element.</p>
     <ul>
-      <li >Line 173: Gets a reference to the first element which has a class of <code translate="No">vjs-big-play-button</code>.</li>
-      <li >Line 174: Adds an <code translate="No">id</code> attribute to the big play button.</li>
+      <li>Line 173: Gets a reference to the first element which has a class of <code translate="No">vjs-big-play-button</code>.</li>
+      <li>Line 174: Adds an <code translate="No">id</code> attribute to the big play button.</li>
     </ul>
     <pre class="line-numbers" data-start="171">
 <code class="language-html" translate="No">  &lt;script type="text/JavaScript"&gt;
