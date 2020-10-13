@@ -4,9 +4,9 @@ description: 'In this topic, you will learn how to use static URLs from the Brig
 parent: Playback
 ---
 
-<!-- 
+<!--
   This content appears on:
-  
+
   https://player.support.brightcove.com/playback/static-url-delivery.html
 
   https://apis.support.brightcove.com/playback/guides/static-url-delivery.html
@@ -19,12 +19,12 @@ parent: Playback
   <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
-    
+
     <p>Brightcove provides static URLs to video manifest files for assets in your Video Cloud library. This gives you the flexibility to manage your content in your own CMS, and deliver it using a custom security schema. </p>
-    
+
     <p>This is important for customers who have existing architecture that does not allow a Playback API call before needing the manifest url(s). The player can also use this feature, reducing playback start time by eliminating one call.</p>
     </section>
-    
+
     <section class="bcls-section">
     <h2 id="Requirements">Requirements</h2>
       <p>
@@ -43,26 +43,26 @@ parent: Playback
         For details about sending information to the Data Collector, see the <a href="https://apis.support.brightcove.com/data-collection/data-collection-api-sample.html">Data Collection API Sample</a>.
       </p>
     </section>
-    
+
     <section class="bcls-section">
     <h2 id="Video_Cloud">Video Cloud</h2>
     <p>
       Today, every playback through VideoCloud requires 2 API calls to start video playback. With the use of static URLs, you can reduce the number of API calls to just one.
     </p>
-    
+
     <p>The following diagram shows the API calls for video playback, without static URLs.</p>
     <figure class="bcls-figure">
       <img class="bcls-image--no-border" width="800" src="//learning-services-media.brightcove.com/doc-assets/node/18961-static-url-delivery/current-playback-calls.png" alt="Video Cloud playback">
       <figcaption class="bcls-caption--image">Video Cloud playback</figcaption>
     </figure>
     </section>
-    
+
     <section class="bcls-section">
     <h2 id="Static_URLs">Static URLs</h2>
     <p>
-      With Brightcove's Playback API v2, static URLs are now avaiable.
+      With Brightcove's Playback API v2, static URLs are now available.
     </p>
-    
+
     <h3>Features</h3>
     <p>
       Here are the features associated with static URLs:
@@ -117,14 +117,14 @@ parent: Playback
           <td>Closed Captions</td>
           <td>Only in-manifest captions are currently supported.</td>
         </tr>
-    
+
       </tbody>
     </table>
     </section>
-    
+
     <section class="bcls-section">
     <h2 id="Implementing_Static_URLs">Implementing Static URLs</h2>
-    
+
     <p>Static URLs include the following:</p>
     <ul>
       <li>
@@ -179,22 +179,22 @@ parent: Playback
               <td>DASH VMAP</td>
               <td><pre><code class="language-html" translate="No">/accounts/{account_id}/videos/{video_id}/dash.vmap?bcov_auth={jwt}</code></pre></td>
             </tr>
-    
+
           </tbody>
         </table>
-    
+
     </section>
-    
+
     <section class="bcls-section">
     <h2 id="Creating_a_JSON_Web_Token">Creating a <span translate="No">JSON Web Token</span></h2>
       <p>To create a token to use when communicating with Brightcove's Playback API, see the <a href="https://general.support.brightcove.com/developer/create-jwt.html">Creating a <span translate="No">JSON Web Token</span> (JWT)</a> document.</p>
-    
+
       <h3>Claims for Static URL Delivery</h3>
       <p>
         The following claims can be used with Brightcove's Static URL Delivery.
       </p>
       <aside class="bcls-aside bcls-aside--tip">Notice that none of the claims are required for Static URL Delivery.</aside>
-    
+
       <table class="bcls-table">
             <thead class="bcls-table__head">
               <tr>
@@ -272,7 +272,7 @@ parent: Playback
               </tr>
             </tbody>
           </table>
-    
+
       <p>
         Here is an example of the <span translate="No">JSON Web Token</span> (JWT) claims that you might use:
       </p>
@@ -294,11 +294,11 @@ parent: Playback
         }
       }</code></pre>
     </section>
-    
+
     <section class="bcls-section">
     <h2 id="Using_Content_protection_DRM">Using Content protection (DRM)</h2>
       <p>You can include the <code translate="No">pro</code> claim, as defined above, to specify a protection type.</p>
-    
+
       <p>
         For license requests, the JWT does not need any payload, but it has to be signed using the same RSA key as the manifest request JWT.
       </p>
@@ -326,9 +326,9 @@ parent: Playback
         For FairPlay app certificates, the endpoint is:
       </p>
       <pre><code class="language-html" translate="No">/accounts/{account_id}/fairplay_app_cert</code></pre>
-    
+
     </section>
-    
+
     <section class="bcls-section">
     <h2 id="Notes">Notes</h2>
       <p>The following notes apply to Static URL Delivery.</p>
@@ -344,7 +344,7 @@ parent: Playback
         </li>
       </ul>
     </section>
-    
+
     <section class="bcls-section">
     <h2 id="Limitations">Limitations</h2>
       <p>The following limitations apply to Static URL Delivery.</p>
