@@ -354,6 +354,63 @@ layout: staging
         <p>When <code translate="No">authRequest</code> is a string, an empty GET request will be made to that URL.</p>
         <h4>Object usage</h4>
         <p>When <code translate="No">authRequest</code> is an object, it can be used to specify certain request payload properties:</p>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td><code translate="No">url</code></td>
+                    <td><code translate="No">string</code></td>
+                    <td>Yes</td>
+                    <td><code translate="No">''</code></td>
+                    <td>The URL to request</td>
+                </tr>
+                <tr>
+                    <td><code translate="No">method</code></td>
+                    <td><code translate="No">string</code></td>
+                    <td>No</td>
+                    <td><code translate="No">GET</code></td>
+                    <td>The HTTP method to use</td>
+                </tr>
+                <tr>
+                    <td><code translate="No">body</code></td>
+                    <td><code translate="No">string</code></td>
+                    <td>No</td>
+                    <td><code translate="No">''</code></td>
+                    <td>The request body</td>
+                </tr>
+                <tr>
+                    <td><code translate="No">headers</code></td>
+                    <td><code translate="No">object</code></td>
+                    <td>No</td>
+                    <td><code translate="No">{}</code></td>
+                    <td>An object describing HTTP headers where the keys are the header name and the properties are the header values</td>
+                </tr>
+                <tr>
+                    <td><code translate="No">withCredentials</code></td>
+                    <td><code translate="No">boolean</code></td>
+                    <td>No</td>
+                    <td><code translate="No">false</code></td>
+                    <td>An object describing HTTP headers where the keys are the header name and the properties are the header values</td>
+                </tr>
+                <tr>
+                    <td><code translate="No">timeout</code></td>
+                    <td><code translate="No">number</code></td>
+                    <td>No</td>
+                    <td><code translate="No">15000</code></td>
+                    <td>How many milliseconds to wait before giving up on the auth request</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Function usage</h4>
+        <p>When <code translate="No">authRequest</code> is a function, it should return either a string or an object per those usages.</p>
       </li>
       <!-- <li>
         <code translate="No">js </code><br />
@@ -375,13 +432,16 @@ layout: staging
     </ul>
     
   </section>
+
   <section class="bcls-section">
-    <h2 id="Known_issues">Known issues</h2>
+    <h2 id="Limitations_and_known_issues">Limitations and known issues</h2> 
     <ul>
       <li>
-        The Chromecast Plugin is supported with the Brightcove Player version
-        6+.
+        HEVC/4K content is only supported on Chromecast Ultra devices and newer Chromecast with Google TV devices.
       </li>
+      <li>Client-side advertising is not currently supported, but SSAI is supported!</li>
+      <li>We have seen issues with seeking on the sender after a caption track has been selected and is displayed in the receiver.</li>
+      <li>On Chromecast with Google TV devices, we have seen issues with the UI as well as playback issues when using captions.</li>
       <li>
         Google has stopped supporting non-secure origins (HTTP) with Chromecast,
         hence the plugin will not work in non-secure contexts. In these cases,
@@ -411,6 +471,21 @@ layout: staging
         This plugin does not cast to Google Nest Hub. The plugin only supports
         actual Chromecast devices (i.e. Chromecast and Chromecast Ultra).
       </li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Changes_from_v1_x_to_v2_x">Changes from v1.x to v2.x</h2>
+    <p>Besides internal changes, like using the CAF API instead of the v2 Chromecast API, the following interfaces have changed:</p>
+    <ul>
+      <li>
+       <code translate="No">options.css</code> and <code translate="No">options.js</code> are no longer supported.
+      </li>
+      <li><code translate="No">customData.analyticsParams</code> was added</li>
+      <li><code translate="No">customData.catalogData</code> was renamed <code translate="No">customData.catalogParams</code> to improve consistency with other usages</li>
+      <li><code translate="No">customData.policyKey</code> was replaced by <code translate="No">customData.catalogParams.policyKey</code></li>
+      <li><code translate="No">customData.keySystems</code> was added</li>
+     
     </ul>
   </section>
   <section class="bcls-section">
