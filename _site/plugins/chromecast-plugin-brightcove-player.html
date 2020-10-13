@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex,nofollow"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will learn how to cast your videos to a Chromecast-connected TV, using the Chromecast plugin for Brightcove Player.">
+  <meta name="description" content="In this topic, you will learn how to cast your videos to a Chromecast-connected TV, using the Chromecast plugin (2.x) for Brightcove Player.">
   
   <title>Chromecast Plugin for Brightcove Player</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1084,7 +1084,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h1>Chromecast Plugin for Brightcove Player</h1>
 <article class="bcls-article">
-  <summary>In this topic, you will learn how to cast your videos to a Chromecast-connected TV, using the Chromecast plugin for Brightcove Player.</summary>
+  <summary>In this topic, you will learn how to cast your videos to a Chromecast-connected TV, using the Chromecast plugin (2.x) for Brightcove Player.</summary>
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
@@ -1100,9 +1100,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       DRM-encrypted streams using Widevine. Advertising is supported through
       Video Cloud server-side ad insertion (SSAI). Client-side ads and playlists
       are not supported.</p>
-      <p>The current implementation (plugin/receiver version 2.x) uses the CAF (Cast Application Framework) API.</p>
-    <p>To actually use the plugin follow these steps:</p>
-    <ol>
+    <p>To use the plugin follow these steps:</p>
+    <ol class="bcls-tasklist">
       <li>
         Load the Chromecast Plugin for Brightcove Player (detailed below).
       </li>
@@ -1162,21 +1161,42 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         Brightcove Chromecast plugin v2.0.0 or newer
       </li>
-      <li>
-        <p>Devices:</p>
-        <ul>
-          <li>Chromecast (3rd Generation)</li>
-          <li>Chromecast Ultra</li>
-          <li>Chromecast with Google TV (preliminary support)</li>
-        </ul>
-        <p>
-          <aside class="bcls-aside bcls-aside--information">
+    </ul>
+    <h3>Devices</h3>
+    <p>The following devices are supported:</p>
+     <ul>
+        <li>Chromecast (3rd Generation)</li>
+        <li>Chromecast Ultra</li>
+        <li>Chromecast with Google TV (preliminary support)</li>
+      </ul>
+      <aside class="bcls-aside bcls-aside--information">
           Older versions or combinations may continue working, but they are not supported. 
         </aside>
-        </p>
-      </li>
-    </ul>
   </section>
+
+  <section class="bcls-section">
+    <h2 id="How_it_Works">How it Works</h2>
+    <p>The current implementation (plugin/receiver version 2.x) uses the CAF (Cast Application Framework) API.</p>
+    <p>
+      When the Chromecast receiver plugin is added, the player will display a cast button in the player UI when there is an available Chromecast on the local network.
+    </p>
+    <p>
+      When this button is clicked or tapped, a cast session is initiated with the current video that is loaded in the Brightcove Player. Here's how it works:
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>The plugin sends a set of parameters to the receiver.</li>
+      <li>The receiver mirrors the sending player by loading it from Brightcove's CDN.</li>
+      <li>Once loaded, the receiver-side player loads the video ID from the Playback API that was sent when the cast session began.</li>
+      <li>Then, the receiver-side player begins playback at the playhead position of the sending player.</li>
+    </ol>
+    <p>This process is identical for non-Video Cloud sources except there is no Playback API request.</p>
+    <h3>Analytics</h3>
+    <p>Currently, from an analytics perspective, the cast session is treated as an entirely new playback session.</p>
+    <p>From a UX perspective, the viewer will see their stream pause on the sender device and resume on the receiver.</p>
+    <p>From a data perspective, because our metrics are anonymized by default, it is logged as a new viewer starting a new stream on a separate device. This is what actually happens.</p>
+    
+  </section>
+
   <section class="bcls-section">
     <h2 id="Using_the_plugin">Using the plugin</h2>
     <p>
@@ -1186,7 +1206,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </p>
     <h3>Using Studio</h3>
     <p>The following steps detail using Studio to load the plugin.</p>
-    <ol class="bcls-tasklist">
+    <aside class="bcls-aside bcls-aside--information">
+          When configured in Studio, the Player Management API will automatically select the best version combination for your player. If you get <strong>v1.x</strong> of the Chromecast plugin, you need to update your player!
+        </aside>
+    <ol class="bcls-tasklist-restart">
       <li>
         Open the <strong>PLAYERS</strong> module and either create a new player
         or locate the player to which you wish to add the plugin.
@@ -1212,16 +1235,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>
           Expand the <strong>Brightcove Plugin</strong> dropdown and select
-          <strong>chromecast-receiver</strong>.
+          <strong>Chromecast Receiver</strong>.
         </p>
         <figure class="bcls-figure">
           <img
             class="bcls-image--no-border"
             alt="chromcast-receiver"
-            src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/chromecast/cast-receiver.png"
+            src="/assets/images/plugins/chromecast/cast-receiver.png"
           />
           <figcaption class="bcls-caption--image">
-            chromecast-receiver
+            Chromecast Receiver
           </figcaption>
         </figure>
       </li>
@@ -1245,14 +1268,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>
           Select the <strong>Save</strong> button. You will now see the
-          <strong>chromecast-receiver</strong> plugin added to the list of
+          <strong>Chromecast Receiver</strong> plugin added to the list of
           plugins for your player.
         </p>
         <figure class="bcls-figure">
           <img
             class="bcls-image--no-border"
             alt="Plugin added"
-            src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/chromecast/plugin-added.png"
+            src="/assets/images/plugins/chromecast/plugin-added.png"
           />
           <figcaption class="bcls-caption--image">Plugin added</figcaption>
         </figure>
