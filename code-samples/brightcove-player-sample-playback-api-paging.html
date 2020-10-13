@@ -15,20 +15,20 @@ parent: Code Samples
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <p>This example uses a Brightcove Player to display a video in the player along with the first 3 videos in the playlist. Select the <strong>Next Videos</strong> button to display the next 3 videos in the playlist. When you reach the last set of videos in the playlist, then the videos displayed wrap around to the beginning of the playlist.</p>
     <!-- UPDATE codepen here -->
-    
+
     <p data-height="750" data-theme-id="34967" data-slug-hash="ppbdNG" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="18171-playback-api-paging" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/ppbdNG/">18171-playback-api-paging</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
     <h3>Source code</h3>
           <p>View the <a href="https://github.com/BrightcoveLearning/18171-playback-api-paging">complete solution on GitHub</a>.</p>
     <h3>Playback API</h3>
     <p>This example uses the Playback API to return videos from a specified playlist. To page through the videos in the playlist, this examples uses the following request URL parameters:</p>
     <ul>
-      <li><code translate="No"><a href="https://docs.brightcove.com/playback-api/v1/doc/index.html#api-videoGroup-Get_Videos">limit</a></code> - defines the number of videos to return from the Playback API</li>
-      <li><code translate="No"><a href="https://docs.brightcove.com/playback-api/v1/doc/index.html#api-videoGroup-Get_Videos">offset</a></code> - sets the number of videos to skip in a playlist from the Playback API</li>
+      <li><code translate="No"><a href="https://apis.support.brightcove.com/playback/references/reference_v1.html#api-videoGroup-Get_Videos">limit</a></code> - defines the number of videos to return from the Playback API</li>
+      <li><code translate="No"><a href="https://apis.support.brightcove.com/playback/references/reference_v1.html#api-videoGroup-Get_Videos">offset</a></code> - sets the number of videos to skip in a playlist from the Playback API</li>
     </ul>
     <aside class="bcls-aside bcls-aside--tip">
       <p>If you are new to using the Playback API, review the <a /content-protection/policy-keys.htmlhref="https://apis.support.brightcove.com/playback/">Overview: Playback API</a> document.</p>
@@ -59,7 +59,7 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary><h2 id="Development_sequence">Development sequence</h2></summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -88,7 +88,7 @@ parent: Code Samples
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -113,7 +113,7 @@ parent: Code Samples
     </table>
   </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -132,7 +132,7 @@ parent: Code Samples
     <p>Optional: Add a container to display the current Playback API request URL.</p>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
@@ -144,42 +144,42 @@ parent: Code Samples
       <li>Load the current playlist into the player.</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Load first set of videos</h3>
     <p>Find the code which is labeled:</p>
     <pre>
     <code class="language-javascript" translate="No">// +++ Load first set of videos +++</code></pre>
     <p>Use the <code translate="No">catalog</code> library to get the playlist object for the specified playlist Id. Load this first set of videos in the player.</p>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Listen for Next Videos button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
     <code class="language-javascript" translate="No">// +++ Listen for Next Videos button +++</code></pre>
     <p>Add an event listener to load the next set of videos in the playlist.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Create request URL</h3>
     <p>Find the code which is labeled:</p>
     <pre>
     <code class="language-javascript" translate="No">// +++ Create request URL +++</code></pre>
     <p>Create the Playback API request URL using the <code translate="No">limit</code> and <code translate="No">offset</code> parameters.</p>
     <!-- UPDATE task 4 -->
-    
+
     <h3>Get video data</h3>
     <p>Find the code which is labeled:</p>
     <pre>
     <code class="language-javascript" translate="No">// +++ Get video data +++</code></pre>
     <p>Call the Playback API to get the next set of videos in the playlist.</p>
     <!-- UPDATE task 5 -->
-    
+
     <h3>Load video data</h3>
     <p>Find the code which is labeled:</p>
     <pre>
     <code class="language-javascript" translate="No">// +++ Load video data +++</code></pre>
     <p>Call the Playback API to get the next set of videos in the playlist. Load the first video into the player. Load the videos in the array into the player's playlist.</p>
     <!-- UPDATE CSS description -->
-    
+
     <section class="bcls-section">
       <h2 id="Application_styling">Application styling</h2>
       <p>The CSS styles the player and horizontal playlist below the player.</p>
@@ -200,7 +200,7 @@ parent: Code Samples
       ...
       });</code></pre>
       <!-- UPDATE path to plugin's JavaScript -->
-      
+
       <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18171-playback-api-paging/blob/master/plugin/playback-paging.js">playback-paging.js</a>.</p>
       <h3>Using the plugin with a player</h3>
       <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
