@@ -1081,20 +1081,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
 
 
+<h1>Known Issues: Server-Side Ad Insertion (SSAI)</h1>
 <article class="bcls-article">
-  <h1>Known Issues: Server-Side Ad Insertion (SSAI)</h1>
   <summary>In this topic, you will learn about the known issues associated with Server-Side Ad Insertion (SSAI).</summary>
   <section class="bcls-section">
     <h2 id="Pre_roll_ads">Pre-roll ads</h2>
     <h3>Issue</h3>
     <p>When seeking playback to the beginning of a video with a pre-roll ad, the <code translate="No">ads-ad-ended</code> and <code translate="No">ads-pod-ended</code> events will fire.</p>
-    <h3>Work-around</h3>
+    <h4>Work-around</h4>
     <p>A possible work-around would be to use</p>
     <pre>
 <code class="language-javascript" translate="No">player.currentTime(0.1)</code></pre>
     <p>instead of this</p>
     <pre>
 <code class="language-javascript" translate="No">player.currentTime(0)</code></pre>
+  
   </section>
 </article>
 
