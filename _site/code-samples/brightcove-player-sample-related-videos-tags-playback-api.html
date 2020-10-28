@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="In this topic, you will learn how to retrieve videos with the same tags as the current video and display them in an overlay. This sample uses the Playback API to retrieve the videos.">
   
   <title>Brightcove Player Sample: Related Videos via Tags (Playback API)</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1081,12 +1081,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
 
 
+<h1>Brightcove Player Sample: Related Videos via Tags (Playback API)</h1>
 <article class="bcls-article">
-  <h1>Brightcove Player Sample: Related Videos via Tags (Playback API)</h1>
-  <summary>
-    <p>In this topic, you will learn how to retrieve data from the Playback API and display it in an overlay for the Brightcove Player. This overlay displays a set of related videos (via tags/metadata) in your account when playback is paused or ends. Also see the Popular Videos Overlay sample.</p>
+  <summary>In this topic, you will learn how to retrieve videos with the same tags as the current video and display them in an overlay. This sample uses the Playback API to retrieve the videos.</summary>
+  <section class="bcls-section">
+    <h2 id="introduction">Introduction</h2>
+    <p>In this topic, you will learn how to retrieve data from the Playback API and display it in an overlay for the Brightcove Player. This overlay displays a set of related videos (via tags/metadata) in your account when playback is paused or ends. Also see the <a href="/code-samples/brightcove-player-sample-related-videos-tags-cms-api.html">CMS API version</a> of this sample.</p>
     <aside class="bcls-aside bcls-aside--information">The content in this document applies to Video Cloud only.</aside>
-  </summary>
+  </section>
   <section class="bcls-section">
     <h2 id="limitations">Limitations</h2>
     <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
@@ -1094,13 +1096,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <p>This example displays an interactive overlay of related video thumbnails when playback is paused or has ended. Start playback for the video below. When you pause playback or when the video ends, an overlay of related videos will appear.</p>
     <!-- UPDATE codepen here -->
-    
+
     <p data-height="475" data-theme-id="34967" data-slug-hash="POWyeR" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="18485-related-videos-tags-playback-api" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/POWyeR/">18485-related-videos-tags-playback-api</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
     <h3>Source code</h3>
           <p>View the <a href="https://github.com/BrightcoveLearning/18485-related-videos-tags-playback-api">complete solution on GitHub</a>.</p>
   </section>
@@ -1134,7 +1136,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary><h2 id="Development_sequence">Development sequence</h2></summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -1163,7 +1165,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -1192,7 +1194,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </table>
   </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>The <a href="/plugins/display-overlay-plugin.html">Overlay plugin</a> is defined and initialized in the JavaScript code for this example. The reason it is done here, is that we need to get the related videos metadata before initializing the overlay.</p>
@@ -1204,7 +1206,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		...</code></pre>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
@@ -1217,32 +1219,32 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>When a user selects one of the related video thumbnails, then load it into the player and start playback.</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Define values</h3>
     <p>Create variables that define values for the base Playback API URL and your Policy key.</p>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Wait for loadedmetadata</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Wait for loadedmetadata +++</code></pre>
     <p>Wait for the video to begin loading by listening for the <code translate="No">loadedmetadata</code> event. This ensures that the video metadata, like the account id, name and tag values will be available in the <code translate="No">mediainfo</code> object.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Setup the API request</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Setup the API request +++</code></pre>
     <p>Using the information from the video currently loaded in the player, create a Playback API search request for videos in the same account. The search will look for videos which have the same value as the first tag in the current video. It will exclude any video with the same name as the current video, and it will limit the number of videos returned to 9. That is how many will fit in our overlay layout.</p>
     <!-- UPDATE task 4 -->
-    
+
     <h3>Make the Playback API request</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Make the Playback API request +++</code></pre>
     <p>Send an HTTP GET request to the Playback API RESTful web service. Parse the returned data into JSON format. If an error occurs, display an error message.</p>
     <!-- UPDATE task 5 -->
-    
+
     <h3>Format the overlay content</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -1254,7 +1256,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Initialize the Overlay plugin with the newly created related videos content. You will see a grid of related video thumbnails when the overlay is displayed. Show the overlay when video playback is paused or has ended. Hide the overlay when the main video is playing.</li>
     </ul>
     <!-- UPDATE task 4 -->
-    
+
     <h3>Load and play related video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -1262,7 +1264,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Create a function that loads and starts playback for the related video that is selected by the user.</p>
   </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
     <p>The CSS styles the related videos thumbnail grid for the overlay.</p>
@@ -1283,7 +1285,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 			...
 		});</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
-    
+
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18485-related-videos-tags-playback-api/blob/master/plugin/related-videos.js">related-videos.js</a>.</p>
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
