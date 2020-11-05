@@ -1093,203 +1093,213 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 
 <article class="bcls-article">
-  <h1>Brightcove Player Sample: Live Custom Error Message</h1>
-  <summary>In this topic, you will learn how to display a custom overlay image when a user tries to play a live video stream that is not available.</summary>
-  <section class="bcls-section">
-    <h2 id="Player_example">Player example</h2>
-    <!-- UPDATE description -->
-    
-    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-    <p>The player will not be able to connect to the live stream. A ModalDialog object is created, a custom image placed in it, and then the ModalDialog displayed. If the ModalDialog is closed, the default error is shown.</p>
-    <aside class="bcls-aside bcls-aside--information">Note: You will not see the <strong>PLEASE STAND BY</strong> image that is in the custom ModalWindow immediately as a timeout must be reached before the player gives up and dispatches an error. The timeout is about 10 seconds.</aside>
-    <!-- UPDATE codepen here -->
-    
-    <p data-height="514" data-theme-id="34967" data-slug-hash="ZaqKbL" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="18199-live-custom-error-message" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/ZaqKbL/">18199-live-custom-error-message</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
-    <h3>Source code</h3>
-    <p>View the <a href="https://github.com/BrightcoveLearning/18384-brightcove-player-sample-live-custom-error-message">complete solution on GitHub</a>.</p>
-  </section>
-  <section class="bcls-section">
-    <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
-      <p>Here are some tips to effectively use the above CodePen:</p>
-      <ul>
-        <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
-        <li>Click the <strong translate="No">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
-        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
-          <ol>
-            <li>Click the <strong translate="No">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
-            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
-            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
-          </ol>
-        </li>
-      </ul>
-    </details>
-  </section>
-  <section class="bcls-section">
-    <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
-      <p>Here is the recommended development sequence:</p>
-      <ol>
-        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
-        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
-        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
-        <li>Use Studio to add the plugin and CSS to your player</li>
-        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
-      </ol>
-      <p>For details about these steps, review the <a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a> guide.</p>
-      <h3>iframe or In-Page embed</h3>
-      <p>When developing enhancements for the Brightcove Player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
-      <ul>
-        <li>No collisions with existing JavaScript and/or CSS</li>
-        <li>Automatically responsive</li>
-        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
-      </ul>
-      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
-      <ul>
-        <li>Code in the containing page needs to listen for and act on player events</li>
-        <li>The player uses styles from the containing page</li>
-        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
-      </ul>
-      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
-    </details>
-  </section>
-  <section class="bcls-section">
-    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
-    <!-- UPDATE table, remove unneeded columns -->
-    
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th>API Methods</th>
-          <th>API Events</th>
-          <th>API Properties</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#addChild">addChild()</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:error">error</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/MediaError.html#code">player.error().code</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on()</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html#event:modalclose">modalclose</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#duration">duration()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html#hide">player.errorDisplay.hide()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html#show">player.errorDisplay.show()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-      </tbody>
-    </table>
-    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
-  <!-- UPDATE player and HTML configuration -->
-  
-  <section class="bcls-section">
-    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
-    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
-    <h3>Player configuration</h3>
-    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
-    <h3>Other HTML</h3>
-    <p>No other HTML elements are added to the page.</p>
-  </section>
-  <!-- UPDATE application flow -->
-  
-  <section class="bcls-section">
-    <h2 id="Application_flow">Application flow</h2>
-    <p>The basic logic behind this application is:</p>
-    <ul>
-      <li>Create an instance of a ModalDialog and place a custom image inside of it.</li>
-      <li>Listen for an error, and if it is the correct error type, display the custom ModalDialog.</li>
-      <li>If the viewer of the video chooses to close the custom ModalDialog, display the default error message.</li>
-    </ul>
-    <!-- UPDATE task 1 -->
-    
-    <h3>Create an HTML <code translate="No">div</code> element</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
+    <h1>Brightcove Player Sample: Live Custom Error Message</h1>
+    <summary>In this topic, you will learn how to display a custom overlay image when a user tries to play a live video stream that is not available.</summary>
+    <section class="bcls-section">
+        <h2 id="Player_example">Player example</h2>
+        <!-- UPDATE description -->
+
+        <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+        <p>The player will not be able to connect to the live stream. A ModalDialog object is created, a custom image placed in it, and then the ModalDialog displayed. If the ModalDialog is closed, the default error is shown.</p>
+        <aside class="bcls-aside bcls-aside--information">Note: You will not see the <strong>PLEASE STAND BY</strong> image that is in the custom ModalWindow immediately. The image takes a bit to load when used inside the CodePen. The image will appear very quickly when you place your desired image in a URL under your control and use that path in the code that appears as:<br>
+            <code class="language-javascript" translate="No">newElement.innerHTML =
+                &quot;&lt;img src='https://learning-services-media.brightcove.com/images/please-stand-by.png'&gt;&quot;;</code></pre>
+            <br>
+            <br>
+            <p>To see the performance in a normal environment browse to <a href="http://learning-services-media.brightcove.com/bc-player/code-samples/live-custom-error-test.html">live-custom-error-test.html</a>.</p>
+        </aside>
+        <!-- UPDATE codepen here -->
+
+        <p data-height="514" data-theme-id="34967" data-slug-hash="ZaqKbL" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="18199-live-custom-error-message" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/ZaqKbL/">18199-live-custom-error-message</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+
+        <h3>Source code</h3>
+        <p>View the <a href="https://github.com/BrightcoveLearning/18384-brightcove-player-sample-live-custom-error-message">complete solution on GitHub</a>.</p>
+    </section>
+    <section class="bcls-section">
+        <details>
+            <summary>
+                <h2 id="Using_the_CodePen">Using the CodePen</h2>
+            </summary>
+            <p>Here are some tips to effectively use the above CodePen:</p>
+            <ul>
+                <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
+                <li>Click the <strong translate="No">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
+                <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
+                    <ol>
+                        <li>Click the <strong translate="No">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
+                        <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
+                        <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
+                    </ol>
+                </li>
+            </ul>
+        </details>
+    </section>
+    <section class="bcls-section">
+        <details>
+            <summary>
+                <h2 id="Development_sequence">Development sequence</h2>
+            </summary>
+            <p>Here is the recommended development sequence:</p>
+            <ol>
+                <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
+                <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
+                <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
+                <li>Use Studio to add the plugin and CSS to your player</li>
+                <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
+            </ol>
+            <p>For details about these steps, review the <a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a> guide.</p>
+            <h3>iframe or In-Page embed</h3>
+            <p>When developing enhancements for the Brightcove Player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
+            <ul>
+                <li>No collisions with existing JavaScript and/or CSS</li>
+                <li>Automatically responsive</li>
+                <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
+            </ul>
+            <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
+            <ul>
+                <li>Code in the containing page needs to listen for and act on player events</li>
+                <li>The player uses styles from the containing page</li>
+                <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
+            </ul>
+            <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
+        </details>
+    </section>
+    <section class="bcls-section">
+        <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+        <!-- UPDATE table, remove unneeded columns -->
+
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>API Methods</th>
+                    <th>API Events</th>
+                    <th>API Properties</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#addChild">addChild()</a></td>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:error">error</a></td>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/MediaError.html#code">player.error().code</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on()</a></td>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html#event:modalclose">modalclose</a></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#duration">duration()</a></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html#hide">player.errorDisplay.hide()</a></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ModalDialog.html#show">player.errorDisplay.show()</a></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</aside> -->
+    </section>
+    <!-- UPDATE player and HTML configuration -->
+
+    <section class="bcls-section">
+        <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+        <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+        <h3>Player configuration</h3>
+        <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
+        <h3>Other HTML</h3>
+        <p>No other HTML elements are added to the page.</p>
+    </section>
+    <!-- UPDATE application flow -->
+
+    <section class="bcls-section">
+        <h2 id="Application_flow">Application flow</h2>
+        <p>The basic logic behind this application is:</p>
+        <ul>
+            <li>Create an instance of a ModalDialog and place a custom image inside of it.</li>
+            <li>Listen for an error, and if it is the correct error type, display the custom ModalDialog.</li>
+            <li>If the viewer of the video chooses to close the custom ModalDialog, display the default error message.</li>
+        </ul>
+        <!-- UPDATE task 1 -->
+
+        <h3>Create an HTML <code translate="No">div</code> element</h3>
+        <p>Find the code which is labeled:</p>
+        <pre>
 <code class="language-javascript" translate="No">// ### Create a div in which to place HTML content and place image inside ###</code></pre>
-    <p>You create an HTML <code translate="No">div</code> element and place an image in it you wish to display if the live feed is not working.</p>
-    <!-- UPDATE task 2 -->
-    
-    <h3>Build an object in which the HTML <code translate="No">div</code> element will be placed</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
+        <p>You create an HTML <code translate="No">div</code> element and place an image in it you wish to display if the live feed is not working.</p>
+        <!-- UPDATE task 2 -->
+
+        <h3>Build an object in which the HTML <code translate="No">div</code> element will be placed</h3>
+        <p>Find the code which is labeled:</p>
+        <pre>
 <code class="language-javascript" translate="No">// ### Define options object to be used for modal content ###</code></pre>
-    <p>This is needed when you create the ModalDialog.</p>
-    <!-- UPDATE task 3 -->
-    
-    <h3>Create the ModalDialog and place the image as its content</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
+        <p>This is needed when you create the ModalDialog.</p>
+        <!-- UPDATE task 3 -->
+
+        <h3>Create the ModalDialog and place the image as its content</h3>
+        <p>Find the code which is labeled:</p>
+        <pre>
 <code class="language-javascript" translate="No">// ### Create Modal with options object ###</code></pre>
-    <p>This is standard code to create a ModalDialog instance and add it to the player. By default it is NOT displayed.</p>
-    <!-- UPDATE task 3 -->
-    
-    <h3>Listen for an error to be dispatched</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
+        <p>This is standard code to create a ModalDialog instance and add it to the player. By default it is NOT displayed.</p>
+        <!-- UPDATE task 3 -->
+
+        <h3>Listen for an error to be dispatched</h3>
+        <p>Find the code which is labeled:</p>
+        <pre>
 <code class="language-javascript" translate="No">// ### Listen for an error event ###</code></pre>
-    <p>When an error is dispatched get the error code and duration.</p>
-    <!-- UPDATE task 3 -->
-    
-    <h3>Check the error type</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
+        <p>When an error is dispatched get the error code and duration.</p>
+        <!-- UPDATE task 3 -->
+
+        <h3>Check the error type</h3>
+        <p>Find the code which is labeled:</p>
+        <pre>
 <code class="language-javascript" translate="No">// ### Check if the error code and duration mean no video has loaded ###</code></pre>
-    <p>To check if a live stream is not playing you first check that the <code translate="No">code</code> is <strong>4</strong> (<strong>MEDIA_ERR_SRC_NOT_SUPPORTED</strong>) and the <code translate="No">duration</code> is <strong>0</strong>. If that is true, you want to hide the default error that is displayed and show the custom ModalDialog instance.</p>
-    <!-- UPDATE task 3 -->
-    
-    <h3>Display default error is custom ModalDialog is closed</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
+        <p>To check if a live stream is not playing you first check that the <code translate="No">code</code> is <strong>4</strong> (<strong>MEDIA_ERR_SRC_NOT_SUPPORTED</strong>) and the <code translate="No">duration</code> is <strong>0</strong>. If that is true, you want to hide the default error that is displayed and show the custom ModalDialog instance.</p>
+        <!-- UPDATE task 3 -->
+
+        <h3>Display default error is custom ModalDialog is closed</h3>
+        <p>Find the code which is labeled:</p>
+        <pre>
 <code class="language-javascript" translate="No">// ### If custom modal error closed, show the default error ###</code></pre>
-    <p>This is done only if you wish to implement this behavior. Simply listen for the <code translate="No">modalclose</code> event and in its event handler show the default error.</p>
-  </section>
-  <!-- UPDATE CSS description -->
-  
-  <section class="bcls-section">
-    <h2 id="Application_styling">Application styling</h2>
-    <p>The only CSS simply sizes the player.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Plugin_code">Plugin code</h2>
-    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
-    <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
-    <pre class="line-numbers">
+        <p>This is done only if you wish to implement this behavior. Simply listen for the <code translate="No">modalclose</code> event and in its event handler show the default error.</p>
+    </section>
+    <!-- UPDATE CSS description -->
+
+    <section class="bcls-section">
+        <h2 id="Application_styling">Application styling</h2>
+        <p>The only CSS simply sizes the player.</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Plugin_code">Plugin code</h2>
+        <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
+        <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
-    <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-    <pre class="line-numbers">
+        <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>
-    <!-- UPDATE path to plugin's JavaScript -->
-    
-    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18384-brightcove-player-sample-live-custom-error-message/blob/master/plugin/liveCustomError.js">liveCustomError.js</a>.</p>
-    <h3>Using the plugin with a player</h3>
-    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
-    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
-  </section>
-</article>
+        <!-- UPDATE path to plugin's JavaScript -->
 
+        <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18384-brightcove-player-sample-live-custom-error-message/blob/master/plugin/liveCustomError.js">liveCustomError.js</a>.</p>
+        <h3>Using the plugin with a player</h3>
+        <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
+        <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
+    </section>
+</article>
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
@@ -1305,7 +1315,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 28 Sep 2020
+  Page last updated on 04 Nov 2020
 </div>
 
 
