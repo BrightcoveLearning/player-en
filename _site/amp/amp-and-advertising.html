@@ -1159,13 +1159,30 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <li>UNKNOWN: 4</li>
         </ul>
 
-        First, update the player configuration to make the player iframe's query parameters to be available as simple Javascript variables, but adding
+        First, update the player configuration to make the player iframe's query parameters to be available as simple Javascript variables, by adding to the player configuration in the JSON editor the following:
         <pre><code class="language-javascript">"query_string_to_window": {"target": "queryStringParams"}</code></pre>
-        to the player configuration in the JSON editor, as shown here:
+        For assistance, here is a screenshot of the UI:
         </p>
         <figure class="bcls-figure">
             <img class="bcls-image" src="/assets/images/amp/json-editor.png" alt="JSON editor">
         </figure>
+        <p>Then you can use the consent query parameters in the ad server request, either using macros or by configuring the severURL to be a function.</p>
+        <h4>Macro example</h4>
+        <pre><code class="language-javascript">"adserverURL": "https://ads.example.com/ad?consent={pageVariable.queryStringParams.ampInitialConsentState}&consentString={pageVariable.queryStringParams.ampInitialConsentValue}"</code></pre>
+        <h4>Function example</h4>
+        Configure the player without an ad server URL, and set
+        <pre><code class="language-javascript">videojs.registerPlugin('setAdUrl', function() {
+  this.ima3.settings.serverUrl = function(callback) {
+    if (window.queryStringParams.ampInitialConsentState === 1) {
+      // Sufficient consent
+      callback('https://ads.example.com/adwithconsent?string={pageVariable.queryStringParams.ampInitialConsentValue}');
+    } else {
+      // Use a different ad
+      callback('https://ads.example.com/basicad');
+    }
+});</code></pre>
+
+
     </section>
 </article>
 <!-- complete bootstrap layout -->
