@@ -33,9 +33,9 @@ layout: "staging"
     </section>
     <section class="bcls-section">
         <h2 id="section-name">AMP-consent and Advertising</h2>
-        <p>In AMP you can use client-side consent, providing users with additional control over their online experience. If your AMP page is managing user consent with AMP-consent, and you are using advertising in the player, then you may want to adapt the player's ad request depending on that consent. By adding a
+        <p>In AMP you can use client-side consent, providing users with additional control over their online experience. If your AMP page is managing user consent with AMP-consent, and you are using advertising in the player, then you may want to adapt the player's ad request depending on that consent. Do so by adding a
             <pre><code class="language-javascript">data-block-on-consent="_till_responded"</code></pre>
-            attribute to the amp-brightcove element, the player load will be delayed until the user has accepted or rejected consent. On subsequent pages where the consent is known, the player will load normally without a delay.</p>
+            attribute to the amp-brightcove element. This will cause the player load to be delayed until the user has accepted or rejected consent. On subsequent pages where the consent is known, the player will load normally without a delay.</p>
         <aside class="bcls-aside bcls-aside--information language-editable">For more information on AMP and consent see AMP's <a href="https://amp.dev/documentation/examples/user-consent/client_side_user_consent_flow/">Client Side User Consent Flow</a> document.</aside>
         <h3>Ad configurations</h3>
         <p>The simplest scenario is to use Brightcove Player's standard IMA advertising integration with Google Ad Manager, which expects <code>npa=1</code> to be added to the ad request if consent is unknown or not given. Add
@@ -61,7 +61,7 @@ layout: "staging"
             <li>UNKNOWN: 4</li>
         </ul>
 
-        First, update the player configuration to make the player iframe's query parameters to be available as simple Javascript variables, by adding to the player configuration in the JSON editor the following:
+        To update the player configuration to make the player iframe's query parameters available as simple Javascript variables, add the following to the player configuration in the JSON editor:
         <pre><code class="language-javascript">"query_string_to_window": {"target": "queryStringParams"}</code></pre>
         For assistance, here is a screenshot of the UI:
         </p>
@@ -72,7 +72,7 @@ layout: "staging"
         <h4>Macro example</h4>
         <pre><code class="language-javascript">"adserverURL": "https://ads.example.com/ad?consent={pageVariable.queryStringParams.ampInitialConsentState}&consentString={pageVariable.queryStringParams.ampInitialConsentValue}"</code></pre>
         <h4>Function example</h4>
-        Configure the player without an ad server URL, and set
+        Configure the player without an ad server URL using the following:
         <pre><code class="language-javascript">videojs.registerPlugin('setAdUrl', function() {
   this.ima3.settings.serverUrl = function(callback) {
     if (window.queryStringParams.ampInitialConsentState === 1) {
