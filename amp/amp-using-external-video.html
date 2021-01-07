@@ -190,5 +190,25 @@ parent: amp
         <p>An <strong>amp-analytics</strong> component can be used in an AMP document to track data to any arbitrary analytics. If publishers wish to include video events they can now do so.</p>
         <p>AMP's doc on the AMP Analytics syntax (which is cumbersome) is here: <a href="https://www.ampproject.org/docs/reference/components/amp-analytics">https://www.ampproject.org/docs/reference/components/amp-analytics</a>. And specifically video analytics: <a href="https://github.com/ampproject/amphtml/blob/master/extensions/amp-analytics/amp-video-analytics.md">https://github.com/ampproject/amphtml/blob/master/extensions/amp-analytics/amp-video-analytics.md</a>.</p>
         <p>An example is available, tracking to <strong>example.com</strong> so you'll see the beacons as errors in the network tab: <a href="http://solutions.brightcove.com/bclifford/ampexamples/analytics.html">http://solutions.brightcove.com/bclifford/ampexamples/analytics.html</a>.</p>
+        <h3>AMP Bind</h3>
+        <p>AMP Bind is AMP's API for interacting between components. At a basic level, it allows you to have something external to the player to control playback. For example, the following code would play a video, where <code translate="No">myPlayer</code> is the <code translate="No">id</code> of the amp-brightcove player.</p>
+        <pre class="line-numbers">
+    <code class="language-html" translate="No">&lt;button on="tap:myPlayer.play"&gt;Play&lt;/button&gt;</code></pre>
+        <p>AMP doesn't trust video events so you can't currently do something more useful, like acting on a video end. An example of this is available here: <a href="http://solutions.brightcove.com/bclifford/ampexamples/bind.html">http://solutions.brightcove.com/bclifford/ampexamples/bind.html</a>.</p>
+        <h3>Advertising</h3>
+        <p>Advertising including prerolls works in players used in AMP.</p>
+        <p>The ad plugin and its configuration just need to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin as described below.</p>
+        <p>As mentioned earlier, AMP is very strict in what can be added to a valid AMP page. For example, you CANNOT add an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin. To reiterate what was said in the previous paragraph, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
+        <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code translate="No">{pageVariable.adId}</code>, you must alter the player's configuration. You can use a custom parameter (as described just above) like:</p>
+        <pre class="line-numbers">
+  <code class="language-html" translate="No">data-param-ad-id="preonlybumper"</code></pre>
+        <p>This does not make the value automatically available to the ad macro <code translate="No">{pageVariable.adId}</code>. To make the <code translate="No">ad-id/adId</code> property available to the ad URL, you must use Brightcove Player's <a href="/general/player-configuration-guide.html#query_string_to_window">query_string_to_window</a> configuration option. This option controls the population of the global namespace (window) variables from query string parameters. So to make the <code class="language-html" translate="No">data-param-ad-id="..."</code> available to the plugin you must add the following to the player configuration using the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> (also see note below the code):</p>
+        <pre class="line-numbers">
+  <code class="language-bash" translate="No">  "query_string_to_window": {
+      "globals": [
+        "adId"
+      ]
+    }</code></pre>
+        <p>For specific instructions on updating a player see <a href="https://apis.support.brightcove.com/player-management/references/reference.html#operation/UpdatePlayerConfiguration">Player_Configurations - Update a Player Configuration</a> from the Player Management API reference.</p>
     </section>
 </article>
