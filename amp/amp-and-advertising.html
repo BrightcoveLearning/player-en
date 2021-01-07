@@ -1,17 +1,17 @@
 ---
-title: AMP and Advertising
-parent: amp
-layout: staging
+title: "AMP and Advertising"
+description: "In this topic, you will learn how to use advertising with a Brightcove Player that uses AMP. You will also learn how to use client-side consent with the Brightcove Player/AMP configuration."
+parent: "amp"
+layout: "staging"
 ---
+<h1>{{ page.title }}</h1>
 <article class="bcls-article">
-    <h1>AMP and Advertising</h1>
-    <summary>In this topic, you will learn .</summary>
-    <br />
-    <aside class="bcls-aside bcls-aside--tip">This feature is available for a specific set of customers.</aside>
+    <summary>{{ page.description }}</summary>
+    <br>
+    <aside class="bcls-aside bcls-aside--tip">This feature is available for a specific set of customers at this time.</aside>
     <section class="bcls-section">
         <h2 id="section-name">AMP and Advertising When Using a Video Cloud Video</h2>
-        <p>Advertising, including prerolls, works in players used in AMP.</p>
-        <p>The ad plugin and its configuration just need to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin as described below.</p>
+        <p>Advertising, including prerolls, works in players used in AMP. The ad plugin and its configuration just needs to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin as described later in this document.</p>
         <p>As mentioned earlier, AMP is very strict in what can be added to a valid AMP page. For example, you CANNOT add an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin. To reiterate what was said in the previous paragraph, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
         <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code translate="No">{pageVariable.adId}</code>, you must alter the player's configuration. You can use a custom parameter (as described just above) like:</p>
         <pre class="line-numbers">
