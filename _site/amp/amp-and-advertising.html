@@ -1104,13 +1104,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <br>
     <aside class="bcls-aside bcls-aside--tip">This feature is available for a specific set of customers at this time.</aside>
     <section class="bcls-section">
-        <h2 id="section-name">AMP and Advertising When Using a Video Cloud Video</h2>
-        <p>Advertising, including prerolls, works in players used in AMP. The ad plugin and its configuration just needs to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin as described later in this document.</p>
-        <p>As mentioned earlier, AMP is very strict in what can be added to a valid AMP page. For example, you CANNOT add an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin. To reiterate what was said in the previous paragraph, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
-        <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code translate="No">{pageVariable.adId}</code>, you must alter the player's configuration. You can use a custom parameter (as described just above) like:</p>
+        <h2 id="section-name">AMP and Advertising</h2>
+        <p>Advertising, including prerolls, works in players used in AMP. The ad plugin and its configuration just needs to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin, as described later in this document.</p>
+        <p>AMP is very strict in what can be added to a valid AMP page, as detailed in the <a href="/amp/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a> document. For example, you CANNOT use the standard practice of adding an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin. To reiterate, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
+        <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code translate="No">{pageVariable.adId}</code>, you must alter the player's configuration. You can use a custom parameter, explained in the <a href="/amp/amp-using-video-cloud-video.html#Custom_parameters">Custom parameters section of the AMP Using a Video Cloud Video</a> document, like:</p>
         <pre class="line-numbers">
 <code class="language-html" translate="No">data-param-ad-id="preonlybumper"</code></pre>
-        <p>This does not make the value automatically available to the ad macro <code translate="No">{pageVariable.adId}</code>. To make the <code translate="No">ad-id/adId</code> property available to the ad URL, you must use Brightcove Player's <a href="/general/player-configuration-guide.html#query_string_to_window">query_string_to_window</a> configuration option. This option controls the population of the global namespace (window) variables from query string parameters. So to make the <code class="language-html" translate="No">data-param-ad-id="..."</code> available to the plugin you must add the following to the player configuration using the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> (also see note below the code):</p>
+        <p>This does not make the value automatically available to the ad macro <code translate="No">{pageVariable.adId}</code>. To make the <code translate="No">ad-id/adId</code> property available to the ad URL, you must use Brightcove Player's <a href="/general/player-configuration-guide.html#query_string_to_window">query_string_to_window</a> configuration option. This option controls the population of the global namespace (window) variables from query string parameters. So to make the <code class="language-html" translate="No">data-param-ad-id="..."</code> available to the plugin, you must add the following to the player configuration using the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> (also see note below the code):</p>
         <pre class="line-numbers">
 <code class="language-bash" translate="No">  "query_string_to_window": {
     "globals": [
@@ -1119,19 +1119,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   }</code></pre>
         <p>For specific instructions on updating a player see <a href="https://apis.support.brightcove.com/player-management/references/reference.html#operation/UpdatePlayerConfiguration">Player_Configurations - Update a Player Configuration</a> from the Player Management API reference.</p>
     </section>
-
-
-    <section class="bcls-section">
-        <h2 id="section-name">AMP and Advertising When Using an External Video</h2>
-        <p>Advertising, including prerolls, works in players used in AMP.</p>
-        <p>The ad plugin and its configuration just need to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin as described below.</p>
-        <p>As mentioned earlier, AMP is very strict in what can be added to a valid AMP page. For example, you CANNOT add an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin. To reiterate what was said in the previous paragraph, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
-    </section>
-
     <section class="bcls-section">
         <h2 id="section-name">AMP-consent and Advertising</h2>
-        <p>In AMP you can use client-side consent, providing users with additional control over their online experience. If your AMP page is managing user consent with AMP-consent, and you are using advertising in the player, then you may want to adapt the player's ad request depending on that consent.</p>
-        <p>By adding a
+        <p>In AMP you can use client-side consent, providing users with additional control over their online experience. If your AMP page is managing user consent with AMP-consent, and you are using advertising in the player, then you may want to adapt the player's ad request depending on that consent. By adding a
             <pre><code class="language-javascript">data-block-on-consent="_till_responded"</code></pre>
             attribute to the amp-brightcove element, the player load will be delayed until the user has accepted or rejected consent. On subsequent pages where the consent is known, the player will load normally without a delay.</p>
         <aside class="bcls-aside bcls-aside--information language-editable">For more information on AMP and consent see AMP's <a href="https://amp.dev/documentation/examples/user-consent/client_side_user_consent_flow/">Client Side User Consent Flow</a> document.</aside>
@@ -1200,7 +1190,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 06 Jan 2021
+  Page last updated on 07 Jan 2021
 </div>
 
 
