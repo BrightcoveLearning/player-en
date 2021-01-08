@@ -411,7 +411,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
                   
                 
                   
-                    <li><a href="/plugins/thumbnails-plugin.html">Thumbnail Scrubbing</a></li>
+                    <li><a href="/plugins/thumbnails-plugin.html">Thumbnail Seeking</a></li>
                   
                 
                   
@@ -1233,7 +1233,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <!-- These are features that are common to both Video Cloud and external videos -->
         <!-- THIS SECTION CAN BE ADDED TO THEN COPIED TO SIMILAR SECTION IN EXTERNAL VIDEO FEATURES SECTION -->
 
-        <h3>Custom parameters</h3>
+        <h3 id="Custom_parameters">Custom parameters</h3>
         <p>You may want to pass additional information through to your player for your plugins to access. You can do this by adding extra attributes on the <code translate="No">amp-brightcove</code> element that must be named <code translate="No">data-param-*</code>, where <code translate="No">*</code> is the name of your property.</p>
         <p>The parameters are passed through as camel cased attribute names appended to the player URL. Keys and values are URL encoded. For example:</p>
         <ul>
@@ -1280,23 +1280,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <!-- These are features unique to Video Cloud videos and NOT shared with external videos -->
 
         <h3>Advertising</h3>
-        <p>Advertising including prerolls works in players used in AMP.</p>
-        <p>The ad plugin and its configuration just need to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin as described below.</p>
-        <p>As mentioned earlier, AMP is very strict in what can be added to a valid AMP page. For example, you CANNOT add an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin. To reiterate what was said in the previous paragraph, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
-        <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code translate="No">{pageVariable.adId}</code>, you must alter the player's configuration. You can use a custom parameter (as described just above) like:</p>
+        <p>Advertising, including prerolls, works in players used in AMP. The ad plugin and its configuration just needs to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin as described later in this document.</p>
+        <p>AMP is very strict in what can be added to a valid AMP page, as detailed in the <a href="/amp/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a> document. For example, you CANNOT use the standard practice of adding an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin. To reiterate, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
+        <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code translate="No">{pageVariable.<span class="bcls-highlight">adId</span>}</code>, you must alter the player's configuration. You can use a custom parameter like:</p>
         <pre class="line-numbers">
   <code class="language-html" translate="No">data-param-ad-id="preonlybumper"</code></pre>
-        <p>This does not make the value automatically available to the ad macro <code translate="No">{pageVariable.adId}</code>. To make the <code translate="No">ad-id/adId</code> property available to the ad URL, you must use Brightcove Player's <a href="/general/player-configuration-guide.html#query_string_to_window">query_string_to_window</a> configuration option. This option controls the population of the global namespace (window) variables from query string parameters. So to make the <code class="language-html" translate="No">data-param-ad-id="..."</code> available to the plugin you must add the following to the player configuration using the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> (also see note below the code):</p>
-        <pre class="line-numbers">
-  <code class="language-bash" translate="No">  "query_string_to_window": {
-      "globals": [
-        "adId"
-      ]
-    }</code></pre>
-        <p>For specific instructions on updating a player see <a href="https://apis.support.brightcove.com/player-management/references/reference.html#operation/UpdatePlayerConfiguration">Player_Configurations - Update a Player Configuration</a> from the Player Management API reference.</p>
-        <h3>Styling the player</h3>
-        <p>If you wish to style the player you must use special syntax to do so. For instance, if you want to set the size of the player, you would create a <code translate="No">style</code> block as shown and surround the player with a <code translate="No">div</code>, as shown here:</p>
-        <pre class="line-numbers">
+        <p>This does not make the value automatically available to the ad macro <code translate="No">{pageVariable.adId}</code>. To make the <code translate="No">ad-id/adId</code> property available to the ad URL, you must use Brightcove Player's <a href="/general/player-configuration-guide.html#query_string_to_window">query_string_to_window</a> configuration option. This option controls the population of the global namespace (window) variables from query string parameters. To add all query parameters to the global namespace, add the following to your player configuration:
+            <pre class="line-numbers">
+<code class="language-bash" translate="No">"query_string_to_window": {
+  "target": "queryStringParams"
+}</code></pre>
+            <p>Note the <code>queryStringsParams</code> name is the "variable" in which the parameters will be stored, and you can change the name as you choose.</p>
+            <p>If for some reason you prefer to only assign limited parameters to the global namespace you can do so. For instance, to make only the <code class="language-html" translate="No">data-param-<span class="bcls-highlight">ad-id</span>="..."</code> available to the plugin, you add the following to the player configuration:</p>
+            <pre class="line-numbers">
+<code class="language-bash" translate="No">"query_string_to_window": {
+  "globals": [
+    "adId"
+  ]
+}</code></pre>
+            <p>For specific instructions on updating a player configuration see <a href="https://apis.support.brightcove.com/player-management/references/reference.html#operation/UpdatePlayerConfiguration">Player Configurations - Update a Player Configuration</a> from the Player Management API reference.</p>
+            <h3>Styling the player</h3>
+            <p>If you wish to style the player you must use special syntax to do so. For instance, if you want to set the size of the player, you would create a <code translate="No">style</code> block as shown and surround the player with a <code translate="No">div</code>, as shown here:</p>
+            <pre class="line-numbers">
   <code class="language-html" translate="No">&lt;style <span class="bcls-highlight">amp-custom</span>&gt;
     .player-container {
       width: 640px;
@@ -1315,7 +1320,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       width="16" height="9"&gt;
     &lt;/amp-brightcove&gt;
   &lt;/div&gt;</code></pre>
-        <p>You can add a single <code translate="No">style</code> tag, but it must include the <code translate="No">amp-custom</code> attribute.</p>
+            <p>You can add a single <code translate="No">style</code> tag, but it must include the <code translate="No">amp-custom</code> attribute.</p>
     </section>
 
     <section class="bcls-section">
@@ -1341,7 +1346,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 13 Oct 2020
+  Page last updated on 07 Jan 2021
 </div>
 
 
