@@ -12,10 +12,13 @@ parent: Plugins
 <h2 id="Overview">Overview</h2>
 
 <p>
-  Video thumbnail images allow users to quickly scan the progress bar for the section they are interested in. Clicking on the progress bar takes them to that location in the video.
+  Video thumbnail images allow users to quickly scan the progress bar for the section they are interested in. Brightcove Player displays thumbnail images when the user hovers over the progress bar. Clicking on the progress bar takes them to that location in the video.
 </p>
 
-<p>Thumbnail seeking must first be enabled for your account. Once this is done, the Brightcove Player displays thumbnail images when the user hovers over the progress bar or drags the playhead to a location on the progress bar.</p>
+<h5>When are images generated?</h5>
+<p>Brightcove generates the images dynamically on request. Any video ingested with Dynamic Delivery will have images generated on the first request. This ensures that images are not created for unused videos. Once generated, images are cached locally and on the CDN for repeat viewing, just like any other image.</p>
+<h5>What is the image frequency for a video?</h5>
+<p>Images are generated every 5 seconds for content < 1 hour, and every 10 seconds for content > 1 hour.</p>
 
 </section>
 
