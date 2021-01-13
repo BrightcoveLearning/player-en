@@ -1,0 +1,97 @@
+---
+title: 'China Delivery with Brightcove Player'
+description: "In this topic, you will learn how to use Brightcove Player to deliver video to China from outside the country."
+parent: Playback
+---
+
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+
+    <p>Delivering video to China from outside the country is challenging due to regulations and controls, restricting the free-flow of data across its national borders. Historically, we have provided a solution that allowed Brightcove services to distribute video content through a content delivery network within the country. However, essential communications, including Playback API requests and responses, and Analytics beacons were unreliable, and at times non-functional.</p>
+
+    <p>Brightcove’s China Delivery solution addresses the problems listed above and comprises two parts:</p>
+    <ul>
+      <li>A proxy server hosted within China</li>
+      <li>A connected China-specific CDN</li>
+    </ul>
+
+    <p>The proxy routes non-video traffic (Playback API requests, Analytics beacons, and the web player itself) to and from viewers in China to Brightcove infrastructure located outside.</p>
+
+    <p>The CDN is connected to the proxy and handles the video and image content.</p>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Requirements">Requirements</h2>
+    <p>The following requirements are needed to support Brightcove's China Delivery solution:</p>
+    <ul>
+      <li>This solution is available to Brightcove Enterprise customers. For details, contact your account manager.</li>
+      <li>A Video Cloud account enabled for China Delivery.
+        <ul>
+          <li>This account can deliver inside and outside of China. A separate account is optional, but not required.</li>
+        </ul>
+      </li>
+      <li>A Brightcove Player configured for China Delivery.
+        <ul>
+          <li>See details below for how to configure your player.</li>
+          <li>Brightcove Player version 6.44+ required. Latest version recommended.</li>
+          <li>A valid <a href="https://en.wikipedia.org/wiki/ICP_license">Internet Content Provider (ICP) license</a>.</li>
+          <li>An approved domain or subdomain name listed on the ICP license.</li>
+          <li>A website for publishing players, hosted on the approved domain.</li>
+        </ul>
+      </li>
+    </ul>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Configuring_Brightcove_Player">Configuring Brightcove Player</h2>
+    <p>Delivery Rules can be configured in the Brightcove Player in the following ways:</p>
+
+    <h3>Player management API</h3>
+    <p>When configuring players with the Player Management API, you can set the <code translate="No">delivery_config_id</code> configuration property as follows:</p>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  &quot;delivery_config_id&quot;: &quot;abcdef&quot;,
+  ...
+}</code></pre>
+
+    <h3>Standard embed code</h3>
+    <p>With the standard embed code (iframe), use the <code translate="No">deliveryConfigId</code> query parameter:</p>
+    <pre>
+<code class="language-html" translate="No">&lt;iframe src=&quot;https://players.brightcove.net/.../index.html?deliveryConfigId=abcdef&quot;&gt;</code></pre>
+    <br>
+    <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
+
+    <h3>Advanced embed code</h3>
+    <p>With the advanced embed code (in-page embed), use the <code translate="No">data-delivery-config-id</code> attribute:</p>
+    <pre>
+<code class="language-html" translate="No">&lt;video-js data-delivery-config-id=&quot;abcdef&quot;&gt;</code></pre>
+    <br>
+    <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
+
+    <h3>Using the Catalog API</h3>
+    <p>Using Javascript, you can fetch the delivery rule by its <code translate="No">deliveryConfigId</code> using the Catalog API:</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">var player = videojs.getPlayer('myPlayerId');
+player.ready(function () {
+  var catalogParams = {
+    deliveryConfigId: <span class="bcls-input">delivery_rules_id</span>,
+    type: 'video',
+    id: <span class="bcls-input">video_id</span>,
+  };
+
+  player.catalog.get(catalogParams, function (error, video) {
+    if (error) {
+      throw new Error(error);
+    }
+
+    player.catalog.load(video);
+  });
+});</code></pre>
+  </section>
+
+</article>
