@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="robots" content="noindex,nofollow"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="In this topic, you will learn how to use Brightcove Player to deliver video to China from outside the country.">
   
@@ -11,17 +12,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
-  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
   <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
@@ -1112,6 +1102,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <article class="bcls-article">
   <summary>In this topic, you will learn how to use Brightcove Player to deliver video to China from outside the country.</summary>
 
+  <br/>
+  <aside class="bcls-aside bcls-aside--tip">This feature is available for a specific set of customers with access to the Limited Availability phase of China Delivery.</aside>
+
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
 
@@ -1154,48 +1147,122 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Configuring_Brightcove_Player">Configuring Brightcove Player</h2>
-    <p>Delivery Rules can be configured in the Brightcove Player in the following ways:</p>
+    <p>To deliver video within China, you must configure the player to use the Brightcove China Delivery proxy.</p>
+    <p>To create a China-compatible player, follow these steps:</p>
 
-    <h3>Player management API</h3>
-    <p>When configuring players with the Player Management API, you can set the <code translate="No">delivery_config_id</code> configuration property as follows:</p>
+    <ol class="bcls-tasklist">
+      <li>
+        <p>
+          In Video Cloud Studio, open the <strong>PLAYERS</strong> module. Use an existing player or create a new one.
+        </p>
+        <aside class="bcls-aside bcls-aside--information">Remember to use a Brightcove Player version 6.44 or newer (latest release recommended).</aside>
+      </li>
+      <li>Select the player's name link to open the player's properties.</li>
+      <li><p>In the left navigation, select <strong>JSON Editor</strong>.</p>
+      <figure class="bcls-figure"><img class="bcls-image--no-border" alt="JSON Editor" src="/assets/images/plugins/china-delivery/json-editor.png" />
+        <figcaption class="bcls-caption--image">JSON Editor</figcaption>
+        </figure>
+      </li>
+      <li><p>To set the proxy, in the <code>player</code> object, add the following:</p>
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;</code></pre>
+        <aside class="bcls-aside bcls-aside--information">This should be a hostname only. No protocol (e.g., https://) and no special characters including forward slashes.</aside>
+      </li>
+      <li>
+        <p>
+          Your code should look similar to this:
+        </p>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" width="800" alt="China proxy setting" src="/assets/images/plugins/china-delivery/china-proxy-setting.png" />
+        <figcaption class="bcls-caption--image">China proxy setting</figcaption>
+        </figure>
+      </li>
+    </ol>
+
+    <p>With <code>china_proxy_domain</code> set, all requests initiated by the player will be sent to URLs within that domain. Using the sample value above (<strong>china.example.com</strong>) users may see requests to:</p>
+    <table class="bcls-table">
+            <!-- <caption class="bcls-caption--table">Table Caption (optional <strong><caption class="bcls-caption--table"></strong>)</caption> -->
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>System</th>
+                    <th>Path</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>Players CDN</td>
+                    <td>//china.example.com/players/...</td>
+                </tr>
+                <tr>
+                    <td>Playback API</td>
+                    <td>//china.example.com/playback/v1/...</td>
+                </tr>
+                <tr>
+                    <td>Analytics</td>
+                    <td>//china.example.com/v2/tracker...</td>
+                </tr>
+                
+            </tbody>
+        </table>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Localization">Localization</h2>
+    <p>With <code>china_proxy_domain</code> set, Brightcove Player will <strong>automatically</strong> be configured with two languages:</p>
+    <ul>
+      <li><code>zh-Hans</code>: Simplified Chinese (default)</li>
+      <li><code>zh-Hant</code>: Traditional Chinese</li>
+    </ul>
+
+    <p>Setting a <code>china_proxy_domain</code> has the same effect as setting the following configurations (though these are not needed):</p>
     <pre class="line-numbers">
-<code class="language-json" translate="No">{
-  &quot;delivery_config_id&quot;: &quot;abcdef&quot;,
-  ...
-}</code></pre>
+<code class="language-json" translate="No">&quot;language&quot;: &quot;zh-Hans&quot;,
+&quot;languages&quot;: [&quot;zh-Hans&quot;, &quot;zh-Hant&quot;],
+</code></pre>
+    <p>This default effect of the <code>china_proxy_domain</code> will not occur if any value is provided for the <code>language</code> or <code>languages</code> configuration! To override default behavior, you can mix and match these configurations.</p>
+  </section>
 
-    <h3>Standard embed code</h3>
-    <p>With the standard embed code (iframe), use the <code translate="No">deliveryConfigId</code> query parameter:</p>
-    <pre>
-<code class="language-html" translate="No">&lt;iframe src=&quot;https://players.brightcove.net/.../index.html?deliveryConfigId=abcdef&quot;&gt;</code></pre>
-    <br>
-    <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
+  <section class="bcls-section">
+    <h2 id="Adding_more_languages">Adding more languages</h2>
+    <p>If more languages than <code>zh-Hans</code> and <code>zh-Hant</code> are needed, you can add a languages configuration to the player. This configuration might look something like:</p>
+   
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;,
+&quot;languages&quot;: [&quot;zh-Hans&quot;, &quot;zh-Hant&quot;, &quot;en&quot;, &quot;jp&quot;],
+</code></pre>
+    <p>The player in this example would still default to <code>zh-Hans</code>, but would also add the English and Japanese languages.</p>
+  </section>
 
-    <h3>Advanced embed code</h3>
-    <p>With the advanced embed code (in-page embed), use the <code translate="No">data-delivery-config-id</code> attribute:</p>
-    <pre>
-<code class="language-html" translate="No">&lt;video-js data-delivery-config-id=&quot;abcdef&quot;&gt;</code></pre>
-    <br>
-    <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
+  <section class="bcls-section">
+    <h2 id="Changing_the_default_language">Changing the default language</h2>
+    <p>To configure a different default language than <code>zh-Hans</code>, add a <code>language</code> configuration. The configuration should look similar to this:</p>
+   
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;,
+&quot;language&quot;: &quot;zh-Hant&quot;,
+</code></pre>
+  </section>
 
-    <h3>Using the Catalog API</h3>
-    <p>Using Javascript, you can fetch the delivery rule by its <code translate="No">deliveryConfigId</code> using the Catalog API:</p>
-    <pre class="line-numbers"><code class="language-javascript" translate="No">var player = videojs.getPlayer('myPlayerId');
-player.ready(function () {
-  var catalogParams = {
-    deliveryConfigId: <span class="bcls-input">delivery_rules_id</span>,
-    type: 'video',
-    id: <span class="bcls-input">video_id</span>,
-  };
+  <section class="bcls-section">
+    <h2 id="Limitations">Limitations</h2>
+    <p>The following are known limitations with China Delivery:</p>
+    <h3>Limited Availability (LA) - January 2021</h3>
+    <ul>
+      <li>Player configuration requires editing JSON and/or usage of the Player Management API. A “one-click” Player configuration via the Studio is intended for General Availability in Q2 2021.</li>
+      <li>The Brightcove Native SDKs (iOS & Android) will be supported shortly after release</li>
+    </ul>
 
-  player.catalog.get(catalogParams, function (error, video) {
-    if (error) {
-      throw new Error(error);
-    }
-
-    player.catalog.load(video);
-  });
-});</code></pre>
+    <h3>General Availability (GA) - Targeted for Q2 2021</h3>
+    <ul>
+      <li>Live Streaming is not supported</li>
+      <li>Dynamic Delivery Rules are not supported</li>
+      <li>Integrations requiring 3rd-party server access are not supported, including:
+        <ul>
+          <li>DRM</li>
+          <li>Advertising (CSAI + SSAI)</li>
+        </ul>
+      </li>
+    </ul>
+    
   </section>
 
 </article>
