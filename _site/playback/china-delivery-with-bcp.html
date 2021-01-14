@@ -1163,7 +1163,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <figcaption class="bcls-caption--image">JSON Editor</figcaption>
         </figure>
       </li>
-      <li><p>To set the proxy, in the <code>player</code> object, add the following:</p>
+      <li><p>To set the proxy, add the following:</p>
         <pre class="line-numbers">
 <code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;</code></pre>
         <aside class="bcls-aside bcls-aside--information">This should be a hostname only. No protocol (e.g., https://) and no special characters including forward slashes.</aside>
@@ -1178,7 +1178,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
     </ol>
 
-    <p>With <code>china_proxy_domain</code> set, all requests initiated by the player will be sent to URLs within that domain. Using the sample value above (<strong>china.example.com</strong>) users may see requests to:</p>
+    <p>With <code translate="No">china_proxy_domain</code> set, all requests initiated by the player will be sent to URLs within that domain. Using the sample value above (<strong>china.example.com</strong>) users may see requests to:</p>
     <table class="bcls-table">
             <!-- <caption class="bcls-caption--table">Table Caption (optional <strong><caption class="bcls-caption--table"></strong>)</caption> -->
             <thead class="bcls-table__head">
@@ -1207,34 +1207,34 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Localization">Localization</h2>
-    <p>With <code>china_proxy_domain</code> set, Brightcove Player will <strong>automatically</strong> be configured with two languages:</p>
+    <p>With <code translate="No">china_proxy_domain</code> set, Brightcove Player will <strong>automatically</strong> be configured with two languages:</p>
     <ul>
-      <li><code>zh-Hans</code>: Simplified Chinese (default)</li>
-      <li><code>zh-Hant</code>: Traditional Chinese</li>
+      <li><code translate="No">zh-Hans</code>: Simplified Chinese (default)</li>
+      <li><code translate="No">zh-Hant</code>: Traditional Chinese</li>
     </ul>
 
-    <p>Setting a <code>china_proxy_domain</code> has the same effect as setting the following configurations (though these are not needed):</p>
+    <p>Setting a <code translate="No">china_proxy_domain</code> has the same effect as setting the following configurations (though these are not needed):</p>
     <pre class="line-numbers">
 <code class="language-json" translate="No">&quot;language&quot;: &quot;zh-Hans&quot;,
 &quot;languages&quot;: [&quot;zh-Hans&quot;, &quot;zh-Hant&quot;],
 </code></pre>
-    <p>This default effect of the <code>china_proxy_domain</code> will not occur if any value is provided for the <code>language</code> or <code>languages</code> configuration! To override default behavior, you can mix and match these configurations.</p>
+    <p>This default effect of the <code translate="No">china_proxy_domain</code> will not occur if any value is provided for the <code translate="No">language</code> or <code translate="No">languages</code> configuration! To override default behavior, you can mix and match these configurations.</p>
   </section>
 
   <section class="bcls-section">
     <h2 id="Adding_more_languages">Adding more languages</h2>
-    <p>If more languages than <code>zh-Hans</code> and <code>zh-Hant</code> are needed, you can add a languages configuration to the player. This configuration might look something like:</p>
+    <p>If more languages than <code translate="No">zh-Hans</code> and <code translate="No">zh-Hant</code> are needed, you can add a languages configuration to the player. This configuration might look something like:</p>
    
     <pre class="line-numbers">
 <code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;,
 &quot;languages&quot;: [&quot;zh-Hans&quot;, &quot;zh-Hant&quot;, &quot;en&quot;, &quot;jp&quot;],
 </code></pre>
-    <p>The player in this example would still default to <code>zh-Hans</code>, but would also add the English and Japanese languages.</p>
+    <p>The player in this example would still default to <code translate="No">zh-Hans</code>, but would also add the English and Japanese languages.</p>
   </section>
 
   <section class="bcls-section">
     <h2 id="Changing_the_default_language">Changing the default language</h2>
-    <p>To configure a different default language than <code>zh-Hans</code>, add a <code>language</code> configuration. The configuration should look similar to this:</p>
+    <p>To configure a different default language than <code translate="No">zh-Hans</code>, add a <code translate="No">language</code> configuration. The configuration should look similar to this:</p>
    
     <pre class="line-numbers">
 <code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;,
