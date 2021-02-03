@@ -19,9 +19,9 @@ parent: Code Samples
       that is in the custom ModalWindow immediately. The image takes a bit to load when used inside the CodePen. The
       image will appear very quickly when you place your desired image in a URL under your control and use that path in
       the code that appears as:<br>
-      <code class="language-javascript" translate="No">newElement.innerHTML =
-        &quot;&lt;img src='https://learning-services-media.brightcove.com/images/please-stand-by.png'&gt;&quot;;</code>
-      </pre>
+<pre><code class="language-javascript" translate="No">newElement.innerHTML =
+  &quot;&lt;img src='https://learning-services-media.brightcove.com/images/please-stand-by.png'&gt;&quot;;</code>
+</pre>
       <br>
       <br>
       <p>To see the performance in a normal environment browse to <a
@@ -191,64 +191,60 @@ parent: Code Samples
 
     <h3>Create an HTML <code translate="No">div</code> element</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### Create a div in which to place HTML content and place
-        image inside ###</code>
-    </pre>
+<pre>
+<code class="language-javascript" translate="No">// ### Create a div in which to place HTML content and place image inside ###</code>
+</pre>
     <p>You create an HTML <code translate="No">div</code> element and place an image in it you wish to display if the
       live feed is not working.</p>
     <!-- UPDATE task 2 -->
 
     <h3>Build an object in which the HTML <code translate="No">div</code> element will be placed</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### Define options object to be used for modal content
-        ###</code>
-    </pre>
+<pre>
+  <code class="language-javascript" translate="No">// ### Define options object to be used for modal content ###</code>
+</pre>
     <p>This is needed when you create the ModalDialog.</p>
     <!-- UPDATE task 3 -->
 
     <h3>Create the ModalDialog and place the image as its content</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### Create Modal with options object ###</code>
-    </pre>
+<pre>
+<code class="language-javascript" translate="No">// ### Create Modal with options object ###</code>
+</pre>
     <p>This is standard code to create a ModalDialog instance and add it to the player. By default it is NOT displayed.
     </p>
     <!-- UPDATE task 3 -->
 
     <h3>Listen for an error to be dispatched</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### Listen for an error event ###</code>
-    </pre>
+<pre>
+<code class="language-javascript" translate="No">// ### Listen for an error event ###</code>
+</pre>
     <p>When an error is dispatched get the error code and duration.</p>
     <!-- UPDATE task 3 -->
 
     <h3>Check the error type</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### Check if the error code and duration mean no video has
-        loaded ###</code>
-    </pre>
+<pre>
+  <code class="language-javascript" translate="No">// ### Check if the error code and duration mean no video has loaded ###</code>
+</pre>
     <p>To check if a live stream is not playing you use the following:</p>
-    <pre class="line-numbers"><code class="language-javascript">if (((errNo == "4" && duration == 0) || (errNo == "4" &&
-        Number.isNaN(duration)))) {
-        // Hide the error display
-        myPlayer.errorDisplay.hide();
-        // If conditions met show the custom modal
-        myModal.open();
-        }</code></pre>
+<pre class="line-numbers"><code class="language-javascript">if (((errNo == "4" && duration == 0) || (errNo == "4" &&
+Number.isNaN(duration)))) {
+  // Hide the error display
+  myPlayer.errorDisplay.hide();
+  // If conditions met show the custom modal
+  myModal.open();
+}</code></pre>
     <p>The condition check <code>errNo == "4" && duration == 0</code> works for Chrome and Firefox. The second condition
       check <code>errNo == "4" && Number.isNaN(duration)</code> is needed for Safari and browsers on Android.</p>
     <!-- UPDATE task 3 -->
 
     <h3>Display default error is custom ModalDialog is closed</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### If custom modal error closed, show the default error
-        ###</code>
-    </pre>
+<pre>
+<code class="language-javascript" translate="No">// ### If custom modal error closed, show the default error ###</code>
+</pre>
     <p>This is done only if you wish to implement this behavior. Simply listen for the <code
         translate="No">modalclose</code> event and in its event handler show the default error.</p>
   </section>
@@ -264,19 +260,17 @@ parent: Code Samples
       change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines
       a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
-    <pre class="line-numbers">
-      <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
-        var myPlayer = this;
-        ...
-        });</code>
-    </pre>
+<pre class="line-numbers">
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
+  var myPlayer = this;
+  ...
+  });</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-    <pre class="line-numbers">
-      <code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
-        var myPlayer = this;
-        ...
-        });</code>
-    </pre>
+<pre class="line-numbers">
+<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
+  var myPlayer = this;
+  ...
+  });</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
 
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a
