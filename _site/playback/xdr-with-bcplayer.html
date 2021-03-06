@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex,nofollow"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will learn the how to use cross-device resume with Brightcove Player.">
+  <meta name="description" content="In this topic, you will learn the how to use Cross-Device Resume with Brightcove Player.">
   
   <title>Cross-Device Resume with Brightcove Player</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1106,22 +1106,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <article class="bcls-article">
   <h1>Cross-Device Resume with Brightcove Player</h1>
-  <summary>In this topic, you will learn the how to use cross-device resume with Brightcove Player.</summary>
+  <summary>In this topic, you will learn the how to use Cross-Device Resume with Brightcove Player.</summary>
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>
-      Cross-device resume lets you start watching a video on one device, and at a later time, continue watching the video where you left off on a different device.
+      Cross-Device Resume allows viewers start watching a video on one device, and at a later time, continue watching the video where they left off on a different device.
     </p>
     <p>
-      Let's say that you start watching a video on your mobile device. Later, you can continue watching the same video with a player on your web browser. Playback will continue where you left off, so you won't miss a thing.
+      Let's say that someone starts watching a video on their mobile device. Later, they can continue watching the same video with a player on their web browser. Playback will continue where they left off, so they won't miss a thing.
     </p>
   </section>
 
   <section class="bcls-section">
     <h2 id="Requirements">Requirements</h2>
     <p>
-      The following requirements apply to cross-device resume:
+      The following requirements apply to Cross-Device Resume:
     </p>
     <ul>
       <li>
@@ -1142,7 +1142,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </p>
     <ul>
       <li>
-        Contact your account manager to enable your account for cross-device resume
+        Contact your account manager to enable your account for Cross-Device Resume
       </li>
       <li>
         Make sure the videos you are using are ingested for Dynamic Delivery
@@ -1151,15 +1151,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
 
   <section class="bcls-section">
-    <h2 id="Implementing_cross_device_resume">Implementing cross-device resume</h2>
+    <h2 id="Implementing_Cross_Device_Resume">Implementing Cross-Device Resume</h2>
 
-    <p>To implement cross-device resume, follow these steps:</p>
+    <p>To implement Cross-Device Resume, follow these steps:</p>
     <ol class="bcls-tasklist">
       <li>
         <a href="#Set_the_user_identifier">Set the user identifier</a> in Brightcove analytics
       </li>
       <li>
-        <a href="#Get_the_user_playback_position">Get the user playback position</a>
+        <a href="#Get_the_viewer_playback_position">Get the viewer playback position</a>
       </li>
       <li>
         <a href="#Resume_playback">Resume playback</a> on a Brightcove Player
@@ -1170,7 +1170,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Set_the_user_identifier">Set the user identifier</h2>
 
-    <p>First, you need to set the user identifier to store user viewing activity.</p>
+    <p>First, you need to set the user identifier to store their viewing activity.</p>
     <h3>Brightcove Player</h3>
     <p>
       If you are using Brightcove Player, follow these steps:
@@ -1181,12 +1181,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>
           Even though viewer data is sent to Brightcove analytics automatically, you need to set the user identifier. To do this, use the <code translate="No">setUser()</code> method. For example:
         </p>
-        <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.bcAnalytics.client.setUser('<span class="bcls-input">user id</span>');</code></pre>
-        <p>On your websites that host Brightcove Player, you can use an authentication gateway or some identity management solution to keep track viewers. Use this viewer id as the user identifier to pass to Brightcove analytics.</p>
+        <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.bcAnalytics.client.setUser('<span class="bcls-input">viewer id</span>');</code></pre>
+        <p>On your websites that host Brightcove Player, you can use an authentication gateway or some identity management solution to keep track of viewers. Use this viewer id as the viewer identifier to pass to Brightcove analytics.</p>
       </li>
       <li>
         <p>
-          It is important to set the user id before any source is set on the player. It should be called immediately after initializing the player.
+          It is important to set the viewer id before any source is set on the player. It should be called immediately after initializing the player.
         </p>
         <pre class="line-numbers"><code class="language-javascript" translate="No">&lt;video-js
     id=&quot;myPlayerID&quot;
@@ -1205,7 +1205,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       var myPlayer = this;
 
       // Set the viewer id for Brightcove analytics
-      myPlayer.bcAnalytics.client.setUser(<span class="bcls-input">user id</span>');
+      myPlayer.bcAnalytics.client.setUser(<span class="bcls-input">viewer id</span>');
     });
   &lt;/script&gt;</code></pre>
       </li>
@@ -1220,9 +1220,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ol>
     <h3>Custom player</h3>
     <p>
-      if you are building a custom implementation that does not use Brightcove Player, add the <code translate="No">user</code> parameter to your Data Collection API requests. For details, see the <a href="https://apis.support.brightcove.com/data-collection/overview-data-collection-api-v2.html#all-event-parameters">Overview: Data Collection API v2</a> document.
+      If you are building a custom implementation that does not use Brightcove Player, add the <code translate="No">user</code> parameter to your Data Collection API requests. For details, see the <a href="https://apis.support.brightcove.com/data-collection/overview-data-collection-api-v2.html#all-event-parameters">Overview: Data Collection API v2</a> document.
     </p>
-    <p>On your websites that host your player, you can use an authentication gateway or some identity management solution to keep track viewers. Use this viewer id as the user identifier to pass to Brightcove analytics.</p>
+    <p>On your websites that host your player, you can use an authentication gateway or some identity management solution to keep track viewers. Use this viewer id as the viewer identifier to pass to Brightcove analytics.</p>
     <p>
       This <code translate="No">user</code> parameter passed to Brightcove can be used in the next section to retrieve the playback position from the XDR API.
     </p>
@@ -1230,12 +1230,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
 
   <section class="bcls-section">
-    <h2 id="Get_the_user_playback_position">Get the user playback position</h2>
+    <h2 id="Get_the_viewer_playback_position">Get the viewer playback position</h2>
 
-    <p>Next, you will get the user playback position from the Cross-Device Resume (XDR) API.</p>
+    <p>Next, you will get the viewer playback position from the Cross-Device Resume (XDR) API.</p>
 
         <p>
-          You will need a server-side application to make the REST API request to get the user playback position.
+          You will need a server-side application to make the REST API request to get the viewer playback position.
         </p>
         <p>
           For details, see the <a href="https://apis.support.brightcove.com/xdr/getting-started/get-playback-position.html">Getting Playback Position from XDR API</a> document.
@@ -1246,12 +1246,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Resume_playback">Resume playback</h2>
 
-    <p>Once you get the user playback position from the XDR API, you can resume playback from that point.</p>
+    <p>Once you get the viewer playback position from the XDR API, you can resume playback from that point.</p>
 
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
-          With the user playback position from the previous section, set the playhead position using the <code translate="No">currentTime()</code> method.
+          With the viewer playback position from the previous section, set the playhead position using the <code translate="No">currentTime()</code> method.
         </p>
         <p>
           Here is an example:
@@ -1261,7 +1261,7 @@ player.on('loadstart', function() {
 
   // This initialPlayhead variable will have to come from the publisher's
   // custom integration.
-  player.currentTime(<span class="bcls-input">user playhead position</span>);
+  player.currentTime(<span class="bcls-input">viewer playhead position</span>);
 });</code></pre>
       </li>
       <li>
@@ -1305,7 +1305,7 @@ player.on('loadstart', function() {
 
 <hr>
 <div class="last-updated">
-  Page last updated on 28 Sep 2020
+  Page last updated on 04 Mar 2021
 </div>
 
 
