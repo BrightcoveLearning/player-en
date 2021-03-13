@@ -16,7 +16,7 @@ parent: Home
           {% if item.name == page.title %}
           {% for entry in item.docs %}
           <li><a href="{{ entry.url }}">{{ entry.name }}</a> {% if entry.docs %}
-            <ul>
+            <ul class="bcls-topic-list">
               {% for subentry in entry.docs %}
               <li><a href="{{ subentry.url }}">{{ subentry.name }}</a></li>
               {% endfor %}
