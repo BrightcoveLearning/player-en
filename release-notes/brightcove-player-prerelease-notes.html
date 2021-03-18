@@ -7,23 +7,28 @@ parent: 'Release Notes'
 
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-    <summary>{{ page.description }}</summary>
-    <!-- Place document intro sentence(s) here -->
-    <br />
-    <aside class="bcls-aside bcls-aside--warning">
-        Note that every 1-2 weeks pre-released versions become the current version. At that time all non-locked players are upgraded to the current version. If you wish to lock your
-        player on a certain version for some reason, see the
-        <a href="https://studio.support.brightcove.com/players/setting-player-update-mode-and-version.html">opting out of automatic player updates (external site)</a>.
-    </aside>
+  <summary>{{ page.description }}</summary>
+  <!-- Place document intro sentence(s) here -->
+  <br />
+  <aside class="bcls-aside bcls-aside--warning">
+    Note that every 1-2 weeks pre-released versions become the current version. At that time all non-locked players are upgraded to the current version. If you wish to lock your
+    player on a certain version for some reason, see the
+    <a href="https://studio.support.brightcove.com/players/setting-player-update-mode-and-version.html">opting out of automatic player updates (external site)</a>.
+  </aside>
 
-    <section id="features" class="bcls-section">
+  <section class="bcls-section">
+    <iframe src="https://players.brightcove.net/release-notes/brightcove-player-prerelease/index.html" frameborder="0" style="width: 100%;height:800px;min-height: 800px;"></iframe>
+  </section>
+
+
+  <!--     <section id="features" class="bcls-section">
         <h2>No pre-release versions at this time</h2>
-    </section>
+    </section> -->
 
-    <!-- HTML for standard pre-release-->
+  <!-- HTML for standard pre-release-->
 
-    <div>&nbsp;</div>
-    <!--     <section class="bcls-section" id="features-latest">
+  <div>&nbsp;</div>
+  <!--     <section class="bcls-section" id="features-latest">
         <h2>VERSION 6 - v6.46.0</h2>
 
         <p>1 Oct 2020</p>
@@ -35,10 +40,10 @@ parent: 'Release Notes'
         </ul>
     </section>
  -->
-    <div>&nbsp;</div>
+  <div>&nbsp;</div>
 
-    <!-- HTML for pre-release not yet in production player -->
-    <!--     <section id="features-not-in-yet" class="bcls-section">
+  <!-- HTML for pre-release not yet in production player -->
+  <!--     <section id="features-not-in-yet" class="bcls-section">
         <aside class="bcls-aside bcls-aside--information">
             The features of the release(s) listed below have not yet been rolled into
             a current release.
@@ -71,33 +76,33 @@ parent: 'Release Notes'
         </ul>
     </section>
  -->
-    <section id="tryit" class="bcls-section">
-        <h2>Try new version</h2>
+  <section id="tryit" class="bcls-section">
+    <h2>Try new version</h2>
 
-        <p>
-            If a pre-release version is available, the easiest way to try out a pre-release version is to go to Studio's <strong>PLAYERS</strong> module, click on the player you wish to
-            change, and then edit the <strong>Player Information</strong> . Use the version selector to choose the latest pre-release:
-        </p>
+    <p>
+      If a pre-release version is available, the easiest way to try out a pre-release version is to go to Studio's <strong>PLAYERS</strong> module, click on the player you wish to
+      change, and then edit the <strong>Player Information</strong> . Use the version selector to choose the latest pre-release:
+    </p>
 
-        <figure class="bcls-figure">
-            <img class="bcls-image" alt="select player version" src="//learning-services-media.brightcove.com/doc-assets/player-development/release-info/pre-release/select-player-version.png" />
-        </figure>
+    <figure class="bcls-figure">
+      <img class="bcls-image" alt="select player version" src="//learning-services-media.brightcove.com/doc-assets/player-development/release-info/pre-release/select-player-version.png" />
+    </figure>
 
-        <p>
-            You can update a player to the pre-release version by using a curl statement. A quick overview of curl can be found at the top of the
-            <a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html">Step-by-Step: Player Management (external site)</a>. In the
-            document there is a specific section on how to
-            <a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html#updatePlayer">update your player</a>.
-        </p>
+    <p>
+      You can update a player to the pre-release version by using a curl statement. A quick overview of curl can be found at the top of the
+      <a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html">Step-by-Step: Player Management (external site)</a>. In the
+      document there is a specific section on how to
+      <a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html#updatePlayer">update your player</a>.
+    </p>
 
-        <p>
-            Here is the curl command to update your player, where you substitute appropriate values for <strong>YOUR_EMAIL</strong> , <strong>YOUR_ACCOUNT_ID</strong> and
-            <strong>YOUR_PLAYER_ID</strong> .
-        </p>
+    <p>
+      Here is the curl command to update your player, where you substitute appropriate values for <strong>YOUR_EMAIL</strong> , <strong>YOUR_ACCOUNT_ID</strong> and
+      <strong>YOUR_PLAYER_ID</strong> .
+    </p>
 
-        <details>
-            <h3>stuff</h3>
-            <pre class="line-numbers">
+    <details>
+      <h3>stuff</h3>
+      <pre class="line-numbers">
 <code class="language-bash" translate="No">curl \
   --header "Content-Type: application/json" \
   --user YOUR_EMAIL \
@@ -112,13 +117,13 @@ parent: 'Release Notes'
   https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAYER_ID/configuration
 </code>
 </pre>
-        </details>
+    </details>
 
-        <p>
-            In most cases you will want to publish the player, which can be done with the following curl statement. Again, you will need to substitute correct values where indicated.
-        </p>
+    <p>
+      In most cases you will want to publish the player, which can be done with the following curl statement. Again, you will need to substitute correct values where indicated.
+    </p>
 
-        <pre class="line-numbers">
+    <pre class="line-numbers">
 <code class="language-bash" translate="No">curl \
   --header "Content-Type: application/json" \
   --user YOUR_EMAIL  \
@@ -126,5 +131,5 @@ parent: 'Release Notes'
   https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT/players/YOUR_PLAYER_ID/publish
 </code>
 </pre>
-    </section>
+  </section>
 </article>
