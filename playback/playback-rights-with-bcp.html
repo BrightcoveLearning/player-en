@@ -1,0 +1,122 @@
+---
+title: "Playback Rights with Brightcove Player"
+description: "In this topic, you will learn how to configure Brightcove Player to use Brightcove's Playback Rights."
+parent: Playback
+layout: staging
+---
+
+<article class="bcls-article">
+  <h1>{{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+
+  <br/>
+  <aside class="bcls-aside bcls-aside--tip">This feature is available for a specific set of customers with access to the Limited Availability phase of Brightcove Playback Restrictions.</aside>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+    <p>
+      By default, Brightcove Player talks to the Brightcove Playback API. A new system to manage playback rights and restrictions sits in front of the Playback API and provides playback authorization using DRM licenses.
+    </p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Notes:
+      <ul>
+        <li>This implementation requires Player version <strong>6.39.0</strong> or greater.</li>
+        <li>With this implementation, any content restriction configured with policy keys will be ignored.</li>
+      </ul>
+      </aside>
+      <p>If you are not familiar with this feature, see the <a href="/playback-restrictions/getting-started/overview-playback-restrictions.html">Overview: Brightcove Playback Restrictions</a> document.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Request_with_playback_restrictions">Request with playback rights</h2>
+    <p>
+      To utilize playback rights, follow these steps:
+    </p>
+    <ol class="bcls-tasklist__restart">
+      <li>
+        <p>
+          Brightcove Player makes a request to the Playback API if it has a policy key. This is the default for all Brightcove Players. The first step is to remove the default policy key built into the player:
+        </p>
+        <pre>
+<code class="language-javascript" translate="No">player.catalog.setPolicyKey(null);</code></pre>
+      </li>
+      <li>
+        <p>
+          If you have user-level restrictions, you need an authorization token. When specified, this token is added as an Authorization header for any subsequent requests.
+        </p>
+        <p>
+          You can add one to the player as follows:
+        </p>
+        <pre>
+<code class="language-javascript" translate="No">player.catalog.setBcovAuthToken('<span class="bcls-input">your jwt token</span>');</code></pre>
+      </li>
+      <li>
+        <p>
+          After changing the policy key and/or authorization token, you are ready to request data from the Brightcove Playback API and load it into the player. This process is identical to the default case.
+        </p>
+        <p>
+          Here is an example of fetching a single video with playback restrictions and an authorization token:
+        </p>
+        <aside class="bcls-aside bcls-aside--tip language-editable">Notice that the <a href="https://player.support.brightcove.com/coding-topics/using-bc-and-getplayer-methods.html#bc_method_details">bc() method</a> is used to allow you to set the policy key before making a call to the catalog.</aside>
+
+    <h3>HTML</h3>
+  <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;div style=&quot;max-width: 960px;&quot;&gt;
+  &lt;video-js id=&quot;myPlayerID&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-application-id=&quot;&quot;
+    class=&quot;vjs-fluid&quot;&gt;&lt;/video-js&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://players.brightcove.net/<span class="bcls-input">your account id</span>/<span class="bcls-input">your player id</span>_default/index.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+    <h3>JavaScript</h3>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">&lt;script&gt;
+    // +++ Add the player attributes +++
+    var myPlayer,
+    	myPlayerEl = document.getElementById(&quot;myPlayerID&quot;);
+    myPlayerEl.setAttribute('data-account', <span class="bcls-input">your account id</span>);
+    myPlayerEl.setAttribute('data-player', '<span class="bcls-input">your player id</span>');
+
+    // +++ Create the player +++
+    myPlayer = bc(myPlayerEl);
+
+    // Unset the player policy key
+    myPlayer.catalog.setPolicyKey(null);
+
+    // Set the authorization token
+    myPlayer.catalog.setBcovAuthToken('<span class="bcls-input">your jwt token</span>');
+    // This should trigger a request to:
+    //
+    //   https://edge-auth.api.brightcove.com/playback/v1/videos/1
+    //
+    // With header:
+    //
+    //   Authorization: Bearer &lt;span class=&quot;bcls-input&quot;&gt;your jwt token&lt;/span&gt;
+    //
+
+    myPlayer.catalog.get({id: '<span class="bcls-input">your video id</span>', type: 'video'}).
+    then(function(data) {
+      myPlayer.catalog.load(data);
+      myPlayer.muted(true);
+      myPlayer.play();
+    }).
+    catch(function(error) {
+      throw new Error(error);
+    });
+&lt;/script&gt;</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Request_without_playback_rights">Request without playback rights</h2>
+    <p>This process can be reversed to direct requests back to Playback API without rights and restrictions.</p>
+    <p>
+      Set the policy key and authorization token as follows:
+    </p>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">player.catalog.setPolicyKey('<span class="bcls-input">your policy key</span>');
+player.catalog.setBcovAuthToken(null);</code></pre>
+  </section>
+</article>
