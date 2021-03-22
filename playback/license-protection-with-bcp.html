@@ -15,15 +15,15 @@ layout: staging
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
 
-    <p>Brightcove's Playback Authorization Service (PAS) offers an extra level of security when using Dynamic Delivery with DRM-protected or HTTP Live Streaming Encryption (HLSe) content. With PAS, license requests will be authenticated using a signed <a href="https://general.support.brightcove.com/developer/create-jwt.html">JSON Web Token (JWT)</a>. The token is used when requesting the video license, once the video has been loaded to the player and the source has been selected.</p>
-    <p>This document focuses on using PAS with Brightcove Player. For more information about PAS in general, see the <a href="/playback-authorization/getting-started/overview-playback-authorization-service.html">Overview: DRM with Playback Authorization Service</a> document.</p>
+    <p>Key/license protection offers an extra level of security when using Dynamic Delivery with DRM-protected or HTTP Live Streaming Encryption (HLSe) content. License requests can be authenticated using a signed <a href="https://general.support.brightcove.com/developer/create-json-web-token.html">JSON Web Token (JWT)</a>. The token is used when requesting the video license, once the video has been loaded to the player and the source has been selected.</p>
+    <p>If you are not familiar with this feature, see the <a href="https://apis.support.brightcove.com/playback-restrictions/getting-started/overview-playback-restrictions.html">Overview: Brightcove Playback Restrictions</a> document.</p>
   </section>
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p>To configuring Brightcove Player to use PAS, pass a token parameter when making the catalog request for the video. The code will be shown in the next section. To be sure you have the pre-requisites to understand the code, the concepts in the following documents will help provide a base on which to build:</p>
+    <p>To configure Brightcove Player for key/license protection, you will pass a token parameter when making the catalog request for the video. To help you understand the code in the next section, review the concepts in the following documents:</p>
     <ul>
-      <li><a href="https://general.support.brightcove.com/developer/create-jwt.html">Creating a <span translate="No">JSON Web Token</span> (JWT)</a></li>
+      <li><a href="https://general.support.brightcove.com/developer/create-json-web-token.html">Creating a <span translate="No">JSON Web Token</span> (JWT)</a></li>
       <li><a href="https://support.brightcove.com/concepts-using-javascript-promises">Concepts: Using JavaScript Promises</a></li>
       <li><a href="https://support.brightcove.com/player-catalog#Catalog_parameters_object">Catalog Parameters</a></li>
       <li><a href="https://support.brightcove.com/configuring-brightcove-player-drm">Configuring the Brightcove Player for DRM</a></li>
@@ -31,42 +31,51 @@ layout: staging
   </section>
 
   <section class="bcls-section">
-    <h2 id="Using_a_token_in_the_catalog_parameters">Using a token in the catalog parameters</h2>
-    <p>This section details the code needed to configure the player to use PAS. To do this, pass a string token as part of a <a href="https://support.brightcove.com/player-catalog#Catalog_parameters_object">catalog parameters</a> object, using the property name <code translate="No">bcovAuthToken</code>.</p>
-    <p>This approach will work for both DRM as well as HLSe. The player will detect the type of source being loaded from the Playback API and provide the correct implementation for that source.</p>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: This implementation requires Player version <strong>6.33.0</strong> or greater. If using DRM, you will need version <strong>5.5.0</strong> or later of the <a href="https://support.brightcove.com/configuring-brightcove-player-drm#Changelog">DRM plugin</a>.</aside>
-    <p>This sample implementation code uses the <a href="https://support.brightcove.com/player-catalog#get_method">catalog.get()</a> method to request the video while supplying the token (which would need to replace the <code translate="No">&lt;BCOV_AUTH_TOKEN&gt;</code> placeholder). Be sure NOT to include the video ID in the <code translate="No">&lt;video-js&gt;</code> tag.</p>
-    <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
-  data-account=&quot;1507807800001&quot;
-  data-player=&quot;default&quot;
-  data-embed=&quot;default&quot;
-  controls
-  data-application-id&gt;&lt;/video-js&gt;
-&lt;script src=&quot;//players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+    <h2 id="Using_an_auth_token">Using an auth token</h2>
+    <p>To use key/license protection, pass a string token as part of the <a href="https://player.support.brightcove.com/references/player-catalog.html">player catalog</a> object, using the property name <code translate="No">bcovAuthToken</code>.</p>
+    <p>This approach works for both DRM and HLSe content. The player will detect the type of source being loaded from the Playback API and provide the correct implementation for that source.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">This implementation requires Player version <strong>6.33.0</strong> or later. If using DRM, you will need the <a href="https://support.brightcove.com/configuring-brightcove-player-drm#Changelog">DRM plugin</a> version <strong>5.5.0</strong> or later.</aside>
 
-&lt;script&gt;
-  (function() {
-    var myPlayer = videojs.getPlayer('myPlayerID');
-
-    myPlayer.catalog.get({
-      type: 'video',
-      id: '6015247091001',
-      <span class="bcls-highlight">bcovAuthToken: '&lt;BCOV_AUTH_TOKEN&gt;</span>'
-    })
-      .then(function(videoReturned){
-        myPlayer.catalog.load(videoReturned);
+    <h3>Steps</h3>
+    <ol class="bcls-tasklist">
+      <li>Create a signed <a href="https://general.support.brightcove.com/developer/create-json-web-token.html">JSON Web Token (JWT)</a>.</li>
+      <li>
+        <p>Include this token with the video request.</p>
+        <p>This sample implementation code uses the <a href="https://player.support.brightcove.com/references/player-catalog.html#get_method">catalog.get()</a> method to request the video while supplying the token.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Be sure NOT to include the <code translate="No">data-video-id</code> parameter in the <code translate="No">&lt;video-js&gt;</code> tag.</aside>
+<pre class="line-numbers">
+  <code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+    data-account=&quot;1507807800001&quot;
+    data-player=&quot;default&quot;
+    data-embed=&quot;default&quot;
+    controls
+    data-application-id&gt;&lt;/video-js&gt;
+  &lt;script src=&quot;//players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+  
+  &lt;script&gt;
+    (function() {
+      var myPlayer = videojs.getPlayer('myPlayerID');
+  
+      myPlayer.catalog.get({
+        type: 'video',
+        id: '6015247091001',
+        <span class="bcls-highlight">bcovAuthToken:</span> '<span class="bcls-input">your jwt token</span>'
       })
-      .catch(function(err){
-        console.log('err:', err);
-      });
-  })();
-&lt;/script&gt;</code></pre>
+        .then(function(videoReturned){
+          myPlayer.catalog.load(videoReturned);
+        })
+        .catch(function(err){
+          console.log('err:', err);
+        });
+    })();
+  &lt;/script&gt;</code></pre>
+      </li>
+    </ol>
   </section>
 
   <section class="bcls-section">
-    <h2 id="SSAI_configuration">SSAI configuration</h2>
-    <p>If you are going to use PAS with SSAI, there is one small configuration addition that needs to be done. An addition parameter needs to be added to the catalog parameters object, named <code translate="No">adConfigId</code>. </p>
+    <h2 id="configuring_server_side_ads_SSAI">Configuring server-side ads (SSAI)</h2>
+    <p>If you are using key/license protection with SSAI, then you need to include an additional parameter to the catalog parameters object, named <code translate="No">adConfigId</code>. </p>
     <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
   data-account=&quot;1507807800001&quot;
@@ -83,8 +92,8 @@ layout: staging
     myPlayer.catalog.get({
       type: 'video',
       id: '6015247091001',
-      bcovAuthToken: '<span class="bcls-input">BCOV_AUTH_TOKEN</span>',
-      <span class="bcls-highlight">adConfigId: '&lt;YOUR_ADD_CONFIG_ID&gt;</span>'
+      bcovAuthToken: '<span class="bcls-input">your jwt token</span>',
+      <span class="bcls-highlight">adConfigId:</span> '<span class="bcls-input">your ad configuration id</span>'
     })
       .then(function(videoReturned){
         myPlayer.catalog.load(videoReturned);
@@ -107,7 +116,7 @@ layout: staging
         Cookie: <code translate="No">bcov-auth</code> (Not supported for HLSe)
       </li>
       <li>
-        Query parameter: <code translate="No">bcov-auth</code> (Only supported for HLSe) Must be appended to the master manifest url, instead of the license url.
+        Query parameter: <code translate="No">bcov-auth</code> (Only supported for HLSe) Must be appended to the master manifest url, instead of the license url
       </li>
     </ul>
     <p>
@@ -137,9 +146,9 @@ layout: staging
         const source = sources[i];
 
         // Only add the auth token as an eme header for DRM content
-        if (<span class="bcls-input">BCOV_AUTH_TOKEN</span> &amp;&amp; source.key_systems) {
+        if (<span class="bcls-input">your jwt token</span> &amp;&amp; source.key_systems) {
           source.emeHeaders = {
-              'BCOV-Auth': <span class="bcls-input">BCOV_AUTH_TOKEN</span>
+              'BCOV-Auth': <span class="bcls-input">your jwt token</span>
             };
         }
       }
@@ -156,7 +165,7 @@ layout: staging
 
   </section>
 
-  <section class="bcls-section">
+  <!-- <section class="bcls-section">
     <h2 id="Related_topics">Related topics</h2>
 
     <ul>
@@ -167,7 +176,6 @@ layout: staging
         <a href="/playback-authorization/guides/additional-apis-for-pas.html">Additional APIs for Playback Authorization Service</a>
       </li>
     </ul>
-
-  </section>
+  </section> -->
 
 </article>
