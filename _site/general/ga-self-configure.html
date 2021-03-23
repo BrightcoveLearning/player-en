@@ -1166,17 +1166,38 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Create_custom_dimensions">Create custom dimensions</h2>
     <p>For each of the custom dimensions you are using, you must create. The steps in this document from Google lead you through the process: <a href="https://support.google.com/analytics/answer/2709829?hl=en">Create and edit custom dimensions and metrics</a>.</p>
+    <p>During the creation of each custom dimension, you will be asked to select a <strong>Scope</strong>. For these custom dimensions use the value <samp>Hit</samp> Also, when you create each custom dimension an index, or sequence, number will be associated with it, as shown in this screenshot:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/general/ga-self-configure/custom-dimension-index.png" alt="custom dimension index">
+    </figure>
+    <p>You will need the table of created custom dimensions available as the index number is needed in the JSON.</p>
   </section>
 
   <section class="bcls-section">
     <h2 id="Add_JSON_configuration_to_player">Add JSON configuration to player</h2>
-    <p></p>
+    <p>You've made the decisions about what events to use, and what custom dimensions to use, and created the latter. You are know ready to build the JSON that you will include in the player configuration.</p>
+    <pre><code class="language-json">{
+  "registry_id": "@brightcove/videojs-bc-ga",
+  "version": "1.x",
+  "options": {
+    "paramsToTrack": {
+    "bcvideo_video_seconds_viewed": "dimension1",
+    "bcvideo_range": "dimension2",
+    "bcvideo_video_duration": "dimension3",
+    "bcvideo_player": "dimension4",
+    "bcvideo_session": "dimension5"
+  },
+  "eventsToTrack": {
+    "video_impression": "Video Impression",
+    "play_request": "Play Request",
+    "video_engagement": "Video Engagement"
+  },
+  "tracker": "UA-123456-1"
+  }
+}</code></pre>
   </section>
 
 </article>
-
-
-project = KNOW AND resolutiondate >= -1w AND assignee = 557058:d13d1eb8-af36-44b6-936a-f42d4a18b572 ORDER BY updated DESC
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
@@ -1192,7 +1213,7 @@ project = KNOW AND resolutiondate >= -1w AND assignee = 557058:d13d1eb8-af36-44b
 
 <hr>
 <div class="last-updated">
-  Page last updated on 22 Mar 2021
+  Page last updated on 23 Mar 2021
 </div>
 
 
