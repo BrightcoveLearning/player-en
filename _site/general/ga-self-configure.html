@@ -1176,7 +1176,50 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Add_JSON_configuration_to_player">Add JSON configuration to player</h2>
     <p>You've made the decisions about what events to use, and what custom dimensions to use, and created the latter. You are know ready to build the JSON that you will include in the player configuration.</p>
-    <pre><code class="language-json">{
+    <p>An example is shown below with a table explaining each logical group of code. You can follow this guide to build your JSON.</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Lines</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>1,19</td>
+          <td>JSON boundary for all the info on the plugin configuration</td>
+        </tr>
+        <tr>
+          <td>2-3</td>
+          <td>Defines the plugin and version</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Starts <code>options</code> definitions for the plugin</td>
+        </tr>
+        <tr>
+          <td>5,11</td>
+          <td>JSON boundary for the custom definitions</td>
+        </tr>
+        <tr>
+          <td>6-10</td>
+          <td>Define the custom dimensions you have created; you use the name of the dimension, a colon, then the string <strong>dimension</strong> followed immediately by the index number as assigned when creating the custom definitions</td>
+        </tr>
+        <tr>
+          <td>12,16</td>
+          <td>JSON boundary for the events you chose to track</td>
+        </tr>
+        <tr>
+          <td>13-15</td>
+          <td>All events you chose to track, from the <a href="#Select_events">Select events</a> section above</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>The tracker ID assigned to you by Google Analytics</td>
+        </tr>
+      </tbody>
+    </table>
+    <pre class="line-numbers"><code class="language-json">{
   "registry_id": "@brightcove/videojs-bc-ga",
   "version": "1.x",
   "options": {
@@ -1186,13 +1229,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       "bcvideo_video_duration": "dimension3",
       "bcvideo_player": "dimension4",
       "bcvideo_session": "dimension5"
-  },
-  "eventsToTrack": {
-    "video_impression": "Video Impression",
-    "play_request": "Play Request",
-    "video_engagement": "Video Engagement"
-  },
-  "tracker": "UA-123456-1"
+    },
+    "eventsToTrack": {
+      "video_impression": "Video Impression",
+      "play_request": "Play Request",
+      "video_engagement": "Video Engagement"
+    },
+    "tracker": "UA-123456-1"
   }
 }</code></pre>
   </section>
