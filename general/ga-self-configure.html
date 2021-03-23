@@ -12,16 +12,16 @@ layout: "staging"
     <h2 id="Introduction">Introduction</h2>
     <p>The configuration process consists of the following tasks:</p>
     <ul>
-      <li>Select the events to track from those supported by Brightcove Player.</li>
-      <li>Select the custom dimensions from those supported by Google Analytics.</li>
-      <li>In Google Analytics, create the selected custom dimension.</li>
-      <li>In Video Cloud Studio, add configuration information about the Google Analytics plugin using the player's JSON editor.</li>
+      <li>Select the events you wish to track from those supported by Brightcove Player.</li>
+      <li>Select the custom dimensions you wish to use from those supported by the Google Analytics plugin.</li>
+      <li>In Google Analytics, create the selected custom dimensions.</li>
+      <li>In Video Cloud Studio, add configuration information for the Google Analytics plugin. You will do this using the player's JSON editor.</li>
     </ul>
   </section>
 
   <section class="bcls-section">
     <h2 id="Select_events">Select events</h2>
-    <p>In the JSON configuration you will list the events you wish to track. Decide which of the following you to track, and they will be used later:</p>
+    <p>In the JSON configuration you will list the events you wish to track. Decide which of the following you will track:</p>
     <ul>
       <li>player_load</li>
       <li>video_engagement</li>
@@ -38,7 +38,7 @@ layout: "staging"
 
   <section class="bcls-section">
     <h2 id="Select_custom_dimensions">Select custom dimensions</h2>
-    <p>There are eight custom dimensions from which you can choose to use in your Google Analytics data. Decide which of the following to use, and they will be used later:</p>
+    <p>There are eight custom dimensions from which you can choose to use in your Google Analytics data. Decide which of the following to use:</p>
     <ul>
       <li>bcvideo_account</li>
       <li>bcvideo_platform_version</li>
@@ -53,18 +53,18 @@ layout: "staging"
 
   <section class="bcls-section">
     <h2 id="Create_custom_dimensions">Create custom dimensions</h2>
-    <p>For each of the custom dimensions you are using, you must create. The steps in this document from Google lead you through the process: <a href="https://support.google.com/analytics/answer/2709829?hl=en">Create and edit custom dimensions and metrics</a>.</p>
-    <p>During the creation of each custom dimension, you will be asked to select a <strong>Scope</strong>. For these custom dimensions use the value <samp>Hit</samp> Also, when you create each custom dimension an index, or sequence, number will be associated with it, as shown in this screenshot:</p>
+    <p>You must create each of the custom dimensions you are using. The steps in this document from Google lead you through the process: <a href="https://support.google.com/analytics/answer/2709829?hl=en">Create and edit custom dimensions and metrics</a>.</p>
+    <p>During the creation of each custom dimension, you will be asked to select a <strong>Scope</strong>. For these custom dimensions use the value <samp>Hit</samp>. Also, when you create each custom dimension an index, or sequence, number will be associated with it, as shown in this screenshot:</p>
     <figure class="bcls-figure">
       <img class="bcls-image" src="/assets/images/general/ga-self-configure/custom-dimension-index.png" alt="custom dimension index">
     </figure>
-    <p>You will need the table of created custom dimensions available as the index number is needed in the JSON.</p>
+    <p>You will need to have available the table of created custom dimensions as the index number is needed in the configuration JSON.</p>
   </section>
 
   <section class="bcls-section">
     <h2 id="Add_JSON_configuration_to_player">Add JSON configuration to player</h2>
     <p>You've made the decisions about what events to use, and what custom dimensions to use, and created the latter. You are know ready to build the JSON that you will include in the player configuration.</p>
-    <p>An example is shown below with a table explaining each logical group of code. You can follow this guide to build your JSON.</p>
+    <p>An example is shown below with a table explaining each logical group of code. You can follow this guide to build your own JSON.</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -126,6 +126,49 @@ layout: "staging"
     "tracker": "UA-123456-1"
   }
 }</code></pre>
+    <p>Once the configuration JSON is complete, you would paste it into your Brightcove Player's configuration following these steps:</p>
+    <ol class="bcls-tasklist">
+      <li>Log in to Video Cloud Studio.</li>
+      <li>Navigate to the <strong>PLAYERS</strong> module and click on the player to which you will add the new configuration.</li>
+      <li>From the left navigation, click <strong>JSON Editor</strong>.</li>
+      <li>If already you have plugin(s) configured for the player you can paste the code into that section. Otherwise, you will need to add some JSON for plugins. In either case, the result should be similar to the following, but of course using your player information and JSON (the JSON configuration for the plugin is highlighted in yellow):
+        <pre class="line-numbers"><code class="language-json">{
+  "compatibility": true,
+  "video_cloud": {
+  "policy_key":
+     "BCpkADawqM2w1K7269Ic17hjK0O2-ibj221pVcELpF1l5nZuiL-123456789123456789"
+  },
+  "player": {
+    "template": {
+      "name": "single-video-template",
+      "version": "6.48.5"
+    }
+  },
+  "plugins": [
+    <span class="bcls-highlight">{
+      "registry_id": "@brightcove/videojs-bc-ga",
+      "version": "1.x",
+      "options": {
+        "paramsToTrack": {
+          "bcvideo_video_seconds_viewed": "dimension1",
+          "bcvideo_range": "dimension2",
+          "bcvideo_video_duration": "dimension3",
+          "bcvideo_player": "dimension4",
+          "bcvideo_session": "dimension5"
+        },
+        "eventsToTrack": {
+          "video_impression": "Video Impression",
+          "play_request": "Play Request",
+          "video_engagement": "Video Engagement"
+        },
+        "tracker": "UA-123456-1"
+      }
+    }</span>
+  ]
+}</code></pre>
+      </li>
+      <li>Save your changes and publish the player and your Google Analytics plugin will be ready to go.</li>
+    </ol>
   </section>
 
 </article>
