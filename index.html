@@ -5,32 +5,23 @@ parent: null
 <article class="bcls-article">
   <h1>Brightcove Player Documentation</h1>
   <p>
-    Brightcove Player development allows you to customize, integrate with, or
-    add functionality to your players. Development tools are the Player API, and
-    the standard web technologies of HTML5, CSS and JavaScript.
+    Brightcove Player development allows you to customize, integrate with, or add functionality to your players. Development tools are the Player API, and the standard web technologies of HTML5, CSS and JavaScript.
   </p>
   <p>
     Check out the extensive list of
-    <a href="/code-samples/index.html">code samples</a>
-    for player customization possibilities.
+    <a href="/code-samples/index.html">code samples</a> for player customization possibilities.
   </p>
   <p>Brightcove Player version:</p>
   <p>
-    Current: <a href="/release-notes/brightcove-player-release-notes.html">v6.48.5</a>
-  </p>
+    Current: <a href="/release-notes/brightcove-player-release-notes.html">v6.48.5</a> </p>
   <p>
-    Pre-release: <a href="/release-notes/brightcove-player-prerelease-notes.html">v6.51.2</a>
-  </p>
+    Pre-release: <a href="/release-notes/brightcove-player-prerelease-notes.html">v6.51.3</a> </p>
   <section class="card-wrapper">
-    {% for section in site.data.navigation offset:1 %}
-    <section class="bcls-card-small" onclick="window.location.href='{{ section.url }}'">
-
+    {% for section in site.data.navigation offset:1 %} <section class="bcls-card-small" onclick="window.location.href='{{ section.url }}'">
       <div class="card-content">
         <h2>{{ section.name }}</h2>
         <ul class="bcls-topic-list">
-          {% for doc in section.docs limit:4 %}
-          <li><a href="{{ doc.url }}">{{ doc.name }}</a></li>
-          {% endfor %}
+          {% for doc in section.docs limit:4 %} <li><a href="{{ doc.url }}">{{ doc.name }}</a></li> {% endfor %}
         </ul>
         <p style="font-size:small;"><a href="{{ section.url }}">View all...</a></p>
       </div>
