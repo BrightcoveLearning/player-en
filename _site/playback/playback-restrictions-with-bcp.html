@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex,nofollow"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will learn how to configure Brightcove Player to use Brightcove's Playback Rights.">
+  <meta name="description" content="In this topic, you will learn how to configure Brightcove Player to use Playback Restrictions.">
   
-  <title>Playback Rights with Brightcove Player</title>
+  <title>Playback Restrictions with Brightcove Player</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -64,7 +64,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       <li class="breadcrumb-item"><a href="/playback/">Playback</a></li>
       
-      <li class="breadcrumb-item active" aria-current="page">Playback Rights with Brightcove Player</li>
+      <li class="breadcrumb-item active" aria-current="page">Playback Restrictions with Brightcove Player</li>
     </ol>
   </nav>
 </header>
@@ -1121,8 +1121,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 
 <article class="bcls-article">
-  <h1>Playback Rights with Brightcove Player</h1>
-  <summary>In this topic, you will learn how to configure Brightcove Player to use Brightcove's Playback Rights.</summary>
+  <h1>Playback Restrictions with Brightcove Player</h1>
+  <summary>In this topic, you will learn how to configure Brightcove Player to use Playback Restrictions.</summary>
 
   <br/>
   <aside class="bcls-aside bcls-aside--tip">This feature is available for a specific set of customers with access to the Limited Availability phase of Brightcove Playback Restrictions.</aside>
@@ -1132,17 +1132,33 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>
       By default, Brightcove Player talks to the Brightcove Playback API. A new system to manage playback rights and restrictions sits in front of the Playback API and provides playback authorization using DRM licenses.
     </p>
-    <aside class="bcls-aside bcls-aside--information language-editable">Notes:
-      <ul>
-        <li>This implementation requires Player version <strong>6.39.0</strong> or greater.</li>
-        <li>With this implementation, any content restriction configured with policy keys will be ignored.</li>
-      </ul>
-      </aside>
+    <p>Playback Rights can be used with or without a JSON Web Token(JWT).</p>
+    <p>License Keys Protection offers an extra level of security when using Dynamic Delivery with DRM-protected or HTTP Live Streaming Encryption (HLSe) content. License requests can be authenticated using a signed <a href="https://general.support.brightcove.com/developer/create-json-web-token.html">JSON Web Token (JWT)</a>. The token is used when requesting the video license, once the video has been loaded to the player and the source has been selected.</p>
+    <p>To configure Brightcove Player for License Keys Protection, you will pass a token parameter when making the catalog request for the video. </p>
       <p>If you are not familiar with this feature, see the <a href="https://apis.support.brightcove.com/playback-restrictions/getting-started/overview-playback-restrictions.html">Overview: Brightcove Playback Restrictions</a> document.</p>
   </section>
 
   <section class="bcls-section">
-    <h2 id="Request_with_playback_restrictions">Request with playback rights</h2>
+    <h2 id="Requirements">Requirements</h2>
+    <p>Here are the requirements needed to use Playback Restrictions.</p>
+    <h3>Playback Rights</h3>
+    <p>To use Playback Rights, you need the following:</p>
+    <ul>
+      <li>Player version <strong>6.39.0</strong> or greater</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information">When using Playback Rights, any content restriction configured with policy keys will be ignored.</aside>
+
+    <h3>License Keys Protection</h3>
+    <p>To use License Keys Protection, you need the following:</p>
+    <ul>
+      <li>Player version <strong>6.33.0</strong> or later</li>
+      <li>If using DRM, you will need the <a href="https://support.brightcove.com/configuring-brightcove-player-drm#Changelog">DRM plugin</a> version <strong>5.5.0</strong> or later</li>
+    </ul>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Request_with_Playback_Rights">Request with Playback Rights</h2>
     <p>
       To utilize playback rights, follow these steps:
     </p>
@@ -1225,7 +1241,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
 
   <section class="bcls-section">
-    <h2 id="Request_without_playback_rights">Request without playback rights</h2>
+    <h2 id="Request_without_Playback_Rights">Request without Playback Rights</h2>
     <p>This process can be reversed to direct requests back to Playback API without rights and restrictions.</p>
     <p>
       Set the policy key and authorization token as follows:
@@ -1250,7 +1266,7 @@ player.catalog.setBcovAuthToken(null);</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 22 Mar 2021
+  Page last updated on 31 Mar 2021
 </div>
 
 
