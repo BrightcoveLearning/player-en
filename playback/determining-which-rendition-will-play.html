@@ -87,38 +87,48 @@ parent: Playback
     <pre class="line-numbers">
 <code class="language-markup" translate="No">#EXTM3U
 
-  #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=&quot;<span class="bcls-highlight">stereo</span>&quot;,LANGUAGE=&quot;en&quot;,NAME=&quot;English&quot;,DEFAULT=YES,AUTOSELECT=YES,URI=&quot;audio/stereo/en/128kbit.m3u8&quot;
-  #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=&quot;<span class="bcls-highlight">stereo</span>&quot;,LANGUAGE=&quot;dubbing&quot;,NAME=&quot;Dubbing&quot;,DEFAULT=NO,AUTOSELECT=YES,URI=&quot;audio/stereo/none/128kbit.m3u8&quot;
+  #EXT-X-MEDIA:<span class="bcls-highlight">TYPE=AUDIO,GROUP-ID=&quot;stereo&quot;</span>,LANGUAGE=&quot;en&quot;,NAME=&quot;English&quot;,DEFAULT=YES,AUTOSELECT=YES,URI=&quot;audio/stereo/en/128kbit.m3u8&quot;
+  #EXT-X-MEDIA:<span class="bcls-highlight">TYPE=AUDIO,GROUP-ID=&quot;stereo&quot;</span>,LANGUAGE=&quot;dubbing&quot;,NAME=&quot;Dubbing&quot;,DEFAULT=NO,AUTOSELECT=YES,URI=&quot;audio/stereo/none/128kbit.m3u8&quot;
   
-  #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=&quot;<span class="bcls-highlight">surround</span>&quot;,LANGUAGE=&quot;en&quot;,NAME=&quot;English&quot;,DEFAULT=YES,AUTOSELECT=YES,URI=&quot;audio/surround/en/320kbit.m3u8&quot;
-  #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=&quot;<span class="bcls-highlight">surround</span>&quot;,LANGUAGE=&quot;dubbing&quot;,NAME=&quot;Dubbing&quot;,DEFAULT=NO,AUTOSELECT=YES,URI=&quot;audio/stereo/none/128kbit.m3u8&quot;
+  #EXT-X-MEDIA:<span class="bcls-highlight">TYPE=AUDIO,GROUP-ID=&quot;surround&quot;</span>,LANGUAGE=&quot;en&quot;,NAME=&quot;English&quot;,DEFAULT=YES,AUTOSELECT=YES,URI=&quot;audio/surround/en/320kbit.m3u8&quot;
+  #EXT-X-MEDIA:<span class="bcls-highlight">TYPE=AUDIO,GROUP-ID=&quot;surround&quot;</span>,LANGUAGE=&quot;dubbing&quot;,NAME=&quot;Dubbing&quot;,DEFAULT=NO,AUTOSELECT=YES,URI=&quot;audio/stereo/none/128kbit.m3u8&quot;
   
   #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Deutsch&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;de&quot;,URI=&quot;subtitles_de.m3u8&quot;
   #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;English&quot;,DEFAULT=YES,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;en&quot;,URI=&quot;subtitles_en.m3u8&quot;
   #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Espanol&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;es&quot;,URI=&quot;subtitles_es.m3u8&quot;
   #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Français&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;fr&quot;,URI=&quot;subtitles_fr.m3u8&quot;
   
-  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=258157,CODECS=&quot;avc1.4d400d,mp4a.40.2&quot;,AUDIO=&quot;stereo&quot;,RESOLUTION=422x180,SUBTITLES=&quot;subs&quot;
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=258157,CODECS=&quot;avc1.4d400d,mp4a.40.2&quot;,<span class="bcls-highlight">AUDIO=&quot;stereo&quot;</span>,RESOLUTION=422x180,SUBTITLES=&quot;subs&quot;
   video/250kbit.m3u8
-  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=520929,CODECS=&quot;avc1.4d4015,mp4a.40.2&quot;,AUDIO=&quot;stereo&quot;,RESOLUTION=638x272,SUBTITLES=&quot;subs&quot;
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=520929,CODECS=&quot;avc1.4d4015,mp4a.40.2&quot;,<span class="bcls-highlight">AUDIO=&quot;stereo&quot;</span>,RESOLUTION=638x272,SUBTITLES=&quot;subs&quot;
   video/500kbit.m3u8
-  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=831270,CODECS=&quot;avc1.4d4015,mp4a.40.2&quot;,AUDIO=&quot;stereo&quot;,RESOLUTION=638x272,SUBTITLES=&quot;subs&quot;
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=831270,CODECS=&quot;avc1.4d4015,mp4a.40.2&quot;,<span class="bcls-highlight">AUDIO=&quot;stereo&quot;</span>,RESOLUTION=638x272,SUBTITLES=&quot;subs&quot;
   video/800kbit.m3u8
-  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1144430,CODECS=&quot;avc1.4d401f,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=958x408,SUBTITLES=&quot;subs&quot;
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1144430,CODECS=&quot;avc1.4d401f,mp4a.40.2&quot;,<span class="bcls-highlight">AUDIO=&quot;surround&quot;</span>,RESOLUTION=958x408,SUBTITLES=&quot;subs&quot;
   video/1100kbit.m3u8
-  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1558322,CODECS=&quot;avc1.4d401f,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=1277x554,SUBTITLES=&quot;subs&quot;
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1558322,CODECS=&quot;avc1.4d401f,mp4a.40.2&quot;,<span class="bcls-highlight">AUDIO=&quot;surround&quot;</span>,RESOLUTION=1277x554,SUBTITLES=&quot;subs&quot;
   video/1500kbit.m3u8
-  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=4149264,CODECS=&quot;avc1.4d4028,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=1921x818,SUBTITLES=&quot;subs&quot;
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=4149264,CODECS=&quot;avc1.4d4028,mp4a.40.2&quot;,<span class="bcls-highlight">AUDIO=&quot;surround&quot;</span>,RESOLUTION=1921x818,SUBTITLES=&quot;subs&quot;
   video/4000kbit.m3u8
-  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=6214307,CODECS=&quot;avc1.4d4028,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=1921x818,SUBTITLES=&quot;subs&quot;
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=6214307,CODECS=&quot;avc1.4d4028,mp4a.40.2&quot;,<span class="bcls-highlight">AUDIO=&quot;surround&quot;</span>,RESOLUTION=1921x818,SUBTITLES=&quot;subs&quot;
   video/6000kbit.m3u8
-  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=10285391,CODECS=&quot;avc1.4d4033,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=4096x1744,SUBTITLES=&quot;subs&quot;
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=10285391,CODECS=&quot;avc1.4d4033,mp4a.40.2&quot;,<span class="bcls-highlight">AUDIO=&quot;surround&quot;</span>,RESOLUTION=4096x1744,SUBTITLES=&quot;subs&quot;
   video/10000kbit.m3u8</code></pre>
       <p>In the sample above, there are two audio groups, <strong>stereo</strong> and <strong>surround</strong>. There are also 6 video resolutions in 8 bitrates:</p>
       <ul>
-        <li>The 3 lower bitrates specify to use the <strong>stereo</strong> audio group</li>
-        <li>The 5 higher bitrates specify to use the <strong>surround</strong> audio group</li>
+        <li>The 3 lower bitrates use the <strong>stereo</strong> audio group</li>
+        <li>The 5 higher bitrates use the <strong>surround</strong> audio group</li>
       </ul>
       <p>The two audio groups have two streams with different language and names. When this is present, it shows up as an alternate audio track in a menu on the player.</p>
+
+      <h3>Notes</h3>
+      <ul>
+        <li>
+          <p>HLS doesn’t allow adapting audio streams in a demuxed audio scenario. So, if you have different audio groups or alternate audio like in the example above, it’s not possible to specify multiple quality renditions of the stereo or the surround tracks.</p> 
+          <p>However, if the playlist is audio-only, it is possible to do so if the audio is provided via the regular <code translate="No">EXT-X-STREAM-INF</code> tag.</p>
+        </li>
+        <li>For DASH, you can have adaptive audio but we do not currently support adapting it, unless it is an audio-only manifest. We choose a single rendition associated with the video rendition. This is the first audio rendition that we find.
+        </li>
+      </ul>
   </section>
 </article>
