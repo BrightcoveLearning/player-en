@@ -1,10 +1,14 @@
 ---
 title: Determining Which Rendition Will Play
+description: This topic contains information on how the Brightcove Player determines which rendition to play.
 parent: Playback
 ---
-<article class="bcls-article">
-  <h1>Determining Which Rendition Will Play</h1>
-  <summary>This topic contains information on how the Brightcove Player determines which rendition to play.</summary>
+  
+  <h1>{{ page.title }}</h1>
+  
+  <article class="bcls-article">
+    <summary>{{ page.description }}</summary>
+    
   <section class="bcls-section">
     <h2 id="HLS_or_MP4">HLS or MP4?</h2>
     <p>When using the new Brightcove Player, we recommend you choose or create an ingest profile that has both HLS and MP4 renditions in order to reach the greatest number of devices and browsers. This table shows how the player determines, at run-time, which rendition will play on a particular browser.</p>
@@ -74,5 +78,47 @@ parent: Playback
   <section class="bcls-section">
     <h2 id="MP4_Rendition_Selection">MP4 Rendition Selection</h2>
     <p>If running on a mobile device and playing an MP4 (based on the rules listed above), the player will choose the MP4 that has a bitrate closest to .5 MB/s. If on a desktop or laptop device it will choose one that is closest to 3 MB/s.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Audio_Rendition_Selection">Audio Rendition Selection</h2>
+    <p>The manifest determines which audio track to load depending on which video track is chosen.</p>
+    <h3>Example</h3>
+    <p>playlist-1.m3u8</p>
+    <pre class="line-numbers">
+<code class="language-markup" translate="No">#EXTM3U
+
+  #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=&quot;<span class="bcls-highlight">stereo</span>&quot;,LANGUAGE=&quot;en&quot;,NAME=&quot;English&quot;,DEFAULT=YES,AUTOSELECT=YES,URI=&quot;audio/stereo/en/128kbit.m3u8&quot;
+  #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=&quot;<span class="bcls-highlight">stereo</span>&quot;,LANGUAGE=&quot;dubbing&quot;,NAME=&quot;Dubbing&quot;,DEFAULT=NO,AUTOSELECT=YES,URI=&quot;audio/stereo/none/128kbit.m3u8&quot;
+  
+  #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=&quot;<span class="bcls-highlight">surround</span>&quot;,LANGUAGE=&quot;en&quot;,NAME=&quot;English&quot;,DEFAULT=YES,AUTOSELECT=YES,URI=&quot;audio/surround/en/320kbit.m3u8&quot;
+  #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=&quot;<span class="bcls-highlight">surround</span>&quot;,LANGUAGE=&quot;dubbing&quot;,NAME=&quot;Dubbing&quot;,DEFAULT=NO,AUTOSELECT=YES,URI=&quot;audio/stereo/none/128kbit.m3u8&quot;
+  
+  #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Deutsch&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;de&quot;,URI=&quot;subtitles_de.m3u8&quot;
+  #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;English&quot;,DEFAULT=YES,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;en&quot;,URI=&quot;subtitles_en.m3u8&quot;
+  #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Espanol&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;es&quot;,URI=&quot;subtitles_es.m3u8&quot;
+  #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Français&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;fr&quot;,URI=&quot;subtitles_fr.m3u8&quot;
+  
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=258157,CODECS=&quot;avc1.4d400d,mp4a.40.2&quot;,AUDIO=&quot;stereo&quot;,RESOLUTION=422x180,SUBTITLES=&quot;subs&quot;
+  video/250kbit.m3u8
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=520929,CODECS=&quot;avc1.4d4015,mp4a.40.2&quot;,AUDIO=&quot;stereo&quot;,RESOLUTION=638x272,SUBTITLES=&quot;subs&quot;
+  video/500kbit.m3u8
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=831270,CODECS=&quot;avc1.4d4015,mp4a.40.2&quot;,AUDIO=&quot;stereo&quot;,RESOLUTION=638x272,SUBTITLES=&quot;subs&quot;
+  video/800kbit.m3u8
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1144430,CODECS=&quot;avc1.4d401f,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=958x408,SUBTITLES=&quot;subs&quot;
+  video/1100kbit.m3u8
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1558322,CODECS=&quot;avc1.4d401f,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=1277x554,SUBTITLES=&quot;subs&quot;
+  video/1500kbit.m3u8
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=4149264,CODECS=&quot;avc1.4d4028,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=1921x818,SUBTITLES=&quot;subs&quot;
+  video/4000kbit.m3u8
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=6214307,CODECS=&quot;avc1.4d4028,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=1921x818,SUBTITLES=&quot;subs&quot;
+  video/6000kbit.m3u8
+  #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=10285391,CODECS=&quot;avc1.4d4033,mp4a.40.2&quot;,AUDIO=&quot;surround&quot;,RESOLUTION=4096x1744,SUBTITLES=&quot;subs&quot;
+  video/10000kbit.m3u8</code></pre>
+      <p>In the sample above, there are two audio groups, <strong>stereo</strong> and <strong>surround</strong>. There are also 6 video resolutions in 8 bitrates:</p>
+      <ul>
+        <li>The 3 lower bitrates specify to use the <strong>stereo</strong> audio group</li>
+        <li>The 5 higher bitrates specify to use the <strong>surround</strong> audio group</li>
+      </ul>
+      <p>The two audio groups have two streams with different language and names. When this is present, it shows up as an alternate audio track in a menu on the player.</p>
   </section>
 </article>
