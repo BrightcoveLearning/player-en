@@ -103,8 +103,19 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/pu
   "Hello": "Guten Tag",
   "Goodbye": "Auf Wiedersehen"
 });  </code></pre>
-    <p>This JavaScript could be in the HTML page itself, included as a source in a <code translate="No">&lt;script&gt;</code> tag, but the best approach is to simply add the script to the player's configuration using Studio. The URL to the file is added in the <strong>Plugins</strong> section of the player's properties. Use the <strong>Add a File</strong> button to add the JavaScript file, as shown here:</p>
+    <p>This JavaScript could be in the HTML page itself, included as a source in a <code translate="No">&lt;script&gt;</code> tag, or add the script to the player's configuration using Studio. The URL to the file is added in the <strong>Plugins</strong> section of the player's properties. Use the <strong>Add a File</strong> button to add the JavaScript file, as shown here:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="add script in Studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/localization/localization-studio-add-script.png" /></figure>
+    <aside class="bcls-aside bcls-aside--tip language-editable">No matter the method, the call to the <code>addLanguage()</code> method MUST be done before the player is initialized. For instance, if the code is in the HTML page, you would do this:
+      <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.addLanguage("de", {
+  "Play": "Wiedergabe",
+  "Pause": "Pause",
+  "Current Time": "Aktueller Zeitpunkt",
+  "Hello": "Guten Tag",
+  "Goodbye": "Auf Wiedersehen"
+});
+
+<span class="bcls-highlight">var myPlayer = bc("myPlayerID");</span></code></pre>
+    </aside>
     <p>Once the added vocabulary is in the language file, you can use the player's <code translate="No">localize()</code> method to access it. The following code snippet shows the localized word for <strong>Hello</strong> being used in the HTML page, followed by a screenshot of the results.</p>
     <pre class="line-numbers">
 <code class="language-html" translate="No">  &lt;p id="textTarget"&gt;In here: &lt;/p&gt;
