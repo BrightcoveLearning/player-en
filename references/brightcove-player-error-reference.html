@@ -5,10 +5,8 @@ parent: References
 
 <article class="bcls-article">
   <h1>Brightcove Player Error Reference</h1>
-  <summary
-    >This document is the collection of errors for Brightcove Player. Note that
-    errors are thrown from a number of different plugins.</summary
-  >
+  <summary>This document is the collection of errors for Brightcove Player. Note that
+    errors are thrown from a number of different plugins.</summary>
 
   <section class="bcls-section">
     <h2 id="Types_of_errors">Types of errors</h2>
@@ -21,20 +19,14 @@ parent: References
 
     <ul>
       <li>
-        <a href="#Standard_errors"
-          >Standard errors dispatched from the Errors Plugin</a
-        >: These error names start with <strong>MEDIA_ERR</strong>.
+        <a href="#Standard_errors">Standard errors dispatched from the Errors Plugin</a>: These error names start with <strong>MEDIA_ERR</strong>.
       </li>
       <li>
-        <a href="#Custom_Brightcove_errors"
-          >Custom errors defined by Brightcove and dispatched from the Errors
-          Plugin</a
-        >: These error names start with <strong>PLAYER_ERR</strong>.
+        <a href="#Custom_Brightcove_errors">Custom errors defined by Brightcove and dispatched from the Errors
+          Plugin</a>: These error names start with <strong>PLAYER_ERR</strong>.
       </li>
       <li>
-        <a href="#Catalog_errors"
-          >Errors dispatched from the Video Cloud catalog</a
-        >: These error names start with <strong>VIDEO_CLOUD_ERR</strong>. Of
+        <a href="#Catalog_errors">Errors dispatched from the Video Cloud catalog</a>: These error names start with <strong>VIDEO_CLOUD_ERR</strong>. Of
         course, <strong>Brightcove Player</strong> customers will never see
         these errors.
       </li>
@@ -45,16 +37,12 @@ parent: References
         the browser's native error.
       </li>
       <li>
-        <a href="#Console_errors"
-          >Errors reported in the browser Development Tools Console</a
-        >: These errors are developer oriented as they will only be see in a
+        <a href="#Console_errors">Errors reported in the browser Development Tools Console</a>: These errors are developer oriented as they will only be see in a
         browser's Console.
       </li>
       <li>
-        <a href="#Custom_user_errors"
-          >Custom errors that are user defined and dispatched by the Errors
-          Plugin</a
-        >: These error names are defined by the user, for example
+        <a href="#Custom_user_errors">Custom errors that are user defined and dispatched by the Errors
+          Plugin</a>: These error names are defined by the user, for example
         <strong>AGE_GATE_ERROR</strong>.
       </li>
       <li><a href="#Network_security_errors">Network security errors</a></li>
@@ -69,10 +57,7 @@ parent: References
       playback the media. For instance, if your network connection is lost, or
       you get an encrypted video that cannot be decrypted, you will get a media
       error. For complete details see the
-      <a
-        href="//player.support.brightcove.com/plugins/display-error-messages-plugin.html#standarderrors"
-        >Standard errors</a
-      >
+      <a href="//player.support.brightcove.com/plugins/display-error-messages-plugin.html#standarderrors">Standard errors</a>
       section of the <strong>Display Error Messages Plugin</strong> document.
     </p>
 
@@ -103,10 +88,7 @@ parent: References
             A network error caused the media download to fail part-way.
             Currently most helpful for MP4 and/or progressive download video
             formats. See the
-            <a
-              href="//player.support.brightcove.com/plugins/display-error-messages-plugin.html#Known_issues"
-              >Known issues</a
-            >
+            <a href="//player.support.brightcove.com/plugins/display-error-messages-plugin.html#Known_issues">Known issues</a>
             section of the
             <strong>Display Error Messages Plugin</strong> document for details.
           </td>
@@ -166,10 +148,7 @@ parent: References
       some reason cannot be played. For instance, if domain, geo or IP
       restrictions prevent viewing a video, player errors will occur. For
       complete details see the
-      <a
-        href="//player.support.brightcove.com/plugins/display-error-messages-plugin.html#bccustomerrors"
-        >Custom errors</a
-      >
+      <a href="//player.support.brightcove.com/plugins/display-error-messages-plugin.html#bccustomerrors">Custom errors</a>
       section of the <strong>Display Error Messages Plugin</strong> document.
     </p>
 
@@ -190,7 +169,7 @@ parent: References
         <tr>
           <td>-2</td>
           <td><code translate="No">PLAYER_ERR_TIMEOUT</code></td>
-          <td>Could not download the video.</td>
+          <td>Could not download the video, the default timeout is 45 seconds.</td>
         </tr>
         <tr>
           <td>Not Set</td>
@@ -223,10 +202,7 @@ parent: References
       you use a non-existent ID, or an ID from a different account in which the
       player exists, to retrieve a video you will get a catalog error. For
       complete details see the
-      <a
-        href="//player.support.brightcove.com/references/player-catalog.html#catalogerrors"
-        >Catalog errors</a
-      >
+      <a href="//player.support.brightcove.com/references/player-catalog.html#catalogerrors">Catalog errors</a>
       section of the <strong>Player Catalog</strong> document.
     </p>
 
@@ -276,9 +252,7 @@ parent: References
 
     <p>
       For complete details see the
-      <a href="//player.support.brightcove.com/plugins/hls-plugin.html#Errors"
-        >Errors</a
-      >
+      <a href="//player.support.brightcove.com/plugins/hls-plugin.html#Errors">Errors</a>
       section of the <strong>HLS Plugin</strong> document.
     </p>
 
@@ -304,11 +278,7 @@ parent: References
     <p>These errors would appear in a console looking something like this:</p>
 
     <figure class="bcls-figure">
-      <img
-        class="bcls-image"
-        alt="Console error"
-        src="//learning-services-media.brightcove.com/doc-assets/player-development/troubleshooting/bcp-errors-reference/console-error.png"
-      />
+      <img class="bcls-image" alt="Console error" src="//learning-services-media.brightcove.com/doc-assets/player-development/troubleshooting/bcp-errors-reference/console-error.png" />
     </figure>
 
     <table class="bcls-table">
@@ -333,10 +303,7 @@ parent: References
             You see this because for the IMA3 plugin to function properly it
             needs to be loaded right after player initialization, before any
             other plugins are initialized. See the
-            <a
-              href="//player.support.brightcove.com/plugins/advertising-ima3-plugin.html#Implement_using_code"
-              >Implement using code</a
-            >
+            <a href="//player.support.brightcove.com/plugins/advertising-ima3-plugin.html#Implement_using_code">Implement using code</a>
             section of the <strong>IMA3 Plugin</strong> doc for the solution.
           </td>
         </tr>
@@ -349,10 +316,7 @@ parent: References
 
     <p>
       For complete details see the
-      <a
-        href="//player.support.brightcove.com/plugins/display-error-messages-plugin.html#usercustomerrors"
-        >Adding custom errors</a
-      >
+      <a href="//player.support.brightcove.com/plugins/display-error-messages-plugin.html#usercustomerrors">Adding custom errors</a>
       section of the <strong>Display Error Messages Plugin</strong> document.
       There are no standard custom user errors.
     </p>
