@@ -1122,20 +1122,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>This example uses the ModalDialog to display four thumbnail images taken from various points in the video. This allows the user to get a sneak peek at what is in the video. The ModalDialog is only displayed before the video begins playback.</p>
     <!-- UPDATE codepen here -->
-    
+
     <p data-height="475" data-theme-id="34967" data-slug-hash="YeWQbo" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="Display Thumbnails Hover" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/YeWQbo/">Display Thumbnails Hover</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
     <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18148-display-thumbnails-hover">complete solution on GitHub</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18148-display-thumbnails-hover">complete solution on GitHub</a>.</p>
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -1152,7 +1154,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -1181,7 +1185,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -1219,7 +1223,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--tip">This example uses the <strong>ModalDialog</strong> component of the Brightcove Player. For more details, see the <a href="/general/implementing-modaldialog.html">Implementing the ModalDialog</a> document.</aside>
   </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -1228,20 +1232,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h3 id="Video_configuration">Video configuration</h3>
     <p>This sample uses an array of thumbnail image URLs that are stored in the video's <a href="https://studio.support.brightcove.com/media/editing-video-properties-using-media-module.html#videoinfo">Long Description</a> field. We will then access the currently loaded video's metadata through the <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object. Alternatively, you can create a <a href="https://studio.support.brightcove.com/admin/creating-custom-metadata-fields.html">custom field</a> to store the URL array.</p>
     <p>Here is the thumbnail array added to the Long Description property in <a href="https://studio.support.brightcove.com/media/getting-started-media-module.html">Video Cloud Studio's Media module</a>:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Thumbnail array" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/thumbnail-hover/thumbnail-array.png" />
+    <figure class="bcls-figure"><img class="bcls-image" alt="Thumbnail array" src="/assets/images/code-samples/display-thumbnails-hover/thumbnail-array.png" />
       <figcaption class="bcls-caption--image">Thumbnail array</figcaption>
     </figure>
-    <p>Here is the complete thumbnail array code:</p>
+    <p>Here is the more nicely formatted thumbnail array code:</p>
     <pre>
 <code class="language-json" translate="No">{
   "thumbs": [{
-    "image": "http://learning-services-media.brightcove.com/doc-assets/player-development/player-customization/modal-dialog/display-thumbnails/thumb1.png"
-  }, {
-    "image": "http://learning-services-media.brightcove.com/doc-assets/player-development/player-customization/modal-dialog/display-thumbnails/thumb2.png"
-  }, {
-    "image": "http://learning-services-media.brightcove.com/doc-assets/player-development/player-customization/modal-dialog/display-thumbnails/thumb3.png"
-  }, {
-    "image": "http://learning-services-media.brightcove.com/doc-assets/player-development/player-customization/modal-dialog/display-thumbnails/thumb4.png"
+      "image": "https://player.support.brightcove.com/assets/images/code-samples/display-thumbnails-hover/thumb1.png"
+    }, {
+      "image": "https://player.support.brightcove.com/assets/images/code-samples/display-thumbnails-hover/thumb2.png"
+    }, {
+      "image": "https://player.support.brightcove.com/assets/images/code-samples/display-thumbnails-hover/thumb3.png"
+    }, {
+      "image": "https://player.support.brightcove.com/assets/images/code-samples/display-thumbnails-hover/thumb4.png"
   }]
 }</code></pre>
     <h3>Other HTML</h3>
@@ -1251,7 +1255,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 ...</code></pre>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
@@ -1264,21 +1268,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Play the video when the user clicks on the thumbnails ModalDialog.</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Get the player DOM element</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Get the player DOM element +++</code></pre>
     <p>Get a reference to the player's DOM element. We will use this to add the ModalDialog to the player.</p>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Get the thumbnail array</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Get the thumbnail array +++</code></pre>
     <p>Get the thumbnail URL array from the video's Long Description property. For details about adding this metadata to your video, see the <a href="#Video_configuration">Video configuration</a> section.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Format the overlay content</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -1290,21 +1294,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Add the Modal Dialog to the player.</li>
     </ol>
     <!-- UPDATE task 4 -->
-    
+
     <h3>Show the thumbnails</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Show the thumbnails +++</code></pre>
     <p>Listen for the <code translate="No">mouseover</code> event on the player. When triggered, display the Modal Dialog with the video section thumbnail images.</p>
     <!-- UPDATE task 5 -->
-    
+
     <h3>Hide the thumbnails</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Hide the thumbnails +++</code></pre>
     <p>Listen for the <code translate="No">mouseout</code> event on the player. When triggered, hide the Modal Dialog with the video section thumbnail images.</p>
     <!-- UPDATE task 6 -->
-    
+
     <h3>Play the video</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -1312,7 +1316,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>When the thumbnail ModalDialog is clicked, remove the event listeners, close and dispose of the ModalDialog and start video playback.</p>
   </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
     <p>The CSS styles the videos thumbnail images in the ModalDialog.</p>
@@ -1333,14 +1337,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ...
 });</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
-    
+
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18148-display-thumbnails-hover/blob/master/plugin/thumbnails-hover.js">thumbnail-hover.js</a>.</p>
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
     <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
   </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
