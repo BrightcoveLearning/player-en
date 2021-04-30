@@ -2026,6 +2026,43 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </section>
 
     <section class="bcls-section">
+      <h3 id="delivery_config_id">delivery_config_id</h3>
+
+      <p><code translate="No">delivery_config_id</code> information:</p>
+
+      <ul>
+        <li>Data type: string</li>
+        <li>Default: <code translate="No">undefined</code></li>
+        <li>A Dynamic Delivery Rules configuration ID.</li>
+      </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>data-delivery-config-id</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>deliveryConfigId</code></td>
+            <td>Query parameter</td>
+            <td>iframe</td>
+            <td>Overrides configuration</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="bcls-section">
       <h3 id="dock">dock</h3>
 
       <p><code translate="No">dock</code> information:</p>
@@ -2047,6 +2084,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Default: <code translate="No">undefined</code></li>
         <li>The Video Cloud embed ID associated with this player. If the value is <code translate="No">default</code> it means the player is not a child player. If the value is not <code translate="No">default</code>, it is a value representing the parent of the player.</li>
       </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>data-embed</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>Used mainly to identify players at init time. Cannot override the <code>embed_id</code> found in the config.</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
@@ -2062,7 +2118,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </section>
 
     <section class="bcls-section">
-      <h3 id="flash">flash</h3>
+      <h3 id="flash">flash (deprecated)</h3>
 
       <p><code translate="No">flash</code> information:</p>
 
@@ -2074,17 +2130,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </section>
 
     <section class="bcls-section">
-      <h3 id="fullscreenControl">fullscreenControl</h3>
+      <h3 id="fullscreenControl">fullscreen_control (or fullscreenControl)</h3>
 
-      <p><code translate="No">fullscreenControl</code> information:</p>
+      <p><code translate="No">fullscreen_control</code> information:</p>
 
       <ul>
         <li>Data type: boolean</li>
         <li>Default: true</li>
-        <li>Indicates whether the fullscreen control should be shown in the control bar</li>
+        <li>Indicates whether the fullscreen control should be shown in the control bar. If <code>false</code>, double-click-to-fullscreen action will be disabled, too.</li>
       </ul>
 
-      <p>The following shows a curl statement to set the <code translate="No">fullscreenControl</code> value:</p>
+      <p>The following shows a curl statement to set the <code translate="No">fullscreen_control</code> value:</p>
 
       <pre class="line-numbers">
   <code class="language-bash" translate="No">curl \
@@ -2093,7 +2149,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   --request PATCH \
   --data '{
     "autoplay": true,
-    "fullscreenControl": false
+    "fullscreen_control": false
     }' \
   https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
       <!-- <p><code data-gist-id="9629223" data-gist-hide-footer="true" data-gist-line="171-179" data-gist-highlight-line="177"></code></p> -->
@@ -2152,6 +2208,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </section>
 
     <section class="bcls-section">
+      <h3 id="initial_bandwidth">initial_bandwidth</h3>
+
+      <p><code translate="No">initial_bandwidth</code> information:</p>
+
+      <ul>
+        <li>Data type: number</li>
+        <li>Default: <code translate="No">undefined</code></li>
+        <li>Only available in 6.53.0 and newer</li>
+        <li>Sets an initial bits-per-second value which is used to prime the playback engine's rendition selection to favor low or high bandwidth scenarios</li>
+      </ul>
+    </section>
+
+    <section class="bcls-section">
       <h3 id="language">language</h3>
 
       <p><code translate="No">language</code> information:</p>
@@ -2159,8 +2228,33 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <ul>
         <li>Data type: string</li>
         <li>Default: <code translate="No">undefined</code></li>
-        <li>Can be provided to set the <code translate="No">lang</code> attribute of the <code translate="No">&lt;html&gt;</code> element.</li>
+        <li>Can be provided to set the <code translate="No">lang</code> attribute of the <code translate="No">&lt;html&gt;</code> element in an iframe embed and, therefore, the language of the player.</li>
       </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>language</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>language</code></td>
+            <td>Query parameter</td>
+            <td>iframe</td>
+            <td>Overrides configuration</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
