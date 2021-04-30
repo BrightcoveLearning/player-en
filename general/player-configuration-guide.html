@@ -504,7 +504,7 @@ parent: General Information
         <thead class="bcls-table__head">
           <tr>
             <th>Name</th>
-            <th>type</th>
+            <th>Type</th>
             <th>Embed Type(s)</th>
             <th>Behavior</th>
           </tr>
@@ -560,7 +560,7 @@ parent: General Information
         <thead class="bcls-table__head">
           <tr>
             <th>Name</th>
-            <th>type</th>
+            <th>Type</th>
             <th>Embed Type(s)</th>
             <th>Behavior</th>
           </tr>
@@ -653,7 +653,7 @@ parent: General Information
         <thead class="bcls-table__head">
           <tr>
             <th>Name</th>
-            <th>type</th>
+            <th>Type</th>
             <th>Embed Type(s)</th>
             <th>Behavior</th>
           </tr>
@@ -687,7 +687,7 @@ parent: General Information
       </table>
     </section>
 
-    <section class="bcls-section">
+    <!--     <section class="bcls-section">
       <h3 id="breakpoints">breakpoints</h3>
 
       <p><code translate="No">breakpoints</code> information:</p>
@@ -757,6 +757,68 @@ parent: General Information
       </ul>
 
       <p>When the player's size changes, the merged breakpoints will be inspected in the size order until a matching breakpoint is found. That breakpoint's associated class name will be added as a class to the player. The previous breakpoint's class will be removed.</p>
+    </section> -->
+
+    <section class="bcls-section">
+      <h3 id="block_robots">block_robots</h3>
+
+      <p><code translate="No">block_robots</code> information:</p>
+
+      <ul>
+        <li>Data type: boolean</li>
+        <li>Default: <code translate="No">undefined</code></li>
+        <li>Only available in Brightcove Player 6.51.0 and newer.</li>
+        <li>If true, adds a <code>&lt;meta&gt;</code> tag to the iframe embed HTML to prevent robots like Google’s crawler from indexing the contents of the iframe embed HTML.</li>
+      </ul>
+      <p>Note that use, shown next, implies <code>true</code>:</p>
+      <pre class="line-numbers"><code class="language-html" translate="No">&lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow&quot;&gt;</code></pre>
+    </section>
+
+    <section class="bcls-section">
+      <h3 id="china_proxy_domain">china_proxy_domain</h3>
+
+      <p><code translate="No">china_proxy_domain</code> information:</p>
+
+      <ul>
+        <li>Data type: string</li>
+        <li>Default: <code translate="No">undefined</code></li>
+        <li>If provided, this domain will be used to route requests the player makes to Brightcove services through an alternate hostname. An example is:
+          <pre class="line-numbers"><code class="language-json" translate="No">"china_proxy_domain": "china.example.com"</code></pre>
+        </li>
+      </ul>
+    </section>
+
+    <section class="bcls-section">
+      <h3 id="context_menu">context_menu</h3>
+
+      <p><code translate="No">context_menu</code> information:</p>
+
+      <ul>
+        <li>Data type: boolean or Object</li>
+        <li>Default: <code translate="No">true</code></li>
+        <li>If <code>true</code> or an object, the player will include a context menu activated on every other right-click or long touch. This context menu can open a player information modal or a link to the Brightcove corporate website.
+          <p>If an object, the following property is supported:</p>
+
+          <table class="bcls-table">
+            <thead class="bcls-table__head">
+              <tr>
+                <th>Property</th>
+                <th>Effect</th>
+              </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+              <tr>
+                <td>brightcove_branding</td>
+                <td>Can be set to <code>false</code> explicitly to remove the <strong>About Brightcove</strong> link from the custom context menu.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Example:</p>
+          <pre class="line-numbers"><code class="language-json" translate="No">"context_menu": {
+  "brightcove_branding": false
+}</code></pre>
+        </li>
+      </ul>
     </section>
 
     <section class="bcls-section">
@@ -771,6 +833,31 @@ parent: General Information
           <aside class="bcls-aside bcls-aside--information">Note: This feature should only be used if you know that all your content (video and text tracks) have CORS headers applied to them.</aside>
         </li>
       </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>crossorigin="anonymous"</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>crossorigin</code></td>
+            <td>Query parameter</td>
+            <td>iframe</td>
+            <td>Overrides configuration</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
@@ -1552,12 +1639,12 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
             <td>A Video Cloud playlist ID to load. See the <a href="#Playlist_details">Playlist details</a> content below this table for further information.</td>
           </tr>
           <tr>
-            <td><code></code></td>
-            <td></td>
+            <td><code>policy_key</code></td>
+            <td>A Video Cloud API policy key. See the <a href="/content-protection/policy-keys.html">Policy Keys</a> document for further information.</td>
           </tr>
           <tr>
-            <td><code></code></td>
-            <td></td>
+            <td><code>video</code></td>
+            <td>A Video Cloud video ID to load. See the curl example at the top of this section for an example.</td>
           </tr>
         </tbody>
       </table>
