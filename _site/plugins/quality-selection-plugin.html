@@ -1253,9 +1253,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </li>
       </ol>
       <details>
-          <summary><h2 id="Complete_code_example">Complete code example</h2></summary>
-          <p>Here is a complete code example for using the quality selection plugin, setting the initial default resolution:</p>
-          <pre class="line-numbers">
+        <summary>
+          <h2 id="Complete_code_example">Complete code example</h2>
+        </summary>
+        <p>Here is a complete code example for using the quality selection plugin, setting the initial default resolution:</p>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -1310,6 +1312,34 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <li>Default: <code translate="No">none</code></li>
             <li>Defines the default resolution or resolution mapping to use. Pass it either the horizontal resolution or <strong>SD</strong>/<strong>HD</strong>.</li>
           </ul>
+          <h4>Change default initial resolution in Video Cloud Studio</h4>
+          <p>Follow these steps to change the default resolution in Video Cloud Studio:</p>
+          <ol class="bcls-tasklist-restart">
+            <li>In the <strong>PLAYERS</strong> module, select the player to which you have added the Quality Selection Plugin.</li>
+            <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
+            <li>Locate the section about the Quality Selection Plugin in the <code>plugins</code> section, shown here:
+              <pre class="line-numbers"><code class="language-json" translate="No">{
+    "registry_id": "@brightcove/videojs-quality-menu",
+    "version": "1.x",
+    "options": {
+      "useResolutionLabels": true
+    }
+  }</code></pre>
+            </li>
+            <li>To the <code>options</code> section, add your desired default resolution, as shown in the highlighted section (don't forget to add a comma at the end of the previous line):
+              <pre class="line-numbers"><code class="language-json" translate="No">{
+    "registry_id": "@brightcove/videojs-quality-menu",
+    "version": "1.x",
+    "options": {
+      "useResolutionLabels": true,
+      <span class="bcls-highlight">"defaultResolution": "720p"</span>
+    }
+  }</code></pre>
+            </li>
+            <li>Click <strong>Save</strong> to save the altered JSON.</li>
+            <li>Publish the changed player.</li>
+          </ol>
+          <aside class="bcls-aside bcls-aside--tip language-editable">Of course, similar steps can be used to set any of the options in this section using Video Cloud Studio.</aside>
         </li>
         <li>
           <h3><code translate="No">sdBitrateLimit</code></h3>
@@ -1355,6 +1385,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </li>
       </ul>
     </section>
+
     <section class="bcls-section">
       <h2 id="Styling_the_control">Styling the control</h2>
       <p>CSS is used to style the gear icon, as well as the menu that appears. The following table shows the common components you can style, the components' selectors and finally the CSS property to set.</p>
@@ -1446,7 +1477,6 @@ div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.v
     </section>
   </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
