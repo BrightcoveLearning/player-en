@@ -2717,8 +2717,39 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <ul>
         <li>Data type: boolean</li>
         <li>Default: false</li>
-        <li>Enables the player for inline playback (necessary for playback on some devices).</li>
+        <li>Determines if the player should allow inline playback on platforms that require a <code>playsinline</code> attribute for inline/non-native-player playback (e.g. iOS).</li>
       </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>playsinline</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>This is a boolean attribute only. All values are considered <code>true</code>.</td>
+          </tr>
+          <tr>
+            <td><code>playsinline</code></td>
+            <td>Query parameter</td>
+            <td>iframe</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>playsinline</code></td>
+            <td>Player option</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
