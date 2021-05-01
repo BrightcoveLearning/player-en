@@ -2523,6 +2523,51 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   "width": "600px"
 }</code></pre>
 
+      <p>Multiple media objects example:</p>
+      <pre class="line-numbers"><code class="language-json" translate="No">"media": [{
+  "height": "300px",
+  "src": "//path/to/some/media-file.mp4",
+  "width": "600px"
+}, {
+  "height": "300px",
+  "sources": [{
+    "src": "//path/to/some/media-file.mp4",
+    "type": "video/mp4"
+  }, {
+    "src": "//path/to/some/media-file.webm",
+    "type": "video/webm"
+  }],
+  "width": "600px"
+}]</code></pre>
+      <p>For further information on which source will actually play, see the <a href="/playback/determining-which-rendition-will-play.html">Determining Which Rendition Will Play</a> document.</p>
+      <p>You can see which source is playing using the <code translate="No">currentSrc()</code> function. The following screenshot shows using the function in a browser console.</p>
+
+      <figure class="bcls-figure"><img class="bcls-image" alt="Current Source" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/guides/player-configuration/player-config-currentsrc.png" />
+        <figcaption class="bcls-caption--image">Current Source</figcaption>
+      </figure>
+
+      <aside class="bcls-aside bcls-aside--information">Source selection is different from rendition selection. Rendition selection is a process of selecting a particular variant of a video when it is available in multiple formats or quality levels that are all playable. Source selection isn't that smart, it just starts using the first video that is compatible with the player. The Brightcove player does rendition selection during playback, automatically adjusting the quality level based on bandwidth information detected by the player. It only does so, however, within an HLS source. It does not support doing rendition selection among multiple bitrate MP4 files, for instance.</aside>
+
+      <p>Media object with tracks example:</p>
+      <pre class="line-numbers"><code class="language-json" translate="No">"media": {
+  "height": "300px",
+  "poster": {
+    "highres": "//path/to/poster.jpg"
+  },
+  "sources": [{
+    "src": "//path/to/some/media-file.mp4",
+    "type": "video/mp4"
+  }, {
+    "src": "//path/to/some/media-file.webm",
+    "type": "video/webm"
+  }],
+  "tracks": [{
+    "src": "//path/to/captions.vtt",
+    "srclang": "en",
+    "label": "English"
+  }],
+  "width": "600px"
+}</code></pre>
       <p>In the following JSON, you can see a <code translate="No">media</code> property containing:</p>
 
       <ul>
@@ -2544,18 +2589,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }]
   },</code></pre>
       <!-- <p><code data-gist-id="9629223" data-gist-hide-footer="true" data-gist-line="8-19"></code></p> -->
-
-      <p>The source that is selected for playback is determined by the video order you've configured and the capabilities of the browser and device on which the player is loaded. If you haven't altered the defaults, and HLS is supported natively, the player will check if any of the sources point to HLS videos and select the first one it finds. If HLS is not supported natively or no HLS video sources have been specified, HTML playback will be attempted next. As previously, the first playable source will be selected. If the first two attempts to play the video fail, Flash fallback will be tried.</p>
-
-      <p>To summarize, the play order specifies your preferred playback medium and then each configured option tries all of the available sources and uses the first one it knows how to play.</p>
-
-      <p>You can see which source is playing using the <code translate="No">currentSrc()</code> function. The following screenshot shows using the function in a browser console.</p>
-
-      <figure class="bcls-figure"><img class="bcls-image" alt="Current Source" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/guides/player-configuration/player-config-currentsrc.png" />
-        <figcaption class="bcls-caption--image">Current Source</figcaption>
-      </figure>
-
-      <aside class="bcls-aside bcls-aside--information">Source selection is different from rendition selection. Rendition selection is a process of selecting a particular variant of a video when it is available in multiple formats or quality levels that are all playable. Source selection isn't that smart, it just starts using the first video that is compatible with the player. The Brightcove player does rendition selection during playback, automatically adjusting the quality level based on bandwidth information detected by the player. It only does so, however, within an HLS source. It does not support doing rendition selection among multiple bitrate MP4 files, for instance.</aside>
     </section>
 
     <section class="bcls-section">
@@ -2568,6 +2601,37 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Default: false</li>
         <li>Determines whether sound is muted when the player loads.</li>
       </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>muted</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>This is a boolean attribute only. All values are considered <code>true</code>.</td>
+          </tr>
+          <tr>
+            <td><code>muted</code></td>
+            <td>Query parameter</td>
+            <td>iframe</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>muted</code></td>
+            <td>Player option</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
@@ -3263,7 +3327,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 30 Apr 2021
+  Page last updated on 01 May 2021
 </div>
 
 
