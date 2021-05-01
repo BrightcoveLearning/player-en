@@ -2674,7 +2674,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <tr>
             <td><code>shape</code></td>
             <td>string</td>
-            <td><strong>square</strong> or <strong>rectangle</cod>, default is a <strong>circle</strong></td>
+            <td><strong>square</strong> or <strong>rectangle</strong>, default is a <strong>circle</strong></td>
           </tr>
           <tr>
             <td><code>position</code></td>
@@ -2723,8 +2723,34 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <ul>
         <li>Data type: Object</li>
         <li>Default: Populate with player specific information</li>
-        <li>Contains various meta-data about this player, for instance <code translate="No">inactive</code> and <code translate="No">template.version</code>.</li>
+        <li>Contains various meta-data about this player, most relevant listed in following table.</li>
       </ul>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Effect</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>inactive</code></td>
+            <td>boolean</td>
+            <td>When <code>true</code>, the player will be displayed as a gray box with an error message explaining that the content owner has deactivated the player</strong> color</td>
+          </tr>
+          <tr>
+            <td><code>template.version</code></td>
+            <td>string</td>
+            <td>The template version number from which the player is built</strong></td>
+          </tr>
+          <tr>
+            <td><code>in_page_embed_url</code></td>
+            <td>string</td>
+            <td>Base URL used for in-page embed</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
