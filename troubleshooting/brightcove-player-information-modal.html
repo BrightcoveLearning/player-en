@@ -32,7 +32,7 @@ parent: Troubleshooting
     <p>If you wish to prevent the player information context menu from appearing at all, you can do one of the following:</p>
     <h4>Use the JSON Editor</h4>
     <p>Alter the player's configuration by adding the highlighted property (be sure to save the change):</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="JSON Editor no debugger" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/player-info-modal/json-editor-no-debugger.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="JSON Editor no debugger" src="/assets/images/troubleshooting/information-modal/json-editor-no-context-menu.png" /></figure>
     <h4>Use curl</h4>
     <pre class="line-numbers">
 <code class="language-bash" translate="No">curl \
@@ -40,7 +40,7 @@ parent: Troubleshooting
   --user $EMAIL \
   --request PATCH \
   --data '{
-      "debugger": false
+      "context_menu": false
   }' \
   https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
     <aside class="bcls-aside bcls-aside--information">Note: Whenever you make a change to a player using curl, you need to re-publish the player. You can do that in Studio, and you will see your player is marked as needing to be published in the <strong>Status</strong> column:
@@ -57,7 +57,7 @@ parent: Troubleshooting
     <p>If you wish to prevent the <strong>About Brightcove</strong> menu option from appearing, you can do one of the following:</p>
     <h4>Use the JSON Editor</h4>
     <p>Alter the player's configuration by adding the highlighted property (be sure to save the change):</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="JSON Editor no Brightcove Player branding" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/player-info-modal/json-editor-no-bc-branding.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="JSON Editor no Brightcove Player branding" src="/assets/images/troubleshooting/information-modal/json-editor-no-bc-branding.png" /></figure>
     <h4>Use curl</h4>
     <pre class="line-numbers">
 <code class="language-bash" translate="No">curl \
@@ -65,7 +65,9 @@ parent: Troubleshooting
   --user $EMAIL \
   --request PATCH \
   --data '{
-       "debugger": {"brightcoveBranding": false}
+    "context_menu": {
+      "brightcove_branding": false
+    }
   }' \
   https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
     <aside class="bcls-aside bcls-aside--information">Note: Whenever you make a change to a player using curl, you need to re-publish the player. You can do that in Studio, and you will see your player is marked as needing to be published in the <strong>Status</strong> column:
