@@ -437,7 +437,6 @@ parent: General Information
       <li><a href="#autoadvance">autoadvance</a></li>
       <li><a href="#autoplay">autoplay</a></li>
       <li><a href="#base_url">base_url</a></li>
-      <li><a href="#breakpoints">breakpoints</a></li>
       <li><a href="#crossorigin">crossorigin</a></li>
       <li><a href="#css">css</a></li>
       <li><a href="#debugger">debugger</a></li>
@@ -687,78 +686,6 @@ parent: General Information
       </table>
     </section>
 
-    <!--     <section class="bcls-section">
-      <h3 id="breakpoints">breakpoints</h3>
-
-      <p><code translate="No">breakpoints</code> information:</p>
-
-      <ul>
-        <li>Data type: Object</li>
-        <li>Default: The default breakpoints are:</li>
-        <li>When used with the <a href="#responsive">responsive</a> option, sets breakpoints that will configure how class names are toggled on the player to adjust the UI based on the player's dimensions.
-          <table class="bcls-table">
-            <thead class="bcls-table__head">
-              <tr>
-                <th>Class Name</th>
-                <th>Width Range</th>
-              </tr>
-            </thead>
-            <tbody class="bcls-table__body">
-              <tr>
-                <td>vjs-layout-tiny</td>
-                <td>0-210</td>
-              </tr>
-              <tr>
-                <td>vjs-layout-x-small</td>
-                <td>211-320</td>
-              </tr>
-              <tr>
-                <td>vjs-layout-small</td>
-                <td>321-425</td>
-              </tr>
-              <tr>
-                <td>vjs-layout-medium</td>
-                <td>426-768</td>
-              </tr>
-              <tr>
-                <td>vjs-layout-large</td>
-                <td>769-1440</td>
-              </tr>
-              <tr>
-                <td>vjs-layout-x-large</td>
-                <td>1441-2560</td>
-              </tr>
-              <tr>
-                <td>vjs-layout-huge</td>
-                <td>2561+</td>
-              </tr>
-            </tbody>
-          </table>
-        </li>
-      </ul>
-
-      <p>While the class names cannot be changed, the width ranges can be configured via an object like this:</p>
-
-      <pre class="line-numbers">
-  <code class="language-javascript" translate="No">breakpoints: {
-    tiny: 300,
-    xsmall: 400,
-    small: 500,
-    medium: 600,
-    large: 700,
-    xlarge: 800,
-    huge: 900
-  }</code></pre>
-
-      <ul>
-        <li>The keys of the breakpoints object are derived from the associated class names by removing the <code translate="No">vjs-layout-</code> prefix and any <code translate="No">-</code> characters.</li>
-        <li>The values of the breakpoints object define the max width for a range.</li>
-        <li>Not all keys need to be defined. You can easily override a single breakpoint by passing an object with one key/value pair. Customized breakpoints will be merged with default breakpoints when the player is created.</li>
-      </ul>
-
-      <p>When the player's size changes, the merged breakpoints will be inspected in the size order until a matching breakpoint is found. That breakpoint's associated class name will be added as a class to the player. The previous breakpoint's class will be removed.</p>
-    </section> -->
-
     <section class="bcls-section">
       <h3 id="block_robots">block_robots</h3>
 
@@ -1005,18 +932,6 @@ parent: General Information
     </section>
 
     <section class="bcls-section">
-      <h3 id="flash">flash (deprecated)</h3>
-
-      <p><code translate="No">flash</code> information:</p>
-
-      <ul>
-        <li>Data type: Object</li>
-        <li>Default: <code translate="No">undefined</code></li>
-        <li>Can be used to provide custom Flash options to <strong>Video.js</strong>.</li>
-      </ul>
-    </section>
-
-    <section class="bcls-section">
       <h3 id="fullscreenControl">fullscreen_control (or fullscreenControl)</h3>
 
       <p><code translate="No">fullscreen_control</code> information:</p>
@@ -1062,36 +977,6 @@ parent: General Information
         <li>Default: <code translate="No">{}</code></li>
         <li>If <code translate="No">false</code>, the player will not include <strong>videojs-http-streaming</strong>. Otherwise, an object will be passed as options for <strong>videojs-http-streaming</strong>.</li>
       </ul>
-    </section>
-
-    <section class="bcls-section">
-      <h3 id="inactive">Inactive player</h3>
-
-      <p>It is possible to make players inactive. You might want to do this to have a player stop serving content, but not have a 404 error appear if a deleted player is browsed.</p>
-
-      <p>To deactivate a player set the <code translate="No">player</code> field's <code translate="No">inactive</code> property to <code translate="No">true</code>, as follows:</p>
-
-      <pre class="line-numbers">
-  <code class="language-bash" translate="No">curl \
-  --header "Content-Type: application/json" \
-  --user $EMAIL \
-  --request PATCH \
-  --data '{
-    <span class="bcls-highlight">"player": {
-        "inactive": true
-    }</span>
-  }' \
-  https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
-
-      <p>Of course, if you wish to activate the player, you can set the <code translate="No">inactive</code> property to <code translate="No">false</code>.</p>
-
-      <p>Once the player is deactivated, if a user browses the player the following message will appear:</p>
-
-      <figure class="bcls-figure"><img class="bcls-image" alt="Deactivated Player" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/guides/player-configuration/deactivated.png" />
-        <figcaption class="bcls-caption--image">Deactivated Player</figcaption>
-      </figure>
-
-      <aside class="bcls-aside bcls-aside--information">This is a screenshot of an inactive player. It is supposed to be displaying an error.</aside>
     </section>
 
     <section class="bcls-section">
@@ -1624,7 +1509,7 @@ parent: General Information
           <tr>
             <td><code>inactive</code></td>
             <td>boolean</td>
-            <td>When <code>true</code>, the player will be displayed as a gray box with an error message explaining that the content owner has deactivated the player</strong> color</td>
+            <td>When <code>true</code>, the player will be displayed as a gray box with an error message explaining that the content owner has deactivated the player</strong>. See the <a href="#inactive_details">inactive details</a> content below this table for further information.</td>
           </tr>
           <tr>
             <td><code>template.version</code></td>
@@ -1638,44 +1523,34 @@ parent: General Information
           </tr>
         </tbody>
       </table>
-    </section>
+      <h4 id="inactive_details">inactive details</h4>
 
-    <section class="bcls-section">
-      <h3 id="play_button">play_button</h3>
+      <p>It is possible to make players inactive. You might want to do this to have a player stop serving content, but not have a 404 error appear if a deleted player is browsed.</p>
 
-      <p><code translate="No">play_button</code> information:</p>
+      <p>To deactivate a player set the <code translate="No">player</code> field's <code translate="No">inactive</code> property to <code translate="No">true</code>, as follows:</p>
 
-      <ul>
-        <li>Data type: Object</li>
-        <li>The following properties are available for modification via player configuration:
-          <table class="bcls-table">
-            <thead class="bcls-table__head">
-              <tr>
-                <th>Property</th>
-                <th>Type</th>
-                <th>Effect</th>
-              </tr>
-            </thead>
-            <tbody class="bcls-table__body">
-              <tr>
-                <td>hover</td>
-                <td>string</td>
-                <td><code translate="No">glow</code> or <code translate="No">darken</code>; default is pink / progress color</td>
-              </tr>
-              <tr>
-                <td>shape</td>
-                <td>string</td>
-                <td><code translate="No">square</code> or <code translate="No">rectangle</code>; default is a circle</td>
-              </tr>
-              <tr>
-                <td>position</td>
-                <td>string</td>
-                <td><code translate="No">topLeft</code> or <code translate="No">topRight</code>; default is center</td>
-              </tr>
-            </tbody>
-          </table>
-        </li>
-      </ul>
+      <pre class="line-numbers">
+            <code class="language-bash" translate="No">curl \
+            --header "Content-Type: application/json" \
+            --user $EMAIL \
+            --request PATCH \
+            --data '{
+              <span class="bcls-highlight">"player": {
+                  "inactive": true
+              }</span>
+            }' \
+            https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
+
+      <p>Of course, if you wish to activate the player, you can set the <code translate="No">inactive</code> property to <code translate="No">false</code>.</p>
+
+      <p>Once the player is deactivated, if a user browses the player the following message will appear:</p>
+
+      <figure class="bcls-figure"><img class="bcls-image" alt="Deactivated Player" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/guides/player-configuration/deactivated.png" />
+        <figcaption class="bcls-caption--image">Deactivated Player</figcaption>
+      </figure>
+
+      <aside class="bcls-aside bcls-aside--information">This is a screenshot of an inactive player. It is supposed to be displaying an error.</aside>
+
     </section>
 
     <section class="bcls-section">
@@ -1687,6 +1562,25 @@ parent: General Information
         <li>Data type: string</li>
         <li>The Video Cloud player ID associated with a player</li>
       </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>data-player</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>Used mainly to identify players at init time; Cannot override the <code>player_id</code> found in the config</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
@@ -1696,7 +1590,9 @@ parent: General Information
 
       <ul>
         <li>Data type: string</li>
-        <li>The Video Cloud player name associated with a player - note: the <code translate="No">name</code> you enter for the player is returned as <code translate="No">player_name</code> when you get the configuration by putting <code translate="No">config.json</code> on the end of the player preview URL (it is returned as <code translate="No">name</code> when you get the configuration via the Player Management API. But you must use <code translate="No">name</code> when you create or update the player.</li>
+        <li>The Video Cloud player name associated with a player
+          <aside class="bcls-aside bcls-aside--information language-editable">Note: the <code translate="No">name</code> you enter for the player is returned as <code translate="No">player_name</code> when you get the configuration by putting <code translate="No">config.json</code> on the end of the player preview URL (it is returned as <code translate="No">name</code> when you get the configuration via the Player Management API). But you must use <code translate="No">name</code> when you create or update the player.</aside>
+        </li>
       </ul>
     </section>
 
@@ -1867,7 +1763,7 @@ parent: General Information
       <ul>
         <li>Data type: boolean</li>
         <li>Default: <code translate="No">true</code></li>
-        <li>Setting this option to <code translate="No">true</code> will cause the player to customize itself based on responsive breakpoints (see: <a href="#breakpoints">breakpoints</a> option).</li>
+        <li>Setting this option to <code translate="No">true</code> will cause the player to customize itself based on responsive breakpoints</li>
       </ul>
 
       <p>For full details on this feature being enabled see the release notes for <a href="https://player.support.brightcove.com/release-notes/brightcove-player-release-notes.html#6.29.2">Brightcove Player 6.29.2</a>.</p>
