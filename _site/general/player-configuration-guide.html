@@ -2267,6 +2267,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Default: <code translate="No">undefined</code></li>
         <li>Can be an array of strings that will cause the specified languages to be included in the player. The only languages that are valid are those included in Video.js. See the <a href="https://player.support.brightcove.com/coding-topics/programmatically-localizing-brightcove-player.html">Localizing Brightcove Player</a> document for more information.</li>
       </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>languages</code></td>
+            <td>player option</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
@@ -2275,14 +2294,45 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p><code translate="No">loop</code> information:</p>
 
       <ul>
-        <li>Causes the video to start over as soon as it ends.</li>
+        <li>If <code>true</code>, causes the video to start over as soon as it ends.</li>
       </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>loop</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>This is a boolean attribute only. All values are considered <code>true</code>.</td>
+          </tr>
+          <tr>
+            <td><code>loop</code></td>
+            <td>Query parameter</td>
+            <td>iframe</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>loop</code></td>
+            <td>player option</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
       <h3 id="media">media</h3>
 
-      <p>The <code translate="No">media</code> property has child properties as shown in the following table.</p>
+      <p>The <code translate="No">media</code> property can be an object or array of objects and has child properties as shown in the following table.</p>
 
       <table class="bcls-table">
         <thead class="bcls-table__head">
@@ -2294,16 +2344,54 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </thead>
         <tbody class="bcls-table__body">
           <tr>
-            <td>src</td>
+            <td><code>height</code></td>
             <td>string</td>
             <td>
               <ul>
-                <li>The URL of the video file to load into the player</li>
+                <li>The height of the video</li>
+                <li>The default value is relative to the width and is appropriate for a video with a 2:1 aspect-ratio</li>
               </ul>
             </td>
           </tr>
           <tr>
-            <td>sources</td>
+          <tr>
+            <td><code>poster</code></td>
+            <td>object</td>
+            <td>
+              <ul>
+                <li>Contains URLs to poster images</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>poster.highres</code></td>
+            <td>string</td>
+            <td>
+              <ul>
+                <li>The file path to the high-resolution poster image, relative to the root directory of the skin</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>poster.lowres</code></td>
+            <td>string</td>
+            <td>
+              <ul>
+                <li>The file path to the low-resolution poster image, relative to the root directory of the skin</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>poster.orig</code></td>
+            <td>string</td>
+            <td>
+              <ul>
+                <li>URL to the original, unsized poster image</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sources</code></td>
             <td>array of objects</td>
             <td>
               <ul>
@@ -2315,7 +2403,34 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             </td>
           </tr>
           <tr>
-            <td>title</td>
+            <td><code>sources[].src</code></td>
+            <td>string</td>
+            <td>
+              <ul>
+                <li>The URL to a media resource for this source</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>sources.[].type</code></td>
+            <td></td>
+            <td>
+              <ul>
+                <li>The MIME type of media resource as specified in the HTML5 standard for this source (e.g. <code>video/mp4</code>).</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>src</code></td>
+            <td>string</td>
+            <td>
+              <ul>
+                <li>When only one source is needed, the URL to the media resource</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>title</code></td>
             <td>string</td>
             <td>
               <ul>
@@ -2324,47 +2439,89 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             </td>
           </tr>
           <tr>
-            <td>poster.highres</td>
-            <td>string</td>
-            <td>
-              <ul>
-                <li>The file path to the poster image, relative to the root directory of the skin</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>height</td>
-            <td>string</td>
-            <td>
-              <ul>
-                <li>The height of the video</li>
-                <li>The default value is relative to the width and is appropriate for a video with a 2:1 aspect-ratio</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>width</td>
-            <td>string</td>
-            <td>
-              <ul>
-                <li>The width of the video</li>
-                <li>The default value is relative to the height and is appropriate for a video with a 2:1 aspect-ratio</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>tracks</td>
+            <td><code>tracks[]</code></td>
             <td>array</td>
             <td>
               <ul>
                 <li>An array of track objects</li>
-                <li>The default value is undefined</li>
-                <li>The elements of this array are translated almost directly to <a href="http://www.html5rocks.com/en/tutorials/track/basics/">track elements</a>. See the <a href="https://player.support.brightcove.com/general/adding-captions-videos-programmatically.html">Add Captions to Videos</a> document for an example of using tracks with Brightcove Player.</li>
+                <li>The elements of this array are translated almost directly to <a href="http://www.html5rocks.com/en/tutorials/track/basics/">track elements</a></li>
+                <li>See the <a href="https://player.support.brightcove.com/general/adding-captions-videos-programmatically.html">Add Captions to Videos</a> document for an example of using tracks with Brightcove Player.</li>
               </ul>
             </td>
           </tr>
+          <tr>
+            <td><code>track</code></td>
+            <td>object</td>
+            <td>
+              <ul>
+                <li>A track object two required properties: <code>src</code> & <code>srclang</code>, and one optional property <code>label</code>)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>tracks[].label</code></td>
+            <td>strong</td>
+            <td>
+              <ul>
+                <li>Some <strong>optional</strong> text describing the <code>srclang</code> and the caption</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>tracks[].src</code></td>
+            <td>strong</td>
+            <td>
+              <ul>
+                <li>A URL that points to a VTT file to load</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>tracks[].srclang</code></td>
+            <td>strong</td>
+            <td>
+              <ul>
+                <li>The two letter code for the language type of the caption, as specified in <a href="https://www.ietf.org/rfc/bcp/bcp47.txt">BCP47</a></li>
+              </ul>
+            </td>
+          </tr>
+          <td><code>width</code></td>
+          <td>string</td>
+          <td>
+            <ul>
+              <li>The width of the video</li>
+              <li>The default value is relative to the height and is appropriate for a video with a 2:1 aspect-ratio</li>
+            </ul>
+          </td>
+          </tr>
         </tbody>
       </table>
+
+      <h4>Examples</h4>
+      <p>A single source example:</p>
+      <pre class="line-numbers"><code class="language-json" translate="No">"media": {
+  "height": "300px",
+  "poster": {
+    "highres": "//path/to/poster.jpg"
+  },
+  "src": "//path/to/some/media-file.mp4",
+  "width": "600px"
+}</code></pre>
+      <p>Multiple sources example:</p>
+      <pre class="line-numbers"><code class="language-json" translate="No">"media": {
+  "height": "300px",
+  "poster": {
+    "highres": "//path/to/poster.jpg"
+  },
+  "sources": [{
+    "src": "//path/to/some/media-file.mp4",
+    "type": "video/mp4"
+  }, {
+    "src": "//path/to/some/media-file.webm",
+    "type": "video/webm"
+  }],
+  "width": "600px"
+}</code></pre>
 
       <p>In the following JSON, you can see a <code translate="No">media</code> property containing:</p>
 
