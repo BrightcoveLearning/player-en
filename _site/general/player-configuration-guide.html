@@ -2755,14 +2755,53 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <section class="bcls-section">
       <h3 id="plugins">plugins</h3>
 
-      <p>The <code translate="No">plugins</code> property specifies the order to initialize video.js plugins and any customized settings to apply to them. The plugin must be supported by a corresponding <code translate="No">scripts</code> property URL entry, and if needed a supporting <code translate="No">stylesheets</code> URL. Each element of the <code translate="No">plugins</code> array is an object with a <code translate="No">name</code> property, and can also contain an optional <code translate="No">options</code> property:</p>
+      <p>The <code translate="No">plugins</code> array specifies the order to initialize video.js plugins and any customized settings to apply to them. The plugin must be supported by a corresponding <code translate="No">scripts</code> property URL entry, and if needed a supporting <code translate="No">stylesheets</code> URL. Each element of the <code translate="No">plugins</code> array is an object with a <code translate="No">name</code> property.
 
-      <ul>
-        <li><code translate="No">name</code>: The name of the video.js plugin, taken from the supporting JavaScript code</li>
-        <li><code translate="No">options</code>: An object hash of settings overrides to provide to the plugin at initialization time</li>
-      </ul>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Effect</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>name</code></td>
+            <td>string</td>
+            <td>The plugin's method name</td>
+          </tr>
+          <tr>
+            <td><code>options</code></td>
+            <td>object</td>
+            <td>An options object to be passed to the plugin's method</td>
+          </tr>
+          <tr>
+            <td><code>scripts</code></td>
+            <td>array</td>
+            <td>Scripts for this plugin</td>
+          </tr>
+          <tr>
+            <td><code>stylesheets</code></td>
+            <td>array</td>
+            <td>Stylesheets for this plugin</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <h3>Options child</h3>
+      <p>For example, if your plugins property appeared as follows:</p>
+      <pre class="line-numbers"><code class="language-json" translate="No">"plugins": [{
+  "name": "foo",
+  "options": {
+    "bar": true
+  }
+}]</code></pre>
+      <p>At runtime, the <code>foo</code> plugin would be initialized with the supplied options:</p>
+      <pre class="line-numbers"><code class="language-json" translate="No">player.foo({bar: true});</code></pre>
+
+      <p>Any scripts or stylesheets included in a plugin object will be inlined in the same way as top-level scripts or stylesheets; they will be inlined <em>before</em> top-level assets.</p>
+
+      <h4><code>options</code> property details</h4>
 
       <p>In this <code translate="No">options</code> child property, you pass data to utilize at initialization time. The following JSON passes in a single object in the <code translate="No">options</code>.</p>
 
@@ -2801,7 +2840,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Default: <code translate="No">none</code></li>
         <li>The preload attribute informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. The options are <strong>auto</strong>, <strong>metadata</strong>, and <strong>none</strong>.</li>
       </ul>
-
+      <h4>Option details</h4>
       <ul>
         <li>
           <p><strong>auto</strong>: Indicates that the whole video file could be downloaded, even if the user does not eventually watch the video. On the positive side, if the viewer plays the video, it can start playing immediately. On the negative side, this option will increase bandwidth consumption as the preload/load happens even if the viewer does not play the video.</p>
@@ -2813,6 +2852,39 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <p><strong>none</strong>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading.</p>
         </li>
       </ul>
+
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>preload</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>preload</code></td>
+            <td>Query parameter</td>
+            <td>iframe</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>preload</code></td>
+            <td>Player option</td>
+            <td>iframe</td>
+            <td>Overrides config and attribute or query parameter</td>
+          </tr>
+        </tbody>
+      </table>
+
 
       <pre class="line-numbers">
   <code class="language-html" translate="No">&lt;video-js preload ...&gt;
