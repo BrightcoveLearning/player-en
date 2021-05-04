@@ -8,9 +8,6 @@ parent: Playback
   <h1>{{ page.title }}</h1>
   <summary>{{ page.description }}</summary>
 
-  <!-- <br/>
-  <aside class="bcls-aside bcls-aside--tip">This feature is available for a specific set of customers with access to the Limited Availability phase of Brightcove Playback Restrictions.</aside> -->
-
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
     <p>
@@ -57,10 +54,8 @@ parent: Playback
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
-          Brightcove Player makes a request to the Playback API if it has a policy key. This is the default for all Brightcove Players. The first step is to remove the default policy key built into the player:
+           Remove the Brightcove Player's policy key. For details, see the <a href="Removing_policy_keys_from_players">Removing policy keys from players</a> section.
         </p>
-        <pre>
-<code class="language-javascript" translate="No">player.catalog.setPolicyKey(null);</code></pre>
       </li>
       <li>
         <p>
@@ -129,6 +124,47 @@ parent: Playback
     });
 &lt;/script&gt;</code></pre>
       </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Removing_policy_keys_from_players">Removing policy keys from players</h2>
+    <P>By default, all Brightcove Players make a request to the Playback API if it has a policy key. Here are two ways that you can remove the policy key from your players.</P>
+    <h3>Remove policy key from all players</h3>
+    <p>To avoid the ingest of a policy key for new players created in Video Cloud Studio, do the following:</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>Contact your account manager.</li>
+      <li>
+        <p>Provide your account ID and ask to enable the <code translate="No">remove policy key</code> flag.</p>
+      </li>
+    </ol>
+
+    <h3>Remove policy key from individual players</h3>
+    <p>By default, the <code translate="No">remove policy key</code> flag is disabled for your account. To remove the policy key from individual players, do the following:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module.</li>
+      <li>Select the player that you want to remove the policy key from.</li>
+      <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
+      <li>
+        <p>Set the <code translate="No">policy_key</code> field as <code translate="No">null</code>.</p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="JSON editor"
+            src="/assets/images/plugins/google-tag-manager/policy-key-editor.png"
+          />
+          <figcaption class="bcls-caption--image">JSON editor</figcaption>
+        </figure>
+      </li>
+      <li>Save your changes and publish your player.</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information">
+      If you have the <code translate="No">remove policy key</code> flag enabled and you disable it, policy keys will be regenerated for all of your players, except those where you have set the <code translate="No">policy_key</code> field to <code translate="No">null</code>.
+    </aside>
+
+      <!-- <pre>
+        <code class="language-javascript" translate="No">player.catalog.setPolicyKey(null);</code></pre> -->
     </ol>
   </section>
 
