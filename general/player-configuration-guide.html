@@ -1789,7 +1789,7 @@ parent: General Information
       <aside class="bcls-aside bcls-aside--information">Support for Standard (iframe) player implementations only.</aside>
       Used to control the population of the global namespace (window) from query string parameters. This is useful particularly in cases of embedded players, such as Google's AMP components or Facebook Instant Articles. The parsing of query strings is done using the <a href="//nodejs.org/api/querystring.html#querystring_querystring_parse_str_sep_eq_options">Node.js querystring module</a>. Use of this configuration object requires at least one of the following sub-properties. Both can be used simultaneously.
 
-      <ol class="bcls-tasklist">
+      <ol class="bcls-tasklist-restart">
         <li>
           <ul>
             <li>Name: <code translate="No">query_string_to_window.target</code></li>
@@ -1854,22 +1854,9 @@ parent: General Information
 
       <ul>
         <li>Data type is <code translate="No">boolean</code></li>
-        <li>Will cause a playlist to repeat playing IF the player is a playlist player. Set at the top level of the player configuration.</li>
+        <li>Will cause a playlist to repeat playing IF the player is a playlist player. That is, if the <code>playlist</code> property is used.</li>
+        <li>Set at the top level of the player configuration.</li>
       </ul>
-    </section>
-
-    <section class="bcls-section">
-      <h3 id="responsive">responsive</h3>
-
-      <p><code translate="No">responsive</code> information:</p>
-
-      <ul>
-        <li>Data type: boolean</li>
-        <li>Default: <code translate="No">true</code></li>
-        <li>Setting this option to <code translate="No">true</code> will cause the player to customize itself based on responsive breakpoints</li>
-      </ul>
-
-      <p>For full details on this feature being enabled see the release notes for <a href="https://player.support.brightcove.com/release-notes/brightcove-player-release-notes.html#6.29.2">Brightcove Player 6.29.2</a>.</p>
     </section>
 
     <section class="bcls-section">
@@ -1881,7 +1868,13 @@ parent: General Information
         <li>The data type is an array of strings referencing JavaScript files that are included with the player</li>
         <li>No default value</li>
         <li>At the time the player is built, these files will be downloaded and inlined into the resulting output so that they do not need to be subsequently fetched at runtime</li>
-        <li>Scripts are inlined in the order they are specified so you can safely include scripts that depend on one another</li>
+        <li>Scripts are inlined in the order they are specified in the <code>scripts</code> array:
+          <pre class="line-numbers"><code class="language-json" translate="No">"scripts": [
+  "https://example.com/script.js",
+  "https://example.com/depends-on-script.js"
+]</code></pre>
+        </li>
+        <li>Since scripts are inlined a specified order, you can safely include scripts that depend on one another</li>
       </ul>
     </section>
 
@@ -1934,14 +1927,19 @@ parent: General Information
       <ul>
         <li>An array of URL strings referencing CSS files that should be included with the player</li>
         <li>At the time the player is built, the additional stylesheets are downloaded and inlined into the player so that they do not need to be fetched at runtime</li>
-        <li>Stylesheets are included in the order you specify them</li>
+        <li>Stylesheets are included in the order you specify them in the <code>stylesheets</code> array:
+          <pre class="line-numbers"><code class="language-json" translate="No">"stylesheets": [
+  "https://example.com/layout.css",
+  "https://example.com/skin.css"
+]</code></pre>
+        </li>
       </ul>
 
       <aside class="bcls-aside bcls-aside--warning">Do not use the CSS <code translate="No">@import</code> rule in player stylesheets. Parsing issues will occur on player build and does not allow the player to be published successfully.</aside>
     </section>
 
     <section class="bcls-section">
-      <h3 id="techOrder">techOrder</h3>
+      <h3 id="techOrder">tech_order (or techOrder)</h3>
 
       <p><code translate="No">techOrder</code> information:</p>
 
