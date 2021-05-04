@@ -1170,7 +1170,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
-           Remove the Brightcove Player's policy key. For details, see the <a href="Removing_policy_keys_from_players">Removing policy keys from players</a> section.
+           Remove the Brightcove Player's policy key. For details, see the <a href="#Making_requests_with_Playback_Rights">Making requests with Playback Rights</a> section.
         </p>
       </li>
       <li>
@@ -1244,8 +1244,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
 
   <section class="bcls-section">
-    <h2 id="Removing_policy_keys_from_players">Removing policy keys from players</h2>
-    <P>By default, all Brightcove Players make a request to the Playback API if it has a policy key. Here are two ways that you can remove the policy key from your players.</P>
+    <h2 id="Making_requests_with_Playback_Rights">Making requests with Playback Rights</h2>
+    <P>By default, all Brightcove Players make a request to the Playback API if it has a policy key. To make requests that check Playback Rights first, you need to remove the policy key. Here are two ways to do that:</P>
     <h3>Remove policy key from all players</h3>
     <p>To avoid the ingest of a policy key for new players created in Video Cloud Studio, do the following:</p>
 
@@ -1275,24 +1275,39 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>Save your changes and publish your player.</li>
     </ol>
-    <aside class="bcls-aside bcls-aside--information">
-      If you have the <code translate="No">remove policy key</code> flag enabled and you disable it, policy keys will be regenerated for all of your players, except those where you have set the <code translate="No">policy_key</code> field to <code translate="No">null</code>.
-    </aside>
-
       <!-- <pre>
         <code class="language-javascript" translate="No">player.catalog.setPolicyKey(null);</code></pre> -->
-    </ol>
   </section>
 
   <section class="bcls-section">
     <h2 id="Making_requests_without_Playback_Rights">Making requests without Playback Rights</h2>
-    <p>This process can be reversed to direct requests back to Playback API without rights and restrictions.</p>
+    <p>The process can be reversed to direct requests back to Playback API without rights and restrictions.</p>
     <p>
       Set the policy key and authorization token as follows:
     </p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">player.catalog.setPolicyKey('<span class="bcls-input">your policy key</span>');
-player.catalog.setBcovAuthToken(null);</code></pre>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>If you had the <code translate="No">remove policy key</code> flag enabled, then contact your account manager to disable it.</p>
+        <aside class="bcls-aside bcls-aside--information">
+          If you have the <code translate="No">remove policy key</code> flag enabled and you disable it, policy keys will be regenerated for all of your players, except those where you have set the <code translate="No">policy_key</code> field to <code translate="No">null</code>.
+      </li>
+      <li>
+        <p>If you updated individual players in Studio, then update the JSON with your policy key.</p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="JSON editor"
+            src="/assets/images/plugins/google-tag-manager/policy-key-defined.png"
+          />
+          <figcaption class="bcls-caption--image">JSON editor</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>Set the authorization token to <code translate="No">null</code>.</p>
+        <pre>
+<code class="language-javascript" translate="No">player.catalog.setBcovAuthToken(null);</code></pre>
+      </li>
+    </ol>
   </section>
 
   <section class="bcls-section">
@@ -1444,7 +1459,7 @@ player.catalog.setBcovAuthToken(null);</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 03 May 2021
+  Page last updated on 04 May 2021
 </div>
 
 
