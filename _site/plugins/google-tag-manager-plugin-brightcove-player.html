@@ -738,6 +738,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
                   
                 
                   
+                    <li><a href="/playback/playback-restrictions-with-bcp.html">Playback Restrictions with Brightcove Player</a></li>
+                  
+                
+                  
                     <li><a href="/playback/overview-https-support.html">Overview: HTTPS Support</a></li>
                   
                 
@@ -1337,21 +1341,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <td>Player Load</td>
           <td><code translate="No">bcvideo_player_load</code></td>
           <td>
-            Sent when a player has been loaded and is ready for playback
+            Player has been loaded and is ready for playback
           </td>
         </tr>
         <tr>
           <td>Video Impression</td>
           <td><code translate="No">bcvideo_video_impression</code></td>
           <td>
-            Sent when a video has been loaded into a player and is ready for playback
+            Video has been loaded into a player and is ready for playback
           </td>
         </tr>
         <tr>
           <td>Video View</td>
           <td><code translate="No">bcvideo_video_view</code></td>
           <td>
-            Sent when a video has started playing back either through auto-play or due to user interaction
+            Video has started playing back either through auto-play or due to user interaction
           </td>
         </tr>
         <tr>
@@ -1365,35 +1369,35 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <td>Play Request</td>
           <td><code translate="No">bcvideo_play_request</code></td>
           <td>
-            Sent when playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario
+            Playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario
           </td>
         </tr>
         <tr>
           <td>Ad Start</td>
           <td><code translate="No">bcvideo_ad_start</code></td>
           <td>
-            Sent when control is handed over to an advertising agent by the playback platform
+            Control is handed over to an advertising agent by the playback platform
           </td>
         </tr>
         <tr>
           <td>Ad End</td>
           <td><code translate="No">bcvideo_ad_end</code></td>
           <td>
-            Sent when control is handed back from the advertising agent to the playback platform
+            Control is handed back from the advertising agent to the playback platform
           </td>
         </tr>
         <tr>
           <td>Error</td>
           <td><code translate="No">bcvideo_error</code></td>
           <td>
-            Sent when fatal errors which disrupt the playback experience are encountered
+            A fatal error has occurred which disrupts the playback experience
           </td>
         </tr>
         <tr>
           <td>Video Complete</td>
           <td><code translate="No">bcvideo_video_complete</code></td>
           <td>
-            Sent when video playback finishes
+            Video playback finishes
           </td>
         </tr>
       </tbody>
@@ -1402,16 +1406,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Creating_variables_tags_&_triggers">Creating Variables, Tags & Triggers</h2>
-    <p>
-      Every Brightcove event to be tracked must be created as an <strong>Event Tag</strong> in Google Tag Manager. The event IDs from GTM are used inside the player, allowing Brightcove event data to be passed to GTM events.
-    </p>
-    <p>
-      GTM triggers, for each Tag, need to be created to send these events to Google Analytics (GA). The custom parameters associated with the events are also created in the GTM <strong>Variables</strong> tab.
-    </p>
+    <p>Every Brightcove event that you want tracked must be created as an Event Tag in Google Tag Manager (GTM). The event IDs from GTM will then be used inside the Players module. This allows Brightcove event data to be passed to GTM events.</p>
+    <p>For each Event Tag, you need to create a GTM trigger to send the event to Google Analytics. Then, in the GTM <strong>Variables</strong> tab, you will create the custom parameters associated with each event.</p>
+    
     <!-- <p>You can create Variables, Tags and Triggers in Google Tag Manager, as shown below, or you can <a href="#Importing_a_container_file_in_GTM">import a Container file in GTM</a>. </p> -->
     
     <h3>Adding Variables to GTM</h3>
-    <p>Parameters carry additional data and are passed with events. Every Brightcove parameter that will be recorded must be created as a Variable in Google Tag Manager. The parameter named will then be used inside the player, allowing Brightcove parameters to be passed to Google Tag Manager Variables.</p>
+    <p>Brightcove parameters carry additional data and are passed with events. Every Brightcove parameter that will be recorded must be created as a Variable in Google Tag Manager. The parameter name will be used inside the player, allowing Brightcove parameters to be passed to Google Tag Manager Variables.</p>
 
     <p>
       To create Variables in Google Tag Manager, follow these steps
@@ -1426,17 +1427,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         Select <strong>Variables</strong> in the left side navigation. 
       </li>
       <li>
-        For <strong>User-Defined Variables</strong>, select the <strong>New</strong> button. 
+        <p>In the <strong>User-Defined Variables</strong> section, select the <strong>New</strong> button.</p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="Data Layer Variable"
+            src="/assets/images/plugins/google-tag-manager/new-variable.png"
+          />
+          <figcaption class="bcls-caption--image">Data Layer Variable</figcaption>
+        </figure>
       </li>
       <li>
         <p>
-          Select the <strong>Variable Type</strong> as <strong>Data Layer Variable</strong>.
+          For <strong>variable type</strong>, select <strong>Data Layer Variable</strong>.
         </p>
         <figure class="bcls-figure">
           <img
             class="bcls-image--no-border"
             alt="Data Layer Variable"
-            src="/assets/images/plugins/google-tag-manager/data-layer-variable.png"
+            src="/assets/images/plugins/google-tag-manager/variable-type.png"
           />
           <figcaption class="bcls-caption--image">Data Layer Variable</figcaption>
         </figure>
@@ -1456,7 +1465,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>
         <p>
-          Parameters to be created:
+          Select <strong>Save</strong>.
+        </p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="Save variable"
+            src="/assets/images/plugins/google-tag-manager/save-variable.png"
+          />
+          <figcaption class="bcls-caption--image">Save variable</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          Brightcove parameters you can create as GTM variables:
         </p>
         <ul>
           <li>
@@ -2302,7 +2324,7 @@ function createGACustomDimensions() {
 
 <hr>
 <div class="last-updated">
-  Page last updated on 27 Apr 2021
+  Page last updated on 03 May 2021
 </div>
 
 
