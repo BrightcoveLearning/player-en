@@ -1553,46 +1553,48 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><a href="#application_id">application_id</a></li>
       <li><a href="#autoadvance">autoadvance</a></li>
       <li><a href="#autoplay">autoplay</a></li>
-      <li><a href="#base_url">base_url</a></li>
+      <li><a href="#video_cloud">base_url (property of video_cloud)</a></li>
+      <li><a href="#block_robots">block_robots</a></li>
+      <li><a href="#context_menu">context_menu</a></li>
       <li><a href="#crossorigin">crossorigin</a></li>
       <li><a href="#css">css</a></li>
-      <li><a href="#debugger">debugger</a></li>
+      <li><a href="#debug">debug</a></li>
+      <li><a href="#debugger">debugger (deprecated)</a></li>
       <li><a href="#dock">dock</a></li>
       <li><a href="#embed_id">embed_id</a></li>
       <li><a href="#errors">errors</a></li>
-      <li><a href="#flash">flash</a></li>
-    </ul>
-
-    <ul style="display:inline-block;vertical-align:top;margin-left:1em;">
-      <li><a href="#fullscreenControl">fullscreenControl</a></li>
+      <li><a href="#fullscreenControl">fullscreen_control</a></li>
       <li><a href="#hls">hls</a></li>
-      <li><a href="#inactive">inactive</a></li>
+      <li><a href="#player">inactive (property of player)</a></li>
+      <li><a href="#initial_bandwidth">initial_bandwidth</a></li>
       <li><a href="#language">language</a></li>
       <li><a href="#languages">languages</a></li>
       <li><a href="#loop">loop</a></li>
       <li><a href="#media">media</a></li>
       <li><a href="#muted">muted</a></li>
-      <li><a href="#picture_in_picture_control">picture_in_picture_control</a></li>
-      <li><a href="#playback_rates">playback_rates</a></li>
-      <li><a href="#player">player</a></li>
-      <li><a href="#play_button">play_button</a></li>
-      <li><a href="#player_id">player_id</a></li>
-      <li><a href="#player_name">player_name</a></li>
-      <li><a href="#playsinline">playsinline</a></li>
     </ul>
 
     <ul style="display:inline-block;vertical-align:top;margin-left:1em;">
-      <li><a href="#playlists">playlists</a></li>
+      <li><a href="#picture_in_picture_control">picture_in_picture_control</a></li>
+      <li><a href="#play_button">play_button</a></li>
+      <li><a href="#playback_rates">playback_rates</a></li>
+      <li><a href="#player">player</a></li>
+      <li><a href="#player_id">player_id</a></li>
+      <li><a href="#player_name">player_name</a></li>
+      <li><a href="#playsinline">playsinline</a></li>
+      <li><a href="#video_cloud">playlist (property of video_cloud)</a></li>
       <li><a href="#plugins">plugins</a></li>
       <li><a href="#preload">preload</a></li>
       <li><a href="#query_string_to_window">query_string_to_window</a></li>
       <li><a href="#repeat">repeat</a></li>
-      <li><a href="#responsive">responsive</a></li>
       <li><a href="#scripts">scripts</a></li>
       <li><a href="#skin">skin</a></li>
       <li><a href="#stylesheets">stylesheets</a></li>
-      <li><a href="#techOrder">techOrder</a></li>
-      <li><a href="#version">version</a></li>
+      <li><a href="#suppress_not_supported_error">suppress_not_supported_error</a></li>
+      <li><a href="#teach_order">tech_order</a></li>
+      <li><a href="#player">version (propery of player)</a></li>
+      <li><a href="#video_cloud">video_cloud</a></li>
+      <li><a href="#umd">umd</a></li>
       <li><a href="#video_cloud">video_cloud</a></li>
       <li><a href="#volume_orientation">volume_orientation</a></li>
       <li><a href="#vttjs">vttjs</a></li>
@@ -1818,7 +1820,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <pre class="line-numbers"><code class="language-html" translate="No">&lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow&quot;&gt;</code></pre>
     </section>
 
-    <section class="bcls-section">
+    <!--     <section class="bcls-section">
       <h3 id="china_proxy_domain">china_proxy_domain</h3>
 
       <p><code translate="No">china_proxy_domain</code> information:</p>
@@ -1830,7 +1832,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <pre class="line-numbers"><code class="language-json" translate="No">"china_proxy_domain": "china.example.com"</code></pre>
         </li>
       </ul>
-    </section>
+    </section> -->
 
     <section class="bcls-section">
       <h3 id="context_menu">context_menu</h3>
@@ -1956,7 +1958,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>This property is deprecated, see <a href="#context_menu">context_menu</a>.</p>
     </section>
 
-    <section class="bcls-section">
+    <!--     <section class="bcls-section">
       <h3 id="delivery_config_id">delivery_config_id</h3>
 
       <p><code translate="No">delivery_config_id</code> information:</p>
@@ -1992,7 +1994,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tbody>
       </table>
     </section>
-
+ -->
     <section class="bcls-section">
       <h3 id="dock">dock</h3>
 
@@ -2631,7 +2633,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <tr>
             <td><code>template.version</code></td>
             <td>string</td>
-            <td>The template version number from which the player is built</strong></td>
+            <td>The template version number from which the player is built. You can manually set the player version using the <strong>PLAYERS</strong> module <strong>JSON Editor</strong>.
+
+              <figure class="bcls-figure"><img class="bcls-image" alt="version" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/guides/player-configuration/version.png" /></figure>
+            </td>
           </tr>
           <tr>
             <td><code>in_page_embed_url</code></td>
@@ -2721,21 +2726,91 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <ul>
         <li>Data type: boolean</li>
         <li>Default: false</li>
-        <li>Enables the player for inline playback (necessary for playback on some devices).</li>
+        <li>Determines if the player should allow inline playback on platforms that require a <code>playsinline</code> attribute for inline/non-native-player playback (e.g. iOS).</li>
       </ul>
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>playsinline</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>This is a boolean attribute only. All values are considered <code>true</code>.</td>
+          </tr>
+          <tr>
+            <td><code>playsinline</code></td>
+            <td>Query parameter</td>
+            <td>iframe</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>playsinline</code></td>
+            <td>Player option</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="bcls-section">
       <h3 id="plugins">plugins</h3>
 
-      <p>The <code translate="No">plugins</code> property specifies the order to initialize video.js plugins and any customized settings to apply to them. The plugin must be supported by a corresponding <code translate="No">scripts</code> property URL entry, and if needed a supporting <code translate="No">stylesheets</code> URL. Each element of the <code translate="No">plugins</code> array is an object with a <code translate="No">name</code> property, and can also contain an optional <code translate="No">options</code> property:</p>
+      <p>The <code translate="No">plugins</code> array specifies the order to initialize video.js plugins and any customized settings to apply to them. The plugin must be supported by a corresponding <code translate="No">scripts</code> property URL entry, and if needed a supporting <code translate="No">stylesheets</code> URL. Each element of the <code translate="No">plugins</code> array is an object with a <code translate="No">name</code> property.
 
-      <ul>
-        <li><code translate="No">name</code>: The name of the video.js plugin, taken from the supporting JavaScript code</li>
-        <li><code translate="No">options</code>: An object hash of settings overrides to provide to the plugin at initialization time</li>
-      </ul>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Effect</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>name</code></td>
+            <td>string</td>
+            <td>The plugin's method name</td>
+          </tr>
+          <tr>
+            <td><code>options</code></td>
+            <td>object</td>
+            <td>An options object to be passed to the plugin's method</td>
+          </tr>
+          <tr>
+            <td><code>scripts</code></td>
+            <td>array</td>
+            <td>Scripts for this plugin</td>
+          </tr>
+          <tr>
+            <td><code>stylesheets</code></td>
+            <td>array</td>
+            <td>Stylesheets for this plugin</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <h3>Options child</h3>
+      <p>For example, if your plugins property appeared as follows:</p>
+      <pre class="line-numbers"><code class="language-json" translate="No">"plugins": [{
+  "name": "foo",
+  "options": {
+    "bar": true
+  }
+}]</code></pre>
+      <p>At runtime, the <code>foo</code> plugin would be initialized with the supplied options:</p>
+      <pre class="line-numbers"><code class="language-json" translate="No">player.foo({bar: true});</code></pre>
+
+      <p>Any scripts or stylesheets included in a plugin object will be inlined in the same way as top-level scripts or stylesheets; they will be inlined <em>before</em> top-level assets.</p>
+
+      <h4><code>options</code> property details</h4>
 
       <p>In this <code translate="No">options</code> child property, you pass data to utilize at initialization time. The following JSON passes in a single object in the <code translate="No">options</code>.</p>
 
@@ -2774,7 +2849,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Default: <code translate="No">none</code></li>
         <li>The preload attribute informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. The options are <strong>auto</strong>, <strong>metadata</strong>, and <strong>none</strong>.</li>
       </ul>
-
+      <h4>Option details</h4>
       <ul>
         <li>
           <p><strong>auto</strong>: Indicates that the whole video file could be downloaded, even if the user does not eventually watch the video. On the positive side, if the viewer plays the video, it can start playing immediately. On the negative side, this option will increase bandwidth consumption as the preload/load happens even if the viewer does not play the video.</p>
@@ -2786,6 +2861,39 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <p><strong>none</strong>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading.</p>
         </li>
       </ul>
+
+      <p>Other ways to set the value:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Embed Type(s)</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code>preload</code></td>
+            <td>HTML attribute</td>
+            <td>in-page</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>preload</code></td>
+            <td>Query parameter</td>
+            <td>iframe</td>
+            <td>Overrides configuration</td>
+          </tr>
+          <tr>
+            <td><code>preload</code></td>
+            <td>Player option</td>
+            <td>iframe</td>
+            <td>Overrides config and attribute or query parameter</td>
+          </tr>
+        </tbody>
+      </table>
+
 
       <pre class="line-numbers">
   <code class="language-html" translate="No">&lt;video-js preload ...&gt;
@@ -2803,7 +2911,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <aside class="bcls-aside bcls-aside--information">Support for Standard (iframe) player implementations only.</aside>
       Used to control the population of the global namespace (window) from query string parameters. This is useful particularly in cases of embedded players, such as Google's AMP components or Facebook Instant Articles. The parsing of query strings is done using the <a href="//nodejs.org/api/querystring.html#querystring_querystring_parse_str_sep_eq_options">Node.js querystring module</a>. Use of this configuration object requires at least one of the following sub-properties. Both can be used simultaneously.
 
-      <ol class="bcls-tasklist">
+      <ol class="bcls-tasklist-restart">
         <li>
           <ul>
             <li>Name: <code translate="No">query_string_to_window.target</code></li>
@@ -2868,22 +2976,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
       <ul>
         <li>Data type is <code translate="No">boolean</code></li>
-        <li>Will cause a playlist to repeat playing IF the player is a playlist player. Set at the top level of the player configuration.</li>
+        <li>Will cause a playlist to repeat playing IF the player is a playlist player. That is, if the <code>playlist</code> property is used.</li>
+        <li>Set at the top level of the player configuration.</li>
       </ul>
-    </section>
-
-    <section class="bcls-section">
-      <h3 id="responsive">responsive</h3>
-
-      <p><code translate="No">responsive</code> information:</p>
-
-      <ul>
-        <li>Data type: boolean</li>
-        <li>Default: <code translate="No">true</code></li>
-        <li>Setting this option to <code translate="No">true</code> will cause the player to customize itself based on responsive breakpoints</li>
-      </ul>
-
-      <p>For full details on this feature being enabled see the release notes for <a href="https://player.support.brightcove.com/release-notes/brightcove-player-release-notes.html#6.29.2">Brightcove Player 6.29.2</a>.</p>
     </section>
 
     <section class="bcls-section">
@@ -2895,7 +2990,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>The data type is an array of strings referencing JavaScript files that are included with the player</li>
         <li>No default value</li>
         <li>At the time the player is built, these files will be downloaded and inlined into the resulting output so that they do not need to be subsequently fetched at runtime</li>
-        <li>Scripts are inlined in the order they are specified so you can safely include scripts that depend on one another</li>
+        <li>Scripts are inlined in the order they are specified in the <code>scripts</code> array:
+          <pre class="line-numbers"><code class="language-json" translate="No">"scripts": [
+  "https://example.com/script.js",
+  "https://example.com/depends-on-script.js"
+]</code></pre>
+        </li>
+        <li>Since scripts are inlined a specified order, you can safely include scripts that depend on one another</li>
       </ul>
     </section>
 
@@ -2948,24 +3049,42 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <ul>
         <li>An array of URL strings referencing CSS files that should be included with the player</li>
         <li>At the time the player is built, the additional stylesheets are downloaded and inlined into the player so that they do not need to be fetched at runtime</li>
-        <li>Stylesheets are included in the order you specify them</li>
+        <li>Stylesheets are included in the order you specify them in the <code>stylesheets</code> array:
+          <pre class="line-numbers"><code class="language-json" translate="No">"stylesheets": [
+  "https://example.com/layout.css",
+  "https://example.com/skin.css"
+]</code></pre>
+        </li>
       </ul>
 
       <aside class="bcls-aside bcls-aside--warning">Do not use the CSS <code translate="No">@import</code> rule in player stylesheets. Parsing issues will occur on player build and does not allow the player to be published successfully.</aside>
     </section>
 
     <section class="bcls-section">
-      <h3 id="techOrder">techOrder</h3>
+      <h3 id="suppress_not_supported_error">suppress_not_supported_error</h3>
 
-      <p><code translate="No">techOrder</code> information:</p>
+      <p><code translate="No">suppress_not_supported_error</code> information:</p>
+
+      <ul>
+        <li>Data type: boolean</li>
+        <li>Default: undefined</li>
+        <li>If <code>true</code>, an initial error that a source cannot be played is deferred until the first user interaction. Useful for hiding error from browsers that can't play video, e.g. Googlebot.</li>
+      </ul>
+    </section>
+
+
+    <section class="bcls-section">
+      <h3 id="tech_order">tech_order (or techOrder)</h3>
+
+      <p><code translate="No">tech_order</code> information:</p>
 
       <ul>
         <li>Data type: Array</li>
         <li>Default: ['html5','flash']</li>
-        <li>By default Brightcove Player performs <strong>tech-first</strong> ordering when it searches for a source/tech combination to play videos. This means that if you have two sources and two techs, the player will try to play each video with the first tech in the <code translate="No">techOrder</code> option property before moving on to try the next playback technology. See the <a href="https://player.support.brightcove.com/playback/guide-playback-technology.html">Guide: Playback Technology</a> document for more information.</li>
+        <li>By default Brightcove Player performs <strong>tech-first</strong> ordering when it searches for a source/tech combination to play videos. This means that if you have two sources and two techs, the player will try to play each video with the first tech in the <code translate="No">tech_order</code> option property before moving on to try the next playback technology. See the <a href="https://player.support.brightcove.com/playback/guide-playback-technology.html">Guide: Playback Technology</a> document for more information.</li>
       </ul>
 
-      <p>You can use the following curl statement to change the <code translate="No">techOrder</code> from the default of <code translate="No">['html5','flash']</code> to <code translate="No">['flash','html5']</code>:</p>
+      <p>You can use the following curl statement to change the <code translate="No">tech_order</code> from the default of <code translate="No">['html5','flash']</code> to <code translate="No">['flash','html5']</code>:</p>
 
       <pre class="line-numbers">
   <code class="language-bash" translate="No">curl \
@@ -2973,18 +3092,42 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     --user $EMAIL \
     --request PATCH \
     --data '{
-        "techOrder": "['flash','html']"
+        "tech_order": "['flash','html']"
        }' \
     https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
     </section>
 
+    <p>Another way to set the value:</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Embed Type(s)</th>
+          <th>Behavior</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code>tech_order</code></td>
+          <td>Player option</td>
+          <td>in-page</td>
+          <td>Overrides configuration</td>
+        </tr>
+      </tbody>
+    </table>
+
     <section class="bcls-section">
-      <h3 id="version">version</h3>
+      <h3 id="umd">umd</h3>
 
-      <p>You can manually set the player version using the <strong>PLAYERS</strong> module <strong>JSON Editor</strong>.</p>
+      <p><code translate="No">umd (Universal Module Definition)</code> information:</p>
 
-      <figure class="bcls-figure"><img class="bcls-image" alt="version" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/guides/player-configuration/version.png" /></figure>
-
+      <ul>
+        <li>Data type: boolean</li>
+        <li>Default: true</li>
+        <li>Only available in Brightcove Player 6.53.0 and newer</li>
+        <li>When <code>true</code>, adds UMD (Universal Module Definition) boilerplate around the player for use with module systems like RequireJS. If set explicitly to <code>false</code>, the player will not work with module loaders and will simply expose the bc global variable.</li>
+      </ul>
     </section>
 
     <section class="bcls-section video-cloud-only">
@@ -3090,7 +3233,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
         <li><code translate="No">playOnSelect</code>: Assigned <code translate="No">true</code> so when clicking an item from the playlist menu will cause the video to play when loaded, even if the previous video in the player was paused.</li>
       </ul>
 
-      <h3>Playlist version 3 (Default)</h3>
+      <h4>Playlist version 3 (Default)</h4>
 
       <p>To configure playlists using the version 3 plugin, you use the Plugin Registry. Here is a curl statement to configure the use of the Playlist version 3 plugin:</p>
 
@@ -3144,7 +3287,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
     }' \
     https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
-      <h3>Playlist Version 1 (Legacy)</h3>
+      <h4>Playlist Version 1 (Legacy)</h4>
 
       <p>In addition to <code translate="No">autoadvance</code> and <code translate="No">playOnSelect</code> two other properties that are used to configure the use of playlists version 1. They are:</p>
 
@@ -3188,7 +3331,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
     https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
       <!-- <p><code data-gist-id="9629223" data-gist-hide-footer="true" data-gist-line="248-263" data-gist-highlight-line="252-262"></code></p> -->
 
-      <h3>Programmatically determining if player contains a playlist</h3>
+      <h4>Programmatically determining if player contains a playlist</h4>
 
       <p>If you are using JavaScript in a page that contains a player and wish to check if a playlist plugin is being used you can use the following:</p>
 
@@ -3222,21 +3365,40 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
     <section class="bcls-section">
       <h3 id="volume_orientation">volume_orientation</h3>
-
       <p><code translate="No">volume_orientation</code> information:</p>
-
-      <aside class="bcls-aside bcls-aside--information language-editable">This feature available for Brightcove Player 6.32.0+.</aside>
-
       <ul>
         <li>Data type: string</li>
         <li>Default: horizontal</li>
+        <li>Only available in Brightcove Player 6.32.0 and newer</li>
         <li>The <code translate="No">volume_orientation</code> property determines if the volume level slider is oriented horizontally or vertically.
           <figure class="bcls-figure"><img class="bcls-image" alt="volume horizontal" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/guides/player-configuration/volume-horizontal.png" /></figure>
 
           <figure class="bcls-figure"><img class="bcls-image" alt="volume vertical" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/guides/player-configuration/volume-vertical.png" /></figure>
         </li>
       </ul>
-
+      <p>Valid values are:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Value</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td>"vertical"</td>
+            <td>Displays vertical volume panel (this equivalent to passing options object with <code>controlBar.volumePanel.inline=false</code> and <code>controlBar.volumePanel.vertical=true</code> to <code>bc()</code> method or <code>data-setup</code> attribute).</td>
+          </tr>
+          <tr>
+            <td>"horizontal"</td>
+            <td>Display horizontal volume panel (default volume panel direction both in luna and graphite skins)</td>
+          </tr>
+          <tr>
+            <td>undefined</td>
+            <td>Leaving this as undefined will display horizontal volume panel (default volume panel direction both in luna and graphite skins)</td>
+          </tr>
+        </tbody>
+      </table>
       <p>You can use either Studio or curl to change the value of the property:</p>
 
       <figure class="bcls-figure"><img class="bcls-image" alt="set volume orientation" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/player-management-api/guides/player-configuration/set-volume-orientation.png" /></figure>
@@ -3260,7 +3422,8 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
       <ul>
         <li>Data type: string</li>
         <li>Default: vjs.zencdn.net CDN</li>
-        <li>Sets the URL from which to load <strong>vtt.js</strong>. This is the same as the standard Video.js option <code translate="No">vtt.js</code>. The Brightcove Player uses <code translate="No">vttjs</code> instead as a dotted property name is not possible to use in the Player Management API, and may be problematic elsewhere. The option can be set as a <code translate="No">data-vttjs</code> attribute, a <code translate="No">vttjs</code> iframe query parameter, a <code translate="No">vttjs</code> setup option or <code translate="No">vttjs</code> in the player configuration.</li>
+        <li>This is the same as the standard Video.js option <code>vtt.js</code>. The Brightcove Player uses <code>vttjs</code> instead as a dotted property name is not possible in the Player Management API and may be problematic elsewhere.</li>
+        <li>Can be set as a <code>data-vttjs</code> attribute, a <code>vttjs</code> iframe query parameter, a <code>vttjs</code> setup option or <code>vttjs</code> in the player configuration.</li>
       </ul>
     </section>
 
@@ -3292,7 +3455,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 01 May 2021
+  Page last updated on 05 May 2021
 </div>
 
 
