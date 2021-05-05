@@ -1,0 +1,81 @@
+---
+title: 'Overview: China Delivery'
+description: "In this topic, you will get a high-level overview about Brightcove's China Delivery feature."
+parent: Playback
+layout: staging
+---
+
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <br/>
+  <aside class="bcls-aside bcls-aside--tip">This feature is available for a specific set of customers with access to the Limited Availability phase of China Delivery.</aside>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+
+    <p>Delivering video to China from outside the country is challenging due to regulations and controls, restricting the free-flow of data across its national borders. Historically, we have provided a solution that allowed Brightcove services to distribute video content through a content delivery network within the country. However, essential communications, including Playback API requests and responses, and Analytics beacons were unreliable, and at times non-functional.</p>
+
+    <p>Brightcove’s China Delivery solution addresses the problems listed above and comprises two parts:</p>
+    <ul>
+      <li>A proxy server hosted within China</li>
+      <li>A connected China-specific CDN</li>
+    </ul>
+
+    <p>The proxy routes non-video traffic (Playback API requests, Analytics beacons, and the web player itself) to and from viewers in China to Brightcove infrastructure located outside.</p>
+
+    <p>The CDN is connected to the proxy and handles the video and image content.</p>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Setup">Setup</h2>
+    <p>The following setup is needed to support Brightcove's China Delivery solution:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Make sure you have a Brightcove Enterprise account - for details, contact your account manager.</li>
+    </ol>
+    <ul>
+      
+      <li>A Video Cloud account enabled for China Delivery
+        <ul>
+          <li>This account can deliver inside and outside of China. A separate account is optional, but not required.</li>
+        </ul>
+      </li>
+      <li>A Brightcove Player configured for China Delivery. You can use either the Brightcove web player or the SDK players:
+        <ul>
+          <li><a href="/playback/china-delivery-with-bcp.html">China Delivery with Brightcove Player</a></li>
+          <li><a href="/playback/china-delivery-with-bcp.html">China Delivery with Brightcove Player</a></li>
+        </ul>
+        <li>A valid <a href="https://en.wikipedia.org/wiki/ICP_license">Internet Content Provider (ICP) license</a></li>
+          <li>An approved domain or subdomain name listed on the ICP license</li>
+          <li>A website for publishing players, hosted on the approved domain</li>
+      </li>
+    </ul>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Limitations">Limitations</h2>
+    <p>The following are known limitations with China Delivery:</p>
+    <h3>Limited Availability (LA) - January 2021</h3>
+    <ul>
+      <li>Player configuration requires editing JSON and/or usage of the Player Management API. A “one-click” Player configuration via the Studio is intended for General Availability in Q2 2021.</li>
+      <li>The Brightcove Native SDKs (iOS & Android) will be supported shortly after release</li>
+    </ul>
+
+    <h3>General Availability (GA) - Targeted for Q2 2021</h3>
+    <ul>
+      <li>Live Streaming is not supported</li>
+      <li>Dynamic Delivery Rules are not supported</li>
+      <li>Integrations requiring 3rd-party server access are not supported, including:
+        <ul>
+          <li>DRM</li>
+          <li>Advertising (CSAI + SSAI)</li>
+        </ul>
+      </li>
+    </ul>
+    
+  </section>
+
+</article>
