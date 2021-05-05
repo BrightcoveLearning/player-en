@@ -436,48 +436,48 @@ parent: General Information
       <li><a href="#application_id">application_id</a></li>
       <li><a href="#autoadvance">autoadvance</a></li>
       <li><a href="#autoplay">autoplay</a></li>
-      <li><a href="#video_cloud">base_url</a></li>
+      <li><a href="#video_cloud">base_url (property of video_cloud)</a></li>
       <li><a href="#block_robots">block_robots</a></li>
       <li><a href="#context_menu">context_menu</a></li>
       <li><a href="#crossorigin">crossorigin</a></li>
       <li><a href="#css">css</a></li>
       <li><a href="#debug">debug</a></li>
-      <li><a href="#debugger">debugger</a></li>
+      <li><a href="#debugger">debugger (deprecated)</a></li>
       <li><a href="#dock">dock</a></li>
       <li><a href="#embed_id">embed_id</a></li>
       <li><a href="#errors">errors</a></li>
-    </ul>
-
-    <ul style="display:inline-block;vertical-align:top;margin-left:1em;">
       <li><a href="#fullscreenControl">fullscreen_control</a></li>
       <li><a href="#hls">hls</a></li>
-      <li><a href="#inactive">inactive</a></li>
+      <li><a href="#player">inactive (property of player)</a></li>
+      <li><a href="#initial_bandwidth">initial_bandwidth</a></li>
       <li><a href="#language">language</a></li>
       <li><a href="#languages">languages</a></li>
       <li><a href="#loop">loop</a></li>
       <li><a href="#media">media</a></li>
       <li><a href="#muted">muted</a></li>
-      <li><a href="#picture_in_picture_control">picture_in_picture_control</a></li>
-      <li><a href="#playback_rates">playback_rates</a></li>
-      <li><a href="#player">player</a></li>
-      <li><a href="#play_button">play_button</a></li>
-      <li><a href="#player_id">player_id</a></li>
-      <li><a href="#player_name">player_name</a></li>
-      <li><a href="#playsinline">playsinline</a></li>
     </ul>
 
     <ul style="display:inline-block;vertical-align:top;margin-left:1em;">
-      <li><a href="#playlists">playlists</a></li>
+      <li><a href="#picture_in_picture_control">picture_in_picture_control</a></li>
+      <li><a href="#play_button">play_button</a></li>
+      <li><a href="#playback_rates">playback_rates</a></li>
+      <li><a href="#player">player</a></li>
+      <li><a href="#player_id">player_id</a></li>
+      <li><a href="#player_name">player_name</a></li>
+      <li><a href="#playsinline">playsinline</a></li>
+      <li><a href="#video_cloud">playlist (property of video_cloud)</a></li>
       <li><a href="#plugins">plugins</a></li>
       <li><a href="#preload">preload</a></li>
       <li><a href="#query_string_to_window">query_string_to_window</a></li>
       <li><a href="#repeat">repeat</a></li>
-      <li><a href="#responsive">responsive</a></li>
       <li><a href="#scripts">scripts</a></li>
       <li><a href="#skin">skin</a></li>
       <li><a href="#stylesheets">stylesheets</a></li>
-      <li><a href="#techOrder">techOrder</a></li>
-      <li><a href="#version">version</a></li>
+      <li><a href="#suppress_not_supported_error">suppress_not_supported_error</a></li>
+      <li><a href="#teach_order">tech_order</a></li>
+      <li><a href="#player">version (propery of player)</a></li>
+      <li><a href="#video_cloud">video_cloud</a></li>
+      <li><a href="#umd">umd</a></li>
       <li><a href="#video_cloud">video_cloud</a></li>
       <li><a href="#volume_orientation">volume_orientation</a></li>
       <li><a href="#vttjs">vttjs</a></li>
@@ -1957,17 +1957,17 @@ parent: General Information
 
 
     <section class="bcls-section">
-      <h3 id="techOrder">tech_order (or techOrder)</h3>
+      <h3 id="tech_order">tech_order (or techOrder)</h3>
 
-      <p><code translate="No">techOrder</code> information:</p>
+      <p><code translate="No">tech_order</code> information:</p>
 
       <ul>
         <li>Data type: Array</li>
         <li>Default: ['html5','flash']</li>
-        <li>By default Brightcove Player performs <strong>tech-first</strong> ordering when it searches for a source/tech combination to play videos. This means that if you have two sources and two techs, the player will try to play each video with the first tech in the <code translate="No">techOrder</code> option property before moving on to try the next playback technology. See the <a href="https://player.support.brightcove.com/playback/guide-playback-technology.html">Guide: Playback Technology</a> document for more information.</li>
+        <li>By default Brightcove Player performs <strong>tech-first</strong> ordering when it searches for a source/tech combination to play videos. This means that if you have two sources and two techs, the player will try to play each video with the first tech in the <code translate="No">tech_order</code> option property before moving on to try the next playback technology. See the <a href="https://player.support.brightcove.com/playback/guide-playback-technology.html">Guide: Playback Technology</a> document for more information.</li>
       </ul>
 
-      <p>You can use the following curl statement to change the <code translate="No">techOrder</code> from the default of <code translate="No">['html5','flash']</code> to <code translate="No">['flash','html5']</code>:</p>
+      <p>You can use the following curl statement to change the <code translate="No">tech_order</code> from the default of <code translate="No">['html5','flash']</code> to <code translate="No">['flash','html5']</code>:</p>
 
       <pre class="line-numbers">
   <code class="language-bash" translate="No">curl \
@@ -1975,7 +1975,7 @@ parent: General Information
     --user $EMAIL \
     --request PATCH \
     --data '{
-        "techOrder": "['flash','html']"
+        "tech_order": "['flash','html']"
        }' \
     https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
     </section>
@@ -1992,7 +1992,7 @@ parent: General Information
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><code>techOrder</code></td>
+          <td><code>tech_order</code></td>
           <td>Player option</td>
           <td>in-page</td>
           <td>Overrides configuration</td>
@@ -2116,7 +2116,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
         <li><code translate="No">playOnSelect</code>: Assigned <code translate="No">true</code> so when clicking an item from the playlist menu will cause the video to play when loaded, even if the previous video in the player was paused.</li>
       </ul>
 
-      <h3>Playlist version 3 (Default)</h3>
+      <h4>Playlist version 3 (Default)</h4>
 
       <p>To configure playlists using the version 3 plugin, you use the Plugin Registry. Here is a curl statement to configure the use of the Playlist version 3 plugin:</p>
 
@@ -2170,7 +2170,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
     }' \
     https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
 
-      <h3>Playlist Version 1 (Legacy)</h3>
+      <h4>Playlist Version 1 (Legacy)</h4>
 
       <p>In addition to <code translate="No">autoadvance</code> and <code translate="No">playOnSelect</code> two other properties that are used to configure the use of playlists version 1. They are:</p>
 
@@ -2214,7 +2214,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
     https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
       <!-- <p><code data-gist-id="9629223" data-gist-hide-footer="true" data-gist-line="248-263" data-gist-highlight-line="252-262"></code></p> -->
 
-      <h3>Programmatically determining if player contains a playlist</h3>
+      <h4>Programmatically determining if player contains a playlist</h4>
 
       <p>If you are using JavaScript in a page that contains a player and wish to check if a playlist plugin is being used you can use the following:</p>
 
