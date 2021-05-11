@@ -75,8 +75,25 @@ layout: staging
         <figcaption class="bcls-caption--image">China proxy setting</figcaption>
         </figure>
       </li>
+      <li>Click <strong>Save</strong>, and publish the player.</li>
+      <li>
+        <p>When you embed or share your player, notice that the embed code uses the Brightcove Player CDN.</p>
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&lt;script
+  src=&quot;//<span class="bcls-highlight">players.brightcove.net</span>/1752604059001/jnOD8yLME_default/index.min.js&quot;&gt;
+&lt;/script&gt;</code></pre>
+      </li>
+      <li>
+        <p>Change the Brightcove player CDN to use your China Delivery domain.</p>
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&lt;script
+  src=&quot;//<span class="bcls-highlight">china.example.com</span>/1752604059001/jnOD8yLME_default/index.min.js&quot;&gt;
+&lt;/script&gt;</code></pre>
+          <aside class="bcls-aside bcls-aside--information">Using the <code translate="No">players.brightcove.net</code> domain may result in degraded player load times in China.</aside>
+      </li>
     </ol>
 
+    <h3>Note</h3>
     <p>With <code translate="No">china_proxy_domain</code> set, all requests initiated by the player will be sent to URLs within that domain. Using the sample value above (<strong>china.example.com</strong>) users may see requests to:</p>
     <table class="bcls-table">
             <!-- <caption class="bcls-caption--table">Table Caption (optional <strong><caption class="bcls-caption--table"></strong>)</caption> -->
