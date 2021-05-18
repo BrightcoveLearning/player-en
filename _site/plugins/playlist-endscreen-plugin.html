@@ -1142,34 +1142,62 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Implement_using_Players_module">Implement using Players module</h2> 
-    <p>The Playlist Endscreen plugin allows you to display a playlist when a video ends. This playlist can be related videos, using a smart playlist, or it can be videos unrelated to the main video.</p>
-    <p>This endscreen <strong>will NOT</strong> appear if</p>
-    <ul>
-      <li>No playlist ID is provided</li>
-      <li>The playlist ID is unset at runtime</li>
-      <li>The plugin is disabled</li>
-    </ul>
-    <p>This endscreen <strong>will</strong> appear if</p>
-    <ul>
-      <li>A playlist ID is available AND</li>
-      <li>The plugin is enabled</li>
-    </ul>
+    <p>Playlist endscreens can be implemented using Video Cloud Studio's <strong>Players</strong> module. For details, see the <a href="">Adding Plugins using the Players Module</a> document.</p>
+    
   </section>
 
   <section class="bcls-section">
     <h2 id="Implement_using_code">Implement using code</h2> 
-    <p>The Playlist Endscreen plugin allows you to display a playlist when a video ends. This playlist can be related videos, using a smart playlist, or it can be videos unrelated to the main video.</p>
-    <p>This endscreen will NOT appear if</p>
-    <ul>
-      <li>No playlist ID is provided</li>
-      <li>The playlist ID is unset at runtime</li>
-      <li>The plugin is disabled</li>
-    </ul>
-    <p>This endscreen will appear if</p>
-    <ul>
-      <li>A playlist ID is available AND</li>
-      <li>The plugin is enabled</li>
-    </ul>
+    <p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the plugin code and stylesheet are as follows:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>Include the plugin code:</p>
+        <pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.1/videojs-playlist-endscreen.js</code></pre>
+      </li>
+      <li>
+        <p>Include the plugin styles:</p>
+        <pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.1/videojs-playlist-endscreen.css</code></pre>
+      </li>
+      <li>Use the plugin name to load it into the player: <code translate="No">playlistEndscreen</code></li>
+      <li>
+        <p>An example set of options is:</p>
+        <pre class="line-numbers">
+<code class="language-html" translate="No">{
+    &quot;playlistId&quot;: 4602525726001,
+    &quot;title&quot;: &quot;Watch More&quot;
+}</code></pre>
+      </li>
+      <li>
+        <p>Here is an example using the Advanced Embed implementation to associate the Playlist Endscreen plugin with a single instance of a player.</p>
+        <pre class="line-numbers">
+<code class="language-html" translate="No">  &lt;link rel="stylesheet" type="text/css" href="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css"&gt;
+      
+  &lt;video-js id="myPlayerID"
+    data-account="1752604059001"
+    data-player="decfdaf5-0a6e-43f6-82d3-39d125c413c4"
+    data-embed="default"
+    data-video-id="4077874637001"
+    class="video-js" controls&gt;&lt;/video-js&gt;
+
+  &lt;script src="https://players.brightcove.net/1752604059001/decfdaf5-0a6e-43f6-82d3-39d125c413c4_default/index.min.js"&gt;&lt;/script&gt;
+
+  &lt;script type="text/javascript" src="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js"&gt;&lt;/script&gt;
+
+  &lt;script type="text/javascript"&gt;
+    videojs.getPlayer('myPlayerID').ready(function() {
+      var myPlayer = this;
+      myPlayer.customEndscreen({
+        "content": "&lt;strong&gt;Content&lt;/strong&gt; for &lt;em&gt;custom&lt;/em&gt; end screen"
+      })
+    });
+  &lt;/script&gt;</code></pre>
+      </li>
+    </ol>
+    
+  
+    
   </section>
 
   
