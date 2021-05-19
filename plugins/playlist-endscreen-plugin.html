@@ -12,13 +12,18 @@ layout: staging
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2> 
     <p>The Playlist Endscreen plugin allows you to display a playlist when a video ends. This playlist can be related videos, using a smart playlist, or it can be videos unrelated to the main video.</p>
-    <p>This endscreen <strong>will NOT</strong> appear if</p>
+    
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Sample endscreen" src="/assets/images/plugins/playlist-endscreen/sample-endscreen.png" />
+      <figcaption class="bcls-caption--image">Sample endscreen</figcaption>
+    </figure>
+
+    <p>The playlist endscreen <strong>will NOT</strong> appear if</p>
     <ul>
       <li>No playlist ID is provided</li>
       <li>The playlist ID is unset at runtime</li>
       <li>The plugin is disabled</li>
     </ul>
-    <p>This endscreen <strong>will</strong> appear if</p>
+    <p>The playlist endscreen <strong>will</strong> appear if</p>
     <ul>
       <li>A playlist ID is available AND</li>
       <li>The plugin is enabled</li>
@@ -57,123 +62,50 @@ layout: staging
       <li>
         <p>Here is an example using the Advanced Embed implementation to associate the Playlist Endscreen plugin with a single instance of a player.</p>
         <pre class="line-numbers">
-<code class="language-html" translate="No">  &lt;link rel="stylesheet" type="text/css" href="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css"&gt;
-      
-  &lt;video-js id="myPlayerID"
-    data-account="1752604059001"
-    data-player="decfdaf5-0a6e-43f6-82d3-39d125c413c4"
-    data-embed="default"
-    data-video-id="4077874637001"
-    class="video-js" controls&gt;&lt;/video-js&gt;
+<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.1/videojs-playlist-endscreen.css&quot; rel=&quot;stylesheet&quot;&gt;
+  
+  &lt;div style=&quot;max-width: 960px;&quot;&gt;
+  &lt;video-js id=&quot;myPlayerID&quot;
+    data-account=&quot;1752604059001&quot;
+    data-player=&quot;2efXCCxGU&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-video-id=&quot;4029697544001&quot;
+    data-playlist-id=&quot;&quot;
+    data-application-id=&quot;&quot;
+    class=&quot;vjs-fluid&quot;&gt;
+  &lt;/video-js&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://players.brightcove.net/1752604059001/2efXCCxGU_default/index.min.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script src="https://players.brightcove.net/1752604059001/decfdaf5-0a6e-43f6-82d3-39d125c413c4_default/index.min.js"&gt;&lt;/script&gt;
+&lt;!-- script for the Playlist Endscreen plugin --&gt;
+&lt;script src=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.1/videojs-playlist-endscreen.js&quot;&gt;&lt;/script&gt;
 
-  &lt;script type="text/javascript" src="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js"&gt;&lt;/script&gt;
+&lt;!-- custom script --&gt;
+&lt;script&gt;
+  videojs.getPlayer('myPlayerID').ready(function() {
+    var myPlayer = this;
+    // get a reference to the player
+    var myPlayer = videojs.getPlayer('myPlayerID');
 
-  &lt;script type="text/javascript"&gt;
-    videojs.getPlayer('myPlayerID').ready(function() {
-      var myPlayer = this;
-      myPlayer.customEndscreen({
-        "content": "&lt;strong&gt;Content&lt;/strong&gt; for &lt;em&gt;custom&lt;/em&gt; end screen"
-      })
-    });
-  &lt;/script&gt;</code></pre>
+    // initialize the Playlist Endscreen plugin
+    myPlayer.playlistEndscreen({&quot;playlistId&quot;: 4845949311001}); 
+  });
+&lt;/script&gt;</code></pre>
       </li>
     </ol>
-    
-  
-    
   </section>
-
-  
 
   <section class="bcls-section">
-    <h2 id="implementcode">Implement using code</h2>
-    <div class="video-cloud-only">
-      <p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the plugin code and stylesheet are as follows:</p>
-      <pre class="line-numbers">
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js</code></pre>
-      <pre class="line-numbers">
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css</code></pre>
-      <p>The name of the plugin is <code translate="No">customEndscreen</code>, and an example set of options is:</p>
-      <pre class="line-numbers">
-<code class="language-javascript" translate="No">{
-  "content": "<strong>Content</strong> for <em>custom</em> end screen"
-}</code></pre>
-      <p>The following shows using the In-Page Embed implementation of the player to associate the Custom Endscreen plugin with a single instance of a player.</p>
-      <ul>
-        <li>Line 12: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.</li>
-        <li>Line 14: Gives the <code translate="No">video</code> tag an <code translate="No">id</code> attribute, with some value, in this case <strong>myPlayerID</strong>.</li>
-        <li>Line 23: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML page.</li>
-        <li>Line 27: Creates a reference to the player.</li>
-        <li>Lines 28-30: Initializes the plugin and passes in custom options.</li>
-      </ul>
-      <pre class="line-numbers" data-start="12">
-<code class="language-html" translate="No">  &lt;link rel="stylesheet" type="text/css" href="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css"&gt;
+    <h2 id="Options">Options</h2> 
+    <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
 
-  &lt;video-js id="myPlayerID"
-    data-account="1752604059001"
-    data-player="decfdaf5-0a6e-43f6-82d3-39d125c413c4"
-    data-embed="default"
-    data-video-id="4077874637001"
-    class="video-js" controls&gt;&lt;/video-js&gt;
-
-  &lt;script src="https://players.brightcove.net/1752604059001/decfdaf5-0a6e-43f6-82d3-39d125c413c4_default/index.min.js"&gt;&lt;/script&gt;
-
-  &lt;script type="text/javascript" src="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js"&gt;&lt;/script&gt;
-
-  &lt;script type="text/javascript"&gt;
-    videojs.getPlayer('myPlayerID').ready(function() {
-      var myPlayer = this;
-      myPlayer.customEndscreen({
-        "content": "&lt;strong&gt;Content&lt;/strong&gt; for &lt;em&gt;custom&lt;/em&gt; end screen"
-      })
-    });
-  &lt;/script&gt;</code></pre>
-    </div>
-    <div class="player-only">
-      <p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the plugin code and stylesheet are as follows:</p>
-      <ul>
-        <li>https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js</li>
-        <li>https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css</li>
-      </ul>
-      <p>The name of the plugin is <code translate="No">customEndscreen</code>, and an example set of options is:</p>
-      <pre class="line-numbers">
-<code class="language-javascript" translate="No">{
-  "content": "<strong>Content</strong> for <em>custom</em> end screen"
-}</code></pre>
-      <p>The following shows using the In-Page Embed implementation of the player to associate the Custom Endscreen plugin with a single instance of a player.</p>
-      <ul>
-        <li>Line 1: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.</li>
-        <li>Line 3: Gives the <code translate="No">video</code> tag an <code translate="No">id</code> attribute, with some value, in this case <strong>myPlayerID</strong>.</li>
-        <li>Line 12: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML page.</li>
-        <li>Line 16: Creates a reference to the player.</li>
-        <li>Lines 17-19: Initializes the plugin and passes in custom options.</li>
-      </ul>
-      <pre class="line-numbers" data-start="1">
-<code class="language-html" translate="No">  &lt;link rel="stylesheet" type="text/css" href="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css"&gt;
-
-  &lt;video-js id="myPlayerID"
-    data-account="1752604059001"
-    data-player="decfdaf5-0a6e-43f6-82d3-39d125c413c4"
-    data-embed="default"
-    class="video-js"
-    controls&gt;&lt;/video-js&gt;
-
-  &lt;script src="https://players.brightcove.net/1752604059001/decfdaf5-0a6e-43f6-82d3-39d125c413c4_default/index.min.js"&gt;&lt;/script&gt;
-
-  &lt;script type="text/javascript" src="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js"&gt;&lt;/script&gt;
-
-  &lt;script type="text/javascript"&gt;
-    videojs.getPlayer('myPlayerID').ready(function() {
-      var myPlayer = this;
-      myPlayer.customEndscreen({
-        "content": "&lt;strong&gt;Content&lt;/strong&gt; for &lt;em&gt;custom&lt;/em&gt; end screen"
-      })
-    });
-  &lt;/script&gt;</code></pre>
-    </div>
+    <h3>playlistId</h3>
+    
+    
   </section>
+
+  
   <section id="properties" class="bcls-section">
     <h2>Property</h2>
     <p>The following plugin property is used to control the Custom Endscreen plugin:</p>
@@ -186,245 +118,8 @@ layout: staging
       </li>
     </ul>
   </section>
-  <section id="customize" class="bcls-section">
-    <h2>Customize the endscreen</h2>
-    <p>You can use CSS to customize the appearance of your endscreen. Below are a few examples of what you can do. Make sure to test your implementations to ensure they work with your page content.</p>
-    <aside class="bcls-aside bcls-aside--information">The code in this section uses relative positioning, which can be used in conjunction with a responsive player. To make your player responsive, see the <a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing</a> document or use the <strong>Players</strong> module to set the <strong>Sizing</strong> setting to <strong>Responsive</strong>.</aside>
-    <p>This is how the endscreen appears with the restart video button and a social sharing button.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="default custom endscreen" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-default.png" /></figure>
-    <h3>Change button size</h3>
-    <p>Let's say you want to change the size of the endscreen buttons. These button images are Scalable Vector Graphics (SVG) format so that they load quickly on all platforms. Because of this, you can't change their size by using the <code translate="No">width</code> and <code translate="No">height</code> CSS properties.</p>
-    <p>Instead, since these buttons are XML text files, you can change their size by using the <code translate="No">font-size</code> CSS property.</p>
-    <p>Use the code below to make both buttons smaller:</p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">.vjs-overlay-buttons {
-  font-size: .5em;
-}</code></pre>
-    <p>Using a percentage value should have the same effect:</p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">.vjs-overlay-buttons {
-  font-size: 50%;
-}</code></pre>
-    <p>The result should look like this:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="small endscreen buttons" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-small-buttons.png" /></figure>
-    <p>Or you can control the size of each button independently:</p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">.vjs-restart-control {
-  font-size: .5em;
-}
-.vjs-trigger-social-control {
-  font-size: .5em;
-}</code></pre>
-    <h3>Move content below buttons</h3>
-    <p>Earlier in this document, you learned how to add content to the endscreen. To review, you can add any HTML to the plugin. The code below adds a link to our homepage to the endscreen:</p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">{
-  "content": "&lt;a href='https://www.brightcove.com'&gt;Visit our home page&lt;/a&gt;"
-}</code></pre>
-    <p>By default, your added content displays above the endscreen buttons:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="content above endscreen buttons" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-content-above.png" /></figure>
-    <p>Use the following CSS to position your HTML content below the endscreen buttons:</p>
-    <ul>
-      <li>Lines 190-193: Position the buttons from the top. These elements are already centered on the page for you.</li>
-      <li>Lines 194-196: Remove the default padding for the entire overlay to help center your custom text.</li>
-      <li>Lines 197-202: Position your custom text from the bottom and center it horizontally.</li>
-    </ul>
-    <pre class="line-numbers" data-start="190">
-<code class="language-javascript" translate="No">.vjs-overlay-buttons {
-  position: absolute;
-  top: 5em;
-}
-.vjs-custom-overlay {
-  padding: 0;
-}
-.vjs-endscreen-overlay-content {
-  position: absolute;
-  bottom: 5em;
-  text-align: center;
-  width: 100%;
-}</code></pre>
-    <p>The result should look like this:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="content below endscreen buttons" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-content-below.png" /></figure>
-    <h3>Display vertical content and buttons</h3>
-    <p>You can also change the layout of your HTML content and the endscreen buttons. By default, they are displayed horizontally, with your content above the buttons. The code below floats your content to the left of the buttons and displays the buttons vertically:</p>
-    <ul>
-      <li>Lines 205-210: Position the buttons from the top and left. The small width caused the buttons to align vertically.</li>
-      <li>Lines 211-213: Remove the default padding for the entire overlay.</li>
-      <li>
-        <p>Lines 214-223: Positions you custom text to the left of the buttons, centered horizontally and vertically in half of the overlay.</p>
-        <aside class="bcls-aside bcls-aside--information">For details on how to center elements horizontally and vertically, refer to the W3C document on <a href="//www.w3.org/Style/Examples/007/center.en.html">Centering Things</a>.</aside>
-      </li>
-    </ul>
-    <pre class="line-numbers" data-start="205">
-<code class="language-javascript" translate="No">.vjs-overlay-buttons {
-  position: absolute;
-  width: 10%;
-  top: 20%;
-  left: 50%;
-}
-.vjs-custom-overlay {
-  padding: 0;
-}
-.vjs-endscreen-overlay-content {
-  position: absolute;
-  float: left;
-  width: 50%;
-  text-align: center;
-  top: 45%;
-  transform: translate(0, -50%)
-  -webkit-transform: translate(0,-50%);
-  -ms-transform: translate(0,-50%);
-}
-</code></pre>
-    <p>The result should look like this:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="vertical content and endscreen buttons" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-vertical.png" /></figure>
-    <p>You can be creative with how your endscreen will look by overriding the default CSS properties. In your browser, inspect the elements to find the element class names and values. For a quick review of how to do this, see the <a href="/styling/customizing-player-appearance.html">Customize Player Appearance</a> document.</p>
-  </section>
-  <section id="mailto" class="bcls-section video-cloud-only">
-    <h2>Use mailto with video name</h2>
-    <p>You may wish to allow the viewer of the video to email you a question or comment. You can do this by using an HTML <strong>mailto</strong> link in the custom endscreen, as shown here:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="mailto customer endscreen" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/custom-endscreen-mailto.png" /></figure>
-    <p>Clicking the link will open the customers default email client. The code below shows how to use the video's metatdata, in this case the video name, to automatically be the subject of the email.</p>
-    <p>The following section explains how to do that particular task, but moreover, once you have data from the <a href="/references/video-metadata-mediainfo.html">mediainfo</a> property, any video metatdata could be used in the mailto link.</p>
-    <ul>
-      <li>Line 235: Include the CSS for the customEndscreen plugin.</li>
-      <li>Lines 236-241: CSS to change the size of the player.</li>
-      <li>Lines 245-251: Standard in-page embed code used. Note an <code translate="No">id</code> is added.</li>
-      <li>Line 253: Specify the source for the JavaScript code for the endscreen plugin.</li>
-      <li>Lines 256,257,270: Standard setup for using code with the player.</li>
-      <li>Line 262: Listens for the <code translate="No">loadstart</code> event. This is when the video has started loading and its metadata, found in <code translate="No">myPlayer.mediainfo</code>, is available.</li>
-      <li>Line 263: URL encode the name of the video and assign to a variable. For the value to be used as a subject in a mailto link it is required by HTML standards the string be URL encoded.</li>
-      <li>Lines 264-265: Build the <code translate="No">&lt;a href="mailto"&gt;</code> link.</li>
-      <li>Lines 266-268: Call the <code translate="No">customEndscreen()</code> method, and use the created mailto link for the endscreen's content.</li>
-    </ul>
-    <pre class="line-numbers" data-start="229">
-<code class="language-html" translate="No">&lt;!doctype html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset="utf-8"&gt;
-  &lt;title&gt;End screen with title as subject&lt;/title&gt;
-
-  &lt;link href="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css" rel='stylesheet'&gt;
-  &lt;style type="text/css"&gt;
-    .video-js {
-      width: 600px;
-      height: 338px;
-    }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-  &lt;video-js id="myPlayerID"
-    data-video-id="1507781667001"
-    data-account="1507807800001"
-    data-player="default"
-    data-embed="default"
-    class="video-js" controls&gt;&lt;/video-js&gt;
-  &lt;script src="https://players.brightcove.net/1507807800001/default_default/index.min.js"&gt;&lt;/script&gt;
-
-  &lt;script src="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js"&gt;&lt;/script&gt;
-
-  &lt;script type="text/javascript"&gt;
-    videojs.getPlayer('myPlayerID').ready(function() {
-      var myPlayer = this,
-        subjectEncoded,
-        theMailto,
-        theLink;
-
-      myPlayer.on('loadstart',function(){
-        subjectEncoded = encodeURI(myPlayer.mediainfo.name);
-        theMailto = 'mailto:nowhere@mozilla.org?subject=' + subjectEncoded;
-        theLink = '&lt;a href="' + theMailto + '"&gt;Email a Comment&lt;/a&gt;&lt;br /&gt;&lt;br/&gt;';
-        myPlayer.customEndscreen({
-          "content": theLink
-        })
-      })
-    });
-  &lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Using_macros">Using macros</h2>
-    <p>The <code translate="No">content</code> string provided for custom endscreens may now include macros (supported by videojs-contrib-ads). For instance, if you wanted the endscreen to include the name and description of the video currently in the player, you would use code similar to:</p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('loadstart', function() {
-  var myPlayer = this;
-
-  // +++ Call endscreen method +++
-  myPlayer.customEndscreen({
-    content: '{mediainfo.name} - {mediainfo.description}'
-  });
-});</code></pre>
-    <p>This would result in the following endscreen:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="using macros" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/using-macros.png" /></figure>
-    <p>Here is the complete list of available macros:</p>
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th style="width:30%">Macro</th>
-          <th style="width:60%">Description</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td>{player.id}</td>
-          <td>Player ID</td>
-        </tr>
-        <tr>
-          <td>{mediainfo.id}</td>
-          <td>Video ID</td>
-        </tr>
-        <tr>
-          <td>{mediainfo.name}</td>
-          <td>Video title</td>
-        </tr>
-        <tr>
-          <td>{mediainfo.description}</td>
-          <td>Short description (250 chars max)</td>
-        </tr>
-        <tr>
-          <td>{mediainfo.tags}</td>
-          <td>Tags (metadata) associated with the video</td>
-        </tr>
-        <tr>
-          <td>{mediainfo.reference_id}</td>
-          <td>Reference ID</td>
-        </tr>
-        <tr>
-          <td>{mediainfo.duration}</td>
-          <td>Duration of the video as reported by Video Cloud</td>
-        </tr>
-        <tr>
-          <td>{mediainfo.ad_keys}</td>
-          <td>Free form text string that can be added and edited in the Media module of Studio; you should use the query parameter in the form
-            <pre class="line-numbers">
-  <code class="language-javascript" translate="No">cust_params={mediainfo.ad_keys}</code></pre></td>
-        </tr>
-        <tr>
-          <td>{player.duration}</td>
-          <td>Duration of video as measured by player (possibly slightly different from <code translate="No">mediainfo.duration</code> and probably more accurate)</td>
-        </tr>
-        <tr>
-          <td>{document.referrer}</td>
-          <td>Referring page URL</td>
-        </tr>
-        <tr>
-          <td>{window.location.href}</td>
-          <td>Current page URL</td>
-        </tr>
-        <tr>
-          <td>{timestamp}</td>
-          <td>Current local time in milliseconds since 1/1/70</td>
-        </tr>
-        <tr>
-          <td>{random}</td>
-          <td>A random number 0-1 trillion (Used to create a unique impression. This prevents the ad from being cached in the browser and prevents impression discrepancies.)</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+  
+  
   <section class="bcls-section">
     <h2 id="Known_issues">Known issues</h2>
     <ul>
