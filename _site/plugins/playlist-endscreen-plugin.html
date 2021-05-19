@@ -1204,8 +1204,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 &lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
-    // get a reference to the player
-    var myPlayer = videojs.getPlayer('myPlayerID');
 
     // initialize the Playlist Endscreen plugin
     myPlayer.playlistEndscreen({&quot;playlistId&quot;: 4845949311001}); 
@@ -1220,34 +1218,39 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
 
     <h3>playlistId</h3>
-    
-    
+    <code translate="No">playlistId</code>
+    <ul>
+      <li>Type: <code translate="No">string</code></li>
+      <li>The string representing the playlist ID to be displayed in the endscreen.</li>
+    </ul>
+
+    <h3>title</h3>
+    <code translate="No">title</code>
+    <ul>
+      <li>Type: <code translate="No">string</code></li>
+      <li>The string to customize the endscreen title, this will also modify the button tooltip.</li>
+    </ul>
   </section>
 
-  
-  <section id="properties" class="bcls-section">
-    <h2>Property</h2>
-    <p>The following plugin property is used to control the Custom Endscreen plugin:</p>
+  <section class="bcls-section">
+    <h2 id="Options">Setting playlist ID</h2> 
+    <p>There are additional ways to configure playlist ID to retrieve the playlist you want. This playlist ID can come from one of the following sources:</p>
     <ul>
-      <li><code translate="No">content</code>:
-        <ul>
-          <li>Type: <code translate="No">string</code></li>
-          <li>Any string literal or HTML that is rendered on the custom endscreen.</li>
-        </ul>
-      </li>
+      <li>Attribute on in-page embeds: <code translate="No">data-endscreen-playlist-id="123"</code></li>
+      <li>Query string for iframes: <code translate="No">&endscreenPlaylistId=123</code></li>
     </ul>
   </section>
   
   
-  <section class="bcls-section">
+  <!-- <section class="bcls-section">
     <h2 id="Known_issues">Known issues</h2>
     <ul>
-      <li>In the very rare event that you are manually keeping the controlbar visible at all times AND using the custom end screen plugin, you will need to make a small change to have the controlbar function correctly after the end screen is displayed. By default the endscreen plugin disables the controlbar. To enable the controlbar, since it is always visible, you need to use the JavaScript <code translate="No">player.controls(true)</code> after the <code translate="No">ModalDialog</code>'s <code translate="No">modalopen</code> event is dispatched.</li>
+      <li></li>
     </ul>
-  </section>
-  <section class="bcls-section">
+  </section> -->
+  <section class="bcls-section"> 
     <h2 id="changelog">Changelog</h2>
-    <p>See the <a href="/plugins/changelog/custom-endscreen-plugin-changelog.html">changelog here</a>.</p>
+    <p>See the <a href="/release-notes/brightcove-player-release-notes.html">Playlist Endscreen Plugin Release Notes</a>.</p>
   </section>
 </article>
 
