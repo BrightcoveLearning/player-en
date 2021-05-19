@@ -1185,17 +1185,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   
   &lt;div style=&quot;max-width: 960px;&quot;&gt;
   &lt;video-js id=&quot;myPlayerID&quot;
-    data-account=&quot;1752604059001&quot;
-    data-player=&quot;2efXCCxGU&quot;
+    data-account=&quot;<span class="bcls-input">your account ID</span>&quot;
+    data-player=&quot;<span class="bcls-input">your player ID</span>&quot;
     data-embed=&quot;default&quot;
     controls=&quot;&quot;
-    data-video-id=&quot;4029697544001&quot;
+    data-video-id=&quot;<span class="bcls-input">your video ID</span>&quot;
     data-playlist-id=&quot;&quot;
     data-application-id=&quot;&quot;
     class=&quot;vjs-fluid&quot;&gt;
   &lt;/video-js&gt;
 &lt;/div&gt;
-&lt;script src=&quot;https://players.brightcove.net/1752604059001/2efXCCxGU_default/index.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://players.brightcove.net/<span class="bcls-input">your account ID</span>/<span class="bcls-input">your player ID</span>_default/index.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- script for the Playlist Endscreen plugin --&gt;
 &lt;script src=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.1/videojs-playlist-endscreen.js&quot;&gt;&lt;/script&gt;
@@ -1206,7 +1206,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     var myPlayer = this;
 
     // initialize the Playlist Endscreen plugin
-    myPlayer.playlistEndscreen({&quot;playlistId&quot;: 4845949311001}); 
+    myPlayer.playlistEndscreen({playlistId: &quot;<span class="bcls-input">your playlist ID</span>&quot;}); 
   });
 &lt;/script&gt;</code></pre>
       </li>
@@ -1234,10 +1234,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Options">Setting playlist ID</h2> 
-    <p>There are additional ways to configure playlist ID to retrieve the playlist you want. This playlist ID can come from one of the following sources:</p>
+    <p>This plugin requires an ID for a playlist. The playlist will be fetched from the Playback API and the results will be used to populate the endscreen. The playlist ID should come from one of the following sources:</p>
     <ul>
-      <li>Attribute on in-page embeds: <code translate="No">data-endscreen-playlist-id="123"</code></li>
-      <li>Query string for iframes: <code translate="No">&endscreenPlaylistId=123</code></li>
+      <li>
+        <p>Attribute on in-page embeds: <code translate="No">data-endscreen-playlist-id="123456789"</code></p>
+      </li>
+      <li>
+        <p>Query string for iframes: <code translate="No">&endscreenPlaylistId=123456789</code></p>
+      </li>
+      <li>
+        <p>Plugin option: <code translate="No">player.playlistEndscreen({playlistId: "123456789"})</code></p>
+        <p>This can be added to the player configuration, or used at runtime, as in the <a href="#Implement_using_code">example above</a>.</p>
+      </li>
+      <li>
+        <p>Programmatic post-plugin-init: <code translate="No">player.playlistEndscreen().setPlaylistId("123456789")</code></p>
+      </li>
     </ul>
   </section>
   
