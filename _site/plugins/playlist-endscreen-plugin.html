@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex,nofollow"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will learn how to use the Playlist Endscreen plugin, either by using Video Cloud Studio or programmatically with Brightcove Player.">
+  <meta name="description" content="In this topic, you will learn how to display a playlist at the end of a video. You can add this to a player either by using Video Cloud Studio or by using code with Brightcove Player.">
   
   <title>Playlist Endscreen Plugin</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1126,23 +1126,23 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h1>Playlist Endscreen Plugin</h1>
 <article class="bcls-article">
-  <summary>In this topic, you will learn how to use the Playlist Endscreen plugin, either by using Video Cloud Studio or programmatically with Brightcove Player.</summary>
+  <summary>In this topic, you will learn how to display a playlist at the end of a video. You can add this to a player either by using Video Cloud Studio or by using code with Brightcove Player.</summary>
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2> 
-    <p>The Playlist Endscreen plugin allows you to display a playlist when a video ends. This playlist can be related videos, using a smart playlist, or it can be videos unrelated to the main video.</p>
+    <p>The Playlist Endscreen plugin allows you to display a playlist when a video ends. This playlist can be related videos, using a smart playlist, or it can be videos unrelated to the main video.</p> 
     
     <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Sample endscreen" src="/assets/images/plugins/playlist-endscreen/sample-endscreen.png" />
-      <figcaption class="bcls-caption--image">Sample endscreen</figcaption>
+      <figcaption class="bcls-caption--image">Sample end screen</figcaption>
     </figure>
 
-    <p>The playlist endscreen <strong>will NOT</strong> appear if</p>
+    <p>The playlist end screen <strong>will NOT</strong> appear if</p>
     <ul>
       <li>No playlist ID is provided</li>
       <li>The playlist ID is unset at runtime</li>
       <li>The plugin is disabled</li>
     </ul>
-    <p>The playlist endscreen <strong>will</strong> appear if</p>
+    <p>The playlist end screen <strong>will</strong> appear if</p>
     <ul>
       <li>A playlist ID is available AND</li>
       <li>The plugin is enabled</li>
@@ -1151,7 +1151,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Implement_using_Players_module">Implement using Players module</h2> 
-    <p>Playlist endscreens can be implemented using Video Cloud Studio's <strong>Players</strong> module. For details, see the <a href="https://studio.support.brightcove.com/players/configuring-playlist-endscreen-using-plugin.html">Configuring a Playlist Endscreen Using the playlist-endscreen Plugin</a> document.</p>
+    <p>Playlist end screens can be implemented using Video Cloud Studio's <strong>Players</strong> module. For details, see the <a href="https://studio.support.brightcove.com/players/configuring-playlist-endscreen-using-plugin.html">Configuring a Playlist Endscreen Using the playlist-endscreen Plugin</a> document.</p>
     
   </section>
 
@@ -1221,20 +1221,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <code translate="No">playlistId</code>
     <ul>
       <li>Type: <code translate="No">string</code></li>
-      <li>The string representing the playlist ID to be displayed in the endscreen.</li>
+      <li>The string representing the playlist ID to be displayed in the end screen.</li>
     </ul>
 
     <h3>title</h3>
     <code translate="No">title</code>
     <ul>
       <li>Type: <code translate="No">string</code></li>
-      <li>The string to customize the endscreen title, this will also modify the button tooltip.</li>
+      <li>The string to customize the end screen title, this will also modify the button tooltip.</li>
     </ul>
   </section>
 
   <section class="bcls-section">
     <h2 id="Options">Setting playlist ID</h2> 
-    <p>This plugin requires an ID for a playlist. The playlist will be fetched from the Playback API and the results will be used to populate the endscreen. The playlist ID should come from one of the following sources:</p>
+    <p>This plugin requires an ID for a playlist. The playlist will be fetched from the Playback API and the results will be used to populate the end screen. The playlist ID should come from one of the following sources:</p>
     <ul>
       <li>
         <p>Attribute on in-page embeds: <code translate="No">data-endscreen-playlist-id="123456789"</code></p>
