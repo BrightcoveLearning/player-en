@@ -12,15 +12,44 @@ parent: Plugins
     <h3>Why it is called Picture-in-Picture</h3>
     <p>The behavior this plugin enables is also commonly referred to as "floating" or "pinned" behavior. Brightcove uses the term "picture-in-picture" because of adoption of this verbiage by Apple and Google for their native browsers. W3C <a href="https://wicg.github.io/picture-in-picture/">standards</a> also reference "picture-in-picture".</p>
   </section>
+
+  <section class="bcls-section">
+    <h2 id="Brightcove_Plugin_native_functionality">Brightcove Plugin vs. native functionality</h2>
+    <p>Most modern browsers now include picture-in-picture functionality. In this section you will see the differences between the Brightcove Beacon plugin and the native functionality. This will be followed by reasons why you would want to turn off native functionality add the plugin to your player.</p>
+    <h3>Native browser functionality</h3>
+    <p>The following detail how the native browser picture-in-picture functionality works:</p>
+    <ul>
+      <li>You do not have to do anything to enable the functionality, the icon for picture-in-picture will be in the controlbar.</li>
+      <li>The icon button works as a toggle, viewers toogle the functionality on and off.</li>
+      <li>The picture-in-picture player is NOT bounded by the browser. The smaller player will appear in the bottom right of your screen, now matter how your browser is sized.</li>
+      <li>The video in the Brightcove Player is "grayed out" when the native picture-in-picture functionality is toggled on.</li>
+      <li>This video shows the functionality in use:
+        <video-js data-account="1752604059001"
+        data-player="default"
+        data-embed="default"
+        controls=""
+        data-video-id="1700296808830142616"
+        data-playlist-id=""
+        data-application-id=""
+        width="800" height="450"></video-js>
+        <script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+      </li>
+    </ul>
+
+  </section>
+
+
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <p>Start video playback. (You can then stop it). Scroll down the page to see the picture-in-picture player in the right-hand corner of the web page. You can close the picture-in-picture player or scroll back up to the full-size player.</p>
     <!-- UPDATE codepen here -->
-    
+
     <p data-height="750" data-theme-id="dark" data-slug-hash="ZxwOMR" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="Picture-in-Picture Plugin" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/ZxwOMR/">Picture-in-Picture Plugin</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source --><!-- <p>View the <a href="https://github.com/BrightcoveLearning/18193-brightcove-player-sample-age-gate-modaldialog">source code</a>.</p> --></section>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    <!-- <p>View the <a href="https://github.com/BrightcoveLearning/18193-brightcove-player-sample-age-gate-modaldialog">source code</a>.</p> -->
+  </section>
   <section class="bcls-section">
     <h2 id="Implement_using_Players_module">Implement using Players module</h2>
     <p>To implement the Picture-in-Picture&nbsp;Plugin using the Players module, follow these steps:</p>
@@ -95,7 +124,8 @@ parent: Plugins
         <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;link href="https://players.brightcove.net/videojs-pip/1/videojs-pip.css" rel="stylesheet"&gt;</code></pre>
       </li>
-      <li>Add the JavaScript file to include the picture-in-picture plugin. <!-- <aside class="bcls-aside bcls-aside--tip">Note: This plugin script must be placed after the last <code translate="No">&lt;script&gt;</code> tag for your player embed code.</aside> -->
+      <li>Add the JavaScript file to include the picture-in-picture plugin.
+        <!-- <aside class="bcls-aside bcls-aside--tip">Note: This plugin script must be placed after the last <code translate="No">&lt;script&gt;</code> tag for your player embed code.</aside> -->
         <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-video-id="5701202551001"
