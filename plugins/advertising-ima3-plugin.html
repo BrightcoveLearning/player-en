@@ -779,7 +779,7 @@ myPlayer.ima3({
 
   <section class="bcls-section">
     <h2 id="TCF_macros">TCF macros</h2>
-    <p>If a creative management platform, or CMP (essentially a range of advertising technologies all rolled into one easy-to-use platform), supporting the <a href="https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/master/TCFv2/IAB%20Tech%20Lab%20-%20CMP%20API%20v2.md">GDPR Transparency and Consent Framework (TCF)</a> is in use, additional macros are made available. The syntax is <code>{tcf.*}</code>, with <code>*</code> being a property in the <a href="https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/master/TCFv2/IAB%20Tech%20Lab%20-%20CMP%20API%20v2.md#tcdata">tcData</a> object.</p>
+    <p>If a consent management platform, or CMP (essentially a range of advertising technologies all rolled into one easy-to-use platform), supporting the <a href="https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/master/TCFv2/IAB%20Tech%20Lab%20-%20CMP%20API%20v2.md">GDPR Transparency and Consent Framework (TCF)</a> is in use, additional macros are made available. The syntax is <code>{tcf.*}</code>, with <code>*</code> being a property in the <a href="https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/master/TCFv2/IAB%20Tech%20Lab%20-%20CMP%20API%20v2.md#tcdata">tcData</a> object.</p>
     <p>The most commonly used macros are:</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
@@ -800,7 +800,7 @@ myPlayer.ima3({
       </tbody>
     </table>
     <p>Since <code>gdprApplies</code> is a boolean and many ad servers expect the value as an integer, an additional <code>{tcf.gdprAppliesInt}</code> is provided which will return 1 or 0.</p>
-    <p>If the player is in an iframe, a proxy will be added if any parent frame is detected to gain consent with the <code>postmessage</code> API. The CMP must be loaded first.</p>
+    <p>If the player is in an iframe, a proxy will be added if the TCF API is detected in any parent frame to gain consent with the <code>postmessage</code> API. The CMP must be loaded before the player.</p>
     <h3>Default values in macros</h3>
     <p>A default value can be provided within a macro, in which case this value will be used where not resolvable e.g.</p>
     <pre class="line-numbers"><code class="language-html" translate="No">http://example.com/ad/{pageVariable.adConf=1234}</code></pre>
