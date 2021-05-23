@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Brightcove Player v5.22.2 Class: CaptionSettingsMenuItem</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.yeti.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Brightcove Player v5.22.2</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="module-browser.html">browser</a></li><li><a href="module-buffer.html">buffer</a></li><li><a href="module-computed-style.html">computed-style</a></li><li><a href="module-dom.html">dom</a></li><li><a href="module-events.html">events</a></li><li><a href="module-extend.html">extend</a></li><li><a href="module-flash-rtmp.html">flash-rtmp</a></li><li><a href="module-fn.html">fn</a></li><li><a href="module-Format-time.html">Format-time</a></li><li><a href="module-guid.html">guid</a></li><li><a href="module-log.html">log</a></li><li><a href="module-merge-options.html">merge-options</a></li><li><a href="module-obj.html">obj</a></li><li><a href="module-plugins.html">plugins</a></li><li><a href="module-setup.html">setup</a></li><li><a href="module-stylesheet.html">stylesheet</a></li><li><a href="module-text-track-list-converter.html">text-track-list-converter</a></li><li><a href="module-time-ranges.html">time-ranges</a></li><li><a href="module-to-title-case.html">to-title-case</a></li><li><a href="module-url.html">url</a></li><li><a href="module-videojs.html">videojs</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="AudioTrack.html">AudioTrack</a></li><li><a href="AudioTrackButton.html">AudioTrackButton</a></li><li><a href="AudioTrackList.html">AudioTrackList</a></li><li><a href="AudioTrackMenuItem.html">AudioTrackMenuItem</a></li><li><a href="BigPlayButton.html">BigPlayButton</a></li><li><a href="Button.html">Button</a></li><li><a href="CaptionsButton.html">CaptionsButton</a></li><li><a href="CaptionSettingsMenuItem.html">CaptionSettingsMenuItem</a></li><li><a href="ChaptersButton.html">ChaptersButton</a></li><li><a href="ChaptersTrackMenuItem.html">ChaptersTrackMenuItem</a></li><li><a href="ClickableComponent.html">ClickableComponent</a></li><li><a href="CloseButton.html">CloseButton</a></li><li><a href="Component.html">Component</a></li><li><a href="ControlBar.html">ControlBar</a></li><li><a href="CurrentTimeDisplay.html">CurrentTimeDisplay</a></li><li><a href="CustomControlSpacer.html">CustomControlSpacer</a></li><li><a href="DescriptionsButton.html">DescriptionsButton</a></li><li><a href="DurationDisplay.html">DurationDisplay</a></li><li><a href="ErrorDisplay.html">ErrorDisplay</a></li><li><a href="EventTarget.html">EventTarget</a></li><li><a href="Flash.html">Flash</a></li><li><a href="FullscreenToggle.html">FullscreenToggle</a></li><li><a href="Html5.html">Html5</a></li><li><a href="HTMLTrackElement.html">HTMLTrackElement</a></li><li><a href="HtmlTrackElementList.html">HtmlTrackElementList</a></li><li><a href="LiveDisplay.html">LiveDisplay</a></li><li><a href="LoadingSpinner.html">LoadingSpinner</a></li><li><a href="LoadProgressBar.html">LoadProgressBar</a></li><li><a href="MediaError.html">MediaError</a></li><li><a href="MediaLoader.html">MediaLoader</a></li><li><a href="Menu.html">Menu</a></li><li><a href="MenuButton.html">MenuButton</a></li><li><a href="MenuItem.html">MenuItem</a></li><li><a href="ModalDialog.html">ModalDialog</a></li><li><a href="module-videojs-videojs.AudioTrack.videojs.AudioTrack.html">videojs~videojs.AudioTrack.videojs.AudioTrack</a></li><li><a href="module-videojs-videojs.EventTarget.videojs.EventTarget.html">videojs~videojs.EventTarget.videojs.EventTarget</a></li><li><a href="module-videojs-videojs.TextTrack.videojs.TextTrack.html">videojs~videojs.TextTrack.videojs.TextTrack</a></li><li><a href="module-videojs-videojs.VideoTrack.videojs.VideoTrack.html">videojs~videojs.VideoTrack.videojs.VideoTrack</a></li><li><a href="MouseTimeDisplay.html">MouseTimeDisplay</a></li><li><a href="MuteToggle.html">MuteToggle</a></li><li><a href="OffTextTrackMenuItem.html">OffTextTrackMenuItem</a></li><li><a href="PlaybackRateMenuButton.html">PlaybackRateMenuButton</a></li><li><a href="PlaybackRateMenuItem.html">PlaybackRateMenuItem</a></li><li><a href="Player.html">Player</a></li><li><a href="PlayProgressBar.html">PlayProgressBar</a></li><li><a href="PlayToggle.html">PlayToggle</a></li><li><a href="Popup.html">Popup</a></li><li><a href="PopupButton.html">PopupButton</a></li><li><a href="PosterImage.html">PosterImage</a></li><li><a href="ProgressControl.html">ProgressControl</a></li><li><a href="RemainingTimeDisplay.html">RemainingTimeDisplay</a></li><li><a href="SeekBar.html">SeekBar</a></li><li><a href="Slider.html">Slider</a></li><li><a href="Spacer.html">Spacer</a></li><li><a href="SubtitlesButton.html">SubtitlesButton</a></li><li><a href="Tech.html">Tech</a></li><li><a href="TextTrack.html">TextTrack</a></li><li><a href="TextTrackButton.html">TextTrackButton</a></li><li><a href="TextTrackCueList.html">TextTrackCueList</a></li><li><a href="TextTrackDisplay.html">TextTrackDisplay</a></li><li><a href="TextTrackList.html">TextTrackList</a></li><li><a href="TextTrackMenuItem.html">TextTrackMenuItem</a></li><li><a href="TextTrackSettings.html">TextTrackSettings</a></li><li><a href="TimeDivider.html">TimeDivider</a></li><li><a href="TooltipProgressBar.html">TooltipProgressBar</a></li><li><a href="Track.html">Track</a></li><li><a href="TrackButton.html">TrackButton</a></li><li><a href="TrackList.html">TrackList</a></li><li><a href="VideoTrack.html">VideoTrack</a></li><li><a href="VideoTrackList.html">VideoTrackList</a></li><li><a href="VolumeBar.html">VolumeBar</a></li><li><a href="VolumeControl.html">VolumeControl</a></li><li><a href="VolumeLevel.html">VolumeLevel</a></li><li><a href="VolumeMenuButton.html">VolumeMenuButton</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="mixins.list.html" class="dropdown-toggle" data-toggle="dropdown">Mixins<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="module-flash-rtmp-FlashRtmpDecorator.html">flash-rtmp~FlashRtmpDecorator</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="AudioTrack.html#event:enabledchange">AudioTrack#event:enabledchange</a></li><li><a href="AudioTrackList.html#event:addtrack">AudioTrackList#event:addtrack</a></li><li><a href="AudioTrackList.html#event:change">AudioTrackList#event:change</a></li><li><a href="AudioTrackList.html#event:removetrack">AudioTrackList#event:removetrack</a></li><li><a href="BigPlayButton.html#event:dispose">BigPlayButton#event:dispose</a></li><li><a href="BigPlayButton.html#event:ready">BigPlayButton#event:ready</a></li><li><a href="BigPlayButton.html#event:resize">BigPlayButton#event:resize</a></li><li><a href="BigPlayButton.html#event:tap">BigPlayButton#event:tap</a></li><li><a href="Button.html#event:dispose">Button#event:dispose</a></li><li><a href="Button.html#event:ready">Button#event:ready</a></li><li><a href="Button.html#event:resize">Button#event:resize</a></li><li><a href="Button.html#event:tap">Button#event:tap</a></li><li><a href="ClickableComponent.html#event:dispose">ClickableComponent#event:dispose</a></li><li><a href="ClickableComponent.html#event:ready">ClickableComponent#event:ready</a></li><li><a href="ClickableComponent.html#event:resize">ClickableComponent#event:resize</a></li><li><a href="ClickableComponent.html#event:tap">ClickableComponent#event:tap</a></li><li><a href="CloseButton.html#event:close">CloseButton#event:close</a></li><li><a href="CloseButton.html#event:dispose">CloseButton#event:dispose</a></li><li><a href="CloseButton.html#event:ready">CloseButton#event:ready</a></li><li><a href="CloseButton.html#event:resize">CloseButton#event:resize</a></li><li><a href="CloseButton.html#event:tap">CloseButton#event:tap</a></li><li><a href="Component.html#event:dispose">Component#event:dispose</a></li><li><a href="Component.html#event:ready">Component#event:ready</a></li><li><a href="Component.html#event:resize">Component#event:resize</a></li><li><a href="Component.html#event:tap">Component#event:tap</a></li><li><a href="ControlBar.html#event:dispose">ControlBar#event:dispose</a></li><li><a href="ControlBar.html#event:ready">ControlBar#event:ready</a></li><li><a href="ControlBar.html#event:resize">ControlBar#event:resize</a></li><li><a href="ControlBar.html#event:tap">ControlBar#event:tap</a></li><li><a href="CurrentTimeDisplay.html#event:dispose">CurrentTimeDisplay#event:dispose</a></li><li><a href="CurrentTimeDisplay.html#event:ready">CurrentTimeDisplay#event:ready</a></li><li><a href="CurrentTimeDisplay.html#event:resize">CurrentTimeDisplay#event:resize</a></li><li><a href="CurrentTimeDisplay.html#event:tap">CurrentTimeDisplay#event:tap</a></li><li><a href="CustomControlSpacer.html#event:dispose">CustomControlSpacer#event:dispose</a></li><li><a href="CustomControlSpacer.html#event:ready">CustomControlSpacer#event:ready</a></li><li><a href="CustomControlSpacer.html#event:resize">CustomControlSpacer#event:resize</a></li><li><a href="CustomControlSpacer.html#event:tap">CustomControlSpacer#event:tap</a></li><li><a href="DurationDisplay.html#event:dispose">DurationDisplay#event:dispose</a></li><li><a href="DurationDisplay.html#event:ready">DurationDisplay#event:ready</a></li><li><a href="DurationDisplay.html#event:resize">DurationDisplay#event:resize</a></li><li><a href="DurationDisplay.html#event:tap">DurationDisplay#event:tap</a></li><li><a href="ErrorDisplay.html#event:beforemodalclose">ErrorDisplay#event:beforemodalclose</a></li><li><a href="ErrorDisplay.html#event:beforemodalempty">ErrorDisplay#event:beforemodalempty</a></li><li><a href="ErrorDisplay.html#event:beforemodalfill">ErrorDisplay#event:beforemodalfill</a></li><li><a href="ErrorDisplay.html#event:beforemodalopen">ErrorDisplay#event:beforemodalopen</a></li><li><a href="ErrorDisplay.html#event:modalclose">ErrorDisplay#event:modalclose</a></li><li><a href="ErrorDisplay.html#event:modalempty">ErrorDisplay#event:modalempty</a></li><li><a href="ErrorDisplay.html#event:modalfill">ErrorDisplay#event:modalfill</a></li><li><a href="ErrorDisplay.html#event:modalopen">ErrorDisplay#event:modalopen</a></li><li><a href="Flash.html#event:audiotrackchange">Flash#event:audiotrackchange</a></li><li><a href="Flash.html#event:progress">Flash#event:progress</a></li><li><a href="Flash.html#event:texttrackchange">Flash#event:texttrackchange</a></li><li><a href="Flash.html#event:timeupdate">Flash#event:timeupdate</a></li><li><a href="Flash.html#event:videotrackchange">Flash#event:videotrackchange</a></li><li><a href="Flash.html#event:vttjsloaded">Flash#event:vttjsloaded</a></li><li><a href="FullscreenToggle.html#event:dispose">FullscreenToggle#event:dispose</a></li><li><a href="FullscreenToggle.html#event:ready">FullscreenToggle#event:ready</a></li><li><a href="FullscreenToggle.html#event:resize">FullscreenToggle#event:resize</a></li><li><a href="FullscreenToggle.html#event:tap">FullscreenToggle#event:tap</a></li><li><a href="Html5.html#event:audiotrackchange">Html5#event:audiotrackchange</a></li><li><a href="Html5.html#event:progress">Html5#event:progress</a></li><li><a href="Html5.html#event:texttrackchange">Html5#event:texttrackchange</a></li><li><a href="Html5.html#event:timeupdate">Html5#event:timeupdate</a></li><li><a href="Html5.html#event:videotrackchange">Html5#event:videotrackchange</a></li><li><a href="Html5.html#event:vttjsloaded">Html5#event:vttjsloaded</a></li><li><a href="LiveDisplay.html#event:dispose">LiveDisplay#event:dispose</a></li><li><a href="LiveDisplay.html#event:ready">LiveDisplay#event:ready</a></li><li><a href="LiveDisplay.html#event:resize">LiveDisplay#event:resize</a></li><li><a href="LiveDisplay.html#event:tap">LiveDisplay#event:tap</a></li><li><a href="LoadingSpinner.html#event:dispose">LoadingSpinner#event:dispose</a></li><li><a href="LoadingSpinner.html#event:ready">LoadingSpinner#event:ready</a></li><li><a href="LoadingSpinner.html#event:resize">LoadingSpinner#event:resize</a></li><li><a href="LoadingSpinner.html#event:tap">LoadingSpinner#event:tap</a></li><li><a href="LoadProgressBar.html#event:dispose">LoadProgressBar#event:dispose</a></li><li><a href="LoadProgressBar.html#event:ready">LoadProgressBar#event:ready</a></li><li><a href="LoadProgressBar.html#event:resize">LoadProgressBar#event:resize</a></li><li><a href="LoadProgressBar.html#event:tap">LoadProgressBar#event:tap</a></li><li><a href="MediaLoader.html#event:dispose">MediaLoader#event:dispose</a></li><li><a href="MediaLoader.html#event:ready">MediaLoader#event:ready</a></li><li><a href="MediaLoader.html#event:resize">MediaLoader#event:resize</a></li><li><a href="MediaLoader.html#event:tap">MediaLoader#event:tap</a></li><li><a href="Menu.html#event:dispose">Menu#event:dispose</a></li><li><a href="Menu.html#event:ready">Menu#event:ready</a></li><li><a href="Menu.html#event:resize">Menu#event:resize</a></li><li><a href="Menu.html#event:tap">Menu#event:tap</a></li><li><a href="MenuButton.html#event:dispose">MenuButton#event:dispose</a></li><li><a href="MenuButton.html#event:ready">MenuButton#event:ready</a></li><li><a href="MenuButton.html#event:resize">MenuButton#event:resize</a></li><li><a href="MenuButton.html#event:tap">MenuButton#event:tap</a></li><li><a href="MenuItem.html#event:dispose">MenuItem#event:dispose</a></li><li><a href="MenuItem.html#event:ready">MenuItem#event:ready</a></li><li><a href="MenuItem.html#event:resize">MenuItem#event:resize</a></li><li><a href="MenuItem.html#event:tap">MenuItem#event:tap</a></li><li><a href="ModalDialog.html#event:beforemodalclose">ModalDialog#event:beforemodalclose</a></li><li><a href="ModalDialog.html#event:beforemodalempty">ModalDialog#event:beforemodalempty</a></li><li><a href="ModalDialog.html#event:beforemodalfill">ModalDialog#event:beforemodalfill</a></li><li><a href="ModalDialog.html#event:beforemodalopen">ModalDialog#event:beforemodalopen</a></li><li><a href="ModalDialog.html#event:dispose">ModalDialog#event:dispose</a></li><li><a href="ModalDialog.html#event:modalclose">ModalDialog#event:modalclose</a></li><li><a href="ModalDialog.html#event:modalempty">ModalDialog#event:modalempty</a></li><li><a href="ModalDialog.html#event:modalfill">ModalDialog#event:modalfill</a></li><li><a href="ModalDialog.html#event:modalopen">ModalDialog#event:modalopen</a></li><li><a href="ModalDialog.html#event:ready">ModalDialog#event:ready</a></li><li><a href="ModalDialog.html#event:resize">ModalDialog#event:resize</a></li><li><a href="ModalDialog.html#event:tap">ModalDialog#event:tap</a></li><li><a href="MouseTimeDisplay.html#event:dispose">MouseTimeDisplay#event:dispose</a></li><li><a href="MouseTimeDisplay.html#event:ready">MouseTimeDisplay#event:ready</a></li><li><a href="MouseTimeDisplay.html#event:resize">MouseTimeDisplay#event:resize</a></li><li><a href="MouseTimeDisplay.html#event:tap">MouseTimeDisplay#event:tap</a></li><li><a href="MuteToggle.html#event:dispose">MuteToggle#event:dispose</a></li><li><a href="MuteToggle.html#event:ready">MuteToggle#event:ready</a></li><li><a href="MuteToggle.html#event:resize">MuteToggle#event:resize</a></li><li><a href="MuteToggle.html#event:tap">MuteToggle#event:tap</a></li><li><a href="Player.html#event:abort">Player#event:abort</a></li><li><a href="Player.html#event:canplay">Player#event:canplay</a></li><li><a href="Player.html#event:canplaythrough">Player#event:canplaythrough</a></li><li><a href="Player.html#event:controlsdisabled">Player#event:controlsdisabled</a></li><li><a href="Player.html#event:controlsenabled">Player#event:controlsenabled</a></li><li><a href="Player.html#event:dispose">Player#event:dispose</a></li><li><a href="Player.html#event:durationchange">Player#event:durationchange</a></li><li><a href="Player.html#event:emptied">Player#event:emptied</a></li><li><a href="Player.html#event:ended">Player#event:ended</a></li><li><a href="Player.html#event:enterFullWindow">Player#event:enterFullWindow</a></li><li><a href="Player.html#event:error">Player#event:error</a></li><li><a href="Player.html#event:exitFullWindow">Player#event:exitFullWindow</a></li><li><a href="Player.html#event:firstplay">Player#event:firstplay</a></li><li><a href="Player.html#event:fullscreenchange">Player#event:fullscreenchange</a></li><li><a href="player_.html#event:loadeddata">player#event:loadeddata</a></li><li><a href="Player.html#event:loadeddata">Player#event:loadeddata</a></li><li><a href="Player.html#event:loadedmetadata">Player#event:loadedmetadata</a></li><li><a href="Player.html#event:loadstart">Player#event:loadstart</a></li><li><a href="Player.html#event:pause">Player#event:pause</a></li><li><a href="Player.html#event:play">Player#event:play</a></li><li><a href="Player.html#event:playing">Player#event:playing</a></li><li><a href="Player.html#event:posterchange">Player#event:posterchange</a></li><li><a href="Player.html#event:progress">Player#event:progress</a></li><li><a href="player_.html#event:ratechange">player#event:ratechange</a></li><li><a href="Player.html#event:ready">Player#event:ready</a></li><li><a href="Player.html#event:resize">Player#event:resize</a></li><li><a href="Player.html#event:seeked">Player#event:seeked</a></li><li><a href="Player.html#event:seeking">Player#event:seeking</a></li><li><a href="Player.html#event:stalled">Player#event:stalled</a></li><li><a href="Player.html#event:suspend">Player#event:suspend</a></li><li><a href="Player.html#event:tap">Player#event:tap</a></li><li><a href="Player.html#event:textdata">Player#event:textdata</a></li><li><a href="player_.html#event:texttrackchange">player#event:texttrackchange</a></li><li><a href="player_.html#event:timeupdate">player#event:timeupdate</a></li><li><a href="Player.html#event:timeupdate">Player#event:timeupdate</a></li><li><a href="Player.html#event:useractive">Player#event:useractive</a></li><li><a href="Player.html#event:userinactive">Player#event:userinactive</a></li><li><a href="Player.html#event:usingcustomcontrols">Player#event:usingcustomcontrols</a></li><li><a href="Player.html#event:usingnativecontrols">Player#event:usingnativecontrols</a></li><li><a href="Player.html#event:volumechange">Player#event:volumechange</a></li><li><a href="player_.html#event:volumechange">player#event:volumechange</a></li><li><a href="Player.html#event:waiting">Player#event:waiting</a></li><li><a href="PlayProgressBar.html#event:dispose">PlayProgressBar#event:dispose</a></li><li><a href="PlayProgressBar.html#event:ready">PlayProgressBar#event:ready</a></li><li><a href="PlayProgressBar.html#event:resize">PlayProgressBar#event:resize</a></li><li><a href="PlayProgressBar.html#event:tap">PlayProgressBar#event:tap</a></li><li><a href="PlayToggle.html#event:dispose">PlayToggle#event:dispose</a></li><li><a href="PlayToggle.html#event:ready">PlayToggle#event:ready</a></li><li><a href="PlayToggle.html#event:resize">PlayToggle#event:resize</a></li><li><a href="PlayToggle.html#event:tap">PlayToggle#event:tap</a></li><li><a href="Popup.html#event:dispose">Popup#event:dispose</a></li><li><a href="Popup.html#event:ready">Popup#event:ready</a></li><li><a href="Popup.html#event:resize">Popup#event:resize</a></li><li><a href="Popup.html#event:tap">Popup#event:tap</a></li><li><a href="PopupButton.html#event:dispose">PopupButton#event:dispose</a></li><li><a href="PopupButton.html#event:ready">PopupButton#event:ready</a></li><li><a href="PopupButton.html#event:resize">PopupButton#event:resize</a></li><li><a href="PopupButton.html#event:tap">PopupButton#event:tap</a></li><li><a href="PosterImage.html#event:dispose">PosterImage#event:dispose</a></li><li><a href="PosterImage.html#event:ready">PosterImage#event:ready</a></li><li><a href="PosterImage.html#event:resize">PosterImage#event:resize</a></li><li><a href="PosterImage.html#event:tap">PosterImage#event:tap</a></li><li><a href="ProgressControl.html#event:dispose">ProgressControl#event:dispose</a></li><li><a href="ProgressControl.html#event:ready">ProgressControl#event:ready</a></li><li><a href="ProgressControl.html#event:resize">ProgressControl#event:resize</a></li><li><a href="ProgressControl.html#event:tap">ProgressControl#event:tap</a></li><li><a href="RemainingTimeDisplay.html#event:dispose">RemainingTimeDisplay#event:dispose</a></li><li><a href="RemainingTimeDisplay.html#event:ready">RemainingTimeDisplay#event:ready</a></li><li><a href="RemainingTimeDisplay.html#event:resize">RemainingTimeDisplay#event:resize</a></li><li><a href="RemainingTimeDisplay.html#event:tap">RemainingTimeDisplay#event:tap</a></li><li><a href="SeekBar.html#event:slideractive">SeekBar#event:slideractive</a></li><li><a href="SeekBar.html#event:sliderinactive">SeekBar#event:sliderinactive</a></li><li><a href="Slider.html#event:dispose">Slider#event:dispose</a></li><li><a href="Slider.html#event:ready">Slider#event:ready</a></li><li><a href="Slider.html#event:resize">Slider#event:resize</a></li><li><a href="Slider.html#event:slideractive">Slider#event:slideractive</a></li><li><a href="Slider.html#event:sliderinactive">Slider#event:sliderinactive</a></li><li><a href="Slider.html#event:tap">Slider#event:tap</a></li><li><a href="Spacer.html#event:dispose">Spacer#event:dispose</a></li><li><a href="Spacer.html#event:ready">Spacer#event:ready</a></li><li><a href="Spacer.html#event:resize">Spacer#event:resize</a></li><li><a href="Spacer.html#event:tap">Spacer#event:tap</a></li><li><a href="Tech.html#event:audiotrackchange">Tech#event:audiotrackchange</a></li><li><a href="Tech.html#event:dispose">Tech#event:dispose</a></li><li><a href="Tech.html#event:progress">Tech#event:progress</a></li><li><a href="Tech.html#event:ready">Tech#event:ready</a></li><li><a href="Tech.html#event:resize">Tech#event:resize</a></li><li><a href="Tech.html#event:tap">Tech#event:tap</a></li><li><a href="Tech.html#event:texttrackchange">Tech#event:texttrackchange</a></li><li><a href="Tech.html#event:timeupdate">Tech#event:timeupdate</a></li><li><a href="Tech.html#event:videotrackchange">Tech#event:videotrackchange</a></li><li><a href="Tech.html#event:vttjsloaded">Tech#event:vttjsloaded</a></li><li><a href="TextTrack.html#event:modechange">TextTrack#event:modechange</a></li><li><a href="TextTrackDisplay.html#event:dispose">TextTrackDisplay#event:dispose</a></li><li><a href="TextTrackDisplay.html#event:ready">TextTrackDisplay#event:ready</a></li><li><a href="TextTrackDisplay.html#event:resize">TextTrackDisplay#event:resize</a></li><li><a href="TextTrackDisplay.html#event:tap">TextTrackDisplay#event:tap</a></li><li><a href="TextTrackList.html#event:addtrack">TextTrackList#event:addtrack</a></li><li><a href="TextTrackList.html#event:change">TextTrackList#event:change</a></li><li><a href="TextTrackList.html#event:removetrack">TextTrackList#event:removetrack</a></li><li><a href="TextTrackSettings.html#event:dispose">TextTrackSettings#event:dispose</a></li><li><a href="TextTrackSettings.html#event:ready">TextTrackSettings#event:ready</a></li><li><a href="TextTrackSettings.html#event:resize">TextTrackSettings#event:resize</a></li><li><a href="TextTrackSettings.html#event:tap">TextTrackSettings#event:tap</a></li><li><a href="TimeDivider.html#event:dispose">TimeDivider#event:dispose</a></li><li><a href="TimeDivider.html#event:ready">TimeDivider#event:ready</a></li><li><a href="TimeDivider.html#event:resize">TimeDivider#event:resize</a></li><li><a href="TimeDivider.html#event:tap">TimeDivider#event:tap</a></li><li><a href="TooltipProgressBar.html#event:dispose">TooltipProgressBar#event:dispose</a></li><li><a href="TooltipProgressBar.html#event:ready">TooltipProgressBar#event:ready</a></li><li><a href="TooltipProgressBar.html#event:resize">TooltipProgressBar#event:resize</a></li><li><a href="TooltipProgressBar.html#event:tap">TooltipProgressBar#event:tap</a></li><li><a href="TrackList.html#event:addtrack">TrackList#event:addtrack</a></li><li><a href="TrackList.html#event:change">TrackList#event:change</a></li><li><a href="TrackList.html#event:removetrack">TrackList#event:removetrack</a></li><li><a href="VideoTrack.html#event:selectedchange">VideoTrack#event:selectedchange</a></li><li><a href="VideoTrackList.html#event:addtrack">VideoTrackList#event:addtrack</a></li><li><a href="VideoTrackList.html#event:change">VideoTrackList#event:change</a></li><li><a href="VideoTrackList.html#event:removetrack">VideoTrackList#event:removetrack</a></li><li><a href="VolumeBar.html#event:slideractive">VolumeBar#event:slideractive</a></li><li><a href="VolumeBar.html#event:sliderinactive">VolumeBar#event:sliderinactive</a></li><li><a href="VolumeControl.html#event:dispose">VolumeControl#event:dispose</a></li><li><a href="VolumeControl.html#event:ready">VolumeControl#event:ready</a></li><li><a href="VolumeControl.html#event:resize">VolumeControl#event:resize</a></li><li><a href="VolumeControl.html#event:tap">VolumeControl#event:tap</a></li><li><a href="VolumeLevel.html#event:dispose">VolumeLevel#event:dispose</a></li><li><a href="VolumeLevel.html#event:ready">VolumeLevel#event:ready</a></li><li><a href="VolumeLevel.html#event:resize">VolumeLevel#event:resize</a></li><li><a href="VolumeLevel.html#event:tap">VolumeLevel#event:tap</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="global.html#activeCues">activeCues</a></li><li><a href="global.html#createTrackHelper">createTrackHelper</a></li><li><a href="global.html#cues">cues</a></li><li><a href="global.html#currentSrc">currentSrc</a></li><li><a href="global.html#default">default</a></li><li><a href="global.html#emulateTextTracks">emulateTextTracks</a></li><li><a href="global.html#enabled">enabled</a></li><li><a href="global.html#id">id</a></li><li><a href="global.html#kind">kind</a></li><li><a href="global.html#label">label</a></li><li><a href="global.html#language">language</a></li><li><a href="global.html#length">length</a></li><li><a href="global.html#mode">mode</a></li><li><a href="global.html#NONE">NONE</a></li><li><a href="global.html#readyState">readyState</a></li><li><a href="global.html#selected">selected</a></li><li><a href="global.html#track">track</a></li><li><a href="global.html#tryUpdateStyle">tryUpdateStyle</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: CaptionSettingsMenuItem</h1>
+<section>
+
+<header>
+    
+        <h2>
+        CaptionSettingsMenuItem
+        </h2>
+        
+            <div class="class-description"><p>The menu item for caption track settings menu</p></div>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="CaptionSettingsMenuItem"><span class="type-signature"></span>new CaptionSettingsMenuItem(player [, options])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Creates an instance of this class.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>player</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Player.html">Player</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The <code>Player</code> that this class should be attached to.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The key/value store of player options.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		control-bar/text-track-controls/caption-settings-menu-item.js
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="TextTrackMenuItem.html">TextTrackMenuItem</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id="handleClick"><span class="type-signature"></span>handleClick( [event])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>This gets called when an <code>CaptionSettingsMenuItem</code> is &quot;clicked&quot;. See
+<a href="ClickableComponent.html">ClickableComponent</a> for more detailed information on what a click can be.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="EventTarget.html#~Event">EventTarget~Event</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The <code>keydown</code>, <code>tap</code>, or <code>click</code> event that caused this function to be
+       called.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="TextTrackMenuItem.html#handleClick">TextTrackMenuItem#handleClick</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		control-bar/text-track-controls/caption-settings-menu-item.js
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+    <h5>Listens to Events:</h5>
+    <ul>
+        <li>event:tap</li>
+    
+        <li>event:click</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="handleTracksChange"><span class="type-signature"></span>handleTracksChange(event)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Handle text track list change</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="EventTarget.html#~Event">EventTarget~Event</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>change</code> event that caused this function to be called.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="TextTrackMenuItem.html#handleTracksChange">TextTrackMenuItem#handleTracksChange</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		control-bar/text-track-controls/text-track-menu-item.js
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+    <h5>Listens to Events:</h5>
+    <ul>
+        <li><a href="TextTrackList.html#event:change">TextTrackList#event:change</a></li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	Copyright 2017
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	
+		on 5 Jun 2017
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+<script>
+	$( function () {
+		$( '#main' ).localScroll( {
+			offset : { top : 60 } //offset by the height of your header (give or take a few px, see what works for you)
+		} );
+		$( "dt.name" ).each( function () {
+			var $this = $( this ).find("h4");
+			var icon = $( "<i/>" ).addClass( "icon-plus-sign" ).addClass( "pull-right" ).addClass( "icon-white" );
+			var dt = $(this);
+			var children = dt.next( "dd" );
+
+			dt.prepend( icon ).css( {cursor : "pointer"} );
+			dt.addClass( "member-collapsed" ).addClass( "member" );
+
+
+			children.hide();
+
+			dt.children().on( "click", function () {
+				children = dt.next( "dd" );
+				children.slideToggle( "fast", function () {
+
+					if ( children.is( ":visible" ) ) {
+						icon.addClass( "icon-minus-sign" ).removeClass( "icon-plus-sign" ).removeClass( "icon-white" );
+						dt.addClass( "member-open" ).animate( "member-collapsed" );
+					} else {
+						icon.addClass( "icon-plus-sign" ).removeClass( "icon-minus-sign" ).addClass( "icon-white" );
+						dt.addClass( "member-collapsed" ).removeClass( "member-open" );
+					}
+				} );
+			} );
+
+		} );
+	} );
+</script>
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>
