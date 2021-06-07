@@ -1511,7 +1511,7 @@ parent: General Information
           <tr>
             <td><code>inactive</code></td>
             <td>boolean</td>
-            <td>When <code>true</code>, the player will be displayed as a gray box with an error message explaining that the content owner has deactivated the player</strong>. See the <a href="#inactive_details">inactive details</a> content below this table for further information.</td>
+            <td>When <code>true</code>, the player will be displayed as a gray box with an error message explaining that the content owner has deactivated the player. See the <a href="#inactive_details">inactive details</a> content below this table for further information.</td>
           </tr>
           <tr>
             <td><code>template.version</code></td>
@@ -1647,7 +1647,7 @@ parent: General Information
     <section class="bcls-section">
       <h3 id="plugins">plugins</h3>
 
-      <p>The <code translate="No">plugins</code> array specifies the order to initialize video.js plugins and any customized settings to apply to them. The plugin must be supported by a corresponding <code translate="No">scripts</code> property URL entry, and if needed a supporting <code translate="No">stylesheets</code> URL. Each element of the <code translate="No">plugins</code> array is an object with a <code translate="No">name</code> property.
+      <p>The <code translate="No">plugins</code> array specifies the order to initialize video.js plugins and any customized settings to apply to them. The plugin must be supported by a corresponding <code translate="No">scripts</code> property URL entry, and if needed a supporting <code translate="No">stylesheets</code> URL. Each element of the <code translate="No">plugins</code> array is an object with a <code translate="No">name</code> property.</p>
 
       <table class="bcls-table">
         <thead class="bcls-table__head">
@@ -2074,6 +2074,10 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
             <td>A Video Cloud API policy key. See the <a href="/content-protection/policy-keys.html">Policy Keys</a> document for further information.</td>
           </tr>
           <tr>
+            <td><code>source_selection_rules</code></td>
+            <td>An object that contains rules to control the filtering and sorting of the sources array returned in the Playback API response. The result of applying these rules dictates what source will be passed to Video.js.</td>
+          </tr>
+          <tr>
             <td><code>video</code></td>
             <td>A Video Cloud video ID to load. See the curl example at the top of this section for an example.</td>
           </tr>
@@ -2244,6 +2248,23 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players</code></pre>
   }</code></pre>
 
       <aside class="bcls-aside bcls-aside--warning">You may have previously checked the player configuration for the presence of <code translate="No">“playlist”: true</code> to determine if a player was playlist enabled. This does NOT consistently work correctly.</aside>
+
+      <h4><code>source_selection_rules</code></h4>
+      <ul>
+        <li>Data type: object</li>
+        <li>This property, which contains rules that decide which source is played, itself contains one property <code>prefer_mp4</code>.</li>
+        <li>Only available in Brightcove Player 6.55.0 and newer.</li>
+      </ul>
+
+      <p>The <code>prefer_mp4</code> property can contain a boolean value or an array. The property is used to filter the sources array down to only MP4 sources. In other words, this will remove HLS or DASH streaming media from the sources array. Using this configuration is fairly unusual as streaming media provides a better user experience in most cases, but there are valid cases where publishers will want some players to only play MP4s. In those cases, a custom ingest profile is generally the preferred approach, but may not always be feasible. For example, if a publisher has videos that they want to ingest once, but might play in different contexts, this configuration can be helpful. When
+      <pre class="line-numbers"><code class="language-javascript" translate="No">"prefer_mp4": true</code></pre>
+      is used, all non-MP4 media sources will be filtered out of the sources array before being passed to the player as if they were never returned from the Playback API.</p>
+      <p>Publishers can also control the sorting of this filtered list of sources by providing an array. This only supports numeric properties (such as size, height, width, etc.) that are returned by the Playback API. In this case, the first element of the array should be the property on which to sort, andd the second, optional, element should be the direction of the sort,either <code>"asc"</code> or <code>"desc"</code>. The default value is <code>"desc"</code>. For example, to filter out non-MP4 media sources and sort them by size from smallest to largest, you would use:</p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">"video_cloud": {
+  "source_selection_rules": {
+    "prefer_mp4": ["size", "asc"]
+  }
+}</code></pre>
     </section>
 
     <section class="bcls-section">
