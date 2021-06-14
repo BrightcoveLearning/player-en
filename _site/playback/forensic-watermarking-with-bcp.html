@@ -3,16 +3,15 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="robots" content="noindex,nofollow"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will learn how to create a Brightcove Player that detects when the viewer has stopped watching, while leaving the video playing.">
+  <meta name="description" content="In this topic, you will learn how to use Brightcove Player to deliver videos protected with Forensic Watermarking.">
   
-  <title>Brightcove Player Sample: Are You Still Watching?</title>
+  <title>Forensic Watermarking with Brightcove Player</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">  
-<link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
   <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
@@ -32,8 +31,9 @@
   gtag('config', 'UA-2728311-17');
 </script>
   <script src="/assets/js/sajari-head.js"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
+	<script src="https://unpkg.com/feather-icons"></script>
 </head>
+
 
 <body class="body">
 
@@ -62,9 +62,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item"><a href="/code-samples/">Code Samples</a></li>
+      <li class="breadcrumb-item"><a href="/playback/">Playback</a></li>
       
-      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Are You Still Watching?</li>
+      <li class="breadcrumb-item active" aria-current="page">Forensic Watermarking with Brightcove Player</li>
     </ol>
   </nav>
 </header>
@@ -1124,217 +1124,293 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
 
 
-<h1>Brightcove Player Sample: Are You Still Watching?</h1>
 <article class="bcls-article">
-  <h1>Brightcove Player Sample: Are You Still Watching?</h1>
+  <h1>Forensic Watermarking with Brightcove Player</h1>
+  <summary>In this topic, you will learn how to use Brightcove Player to deliver videos protected with Forensic Watermarking.</summary>
+
   <section class="bcls-section">
-    <h2 id="Player_example">Player example</h2>
-    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-    <p>In this sample you will see after a set amount of time, an overlay message is displayed. This sample will display the overlay in 6 seconds, but the time is configurable. If the viewer clicks the message within a specified time, then playback continues. If not, the video is paused. This technique is useful if you have long-form content. This will keep you from wasting bandwidth on viewers who start playing a video and then leave to do something else without bothering to stop it.</p>
-    <p>This sample uses an open source Video.js Plugin located at <a href="https://github.com/TylerZubke/Videojs-AFK-Monitor">https://github.com/TylerZubke/Videojs-AFK-Monitor</a>. The sample code in this document will utilize this plugin.</p>
-    <!-- UPDATE codepen here -->
-    
-    <p class="codepen" data-height="467" data-theme-id="34967" data-default-tab="result" data-user="rcrooks1969" data-slug-hash="gXMENg" style="height: 467px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Are you Still Watching?"><span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/gXMENg/"> Are you Still Watching?</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</span></p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
-    <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18189-are-you-still-watching">complete solution on GitHub</a>.</p>
-    <!-- <p>View source code for the same solution that <a href="https://github.com/BrightcoveLearning/18189-are-you-still-watching/blob/master/still-watching-video-cloud-playlist.html">works across Video Cloud playlists</a>.</p>
-  
-  <p>View source code for the same solution that <a href="https://github.com/BrightcoveLearning/18189-are-you-still-watching/blob/master/still-watching-brightcove-player-playlist.html">works across Brightcove Player playlists</a>.</p> --></section>
-  <section class="bcls-section">
-    <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
-      <p>Here are some tips to effectively use the above CodePen:</p>
-      <ul>
-        <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
-        <li>Click the <strong translate="No">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
-        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
-          <ol>
-            <li>Click the <strong translate="No">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
-            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
-            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
-          </ol>
-        </li>
-      </ul>
-    </details>
+    <h2 id="Introduction">Introduction</h2>
+    <p>
+      With Forensic Watermarking, you can protect your premium content from piracy and unauthorized content sharing. This feature adds an invisible watermark to your videos, allowing you to track any content leaks.
+    </p>
+    <p>For more information, see the <a href="">Overview: Forensic Watermarking</a> document.</p>
   </section>
+
   <section class="bcls-section">
-    <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
-      <p>Here is the recommended development sequence:</p>
-      <ol>
-        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
-        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
-        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
-        <li>Use Studio to add the plugin and CSS to your player</li>
-        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
-      </ol>
-      <p>For details about these steps, review the <a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a> guide.</p>
-      <h3>iframe or In-Page embed</h3>
-      <p>When developing enhancements for the Brightcove Player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
-      <ul>
-        <li>No collisions with existing JavaScript and/or CSS</li>
-        <li>Automatically responsive</li>
-        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
-      </ul>
-      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
-      <ul>
-        <li>Code in the containing page needs to listen for and act on player events</li>
-        <li>The player uses styles from the containing page</li>
-        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
-      </ul>
-      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
-    </details>
+    <h2 id="Requirements">Requirements</h2>
+    <p>The following requirements are needed to support this feature:</p>
+    <h3>Setup</h3>
+    <p>There are setup requirements in addition to configuring your player. For details, see the <a href="">Overview: Forensic Watermarking</a> document.</p>
+
+    <h3>Brightcove Player</h3>
+    <p>Brightcove Player version 6.54+ required; latest version recommended</p>
   </section>
+
   <section class="bcls-section">
-    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
-    <!-- UPDATE table, remove unneeded columns -->
-    
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th>API Methods</th>
-          <th>API Events</th>
-          <th>Brightcove Player Plugins</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#addClass">addClass()</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:useractive">useractive</a></td>
-          <td><a href="/plugins/display-overlay-plugin.html">Overlay Plugin</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#removeClass">removeClass()</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:userinactive">userinactive</a></td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#pause">pause()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#currentTime">currentTime()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.one">one()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#setTimeout">setTimeout()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#hasClass">hasClass()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#duration">duration()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#paused">paused()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#clearTimeout">clearTimeout()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#hasStarted">hasStarted()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#el">el()</a></td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-      </tbody>
-    </table>
-    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
-  <!-- UPDATE player and HTML configuration -->
-  
-  <section class="bcls-section">
-    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
-    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
-    <h3>Player configuration</h3>
-    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
-    <h3>Other HTML</h3>
-    <p>The third party plugin's CSS and JavaScript files are included.</p>
-  </section>
-  <!-- UPDATE application flow -->
-  
-  <section class="bcls-section">
-    <h2 id="Application_flow">Application flow</h2>
-    <p>The basic logic behind this application is:</p>
-    <ul>
-      <li>The <code translate="No">useractive</code> and <code translate="No">userinactive</code> events are watched to track time.</li>
-      <li>The overlay is displayed after the time specified to see if customer is still watching the video.</li>
-      <li>When the overlay has been displayed for the time you specify, and the text has not been clicked, pause the video.</li>
-      <li>When the button is clicked, or the viewer starts the video after pause, reinitialize values and start time tracking again.</li>
-    </ul>
-    <!-- UPDATE task 1 -->
-    
-    <h3>This sample uses the plugin</h3>
-    <p>The plugin is called using best practices, as shown here</p>
-    <pre class="line-numbers">
-  <code class="language-html" translate="No">&lt;script&gt;
-    videojs.getPlayer('myPlayerID').ready(function() {
-      var myPlayer = this;
-      var options = {'showMessageAfter': 1000, 'pausePlayerAfter': 1000};
-      myPlayer.AFKMonitor(options);
-    });
-  &lt;/script&gt;</code></pre>
-    <h3>Configuring the plugin</h3>
-    <p>A number of options can be used to customize the plugin. Some details are:</p>
-    <ul>
-      <li>A complete list of configuration options are found in the plugin's <a href="https://github.com/TylerZubke/Videojs-AFK-Monitor">readme</a> file.</li>
-      <li>The <code translate="No">showMessageAfter</code> (in milliseconds) determines the time before the button is displayed.
-        <aside class="bcls-aside bcls-aside--warning language-editable">Note that since the plugin uses the <code translate="No">userinactive</code> event, the time set by <code translate="No">showMessageAfter</code> will have 5 seconds added to it. This is because the <code translate="No">userinactive</code> event is dispatched after 5 seconds of user inactivity.</aside>
+    <h2 id="Configuring_Brightcove_Player">Configuring Brightcove Player</h2>
+    <p>
+      To configure a player to use Forensic Watermarking, follow these steps:
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          Before you get your video, set a string token with the value of your Nagra watermark key as part of the player catalog object.
+        </p>
+        <pre>
+<code class="language-html" translate="No">catalog.setWatermarkingToken()</code></pre>
       </li>
-      <li>The <code translate="No">pausePlayerAfter</code> (in milliseconds) options is also helpful. This is time you allow the user to click the button before the player is paused. This give the user a chance to click the button without interrupting video playback.</li>
-    </ul>
-    <aside class="bcls-aside bcls-aside--tip language-editable">If you wish to use this plugin with Brightcove Live, you should use the modified plugin located at <a href="https://github.com/BrightcoveLearning/18189-are-you-still-watching/blob/master/plugin/videojs.afk-monitor-live.js">https://github.com/BrightcoveLearning/18189-are-you-still-watching/blob/master/plugin/videojs.afk-monitor-live.js</a>.</aside>
+      <li>
+        <p>
+          After setting the watermarking token, you are ready to request data from the Brightcove Playback API and load it into the player.
+        </p>
+        <p>
+          Here is an example of fetching a single video:
+        </p>
+        <aside class="bcls-aside bcls-aside--tip language-editable">Notice that the <code translate="No">bc()</code> method is used to allow you to set the watermarking token before making a call to the catalog.</aside>
+        <h3>HTML</h3>
+  <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;div style=&quot;max-width: 960px;&quot;&gt;
+  &lt;video-js id=&quot;myPlayerID&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-application-id=&quot;&quot;
+    class=&quot;vjs-fluid&quot;&gt;
+  &lt;/video-js&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://players.brightcove.net/your account id/your player id_default/index.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+        <h3>JavaScript</h3>
+<pre class="line-numbers">
+<code class="language-javascript" translate="No">&lt;script&gt;
+  // +++ Add the player attributes +++
+  var myPlayer,
+    myPlayerEl = document.getElementById(&quot;myPlayerID&quot;);
+  myPlayerEl.setAttribute('data-account', your account id);
+  myPlayerEl.setAttribute('data-player', 'your player id');
+
+  // +++ Create the player +++
+  myPlayer = bc(myPlayerEl);
+
+  // Set the watermarking key
+  <span class="bcls-highlight">myPlayer.catalog.setWatermarkingToken(<span class="bcls-input">your watermark token</span>)</span>;
+
+  myPlayer.catalog.get({id: 'your video id', type: 'video'}).
+  then(function(data) {
+    myPlayer.catalog.load(data);
+    myPlayer.muted(true);
+    myPlayer.play();
+  }).
+  catch(function(error) {
+    throw new Error(error);
+  });
+&lt;/script&gt;
+</code></pre>
+      </li>
+    </ol> 
   </section>
-  <!-- UPDATE CSS description -->
+
+  <section class="bcls-section">
+    <h2 id="Using_a_data_attribute">Using a data attribute</h2>
+    <P>By default, all Brightcove Players make a request to the Playback API if it has a policy key. To make requests that check Playback Rights first, you need to remove the policy key. Here are two ways to do that:</P>
+    <h3>Remove policy key from all players</h3>
+    <p>To avoid the ingest of a policy key for new players created in Video Cloud Studio, do the following:</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>Contact your account manager.</li>
+      <li>
+        <p>Provide your account ID and ask to enable the <code translate="No">remove policy key</code> flag.</p>
+      </li>
+    </ol>
+
+    <h3>Remove policy key from individual players</h3>
+    <p>By default, the <code translate="No">remove policy key</code> flag is disabled for your account. To remove the policy key from individual players, do the following:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module.</li>
+      <li>Select the player that you want to remove the policy key from.</li>
+      <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
+      <li>
+        <p>Set the <code translate="No">policy_key</code> field as <code translate="No">null</code>.</p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="JSON editor"
+            src="/assets/images/plugins/google-tag-manager/policy-key-editor.png"
+          />
+          <figcaption class="bcls-caption--image">JSON editor</figcaption>
+        </figure>
+      </li>
+      <li>Save your changes and publish your player.</li>
+    </ol>
+      <!-- <pre>
+        <code class="language-javascript" translate="No">player.catalog.setPolicyKey(null);</code></pre> -->
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Making_requests_without_Playback_Rights">Making requests without Playback Rights</h2>
+    <p>The process can be reversed to direct requests back to Playback API without rights and restrictions.</p>
+    <p>
+      Set the policy key and authorization token as follows:
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>If you had the <code translate="No">remove policy key</code> flag enabled, then contact your account manager to disable it.</p>
+        <aside class="bcls-aside bcls-aside--information">
+          If you have the <code translate="No">remove policy key</code> flag enabled and you disable it, policy keys will be regenerated for all of your players, except those where you have set the <code translate="No">policy_key</code> field to <code translate="No">null</code>.
+      </li>
+      <li>
+        <p>If you updated individual players in Studio, then update the JSON with your policy key.</p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="JSON editor"
+            src="/assets/images/plugins/google-tag-manager/policy-key-defined.png"
+          />
+          <figcaption class="bcls-caption--image">JSON editor</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>Set the authorization token to <code translate="No">null</code>.</p>
+        <pre>
+<code class="language-javascript" translate="No">player.catalog.setBcovAuthToken(null);</code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_an_auth_token">Using an auth token</h2>
+    <p>To use License Keys Protection, pass a string token as part of the <a href="https://player.support.brightcove.com/references/player-catalog.html">player catalog</a> object, using the property name <code translate="No">bcovAuthToken</code>.</p>
+    <p>This approach works for both DRM and HLSe content. The player will detect the type of source being loaded from the Playback API and provide the correct implementation for that source.</p>
+
+    <p>To use License Keys Protection, follow these steps:</p>
+    <ol class="bcls-tasklist">
+      <li>Create a signed <a href="https://general.support.brightcove.com/developer/create-json-web-token.html">JSON Web Token (JWT)</a>.</li>
+      <li>
+        <p>Include this token with the video request.</p>
+        <p>This sample implementation code uses the <a href="https://player.support.brightcove.com/references/player-catalog.html#get_method">catalog.get()</a> method to request the video while supplying the token.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Be sure NOT to include the <code translate="No">data-video-id</code> parameter in the <code translate="No">&lt;video-js&gt;</code> tag.</aside>
+<pre class="line-numbers">
+  <code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+    data-account=&quot;1507807800001&quot;
+    data-player=&quot;default&quot;
+    data-embed=&quot;default&quot;
+    controls
+    data-application-id&gt;&lt;/video-js&gt;
+  &lt;script src=&quot;//players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
   
-  <section class="bcls-section">
-    <h2 id="Application_styling">Application styling</h2>
-    <p>The CSS is part of the third party plugin.</p>
+  &lt;script&gt;
+    (function() {
+      var myPlayer = videojs.getPlayer('myPlayerID');
+  
+      myPlayer.catalog.get({
+        type: 'video',
+        id: '6015247091001',
+        <span class="bcls-highlight">bcovAuthToken:</span> '<span class="bcls-input">your jwt token</span>'
+      })
+        .then(function(videoReturned){
+          myPlayer.catalog.load(videoReturned);
+        })
+        .catch(function(err){
+          console.log('err:', err);
+        });
+    })();
+  &lt;/script&gt;</code></pre>
+      </li>
+    </ol>
   </section>
+
   <section class="bcls-section">
-    <h2 id="Plugin_code">Plugin code</h2>
-    <p>You will want to clone the repo to access the code and then place it in an Internet accessible location for your use.</p>
-    <aside class="bcls-aside bcls-aside--information language-editable">You will want to update the plugin's JavaScript code. In the repo the following, now outdated, code is used to register the plugin:
-      <pre class="line-numbers">
-  <code class="language-javascript" translate="No">videojs.plugin('AFKMonitor', AFKMonitor);</code></pre>
-      <p>You should replace that line of code with:</p>
-      <pre class="line-numbers">
-  <code class="language-javascript" translate="No">videojs.registerPlugin('AFKMonitor', AFKMonitor);</code></pre>
-    </aside>
-    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18189-are-you-still-watching/blob/master/plugin/videojs.afk-monitor.js">videojs.afk-monitor.js</a>.</p>
-    <h3>Using the plugin with a player</h3>
-    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
-    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
+    <h2 id="configuring_server_side_ads_SSAI">Configuring server-side ads (SSAI)</h2>
+    <p>If you are using License Keys Protection with SSAI, then you need to include an additional parameter to the catalog parameters object, named <code translate="No">adConfigId</code>. </p>
+    <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1507807800001&quot;
+  data-player=&quot;default&quot;
+  data-embed=&quot;default&quot;
+  controls
+  data-application-id&gt;&lt;/video-js&gt;
+&lt;script src=&quot;//players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  (function() {
+    var myPlayer = videojs.getPlayer('myPlayerID');
+
+    myPlayer.catalog.get({
+      type: 'video',
+      id: '6015247091001',
+      bcovAuthToken: '<span class="bcls-input">your jwt token</span>',
+      <span class="bcls-highlight">adConfigId:</span> '<span class="bcls-input">your ad configuration id</span>'
+    })
+      .then(function(videoReturned){
+        myPlayer.catalog.load(videoReturned);
+      })
+      .catch(function(err){
+        console.log('err:', err);
+      });
+  })();
+&lt;/script&gt;</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_a_custom_implementation">Using a custom implementation</h2>
+    <p>You may be using a custom implementation where you don't have the <code translate="No">bcovAuthToken</code> to set the value with the the <a href="https://support.brightcove.com/player-catalog#get_method">catalog.get()</a> method request. If you are using your own or a third-party player, you can use one of the following approaches to pass your token into the license request:</p>
+    <ul>
+      <li>
+        HTTP header: <code translate="No">BCOV-Auth</code> (Not supported for HLSe)
+      </li>
+      <li>
+        Cookie: <code translate="No">bcov-auth</code> (Not supported for HLSe)
+      </li>
+      <li>
+        Query parameter: <code translate="No">bcov-auth</code> (Only supported for HLSe) Must be appended to the master manifest url, instead of the license url
+      </li>
+    </ul>
+    <p>
+      Here is an example showing how to set the <code translate="No">source.emeHeaders['BCOV-Auth']</code> attribute on the video object to the token. This inserts the <code translate="No">emeHeader</code> on each source AFTER the catalog request.
+    </p>
+    <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1507807800001&quot;
+  data-player=&quot;default&quot;
+  data-embed=&quot;default&quot;
+  controls
+  data-application-id&gt;&lt;/video-js&gt;
+&lt;script src=&quot;//players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  (function() {
+    var myPlayer = videojs.getPlayer('myPlayerID');
+
+    myPlayer.catalog.get({
+      type: 'video',
+      id: '6015247091001'
+    })
+    .then(function(video){
+      sources=video.sources;
+
+      for (let i = 0; i &lt; sources.length; i++) {
+        const source = sources[i];
+
+        // Only add the auth token as an eme header for DRM content
+        if (<span class="bcls-input">your jwt token</span> &amp;&amp; source.key_systems) {
+          source.emeHeaders = {
+              'BCOV-Auth': <span class="bcls-input">your jwt token</span>
+            };
+        }
+      }
+        myPlayer.catalog.load(video);
+      })
+      .catch(function(err){
+        console.log('err:', err);
+      });
+  })();
+&lt;/script&gt;</code></pre>
+    <!-- <p>
+      For more details about working with MPEG-DASH, see the <a href="https://support.brightcove.com/creating-dash-drm-manifest-brightcove-player">Creating a DASH DRM Manifest for the Brightcove Player</a> document.
+    </p> -->
+
   </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
