@@ -1,10 +1,11 @@
 ---
 title: Manually Setting the Player Version
 parent: Troubleshooting
+description: In this topic, you will learn how to manually set the player version.
 ---
 <article class="bcls-article">
   <h1>Manually Setting the Player Version</h1>
-  <summary>In this topic, you will learn how to manually set the player version.</summary>
+  <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="Why_manually_change_the_version">Why manually change the version</h2>
     <p>You may have to rollback to a previous player version as you find a player upgrade is causing an issue. You can rollback to a previous version until testing is completed to find the reason for the issue and it is resolved.</p>
@@ -15,13 +16,13 @@ parent: Troubleshooting
     <p>These steps allow you to manually set a player version.</p>
     <ol class="bcls-tasklist">
       <li>First, you will want to set the player to manually update. This will prevent a player version change to be overridden by a player update. To do this, go to Studio, <strong>PLAYERS</strong> module and in the <strong>Player Information</strong> section set the <strong>Update Mode</strong> to <strong>Manual.</strong>
-        <figure class="bcls-figure"><img class="bcls-image" alt="studio ui set manual" src="//learning-services-media.brightcove.com/doc-assets/player-development/troubleshooting/manually-change-player-version/studio-ui-set-manual.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="studio ui set manual" src="/assets/images/troubleshooting/version-studio-ui-set-manual.png"></figure>
         Of course, save your changes.</li>
       <li>Now you will manually set the player version using the <strong>JSON Editor</strong> in the <strong>PLAYERS</strong> module. This is an example of a player configuration looks before any version change is made:
-        <figure class="bcls-figure"><img class="bcls-image" alt="player configuration before change" src="//learning-services-media.brightcove.com/doc-assets/player-development/troubleshooting/manually-change-player-version/json-editor-before.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="player configuration before change" src="/assets/images/troubleshooting/version-json-editor-before.png" /></figure>
         <aside class="bcls-aside bcls-aside--tip language-editable">Note the <code translate="No">"locked": true</code> attribute is a result of step 1.</aside>
         In the <strong>JSON Editor</strong>, alter the <strong>version</strong> attribute to your desired version.
-        <figure class="bcls-figure"><img class="bcls-image" alt="player configuration after change" src="//learning-services-media.brightcove.com/doc-assets/player-development/troubleshooting/manually-change-player-version/json-editor-after.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="player configuration after change" src="/assets/images/troubleshooting/version-json-editor-after.png" /></figure>
         Be sure to save your changes then publish your player.</li>
     </ol>
     <p>Don't forget once the issue is corrected to change your player back to be automatically updated.</p>
