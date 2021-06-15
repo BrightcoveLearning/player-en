@@ -1156,8 +1156,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>When publishing videos using the Media module, you can use the player URL to preview the video or copy the iframe or In-Page embed code to paste into your web page or application.</p>
       <p class="BCL-aside">Note: Click the <strong>Shorten</strong> button next to the preview URL to generate a shortened preview URL.</p>
       <p>The <strong>Standard</strong> link displays the iframe embed code and the <strong>Advanced</strong> link displays the In-Page embed code. From the Player Management API perspective, you will also see the <strong>Advanced</strong> player code referred to as the <strong>embed_in_page</strong> implementation.</p>
-      <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node15622-pub-code-options.png" /></div>
-      <p class="BCL-aside">Note: For information on working with responsive players, see the <a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a> developer document.</p>
+      <div><img class="bcls-image--no-border" alt="" src="/assets/images/publish/node15622-pub-code-options.png" /></div>
+      <aside class="bcls-aside bcls-aside--information">Note: For information on working with responsive players, see the <a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a> developer document.</aside>
       <div>
         <h2 id="inpage">In-Page embed code (Advanced)</h2>
         <p>Typical in-page embed code will appear as follows:</p>
@@ -1180,7 +1180,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>Even if your final implementation does not use the iframe embed&nbsp;code, you can still use the In-Page code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
         <h3>Chrome and "broken" HTML video icon</h3>
         <p>Chrome versions 67+ will display a broken video icon momentarily until the <code translate="No">&lt;video ...&gt;</code> tag gets converted into a Brightcove Player. The icon appears as follows:</p>
-        <figure class="bcls-figure"><img class="bcls-image" width="200" height="109" alt="chrome broken video icon" src="//learning-services-media.brightcove.com/doc-assets/general/chrome-broken-video-icon.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" width="200" height="109" alt="chrome broken video icon" src="/assets/images/publish/chrome-broken-video-icon.png" /></figure>
         <p>If you are using Brightcove Player version 6.11+, you change the video tag to <code translate="No">&lt;video-js ...&gt;</code> and you will NOT see the icon.</p>
       </div>
       <div class="BCL-concept">
@@ -1332,12 +1332,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p><code translate="No">auto</code> (default): Start loading the video immediately (if the browser agrees). Some mobile devices like iPhones and iPads will not preload the video in order to protect their users' bandwidth. This is why the value is called <strong>auto</strong> and not something more final like <strong>true</strong>.</p>
         <aside class="bcls-aside bcls-aside--information">For the HLS playback technology, <strong>auto</strong> means the player downloads the m3u8 manifest file and only 1 segment instead of 3-4, as was the case before version 5.3 of Brightcove Player.</aside>
       </li>
-      <li>
-        <p><code translate="No">metadata</code>: Load only the meta data of the video, which includes information like the duration and dimensions of the video.</p>
+      <li><code translate="No">metadata</code>: Load only the meta data of the video, which includes information like the duration and dimensions of the video.
         <aside class="bcls-aside bcls-aside--information">For the HLS playback technology, <strong>metadata</strong> is the same as <strong>auto</strong>.</aside>
       </li>
-      <li>
-        <p><code translate="No">none</code>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading. Note that on iOS there may be segment downloading even with this setting. See the <a href="/playback/ios-and-brightcove-player.html">Brightcove Player and iOS</a> document for more information.</p>
+      <li><code translate="No">none</code>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading. Note that on iOS there may be segment downloading even with this setting. See the <a href="/playback/ios-and-brightcove-player.html">Brightcove Player and iOS</a> document for more information.
         <aside class="bcls-aside bcls-aside--information">For the HLS playback technology, <strong>none</strong> means the player will only download the m3u8 manifest so that the video duration can be calculated.</aside>
       </li>
     </ul>
