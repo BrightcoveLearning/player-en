@@ -1,10 +1,11 @@
 ---
 title: Running a Network Path Trace
 parent: Troubleshooting
+description: In this topic, you will learn how to display the network route between your computer and a website's servers. This will help you determine internet connection problems, including packet loss and latency.
 ---
 <article class="bcls-article">
   <h1>Running a Network Path Trace</h1>
-  <summary>In this topic, you will learn how to display the network route between your computer and a website's servers. This will help you determine internet connection problems, including packet loss and latency.</summary>
+  <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>The <code translate="No">traceroute</code> diagnostic tool tracks the path from your computer to the website in question. The tool sends a sequence of packets across the network and receives responses from each router in the path. By doing this, it determines if there are any problems along the path.</p>
@@ -23,7 +24,7 @@ parent: Troubleshooting
 <code class="language-html" translate="No">traceroute6 <span class="bcls-highlight">your_domain.com</span></code></pre>
       </li>
       <li>You should see the traffic path taken to your site. It will build as responses are received from the routers along the way. The first line represents your router. The next line is from your ISP, and it continues until the packets reach your website. Your output should look similar to this:
-        <figure class="bcls-figure"><img class="bcls-image" alt="traceroute output" src="//learning-services-media.brightcove.com/doc-assets/concepts/traceroute/trace.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="traceroute output" src="/assets/images/troubleshooting/trace.png" /></figure>
       </li>
       <li>Don't worry about understanding the output. From your Terminal window, select <strong>Edit</strong> &gt; <strong>Select All</strong>. Then, copy the output to your clipboard.</li>
       <li>Paste the output to an email and send it to the appropriate support personnel.</li>
