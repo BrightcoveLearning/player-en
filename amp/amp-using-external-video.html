@@ -1,10 +1,11 @@
 ---
 title: AMP Using an External Video
 parent: amp
+description: In this topic, you will learn how Accelerated Mobile Pages (AMP) can be used with Brightcove Player and an external, non-Video Cloud video.
 ---
 <article class="bcls-article">
     <h1>AMP Using an External Video</h1>
-    <summary>In this topic, you will learn how Accelerated Mobile Pages (AMP) can be used with Brightcove Player and an external, non-Video Cloud video.</summary>
+    <summary>{{ page.description }}</summary>
     <section class="bcls-section">
         <aside class="bcls-aside bcls-aside--warning">This document uses AMP with Brightcove Player and a video NOT ingested into Video Cloud. If you are a Video Cloud customer, see <a href="/playback/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a>.</aside>
         <h2 id="Overview">Overview</h2>
@@ -120,7 +121,7 @@ parent: amp
         <pre class="line-numbers">
   <code class="language-html" translate="No">&lt;iframe frameborder="0" allowfullscreen="true" src="https://players.brightcove.net/3676484087001/ByrhJWAPf_default/index.html?<span class="bcls-highlight">videoUrl=%2F%2Fsolutions.brightcove.com%2Fbcls%2Fvideos%2Fcalm-day-oregon-coast.mp4"</span>; class="i-amphtml-fill-content" kwframeid="1"&gt;&lt;/iframe&gt;</code></pre>
         <p>If you scroll over in the iframe code, you will see the query string shown here:</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="AMP iframe source" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/AMP/amp-url.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="AMP iframe source" src="/assets/images/amp/amp-external-amp-url.png" /></figure>
         <p>Notice that the query string name is <code translate="No">videoUrl</code>. Also note that the URL has been URL encoded. Both of these issues will reflected in the plugin code, shown here:</p>
         <ul>
             <li>Lines 21-38: A helper function that finds the value associated with a query string, passed to the function as a parameter.</li>
