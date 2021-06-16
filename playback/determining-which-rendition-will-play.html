@@ -61,16 +61,16 @@ parent: Playback
     <p>The process is illustrated below:</p>
     <ol>
       <li>Whenever a new segment is downloaded, the download bitrate is calculated based on the size of the segment and the time it took to download:
-        <figure class="bcls-figure"><img class="bcls-image" alt="HLS rendition1" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/HLS-rendition-1.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="HLS rendition1" src="/assets/images/playback/HLS-rendition-1.png" /></figure>
       </li>
       <li>All the renditions that have a higher bitrate than the new measurement are filtered out:
-        <figure class="bcls-figure"><img class="bcls-image" alt="HLS rendition2" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/HLS-rendition-2.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="HLS rendition2" src="/assets/images/playback/HLS-rendition-2.png" /></figure>
       </li>
       <li>Any renditions that are bigger than the current player's dimensions are filtered out:
-        <figure class="bcls-figure"><img class="bcls-image" alt="HLS rendition3" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/HLS-rendition-3.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="HLS rendition3" src="/assets/images/playback/HLS-rendition-3.png" /></figure>
       </li>
       <li>A significant quality drop is not wanted just because your player is one pixel too small, so we add back in the next highest resolution. The highest bitrate rendition that remains is the one that gets used:
-        <figure class="bcls-figure"><img class="bcls-image" alt="HLS rendition4" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/HLS-rendition-4.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="HLS rendition4" src="/assets/images/playback/HLS-rendition-4.png" /></figure>
       </li>
     </ol>
     <p>If it turns out no rendition is acceptable based on the filtering described above, the first encoding listed in the master playlist will be used.</p>
@@ -99,7 +99,7 @@ parent: Playback
   #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Deutsch&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;de&quot;,URI=&quot;subtitles_de.m3u8&quot;
   #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;English&quot;,DEFAULT=YES,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;en&quot;,URI=&quot;subtitles_en.m3u8&quot;
   #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Espanol&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;es&quot;,URI=&quot;subtitles_es.m3u8&quot;
-  #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Français&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;fr&quot;,URI=&quot;subtitles_fr.m3u8&quot;
+  #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID=&quot;subs&quot;,NAME=&quot;Français&quot;,DEFAULT=NO,AUTOSELECT=YES,FORCED=NO,LANGUAGE=&quot;fr&quot;,URI=&quot;subtitles_fr.m3u8&quot;
   
   #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=258157,CODECS=&quot;avc1.4d400d,mp4a.40.2&quot;,<span class="bcls-highlight">AUDIO=&quot;stereo&quot;</span>,RESOLUTION=422x180,SUBTITLES=&quot;subs&quot;
   video/250kbit.m3u8
