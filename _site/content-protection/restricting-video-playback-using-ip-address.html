@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="This topic provides an overview of how IP address restriction can be used to limit video distribution. IP address restriction is available only to Video Cloud Enterprise publishers.">
   
   <title>Restricting Video Playback Using IP Address</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1134,10 +1134,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <article class="bcls-article">
   <h1>Restricting Video Playback Using IP Address</h1>
-  <summary>
-    <p>This topic provides an overview of how IP address restriction can be used to limit video distribution.</p>
-    <aside class="bcls-aside bcls-aside--information">IP address restriction is available only to Video Cloud Enterprise publishers.</aside>
-  </summary>
+  <summary>This topic provides an overview of how IP address restriction can be used to limit video distribution. <aside class="bcls-aside bcls-aside--information">IP address restriction is available only to Video Cloud Enterprise publishers.</aside></summary>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>In order to limit video playback to internal viewers only, Video&nbsp;Cloud Enterprise publishers can use IP address restriction. This approach prevents all the players in an account from loading unless the browser loading the player uses one of a specified list (whitelist) of allowed IP addresses. This provides a level of security that goes beyond <a href="https://studio.support.brightcove.com/players/configuring-player-content-restrictions.html#domains">domain restriction</a> or <a href="https://studio.support.brightcove.com/players/configuring-player-content-restrictions.html#geofilter">geo-restriction</a>.</p>
@@ -1187,7 +1184,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The downside to this approach is that it will introduce a very slight delay to the retrieval of cached content from outside of the US because catalog requests will be going to Virginia in the U.S. rather than through Cloudfront's global network of local servers. It's likely that this will be barely noticeable, but it's worth considering and testing. Content itself will be delivered as normal, from local servers. When accessing from North America or through an North American proxy, there will be no change in performance at all.</p>
     <p>If you feel the slight delay is worth the benefit, you must configure every player that needs to access the IP restricted account from outside North America. You can make this change in Studio in the <strong>PLAYERS</strong> module. The following steps lead you through the configuration change:</p>
     <ol class="bcls-tasklist">
-      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to make the configuration change.</li>
+      <li>Open the <strong>Players</strong> module and either create a new player or locate the player to which you wish to make the configuration change.</li>
       <li>Click the link for the player to open the player's properties.</li>
       <li>Click <strong>JSON Editor</strong> in the left navigation menu.</li>
       <li>Locate the <strong>video_cloud</strong> section in the JSON, which will look similar to the following (there may be more or fewer name/value pairs):
@@ -1201,7 +1198,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-json" translate="No">"base_url": "https://edge-elb.api.brightcove.com/playback/v1/"</code></pre>
       </li>
       <li>The JSON Editor should appear similar to the following:
-        <figure class="bcls-figure"><img class="bcls-image" alt="json editor" src="//learning-services-media.brightcove.com/doc-assets/player-development/restrictions/ip-address-restrictions/json-editor.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="json editor" src="/assets/images/general/json-editor-restrict.png" /></figure>
       </li>
       <li>Save and publish the updated player.</li>
     </ol>
