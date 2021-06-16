@@ -1,10 +1,11 @@
 ---
 title: Adding Captions to Videos Programmatically
 parent: General Information
+description: In this topic, you will learn how to add captions to videos using the Brightcove Player.
 ---
 <article class="bcls-article">
   <h1>Adding Captions to Videos Programmatically</h1>
-  <summary>In this topic, you will learn how to add captions to videos using the Brightcove Player.</summary>
+  <summary>{{ page.description }}</summary>
   <style type="text/css">
 .vjs-text-track {
 	background-color: black;
@@ -139,10 +140,10 @@ you can accomplish using it.</code></pre>
 &lt;/script&gt;</code></pre>
       </li>
       <li>Publish the page with the player. When a player with associated captions is published, a <strong>CC</strong> button will appear on the player chrome.
-        <figure class="bcls-figure"><img class="bcls-image" alt="CC button on toolbar" src="//img.brightcove.com/cc-button.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="CC button on toolbar" src="/assets/images/general/cc-button.png" /></figure>
       </li>
       <li>Click the <strong>CC</strong> button to select a caption language and display the captions.
-        <figure class="bcls-figure"><img class="bcls-image" alt="captions menu" src="//img.brightcove.com/caption-select.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="captions menu" src="/assets/images/general/caption-select.png" /></figure>
       </li>
     </ol>
     <aside class="bcls-aside bcls-aside--tip">Note: For viewers on iOS devices, when viewing videos with captions and ads, we suggest that you explicitly select a track and not set captions to Auto (Recommended) when the video is playing. Using the Auto (Recommended) setting may display incorrect subtitles for ads. Note that using the Auto (Recommended) setting does not affect the captions display for the actual video. Viewers will see video captions for ads but once the video starts playing (pre-rolls) or resumes (mid-rolls), captions will appear as expected.</aside>
@@ -169,7 +170,7 @@ you can accomplish using it.</code></pre>
       windowOpacity: "0.5"
     }) </span>;
 });</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Styled Captions" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/captions/styled-captions.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Styled Captions" src="/assets/images/general/styled-captions.png" /></figure>
     <aside class="bcls-aside bcls-aside--tip language-editable">The <strong>window</strong> is the cyan colored rectangle that is nearly the full width of the player. It is common NOT to use a window, hence the default opacity is <code translate="No">0</code>.</aside>
     <p>Listed in the table below are the caption styles you can alter, and the valid values for those styles:</p>
     <table class="bcls-table">
@@ -277,7 +278,7 @@ you can accomplish using it.</code></pre>
     </table>
     <h3>saveSettings()</h3>
     <p>Another method that could be helpful when styling captions is <code translate="No">player.textTrackSettings.saveSettings()</code>. This method saves to the browser's <strong>localStorage</strong> the current settings of caption styling. The following screenshot from Chrome's <strong>Application</strong> tab shows the local storage for the page serving the player and the name of the key, <strong>vjs-text-track-settings</strong>, and its associated values.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="View local storage" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/captions/view-local-storage.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="View local storage" src="/assets/images/general/view-local-storage.png" /></figure>
     <p>This method gives you the possibility to configure the caption styles using the player's UI, then save the settings and copy the values to use with <code translate="No">player.textTrackSettings.setValues()</code>, as shown above.</p>
   </section>
   <section class="bcls-section">
