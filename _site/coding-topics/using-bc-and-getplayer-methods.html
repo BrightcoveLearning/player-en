@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="In this topic, you will learn about the bc() and getPlayer() methods, including the function of each and best practices of their use. Also included in this document is a comparison of the getPlayer() and videojs() methods for obtaining a reference to a Brightcove Player.">
   
   <title>Using bc() and getPlayer() Methods</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1173,7 +1173,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>For Brightcove Player <strong>v6.11.0+</strong> it is a best practice to use <code translate="No">&lt;video-js&gt;</code> over <code translate="No">&lt;video&gt;</code>. The reasons for this are:</p>
     <ul>
       <li>Using <code translate="No">&lt;video-js&gt;</code> will prevent the flash of native controls problem you can get with a <code translate="No">&lt;video&gt;</code> element. An example of this is in Chrome versions 67+. Chrome will display a broken video icon momentarily until the <code translate="No">&lt;video&gt;</code> tag gets converted into a Brightcove Player. The icon appears as follows:
-        <figure class="bcls-figure"><img class="bcls-image" width="200" height="109" alt="chrome broken video icon" src="//learning-services-media.brightcove.com/doc-assets/general/chrome-broken-video-icon.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" width="200" height="109" alt="chrome broken video icon" src="/assets/images/coding-topics/chrome-broken-video-icon.png" /></figure>
       </li>
       <li>In some cases, such as when using non-Video Cloud media, using <code translate="No">&lt;video-js&gt;</code> will give the player more control over the initialization process. This prevents any automatic browser behaviors that may be associated with the <code translate="No">&lt;video&gt;</code> element.</li>
     </ul>
