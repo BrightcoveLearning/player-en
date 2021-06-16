@@ -1195,10 +1195,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <pre>
 <code class="language-javascript" translate="No">player.catalog.setBcovAuthToken('<span class="bcls-input">your jwt token</span>');</code></pre>
       </li>
-      <li>
-        <p>
-          After changing the policy key and/or authorization token, you are ready to request data from the Brightcove Playback API and load it into the player. This process is identical to the default case.
-        </p>
+      <li>After changing the policy key and/or authorization token, you are ready to request data from the Brightcove Playback API and load it into the player. This process is identical to the default case.
         <p>
           Here is an example of fetching a single video with playback restrictions and an authorization token:
         </p>
@@ -1263,8 +1260,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
     <ol class="bcls-tasklist-restart">
       <li>Contact your account manager.</li>
-      <li>
-        <p>Provide your account ID and ask to enable the <code translate="No">remove policy key</code> flag.</p>
+      <li>Provide your account ID and ask to enable the <code translate="No">remove policy key</code> flag.
       </li>
     </ol>
 
@@ -1274,13 +1270,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module.</li>
       <li>Select the player that you want to remove the policy key from.</li>
       <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
-      <li>
-        <p>Set the <code translate="No">policy_key</code> field as <code translate="No">null</code>.</p>
+      <li>Set the <code translate="No">policy_key</code> field as <code translate="No">null</code>.
         <figure class="bcls-figure">
           <img
             class="bcls-image--no-border"
             alt="JSON editor"
-            src="/assets/images/plugins/google-tag-manager/policy-key-editor.png"
+            src="/assets/images/playback/policy-key-editor.png"
           />
           <figcaption class="bcls-caption--image">JSON editor</figcaption>
         </figure>
@@ -1301,21 +1296,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>If you had the <code translate="No">remove policy key</code> flag enabled, then contact your account manager to disable it.</p>
         <aside class="bcls-aside bcls-aside--information">
-          If you have the <code translate="No">remove policy key</code> flag enabled and you disable it, policy keys will be regenerated for all of your players, except those where you have set the <code translate="No">policy_key</code> field to <code translate="No">null</code>.
+          If you have the <code translate="No">remove policy key</code> flag enabled and you disable it, policy keys will be regenerated for all of your players, except those where you have set the <code translate="No">policy_key</code> field to <code translate="No">null</code>.</aside>
       </li>
-      <li>
-        <p>If you updated individual players in Studio, then update the JSON with your policy key.</p>
+      <li>If you updated individual players in Studio, then update the JSON with your policy key.
         <figure class="bcls-figure">
           <img
             class="bcls-image--no-border"
             alt="JSON editor"
-            src="/assets/images/plugins/google-tag-manager/policy-key-defined.png"
+            src="/assets/images/playback/policy-key-defined.png"
           />
           <figcaption class="bcls-caption--image">JSON editor</figcaption>
         </figure>
       </li>
-      <li>
-        <p>Set the authorization token to <code translate="No">null</code>.</p>
+      <li>Set the authorization token to <code translate="No">null</code>.
         <pre>
 <code class="language-javascript" translate="No">player.catalog.setBcovAuthToken(null);</code></pre>
       </li>
@@ -1330,8 +1323,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>To use License Keys Protection, follow these steps:</p>
     <ol class="bcls-tasklist">
       <li>Create a signed <a href="https://general.support.brightcove.com/developer/create-json-web-token.html">JSON Web Token (JWT)</a>.</li>
-      <li>
-        <p>Include this token with the video request.</p>
+      <li>Include this token with the video request.
         <p>This sample implementation code uses the <a href="https://player.support.brightcove.com/references/player-catalog.html#get_method">catalog.get()</a> method to request the video while supplying the token.</p>
     <aside class="bcls-aside bcls-aside--information language-editable">Be sure NOT to include the <code translate="No">data-video-id</code> parameter in the <code translate="No">&lt;video-js&gt;</code> tag.</aside>
 <pre class="line-numbers">
