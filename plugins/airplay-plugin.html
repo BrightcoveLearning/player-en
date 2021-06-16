@@ -1,6 +1,6 @@
 ---
-title: AirPlay Plugin
-description: In this topic, you will learn how to use the AirPlay plugin to stream content from Brightcove Player to your Apple TV.
+title: Brightcove AirPlay Plugin
+description: In this topic, you will learn how to use the Brightcove AirPlay plugin to stream content from Brightcove Player to your Apple TV.
 parent: Plugins
 layout: staging
 ---
@@ -11,23 +11,22 @@ layout: staging
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2> 
-    <p>The AirPlay plugin allows you to stream video to high-definition displays with Apple TV. Simply tap the AirPlay icon from Brightcove Player to share movies and videos to your Apple TV or AirPlay 2–enabled smart TV.</p> 
+    <p>The Brightcove AirPlay plugin allows you to stream video from your Brightcove Player to high-definition displays with Apple TV. Simply tap the AirPlay icon from Brightcove Player to share movies and videos to your Apple TV or AirPlay 2–enabled smart TV.</p> 
   
   </section>
 
   <section class="bcls-section">
     <h2 id="Requirements">Requirements</h2> 
-    <p>The following requirements are needed to use the AirPlay plugin:</p>
+    <p>The following requirements are needed to use the Brightcove AirPlay plugin:</p>
     <ul>
-      <li>Brightcove Player v6.51.4 and newer</li>
+      <li>Brightcove Player v6.51.4 and newer</li> 
     </ul>
   </section>
 
-  <section class="bcls-section">
+  <!-- <section class="bcls-section">
     <h2 id="Implement_using_Players_module">Implement using Players module</h2> 
     <p>Playlist end screens can be implemented using Video Cloud Studio's <strong>Players</strong> module. For details, see the <a href="https://studio.support.brightcove.com/players/configuring-playlist-endscreen-using-plugin.html">Configuring a Playlist Endscreen Using the playlist-endscreen Plugin</a> document.</p>
-    
-  </section>
+  </section> -->
 
   <section class="bcls-section">
     <h2 id="Implement_using_code">Implement using code</h2> 
@@ -36,26 +35,26 @@ layout: staging
       <li>
         <p>Include the plugin code:</p>
         <pre>
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.js</code></pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-bc-airplay/1/videojs-bc-airplayn.js</code></pre>
       </li>
       <li>
         <p>Include the plugin styles:</p>
         <pre>
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.css</code></pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-bc-airplay/1/videojs-bc-airplay.css</code></pre>
       </li>
-      <li>Use the plugin name to load it into the player: <code translate="No">playlistEndscreen</code></li> 
-      <li>
+      <li>Use the plugin name to load it into the player: <code translate="No">bcAirplay</code></li> 
+      <!-- <li>
         <p>An example set of options is:</p>
         <pre class="line-numbers">
 <code class="language-html" translate="No">{
   &quot;playlistId&quot;: &quot;4602525726001&quot;,
   &quot;title&quot;: &quot;Watch More&quot;
 }</code></pre>
-      </li>
+      </li> -->
       <li>
         <p>Here is an example using the Advanced Embed implementation to associate the Playlist Endscreen plugin with a single instance of a player.</p>
         <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.css&quot; rel=&quot;stylesheet&quot;&gt;
+<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-bc-airplay/1/videojs-bc-airplay.css&quot; rel=&quot;stylesheet&quot;&gt;
   
   &lt;div style=&quot;max-width: 960px;&quot;&gt;
   &lt;video-js id=&quot;myPlayerID&quot;
@@ -71,23 +70,23 @@ layout: staging
 &lt;/div&gt;
 &lt;script src=&quot;https://players.brightcove.net/<span class="bcls-input">your account ID</span>/<span class="bcls-input">your player ID</span>_default/index.min.js&quot;&gt;&lt;/script&gt;
 
-&lt;!-- script for the Playlist Endscreen plugin --&gt;
-&lt;script src=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.js&quot;&gt;&lt;/script&gt;
+&lt;!-- script for the Brightcove AirPlay plugin --&gt;
+&lt;script src=&quot;https://players.brightcove.net/videojs-bc-airplay/1/videojs-bc-airplay.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- custom script --&gt;
 &lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
 
-    // initialize the Playlist Endscreen plugin
-    myPlayer.playlistEndscreen({&quot;playlistId&quot;: &quot;<span class="bcls-input">your playlist ID</span>&quot;}); 
+    // initialize the Brightcove AirPlay plugin
+    myPlayer.bcAirplay(); 
   });
 &lt;/script&gt;</code></pre>
       </li>
     </ol>
   </section>
 
-  <section class="bcls-section">
+  <!-- <section class="bcls-section">
     <h2 id="Options">Options</h2> 
     <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
 
@@ -106,9 +105,9 @@ layout: staging
       <li>Type: <code translate="No">string</code></li>
       <li>Default: <code translate="No">"Related videos"</code></li>
     </ul>
-  </section>
+  </section> -->
 
-  <section class="bcls-section">
+  <!-- <section class="bcls-section">
     <h2 id="Options">Setting playlist ID</h2> 
     <p>This plugin requires an ID for a playlist. The playlist will be fetched from the Playback API and the results will be used to populate the end screen. The playlist ID should come from one of the following sources:</p>
     <ul>
@@ -126,7 +125,7 @@ layout: staging
         <p>Programmatic post-plugin-init: <code translate="No">player.playlistEndscreen().setPlaylistId("123456789")</code></p>
       </li>
     </ul>
-  </section>
+  </section> -->
   
   
   <!-- <section class="bcls-section">
@@ -137,6 +136,7 @@ layout: staging
   </section> -->
   <section class="bcls-section"> 
     <h2 id="changelog">Changelog</h2>
-    <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-playlist-endscreen/index.html">Playlist Endscreen Plugin Release Notes</a>.</p>
+    <p>See the <a href="">Brightcove AirPlay Plugin Release Notes</a>.</p>
+    <!-- <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-playlist-endscreen/index.html">Brightcove AirPlay Plugin Release Notes</a>.</p> -->
   </section>
 </article>
