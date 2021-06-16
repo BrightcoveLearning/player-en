@@ -1,10 +1,12 @@
 ---
 title: 'Brightcove Player Sample: Cue Points Display CTA'
+description: 'In this sample, cue points are used to trigger calls to action (CTA) to be displayed. The cue points are configured in Studio with the cue point <strong>Metadata</strong> property holding a semicolon delimited list of strings that contain information for the CTA.'
 parent: Code Samples
 ---
+<h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <h1>Brightcove Player Sample: Cue Points Display CTA</h1>
-  <summary>In this sample, cue points are used to trigger calls to action (CTA) to be displayed. The cue points are configured in Studio with the cue point <strong>Metadata</strong> property holding a semicolon delimited list of strings that contain information for the CTA.</summary>
+  <summary>{{ page.description }}</summary>
+
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
@@ -117,8 +119,15 @@ parent: Code Samples
 <code class="language-html" translate="No">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.min.js</code></pre>
     <pre class="line-numbers">
 <code class="language-html" translate="No">https://players.brightcove.net/videojs-overlay/2/videojs-overlay.css</code></pre>
-    <p>Then add the configuration information as follows:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="create a cue point in Studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/cue-points/cue-points-cta/overlay-plugin-studio.png" /></figure>
+    <p>Then add the <strong>Options (JSON)</strong> as follows:</p>
+<pre class="line-numbers"><code class="language-json" translate="No">{
+  "overlays": [
+      {
+        "align": "bottom",
+        "start": "play"
+      }
+    ]
+}</code></pre>
     <aside class="bcls-aside bcls-aside--tip">No <strong>content</strong> is supplied in the Overlay configuration as it will be dynamically built and injected into the overlay.</aside>
     <p>The videos published with the player must contain cue points that are configured in Studio. The information for the CTA is stored in the <strong>Metadata</strong> field. In a semicolon separated list store the following:</p>
     <ul>
@@ -126,7 +135,7 @@ parent: Code Samples
       <li>Text for the anchor tag</li>
       <li>URL for the anchor tag</li>
     </ul>
-    <figure class="bcls-figure"><img class="bcls-image" alt="create a cue point in Studio" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/cue-points/cue-points-cta/make-cp-in-studio.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="create a cue point in Studio" src="/assets/images/code-samples/brightcove-player-sample-cue-points-display-cta/make-cp-in-studio.png" /></figure>
     <h3>Other HTML</h3>
     <p>No other HTML elements are added to the page.</p>
   </section>
@@ -147,7 +156,7 @@ parent: Code Samples
     <pre>
 <code class="language-javascript" translate="No">// ### Listen for cue change then pass data to be displayed ###</code></pre>
     <p>After extracting the cue point information from the <code translate="No">mediainfo</code> object, you use JavaScript's <code translate="No">oncuechange</code> event handler to listen for cue point starts. You then extract the cue point information for the current cue point and call the <code translate="No">displayCTA()</code> method. The information about the cue points passed to the custom function appears as follows:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="cue point info" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/cue-points/cue-points-cta/console-cp-info.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="cue point info" src="/assets/images/code-samples/brightcove-player-sample-cue-points-display-cta/console-cp-info.png" /></figure>
     <aside class="bcls-aside bcls-aside--tip">The <code translate="No">endTime</code> is not helpful in this application as it is either the time of the next cue point or the end of the video. Remember, the duration for the overlay to be displayed is stored in the cue point's <strong>Metadata</strong>.</aside>
     <!-- UPDATE task 2 -->
     
