@@ -1,13 +1,11 @@
 ---
 title: Localizing Plugins
 parent: Coding Topics
+description: 'In this topic you will learn how a plugin developer can localize a Brightcove Player plugin. Note that this is NOT the same as using the built-in localization for the player itself. As is suggested in the <a href="/coding-topics/step-step-plugin-development.html">Quick Start to Plugin Development</a>, the application will be developed locally then converted into a plugin.'
 ---
 <article class="bcls-article">
   <h1>Localizing Plugins</h1>
-  <summary>In this topic you will learn how a plugin developer can localize a Brightcove Player plugin. Note that this is NOT the same as using the built-in localization for the player itself.
-    </p>
-    <p>As is suggested in the <a href="/coding-topics/step-step-plugin-development.html">Quick Start to Plugin Development</a>, the application will be developed locally then converted into a plugin.
-  </summary>
+  <summary>{{ page.description }}</summary>
   <section id="addlanguage" class="bcls-section">
     <h2>Add language(s)</h2>
     <p>You can choose the languages to support in a plugin. For each language you wish to support you must have a set of key-value pairs with the English language as the key and the corresponding localized language as a value. You do this by using Videojs' <code translate="No">addLanguage()</code> method. The following code shows adding German translations to a page:</p>
@@ -31,9 +29,9 @@ parent: Coding Topics
     <h2>Set display language</h2>
     <p>To display the localized text, the user must set the preferred language in the browser. The exact steps vary depending on browser and OS.</p>
     <p>If the browser's preferred language is English, or a language not available, you will see the default, or English, text.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="localize english" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/localize-plugins/localize-plugin-english.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="localize english" src="/assets/images/coding-topics/localize-plugin-english.png" /></figure>
     <p>If the browser's preferred language is set to an available language, you will see the localized version, as shown here:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="localize german" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/localize-plugins/localize-plugin-deutsch.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="localize german" src="/assets/images/coding-topics/localize-plugin-deutsch.png" /></figure>
   </section>
   <section id="plugincode" class="bcls-section">
     <h2>Plugin code</h2>
@@ -88,7 +86,7 @@ parent: Coding Topics
       <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
       <li>Click the link for the player to open the player's properties.</li>
       <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
-      <li>Next, click <strong>Add a Plugin</strong>.</li>
+      <li>Next, click <strong>Add a Plugin &gt; Custom Plugin</strong>.</li>
       <li>For the <strong>Plugin Name</strong> enter <code translate="No">pluginLocalize</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter:
         <pre>
@@ -100,14 +98,14 @@ parent: Coding Topics
       </li>
       <li>You do not have to enter any options for this plugin.</li>
       <li>Check to be sure your form appears similar to the following:
-        <figure class="bcls-figure"><img class="bcls-image" alt="add localize plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/localize-plugins/localize-add-plugin.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="add localize plugin" src="/assets/images/coding-topics/localize-add-plugin.png" /></figure>
       </li>
       <li>Click <strong>Save</strong>.</li>
       <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
       <li>To close the open dialog, click <strong>Close</strong>.</li>
     </ol>
     <p>Once you have saved and published, you can alter the configuration by click on the plugin name in the <strong>Plugins</strong> list.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="add localize plugin done" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/localize-plugins/localize-add-plugin-done.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="add localize plugin done" src="/assets/images/coding-topics/localize-add-plugin-done.png" /></figure>
     <p>The plugin is now part of the player. This permits you to use the iframe player implementation with no other supporting code and have the plugin's functionality available.</p>
     <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;!doctype html&gt;
