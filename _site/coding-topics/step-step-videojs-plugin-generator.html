@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="In this topic, you will learn how to use the video.js plugin generator to create and test plugins for the Brightcove Player.">
   
   <title>Step-by-Step: Video.js Plugin Generator</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1134,11 +1134,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <article class="bcls-article">
   <h1>Step-by-Step: Video.js Plugin Generator</h1>
-  <summary>
-    <p>In this topic, you will learn how to use the video.js plugin generator to create and test plugins for the Brightcove Player.</p>
+  <summary>In this topic, you will learn how to use the video.js plugin generator to create and test plugins for the Brightcove Player.</summary>
+  <section class="bcls-section">
     <p>The video.js plugin generator creates the files and folders needed to create a conventional plugin. It includes a test environment so that you can easily see your changes as you develop your plugin. It even generates the final plugin files that you can use when you are ready to release it.</p>
     <aside class="bcls-aside bcls-aside--information">This is an Open Source project and not officially supported by Brightcove. Since it is used by many developers, it is usually kept up-to-date.</aside>
-  </summary>
+  </section>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>In this topic, you will perform the following tasks:</p>
@@ -1167,8 +1167,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>If you don't already have it, download and install the <a href="https://nodejs.org/en/">Node.js JavaScript runtime</a>. This includes npm, which is a package ecosystem that includes a large collection of open source libraries.</p>
         <aside class="bcls-aside bcls-aside--tip">Use the <strong>Recommended For Most Users</strong> version of Node.js.</aside>
       </li>
-      <li>
-        <p>Create a local folder on your computer. For this example, we will create one named <strong>test</strong>. This is where the generator files and your plugin files will go.</p>
+      <li>Create a local folder on your computer. For this example, we will create one named <strong>test</strong>. This is where the generator files and your plugin files will go.
         <aside class="bcls-aside bcls-aside--tip">To avoid permission issues, it is usually best to put this folder in the user root directory.</aside>
       </li>
       <li>Review the <strong>README</strong> information for the <a href="https://github.com/videojs/generator-videojs-plugin">video.js plugin generator</a>. In the <strong>docs</strong> folder, open and review the <a href="https://github.com/videojs/generator-videojs-plugin/blob/master/docs/conventions.md">video.js Plugin conventions</a>. This document talks about the recommended rules for creating your plugin.</li>
@@ -1264,13 +1263,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           </tbody>
         </table>
         <p>Here is what the output looks like with values set for this example:</p>
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Option values" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/option-values.png" />
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Option values" src="/assets/images/coding-topics/sbs-videojs-option-values.png" />
           <figcaption class="bcls-caption--image">Option values</figcaption>
         </figure>
       </li>
-      <li>
-        <p>When the setup is complete, you will see several messages. There may be some warning messages, but no errors.</p>
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Setup complete" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/setup-complete.png" />
+      <li>When the setup is complete, you will see several messages. There may be some warning messages, but no errors.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Setup complete" src="/assets/images/coding-topics/sbs-videojs-setup-complete.png" />
           <figcaption class="bcls-caption--image">Setup complete</figcaption>
         </figure>
         <p>Notice that the name of the plugin is <strong>videojs-demo</strong>.</p>
@@ -1288,8 +1286,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <li>A <strong>plugin.css</strong> file, if you selected <strong>Yes</strong> to the CSS tooling option.</li>
         </ul>
       </li>
-      <li>
-        <p>(If you did not select <strong>Yes</strong> to the CSS tooling option, you can skip this step.) Open the <strong>src &gt; plugin.css</strong> file.</p>
+      <li>(If you did not select <strong>Yes</strong> to the CSS tooling option, you can skip this step.) Open the <strong>src &gt; plugin.css</strong> file.
         <!-- <aside class="bcls-aside bcls-aside--tip">You will make your coding changes in this SASS file, but a CSS file will be created for distribution. If you are not familiar with SASS, don't worry. Since CSS is a subset of SASS, you can also use CSS in this file.</aside> -->
         
         <p>Your code should look similar to the following:</p>
@@ -1327,8 +1324,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
   }</code></pre>
       </li>
-      <li>
-        <p>Open the <strong>src &gt; plugin.js</strong> file.</p>
+      <li>Open the <strong>src &gt; plugin.js</strong> file.
         <aside class="bcls-aside bcls-aside--tip">The generator uses ES6, which is the latest JavaScript version. Learn more about the new features in <a href="http://es6-features.org/#Constants">ECMAScript 6</a>. The generator translates your ES6 code into ES5 code so that your distribution code will run on a majority of browsers.</aside>
         <p>Your code should look similar to the following:</p>
         <ul>
@@ -1403,34 +1399,29 @@ export default demo;</code></pre>
         <pre>
 <code class="language-javascript" translate="No">$ npm start</code></pre>
       </li>
-      <li>
-        <p>In a browser, enter the following to open the development server:</p>
+      <li>In a browser, enter the following to open the development server:
         <pre>
 <code class="language-javascript" translate="No">http://localhost:9999/</code></pre>
         <p>You should see the player with a test video. The generator gives you a demo player that runs in the page. In the browser developer tools, open the <strong>Elements</strong> tab to see the HTML for the player.</p>
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Browser testing" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/browser-test.png" />
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Browser testing" src="/assets/images/coding-topics/sbs-videojs-browser-test.png" />
           <figcaption class="bcls-caption--image">Browser testing</figcaption>
         </figure>
       </li>
-      <li>
-        <p>Inspect the Elements of this web page. You should see that the <code translate="No">vjs-demo</code> class has been added to the player. Remember that we added this class to the player in the plugin code.</p>
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="vjs-demo class" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/vjs-demo-class.png" />
+      <li>Inspect the Elements of this web page. You should see that the <code translate="No">vjs-demo</code> class has been added to the player. Remember that we added this class to the player in the plugin code.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="vjs-demo class" src="/assets/images/coding-topics/sbs-videojs-vjs-demo-class.png" />
           <figcaption class="bcls-caption--image">vjs-demo class</figcaption>
         </figure>
       </li>
-      <li>
-        <p>Now, let's try adding code to the plugin to automatically start playing the video when the player loads. Return to the <strong>src &gt; plugin.js</strong> file in your editor.</p>
+      <li>Now, let's try adding code to the plugin to automatically start playing the video when the player loads. Return to the <strong>src &gt; plugin.js</strong> file in your editor.
       </li>
-      <li>
-        <p>In the <code translate="No">onPlayerReady()</code> method, add code to start playback of the video.</p>
+      <li>In the <code translate="No">onPlayerReady()</code> method, add code to start playback of the video.
         <pre class="line-numbers">
 <code class="language-javascript" translate="No">const onPlayerReady = (player, options) =&gt; {
   player.addClass('vjs-demo');
   <span class="bcls-highlight">player.play();</span>
 };</code></pre>
       </li>
-      <li>
-        <p>Save the <strong>plugin.js</strong> file in your editor. When you refresh your browser, you should see that the video starts playing in the test environment.</p>
+      <li>Save the <strong>plugin.js</strong> file in your editor. When you refresh your browser, you should see that the video starts playing in the test environment.
         <p>As you develop your plugin in the <strong>plugin.js</strong> file and save changes, the tool automatically rebuilds and reloads the player in the browser. This makes it easy to develop and test your plugin.</p>
       </li>
       <li>
@@ -1446,8 +1437,7 @@ export default demo;</code></pre>
     <p>In this section, you will add code to the JavaScript source file to add a paragraph element with custom text to the player.</p>
     <ol class="bcls-tasklist">
       <li>In your editor, return to the <strong>src &gt; plugin.js</strong> file.</li>
-      <li>
-        <p>In the <code translate="No">onPlayerReady()</code> function, add code to add a <code translate="No">&lt;p&gt;</code> element with custom text to the player.</p>
+      <li>In the <code translate="No">onPlayerReady()</code> function, add code to add a <code translate="No">&lt;p&gt;</code> element with custom text to the player.
         <pre class="line-numbers">
 <code class="language-javascript" translate="No">const onPlayerReady = (player, options) =&gt; {
   player.addClass('vjs-demo');
@@ -1458,10 +1448,9 @@ export default demo;</code></pre>
 };</code></pre>
       </li>
       <li>Save the file. Remember that your changes will be automatically updated in the testing browser.</li>
-      <li>
-        <p>Return to the testing browser. You will see nothing has changed in the player. The problem is that the text is there, but it is not visible. We'll fix that next.</p>
+      <li>Return to the testing browser. You will see nothing has changed in the player. The problem is that the text is there, but it is not visible. We'll fix that next.
         <p>To verify that the text element has been added to the player, use the development tools in the browser. In the <strong>Elements</strong> section, expand the player's <code translate="No">&lt;div&gt;</code> element. You should see the newly added paragraph tag.</p>
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Added paragraph tag" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/p-element.png" />
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Added paragraph tag" src="/assets/images/coding-topics/sbs-videojs-p-element.png" />
           <figcaption class="bcls-caption--image">Added paragraph tag</figcaption>
         </figure>
         <p>We'll make the text visible in the next section by using CSS.</p>
@@ -1473,8 +1462,7 @@ export default demo;</code></pre>
     <p>In this section, you will add code to the CSS source file to display text over the player.</p>
     <ol class="bcls-tasklist">
       <li>In your editor, return to the <strong>src &gt; plugin.css</strong> file.</li>
-      <li>
-        <p>Add the <code translate="No">.vjs-text</code> selector with styles to display the custom text in the player.</p>
+      <li>Add the <code translate="No">.vjs-text</code> selector with styles to display the custom text in the player.
         <pre class="line-numbers">
 <code class="language-css" translate="No">/* Note: all vars must be defined here, there are no "local" vars */
   :root {
@@ -1494,14 +1482,12 @@ export default demo;</code></pre>
   }</span></code></pre>
       </li>
       <li>Save the file. Remember that your changes will be automatically updated in the testing browser.</li>
-      <li>
-        <p>Return to the testing browser. You should now see the custom text displayed over the player.</p>
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Text displayed over the player" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/text-display.png" />
+      <li>Return to the testing browser. You should now see the custom text displayed over the player.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Text displayed over the player" src="/assets/images/coding-topics/sbs-videojs-text-display.png" />
           <figcaption class="bcls-caption--image">Text displayed over the player</figcaption>
         </figure>
       </li>
-      <li>
-        <p>Stop the development server by pressing <strong>CTRL-C</strong> in the Terminal app.</p>
+      <li>Stop the development server by pressing <strong>CTRL-C</strong> in the Terminal app.</p>
         <p>Now, you are ready to prepare your plugin for distribution. We'll do that next.</p>
       </li>
     </ol>
@@ -1538,9 +1524,8 @@ export default demo;</code></pre>
           </li>
         </ul>
       </li>
-      <li>
-        <p>In the <strong>dist</strong> folder, open the <strong>videojs-demo.js</strong> file.</p>
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Distribution files" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/dist-js.png" />
+      <li>In the <strong>dist</strong> folder, open the <strong>videojs-demo.js</strong> file.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Distribution files" src="/assets/images/coding-topics/sbs-videojs-dist-js.png" />
           <figcaption class="bcls-caption--image">Distribution files</figcaption>
         </figure>
         <p>A few things to note about this distribution file:</p>
@@ -1593,8 +1578,7 @@ export default demo;</code></pre>
       <li>Build your plugin. We'll use the files in the <strong>dist</strong> folder in a test web page.</li>
       <li>In your local testing server, like MAMP, create a folder named <strong>plugin-generator</strong>.</li>
       <li>In this folder, copy the <strong>videojs-demo.css</strong> and <strong>videojs-demo.js</strong> files from the <strong>dist</strong> folder and paste them into your testing server folder, <strong>plugin-generator</strong>.</li>
-      <li>
-        <p>Next, in this folder, create an HTML file with a player that calls our <code translate="No">demo</code> plugin and passes in a value for the display text. We'll name this file <strong>testing.html</strong>.</p>
+      <li>Next, in this folder, create an HTML file with a player that calls our <code translate="No">demo</code> plugin and passes in a value for the display text. We'll name this file <strong>testing.html</strong>.
         <ul>
           <li>Line 8: includes our plugin styles.</li>
           <li>Lines 13-22: add a Brightcove Player to our web page.</li>
@@ -1642,9 +1626,8 @@ export default demo;</code></pre>
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
       </li>
-      <li>
-        <p>In a browser, run the <strong>testing.html</strong> file. You should see the display text value is coming from the page code instead of the plugin.</p>
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Data passed to the plugin" src="//learning-services-media.brightcove.com/doc-assets/player-development/getting-started/plugin-generator/passed-data.png" />
+      <li>In a browser, run the <strong>testing.html</strong> file. You should see the display text value is coming from the page code instead of the plugin.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Data passed to the plugin" src="/assets/images/coding-topics/sbs-videojs-passed-data.png" />
           <figcaption class="bcls-caption--image">Data passed to the plugin</figcaption>
         </figure>
       </li>
