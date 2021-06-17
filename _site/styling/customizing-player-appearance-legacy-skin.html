@@ -1146,7 +1146,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="player">Player</h2>
     <aside class="bcls-aside bcls-aside--information">Note: This document assumes some knowledge of CSS and using a browser's development tools to view HTML element's classes and examine applicable CSS. If you do not have the pre-requisite base knowledge it would be best if you work through the <a href="/styling/quick-start-player-customization-legacy-skin.html">Quick Start: Player Customization - Legacy Skin</a>.</aside>
     <p>You can alter the appearance of the player, but you must first have a way to address it. To see this, browse an HTML page with the player embed_in_page code inserted. In the <strong>Elements</strong> section of the Development Tools locate the first <code translate="No">&lt;div&gt;</code> and you will see it has a class with the value <code translate="No">video-js</code> assigned, among others.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/player-elements.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player-legacy/player-elements.png" /></figure>
     <p>Once you know this, you can use styles to alter the player itself. For instance, to change the size of the player you can use this style:</p>
     <pre class="line-numbers">
 <code class="language-css" translate="No">&lt;style&gt;
@@ -1159,7 +1159,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="iframeplayer">iframe player</h2>
     <p>If you are using the iframe implementation of the player the situation is different. You will still see the player with the <code translate="No">video-js</code> class, but it will be, of course, inside the iframe.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="iframe-player-elements" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/iframe-elements.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="iframe-player-elements" src="/assets/images/styling/customizing-player-legacy/iframe-elements.png" /></figure>
     <p>The styles you create will still work with the player in the iframe, but a CSS file will need to be created and associated with the player using Studio. You do this by going to the <strong>Players</strong> module, then click on the video with which you wish to associate the CSS, then in the <strong>Plugins</strong> section add the path you your CSS file.</p>
     <p>If you do wish to customize the iframe itself, you can do this by adding a <code translate="No">class</code> attribute to the <code translate="No">iframe</code> element (line 27). In this case, the class value is <code translate="No">videoFrame</code>. Then use a <code translate="No">&lt;style&gt;</code> tag to modify as wished. In the example below the <code translate="No">width</code> and <code translate="No">height</code> are altered.</p>
     <pre class="line-numbers" data-start="10">
@@ -1188,9 +1188,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="button">Play button</h2>
     <p>If you wish to alter the appearance of the play button you first need to know how to address it. In Chrome, be sure the <strong>Development Tools</strong> are open and then right click on the button. From the selections that appear choose <strong>Inspect Element</strong>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="inspect-button" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/inspect-button-1x.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="inspect-button" src="/assets/images/styling/customizing-player-legacy/inspect-button-1x.png" /></figure>
     <p>In the <strong>Elements</strong> section of the Development Tools, you will see the HTML code that corresponds to the button element.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="big-play-button" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/big-play-button.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="big-play-button" src="/assets/images/styling/customizing-player-legacy/big-play-button.png" /></figure>
     <p>From the highlighted code above, you can see the class assigned to the button is <code translate="No">vjs-big-play-button</code>. The play button's color (to match the tiger) and opacity will be changed with these styles:</p>
     <pre class="line-numbers" data-start="36">
 <code class="language-css" translate="No">  &lt;style&gt;
@@ -1227,7 +1227,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
   &lt;/style&gt;</code></pre>
     <p>Here is the result of changing the button from dark grey to orange:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="orange-play-button" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/orange-play-button-1x.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="orange-play-button" src="/assets/images/styling/customizing-player-legacy/orange-play-button-1x.png" /></figure>
     <h3>Center play button</h3>
     <p>You can center the play button both horizontally and vertically by using the following styles:</p>
     <pre class="line-numbers" data-start="199">
@@ -1247,10 +1247,10 @@ margin: auto;</code></pre>
   <section class="bcls-section">
     <h2 id="progressvolume">Progress &amp; volume</h2>
     <p>The last appearance customization we'll look at in this doc will be to change the color of the progress and volume indicators. The default color for both is fuchsia, as shown here:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="progress-and-volume" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/progress-and-volume-1x.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="progress-and-volume" src="/assets/images/styling/customizing-player-legacy/progress-and-volume-1x.png" /></figure>
     <p>The challenge here is to find the class names for the elements. Using the same technique as above, right-clicking on an element choosing <strong>Inspect Element</strong>, you can get to the whole progress indicator, then drilling down you will see the <code translate="No">vjs-play-progress</code> class.</p>
     <p>In the Chrome <strong>Elements</strong> panel, mouse over the <code translate="No">div</code> element with a class name of <code translate="No">vjs-play-progress</code> to see the following in the player:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="progress-control" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/progress-control.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="progress-control" src="/assets/images/styling/customizing-player-legacy/progress-control.png" /></figure>
     <p>A tool in Chrome is helpful when checking for the volume level element. Note that you only see the volume level when you mouse-over (hover) the volume button. To have the volume level shown when inspecting and finding the correct element, perform these steps:</p>
     <ul>
       <li>Right-click on the volume button and inspect it</li>
@@ -1258,7 +1258,7 @@ margin: auto;</code></pre>
       <li>Check the <strong>:hover</strong> box (highlighted in red in the <strong>Styles</strong> section) to simulate the mouse over while you are inspecting the elements</li>
       <li>Drill down until you find the volume level element (highlighted in red in the <strong>Elements</strong> section)</li>
     </ul>
-    <figure class="bcls-figure"><img class="bcls-image" alt="inspect-audio-button" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/inspect-audio-button.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="inspect-audio-button" src="/assets/images/styling/customizing-player-legacy/inspect-audio-button.png" /></figure>
     <p>Now the <code translate="No">background-color</code> of both of these elements needs to be styled. You want them the same color as the button, so alter your styles as shown here:</p>
     <pre class="line-numbers" data-start="94">
 <code class="language-html" translate="No">  &lt;style&gt;
@@ -1277,7 +1277,7 @@ margin: auto;</code></pre>
   &lt;/style&gt;</code></pre>
     <p>Notice that we are prefixing each class with the id of the player's <code translate="No">div</code> element. This provides relevance for the class changes with regard to CSS specificity. This will be talked about in the next section.</p>
     <p>The results appear as follows:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="progress-volume-styled" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/progress-volume-styled-1x.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="progress-volume-styled" src="/assets/images/styling/customizing-player-legacy/progress-volume-styled-1x.png" /></figure>
     <p>This primer has given you a quick look at styling the player. As you have seen, the approach is to find the class name that corresponds to the element you wish to change, then style it. Remember as mentioned in the <strong>iframe</strong> section of this document, if you are using the iframe player, you must put the styles in a file then use a curl statement to associate the styles with the player.</p>
     <p>Remember that it is a best practice to add the customizations to your player configuration so they can be optimized and travel along with your player wherever it's embedded.</p>
   </section>
@@ -1317,7 +1317,7 @@ margin: auto;</code></pre>
     <h2 id="specificity">CSS specificity</h2>
     <p>CSS specificity refers to the way browsers determine which property values get applied to an element based on their relevance. For details about this concept, review the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">Specificity</a> article.</p>
     <p>In Chrome, inspect the big play button. Notice that the <code translate="No">background</code> property is set using multiple classes. This means that we cannot use just the one <code translate="No">.vjs-big-play-button</code> class to override this property.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="play-button-classes" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/play-button-classes.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="play-button-classes" src="/assets/images/styling/customizing-player-legacy/play-button-classes.png" /></figure>
     <p>Here are three approaches to customize the big play button:</p>
     <ul>
       <li>Reference an id assigned to the player.</li>
@@ -1346,7 +1346,7 @@ margin: auto;</code></pre>
     }
   &lt;/style&gt;</code></pre>
     <p>You should see that the big play button is now orange.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="orange-play-button" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/1x-customize-appearance/orange-play-button-1x.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="orange-play-button" src="/assets/images/styling/customizing-player-legacy/orange-play-button-1x.png" /></figure>
     <h3>Using multiple classes</h3>
     <p>Since the <code translate="No">background</code> property for the big play button is set using two classes, you will need at least two classes in the CSS selector to overrirde this property.</p>
     <p>Add the <code translate="No">.video-js</code> class to the <code translate="No">.vjs-big-play-button</code> class selector. Remember that the <code translate="No">.video-js</code> class is set on the video container.</p>
