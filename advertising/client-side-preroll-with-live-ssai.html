@@ -80,10 +80,9 @@ parent: Advertising
 	<li>Select the link for the player to open the player's properties.</li>
 	<li>In the left navigation menu, select <strong>Advertising</strong>.</li>
 	<li>Check the <strong>Enable Client-Side (IMA)</strong> checkbox.</li>
-	<li>
-	<p>Include the URL for your IMA Ad Tag. For this example, we will use the sample Ad Tag URL.</p>
+	<li>Include the URL for your IMA Ad Tag. For this example, we will use the sample Ad Tag URL.
 
-	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable client-side ads" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/ssai/enable-client-side.png" />
+	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable client-side ads" src="/assets/images/advertising/enable-client-side.png" />
 	<figcaption class="bcls-caption--image">Enable client-side ads</figcaption>
 	</figure>
 
@@ -95,52 +94,36 @@ parent: Advertising
 	<aside class="bcls-aside bcls-aside--information">The server-side option will not appear unless your account has been enabled for SSAI.</aside>
 	</li>
 	<li>From the <strong>Select Configuration</strong> dropdown menu, select the ad configuration that you would like to associate with this player.</li>
-	<li>
-    <p>
-      If you want overlays to display over your ads, check the <strong>Enable ad information overlays</strong> checkbox. This includes "Learn More" and ad count down overlays.
-    </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable SSAI" src="https://player.support.brightcove.com/assets/images/advertising/csai-live/enable-ssai.png" />
+	<li>If you want overlays to display over your ads, check the <strong>Enable ad information overlays</strong> checkbox. This includes "Learn More" and ad count down overlays.
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable SSAI" src="/assets/images/advertising/enable-ssai.png" />
       <figcaption class="bcls-caption--image">Enable SSAI</figcaption>
     </figure>
     <aside class="bcls-aside bcls-aside--information">Overlays will not display until you enable them here and configure them in your VAST ad tag.</aside>
   </li>
-	<li>Select the <strong>Save</strong> button.</li> 
-  <li>
-    <p>
-      In the left navigation menu, select <strong>JSON Editor</strong>.
-    </p>
+	<li>Click the <strong>Save</strong> button.</li> 
+  <li>In the left navigation menu, select <strong>JSON Editor</strong>.
   </li>
   <li>
     <p>
       In the JSON editor, scroll down until you see the <code translate="No">ad_failover: true</code> property.
     </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Ad failover property" src="https://player.support.brightcove.com/assets/images/advertising/csai-live/ad_failover.png" />
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Ad failover property" src="/assets/images/advertising/ad_failover.png" />
       <figcaption class="bcls-caption--image">Ad failover property</figcaption>
     </figure>
   </li>
-  <li>
-    <p>
-      Replace the <code translate="No">ad_failover: true</code> property with the following:
-    </p>
+  <li>Replace the <code translate="No">ad_failover: true</code> property with the following:
     <pre class="line-numbers"><code class="language-json" translate="No">"ima_preroll_with_ssai": true
 </code></pre>
   </li>
-  <li>
-    <p>
-      Your JSON editor should look similar to this:
-    </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="IMA pre-roll property" src="https://player.support.brightcove.com/assets/images/advertising/csai-live/ima-preroll.png" />
+  <li>Your JSON editor should look similar to this:
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="IMA pre-roll property" src="/assets/images/advertising/ima-preroll.png" />
       <figcaption class="bcls-caption--image">IMA pre-roll property</figcaption>
     </figure>
   </li>
-  <li>Select the <strong>Save</strong> button.</li>
-	<li>
-	<p>To publish the player, select <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</p>
+  <li>Click the <strong>Save</strong> button.</li>
+	<li>To publish the player, select <strong>Publish &amp; Embed &gt; Publish Changes</strong>.
 	</li>
-  <li>
-    <p>
-      Now, you are ready to publish your live event. For details, see the <a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#Publishing_the_live_event">Implementing Server-Side Ads in the Live Module</a> document.
-    </p>
+  <li>Now, you are ready to publish your live event. For details, see the <a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#Publishing_the_live_event">Implementing Server-Side Ads in the Live Module</a> document.
   </li>
 </ol>
 
