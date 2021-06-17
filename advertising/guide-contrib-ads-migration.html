@@ -1,10 +1,11 @@
 ---
 title: 'Guide: contrib-ads Migration'
 parent: Advertising
+description: 'In this topic, you will learn about some points when migrating to the the latest version of <strong>contrib-ads</strong>.'
 ---
 <article class="bcls-article">
   <h1>Guide: contrib-ads Migration</h1>
-  <summary>In this topic, you will learn about some points when migrating to the the latest version of <strong>contrib-ads</strong>.</summary>
+  <summary>{{ page.description }}</summary>
   <section id="Overview" class="bcls-section">
     <h2>Overview</h2>
     <p>One of the best features of Video.js is the community of plugins and customizations that has built up around it. Ad support is an important part of that ecosystem, but not all plugin authors write with advertisements in mind. Brightcove is making some big changes in <a href="//github.com/videojs/videojs-contrib-ads">videojs-contrib-ads</a> to make advertisements more compatible with the rest of the Video.js universe. In version 2.0 of the plugin, the plugin re-dispatches events with different prefixes depending on whether an ad is playing or not. When an ad is playing, events are prefixed with <strong>ad</strong> and when content is resuming after an ad break, events are prefixed with <strong>content</strong>. For instance, a <code translate="No">pause</code> event during an ad would become an <code translate="No">adpause</code> event. This means from the perspective of a (non-ad) plugin author, Video.js will behave just the same whether ads are playing or not. And if someone wants to write a plugin that is ad-aware, those original events are still available for them to hook into.</p>
