@@ -1316,8 +1316,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
 
   <section class="bcls-section">
-    <h2 id="Using_an_auth_token">Using an auth token</h2>
-    <p>To use License Keys Protection, pass a string token as part of the <a href="https://player.support.brightcove.com/references/player-catalog.html">player catalog</a> object, using the property name <code translate="No">bcovAuthToken</code>.</p>
+    <h2 id="Using_License_Keys_Protection">Using License Keys Protection</h2>
+    <p>To use License Keys Protection, you will pass a auth token string as part of the <a href="https://player.support.brightcove.com/references/player-catalog.html">player catalog</a> object, using the property name <code translate="No">bcovAuthToken</code>.</p>
     <p>This approach works for both DRM and HLSe content. The player will detect the type of source being loaded from the Playback API and provide the correct implementation for that source.</p>
 
     <p>To use License Keys Protection, follow these steps:</p>
@@ -1353,6 +1353,55 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     })();
   &lt;/script&gt;</code></pre>
       </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_Concurrency_and_Registration">Using Concurrency and Registration</h2>
+    <p>If you are using <a href="https://apis.support.brightcove.com/playback-restrictions/guides/stream-concurrency.html">Stream Concurrency</a> or <a href="https://apis.support.brightcove.com/playback-restrictions/guides/device-limits.html">Device Registration</a>, then your Brightcove player will need to use the <strong>EME</strong> plug-in INSTEAD of the standard <strong>DRM</strong> plug-in.</p>
+    
+
+    <p>Follow these steps:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Add the <strong>EME</strong> plugin to your Brightcove Player. The plugin has been updated to include <code translate="No">persistentState</code>.</li>
+      <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module. Select a player link to see it's information.</li>
+      <li>In the left navigation, select <strong>Playback</strong>.</li>
+      <li>
+        <p>Make sure that <strong>Enable DRM</strong> is NOT selected.</p>
+        <figure class="bcls-figure">
+          <img
+            class="bcls-image--no-border"
+            alt="Enable DRM option"
+            src="/assets/images/playback/playback-restrictions/enable-drm-option.png"
+          />
+          <figcaption class="bcls-caption--image">Enable DRM option</figcaption>
+        </figure>
+      </li>
+      <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
+      <li>
+        <p>In the JSON code, find the <code translate="No">plugins</code> array, and add the EME plugin as follows:</p>
+        <pre class="line-numbers">
+<code class="language-javascript" translate="No">&quot;plugins&quot;: [
+  {
+  &quot;name&quot;: &quot;eme&quot;,
+  &quot;scripts&quot;: [
+    &quot;//players.brightcove.net/videojs-drm/5.9.1/videojs-drm.min.js&quot;
+  ],
+  &quot;stylesheets&quot;: [
+    &quot;//players.brightcove.net/videojs-drm/5.9.1/videojs-drm.css&quot;
+  ],
+  &quot;options&quot;: {
+    &quot;keySystems&quot;: {
+      &quot;com.widevine.alpha&quot;: {
+        &quot;persistentState&quot;: &quot;required&quot;
+      }
+    }
+  }
+},</code></pre>
+<aside class="bcls-aside bcls-aside--warning language-editable">The EME plug-in has to be configured in the order shown above (scripts & style sheet first then the option) otherwise, it won't work.</aside>
+<aside class="bcls-aside bcls-aside--information language-editable">This functionality is supported in the DRM plug-in v5.9.1 +.</aside>
+      </li>
+      <li>Include a JWT auth token, as defined in the <a href="#Using_License_Keys_Protection">Using License Keys Protection</a> section.</li>
     </ol>
   </section>
 
