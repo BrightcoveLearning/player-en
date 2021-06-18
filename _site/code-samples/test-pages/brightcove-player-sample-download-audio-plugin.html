@@ -27,6 +27,7 @@ controls></video>
     videoName = myPlayer.mediainfo["name"];
     videoName = removeSpaces(videoName);
     rendtionsAra = myPlayer.mediainfo.sources;
+    console.table(rendtionsAra)
     totalRenditions = rendtionsAra.length;
     // +++ Loop over videos and extract only MP4 versions +++
     for (var i = 0; i < totalRenditions; i++) {
@@ -41,6 +42,7 @@ controls></video>
     mp4Ara.sort(function(a, b) {
       return b.size - a.size;
     });
+    console.table(mp4Ara)
     // +++ Extract the highest rendition +++
     highestQuality = mp4Ara[0].src;
     // +++ Build the download image element +++

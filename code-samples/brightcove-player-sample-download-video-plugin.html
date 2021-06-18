@@ -1,13 +1,13 @@
 ---
 title: 'Brightcove Player Sample: Download Video Plugin'
+description: 'In this topic, you will learn how to create a link to allow the downloading of the best quality MP4 of a video playing in a Brightcove Player. The code will be written and explained, then later in the document converted into a plugin for easy use with different players.'
 parent: Code Samples
 ---
+<h1>{{ page.title }}</h1>
 <article class="bcls-article">
-    <h1>Brightcove Player Sample: Download Video Plugin</h1>
-    <summary>
-        <p>In this topic, you will learn how to create a link to allow the downloading of the best quality MP4 of a video playing in a Brightcove Player. The code will be written and explained, then later in the document converted into a plugin for easy use with different players.</p>
-        <aside class="bcls-aside bcls-aside--information">The content in this document applies to Video Cloud only. Also, since iOS devices do not have a user-accessible file system, the plugin will not work on iOS devices.</aside>
-    </summary>
+  <summary>{{ page.description }}</summary>
+
+      <aside class="bcls-aside bcls-aside--information">The content in this document applies to Video Cloud only. Also, since iOS devices do not have a user-accessible file system, the plugin will not work on iOS devices.</aside>
     <section class="bcls-section">
         <h2 id="Player_example">Player example</h2>
         <!-- UPDATE description -->
@@ -29,12 +29,12 @@ parent: Code Samples
         <p>In addition to placing the download button in the controlbar, you can also place it over the player or in the HTML page, as shown here:</p>
         <ul>
             <li>Overlay placed on the video
-                <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Download overlay" width="352" height="264" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/download-video/download-overlay.png" />
+                <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Download overlay" width="352" height="264" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/download-overlay.png" />
                     <figcaption class="bcls-caption--image">Download overlay</figcaption>
                 </figure>
             </li>
             <li>An HTML link you can place anywhere on your HTML page
-                <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Download link" width="352" height="264" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/download-video/download-insertion-point.png" />
+                <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Download link" width="352" height="264" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/download-insertion-point.png" />
                     <figcaption class="bcls-caption--image">Download link</figcaption>
                 </figure>
             </li>
@@ -151,10 +151,10 @@ parent: Code Samples
 <code class="language-javascript" translate="No">// ### Loop over videos and extract only MP4 versions ###</code></pre>
         <p>Loop over the array and assign to the <code translate="No">mp4Ara</code> variable renditions where the <code translate="No">container</code> is <strong>MP4</strong>, AND the rendition has a <code translate="No">src</code> property. The MP4 renditions appear twice in the <code translate="No">sources</code> array, once with a <code translate="No">src</code> property and once with a <code translate="No">stream_name</code> property. The first is for progressive download and the second for streaming.</p>
         <p>The following screenshots show the console displaying all renditions and then the filtered renditions showing on MP4 renditions.</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="All renditions" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/download-button/console-all-renditions.png" />
+        <figure class="bcls-figure"><img class="bcls-image" alt="All renditions" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/console-all-renditions.png" />
             <figcaption class="bcls-caption--image">All renditions</figcaption>
         </figure>
-        <figure class="bcls-figure"><img class="bcls-image" alt="Only MP4 renditions after filtering" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/download-button/console-mp4-renditions-only.png" />
+        <figure class="bcls-figure"><img class="bcls-image" alt="Only MP4 renditions after filtering" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/console-mp4-renditions-only.png" />
             <figcaption class="bcls-caption--image">Only MP4 renditions after filtering</figcaption>
         </figure>
         <!-- UPDATE task 3 -->
@@ -178,7 +178,7 @@ parent: Code Samples
         <pre>
 <code class="language-javascript" translate="No">// ### Build the download image element ###</code></pre>
         <p>At the top of the JavaScript code HTML <code translate="No">div</code> and <code translate="No">img</code> elements are created and stored in variables. Those elements are then manipulated to dynamically build an HTML element that functions as a download button. An example of how the dynamically created element might appear follows:</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="dynamically built download element" src="//learning-services-media.brightcove.com/doc-assets/player-development/samples/download-button/download-element.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="dynamically built download element" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/download-element.png" /></figure>
         <!-- UPDATE task 3 -->
 
         <h3>Place the download button element in the DOM</h3>

@@ -1,15 +1,47 @@
-<video id="myPlayerID"
-data-video-id="6010362248001"
-data-account="1752604059001"
-data-player="default"
-data-embed="default"
-data-application-id
-class="video-js"
-controls></video>
-<script src="//players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+<style>
+  /* * The body style is just for the
+ * background color of the codepen.
+ * Do not include in your code.
+ */
+body {
+  background-color: #111;
+  color: #fff;
+}
+/*
+ * Styles essential to the sample
+ * are below
+ */
+.video-js {
+  height: 344px;
+  width: 610px;
+}
+.downloadStyle {
+  order: 9;
+  -webkit-box-ordinal-group: 9;
+  -moz-box-ordinal-group: 9;
+  -webkit-order: 9;
+  -ms-flex-order: 9;
+  padding-top: 7px !important;
+}
+
+
+
+
+</style>
+
+  <video-js id="myPlayerID"
+  data-video-id="5701190170001"
+  data-account="1752604059001"
+  data-player="S10RYv9QG"
+  data-embed="default"
+  data-application-id
+  class="video-js"
+  controls></video-js>
+
+<script src="https://players.brightcove.net/1752604059001/S10RYv9QG_default/index.min.js"></script>
 
 <script>
-  videojs.getPlayer("myPlayerID").ready(function() {
+  videojs.getPlayer('myPlayerID').ready(function() {
   // Create variables and new div, anchor and image for download icon
   var myPlayer = this,
     videoName,
@@ -19,10 +51,12 @@ controls></video>
     spacer,
     newElement = document.createElement("div"),
     newImage = document.createElement("img");
+
   myPlayer.on("loadstart", function() {
     //Reinitialize array of MP4 renditions in case used with playlist
     //This prevents the array having a cumulative list for all videos in playlist
     mp4Ara = [];
+
     // +++ Get video name and the MP4 renditions +++
     videoName = myPlayer.mediainfo["name"];
     videoName = removeSpaces(videoName);
@@ -38,13 +72,15 @@ controls></video>
         mp4Ara.push(rendtionsAra[i]);
       }
     }
+
     // +++ Sort the renditions from highest to lowest on size+++
     mp4Ara.sort(function(a, b) {
       return b.size - a.size;
     });
-    console.table(mp4Ara)
+console.table(mp4Ara)
     // +++ Extract the highest rendition +++
     highestQuality = mp4Ara[0].src;
+
     // +++ Build the download image element +++
     newElement.id = "downloadImage";
     newElement.className = "vjs-control downloadStyle";
@@ -53,19 +89,19 @@ controls></video>
       "https://solutions.brightcove.com/bcls/brightcove-player/download-video/file-download.png"
     );
     newImage.style["cursor"] = "pointer";
+
     // +++ On image click call the download function +++
     newImage.onclick = function() {
       // The download function forces download by the browsers
       // NOT opening the video in a new window/tab
-      var x = new XMLHttpRequest();
+      var x=new XMLHttpRequest();
       x.open("GET", highestQuality, true);
-      x.responseType = "blob";
-      x.onload = function(e) {
-        download(x.response, videoName, "video/mp4");
-      };
-      x.send(); //
+      x.responseType = 'blob';
+      x.onload=function(e){download(x.response, videoName, "video/mp4"); }
+      x.send();          //
     };
     newElement.appendChild(newImage);
+
     // +++ Place the download image +++
     // Get a handle on the spacer element
     spacer = myPlayer.controlBar.customControlSpacer.el();
@@ -77,12 +113,14 @@ controls></video>
 });
 
 /*
-     * remove spaces from a string
-     * @param {String} str string to process
-     * @return {String} trimmed string
-     */
+ * remove spaces from a string
+ * @param {String} str string to process
+ * @return {String} trimmed string
+ */
 function removeSpaces(str) {
-  str = str.replace(/\s/g, "");
+  // remove spaces and periods
+  str = str.replace(/\s/g, '');
+  str = str.replaceAll('.', '');
   return str;
 }
 
@@ -94,6 +132,7 @@ function removeSpaces(str) {
 // v4.1 adds url download capability via solo URL argument (same domain/CORS only)
 // v4.2 adds semantic variable names, long (over 2MB) dataURL support, and hidden by default temp anchors
 // https://github.com/rndme/download
+
 (function(root, factory) {
   if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
@@ -123,12 +162,14 @@ function removeSpaces(str) {
       blob,
       reader;
     myBlob = myBlob.call ? myBlob.bind(self) : Blob;
+
     if (String(this) === "true") {
       //reverse arguments, allowing download.bind(true, "text/xml", "export.xml") to act as a callback
       payload = [payload, mimeType];
       mimeType = payload[0];
       payload = payload[1];
     }
+
     if (url && url.length < 2048) {
       // if no filename and no mime, assume a url was passed as the only argument
       fileName = url
@@ -150,6 +191,7 @@ function removeSpaces(str) {
         return ajax;
       } // end if valid url?
     } // end if url?
+
     //go ahead and download dataURLs right away
     if (/^data\:[\w+\-]+\/[\w+\-]+[,;]/.test(payload)) {
       if (payload.length > 1024 * 1024 * 1.999 && myBlob !== toString) {
@@ -161,6 +203,7 @@ function removeSpaces(str) {
           : saver(payload); // everyone else can save dataURLs un-processed
       }
     } //end if dataURL passed?
+
     blob =
       payload instanceof myBlob
         ? payload
@@ -176,7 +219,9 @@ function removeSpaces(str) {
         mx = binData.length,
         i = 0,
         uiArr = new Uint8Array(mx);
+
       for (i; i < mx; ++i) uiArr[i] = binData.charCodeAt(i);
+
       return new myBlob([uiArr], {
         type: type
       });
@@ -202,6 +247,7 @@ function removeSpaces(str) {
         }, 66);
         return true;
       }
+
       // handle non-a[download] safari as best we can:
       if (
         /(Version)\/(\d+)\.(\d+)(?:\.(\d+))?.*Safari\//.test(
@@ -221,9 +267,11 @@ function removeSpaces(str) {
         }
         return true;
       }
+
       //do iframe dataURL download (old ch+FF):
       var f = document.createElement("iframe");
       document.body.appendChild(f);
+
       if (!winMode) {
         // force a mime that will download:
         url = "data:" + url.replace(/^data:([\w\/\-\+]+)/, defaultMime);
@@ -233,10 +281,12 @@ function removeSpaces(str) {
         document.body.removeChild(f);
       }, 333);
     } //end saver
+
     if (navigator.msSaveBlob) {
       // IE10+ : (has Blob, but not a[download] or URL)
       return navigator.msSaveBlob(blob, fileName);
     }
+
     if (self.URL) {
       // simple fast and modern way using Blob and URL:
       saver(self.URL.createObjectURL(blob), true);
@@ -249,6 +299,7 @@ function removeSpaces(str) {
           return saver("data:" + mimeType + "," + encodeURIComponent(blob));
         }
       }
+
       // Blob but not URL support:
       reader = new FileReader();
       reader.onload = function(e) {
@@ -259,5 +310,8 @@ function removeSpaces(str) {
     return true;
   }; /* end download() */
 });
+
+
+
 
 </script>
