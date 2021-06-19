@@ -5,14 +5,14 @@ parent: 'Styling & Appearance'
 <article class="bcls-article">
     <h1>Customizing Player Appearance</h1>
     <summary>This topic is a primer on customizing the appearance of Brightcove Player. The content uses Chrome's development tools, but all modern browsers have equivalent functionality. For a brief introduction to using development tools in different browsers see the <a href="https://general.support.brightcove.com/developer/concepts-javascript-debugging-basics.html">Debugging Basics</a> document.</summary>
-    <aside class="bcls-aside bcls-aside--information language-editable">This document customizes the player using CSS. There are a limited set of customization options available in Studio, which requires no knowledge of CSS to implement. See the <a href="https://studio.support.brightcove.com/players/styling-players.html">Styling Players</a> document for more information.</aside>
+    <aside class="bcls-aside bcls-aside--information">This document customizes the player using CSS. There are a limited set of customization options available in Studio, which requires no knowledge of CSS to implement. See the <a href="https://studio.support.brightcove.com/players/styling-players.html">Styling Players</a> document for more information.</aside>
     <section class="bcls-section">
         <h2 id="Create_own_skin">Create own skin</h2>
         <p>If you wish to not use the default skin and create your own, this is possible using the Player Management API. The <a href="/general/player-configuration-guide.html#skin">Player Configuration Guide</a> provides the necessary information.</p>
     </section>
     <section class="bcls-section">
         <h2 id="Player">Player</h2>
-        <aside class="bcls-aside bcls-aside--information language-editable">Note: This document assumes some knowledge of CSS and using a browser's development tools to view HTML element's classes and examine applicable CSS. If you do not have the pre-requisite base knowledge it would be best if you work through the <a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a>.</aside>
+        <aside class="bcls-aside bcls-aside--information">Note: This document assumes some knowledge of CSS and using a browser's development tools to view HTML element's classes and examine applicable CSS. If you do not have the pre-requisite base knowledge it would be best if you work through the <a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a>.</aside>
         <p>You can alter the appearance of the player, but you must first have a way to address it. To see this, browse an HTML page with the Advanced (in-page embed) code inserted. In the <strong><span translate="No">Elements</span></strong> section of the Development Tools locate the <code translate="No">&lt;video-js&gt;</code> tag and you will see it has a class with the value <code translate="No">video-js</code> assigned, among many others.</p>
         <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player/player-elements.png" /></figure>
         <p>Once you know this, you can use styles to alter the player itself. For instance, to include a border around the player you can use this style:</p>
@@ -147,7 +147,7 @@ parent: 'Styling & Appearance'
   -webkit-transform: none;
   -ms-transform: none;
 }</code></pre>
-        <aside class="bcls-aside bcls-aside--information language-editable">Although considered a bit of a hack, you can simply repeat the class of the controlbar eight times to build its specificity to match the selector above:
+        <aside class="bcls-aside bcls-aside--information">Although considered a bit of a hack, you can simply repeat the class of the controlbar eight times to build its specificity to match the selector above:
             <pre class="line-numbers">
 <code class="language-css" translate="No">.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar.vjs-control-bar {
   transform: none;
@@ -155,7 +155,7 @@ parent: 'Styling & Appearance'
   -ms-transform: none;
 }</code></pre>
         </aside>
-        <aside class="bcls-aside bcls-aside--tip language-editable">Using this CSS to stop the controlbar from disappearing is very helpful when right-clicking on elements in the controlbar to inspect them. If you don't do this, as you right-click the controlbar disappears. Also note, the first right-click displays the Brightcove Player information menu, and the <strong>second right-click will display the menu where you can choose to inspect</strong>.</aside>
+        <aside class="bcls-aside bcls-aside--tip">Using this CSS to stop the controlbar from disappearing is very helpful when right-clicking on elements in the controlbar to inspect them. If you don't do this, as you right-click the controlbar disappears. Also note, the first right-click displays the Brightcove Player information menu, and the <strong>second right-click will display the menu where you can choose to inspect</strong>.</aside>
     </section>
     <section class="bcls-section">
         <h2 id="Progress_bar">Progress bar</h2>
@@ -163,7 +163,7 @@ parent: 'Styling & Appearance'
         <figure class="bcls-figure"><img class="bcls-image" alt="customize-player-elements" src="/assets/images/styling/customizing-player/play-progress-standard.png" /></figure>
         <p>The challenge here is to find the class names for the elements. Using the same technique as described earlier in the document, right-clicking on an element and choosing <strong><span translate="No">Inspect</span></strong>, then drilling down you will see the <code translate="No">vjs-play-progress</code> class.</p>
         <figure class="bcls-figure"><img class="bcls-image" alt="progress-and-volume-elements" src="/assets/images/styling/customizing-player/play-progress-element.png" /></figure>
-        <aside class="bcls-aside bcls-aside--tip language-editable">In browsers you can actually search for class names in the console. For instance, in Chrome simply use <strong>CTL-F</strong> then enter the class for which you are looking.</aside>
+        <aside class="bcls-aside bcls-aside--tip">In browsers you can actually search for class names in the console. For instance, in Chrome simply use <strong>CTL-F</strong> then enter the class for which you are looking.</aside>
         <p>The <code translate="No">background-color</code> changes the color of the element and needs to be styled. The needed style is shown here:</p>
         <pre class="line-numbers">
 <code class="language-css" translate="No">.video-js .vjs-play-progress {
@@ -257,7 +257,7 @@ parent: 'Styling & Appearance'
             <li>Get a reference to the element you wish to insert your new element in front of in the controlbar.</li>
             <li>Use the JavaScript <code translate="No">insertBefore()</code> method to place the icon.</li>
         </ul>
-        <aside class="bcls-aside bcls-aside--tip language-editable">
+        <aside class="bcls-aside bcls-aside--tip">
             <p>The syntax for <code translate="No">insertBefore()</code> is:</p>
             <pre class="line-numbers">
 <code class="language-javascript" translate="No">parent.insertBefore(newElement,insertBeforeElement)</code></pre>

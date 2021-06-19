@@ -69,13 +69,13 @@ description: In this topic, you will learn about the use and configuration of th
             If any of the above fail, the player will display the "Big Play Button" as if autoplay was set to false.<br />
             <br />
             Getting a video to autoplay can be a complex situation. See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for further details.
-            <aside class="bcls-aside bcls-aside--information language-editable">If <strong>autoplay</strong> is enabled at the player level (using either Studio or Player Management API), there is no way to disable it. For instance, <code translate="No">&amp;autoplay=false</code> will not stop autoplay. In fact, the last query parameter would actually turn on autoplay as if the URL contains the string <strong>autoplay</strong>, autoplay will be enabled, no matter what value might be assigned to it.</aside></td>
+            <aside class="bcls-aside bcls-aside--information">If <strong>autoplay</strong> is enabled at the player level (using either Studio or Player Management API), there is no way to disable it. For instance, <code translate="No">&amp;autoplay=false</code> will not stop autoplay. In fact, the last query parameter would actually turn on autoplay as if the URL contains the string <strong>autoplay</strong>, autoplay will be enabled, no matter what value might be assigned to it.</aside></td>
           <td >Boolean or String</td>
         </tr>
         <tr>
           <td ><code translate="No">crossorigin</code></td>
           <td >If <strong>true</strong>, the underlying <strong>&lt;video&gt;</strong> element will have <strong>crossorigin="anonymous"</strong>. This means that any videos or text tracks pulled into the player must have CORS headers.
-            <aside class="bcls-aside bcls-aside--information language-editable">Note: This feature should only be used if you know that all your content (video and text tracks) have CORS headers applied to them.</aside></td>
+            <aside class="bcls-aside bcls-aside--information">Note: This feature should only be used if you know that all your content (video and text tracks) have CORS headers applied to them.</aside></td>
           <td >Boolean</td>
         </tr>
         <tr>
@@ -137,21 +137,21 @@ description: In this topic, you will learn about the use and configuration of th
     <ul>
       <li>
         <p><strong>auto</strong> (default): Start loading the video immediately (if the browser agrees). Some mobile devices like iPhones and iPads will not preload the video in order to protect their users' bandwidth. This is why the value is called <strong>auto</strong> and not something more final like <strong>true</strong>.</p>
-        <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>auto</strong> means the player downloads the m3u8 manifest file and only 1 segment instead of 3-4, as was the case before version 5.3 of Brightcove Player.</aside>
+        <aside class="bcls-aside bcls-aside--information">For the HLS playback technology, <strong>auto</strong> means the player downloads the m3u8 manifest file and only 1 segment instead of 3-4, as was the case before version 5.3 of Brightcove Player.</aside>
       </li>
       <li>
         <p><strong>metadata</strong>: Load only the meta data of the video, which includes information like the duration and dimensions of the video.</p>
-        <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>metadata</strong> is the same as <strong>auto</strong>.</aside>
+        <aside class="bcls-aside bcls-aside--information">For the HLS playback technology, <strong>metadata</strong> is the same as <strong>auto</strong>.</aside>
       </li>
       <li>
         <p><strong>none</strong>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading. Note that on iOS there may be segment downloading even with this setting. See the <a href="/playback/ios-and-brightcove-player.html">Brightcove Player and iOS</a> document for more information.</p>
-        <aside class="bcls-aside bcls-aside--information language-editable">For the HLS playback technology, <strong>none</strong> means player will no longer load anything, including the m3u8 manifest, until the user presses play.</aside>
+        <aside class="bcls-aside bcls-aside--information">For the HLS playback technology, <strong>none</strong> means player will no longer load anything, including the m3u8 manifest, until the user presses play.</aside>
       </li>
     </ul>
     <pre class="line-numbers">
       <code class="language-html" translate="No">&lt;video-js preload ...&gt;
       or
       { "preload": "auto" } </code></pre>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: When using Server-Side Ad Insertion (SSAI), Brightcove recommends setting <code translate="No">preload=none</code>. If <code translate="No">preload</code> is set to <code translate="No">auto</code> or <code translate="No">metadata</code>, the first frames of the video stream will be requested, which counts the ad as delivered even if the user does not start playback.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: When using Server-Side Ad Insertion (SSAI), Brightcove recommends setting <code translate="No">preload=none</code>. If <code translate="No">preload</code> is set to <code translate="No">auto</code> or <code translate="No">metadata</code>, the first frames of the video stream will be requested, which counts the ad as delivered even if the user does not start playback.</aside>
   </section>
 </article>

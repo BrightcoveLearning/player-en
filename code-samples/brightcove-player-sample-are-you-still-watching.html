@@ -8,7 +8,7 @@ parent: Code Samples
   <h1>{{ page.title }}</h1>
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
-    <aside class="bcls-aside bcls-aside--information language-editable">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>In this sample you will see after a set amount of time, an overlay message is displayed. This sample will display the overlay in 6 seconds, but the time is configurable. If the viewer clicks the message within a specified time, then playback continues. If not, the video is paused. This technique is useful if you have long-form content. This will keep you from wasting bandwidth on viewers who start playing a video and then leave to do something else without bothering to stop it.</p>
     <p>This sample uses an open source Video.js Plugin located at <a href="https://github.com/TylerZubke/Videojs-AFK-Monitor">https://github.com/TylerZubke/Videojs-AFK-Monitor</a>. The sample code in this document will utilize this plugin.</p>
     <!-- UPDATE codepen here -->
@@ -185,11 +185,11 @@ parent: Code Samples
     <ul>
       <li>A complete list of configuration options are found in the plugin's <a href="https://github.com/TylerZubke/Videojs-AFK-Monitor">readme</a> file.</li>
       <li>The <code translate="No">showMessageAfter</code> (in milliseconds) determines the time before the button is displayed.
-        <aside class="bcls-aside bcls-aside--warning language-editable">Note that since the plugin uses the <code translate="No">userinactive</code> event, the time set by <code translate="No">showMessageAfter</code> will have 5 seconds added to it. This is because the <code translate="No">userinactive</code> event is dispatched after 5 seconds of user inactivity.</aside>
+        <aside class="bcls-aside bcls-aside--warning">Note that since the plugin uses the <code translate="No">userinactive</code> event, the time set by <code translate="No">showMessageAfter</code> will have 5 seconds added to it. This is because the <code translate="No">userinactive</code> event is dispatched after 5 seconds of user inactivity.</aside>
       </li>
       <li>The <code translate="No">pausePlayerAfter</code> (in milliseconds) options is also helpful. This is time you allow the user to click the button before the player is paused. This give the user a chance to click the button without interrupting video playback.</li>
     </ul>
-    <aside class="bcls-aside bcls-aside--tip language-editable">If you wish to use this plugin with Brightcove Live, you should use the modified plugin located at <a href="https://github.com/BrightcoveLearning/18189-are-you-still-watching/blob/master/plugin/videojs.afk-monitor-live.js">https://github.com/BrightcoveLearning/18189-are-you-still-watching/blob/master/plugin/videojs.afk-monitor-live.js</a>.</aside>
+    <aside class="bcls-aside bcls-aside--tip">If you wish to use this plugin with Brightcove Live, you should use the modified plugin located at <a href="https://github.com/BrightcoveLearning/18189-are-you-still-watching/blob/master/plugin/videojs.afk-monitor-live.js">https://github.com/BrightcoveLearning/18189-are-you-still-watching/blob/master/plugin/videojs.afk-monitor-live.js</a>.</aside>
   </section>
   <!-- UPDATE CSS description -->
   
@@ -200,7 +200,7 @@ parent: Code Samples
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
     <p>You will want to clone the repo to access the code and then place it in an Internet accessible location for your use.</p>
-    <aside class="bcls-aside bcls-aside--information language-editable">You will want to update the plugin's JavaScript code. In the repo the following, now outdated, code is used to register the plugin:
+    <aside class="bcls-aside bcls-aside--information">You will want to update the plugin's JavaScript code. In the repo the following, now outdated, code is used to register the plugin:
       <pre class="line-numbers">
   <code class="language-javascript" translate="No">videojs.plugin('AFKMonitor', AFKMonitor);</code></pre>
       <p>You should replace that line of code with:</p>

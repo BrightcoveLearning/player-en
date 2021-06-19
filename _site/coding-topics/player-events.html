@@ -1191,7 +1191,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
       </tbody>
     </table>
-    <aside class="bcls-aside bcls-aside--warning language-editable">In Edge Windows 10 the <code translate="No">waiting</code> event is never dispatched when there is buffering.</aside>
+    <aside class="bcls-aside bcls-aside--warning">In Edge Windows 10 the <code translate="No">waiting</code> event is never dispatched when there is buffering.</aside>
   </section>
   <section class="bcls-section">
     <h2 id="startupevents">Startup events</h2>
@@ -1199,7 +1199,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>
         <p><code translate="No">loadstart</code>: Dispatched when the player is initialized, and if it’s re-initialized in the case of giving it a new source to play</p>
-        <aside class="bcls-aside bcls-aside--tip language-editable">Since the <code translate="No">loadstart</code> event may happen before the player is ready, it is best practice to set the event listener for this event before calling the player's <code translate="No">ready()</code> function. See the CodePen below.</aside>
+        <aside class="bcls-aside bcls-aside--tip">Since the <code translate="No">loadstart</code> event may happen before the player is ready, it is best practice to set the event listener for this event before calling the player's <code translate="No">ready()</code> function. See the CodePen below.</aside>
       </li>
       <li><code translate="No">loadedmetadata</code>: Dispatched when the player has initial duration and dimension information, in other words, when the first segment is downloaded. For live videos the <code translate="No">loadedmetadata</code> event won't be dispatched until the user clicks play. This is because live videos don't start downloading segments until the user clicks play.</li>
       <li><code translate="No">loadeddata</code>: Dispatched when the player has downloaded data at the current playback position</li>
@@ -1207,7 +1207,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The following CodePen shows the startup events being listened for and dispatched. Note that if you mouse over the CodePen, you can click the <strong>RERUN</strong> button located in the bottom-right to see the events dispatch again. If you wish to experiment with the code, click the <strong>Edit on CODEPEN</strong> link in the header to move to the editing environment. You can click the <strong>JS</strong> button to see the JavaScript that add the event listeners.</p>
     <p data-height="400" data-theme-id="14832" data-slug-hash="jPrdQm" data-default-tab="result" data-user="bcls" class="codepen">See the Pen <a href="http://codepen.io/team/bcls/pen/jPrdQm/">Startup Events Demo</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls</a>) on <a href="http://codepen.io">CodePen</a>.</p>
     <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: It may be possible on first load of this page you will not see the <code translate="No">loadstart</code> event. This is because that event could be dispatched before the CodePen is fully rendered on the page. Click the <strong>RERUN</strong> button and you will see all three events dispatched.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: It may be possible on first load of this page you will not see the <code translate="No">loadstart</code> event. This is because that event could be dispatched before the CodePen is fully rendered on the page. Click the <strong>RERUN</strong> button and you will see all three events dispatched.</aside>
     <h3>ready() method</h3>
     <p>The <code translate="No">ready()</code> method has a dual personality in that it seems like an event, but you use it like a method. This method/event means the player is ready to receive commands.</p>
     <p>The <code translate="No">ready()</code> method differs from event listeners in that if the <code translate="No">ready</code> event has already happened it will trigger the <code translate="No">ready()</code> method immediately. You will often see the method used as follows to provide the starting point for development with Brightcove Player:</p>
@@ -1215,7 +1215,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function(){
   var myPlayer = this;
 });</code></pre>
-    <aside class="bcls-aside bcls-aside--tip language-editable">Note: It is important to realize that if the player has to switch playback technologies, say from HTML to Flash, to play a video the <code translate="No">ready</code> method/event event handlers will rerun once the new playback tech is up and running.</aside>
+    <aside class="bcls-aside bcls-aside--tip">Note: It is important to realize that if the player has to switch playback technologies, say from HTML to Flash, to play a video the <code translate="No">ready</code> method/event event handlers will rerun once the new playback tech is up and running.</aside>
     <h3>ready() vs. on('loadedmetadata',...)</h3>
     <p>Note that using <code translate="No">ready()</code> functions correctly if you wish to interact with the player, for instance programmatically add a plugin. If you wish to immediately interact with the video, for instance use <code translate="No">play()</code>, the code snippet above will not always work correctly. A better approach would be to listen for the <code translate="No">loadedmetadata</code> to interact with the video, for instance:</p>
     <pre class="line-numbers">
@@ -1229,7 +1229,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>If you wish to immediately interact with the video in the player use this:</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('loadedmetadata',function(){})</code></pre>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: The reason you must wait for the <code translate="No">loadedmetadata</code> event to be dispatched is that it ensures the catalog has had time to retrieve the video before it tries to play.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: The reason you must wait for the <code translate="No">loadedmetadata</code> event to be dispatched is that it ensures the catalog has had time to retrieve the video before it tries to play.</aside>
   </section>
   <section id="fullscreenEvents">
     <h2 class="bcls-section">Fullscreen events</h2>

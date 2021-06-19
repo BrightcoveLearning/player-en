@@ -1139,11 +1139,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Overview">Overview</h2>
     <p>If you are delivering premium or confidential content, you will be looking for all ways to ensure it remains secure. You do not want end users to be able to copy video URLs or continue to play back content without the proper authorization. Brightcove supports signing of RTMP, HLS, and DASH URLs.</p>
     <p>If you will be generating your own token, there is one step to this process. If you want the Live system to generate a tokenized URL, there are two steps, detailed in the sections that follow, required to enable token authentication for live streams.</p>
-    <aside class="bcls-aside bcls-aside--information language-editable">Currently, token authentication is supported with Akamai EdgeAuth 2.0 only.</aside>
+    <aside class="bcls-aside bcls-aside--information">Currently, token authentication is supported with Akamai EdgeAuth 2.0 only.</aside>
   </section>
   <section id="Implementation" class="bcls-section">
     <h2>Implementation</h2>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: if you are creating your own token and adding it to the URL, you should only complete step 1.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: if you are creating your own token and adding it to the URL, you should only complete step 1.</aside>
     <h3>Step 1: Creating the live job</h3>
     <p>To enable token authentication, include the following in the request body when you <a href="https://live.support.brightcove.com/live-api/references/reference.html#api-Live_Jobs-Create_a_Live_Job">create a job</a>:</p>
     <pre class="line-numbers">
@@ -1190,7 +1190,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </tbody>
     </table>
     <h3>Step 2: After the live job is created</h3>
-    <aside class="bcls-aside bcls-aside--information language-editable">Only complete this step if you are <strong>not</strong> creating your own token and instead want the Live API to generate a tokenized URL.</aside>
+    <aside class="bcls-aside bcls-aside--information">Only complete this step if you are <strong>not</strong> creating your own token and instead want the Live API to generate a tokenized URL.</aside>
     <p>After the live job is created, you need to make another request to generate the master manifest URLs. To do this, send a <code translate="No">POST</code> request to:</p>
     <pre class="line-numbers">
   <code class="language-http" translate="No">https://api.bcovlive.io/v1/jobs/<span class="bcls-input">JOB_ID</span>/authurls</code></pre>

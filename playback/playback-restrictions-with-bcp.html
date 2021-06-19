@@ -71,7 +71,7 @@ parent: Playback
         <p>
           Here is an example of fetching a single video with playback restrictions and an authorization token:
         </p>
-        <aside class="bcls-aside bcls-aside--tip language-editable">Notice that the <a href="https://player.support.brightcove.com/coding-topics/using-bc-and-getplayer-methods.html#bc_method_details">bc() method</a> is used to allow you to set the policy key before making a call to the catalog.</aside>
+        <aside class="bcls-aside bcls-aside--tip">Notice that the <a href="https://player.support.brightcove.com/coding-topics/using-bc-and-getplayer-methods.html#bc_method_details">bc() method</a> is used to allow you to set the policy key before making a call to the catalog.</aside>
 
     <h3>HTML</h3>
   <pre class="line-numbers">
@@ -197,7 +197,7 @@ parent: Playback
       <li>Create a signed <a href="https://general.support.brightcove.com/developer/create-json-web-token.html">JSON Web Token (JWT)</a>.</li>
       <li>Include this token with the video request.
         <p>This sample implementation code uses the <a href="https://player.support.brightcove.com/references/player-catalog.html#get_method">catalog.get()</a> method to request the video while supplying the token.</p>
-    <aside class="bcls-aside bcls-aside--information language-editable">Be sure NOT to include the <code translate="No">data-video-id</code> parameter in the <code translate="No">&lt;video-js&gt;</code> tag.</aside>
+    <aside class="bcls-aside bcls-aside--information">Be sure NOT to include the <code translate="No">data-video-id</code> parameter in the <code translate="No">&lt;video-js&gt;</code> tag.</aside>
 <pre class="line-numbers">
   <code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
     data-account=&quot;1507807800001&quot;
@@ -231,7 +231,7 @@ parent: Playback
   <section class="bcls-section">
     <h2 id="Using_Concurrency_and_Registration">Using Concurrency and Registration</h2>
     <p>If you are using <a href="https://apis.support.brightcove.com/playback-restrictions/guides/stream-concurrency.html">Stream Concurrency</a> or <a href="https://apis.support.brightcove.com/playback-restrictions/guides/device-limits.html">Device Registration</a>, then your Brightcove player will need to use the <strong>EME</strong> plug-in INSTEAD of the standard <strong>DRM</strong> plug-in.</p>
-    <aside class="bcls-aside bcls-aside--information language-editable">The DRM plugin is a wrapper for the EME plugin. For details, see the <a href="https://player.support.brightcove.com/plugins/configuring-brightcove-player-drm.html#DRM_plugin_architecture">Configuring the Brightcove Player for DRM</a> document.</aside> 
+    <aside class="bcls-aside bcls-aside--information">The DRM plugin is a wrapper for the EME plugin. For details, see the <a href="https://player.support.brightcove.com/plugins/configuring-brightcove-player-drm.html#DRM_plugin_architecture">Configuring the Brightcove Player for DRM</a> document.</aside> 
     
 
     <p>Follow these steps:</p>
@@ -271,8 +271,8 @@ parent: Playback
     }
   }
 },</code></pre>
-<aside class="bcls-aside bcls-aside--warning language-editable">The EME plug-in has to be configured in the order shown above (scripts & style sheet first then the option) otherwise, it won't work.</aside>
-<aside class="bcls-aside bcls-aside--information language-editable">This functionality is supported in the DRM plug-in v5.9.1 +.</aside>
+<aside class="bcls-aside bcls-aside--warning">The EME plug-in has to be configured in the order shown above (scripts & style sheet first then the option) otherwise, it won't work.</aside>
+<aside class="bcls-aside bcls-aside--information">This functionality is supported in the DRM plug-in v5.9.1 +.</aside>
       </li>
       <li>Include a JWT auth token, as defined in the <a href="#Using_License_Keys_Protection">Using License Keys Protection</a> section.</li>
     </ol>

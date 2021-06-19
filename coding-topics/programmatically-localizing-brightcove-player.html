@@ -6,7 +6,7 @@ description: In this topic you will learn how to localize Brightcove Player. Thi
 <article class="bcls-article">
   <h1>Programmatically Localizing Brightcove Player</h1>
   <summary>{{ page.description }}</summary>
-  <aside class="bcls-aside bcls-aside--tip language-editable">You can configure localization using Studio as shown in the <a href="https://studio.support.brightcove.com/players/configuring-player-localization.html">Configuring Player Localization</a> document. Whereas that document uses a UI to configure localization, this document takes a programmatic approach.</aside>
+  <aside class="bcls-aside bcls-aside--tip">You can configure localization using Studio as shown in the <a href="https://studio.support.brightcove.com/players/configuring-player-localization.html">Configuring Player Localization</a> document. Whereas that document uses a UI to configure localization, this document takes a programmatic approach.</aside>
   <section id="Document_structure" class="bcls-section">
     <h2>Document structure</h2>
     <p>First the process for localizing the In-Page Embed implementation is shown, then the iframe implementation. The document concludes by demonstrating how to edit or add to localized vocabulary if you wish to localize content on the page surrounding the player.</p>
@@ -106,7 +106,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/pu
 });  </code></pre>
     <p>This JavaScript could be in the HTML page itself, included as a source in a <code translate="No">&lt;script&gt;</code> tag, or add the script to the player's configuration using Studio. The URL to the file is added in the <strong>Plugins</strong> section of the player's properties. Use the <strong>Add a File</strong> button to add the JavaScript file, as shown here:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="add script in Studio" src="/assets/images/coding-topics/localization-studio-add-script.png" /></figure>
-    <aside class="bcls-aside bcls-aside--tip language-editable">No matter the method, the call to the <code>addLanguage()</code> method MUST be done before the player is initialized. For instance, if the code is in the HTML page, you would do this:
+    <aside class="bcls-aside bcls-aside--tip">No matter the method, the call to the <code>addLanguage()</code> method MUST be done before the player is initialized. For instance, if the code is in the HTML page, you would do this:
       <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.addLanguage("de", {
   "Play": "Wiedergabe",
   "Pause": "Pause",

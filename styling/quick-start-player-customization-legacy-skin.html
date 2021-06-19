@@ -12,7 +12,7 @@ parent: 'Styling & Appearance'
     <h2>Overview</h2>
     <p>This document will have several sections as using CSS with the in-page embed and the iframe implementations of the player are quite different.</p>
     <p>The content in this document uses Chrome's development tools, but all modern browsers have equivalent functionality. For a brief introduction to using development tools in different browsers, see the <a href="https://general.support.brightcove.com/developer/concepts-javascript-debugging-basics.html">Debugging Basics</a> document.</p>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: Some basic player styling is provided inside of Video Cloud Studio. For more information, see <a href="https://studio.support.brightcove.com/players/styling-players.html">Styling Players</a>.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: Some basic player styling is provided inside of Video Cloud Studio. For more information, see <a href="https://studio.support.brightcove.com/players/styling-players.html">Styling Players</a>.</aside>
   </section>
   <section id="determineselector" class="bcls-section">
     <h2>Determine player selector</h2>
@@ -26,7 +26,7 @@ parent: 'Styling & Appearance'
       <li>Open your browser's development tools and drill down into the HTML to find the <code translate="No">div</code> tag that surrounds the player. You will see the <code translate="No">div</code> tag has a class of <code translate="No">video-js</code>. The <code translate="No">div</code> that contains the player will always have a class of <code translate="No">video-js</code>. <code translate="No">video-js</code> is the class name we will need when styling the player.</li>
       <li>Check the screenshot below to see the class highlighted in red. Highlighted in green is the video tag, which is Brightcove Player.
         <figure class="bcls-figure"><img class="bcls-image" alt="player-div-with-video" src="/assets/images/styling/customization-legacy-skin/player-div-with-video.png" /></figure>
-        <aside class="bcls-aside bcls-aside--tip language-editable">
+        <aside class="bcls-aside bcls-aside--tip">
           <p>Note: Depending on the operating system and browser being used, the Flash fallback version of the player may be displayed. If your player is using the Flash fallback version of the player, you will not see a <code translate="No">video</code> tag. Instead you will see the <code translate="No">div</code> surrounding an <code translate="No">object</code>tag, as highlighted below.</p>
           <figure class="bcls-figure"><img class="bcls-image" alt="player-div-with-object" src="/assets/images/styling/customization-legacy-skin/player-div-with-object.png" /></figure>
         </aside>
@@ -76,7 +76,7 @@ parent: 'Styling & Appearance'
       </li>
       <li>Look to the right of your developer tools and you will see a summary of your styles. You can look down and see that changing the background to red is overridden, represented by it being crossed out.
         <figure class="bcls-figure"><img class="bcls-image" alt="styles-background-overridden" src="/assets/images/styling/customization-legacy-skin/styles-background-overridden.png" /></figure>
-        <aside class="bcls-aside bcls-aside--information language-editable">Note: In Safari, the style may not be crossed out even though it is being overridden.</aside>
+        <aside class="bcls-aside bcls-aside--information">Note: In Safari, the style may not be crossed out even though it is being overridden.</aside>
         <p>What has happened is that numerous changes are made to the background color. The style you set has been overridden in the "cascading" part of CSS. You can change this by utilizing functionality of CSS called <strong>specificity</strong>. Specificity determines which CSS rule is applied by browsers and is a type of weighting that has a bearing on how your cascading style sheet (CSS) rules are displayed. Using specificity, you can make your style more important than others, forcing it to be used. There is a brief introduction to CSS specificity in the <a href="/styling/customizing-player-appearance-legacy-skin.html#specificity">Customize Player Appearance - Legacy Skin</a> doc, and numerous references in any search.</p>
       </li>
       <li>Note that the <code translate="No">div</code> tag surrounds the player has numerous classes associated with it.
@@ -142,7 +142,7 @@ parent: 'Styling & Appearance'
       &lt;/body&gt;
       &lt;/html&gt; </code></pre>
     <p>This is a very common way to use CSS with an HTML page. You see the <code translate="No">style</code> block is on the page with the <code translate="No">video</code> tag.</p>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: Depending upon your CSS experience, you may be wondering why the code above did not assign an <code translate="No">id</code> attribute to the <code translate="No">video</code> tag. You could then use a selector like <code translate="No">#myPlayer .vjs-big-play-button</code>. In fact, you could have and it would have worked. The problem is, the CSS created using id selectors will not work when using the iframe player implementation, so only existing class names were used. By not using an <code translate="No">id</code> attribute, the styles will be directly applicable to iframe player implementations.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: Depending upon your CSS experience, you may be wondering why the code above did not assign an <code translate="No">id</code> attribute to the <code translate="No">video</code> tag. You could then use a selector like <code translate="No">#myPlayer .vjs-big-play-button</code>. In fact, you could have and it would have worked. The problem is, the CSS created using id selectors will not work when using the iframe player implementation, so only existing class names were used. By not using an <code translate="No">id</code> attribute, the styles will be directly applicable to iframe player implementations.</aside>
   </section>
   <section id="iframe" class="bcls-section">
     <h2>iframe</h2>
@@ -152,7 +152,7 @@ parent: 'Styling & Appearance'
       <li>Place styles in an Internet accessible file</li>
       <li>Link the stylesheet to the player (done using Studio or the Player Management API)</li>
     </ul>
-    <aside class="bcls-aside bcls-aside--information language-editable">Note: The following steps assume you will be working from the HTML you completed in the previous steps and shown in the code snippet above. If you wish to keep that as a working example, simply copy the code into another file and start the following steps in the new file.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: The following steps assume you will be working from the HTML you completed in the previous steps and shown in the code snippet above. If you wish to keep that as a working example, simply copy the code into another file and start the following steps in the new file.</aside>
     <ol class="bcls-tasklist">
       <li>In Studio, publish a video and copy the code for an iframe implementation of the player.</li>
       <li>In your HTML page, replace the in-page embed code with the iframe code.</li>
@@ -236,7 +236,7 @@ parent: 'Styling & Appearance'
         <figure class="bcls-figure"><img class="bcls-image" alt="studio-enter-css" src="/assets/images/styling/customization-legacy-skin/studio-enter-css.png" /></figure>
       </li>
       <li>Click <strong>Save</strong> to save your changes in the <strong>PLUGINS</strong> section.
-        <aside class="bcls-aside bcls-aside--information language-editable">The preview player at the top of the page will update to show the CSS styles applied to the button.</aside>
+        <aside class="bcls-aside bcls-aside--information">The preview player at the top of the page will update to show the CSS styles applied to the button.</aside>
       </li>
       <li>At the top of the page, click <strong>Publish</strong> to publish your player.</li>
       <li>Return to your browser and refresh the page. Once the published changes are active, you will see your styles applied to the iframe player. It can be several minutes before the published changes are visible.</li>
