@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="In this topic, you will learn how to create a tabbed navigation for multiple playlists with a player.">
   
   <title>Brightcove Player Sample: Tabbed Playlist</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1132,9 +1132,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
 
 
+<h1>Brightcove Player Sample: Tabbed Playlist</h1>
 <article class="bcls-article">
-  <h1>Brightcove Player Sample: Tabbed Playlist</h1>
   <summary>In this topic, you will learn how to create a tabbed navigation for multiple playlists with a player.</summary>
+
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
@@ -1226,8 +1227,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
     <h3>Player configuration</h3>
-    <p>In Video Cloud Studio, navigate to the Players module. Edit the Settings section, and set <strong>Display Playlist</strong> to <strong>Enabled</strong>.</p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Playlist enabled" src="//learning-services-media.brightcove.com/doc-assets/player-development/playlists/tabbed-playlist/display-playlist-enabled.png" /></figure>
+    <p>In Video Cloud Studio, navigate to the Players module and select the player. Edit the Styling section, and select the playlist display type.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Playlist enabled" src="/" /></figure>
     <p>If you want, you can add your player dimensions. Notice that, by default, these dimensions are adjusted to include the playlist. In this example, we will use CSS to control the player and playlist sizes.</p>
     <h3>Other HTML</h3>
     <p>The tabs in the tabbed navigation are defined in a <code translate="No">div</code> block above the player embed code. Notice that each tab defines the playlist name and contains an <code translate="No">onclick</code> event, which calls the <code translate="No">processTab()</code> function with an index value. You will find this function defined in the JavaScript code.</p>
@@ -1321,36 +1322,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>CSS is used to size and style the player along with the tabbed playlist. It also controls the responsive layout. Media Queries are used to change the layout from playlist on the right, to playlist under the player to stacked below the player based on the view size.</p>
     <aside class="bcls-aside bcls-aside--warning">Be careful with the pseudo selectors. An extra space will cause the player to <strong>not</strong> be visible. For example, you do not want this <code translate="No">.myplayer: after {</code></aside>
   </section>
-  <!-- <section class="bcls-section">
-    <h2 id="Using_the_Social_Media_plugin">Using the Social Media plugin</h2>
-    <p>This section explains how you can use the <a href="/plugins/social-sharing-plugin.html">Social Media plugin</a> with the Tabbed playlist example.</p>
-    <p>The examples above work fine if you do not want to include the Social Media plugin with your player. Even then, you can use those examples with social sharing, but the <strong>Direct Link</strong> sharing URL will always point to the first playlist tab and the first video in the playlist.</p>
-    <p>The example in this section uses a little more JavaScript code to set the sharing URL to the playlist tab and video in the playlist that you are currently watching. Follow these steps to see how the social sharing link works:</p>
-    <ol class="bcls-tasklist">
-      <li>Select the image below to open the Social Sharing Tabbed Playlist player in a new browser tab. 
-        
-        <figure class="bcls-figure"><a target="_blank" href="//learning-services-media.brightcove.com/doc-assets/code-samples/brightcove-player-sample-tabbed-playlist.html-tabbed-playlist/playlist-plugin.html"><img class="bcls-image--no-border" alt="Social tabbed playlist" src="//learning-services-media.brightcove.com/doc-assets/code-samples/brightcove-player-sample-tabbed-playlist.html-tabbed-playlist/social-tabbed-playlist.png" /> </a>
-          <figcaption class="bcls-caption--image">Social tabbed playlist</figcaption>
-          </figure>
-         
-      <li>Select a playlist tab, other than the first tab.</li>
-      <li>Select a video in the playlist, other than the first video.</li>
-      <li>In the player control bar, select the sharing icon to open the sharing dialog.
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Direct Link URL" src="//learning-services-media.brightcove.com/doc-assets/code-samples/brightcove-player-sample-tabbed-playlist.html-tabbed-playlist/direct-link.png" />
-          <figcaption class="bcls-caption--image">Direct Link URL</figcaption>
-        </figure>
-      </li>
-      <li>Copy the <strong>Direct Link</strong> URL and paste it in a browser. You should see that the Tabbed Playlist player displays with the current playlist tab and current video selected. This allows you to share a specific video in a playlist with your social sites.</li>
-      <li>
-        View the <a href="https://github.com/BrightcoveLearning/18159-social-plugin-tabbed-playlist">source code</a>.
-      </li>
-    </ol>
-    <h3>Player/HTML configuration/JavaScript</h3>
-    <p>The player code is the same as the static example, except that the <a href="/plugins/social-sharing-plugin.html">Social Media plugin</a> has been added.</p>
-    <p>The JavaScript in this example has been modified to keep track of the current playlist tab and video, and create a <strong>Direct Link</strong> URL with these values. The code checks to see if the URL has tab and video item parameters to use when displaying the initial video in the player. Review the <a href="https://github.com/BrightcoveLearning/18159-social-plugin-tabbed-playlist/blob/master/plugin/index.html">JavaScript code</a> in the HTML file.</p>
-    <h3>Application styling</h3>
-    <p>The CSS is the same as the static example.</p>
-  </section> -->
 </article>
 
 <!-- complete bootstrap layout -->
@@ -1368,7 +1339,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 11 Jun 2021
+  Page last updated on 19 Jun 2021
 </div>
 
 
