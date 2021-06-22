@@ -1154,7 +1154,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>There are setup requirements in addition to configuring your player. For details, see the <a href="">Overview: Forensic Watermarking</a> document.</p>
 
     <h3>Brightcove Player</h3>
-    <p>Brightcove Player version 6.54+ required; latest version recommended</p>
+    <p>Brightcove Player version 6.55+ required; latest version recommended</p>
   </section>
 
   <section class="bcls-section">
@@ -1165,10 +1165,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
-          Before you get your video, set a string token with the value of your Nagra watermark key as part of the player catalog object.
+          Before you get your video, set a string token with the value of your Nagra watermark token as part of the player catalog object.
         </p>
         <pre>
-<code class="language-html" translate="No">catalog.setWatermarkingToken()</code></pre>
+<code class="language-html" translate="No">myPlayer.catalog.setWatermarkingToken()</code></pre>
       </li>
       <li>
         <p>
@@ -1178,6 +1178,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           Here is an example of fetching a single video:
         </p>
         <aside class="bcls-aside bcls-aside--tip">Notice that the <code translate="No">bc()</code> method is used to allow you to set the watermarking token before making a call to the catalog.</aside>
+        <aside class="bcls-aside bcls-aside--information">Note: Be sure NOT to include the <code translate="No">data-video-id</code> parameter in the <code translate="No">&lt;video-js&gt;</code> tag, because doing so will trigger an automatic video request without the watermarking token.</aside>
         <h3>HTML</h3>
   <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;div style=&quot;max-width: 960px;&quot;&gt;
