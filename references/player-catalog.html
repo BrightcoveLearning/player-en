@@ -136,7 +136,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
     </ul>
     <h3>Returned value</h3>
     <p>The <code translate="No">catalog</code> call itself returns an object of type <strong translate="No">XMLHttpRequest</strong>. An example of this object follows:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="request object" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/player-catalog/request-object.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="request object" src="/assets/images/references/player-catalog/request-object.png" /></figure>
     <p>Although the call returns an <strong translate="No">XMLHttpRequest</strong> object, you will most likely never deal with that object. The reason is that in the callback function the JSON response is automatically parsed and a usable object is what is passed to the callback function, in this case a video object.</p>
     <h3>Example: Video ID as string</h3>
     <p>The following example shows a use of the <code translate="No">getVideo()</code> method:</p>
@@ -311,7 +311,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
   });
 &lt;/script&gt;</code></pre>
     <p>The following screenshot shows the two <code translate="No">console.log()</code> results in the code above. The <code translate="No">catalogParams</code> shows the parameters for the search, and the <code translate="No">videosReturned</code> array shows the three videos returned by the search.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Objects in console from get method call" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/player-catalog/get-search-callback.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Objects in console from get method call" src="/assets/images/references/player-catalog/get-search-callback.png" /></figure>
     <h3>Promise example</h3>
     <p>In this code the same search is done using <code translate="No">get()</code> method as shown just above, but the result is handled as a Promise.</p>
     <pre class="line-numbers">
@@ -384,7 +384,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
   });
 &lt;/script&gt;</code></pre>
     <p>The following screenshot shows the two <code translate="No">console.log()</code> results in the code above. The <code translate="No">catalogParams</code> shows the required parameters for the search, and the <code translate="No">videosReturned</code> array shows the three videos returned by the search.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Objects in console from getSearch method call" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/player-catalog/getsearch-console.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Objects in console from getSearch method call" src="/assets/images/references/player-catalog/getsearch-console.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="getSequence_method">getSequence() method</h2>
@@ -475,7 +475,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
   });
 &lt;/script&gt;</code></pre>
     <p>The following screenshot shows the structure of the <code translate="No">mySequences</code> array, followed by the array of video objects returned:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="The myStructures data structure" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/player-catalog/getSequences-mySequences.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="The myStructures data structure" src="/assets/images/references/player-catalog/getSequences-mySequences.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="getLazySequence_method">getLazySequence() method</h2>
@@ -572,13 +572,13 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
       </li>
     </ul>
     <p>The following shows the console log of the events from a request to, and response from, the <code translate="No">catalog</code>:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Request and response event objects" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/player-catalog/events.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Request and response event objects" src="/assets/images/references/player-catalog/events.png" /></figure>
     <p>You see many standard properties of an event object. Of special interest for <code translate="No">catalog</code> events is <strong translate="No">type</strong> and <strong translate="No">url</strong>.</p>
     <p>The following shows a console log of a <code translate="No">catalog</code> request error object:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Error event object" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/player-catalog/error-event-object.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Error event object" src="/assets/images/references/player-catalog/error-event-object.png" /></figure>
     <h3 id="Response_information">Response information</h3>
     <p>The <code translate="No">catalog_response</code> event object contains a JSON formatted <code translate="No">response</code> property that contains the raw data from the <span translate="No">catalog</span> API response. The following shows the console log of the response property:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Response event objects" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/player-catalog/parsed-response.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Response event objects" src="/assets/images/references/player-catalog/parsed-response.png" /></figure>
     <p>To actually use data from the response property, you need to parse the raw JSON formatted string into an object. The following shows accessing the <code translate="No">name</code> property:</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">myPlayer.on('catalog_response',function(evt){
@@ -791,7 +791,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
     </ul>
     <h3 id="Handle_geo-filtering_error">Handle geo-filtering error</h3>
     <p>As mentioned earlier geo-filtering can cause catalog errors. You can handle them very similarly to what was just shown. Code will be shown that puts a message below the "errored" player, as shown here:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="geo error" src="//learning-services-media.brightcove.com/doc-assets/player-development/references/player-catalog/geo-error.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="geo error" src="/assets/images/references/player-catalog/geo-error.png" /></figure>
     <p>The following code catches the catalog error, then checks to see if it is a geo-filtering issue. If it is, then an appropriate message is displayed in the HTML page, just below the player, as shown in the screenshot.</p>
     <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;video-js id="myPlayerID"
