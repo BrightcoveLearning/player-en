@@ -9,16 +9,42 @@ parent: "coding-topics"
 
   <section class="bcls-section">
     <h2 id="section-name">Retrieving the bitrate</h2>
-    <p></p>
+    <p>You can use the following code to retrieve the bitrate of the currently playing rendition:</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">player.tech(true).vhs.playlists.media().attributes.BANDWIDTH</code></pre>
+    <p>The following shows how to use the code in a page using the Advanced player implementation:</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1507807800001&quot;
+  data-player=&quot;default&quot;
+  data-embed=&quot;default&quot;
+  controls=&quot;&quot;
+  data-video-id=&quot;6201753345001&quot;
+  data-playlist-id=&quot;&quot;
+  data-application-id=&quot;&quot;
+  width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  videojs.getPlayer('myPlayerID').ready(function () {
+    var myPlayer = this;
+    myPlayer.on('play', function () {
+      console.log('Bitrate of playing rendition :', myPlayer.tech(true).vhs.playlists.media().attributes.BANDWIDTH);
+    })
+  });
+&lt;/script&gt;</code></pre>
+    <p>The result, in this instance, would appear in the console as follows:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/coding-topics/retrieve-bitrate-current-rendition/result-in-console.png" alt="result in console">
+    </figure>
+
     <h3>Limitations</h3>
 
   </section>
 
   <section class="bcls-section">
     <h2 id="What_playlist_is_used">What playlist is used?</h2>
-    <p>In the code a playlist is referenced:</p>
+    <p>In the code a playlist is referenced, but the player implementation was only playing a single video:</p>
     <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.tech(true).vhs.<span class="bcls-highlight">playlists</span>.media().attributes.BANDWIDTH</code></pre>
-    <p>This is NOT referring to a playlist of videos. Rather it is referencing an HLS manifest of renditions, which is also referred to as a playlist. For instance, in this video there are both HLS and MP4 renditions (the HLS renditions, or HLS playlist, are hightlighted):</p>
+    <p>This is NOT referring to a playlist of videos. Rather it is referencing an HLS manifest of renditions, which is also referred to as a playlist. For instance, in this video there are both HLS and MP4 renditions (the HLS renditions, or HLS playlist, are highlighted):</p>
     <figure class="bcls-figure">
       <img class="bcls-image" src="/assets/images/coding-topics/retrieve-bitrate-current-rendition/video-sources.png" alt="video sources">
     </figure>
