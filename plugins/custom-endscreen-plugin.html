@@ -1,20 +1,22 @@
 ---
 title: Custom Endscreen Plugin
+description: 'In this topic, you will learn the use of the Custom Endscreen plugin and how it can be implemented using Studio and through custom coding.'
 parent: Plugins
 ---
+<h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <h1>Custom Endscreen Plugin</h1>
-  <summary>In this topic, you will learn the use of the Custom Endscreen plugin and how it can be implemented using Studio and through custom coding.</summary>
-  <section id="Overview" class="bcls-section">
-    <h2>Overview</h2>
+    <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Overview">Overview</h2>
     <p>The Custom Endscreen plugin allows display of customer supplied HTML at the conclusion of video playback.</p>
     <p>The sample video below demonstrates the use of the Custom Endscreen plugin. At the end of this short video you will see text displayed from the following HTML:</p>
     <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;strong&gt;Content&lt;/strong&gt; for &lt;em&gt;custom&lt;/em&gt; end screen</code></pre>
     <iframe src="https://players.brightcove.net/1752604059001/0b0bd7d7-6907-4e12-a644-747b38fab305_default/index.html?videoId=5701193190001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="encrypted-media" width="640" height="360"></iframe>
   </section>
-  <section id="implementplayersmodule" class="bcls-section">
-    <h2>Implement using Players module</h2>
+  <section class="bcls-section">
+    <h2 id="Implement_using_Players_module">Implement using Players module</h2>
     <p>Custom endscreens can be implemented by <a href="https://studio.support.brightcove.com/players/configuring-player-endscreen.html">editing the endscreen properties</a> or by using the custom endscreen plugin. To implement the custom endscreen plugin using the Players module, follow these steps:</p>
     <ol class="bcls-tasklist">
       <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
@@ -33,7 +35,7 @@ parent: Plugins
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="implementcode">Implement using code</h2>
+    <h2 id="Implement_using_code">Implement using code</h2>
     <div class="video-cloud-only">
       <p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the plugin code and stylesheet are as follows:</p>
       <pre class="line-numbers">
@@ -119,8 +121,8 @@ parent: Plugins
   &lt;/script&gt;</code></pre>
     </div>
   </section>
-  <section id="properties" class="bcls-section">
-    <h2>Property</h2>
+  <section class="bcls-section">
+    <h2 id="Property">Property</h2>
     <p>The following plugin property is used to control the Custom Endscreen plugin:</p>
     <ul>
       <li><code translate="No">content</code>:
@@ -131,12 +133,12 @@ parent: Plugins
       </li>
     </ul>
   </section>
-  <section id="customize" class="bcls-section">
-    <h2>Customize the endscreen</h2>
+  <section class="bcls-section">
+    <h2 id="Customize_the_endscreen">Customize the endscreen</h2>
     <p>You can use CSS to customize the appearance of your endscreen. Below are a few examples of what you can do. Make sure to test your implementations to ensure they work with your page content.</p>
     <aside class="bcls-aside bcls-aside--information">The code in this section uses relative positioning, which can be used in conjunction with a responsive player. To make your player responsive, see the <a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing</a> document or use the <strong>Players</strong> module to set the <strong>Sizing</strong> setting to <strong>Responsive</strong>.</aside>
     <p>This is how the endscreen appears with the restart video button and a social sharing button.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="default custom endscreen" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-default.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="default custom endscreen" src="/assets/images/plugins/custom-endscreen/endscreen-default.png" /></figure>
     <h3>Change button size</h3>
     <p>Let's say you want to change the size of the endscreen buttons. These button images are Scalable Vector Graphics (SVG) format so that they load quickly on all platforms. Because of this, you can't change their size by using the <code translate="No">width</code> and <code translate="No">height</code> CSS properties.</p>
     <p>Instead, since these buttons are XML text files, you can change their size by using the <code translate="No">font-size</code> CSS property.</p>
@@ -151,7 +153,7 @@ parent: Plugins
   font-size: 50%;
 }</code></pre>
     <p>The result should look like this:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="small endscreen buttons" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-small-buttons.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="small endscreen buttons" src="/assets/images/plugins/custom-endscreen/endscreen-small-buttons.png" /></figure>
     <p>Or you can control the size of each button independently:</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">.vjs-restart-control {
@@ -167,7 +169,7 @@ parent: Plugins
   "content": "&lt;a href='https://www.brightcove.com'&gt;Visit our home page&lt;/a&gt;"
 }</code></pre>
     <p>By default, your added content displays above the endscreen buttons:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="content above endscreen buttons" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-content-above.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="content above endscreen buttons" src="/assets/images/plugins/custom-endscreen/endscreen-content-above.png" /></figure>
     <p>Use the following CSS to position your HTML content below the endscreen buttons:</p>
     <ul>
       <li>Lines 190-193: Position the buttons from the top. These elements are already centered on the page for you.</li>
@@ -189,7 +191,7 @@ parent: Plugins
   width: 100%;
 }</code></pre>
     <p>The result should look like this:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="content below endscreen buttons" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-content-below.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="content below endscreen buttons" src="/assets/images/plugins/custom-endscreen/endscreen-content-below.png" /></figure>
     <h3>Display vertical content and buttons</h3>
     <p>You can also change the layout of your HTML content and the endscreen buttons. By default, they are displayed horizontally, with your content above the buttons. The code below floats your content to the left of the buttons and displays the buttons vertically:</p>
     <ul>
@@ -222,13 +224,13 @@ parent: Plugins
 }
 </code></pre>
     <p>The result should look like this:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="vertical content and endscreen buttons" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/endscreen-vertical.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="vertical content and endscreen buttons" src="/assets/images/plugins/custom-endscreen/endscreen-vertical.png" /></figure>
     <p>You can be creative with how your endscreen will look by overriding the default CSS properties. In your browser, inspect the elements to find the element class names and values. For a quick review of how to do this, see the <a href="/styling/customizing-player-appearance.html">Customize Player Appearance</a> document.</p>
   </section>
-  <section id="mailto" class="bcls-section video-cloud-only">
-    <h2>Use mailto with video name</h2>
+  <section class="bcls-section video-cloud-only">
+    <h2 id="Use_mailto_with_video_name">Use mailto with video name</h2>
     <p>You may wish to allow the viewer of the video to email you a question or comment. You can do this by using an HTML <strong>mailto</strong> link in the custom endscreen, as shown here:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="mailto customer endscreen" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/custom-endscreen-mailto.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="mailto customer endscreen" src="/assets/images/plugins/custom-endscreen/custom-endscreen-mailto.png" /></figure>
     <p>Clicking the link will open the customers default email client. The code below shows how to use the video's metatdata, in this case the video name, to automatically be the subject of the email.</p>
     <p>The following section explains how to do that particular task, but moreover, once you have data from the <a href="/references/video-metadata-mediainfo.html">mediainfo</a> property, any video metatdata could be used in the mailto link.</p>
     <ul>
@@ -303,7 +305,7 @@ parent: Plugins
   });
 });</code></pre>
     <p>This would result in the following endscreen:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="using macros" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/custom-endscreens/plugin-doc/using-macros.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="using macros" src="/assets/images/plugins/custom-endscreen/using-macros.png" /></figure>
     <p>Here is the complete list of available macros:</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
@@ -378,6 +380,7 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="changelog">Changelog</h2>
-    <p>See the <a href="/plugins/changelog/custom-endscreen-plugin-changelog.html">changelog here</a>.</p>
+    <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-custom-endscreen/index.html">Custom Endscreen Plugin Release Notes</a>.</p>
+    <p>For historical release notes, see the <a href="/plugins/changelog/custom-endscreen-plugin-changelog.html">changelog here</a>.</p>
   </section>
 </article>
