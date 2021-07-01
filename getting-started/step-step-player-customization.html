@@ -16,29 +16,30 @@ description: In this topic, hands-on steps are provided that when followed custo
     <h2>Determine player selector</h2>
     <p>CSS selectors allow you to select and manipulate HTML elements on a page. CSS selectors are used to "find" (or select) HTML elements based on their id, class, type, attribute, and more. The first thing you must do when trying to alter the look of an element on an HTML page is determine the selector to use to address the element. The following steps show how to find the selector for the player and then change the size of the player.</p>
     <ol class="bcls-tasklist">
-      <li>In Video Cloud Studio, open the Media module and select a video to publish.</li>
+      <li>In Video Cloud Studio, open the <strong>Media</strong> module and select a video to publish.</li>
       <li>Choose the player with which you wish to play the video.</li>
       <li>Set the <strong>Sizing</strong>, <strong>Aspect Ratio</strong> and player size.</li>
       <li>Copy the <strong>Advanced</strong> publishing code.</li>
       <li>Using your HTML editor, create a new HTML page.</li>
       <li>Paste the publishing code into the body of your HTML page.</li>
       <li>Browse the newly created page.</li>
-      <li>Open your browser's development tools and drill down into the HTML to find the <code translate="No">&lt;video-js&gt;</code> tag. You will see the <code translate="No">&lt;video-js&gt;</code> tag has a class also named <code translate="No">video-js</code>. The <code translate="No">&lt;video-js&gt;</code> tag will always have a class of <code translate="No">video-js</code>. You will utilize the <code translate="No">video-js</code> class frequently when styling the player.</li>
+      <li>Open your browser's development tools inspect the HTML code and drill down into the HTML to find the <code translate="No">&lt;video-js&gt;</code> tag. You will see the <code translate="No">&lt;video-js&gt;</code> tag has a class also named <code translate="No">video-js</code>. The <code translate="No">&lt;video-js&gt;</code> tag will always have a class of <code translate="No">video-js</code>. You will utilize the <code translate="No">video-js</code> class frequently when styling the player.</li>
       <li>Check the screenshot below to see the class highlighted in red. Highlighted in green is the <code translate="No">&lt;video-js&gt;</code> tag, which is, of course, Brightcove Player.
         <figure class="bcls-figure"><img class="bcls-image" alt="player selectors" src="/assets/images/getting-started/sbs-player-cust-player-div-with-video.png" /></figure>
         <!-- <aside class="bcls-aside bcls-aside--information">
 	<p>Note: Depending on the operating system and browser being used, the Flash fallback version of the player may be displayed. If your player is using the Flash fallback version of the player, you will not see a <code translate="No">&lt;video-js&gt;</code> tag. Instead you will see the <code translate="No">&lt;div&gt;</code> surrounding an <code translate="No">&lt;object&gt;</code> tag, as highlighted below.</p>
 	</aside>
 
-	<figure class="bcls-figure"><img class="bcls-image" alt="player div with object" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/player-div-with-object.png" /></figure> --></li>
+	<figure class="bcls-figure"><img class="bcls-image" alt="player div with object" src="//learning-services-media.brightcove.com/doc-assets/player-development/player-customization/5x-player-styling/quick-start-player-styling/player-div-with-object.png" /></figure> -->
+      </li>
     </ol>
   </section>
   <section id="buttonselector" class="bcls-section">
     <h2>Play button selector</h2>
     <p>Another approach is going to be used to find the selector for the play button. The following steps show you how to find the correct selector for the play button and then change its appearance.</p>
-    <ol class="bcls-tasklist">
+    <ol class="bcls-tasklist-restart">
       <li>Browse your HTML page.</li>
-      <li>Right click on the play button that overlays the player and select <strong>Inspect Element</strong>.</li>
+      <li>Right click on the play button that overlays the player (you will have to right click twice since the first right click displays the Brightcove Player info) and select <strong>Inspect</strong>.</li>
       <li>Note that the <code translate="No">&lt;div&gt;</code> tag that is highlighted represents the play button and has a class of <code translate="No">vjs-big-play-button</code>.
         <figure class="bcls-figure"><img class="bcls-image" alt="big play button div" src="/assets/images/getting-started/sbs-player-cust-big-play-button-div.png" /></figure>
       </li>
@@ -197,6 +198,11 @@ description: In this topic, hands-on steps are provided that when followed custo
     <h2>Explore styles</h2>
     <p>In this section a CodePen is used to allow you to explore styles and make more customizations to the big play button than what is shown above. Once you get a look you like, you can simply copy the CSS generated and use it with either player implementation as shown above.</p>
     <p>One issue that may seem confusing is that the actual arrow in the button is not an image but part of a font family. That is why you control its size using <code translate="No">font-size</code> and use <code translate="No">ems</code> as units.</p>
-    <p data-height="414" data-theme-id="14832" data-slug-hash="KVVNLX" data-default-tab="result" data-user="mboles" class="codepen">See the Pen <a href="http://codepen.io/mboles/pen/KVVNLX/">5.x Big Play Button Customization</a> by Matt Boles (<a href="http://codepen.io/mboles">@mboles</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-    <script async src="//assets.codepen.io/assets/embed/ei.js"></script></section>
+    <p class="codepen" data-height="477" data-default-tab="html,result" data-slug-hash="KVVNLX" data-user="mboles" style="height: 477px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/mboles/pen/KVVNLX">
+          5.x Big Play Button Customization</a> by Matt Boles (<a href="https://codepen.io/mboles">@mboles</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+  </section>
 </article>
