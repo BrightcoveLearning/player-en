@@ -8,11 +8,8 @@ description: In this topic, hands-on steps are provided that when followed custo
   <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p> This document provides a hands-on introduction to creating a Brightcove
-      Player, then using two different code implementations to publish a video
-      using the newly created player. You will also programmatically start the
-      video playing and then add a plugin to the player. </p>
-    <p > In this quick start you will perform the following tasks: </p>
+    <p> This document provides a hands-on introduction to creating a Brightcove Player, then using two different code implementations to publish a video using the newly created player. You will also programmatically start the video playing and then add a plugin to the player. </p>
+    <p> In this quick start you will perform the following tasks: </p>
     <ul>
       <li>Create a player using Studio</li>
       <li> Publish a video in the player using Studio </li>
@@ -24,134 +21,82 @@ description: In this topic, hands-on steps are provided that when followed custo
   </section>
   <section class="bcls-section">
     <h2 id="createplayer">Create player</h2>
-    <p >To create a new player, follow these steps.</p>
+    <p>To create a new player, follow these steps.</p>
     <ol class="bcls-tasklist">
       <li> Login to Studio at <a href="https://studio.brightcove.com/"> https://studio.brightcove.com/ </a> . </li>
-      <li> The current account name will appear in the upper right corner of the
-        page. If you have multiple accounts, click the <strong>current account</strong> link and select the account in which you would like to create the
-        player.
-        <figure class="bcls-figure"> <img
-            class="bcls-image"
-            alt="select current account"
-     src="/assets/images/getting-started/sbs-player-account-selector.png"
-          /> </figure>
+      <li> The current account name will appear in the upper right corner of the page. If you have multiple accounts, click the <strong>current account</strong> link and select the account in which you would like to create the player.
+        <figure class="bcls-figure"> <img class="bcls-image" alt="select current account" src="/assets/images/getting-started/sbs-player-account-selector.png" /> </figure>
       </li>
       <li> Click the <strong>Players</strong> link in the navigation header. </li>
       <li> Click the <strong>New Player</strong> button. </li>
       <li> Enter a <strong>Name</strong> and <strong>Short Description</strong> for the player. For this quick start, the player name will be <strong>Sample Player</strong> .
-        <figure class="bcls-figure"> <img
-            class="bcls-image"
-            alt="player diaglo"
-            src="/assets/images/getting-started/sbs-player-new-player.png"
-          /> </figure>
+        <figure class="bcls-figure"> <img class="bcls-image" alt="player diaglo" src="/assets/images/getting-started/sbs-player-new-player.png" /> </figure>
       </li>
+      <li>Click <strong>Save</strong>.</li>
       <li> Confirm that the newly created player appears in the list of players.
-        <figure class="bcls-figure"> <img
-            class="bcls-image"
-            alt="list of players"
-            src="/assets/images/getting-started/sbs-player-player-list.png"
-          /> </figure>
+        <figure class="bcls-figure"> <img class="bcls-image" alt="list of players" src="/assets/images/getting-started/sbs-player-player-list.png" /> </figure>
       </li>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="publishvideo">Publish video in player</h2>
     <div class="video-cloud-only">
-      <p > You publish a video in the newly created player in the Media module.
-        Once you associate the video with your player you publish the video and
-        will then have access to three implementations in which to view the
-        video in your player. </p>
-      <p > To publish a video in your player, follow these steps: </p>
+      <p> You publish a video in the newly created player in the Media module.
+        Once you associate the video with your player you publish the video and will then have access to three implementations in which to view the video in your player. </p>
+      <p> To publish a video in your player, follow these steps: </p>
       <ol class="bcls-tasklist">
         <li> In Studio navigate to the Media module by clicking on the <strong>Media</strong> link in the main menu. </li>
-        <li> Click in the row for the video THAT DOES NOT HAVE AN AUDIO TRACK that
-          you wish to publish in your player, then click <strong>Publish and Embed &gt; Publish to Web</strong>.
-          <aside class="bcls-aside bcls-aside--tip"> Note: If the video has an audio track it will not automatically
-            play, which you want to have happen later in the document. See the
-            document <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> for more information about videos playing without user interaction. </aside>
+        <li> Click in the row for the video THAT DOES NOT HAVE AN AUDIO TRACK that you wish to publish in your player, then click <strong>Publish and Embed &gt; Publish to Web</strong>.
+          <aside class="bcls-aside bcls-aside--tip"> Note: If the video has an audio track it will not automatically play, which you want to have happen later in the document. See the document <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> for more information about videos playing without user interaction. </aside>
           <div>
-            <figure class="bcls-figure"> <img
-                class="bcls-image"
-                alt="select video"
-                src="/assets/images/getting-started/sbs-player-select-video.png"
-              /> </figure>
+            <figure class="bcls-figure"> <img class="bcls-image" alt="select video" src="/assets/images/getting-started/sbs-player-select-video.png" /> </figure>
           </div>
         </li>
         <li> From the <strong>Select a Player</strong> dropdown menu, choose your newly created player.
           <div>
-            <figure class="bcls-figure"> <img
-                class="bcls-image"
-                alt="publish UI"
-                src="/assets/images/getting-started/sbs-player-publish-ui-select.png"
-              /> </figure>
+            <figure class="bcls-figure"> <img class="bcls-image" alt="publish UI" src="/assets/images/getting-started/sbs-player-publish-ui-select.png" /> </figure>
           </div>
         </li>
-        <li> You now have access to the three implementations of the player: <strong>Standard</strong> (iframe), <strong>Advanced</strong> (In-Page) and a <strong>Preview in browser</strong> URL. Do not close this window as you will be copying code from it
-          numerous times later in this quick start.
+        <li> You now have access to the three implementations of the player: <strong>Standard</strong> (iframe), <strong>Advanced</strong> (In-Page) and a <strong>Preview in browser</strong> URL. Do not close this window as you will be copying code from it numerous times later in this quick start.
           <div>
-            <figure class="bcls-figure"> <img
-                class="bcls-image"
-                alt="publish UI"
-                src="/assets/images/getting-started/sbs-player-publish-ui.png"
-              /> </figure>
+            <figure class="bcls-figure"> <img class="bcls-image" alt="publish UI" src="/assets/images/getting-started/sbs-player-publish-ui.png" /> </figure>
           </div>
         </li>
       </ol>
-      <aside class="bcls-aside bcls-aside--tip"> Note: If curious, you can see "under the hood" of the player
-        configuration using the URL code. Click on the <strong>Preview in browser</strong> URL link. In the browser, change the <strong>index.html</strong> at the end of the URL to <strong>config.json</strong> . You will see a JSON object detailing the current configuration of the
-        player you just created. </aside>
+      <aside class="bcls-aside bcls-aside--tip"> Note: If curious, you can see "under the hood" of the player configuration using the URL code. Click on the <strong>Preview in browser</strong> URL link. In the browser, change the <strong>index.html</strong> at the end of the URL to <strong>config.json</strong> . You will see a JSON object detailing the current configuration of the player you just created. </aside>
     </div>
     <div class="player-only">
-      <p > You will use the JSON editor to add a video to the player. To configure
-        the video content, follow these steps. </p>
+      <p> You will use the JSON editor to add a video to the player. To configure the video content, follow these steps. </p>
       <ol class="bcls-tasklist">
-        <li> Click the link for the Sample Player to open the player properties
-          page. </li>
+        <li> Click the link for the Sample Player to open the player properties page. </li>
         <li> Click <strong>JSON Editor</strong> in the left navigation menu. </li>
         <li>Place a comma after the SECOND TO THE LAST brace in the JSON.</li>
-        <li> Just above the last closing brace, add the following to assign a video
-          and poster to the player. Of course, you can substitute your own video
-          and poster.
+        <li> Just above the last closing brace, add the following to assign a video and poster to the player. Of course, you can substitute your own video and poster.
           <pre class="line-numbers">
-<code class="language-javascript" translate="No">"media": {
-  "sources": [{
-    "src": "//solutions.brightcove.com/bcls/assets/videos/BirdsOfAFeather.mp4",
-    "type": "video/mp4"
-  }],
-    "poster": {
-      "highres": "//solutions.brightcove.com/bcls/assets/images/BirdsOfAFeather.jpg"
-    }
-}</code></pre>
+ <code class="language-javascript" translate="No">"media": { "sources": [{
+ "src": "//solutions.brightcove.com/bcls/assets/videos/BirdsOfAFeather.mp4", "type": "video/mp4"
+ }],
+ "poster": {
+ "highres": "//solutions.brightcove.com/bcls/assets/images/BirdsOfAFeather.jpg"
+ }
+ }</code></pre>
         </li>
-        <li> Your JSON should appear similar to the following (the added text is
-          highlighted in yellow):
-          <figure class="bcls-figure"> <img
-              class="bcls-image"
-              alt="json editor"
-              src="/assets/images/getting-started/sbs-player-json-editor.png"
-            /> </figure>
+        <li> Your JSON should appear similar to the following (the added text is highlighted in yellow):
+          <figure class="bcls-figure"> <img class="bcls-image" alt="json editor" src="/assets/images/getting-started/sbs-player-json-editor.png" /> </figure>
         </li>
         <li> Click <strong>Save</strong> . </li>
       </ol>
-      <aside class="bcls-aside bcls-aside--information"> Publishing the player will push the changes to the published player. For
-        more information on preview players, published players and player
-        publishing code, see <a href="https://studio.support.brightcove.com/players/generating-player-embed-code.html">Generating Player Embed&nbsp;Code</a> . To publish the player, follow these steps </aside>
+      <aside class="bcls-aside bcls-aside--information"> Publishing the player will push the changes to the published player. For more information on preview players, published players and player publishing code, see <a href="https://studio.support.brightcove.com/players/generating-player-embed-code.html">Generating Player Embed&nbsp;Code</a> . To publish the player, follow these steps </aside>
       <ol class="bcls-tasklist">
         <li> Click <strong>Publish &amp; Embed</strong> and then <strong>Publish Changes</strong> to publish your player. </li>
-        <li> On the same dialog where you published your changes you can also copy
-          the Standard (iframe) or Advanced (in-page embed) player
-          implementation code. Note that the implementation code will reflect
-          the <strong>Sizing</strong> ( <em>Responsive</em> or <em>Fixed</em> ), <em>Aspect Ratio</em> and <em>Dimensions</em> choices made and saved in the <strong>Player Information</strong> options. </li>
-        <li> Copy both of the code implementation types to a text file for later
-          use. </li>
+        <li> On the same dialog where you published your changes you can also copy the Standard (iframe) or Advanced (in-page embed) player implementation code. Note that the implementation code will reflect the <strong>Sizing</strong> ( <em>Responsive</em> or <em>Fixed</em> ), <em>Aspect Ratio</em> and <em>Dimensions</em> choices made and saved in the <strong>Player Information</strong> options. </li>
+        <li> Copy both of the code implementation types to a text file for later use. </li>
       </ol>
     </div>
   </section>
   <section class="bcls-section">
     <h2 id="useiframe">Use Standard code</h2>
-    <aside class="bcls-aside bcls-aside--warning"> Note: For the Standard code (iframe implementation), you will need to use
-      a web server to browse the page because of iframe requirements. Simply
-      viewing the page locally will not work. </aside>
+    <aside class="bcls-aside bcls-aside--warning"> Note: For the Standard code (iframe implementation), you will need to use a web server to browse the page because of iframe requirements. Simply viewing the page locally will not work. </aside>
     <ol class="bcls-tasklist">
       <li> Create an HTML page and paste the <strong>Standard</strong> (iframe) code from the previous step into the body. </li>
       <li> When you browse this page you will see the video reflects the <strong>Sizing</strong> ( <em>Responsive</em> or <em>Fixed</em> ), <strong>Aspect Ratio</strong> and <strong>Dimensions</strong> choices made. </li>
@@ -159,14 +104,16 @@ description: In this topic, hands-on steps are provided that when followed custo
   </section>
   <section class="bcls-section">
     <h2 id="embedinpage">Use Advanced embed&nbsp;code</h2>
-    <p > In this section you will use the Advanced (in-page embed) code
-      implementation. </p>
+    <p> In this section you will use the Advanced (in-page embed) code implementation. </p>
     <ol class="bcls-tasklist">
+      <li>Return to the publish dialog in Video Cloud Studio.</li>
+      <li>View the <strong>Advanced</strong> code and click the <strong>Fixed</strong> radio button for <strong>Sizing</strong>.
+        <aside class="bcls-aside bcls-aside--information language-editable">The <strong>Responsive</strong> sizing includes HTML to make the player responsive. In this activity the focus is on player code so will use the simpler <strong>Fixed</strong> sizing.</aside>
+      </li>
       <li> Create an HTML page and paste the <strong>Advanced</strong> (in-page embed) code from above, into the body. </li>
-      <li class="video-cloud-only"> Examine the code, which will appear similar to the following, and note
-        the attributes:
+      <li class="video-cloud-only"> Examine the code, which will appear similar to the following, and note the attributes:
         <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;video-js data-account="1507807800001"
+ <code class="language-html" translate="No">&lt;video-js data-account="1507807800001"
   data-player="EUYJo0AOB"
   data-embed="default"
   controls=""
@@ -180,172 +127,130 @@ description: In this topic, hands-on steps are provided that when followed custo
           <li> <code translate="No">data-player</code> : The ID of the Brightcove Player </li>
           <li> <code translate="No">data-embed</code> : Either <code translate="No">default</code> if the player is a parent embed, or the ID of the parent player; see <a href="https://apis.support.brightcove.com/player-management/guides/guide-embed-apis.html">Embed APIs Guide</a> for more information on embeds (parent/child players) </li>
           <li> <code translate="No">controls</code> : Acts as a Boolean if the player controls should be present ( <code translate="No">controls</code> attribute included in the tag), or not shown ( <code translate="No">controls</code> attribute not present in the tag) </li>
-          <li> <code translate="No">data-video-id</code> : The ID of the Video Cloud video </li>
-          <li> <code translate="No">data-playlist-id</code> : The ID of the Video Cloud playlist </li>
-          <li> <code translate="No">data-application-id</code> : Allows you to re-use a single player, but differentiate analytics
-            on a per-site or per-application basis; see <a href="https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html"> Adding an Application ID to the Player Embed&nbsp;Code </a> for more information </li>
+          <li> <code translate="No">data-video-id</code> : The ID of the Video Cloud video (do not use if supplying a player ID)</li>
+          <li> <code translate="No">data-playlist-id</code> : The ID of the Video Cloud playlist (do not use if supplying a video ID)</li>
+          <li> <code translate="No">data-application-id</code> : Allows you to re-use a single player, but differentiate analytics on a per-site or per-application basis; see <a href="https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html"> Adding an Application ID to the Player Embed&nbsp;Code </a> for more information </li>
           <li> <code translate="No">width &amp; height</code> : Sets player dimensions. </li>
-          <li> <code translate="No">&lt;script&gt;</code> tag: Any time you use in-page code there will be an accompanying <code translate="No">script</code> tag; the referenced JavaScript file contains all JavaScript and CSS
-            associated with the particular player </li>
+          <li> <code translate="No">&lt;script&gt;</code> tag: Any time you use in-page code there will be an accompanying <code translate="No">script</code> tag; the referenced JavaScript file contains all JavaScript and CSS associated with the particular player </li>
         </ul>
       </li>
-      <li class="player-only"> Examine the code, which will appear similar to the following, and note
-        the attributes:
+      <li class="player-only"> Examine the code, which will appear similar to the following, and note the attributes:
         <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;video data-account="1507807800001"
-  data-player="H15p1gTkg"
-  data-embed="default"
-  data-application-id
-  class="video-js"
-  controls&gt;&lt;/video&gt;
-&lt;script src="https://players.brightcove.net/1507807800001/H15p1gTkg_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+ <code class="language-html" translate="No">&lt;video data-account="1507807800001"
+ data-player="H15p1gTkg"
+ data-embed="default"
+ data-application-id
+ class="video-js"
+ controls&gt;&lt;/video&gt;
+ &lt;script src="https://players.brightcove.net/1507807800001/H15p1gTkg_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
         <ul>
           <li> <code translate="No">data-account</code> : The account number </li>
           <li> <code translate="No">data-player</code> : The ID of the Brightcove Player </li>
           <li> <code translate="No">data-embed</code> : Either <code translate="No">default</code> if the player is a parent embed, or the ID of the parent player; see <a href="https://apis.support.brightcove.com/player-management/guides/guide-embed-apis.html">Embed APIs Guide</a> for more information on embeds (parent/child players) </li>
-          <li> <code translate="No">class</code> : The standard Brightcove Player CSS class associated with in-page
-            embed code </li>
+          <li> <code translate="No">class</code> : The standard Brightcove Player CSS class associated with in-page embed code </li>
           <li> <code translate="No">controls</code> : Acts as a Boolean if the player controls should be present ( <code translate="No">controls</code> attribute included in the tag), or not shown ( <code translate="No">controls</code> attribute not present in the tag) </li>
-          <li> <code translate="No">&lt;script&gt; tag</code> : All associated JavaScript and CSS associated with the particular
-            player </li>
+          <li> <code translate="No">&lt;script&gt; tag</code> : All associated JavaScript and CSS associated with the particular player </li>
         </ul>
       </li>
-      <li> When you browse this page you will see the video reflects the <strong>Sizing</strong> ( <em>Responsive</em> or <em>Fixed</em> ), <strong>Aspect Ratio</strong> and <strong>Dimensions</strong> choices made. </li>
+      <li> When you browse this page you will see the video reflects the <strong>Sizing</strong> ( <em>Fixed</em> ), <strong>Aspect Ratio</strong> and <strong>Dimensions</strong> choices made. </li>
     </ol>
-    <aside class="bcls-aside bcls-aside--information"> Note: The last two sections of this step-by-step activity use JavaScript
-      to play the video as well as add the Overlay plugin to the player. If you
-      are not comfortable with basic JavaScript these sections may not be
-      relevant for you. </aside>
+    <aside class="bcls-aside bcls-aside--information"> Note: The last two sections of this step-by-step activity use JavaScript to play the video as well as add the Overlay plugin to the player. If you are not comfortable with basic JavaScript these sections may not be relevant for you. </aside>
   </section>
   <section class="bcls-section">
     <h2 id="apitoplay">Programmatically play video</h2>
-    <p > There is a rich API to use with Brightcove Player. In this section you
-      will use the <code translate="No">play()</code> method to programmatically start the video playing. </p>
+    <p> There is a rich API to use with Brightcove Player. In this section you will use the <code translate="No">play()</code> method to programmatically start the video playing. </p>
     <ol class="bcls-tasklist">
       <li> Add an <code translate="No">id</code> attribute to the <code translate="No">video</code> tag with a value of <strong>myPlayerID</strong> .
         <pre class="line-numbers">
-<code class="language-javascript" translate="No">&lt;video id="myPlayerID" </code></pre>
+ <code class="language-javascript" translate="No">&lt;video id="myPlayerID" </code></pre>
       </li>
       <li> Just above the closing <code translate="No">body</code> tag, insert a <code translate="No">script</code> block.
         <pre class="line-numbers">
-<code class="language-javascript" translate="No">&lt;script&gt;
-&lt;/script&gt;
-
-&lt;/body&gt;</code></pre>
+ <code class="language-javascript" translate="No">&lt;script&gt; &lt;/script&gt;
+ &lt;/body&gt;</code></pre>
       </li>
-      <li> In the script block, use the <code translate="No">on()</code> method to listen for the <code translate="No">loadedmetadata</code> event. When the event is dispatched an anonymous event handler function
-        is called.
+      <li> In the script block, use the <code translate="No">on()</code> method to listen for the <code translate="No">loadedmetadata</code> event. When the event is dispatched an anonymous event handler function is called.
         <pre class="line-numbers">
- <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {
-});</code></pre>
-        <aside class="bcls-aside bcls-aside--information"> Note: For more information about Brightcove Player's startup events
-          see the <a href="/coding-topics/player-events.html#startupevents">Startup events</a> section of the <strong>Understanding Player Events</strong> document. </aside>
+ <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('loadedmetadata', function() { });</code></pre>
+        <aside class="bcls-aside bcls-aside--information"> Note: For more information about Brightcove Player's startup events see the <a href="/coding-topics/player-events.html#startupevents">Startup events</a> section of the <strong>Understanding Player Events</strong> document. </aside>
       </li>
       <li> Create a variable local to the function, named <code translate="No">myPlayer</code> , that assigns the player instance, referenced as <code translate="No">this</code> , to that variable.
         <pre class="line-numbers">
-<code class="language-javascript" translate="No">var myPlayer = this;</code></pre>
+ <code class="language-javascript" translate="No">var myPlayer = this;</code></pre>
       </li>
-      <li> Since most browsers no longer allow autoplay for videos with an audio
-        track, it is best to use the <code translate="No">muted()</code> method to mute the video and ensure the video will autoplay.
+      <li> Since most browsers no longer allow autoplay for videos with an audio track, it is best to use the <code translate="No">muted()</code> method to mute the video and ensure the video will autoplay.
         <pre class="line-numbers">
-<code class="language-javascript" translate="No">myPlayer.muted(true);</code></pre>
-        <p > See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for more information on the autoplay issue. </p>
+ <code class="language-javascript" translate="No">myPlayer.muted(true);</code></pre>
+        <p> See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for more information on the autoplay issue. </p>
       </li>
       <li> Use the player's <code translate="No">play()</code> method to start the video.
         <pre class="line-numbers">
-<code class="language-javascript" translate="No">myPlayer.play();</code></pre>
+ <code class="language-javascript" translate="No">myPlayer.play();</code></pre>
       </li>
       <li> Confirm your script block appears as follows.
         <pre class="line-numbers">
- <code class="language-javascript" translate="No">&lt;script&gt;
-  videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {
-    var myPlayer = this;
-    myPlayer.muted(true);
-    myPlayer.play();
-  });
-&lt;/script&gt;</code></pre>
+ <code class="language-javascript" translate="No">&lt;script&gt; 
+   videojs.getPlayer('myPlayerID').on('loadedmetadata', function() { 
+     var myPlayer = this;
+     myPlayer.muted(true);
+     myPlayer.play();
+   });
+ &lt;/script&gt;</code></pre>
       </li>
-      <li> Save your changes and refresh your page in the browser to see the video
-        automatically start playing. If you chose a video that contained an
-        audio track you will have to click the play button to play the video. </li>
+      <li> Save your changes and refresh your page in the browser to see the video automatically start playing. If you chose a video that contained an audio track you will have to click the play button to play the video. </li>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="addplugin">Add plugin</h2>
-    <p > Brightcove Player has many plugins you can utilize to enhance the player.
-      One such plugin is the Overlay Plugin. In this section you will add that
-      plugin to the In-page Embed code you finished in the last section. For
-      details on the plugin see the <a href="/plugins/display-overlay-plugin.html">Display Overlay Plugin</a> document. </p>
-    <p > When using a plugin you must supply the path to the JavaScript that is the
-      plugin implementation. You may also have to supply the link to a CSS if
-      needed by the plugin. </p>
+    <p> Brightcove Player has many plugins you can utilize to enhance the player.
+      One such plugin is the Overlay Plugin. In this section you will add that plugin to the Advanced code you finished in the last section. For details on the plugin see the <a href="/plugins/display-overlay-plugin.html">Display Overlay Plugin</a> document. </p>
+    <p> When using a plugin you must supply the path to the JavaScript that is the plugin implementation. You may also have to supply the link to a CSS if needed by the plugin. </p>
     <ol class="bcls-tasklist">
-      <li> Just above the closing <code translate="No">head</code> tag, insert the following link statement which points to the location of
-        the CSS for the overlay plugin.
+      <li> Just above the closing <code translate="No">head</code> tag, insert the following link statement which points to the location of the CSS for the overlay plugin.
         <pre class="line-numbers">
- <code class="language-javascript" translate="No">&lt;link href="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.css" rel='stylesheet'&gt;
-&lt;/head&gt;</code></pre>
+ <code class="language-javascript" translate="No">&lt;link href="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.css" rel='stylesheet'&gt; &lt;/head&gt;</code></pre>
       </li>
-      <li> Just above the script block you added earlier, add the following <code translate="No">script</code> tag that is the actual JavaScript code that implements the overlay
-        plugin functionality.
+      <li> Just above the script block you added earlier, add the following <code translate="No">script</code> tag that is the actual JavaScript code that implements the overlay plugin functionality.
         <pre class="line-numbers">
-<code class="language-javascript" translate="No"><span class="bcls-highlight">&lt;script src="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.js"&gt;&lt;/script&gt;</span>
-
-&lt;script&gt;
-  videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {</code></pre>
+ <code class="language-javascript" translate="No"><span class="bcls-highlight">&lt;script src="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.js"&gt;&lt;/script&gt;</span> &lt;script&gt;
+ videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {</code></pre>
       </li>
-      <li> Just after where the <code translate="No">play()</code> method is used, call the player's <code translate="No">overlay()</code> method, and add braces as a parameter to prepare for passing a JSON
-        configuration object.
+      <li> Just after where the <code translate="No">play()</code> method is used, call the player's <code translate="No">overlay()</code> method, and add braces as a parameter to prepare for passing a JSON configuration object.
         <pre class="line-numbers">
-<code class="language-javascript" translate="No">myPlayer.overlay({
-});</code></pre>
+ <code class="language-javascript" translate="No">myPlayer.overlay({ });</code></pre>
       </li>
-      <li> Multiple overlay objects can be passed as an array to the plugin to
-        display different content at various times and in various locations. In
-        this case, just one overlay object will be passed to display some text,
-        and have it appear only when the video is playing. When the video is
-        paused the overlay will not be displayed. To implement this, add the
-        following overlay object as a configuration parameter.
+      <li> Multiple overlay objects can be passed as an array to the plugin to display different content at various times and in various locations. In this case, just one overlay object will be passed to display some text, and have it appear only when the video is playing. When the video is paused the overlay will not be displayed. To implement this, add the following overlay object as a configuration parameter.
         <pre class="line-numbers">
- <code class="language-javascript" translate="No">overlays: [{
-  content: 'This event-triggered overlay message appears when the video is playing',
+ <code class="language-javascript" translate="No">overlays: [{ 
+  content: 'This event-triggered overlay message appears when the video is playing', 
   start: 'play',
   end: 'pause'
 }]</code></pre>
       </li>
-      <li> Confirm your script block appears as follows, and that the overlay
-        plugin has been called and configured correctly.
+      <li> Confirm your script block appears as follows, and that the overlay plugin has been called and configured correctly.
         <pre class="line-numbers">
- <code class="language-html" translate="No">  &lt;script&gt;
-    videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {
-      var myPlayer = this;
-      myPlayer.muted(true);
-      myPlayer.play();
-      myPlayer.overlay({
-        overlays: [{
-          content: 'This event-triggered overlay message appears when the video is playing',
-          start: 'play',
-          end: 'pause'
-        }]
-      });
+ <code class="language-html" translate="No">&lt;script&gt; 
+  videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {
+    var myPlayer = this;
+    myPlayer.muted(true);
+    myPlayer.play();
+    myPlayer.overlay({
+      overlays: [{
+        content: 'This event-triggered overlay message appears when the video is playing', 
+        start: 'play',
+        end: 'pause'
+      }]
     });
-  &lt;/script&gt;</code></pre>
+  });
+&lt;/script&gt;</code></pre>
       </li>
-      <li> Save your changes and refresh your page in the browser to see the video
-        automatically start playing. You will see the overlay appear when the
-        video starts. Pause the video to see the overlay removed.
-        <aside class="bcls-aside bcls-aside--information"> Note: The implementation of the Overlay Plugin show here will only be
-          used with the player on the specific HTML page. You can add a plugin
-          to be part of a player no matter where or how many times the player is
-          used without having to copy and paste code repeatedly. See the <a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a> to see a developer oriented approach to the implementation, or the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document to see how to implement the plugin in the player using
-          Studio. </aside>
+      <li> Save your changes and refresh your page in the browser to see the video automatically start playing. You will see the overlay appear when the video starts. Pause the video to see the overlay removed.
+        <aside class="bcls-aside bcls-aside--information"> Note: The implementation of the Overlay Plugin show here will only be used with the player on the specific HTML page. You can add a plugin to be part of a player no matter where or how many times the player is used without having to copy and paste code repeatedly. See the <a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a> to see a developer oriented approach to the implementation, or the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document to see how to implement the plugin in the player using Studio. </aside>
       </li>
-      <li> For your review, the entire page's HTML code can be viewed here:
-        <div class="video-cloud-only">
+      <li> For your review, the entire page's HTML code can be viewed here: <div class="video-cloud-only">
           <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;!doctype html&gt;
+<code class="language-html" translate="No">&lt;!doctype html&gt; 
 &lt;html&gt;
-
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;Untitled Document&lt;/title&gt;
@@ -353,13 +258,10 @@ description: In this topic, hands-on steps are provided that when followed custo
     .video-js {
       height: 344px;
       width: 610px;
-    }
+   }
   &lt;/style&gt;
-  &lt;link href="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.css" rel='stylesheet'&gt;
-&lt;/head&gt;
-
+  &lt;link href="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.css" rel='stylesheet'&gt; &lt;/head&gt;
 &lt;body&gt;
-
   &lt;video  id="myPlayerID"
     data-video-id="4093372393001"
     data-account="1507807800001"
@@ -368,62 +270,17 @@ description: In this topic, hands-on steps are provided that when followed custo
     data-application-id
     class="video-js"
     controls&gt;&lt;/video&gt;
-  &lt;script src="https://players.brightcove.net/1507807800001/H15p1gTkg_default/index.min.js"&gt;&lt;/script&gt;
-
-  &lt;script src="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.js"&gt;&lt;/script&gt;
-
+  &lt;script src="https://players.brightcove.net/1507807800001/H15p1gTkg_default/index.min.js"&gt;&lt;/script&gt; 
+  
+  &lt;script src="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.js"&gt;&lt;/script&gt; 
   &lt;script&gt;
-    videojs.getPlayer('myPlayerID').on('loadedmetadata', function() {
+    videojs.getPlayer('myPlayerID').on('loadedmetadata', function() { 
       var myPlayer = this;
       myPlayer.muted(true);
       myPlayer.play();
       myPlayer.overlay({
         overlays: [{
-          content: 'This event-triggered overlay message appears when the video is playing',
-          start: 'play',
-          end: 'pause'
-        }]
-      });
-    });
-  &lt;/script&gt;
-
-  &lt;/body&gt;
-
-&lt;/html&gt;</code></pre>
-        </div>
-        <div class="player-only">
-          <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;!doctype html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Untitled Document&lt;/title&gt;
-  &lt;style&gt;
-    .video-js {
-      height: 344px;
-      width: 610px;
-    }
-  &lt;/style&gt;
-  &lt;link href="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.css" rel='stylesheet'&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-  &lt;video id="myPlayerID"
-    data-account="3676484087001"
-    data-player="78ef7d78-18d9-4459-a6da-d94e46163076"
-    data-embed="default"
-    class="video-js"
-    controls&gt;&lt;/video&gt;
-  &lt;script src="https://players.brightcove.net/3676484087001/78ef7d78-18d9-4459-a6da-d94e46163076_default/index.min.js"&gt;&lt;/script&gt;
-  &lt;script src="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.js"&gt;&lt;/script&gt;
-  &lt;script&gt;
-    videojs.getPlayer('myPlayerID').on('loadedmetadata', function () {
-      var myPlayer = this;
-      myPlayer.play();
-      myPlayer.overlay({
-        overlays: [{
-          content: 'This event-triggered overlay message appears when the video is playing',
+          content: 'This event-triggered overlay message appears when the video is playing', 
           start: 'play',
           end: 'pause'
         }]
@@ -431,8 +288,41 @@ description: In this topic, hands-on steps are provided that when followed custo
     });
   &lt;/script&gt;
 &lt;/body&gt;
-
 &lt;/html&gt;</code></pre>
+        </div>
+        <div class="player-only">
+          <pre class="line-numbers">
+ <code class="language-html" translate="No">&lt;!doctype html&gt; &lt;html&gt;
+ &lt;head&gt;
+ &lt;meta charset="UTF-8"&gt;
+ &lt;title&gt;Untitled Document&lt;/title&gt;
+ &lt;style&gt;
+ .video-js {
+ height: 344px;
+ width: 610px;
+ }
+ &lt;/style&gt;
+ &lt;link href="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.css" rel='stylesheet'&gt; &lt;/head&gt;
+ &lt;body&gt;
+ &lt;video id="myPlayerID"
+ data-account="3676484087001"
+ data-player="78ef7d78-18d9-4459-a6da-d94e46163076"
+ data-embed="default"
+ class="video-js"
+ controls&gt;&lt;/video&gt;
+ &lt;script src="https://players.brightcove.net/3676484087001/78ef7d78-18d9-4459-a6da-d94e46163076_default/index.min.js"&gt;&lt;/script&gt; &lt;script src="https://players.brightcove.net/videojs-overlay/lib/videojs-overlay.js"&gt;&lt;/script&gt; &lt;script&gt;
+ videojs.getPlayer('myPlayerID').on('loadedmetadata', function () { var myPlayer = this;
+ myPlayer.play();
+ myPlayer.overlay({
+ overlays: [{
+ content: 'This event-triggered overlay message appears when the video is playing', start: 'play',
+ end: 'pause'
+ }]
+ });
+ });
+ &lt;/script&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;</code></pre>
         </div>
       </li>
     </ol>
