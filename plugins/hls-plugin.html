@@ -388,13 +388,13 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
     <h3>Method: videojs.log.history()</h3>
     <p>The <code translate="No">history()</code> method returns an array containing everything that has been logged to the history.</p>
     <p>Any message that gets logged through the <code translate="No">videojs.log</code> API will be appended to the <code translate="No">history</code> array. What information is placed into that array is dependent on what plugins are in use that use the API, and the state of the player. This means that the history can easily contain non-HLS information. An example display from the console of the <code translate="No">history</code> array follows:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="console display of history array" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/history-array.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="console display of history array" src="/assets/images/plugins/hls/history-array.png" /></figure>
     <aside class="bcls-aside bcls-aside--tip">Both the <code translate="No">level()</code> and <code translate="No">history()</code> methods belong to the <code translate="No">log</code> class, whose reference document is located <a href="https://docs.brightcove.com/brightcove-player/current-release/module-create-logger-createLogger-log.html">here</a>.</aside>
     <p>If you need to send the <code translate="No">history</code> array to support, the best thing to do is at the console type the following:</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">JSON.stringify(videojs.log.history())</code></pre>
     <p>You will get information similar to what is shown here:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="console display of history stringified" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/stringify.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="console display of history stringified" src="/assets/images/plugins/hls/stringify.png" /></figure>
     <p>Copy the JSON that is generated and that can then be sent to support.</p>
     <h3>Property: player.tech().hls.stats</h3>
     <p>This object contains a summary of HLS and player related stats. The available properties are shown in the following table:</p>
@@ -501,7 +501,7 @@ https://players.api.brightcove.com/v2/accounts/YOUR_ACCOUNT_ID/players/YOUR_PLAY
     </table>
     <aside class="bcls-aside bcls-aside--warning">If you are using version 5 of Brightcove Player you should use <code translate="No">player.tech_.hls.stats</code> to get the HLS information shown in the table. Also, some properties are not available in the version 5 implementation.</aside>
     <p>An example display from the console of the <code translate="No">stats</code> object follows:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="console display of stats object" src="//learning-services-media.brightcove.com/doc-assets/player-development/playback/HLS-plugin/stats-object.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="console display of stats object" src="/assets/images/plugins/hls/stats-object.png" /></figure>
     <aside class="bcls-aside bcls-aside--tip">When in the console, to actually display a property value you need to click on the ellipsis (...).</aside>
     <h3>Code example</h3>
     <p>If you wish to experiment with these debugging features, code based on the following can server as a starting point:</p>
