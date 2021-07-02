@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="In this topic, you will learn how to use the Quality Selection Plugin. This plugin provides a menu button in the player's controlbar which allows you to manually select the playback quality for HLS or Dash sources.">
   
   <title>Quality Selection Plugin</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1136,9 +1136,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
 
 
+<h1>Quality Selection Plugin</h1>
 <article class="bcls-article">
-  <h1>Quality Selection Plugin</h1>
-  <summary>In this topic, you will learn how to use the Quality Selection Plugin. This plugin provides a menu button in the player's controlbar which allows you to manually select the playback quality for HLS or Dash sources.</summary>
+    <summary>In this topic, you will learn how to use the Quality Selection Plugin. This plugin provides a menu button in the player's controlbar which allows you to manually select the playback quality for HLS or Dash sources.</summary>
+
+    <br/>
   <aside class="bcls-aside bcls-aside--information">
     <p>Note: The Quality Selection Plugin does not work with all video sources. The following points clarify the situation:</p>
     <ul>
@@ -1150,17 +1152,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </aside>
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
-    <p>The following is a Brightcove Player that is using the quality selection plugin. Once you play the video, in the controlbar you will see the following icon: <img alt="" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/icon-in-controlbar.png" /></p>
+    <p>The following is a Brightcove Player that is using the quality selection plugin. Once you play the video, in the controlbar you will see the following icon: <img alt="" src="/assets/images/plugins/quality-selection/icon-in-controlbar.png" /></p>
     <p>Once you make a selection, the gear will spin until the new quality is rendered, for DASH sources, or until the new quality is being loaded, for HLS sources. More information is provided below on the quality options you see for the selection, and gear spinning behavior.</p>
     <aside class="bcls-aside bcls-aside--information">If you have a fast Internet connection, you may have to make a number of selections before you see the gear spin as changes take place quickly with HLS renditions, which this video is using.</aside>
     <video data-video-id="5842800655001" data-account="1752604059001" data-player="B1CWQFiPZ" data-embed="default" data-application-id="" class="video-js" controls="" width="640" height="360">&nbsp;</video>
     <script src="//players.brightcove.net/1752604059001/B1CWQFiPZ_default/index.min.js"></script>
+    </section>
     <section class="bcls-section">
       <h2 id="Quality_options">Quality options</h2>
       <p>When the gear icon is clicked, a number of quality options are displayed for user selection. For example, a video with the following renditions:</p>
-      <figure class="bcls-figure"><img class="bcls-image" alt="All video renditions" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/video-renditions.png" /></figure>
+      <figure class="bcls-figure"><img class="bcls-image" alt="All video renditions" src="/assets/images/plugins/quality-selection/video-renditions.png" /></figure>
       <p>will create the following quality options:</p>
-      <figure class="bcls-figure"><img class="bcls-image" alt="Quality options" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/quality-options.png" /></figure>
+      <figure class="bcls-figure"><img class="bcls-image" alt="Quality options" src="/assets/images/plugins/quality-selection/quality-options.png" /></figure>
       <p>Here is how those options are built and then a specific rendition selected:</p>
       <ul>
         <li>All renditions are grouped based on lines of horizontal resolution (e.g. 270p, 360p, 540p, 720p and 1080p in the example above) and used as quality options.</li>
@@ -1197,7 +1200,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Click the link for the player to open the player's properties.</li>
         <li>Click <strong>Controls</strong> in the left navigation menu.</li>
         <li>Check the box in front of <strong>Quality Selector</strong>.
-          <figure class="bcls-figure"><img class="bcls-image" alt="Configuration show quality selector" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/studio-show-quality-selector.png" /></figure>
+          <figure class="bcls-figure"><img class="bcls-image" alt="Configuration show quality selector" src="/assets/images/plugins/quality-selection/studio-show-quality-selector.png" /></figure>
         </li>
         <li>Use a radio button to display either the different resolutions available, or simply an <strong>HD/SD</strong> option.</li>
         <li>Click <strong>Save</strong>.</li>
@@ -1382,7 +1385,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   "useResolutionLabels": false
 }</code></pre>
           <p>The resulting quality options would appear as follows:</p>
-          <figure class="bcls-figure"><img class="bcls-image" alt="Options SD and HD only" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/quality-options-sd-hd-only.png" /></figure>
+          <figure class="bcls-figure"><img class="bcls-image" alt="Options SD and HD only" src="/assets/images/plugins/quality-selection/quality-options-sd-hd-only.png" /></figure>
           <p>The player would then select the optimal rendition from the selected group. As detailed in this section, <code translate="No">sdBitrateLimit</code> is configurable to determine the renditions classified as <strong>SD</strong> and <strong>HD.</strong></p>
           <aside class="bcls-aside bcls-aside--tip">Contradictory settings will not work. For instance, neither of the following make sense to use as in both cases you are providing an illegal value for a label based on the <code translate="No">useResolutionLabels</code> setting.
             <pre class="line-numbers">
@@ -1401,7 +1404,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <li>When <code translate="No">true</code>, the plugin will attach bitrate information to the resolution labels (e.g. 720p @ 13806 kbps). This option has no effect when <code translate="No">useResolutionLabels</code> is false or when resolution information is unavailable.</li>
           </ul>
           <p>When this configuration option is set the <code translate="No">true</code>, the quality selector will appear as follows:</p>
-          <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/bitrates-displayed.png" /></figure>
+          <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="/assets/images/plugins/quality-selection/bitrates-displayed.png" /></figure>
         </li>
       </ul>
     </section>
@@ -1451,7 +1454,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tbody>
       </table>
       <p>For example, to achieve the following:</p>
-      <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/manual-rendition-selection/styled-menu.png" /></figure>
+      <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="/assets/images/plugins/quality-selection/styled-menu.png" /></figure>
       <p>You would use this CSS:</p>
       <pre class="line-numbers">
 <code class="language-css" translate="No">/* Style the icon */
@@ -1493,7 +1496,8 @@ div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.v
     </section>
     <section class="bcls-section">
       <h2 id="Changelog">Changelog</h2>
-      <p>See the <a href="/plugins/changelog/quality-selection-plugin-changelog.html">changelog here</a>.</p>
+      <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-quality-menu/index.html">Quality Menu Plugin Release Notes</a>.</p>
+      <p>For historical release notes, see the <a href="/plugins/changelog/quality-selection-plugin-changelog.html">changelog here</a>.</p>
     </section>
   </section>
 </article>
