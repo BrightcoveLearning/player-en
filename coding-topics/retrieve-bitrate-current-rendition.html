@@ -11,6 +11,7 @@ parent: "coding-topics"
     <h2 id="section-name">Retrieving the bitrate</h2>
     <p>You can use the following code to retrieve the bitrate of the currently playing rendition:</p>
     <pre class="line-numbers"><code class="language-javascript" translate="No">player.tech(true).vhs.playlists.media().attributes.BANDWIDTH</code></pre>
+    <aside class="bcls-aside bcls-aside--tip language-editable">Even though the code contains the word <strong>playlist</strong>, this does not refer to a playlist of videos. See the <a href="#What_playlist_is_used">What playlist is used?</a> section later in this document for clarification.</aside>
     <p>The following shows how to use the code in a page using the Advanced player implementation:</p>
     <pre class="line-numbers"><code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
   data-account=&quot;1507807800001&quot;
@@ -36,9 +37,27 @@ parent: "coding-topics"
       <img class="bcls-image" src="/assets/images/coding-topics/retrieve-bitrate-current-rendition/result-in-console.png" alt="result in console">
     </figure>
 
-    <h3>Limitations</h3>
+    <h3>Using the console</h3>
+    <p>You can retrieve the same information in the console. Given the player is assigned an ID, in this case <code>myPlayerID</code>, the following can be used to get the bitrate of the current playing rendition:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/coding-topics/retrieve-bitrate-current-rendition/retrieve-in-console.png" alt="retrieve in console">
+    </figure>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Usage_details">Usage details</h2>
+    <p>Please note the following details when using the code:</p>
+    <ul>
+      <li>The code will return the bitrate based on what is defined in the HLS or DASH manifests for a demuxed video playlist or a muxed video/audio playlist.</li>
+      <li>It could be a bit ahead of where playback is currently happening, as Brightcove Player is always buffering content ahead of current playback location.</li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
 
   </section>
+
 
   <section class="bcls-section">
     <h2 id="What_playlist_is_used">What playlist is used?</h2>
