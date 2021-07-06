@@ -1145,7 +1145,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>You can use the following code to retrieve the bitrate of the currently playing rendition:</p>
     <pre class="line-numbers"><code class="language-javascript" translate="No">player.tech(true).vhs.playlists.media().attributes.BANDWIDTH</code></pre>
     <aside class="bcls-aside bcls-aside--tip language-editable">Even though the code contains the word <strong>playlist</strong>, this does not refer to a playlist of videos. See the <a href="#What_playlist_is_used">What playlist is used?</a> section later in this document for clarification.</aside>
-    <p>The following shows how to use the code in a page using the Advanced player implementation:</p>
+    <p>The following shows how to use the code with an Advanced player implementation:</p>
     <pre class="line-numbers"><code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
   data-account=&quot;1507807800001&quot;
   data-player=&quot;default&quot;
@@ -1171,7 +1171,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </figure>
 
     <h3>Using the console</h3>
-    <p>You can retrieve the same information in the console. Given the player is assigned an ID, in this case <code>myPlayerID</code>, the following can be used to get the bitrate of the current playing rendition:</p>
+    <p>You can retrieve the same information in the console. Given the player is assigned an ID, in this case <code>myPlayerID</code>, the following can be used to get the bitrate of the currently playing rendition:</p>
     <figure class="bcls-figure">
       <img class="bcls-image" src="/assets/images/coding-topics/retrieve-bitrate-current-rendition/retrieve-in-console.png" alt="retrieve in console">
     </figure>
@@ -1182,15 +1182,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Please note the following details when using the code:</p>
     <ul>
       <li>The code will return the bitrate based on what is defined in the HLS or DASH manifests for a demuxed video playlist or a muxed video/audio playlist.</li>
-      <li>It could be a bit ahead of where playback is currently happening, as Brightcove Player is always buffering content ahead of current playback location.</li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>The code will NOT work with the following:
+        <ul>
+          <li>MP4 encoded videos</li>
+          <li>When native playback is used, like HLS on Safari</li>
+          <li>When only a playlist is sent without a manifest (example: https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8)</li>
+        </ul>
+      </li>
+      <li>The returned value could be a bit ahead of where playback is currently happening as Brightcove Player is always buffering content ahead of current playback location.</li>
+      <li>If you wish to see information on the currently playing video's rendition playlist, you can use one of the following:
+        <ul>
+          <li>The <a href="https://github.com/videojs/http-streaming#segment-metadata">Segment Metadata text track</a> to get information about the currently playing demuxed video playlist or muxed video/audio playlist.</li>
+          <li>The <a href="/references/video-metadata-mediainfo.html">mediainfo property</a> where you can view the <code>sources</code> array, an example of which is shown here:
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/coding-topics/retrieve-bitrate-current-rendition/mediainfo-sources.png" alt="mediainfo sources">
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>It's not possible to get the bitrate information of the audio content, whether it's muxed or demuxed.</li>
     </ul>
-
-
   </section>
-
 
   <section class="bcls-section">
     <h2 id="What_playlist_is_used">What playlist is used?</h2>
