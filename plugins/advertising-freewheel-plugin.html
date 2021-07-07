@@ -28,7 +28,8 @@ iframe {
 </style>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p>This plugin enables FreeWheel ad technology, for either Flash or HTML5, in Brightcove Player. The default rendering option for the FreeWheel plugin is set to <strong translate="No">Html5</strong> (for more information see the <code translate="No">adTechOrder</code> option below).</p>
+    <p>This plugin enables FreeWheel ad technology for HTML5 in Brightcove Player.</p>
+    <!-- <p>This plugin enables FreeWheel ad technology, for HTML5, in Brightcove Player. The default rendering option for the FreeWheel plugin is set to <strong translate="No">Html5</strong> (for more information see the <code translate="No">adTechOrder</code> option below).</p> -->
   </section>
   <section class="bcls-section">
     <h2 id="Using_versions_of_the_plugin">Using versions of the plugin</h2>
@@ -51,15 +52,15 @@ iframe {
           <td>CSS</td>
           <td><code translate="No">https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</code></td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>SWF *</td>
           <td><code translate="No">https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf</code></td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
     <!-- <aside class="bcls-aside bcls-aside--information">* Compatible with FreeWheel Flash Plugin version 6.4.6</aside> -->
     
-    <p>For reference, the versions of the plugin and compatible SWFs are tracked in the <a href="/plugins/plugin-version-reference.html">Plugin Version Reference</a> document.</p>
+    <p>For reference, the versions of the plugin are tracked in the <a href="/plugins/plugin-version-reference.html">Plugin Version Reference</a> document.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Testing_the_ad_server">Testing the ad server</h2>
@@ -103,6 +104,14 @@ iframe {
       <li>Enter the configuration options in the <strong>Options(JSON)</strong> text box. The options provided in the form configure playback technology where <code translate="No">Flash</code> and <code translate="No">Html5</code> configuration sections are provided by FreeWheel. A slightly altered (for security reasons) complete configuration is shown <a href="#exampleconfiguration">below</a> . A stub example is shown here:
         <pre class="line-numbers">
 <code class="language-json" translate="No">{
+  "Html5": {
+    "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
+    "serverUrl": "http://cue.v.fwmrm.net/..."
+    "profile": "3aaa_profile",
+    ...
+  }
+}</code></pre>
+<!-- <code class="language-json" translate="No">{
   "adTechOrder": ["html5"],
   "Flash": {
     "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
@@ -116,7 +125,7 @@ iframe {
     "profile": "3aaa_profile",
     ...
   }
-}</code></pre>
+}</code></pre> -->
       </li>
       <li>Click <strong>Save</strong>.</li>
       <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
@@ -132,6 +141,13 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <p>The name of the plugin is <code translate="No">FreeWheelPlugin</code>. The options configure playback technology where <code translate="No">Flash</code> and <code translate="No">Html5</code> configuration sections are provided by FreeWheel. A slightly altered (for security reasons) complete configuration is shown <a href="#exampleconfiguration">below</a> . A stub example is shown here:</p>
     <pre class="line-numbers">
 <code class="language-json" translate="No">{
+  Html5: {
+    sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
+    serverUrl: "http://cue.v.fwmrm.net/..."
+    profile: "3aaa_profile",
+    ...
+}</code></pre>
+<!-- <code class="language-json" translate="No">{
   adTechOrder: ["html5"],
   Flash: {
     sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
@@ -144,7 +160,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     serverUrl: "http://cue.v.fwmrm.net/..."
     profile: "3aaa_profile",
     ...
-}</code></pre>
+}</code></pre> -->
     <p>The following shows using the In-Page Embed implementation of the player to associate the FreeWheel Plugin with a single instance of a player.</p>
     <ul>
       <li>Line 90: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.</li>
@@ -175,13 +191,6 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
 
     // initialize the FreeWheel plugin
     myPlayer.FreeWheelPlugin({
-      adTechOrder: ["html5"],
-      Flash: {
-        sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
-        serverUrl: "http://cue.v.fwmrm.net/..."
-        profile: "3aaa_profile",
-        ...
-      },
       Html5: {
         sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
         serverUrl: "http://cue.v.fwmrm.net/..."
@@ -191,8 +200,24 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     });
   });
 &lt;/script&gt;</code></pre>
+
+<!-- myPlayer.FreeWheelPlugin({
+  adTechOrder: ["html5"],
+  Flash: {
+    sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
+    serverUrl: "http://cue.v.fwmrm.net/..."
+    profile: "3aaa_profile",
+    ...
+  },
+  Html5: {
+    sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
+    serverUrl: "http://cue.v.fwmrm.net/..."
+    profile: "3aaa_profile",
+    ...
+  }
+}); -->
   </section>
-  <section class="bcls-section">
+  <!-- <section class="bcls-section">
     <h2 id="Rendering_options">Rendering options</h2>
     <p>The following table shows the Tech in which the FreeWheel plugin will render an ad (column 3) based on Tech selections in Brightcove Player (column 1) and the <code translate="No">adTechOrder</code> set in the plugin (column 2).</p>
     <table class="bcls-table">
@@ -247,12 +272,14 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
       </tbody>
     </table>
     <aside class="bcls-aside bcls-aside--information">Note: For the best user experience when delivering midrolls, you should use a segmented delivery format like HLS and deliver your content from a CDN that supports byte­range requests.</aside>
-  </section>
+  </section> -->
   <section class="bcls-section">
     <h2 id="Configuration">Configuration</h2>
     <p>The following settings are used to configure the FreeWheel plugin:</p>
+    <aside class="bcls-aside bcls-aside--information">Since Flash is no longer supported in Brightcove Player, the <code translate="No">adTechOrder</code> and <code translate="No">Flash</code> options are not applicable.</aside>
     <ul>
       <li><strong translate="No">adTechOrder</strong>:
+        
         <ul>
           <li>Type: <code translate="No">Array</code> Default Value: <code translate="No">["html5"]</code></li>
           <li>The array contains the ad integration technologies to attempt to use, in order of descending precedence.</li>
@@ -262,7 +289,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
         <ul>
           <li>Type: <code translate="No">Object</code></li>
           <li>An object for Tech specific FreeWheel configuration (provided by FreeWheel). The object contains the following options:
-            <aside class="bcls-aside bcls-aside--information">These options can either be set dynamically (shown <a href="#Dynamic_server_URL_assignment">here</a>) or as part of the initial configuration (shown <a href="#exampleconfiguration">here</a>).</aside>
+            <!-- <aside class="bcls-aside bcls-aside--information">These options can either be set dynamically (shown <a href="#Dynamic_server_URL_assignment">here</a>) or as part of the initial configuration (shown <a href="#exampleconfiguration">here</a>).</aside> -->
           </li>
           <li><strong translate="No">swfurl</strong>:
             <ul>
@@ -469,8 +496,9 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
         <tbody class="bcls-table__body">
           <tr>
             <td>SDK URLs</td>
-            <td>https://mssl.fwmrm.net/p/release/latest-AS3/adm/prd/AdManager.swf<br />
-              https://mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js</td>
+            <!-- <td>https://mssl.fwmrm.net/p/release/latest-AS3/adm/prd/AdManager.swf<br />
+              https://mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js</td> -->
+              <td>https://mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js</td>
           </tr>
           <tr>
             <td>Server URL</td>
@@ -484,33 +512,6 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
 <code class="language-json" translate="No">"plugins": [{
   "name": "FreeWheelPlugin",
   "options": {
-    "Flash": {
-      "networkId": 99999,
-      "profile": "2aaa_profile",
-      "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
-      "serverUrl": "http://cue.v.fwmrm.net/ad/h/5",
-      "siteSectionCustomId": "<strong translate="No">your value here</strong>",
-      "swfurl": "https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf",
-      "temporalSlots": [{
-        "adUnit": "preroll",
-        "id": "Preroll_1",
-        "timePosition": 0
-      }, {
-        "adUnit": "postroll",
-        "id": "Postroll_1",
-        "timePosition": 60
-      }, {
-        "adUnit": "midroll",
-        "id": "Midroll_1",
-        "timePosition": 5
-      }, {
-        "adUnit": "overlay",
-        "id": "Overlay_1",
-        "timePosition": 10
-      }],
-      "videoAssetCustomId": "<strong translate="No">your value here</strong>",
-      "videoAssetDuration": 500
-    },
     "Html5": {
       "keyValues": [{
         "feature": "simpleAds",
@@ -539,15 +540,44 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
       "videoAssetCustomId": "<strong translate="No">your value here</strong>",
       "videoAssetDuration": 500
     },
-    "adTechOrder": [
-      "flash",
-      "html5"
-    ],
     "debug": true,
     "prerollTimeout": 1000,
     "timeout": 5000
   }
 }]</code></pre>
+
+<!-- "Flash": {
+  "networkId": 99999,
+  "profile": "2aaa_profile",
+  "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
+  "serverUrl": "http://cue.v.fwmrm.net/ad/h/5",
+  "siteSectionCustomId": "<strong translate="No">your value here</strong>",
+  "swfurl": "https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf",
+  "temporalSlots": [{
+    "adUnit": "preroll",
+    "id": "Preroll_1",
+    "timePosition": 0
+  }, {
+    "adUnit": "postroll",
+    "id": "Postroll_1",
+    "timePosition": 60
+  }, {
+    "adUnit": "midroll",
+    "id": "Midroll_1",
+    "timePosition": 5
+  }, {
+    "adUnit": "overlay",
+    "id": "Overlay_1",
+    "timePosition": 10
+  }],
+  "videoAssetCustomId": "<strong translate="No">your value here</strong>",
+  "videoAssetDuration": 500
+},
+
+"adTechOrder": [
+      "flash",
+      "html5"
+    ], -->
   </section>
   <section class="bcls-section">
     <h2 id="Events">Events</h2>
@@ -639,13 +669,14 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
   </section>
   <section class="bcls-section">
     <h2 id="Demos">Demos</h2>
-    <p>The following demos use slightly different FreeWheel configurations and the resulting player. Both configurations will play a pre-roll, a mid-roll at 5 seconds and then a post-roll. The configurations are the same, except that the <code translate="No">adtechOrder</code> is different. In the first demo <code translate="No">html5</code> is first, as shown here:</p>
+    <!-- <p>The following demos use slightly different FreeWheel configurations and the resulting player. Both configurations will play a pre-roll, a mid-roll at 5 seconds and then a post-roll. The configurations are the same, except that the <code translate="No">adtechOrder</code> is different. In the first demo <code translate="No">html5</code> is first, as shown here:</p> -->
+    <p>This demo will play a pre-roll, a mid-roll at 5 seconds and then a post-roll. The <code translate="No">adTechOrder</code> is set for <code translate="No">html5</code> first, as shown here:</p>
     <pre class="line-numbers">
 <code class="language-json" translate="No">"adTechOrder": [
   "html5",
   "flash"
 ],</code></pre>
-    <p>In the second the order is reversed.</p>
+    <!-- <p>In the second the order is reversed.</p> -->
     <h3>adtech order: html5, flash</h3>
     <p>This demo uses <code translate="No">html5</code> first in the <code translate="No">adtechOder</code>.</p>
     <iframe src="https://players.brightcove.net/1752604059001/24351871-efb6-4c3a-9002-dc8acd9192c6_default/index.html?videoId=4172255216001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
@@ -711,7 +742,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
   "prerollTimeout": 1000,
   "timeout": 5000
 }</code></pre>
-    <h3>adtech order: flash, html5</h3>
+    <!-- <h3>adtech order: flash, html5</h3>
     <p>This demo uses <code translate="No">flash</code> first in the <code translate="No">adtechOder</code>.</p>
     <iframe src="https://players.brightcove.net/1752604059001/616d343c-33f6-45c3-8484-b889eb8095e1_default/index.html?videoId=4172255216001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
     <p>Following is the actual configuration used with the player. Note that this can be used for the <strong translate="No">options</strong> value in Studio.</p>
@@ -774,7 +805,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
   "debug": true,
   "prerollTimeout": 1000,
   "timeout": 5000
-}</code></pre>
+}</code></pre> -->
     <h3>Playlist</h3>
     <p>This demo uses the HTML first configuration with a playlist. You will see for each video in the playlist a pre-roll, a mid-roll at the 5 second mark, and a post-roll.</p>
     <iframe src="https://players.brightcove.net/1752604059001/r1bhBb0Pe_default/index.html?playlistId=4845949311001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" width="428" height="150"></iframe>
