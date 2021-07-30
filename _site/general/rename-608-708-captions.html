@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will learn how to add a playback rate button to the Brightcove Player control bar, and use middleware to properly display the current time and video duration as you switch between playback speeds.">
+  <meta name="description" content="This topic explains how to rename captions tracks for HLS in the player to conform with 608 and 708 naming requirements.">
   
-  <title>Brightcove Player Sample: Playback Rate Adjuster</title>
+  <title>Rename 608/708 Captions in the Player</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -62,9 +62,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item"><a href="/code-samples/">Code Samples</a></li>
+      <li class="breadcrumb-item"><a href="/general/">General Information</a></li>
       
-      <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Playback Rate Adjuster</li>
+      <li class="breadcrumb-item active" aria-current="page">Rename 608/708 Captions in the Player</li>
     </ol>
   </nav>
 </header>
@@ -1144,241 +1144,53 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
 
 
-<h1>Brightcove Player Sample: Playback Rate Adjuster</h1>
+<h1>Rename 608/708 Captions in the Player</h1>
 <article class="bcls-article">
-  <summary>In this topic, you will learn how to add a playback rate button to the Brightcove Player control bar, and use middleware to properly display the current time and video duration as you switch between playback speeds.</summary>
-
+  <summary>This topic explains how to rename captions tracks for HLS in the player to conform with 608 and 708 naming requirements.</summary>
   <section class="bcls-section">
-    <h2 id="Player_example">Player example</h2>
-    <!-- UPDATE description -->
-    
-    <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-    <p>Start video playback and select the playback rate button in the control bar (default is 1x). Choose a different rate to see how video playback speed changes. Notice that when you change the playback rate, the duration time displayed is re-calculated based on the selected rate.</p>
-    <!-- <aside class="bcls-aside bcls-aside--tip">If you don't want to code the middleware functions, you can use a plug and play solution. For details, see the  <a href="#Code_in_a_separate_JavaScript_file">Code in a separate JavaScript file</a> section.</aside> --><!-- UPDATE codepen here -->
-    
-    <p data-height="490" data-theme-id="34967" data-slug-hash="aGEVYZ" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="Playback Rate Adjuster" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/aGEVYZ/">Playback Rate Adjuster</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
-    <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18597-playback-rate-adjuster">complete solution on GitHub</a>.</p>
+    <h2 id="captions_in_hls">608 Captions in HLS</h2>
+    <p>608 captions, also known as CEA-608 captions, EIA-608 captions and Line 21 captions, are a standard for closed captioning for NTSC TV analog broadcasts in the United States and Canada. The 608 captions can be inserted into a live stream where they are mixed into the HLS <span translate="no">ts</span> (transport stream) files.</p>
+    <p>The 608 specification doesn't allow for custom naming of captions tracks, and by default will always be named <code translate="No">CC1</code> or <code translate="No">CC2</code>, regardless of the language being used.</p>
   </section>
   <section class="bcls-section">
-    <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
-      <p>Here are some tips to effectively use the above CodePen:</p>
-      <ul>
-        <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
-        <li>Click the <strong translate="No">HTML/CSS/JS</strong> buttons to display ONE of the code types.</li>
-        <li>Later in this document the logic, flow and styling used in the application will be discussed in the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and <a href="#Application_styling">Application styling</a> sections. The best way to follow along with the information in those sections is to:
-          <ol>
-            <li>Click the <strong translate="No">EDIT ON CODEPEN</strong> button in the CodePen and have the code available in one browser/browser tab.</li>
-            <li>In CodePen, adjust what code you want displayed. You can change the width of different code sections within CodePen.</li>
-            <li>View the <a href="#Player/HTML_configuration">Player/HTML configuration</a>, <a href="#Application_flow">Application flow</a> and/or <a href="#Application_styling">Application styling</a> sections in another browser/browser tab. You will now be able to follow the code explanations and at the same time view the code.</li>
-          </ol>
-        </li>
-      </ul>
-    </details>
+    <h2 id="renaming_captions">Renaming captions</h2>
+    <p>It is possible to rename the captions tracks to comply with 608 requirements in the Brightcove Player <strong>6.56.0+</strong> by using a player configuration. In the player's JSON, add the following:</p>
+    <h3>Single language</h3>
+<pre class="line-numbers"><code class="language-json" translate="No">"hls": {
+  "captionServices": {
+    "CC1": {
+      "language": "en",
+      "label": "English"
+    }
+  }</code></pre>
+    <h3>Two languages</h3>
+<pre class="line-numbers"><code class="language-json" translate="No">"hls": {
+  "captionServices": {
+    "CC1": {
+      "language": "en",
+      "label": "English"
+    },
+    "CC2": {
+      "language": "es",
+      "label": "Español"
+    }
+  }</code></pre>
+    <p>Note that you can edit the player's JSON configuration in the <a href="/general/player-configuration-guide.html">Studio Players module</a> or using the <a href="https://apis.support.brightcove.com/player-management/index.html">Player Management API</a>.</p>
   </section>
   <section class="bcls-section">
-    <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
-      <p>Here is the recommended development sequence:</p>
-      <ol>
-        <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
-        <li>Put the plugin's JavaScript and CSS into separate files for local testing</li>
-        <li>Deploy the plugin code and CSS to your server once you have worked out any errors</li>
-        <li>Use Studio to add the plugin and CSS to your player</li>
-        <li>Replace the In-Page embed player implementation if you determine that the iframe implementation is a better fit (detailed in next section)</li>
-      </ol>
-      <p>For details about these steps, review the <a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a> guide.</p>
-      <h3>iframe or In-Page embed</h3>
-      <p>When developing enhancements for the Brightcove Player you will need to decide if the code is a best fit for the iframe or In-Page embed implementation. The best practice recommendation is to build a plugin for use with an iframe implementation. The advantages of using the iframe player are:</p>
-      <ul>
-        <li>No collisions with existing JavaScript and/or CSS</li>
-        <li>Automatically responsive</li>
-        <li>The iframe eases use in social media apps (or whenever the video will need to "travel" into other apps)</li>
-      </ul>
-      <p>Although integrating the In-Page embed player can be more complex, there are times when you will plan your code around that implementation. To generalize, this approach is best when the containing page needs to communicate to the player. Specifically, here are some examples:</p>
-      <ul>
-        <li>Code in the containing page needs to listen for and act on player events</li>
-        <li>The player uses styles from the containing page</li>
-        <li>The iframe will cause app logic to fail, like a redirect from the containing page</li>
-      </ul>
-      <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
-    </details>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Middleware_functions">Middleware functions</h2>
-    <p>This sample uses Video.js middleware to implement the code solution. At a very high level, the use cases where middleware is of most value is when you want to intercept and alter core behaviors of the player, such as setting the source or current time. Video.js middleware in general is not discussed at length in this document, but the actual code used for the middleware function is explained. Here are documents from Video.js sources that do detail middleware:</p>
-    <ul>
-      <li><a href="http://docs.videojs.com/tutorial-middleware.html">Middleware (from the Video.js documentation set)</a></li>
-      <li><a href="http://blog.videojs.com/feature-spotlight-middleware/">Feature Spotlight: Middleware (from the Video.js blog)</a></li>
-      <li><a href="https://github.com/videojs/videojs-playbackrate-adjuster">videojs-playbackrate-adjuster (a sample app)</a></li>
-    </ul>
-    <h3>Implementing middleware functions with Brightcove Player</h3>
-    <p>The simplest way to use a middleware function is to:</p>
-    <ol class="bcls-tasklist__restart">
-      <li>Write the middleware function.</li>
-      <li>Place the middleware function either on the page with the player in a <code translate="No">script</code> tag, or include the middleware function using the <code translate="No">src</code> attribute with a <code translate="No">script</code> tag. Both implementations will be shown in this document.</li>
-      <li>Register the middleware function with the player using the <code translate="No">use()</code> method, as shown here:
-        <pre class="line-numbers">
-<code class="language-javascript" translate="No">videojs.use('mimeType', functionName);</code></pre>
-        <p>For the <strong>mimetype</strong> you can use a standard video mimetype, like <strong>video/mp4</strong>, or use an <strong>*</strong> if you wish the middleware function to act on all mimetypes.</p>
-        <aside class="bcls-aside bcls-aside--tip">Plugins and middleware may be set up to automatically register themselves when their scripts are included. In this case, you would not need to use the <code translate="No">videojs.use()</code> method.</aside>
-      </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
-    <!-- UPDATE table, remove unneeded columns -->
-    
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th>API Classes</th>
-          <th>API Methods</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ControlBar.html">ControlBar</a></td>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/ControlBar.html#addChild">controlBar.addChild()</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/PlaybackRateMenuButton.html">PlaybackRateMenuButton</a></td>
-          <td>&nbsp;</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-  <!-- UPDATE player and HTML configuration -->
-  
-  <section class="bcls-section">
-    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
-    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
-    <h3>Player configuration</h3>
-    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
-    <h3>Other HTML</h3>
-    <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video</code> tag in the player embed code.</p>
-    <pre>
-<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
-...</code></pre>
-  </section>
-  <!-- UPDATE application flow -->
-  
-  <section class="bcls-section">
-    <h2 id="Application_flow">Application flow</h2>
-    <p>The basic logic behind this application is:</p>
-    <ul>
-      <li>Define the middleware functions</li>
-      <li>Register the middleware with the player</li>
-      <li>Define the playback rate options</li>
-      <li>Initialize the playback rate button</li>
-    </ul>
-    <!-- UPDATE task 1 -->
-    
-    <h3>Define the middleware functions</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="language-javascript" translate="No">// +++ Define the middleware functions +++</code></pre>
-    <p>Create the following middleware functions:</p>
-    <ol class="bcls-tasklist__restart">
-      <li>Create a supporting middleware function that will re-calculate the playback start and end times based on the selected playback rate.</li>
-      <li>
-        <p>Create a middleware function that will update the start time, duration and even current time when seeking.</p>
-        <p>The basic syntax for creating a middleware function is as follows:</p>
-        <pre class="line-numbers">
-<code class="language-javascript" translate="No">const playbackrateAdjuster = function(player) {
-   return {
-   ...
- };</code></pre>
-        <p>Note that the <code translate="No">player</code> object is passed to the function.</p>
-        <p>This middleware function does the following:</p>
-        <ol>
-          <li><strong>Listen for the ratechange event</strong>: When the playback rate is changed, then trigger the <code translate="No">durationchange</code> and <code translate="No">timeupdate</code> events.</li>
-          <br />
-          <li><strong>Implement the setSource() method</strong>: This is a required method for every middleware function. By using the syntax shown means the middleware will always be selected, irregardless of the video type:
-            <pre>
-<code class="language-javascript" translate="No">setSource(srcObj, next) {
-  next(null, srcObj);
-},</code></pre>
-          </li>
-          <br />
-          <li><strong>Override methods using current playback rate</strong>: Override the methods for <code translate="No">duration</code>, <code translate="No">currentTime</code>, <code translate="No">buffered</code>, <code translate="No">seekable</code> and <code translate="No">played</code> with values calculated using the current playback rate.</li>
-        </ol>
-      </li>
-    </ol>
-    <!-- UPDATE task 5 -->
-    
-    <h3>Register the middleware with the player</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="language-javascript" translate="No">// +++ Register the middleware with the player +++</code></pre>
-    <p>Register the middleware function with the player using the <code translate="No">use()</code> method.</p>
-    <!-- UPDATE task 6 -->
-    
-    <h3>Define the playback rate options</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="language-javascript" translate="No">// +++ Define the playback rate options +++</code></pre>
-    <p>Define the playback rates that you want displayed in the playback rate menu button.</p>
-    <!-- UPDATE task 7 -->
-    
-    <h3>Initialize the playback rate button</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="language-javascript" translate="No">// +++ Initialize the playback rate button +++</code></pre>
-    <p>Add the playback rate menu button to the player control bar, and initialize it with the values specified in the options object.</p>
-  </section>
-  <!-- UPDATE CSS description -->
-  
-  <section class="bcls-section">
-    <h2 id="Application_styling">Application styling</h2>
-    <p>There are no additional styles for this sample.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Using_the_middleware_function">Using the middleware function</h2>
-    <p>Once the middleware function has been written you want to use it. Two ways were mentioned earlier, and will be detailed now.</p>
-    <h3>Code on same page as player</h3>
-    <p>This is where you define the middleware function on the same page as the player, and then register it. The <a href="#Player_example">player example</a> in the Codepen above uses this method.</p>
-    <h3 id="Code_in_a_separate_JavaScript_file">Code in a separate JavaScript file</h3>
-    <p>In the following code, the JavaScript for the middleware functions and the <code translate="No">use()</code> method to register it are simply included in the page.</p>
-    <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
-	  data-video-id="5604123528001"
-	  data-account="1752604059001"
-	  data-player="default"
-	  data-embed="default"
-	  data-application-id
-	  class="video-js"
-	  width="640" height="360"
-	  controls muted&gt;&lt;/video&gt;
-	&lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
-
-  &lt;!-- Include the rate adjuster middleware functions --&gt;
-  &lt;script src="rate-adjuster.js"&gt;&lt;/script&gt;
-
-  &lt;script type="text/javascript"&gt;
-  	videojs.getPlayer("myPlayerID").ready(function(){
-  		// When the player is ready, get a reference to it
-  		var myPlayer = this;
-  		console.log("myPlayer",myPlayer)
-  		// Define the playback rate options
-  		options = {"playbackRates":[0.5, 1, 1.5, 2, 4]};
-  		// Initialize the playback rate button
-  		myPlayer.controlBar.playbackRateMenuButton = myPlayer.controlBar.addChild('PlaybackRateMenuButton', {
-      	playbackRates: options.playbackRates
-  	  });
-    });
-  &lt;/script&gt;</code></pre>
-    <p>This example assumes that you will host the JavaScript file on your own server. For the complete code, see the <a href="https://github.com/BrightcoveLearning/18597-playback-rate-adjuster/tree/master/plugin">plugin section</a> in the GitHub repo.</p>
-    <aside class="bcls-aside bcls-aside--tip">
-      <p>The <strong>videojs-playbackrate-adjuster</strong> middleware is published to <strong>npm</strong> and available to include in your project: <a href="//unpkg.com/videojs-playbackrate-adjuster@1.0.0/dist/browser/videojs-playbackrate-adjuster.min.js">//unpkg.com/videojs-playbackrate-adjuster@1.0.0/dist/browser/videojs-playbackrate-adjuster.min.js</a></p>
-      <p>Note that the <strong>unpkg.com</strong> site is free and open source. It does not guarantee uptime and infrastructure support.</p>
-    </aside>
-  </section>
+    <h2 id="708_captions">708 captions</h2>
+    <p>If you are using CEA-708 captions instead of 608, they can be renamed in exactly the same way as 608 captions.</p>
+    <p>If your encoder is sending both 608 and 708 captions, and you wish to hide the 708 captions, add the line <code class="language-json" translate="No">"parse708captions": false</code> immediately before the <code translate="no">captionServices</code> block:</p>
+<pre class="line-numbers"><code class="language-json" translate="No">"hls": {
+  "parse708captions": false,
+  "captionServices": {
+    "CC1": {
+      "language": "en",
+      "label": "English"
+    }
+  }</code></pre>
+      </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
@@ -1394,7 +1206,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 19 Jun 2021
+  Page last updated on 29 Jul 2021
 </div>
 
 
