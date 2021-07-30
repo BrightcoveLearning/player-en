@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="This sample is no longer needed as variable speed playback is now a standard part of the player, as documented here: Player Configuration - playback_rate. In this topic, you will learn how to add a playback rate button to the Brightcove Player control bar, which will allow users to change the video playback speed.">
+  <meta name="description" content=" This sample is no longer needed as variable speed playback is now a standard part of the player Learn how to add a playback rate selector to your player: Player Configuration: playback_rates. ">
   
   <title>Brightcove Player Sample: Variable Speed Playback</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1142,18 +1142,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h1>Brightcove Player Sample: Variable Speed Playback</h1>
 <article class="bcls-article">
-  <summary><aside class="bcls-aside bcls-aside--warning">This sample is no longer needed as variable speed playback is now a standard part of the player, as documented here: <a href="/general/player-configuration-guide.html#playback_rates">Player Configuration - playback_rate</a>.</aside> <p>In this topic, you will learn how to add a playback rate button to the Brightcove Player control bar, which will allow users to change the video playback speed.</p></summary>
+  <summary><aside class="bcls-aside bcls-aside--warning"> <p>This sample is no longer needed as variable speed playback is now a standard part of the player</p> <p>Learn how to add a playback rate selector to your player: <a href="/general/player-configuration-guide.html#playback_rates">Player Configuration: playback_rates</a>.</p> </aside></summary>
 
-  <section class="bcls-section">
+  <!-- description:  In this topic, you will learn how to add a playback rate button to the Brightcove Player control bar, which will allow users to change the video playback speed. -->
+  <!-- <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
-    <!-- UPDATE description -->
     
     <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>Start video playback and select the playback rate button in the control bar (default is 1x). Choose a different rate to see how video playback speed changes.</p>
-    <!-- UPDATE codepen here -->
     
     <p data-height="585" data-theme-id="34967" data-slug-hash="eGpMBy" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="eGpMBy" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/eGpMBy/">eGpMBy</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
     
     <h3>Source code</h3>
           <p>View the <a href="https://github.com/BrightcoveLearning/18451-variable-speed-playback">complete solution on GitHub</a>.</p>
@@ -1212,7 +1211,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
-    <!-- UPDATE table, remove unneeded columns -->
     
     <table class="bcls-table">
       <thead class="bcls-table__head">
@@ -1245,7 +1243,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </tbody>
     </table>
   </section>
-  <!-- UPDATE player and HTML configuration -->
   
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
@@ -1259,7 +1256,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
   ...</code></pre>
   </section>
-  <!-- UPDATE application flow -->
   
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
@@ -1270,51 +1266,32 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>If the playback rate button/menu is already defined in the control bar, then modify it with your defined playback rates.</li>
       <li>Otherwise, add the playback rate button/menu with your defined playback rates to the control bar.</li>
     </ul>
-    <!-- UPDATE task 1 -->
     
     <h3>Define playback rates</h3>
     <p>Find the code which is labeled:</p>
     <pre>
   <code class="language-javascript" translate="No">// +++ Define the playback rate options +++</code></pre>
     <p>Define the playback rates which will be added to the playback rate menu.</p>
-    <!-- UPDATE task 2 -->
     
     <h3>Turn off the default source order</h3>
     <p>Find the code which is labeled:</p>
     <pre>
   <code class="language-javascript" translate="No">// +++ Turn off the default source order +++</code></pre>
     <p>Setting sourceOrder to false means that old browsers that support HLS in Flash but not HTML5/MSE will use MP4.</p>
-    <!-- UPDATE task 3 -->
     
     <h3>Update the playback rate menu</h3>
     <p>Find the code which is labeled:</p>
     <pre>
   <code class="language-javascript" translate="No">// +++ Update the existing playback rate menu +++</code></pre>
     <p>If the playback rate button/menu exists in the control bar, then update it with your defined playback rates.</p>
-    <!-- UPDATE task 4 -->
     
     <h3>Add the playback rate menu</h3>
     <p>Find the code which is labeled:</p>
     <pre>
   <code class="language-javascript" translate="No">// +++ Add the playback rate menu +++</code></pre>
     <p>If it doesn't already exist, add the playback rate button and menu to the control bar.</p>
-    <!-- UPDATE task 5 -->
-    <!--
-    <h3>Support IE browsers</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-  <code class="language-javascript" translate="No">// +++ Support for IE browsers +++</code></pre>
-    <p>This section of code keeps the selected rate value from resetting to <strong>1x</strong> when you pause and play in IE. To test, follow these steps:</p>
-    <ol class="bcls-tasklist">
-      <li>Comment out this section of code, and run the sample in an IE 11 browser.</li>
-      <li>Change the playback rate.</li>
-      <li>Pause video playback and then restart it.</li>
-      <li>You will see that the playback rate has been reset to a value of <strong>1x</strong>.</li>
-      <li>Uncomment this section of code and redo the steps above. Now, you should see that the playback rate remains the value that you selected.</li>
-    </ol>
-    -->
+    
   </section>
-  <!-- UPDATE CSS description -->
   
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
@@ -1335,7 +1312,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	var myPlayer = this;
 	...
 });</code></pre>
-    <!-- UPDATE path to plugin's JavaScript -->
     
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18451-variable-speed-playback/blob/master/plugin/variable-speed-playback.js">variable-speed-playback.js</a>.</p>
     <h3>Using the plugin with a player</h3>
@@ -1349,7 +1325,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-json" translate="No">{"playbackRates":
   [0.5,1,2]
 }</code></pre>
-  </section>
+  </section> -->
 </article>
 
 <!-- complete bootstrap layout -->
@@ -1367,7 +1343,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 19 Jun 2021
+  Page last updated on 29 Jul 2021
 </div>
 
 
