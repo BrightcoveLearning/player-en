@@ -1225,33 +1225,30 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Implement_using_code">Implement using code</h2> 
-    <p>To implement a plugin, the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options.</p>
+    <p>To implement a plugin, the player needs to know the location of the plugin code, the plugin name and plugin configuration options.</p>
     <ol class="bcls-tasklist-restart">
       <li>
         <p>Include the plugin code:</p>
         <pre>
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.js</code></pre>
+<code class="language-javascript" translate="No">https://cdn.watchingthat.net/wtat.plugin.min.js</code></pre>
       </li>
-      <li>
+      <!-- <li>
         <p>Include the plugin styles:</p>
         <pre>
 <code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.css</code></pre>
-      </li>
-      <li>Use the plugin name to load it into the player: <code translate="No">playlistEndscreen</code></li> 
+      </li> -->
+      <li>Use the plugin name to load it into the player: <code translate="No">wtAdTracer</code></li> 
       <li>
-        <p>An example set of options is:</p>
+        <p>An example option is:</p>
         <pre class="line-numbers">
 <code class="language-html" translate="No">{
-  &quot;playlistId&quot;: &quot;4602525726001&quot;,
-  &quot;title&quot;: &quot;Watch More&quot;
+  &quot;apiKey&quot;: &quot;<span class="bcls-input">your api key</span>&quot;
 }</code></pre>
       </li>
       <li>
         <p>Here is an example using the Advanced Embed implementation to associate the Playlist Endscreen plugin with a single instance of a player.</p>
         <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.css&quot; rel=&quot;stylesheet&quot;&gt;
-  
-  &lt;div style=&quot;max-width: 960px;&quot;&gt;
+<code class="language-html" translate="No">&lt;div style=&quot;max-width: 960px;&quot;&gt;
   &lt;video-js id=&quot;myPlayerID&quot;
     data-account=&quot;<span class="bcls-input">your account ID</span>&quot;
     data-player=&quot;<span class="bcls-input">your player ID</span>&quot;
@@ -1265,16 +1262,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 &lt;/div&gt;
 &lt;script src=&quot;https://players.brightcove.net/<span class="bcls-input">your account ID</span>/<span class="bcls-input">your player ID</span>_default/index.min.js&quot;&gt;&lt;/script&gt;
 
-&lt;!-- script for the Playlist Endscreen plugin --&gt;
-&lt;script src=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.js&quot;&gt;&lt;/script&gt;
+&lt;!-- script for the Ad Intelligence plugin --&gt;
+&lt;script src=&quot;https://cdn.watchingthat.net/wtat.plugin.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- custom script --&gt;
 &lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
 
-    // initialize the Playlist Endscreen plugin
-    myPlayer.playlistEndscreen({&quot;playlistId&quot;: &quot;<span class="bcls-input">your playlist ID</span>&quot;}); 
+    // initialize the Ad Intelligence plugin
+    myPlayer.wtAdTracer; 
   });
 &lt;/script&gt;</code></pre>
       </li>
@@ -1285,40 +1282,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Options">Options</h2> 
     <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
 
-    <h3>playlistId</h3>
-    <code translate="No">playlistId</code>
+    <h3>apiKey</h3>
+    <code translate="No">apiKey</code>
     <ul>
-      <li>The string representing the playlist ID to be displayed in the end screen.</li>
+      <li>The API key from your <a href="https://www.watchingthat.com/">Watching That</a> account.</li>
       <li>Type: <code translate="No">string</code></li>
       <li>Default: <code translate="No">""</code></li>
-    </ul>
-
-    <h3>title</h3>
-    <code translate="No">title</code>
-    <ul>
-      <li>The string to customize the end screen title, this will also modify the button tooltip.</li>
-      <li>Type: <code translate="No">string</code></li>
-      <li>Default: <code translate="No">"Related videos"</code></li>
-    </ul>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Options">Setting playlist ID</h2> 
-    <p>This plugin requires an ID for a playlist. The playlist will be fetched from the Playback API and the results will be used to populate the end screen. The playlist ID should come from one of the following sources:</p>
-    <ul>
-      <li>
-        <p>Attribute on in-page embeds: <code translate="No">data-endscreen-playlist-id="123456789"</code></p>
-      </li>
-      <li>
-        <p>Query string for iframes: <code translate="No">&endscreenPlaylistId=123456789</code></p>
-      </li>
-      <li>
-        <p>Plugin option: <code translate="No">player.playlistEndscreen({&quot;playlistId&quot;: "123456789"})</code></p>
-        <p>This can be added to the player configuration, or used at runtime, as in the <a href="#Implement_using_code">example above</a>.</p>
-      </li>
-      <li>
-        <p>Programmatic post-plugin-init: <code translate="No">player.playlistEndscreen().setPlaylistId("123456789")</code></p>
-      </li>
     </ul>
   </section>
   
@@ -1329,10 +1298,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li></li>
     </ul>
   </section> -->
-  <section class="bcls-section"> 
+  <!-- <section class="bcls-section"> 
     <h2 id="changelog">Changelog</h2>
-    <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-playlist-endscreen/index.html">Playlist Endscreen Plugin Release Notes</a>.</p>
-  </section>
+    <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-playlist-endscreen/index.html">Ad Intelligence Plugin Release Notes</a>.</p>
+  </section> -->
 </article>
 
 <!-- complete bootstrap layout -->
