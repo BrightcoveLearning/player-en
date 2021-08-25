@@ -1311,7 +1311,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Type: <code translate="No">Boolean</code></li>
       <li>Default: <code translate="No">false</code></li>
     </ul>
-    <aside class="bcls-aside bcls-aside--warning">Note: The deep linking feature currently only works with Twitter.</aside>
+    <aside class="bcls-aside bcls-aside--warning">The deep linking feature currently only works with Twitter.</aside>
     <h3><code translate="No">options.offset</code></h3>
     <p>A custom offset to start playing the video (<code translate="No">hh:mm:ss</code>). This is used with the <code translate="No">deeplinking </code> option and defines when to start playing the video. To offset 1 minute and 5 seconds, you would write: <code translate="No">00:01:05</code></p>
     <ul>
@@ -1340,60 +1340,70 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ul>
 
     <h3><code translate="No">options.services</code></h3>
-    <p>Include all service properties in this object. To enable or disable support for a service, set the property value to <code translate="No">true</code> or <code translate="No">false</code> instead of removing them.</p>
+    <p>An object denoting which services should be allowed. To enable or disable support for a service, set the property value to <code translate="No">true</code> or <code translate="No">false</code> instead of removing them.</p>
     <ul>
-      <li><code translate="No">facebook </code>
-        <ul>
-          <li>Type: boolean</li>
-          <li>Default: <code translate="No">true </code></li>
-          <li>This enables the Facebook sharing icon.</li>
-        </ul>
-      </li>
-      <li><code translate="No">twitter </code>
-        <ul>
-          <li>Type: boolean</li>
-          <li>Default: <code translate="No">true </code></li>
-          <li>This enables the Twitter sharing icon.</li>
-        </ul>
-      </li>
-      <li><code translate="No">tumblr </code>
-        <ul>
-          <li>Type: boolean</li>
-          <li>Default: <code translate="No">true </code></li>
-          <li>This enables the Tumblr sharing icon.</li>
-        </ul>
-      </li>
-      <li><code translate="No">pinterest </code>
-        <ul>
-          <li>Type: boolean</li>
-          <li>Default: <code translate="No">true </code></li>
-          <li>This enables the Pinterest sharing icon.</li>
-        </ul>
-      </li>
-      <li><code translate="No">linkedin </code>
-        <ul>
-          <li>Type: boolean</li>
-          <li>Default: <code translate="No">true </code></li>
-          <li>This enables the LinkedIn sharing icon.</li>
-        </ul>
-      </li>
+      <li>Type: <code translate="No">Object</code></li>
     </ul>
+    <aside class="bcls-aside bcls-aside--warning">You must provide at least one valid service or the plugin will throw an exception on initialization.</aside>
+    <h4><code translate="No">options.services.facebook</code></h4>
+    <p>Enables Facebook sharing link.</p>
+    <ul>
+      <li>Type: Boolean</li>
+      <li>Default: <code translate="No">true </code></li>
+    </ul>
+    <h4><code translate="No">options.services.twitter</code></h4>
+    <p>Enables Twitter sharing link.</p>
+    <ul>
+      <li>Type: Boolean</li>
+      <li>Default: <code translate="No">true </code></li>
+    </ul>
+    <h4><code translate="No">options.services.tumblr</code></h4>
+    <p>Enables Tumblr sharing link.</p>
+    <ul>
+      <li>Type: Boolean</li>
+      <li>Default: <code translate="No">true </code></li>
+    </ul>
+    <h4><code translate="No">options.services.facebook</code></h4>
+    <p>Enables Facebook sharing link.</p>
+    <ul>
+      <li>Type: Boolean</li>
+      <li>Default: <code translate="No">true </code></li>
+    </ul>
+    <h4><code translate="No">options.services.pinterest</code></h4>
+    <p>Enables Pinterest sharing link.</p>
+    <ul>
+      <li>Type: Boolean</li>
+      <li>Default: <code translate="No">true </code></li>
+    </ul>
+    <h4><code translate="No">options.services.linkedin</code></h4>
+    <p>Enables LinkedIn sharing link.</p>
+    <ul>
+      <li>Type: Boolean</li>
+      <li>Default: <code translate="No">true </code></li>
+    </ul>
+    <h4><code translate="No">options.services.google</code></h4>
+    <p>Enables Google+ sharing link.</p>
+    <ul>
+      <li>Type: Boolean</li>
+      <li>Default: <code translate="No">false </code></li>
+    </ul>
+
     
-    <h3>Example:</h3>
+    <h3>Options example:</h3>
     <pre class="line-numbers"><code class="language-json" translate="No">{
+  "title": "Tiger",
+  "description": "Video of two tigers",
+  "url": "https://solutions.brightcove.com/bcls/brightcove-player/social-plugin/social-media.html",
+  "deeplinking": true,
+  "offset": "00:00:05",
+  "buttonParent": "controlBar",
   "services": {
     "linkedin": true,
     "pinterest": true,
     "tumblr": true,
     "twitter": true,
     "facebook": true
-  },
-  "offset": "00:00:05",
-  "deeplinking": true,
-  "url": "https://solutions.brightcove.com/bcls/brightcove-player/social-plugin/social-media.html",
-  "description": "Video of two tigers",
-  "buttonParent": "controlBar",
-  "title": "Tiger"
+  }
 }</code></pre>
   </section>
 
