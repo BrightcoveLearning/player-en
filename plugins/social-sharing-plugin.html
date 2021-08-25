@@ -35,7 +35,7 @@ parent: Plugins
         <!-- <aside class="bcls-aside bcls-aside--information">
 			<ul>
 				<li>You will need the URL to the HTML page with your Brightcove Player.</li>
-				<li>Review the available <a href="#Properties">properties</a> to customize the social media plugin.</li>
+				<li>Review the available <a href="#Options">Options</a> to customize the social media plugin.</li>
 			</ul>
 		</aside> -->
         
@@ -82,7 +82,7 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="Configure_player_with_options">Configure player with options</h2>
-    <p>For a more advanced configuration, you can use <a href="#Properties">properties</a> as options to configure the plugin. To do so, follow these steps:</p>
+    <p>For a more advanced configuration, you can use <a href="#Options">Options</a> to configure the plugin. To do so, follow these steps:</p>
     <ol class="bcls-tasklist__restart">
       <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
       <li>Select the link for the player to open the player's properties.</li>
@@ -133,31 +133,50 @@ parent: Plugins
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="Properties">Properties</h2>
-    <p>For plugins in general, the <code translate="No">options </code> object is used to pass data to the plugin to customize initialization. In this case, you can use the following properties in this object:</p>
-    <h3>title</h3>
+    <h2 id="Options">Options</h2>
+    <p>For plugins in general, the <code translate="No">options </code> object is used to pass data to the plugin to customize initialization. Any options you pass are merged with defaults to produce a settings object, which is made available at <code translate="No">player.socialSettings</code>.</p>
+    <h3><code translate="No">options.title</code></h3>
+    <p>The share title for the video, which is used by most social services and is displayed in the overlay.</p>
     <ul>
-      <li>Type: string</li>
-      <li>This is a custom title that will appear when your video is shared.</li>
+      <li>Type: <code translate="No">String</code></li>
+      <li>Default: <code translate="No">''</code></li>
     </ul>
-    <h3>description</h3>
+    <h3><code translate="No">options.description</code></h3>
+    <p>A custom description for the share post which is supported by a few social services and is displayed in the overlay.</p>
     <ul>
-      <li>Type: string</li>
-      <li>This is a custom description that will be used by the social services which support it.</li>
+      <li>Type: <code translate="No">String</code></li>
+      <li>Default: <code translate="No">''</code></li>
     </ul>
-    <h3>url</h3>
+    <h3><code translate="No">options.url</code></h3>
+    <p>A custom share url for the video. This URL points to your web page with your video and meta tags for sharing. Refer to the <a href="#Generate_meta_tags">meta tags</a> section for details on how to add the social media metadata to your player page.</p>
     <ul>
-      <li>Type: string</li>
-      <li>This is the URL that points to your custom web page which has your video and the meta tags for sharing. Refer to the <a href="#Generate_meta_tags">meta tags</a> section for details on how to add the social media metadata to your player page.</li>
+      <li>Type: <code translate="No">String</code></li>
+      <li>Default: <code translate="No">''</code> (determined on demand)</li>
     </ul>
-    <h3 id="embedcode">embedCode</h3>
+    <h3><code translate="No">options.embedCode</code></h3>
+    <p>The custom embed code for sharing the video (the Brightcove Player iframe embed code). This option allows you to completely override the contents of the <strong>Embed Code</strong> field located in the sharing dialog.
+      <figure class="bcls-figure"><img class="bcls-image" alt="Social Media Embed Code" src="/assets/images/plugins/social/social-media-embedcode.png" /></figure>
+    </p>
+    <p>You can get the value of this property by using the <a href="#getembedcode">getEmbedCode()</a> method.</p>
     <ul>
-      <li>Type: string</li>
-      <li>This is the Brightcove Player iframe embed code for sharing the video. This allows you to completely override the contents of the <strong>Embed Code</strong> field located in the sharing dialog.
-        <figure class="bcls-figure"><img class="bcls-image" alt="Social Media Embed Code" src="/assets/images/plugins/social/social-media-embedcode.png" /></figure>
-      </li>
-      <li>You can get the value of this property by using the <a href="#getembedcode">getEmbedCode()</a> method.</li>
+      <li>Type: <code translate="No">String</code></li>
+      <li>Default: <code translate="No">''</code> (generated on demand)</li>
     </ul>
+    <h3><code translate="No">options.embedDimensions</code></h3>
+    <p>Enables or disables dimensions in the embed code. This can only be used when <code translate="No">embedCode</code> is generated by the plugin.</p>
+    <ul>
+      <li>Type: <code translate="No">Boolean</code></li>
+      <li>Default: <code translate="No">false</code></li>
+    </ul>
+    <h3><code translate="No">options.deeplinking</code></h3>
+    <p>This enables/disables deep linking for the shared video. This feature allows a user to start viewing a video from a specific offset. For more details, view the <a href="https://studio.support.brightcove.com/publish/deep-linking.html">Deep Linking</a> document.</p>
+    <ul>
+      <li>Type: <code translate="No">Boolean</code></li>
+      <li>Default: <code translate="No">false</code></li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--warning">Note: The deep linking feature currently only works with Twitter.</aside>
+   
+    
     <h3>removeEmbed</h3>
     <ul>
       <li>Type: boolean</li>
@@ -170,15 +189,7 @@ parent: Plugins
       <li>Default: <code translate="No">false </code></li>
       <li>Causes the social screen to automatically show on an <code translate="No">ended </code> event</li>
     </ul>
-    <h3>deeplinking</h3>
-    <ul>
-      <li>Type: boolean</li>
-      <li>Default: <code translate="No">false </code></li>
-      <li>
-        <p>This enables/disables deep linking for the shared video. This feature allows a user to start viewing a video from a specific offset. For more details, view the <a href="https://studio.support.brightcove.com/publish/deep-linking.html">Deep Linking</a> document.</p>
-        <aside class="bcls-aside bcls-aside--warning">Note: The deep linking feature currently only works with Twitter.</aside>
-      </li>
-    </ul>
+    
     <h3>offset</h3>
     <ul>
       <li>Type: string</li>
@@ -521,7 +532,7 @@ parent: Plugins
     <ul>
       <li><a href="https://studio.support.brightcove.com/players/configuring-social-properties-player.html">Configuring the Social Properties for a Player</a></li>
     </ul>
-    <!-- <aside class="bcls-aside bcls-aside--tip">Note: You do not need to use the <a href="#properties">embedCode</a> property when sharing a Smart Player to Facebook. All you need are the Open Graph (og) meta tags as described above.</aside> --></section>
+    <!-- <aside class="bcls-aside bcls-aside--tip">Note: You do not need to use the <a href="#Options">embedCode</a> property when sharing a Smart Player to Facebook. All you need are the Open Graph (og) meta tags as described above.</aside> --></section>
   <section class="bcls-section">
     <h2 id="Sharing_on_Twitter">Sharing on Twitter</h2>
     <p>If you want to share your video on Twitter, you need to include the twitter meta tags.</p>
@@ -638,7 +649,7 @@ parent: Plugins
     <ol class="bcls-tasklist">
       <li>Don't forget to check that you have valid meta tags, as described in the <a href="#validate">validate</a> section.</li>
     </ol>
-    <aside class="bcls-aside bcls-aside--information">You do not need to use the <a href="#properties">embedCode</a> property when sharing a player to Twitter. All you need are the twitter meta tags as described above.</aside>
+    <aside class="bcls-aside bcls-aside--information">You do not need to use the <a href="#Options">embedCode</a> property when sharing a player to Twitter. All you need are the twitter meta tags as described above.</aside>
     <p>For more details about configuring your Twitter meta tags, see the following:</p>
     <ul>
       <li><a href="https://studio.support.brightcove.com/general/sharing-videos-twitter-player-cards.html">Sharing Videos to Twitter Player Cards</a></li>
@@ -687,7 +698,7 @@ parent: Plugins
         <li>To your HTML page code, add JavaScript code as follows:
           <ul>
             <li>Line 23-24: Gets a reference to your player.</li>
-            <li>Lines 25-40: Set the options for the social sharing plugin. For details, see the <a href="#properties">Properties</a> section.</li>
+            <li>Lines 25-40: Set the options for the social sharing plugin. For details, see the <a href="#Options">Properties</a> section.</li>
             <li>Line 28: Sets the sharing URL.</li>
             <li>
               <p>Line 41: Initializes the social plugin with the specific options.</p>
@@ -745,7 +756,7 @@ parent: Plugins
         <li>To your HTML page code, add JavaScript code as follows:
           <ul>
             <li>Line 147: Gets a reference to your player.</li>
-            <li>Lines 149-164: Set the options for the social sharing plugin. For details, see the <a href="#properties">Properties</a> section.</li>
+            <li>Lines 149-164: Set the options for the social sharing plugin. For details, see the <a href="#Options">Options</a> section.</li>
             <li>Line 153: Sets the sharing URL to use a Smart Player. You can use this property to set the Sharing URL to any Brightcove Player or Smart Player.</li>
             <li>
               <p>Line 166: Initializes the social plugin with the specific options.</p>
