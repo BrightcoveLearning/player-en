@@ -1312,29 +1312,35 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Default: <code translate="No">false</code></li>
     </ul>
     <aside class="bcls-aside bcls-aside--warning">Note: The deep linking feature currently only works with Twitter.</aside>
-   
-    
-    <h3>removeEmbed</h3>
+    <h3><code translate="No">options.offset</code></h3>
+    <p>A custom offset to start playing the video (<code translate="No">hh:mm:ss</code>). This is used with the <code translate="No">deeplinking </code> option and defines when to start playing the video. To offset 1 minute and 5 seconds, you would write: <code translate="No">00:01:05</code></p>
     <ul>
-      <li>Type: boolean</li>
-      <li>Default: <code translate="No">false </code></li>
-      <li>If set to <code translate="No">true</code>, turns off (hides) the iframe embed code</li>
+      <li>Type: <code translate="No">String</code></li>
+      <li>Default: <code translate="No">'00:00:00'</code></li>
     </ul>
-    <h3>displayAfterVideo</h3>
+    <h3><code translate="No">options.displayAfterVideo</code></h3>
+    <p>Enables or disables the overlay from appearing after the video ends (listening for the <code translate="No">ended </code> event).</p>
+    <p>Requires the <a href="/plugins/custom-endscreen-plugin.html">videojs-endscreen plugin</a>.</p>
     <ul>
-      <li>Type: boolean</li>
-      <li>Default: <code translate="No">false </code></li>
-      <li>Causes the social screen to automatically show on an <code translate="No">ended </code> event</li>
+      <li>Type: <code translate="No">Boolean</code></li>
+      <li>Default: <code translate="No">false</code></li>
     </ul>
-    
-    <h3>offset</h3>
+    <h3><code translate="No">options.buttonParent</code></h3>
+    <p>Defines where the sharing icon will appear in the player. This can be a string, which represents the name of a child component of the player or it can be a component instance.</p>
+    <p>If set to <strong>shelf</strong>, the sharing icon appears in the dock. If the value is set to <strong>controlBar</strong>, the sharing icon will appear in the controlbar.</p>
     <ul>
-      <li>Type: string</li>
-      <li>Format: <code translate="No">00h00m00s </code></li>
-      <li>This is used with the <code translate="No">deeplinking </code> property and defines when to start playing the video. To offset 1 minute and 5 seconds, you would write: <code translate="No">00h01m05s </code></li>
+      <li>Type: <code translate="No">String|Component</code></li>
+      <li>Default: <code translate="No">controlBar</code></li>
     </ul>
-    <h3>services</h3>
-    <p>Include all service properties in this object. To enable or disable support for a service, set the property value to true or false instead of removing them.</p>
+    <h3><code translate="No">options.removeEmbed</code></h3>
+    <p>If set to <code translate="No">true</code>, turns off (hides) the iframe embed code.</p>
+    <ul>
+      <li>Type: <code translate="No">Boolean</code></li>
+      <li>Default: <code translate="No">false</code></li>
+    </ul>
+
+    <h3><code translate="No">options.services</code></h3>
+    <p>Include all service properties in this object. To enable or disable support for a service, set the property value to <code translate="No">true</code> or <code translate="No">false</code> instead of removing them.</p>
     <ul>
       <li><code translate="No">facebook </code>
         <ul>
@@ -1372,13 +1378,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </ul>
       </li>
     </ul>
-    <h3>buttonParent</h3>
-    <ul>
-      <li>Type: text</li>
-      <li>Default: <code translate="No">shelf </code></li>
-      <li>Determines where the sharing icon should be located. If set to <strong>shelf</strong>, the default, the sharing icon appears in the dock. If the value is set to <strong>controlBar</strong>, the sharing icon will appear in the controlbar.</li>
-    </ul>
-    <p>Example:</p>
+    
+    <h3>Example:</h3>
     <pre class="line-numbers"><code class="language-json" translate="No">{
   "services": {
     "linkedin": true,
@@ -1391,10 +1392,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   "deeplinking": true,
   "url": "https://solutions.brightcove.com/bcls/brightcove-player/social-plugin/social-media.html",
   "description": "Video of two tigers",
-  <span class="bcls-highlight">"buttonParent": "controlBar",</span>
+  "buttonParent": "controlBar",
   "title": "Tiger"
 }</code></pre>
   </section>
+
   <section class="bcls-section">
     <h2 id="Getter_and_setter_configuration_methods">Getter and setter configuration methods</h2>
     <p>There are a number of methods available to both set and retrieve configuration options. All of the methods are associated with the <strong>SocialOverlay</strong> component, which extends the <strong>videojs.ModalDialog</strong> class. (Information on this class can be found in the <a href="/general/implementing-modaldialog.html">Implementing the ModalDialog</a> document.)</p>
@@ -2050,7 +2052,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 27 Jul 2021
+  Page last updated on 25 Aug 2021
 </div>
 
 
