@@ -1298,18 +1298,18 @@ player.ready(function () {
 
     <ul>
       <li>
-        Line 12: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.
+        Line 7: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.
       </li>
       <li>
-        Line 15: Gives the <code translate="No">video</code> tag an <code translate="No">id</code> attribute, with some value, in this case
+        Line 12: Gives the <code translate="No">video</code> tag an <code translate="No">id</code> attribute, with some value, in this case
         <strong translate="No">myPlayerID</strong>.
       </li>
       <li>
-        Line 23: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML
+        Line 21: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML
         page.
       </li>
       <li>
-        Lines 26-29: Initializes the player using the <code translate="No">bc()</code> method, and then calls the
+        Lines 25-29: Initializes the player using the <code translate="No">bc()</code> method, and then calls the
         <code translate="No">ima3()</code> method.
       </li>
       <li>
@@ -1321,38 +1321,39 @@ player.ready(function () {
     <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;!doctype html&gt;
 &lt;html&gt;
+
 &lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;IMA3 Plugin Code Example&lt;/title&gt;
-  &lt;style&gt;
-    .video-js {
-      height: 344px;
-      width: 610px;
-    }
-  &lt;/style&gt;
-  &lt;link href="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet"&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;IMA3 Plugin v4 Code Example&lt;/title&gt;
+  &lt;link href=&quot;https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;/head&gt;
+
 &lt;body&gt;
-  &lt;video-js id="myPlayerID"
-    data-video-id="3851380732001"
-    data-account="1752604059001"
-    data-player="Hy3gDJHu"
-    data-embed="default"
-    class="video-js"
-    controls&gt;&lt;/video-js&gt;
-  &lt;script src="https://players.brightcove.net/1752604059001/Hy3gDJHu_default/index.min.js"&gt;&lt;/script&gt;
-  &lt;script src="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"&gt;&lt;/script&gt;
+
+  &lt;video-js id=&quot;myPlayerID&quot;
+    data-account=&quot;1752604059001&quot;
+    data-player=&quot;JLvQcZgxxV&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-video-id=&quot;5550679964001&quot;
+    data-playlist-id=&quot;&quot;
+    data-application-id=&quot;&quot;
+    width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+  &lt;script src=&quot;https://players.brightcove.net/1752604059001/JLvQcZgxxV_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js&quot;&gt;&lt;/script&gt;
   &lt;script&gt;
     var myPlayer;
     var player = bc('myPlayerID');
     player.ima3({
       serverUrl: '//solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml'
     });
-    player.ready(function() {
+    player.ready(function () {
       myPlayer = this;
       //Do something
     });
   &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
   </section>
