@@ -13,10 +13,8 @@ layout: "staging"
     <p>
       The IMA plugin integrates the Brightcove player with Google's Interactive Media Ads (IMA) for HTML5 version 3. This allows you to request and track VAST, VPAID and VMAP ads for your player. For details about Google IMA, see the <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/">Using the IMA HTML5 SDK Version 3</a> document.
     </p>
-    <<<<<<< HEAD <aside class="bcls-aside bcls-aside--warning">This document reflects the Brightcove Player IMA3 Plugin <strong>version 4</strong> and requires Brightcove Player <strong>version 6.59.1 or later</strong>. For information on version 3 see <a href="/plugins/advertising-ima3-v3-plugin.html">this document</a>.</aside>
-      =======
-      <aside class="bcls-aside bcls-aside--warning">This document reflects the Brightcove Player IMA3 Plugin <strong>version 4</strong>. For information on version 3 see <a href="/plugins/advertising-ima3-v3-plugin.html">this document</a>.</aside>
-      >>>>>>> b684cc87a6fbf03b493bd2bc4604af3aa6b3e0b3
+    <aside class="bcls-aside bcls-aside--warning">This document reflects the Brightcove Player IMA3 Plugin <strong>version 4</strong> and requires Brightcove Player <strong>version 6.59.1 or later</strong>. For information on version 3 see <a href="/plugins/advertising-ima3-v3-plugin.html">this document</a>.</aside>
+
   </section>
 
   <section class="bcls-section">
@@ -41,11 +39,7 @@ layout: "staging"
 
     <p>
       The first thing you should do is verify the validity of the ad tag you are planning to use. Be sure you have copied its URL and browse to the following page:
-      <<<<<<< HEAD <a target="_blank" rel="noopener noreferrer" href="https://googleads.github.io/googleads-ima-html5/vsi/">Video Suite Inspector</a> (clicking this link will cause the page to open in a new window or tab).
-        =======
-        <a target="_blank" rel="noopener noreferrer" href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/vastinspector">Video Suite Inspector</a>
-        (clicking this link will cause the page to open in a new window or tab).
-        >>>>>>> b684cc87a6fbf03b493bd2bc4604af3aa6b3e0b3
+      <a target="_blank" rel="noopener noreferrer" href="https://googleads.github.io/googleads-ima-html5/vsi/">Video Suite Inspector</a> (clicking this link will cause the page to open in a new window or tab).
     </p>
 
     <p>
@@ -116,10 +110,7 @@ layout: "staging"
       <li>
         View an example, completed form:
         <figure class="bcls-figure">
-          <<<<<<< HEAD <img class="bcls-image" alt="IMA3 properties in Studio" src="/assets/images/plugins/ima/studio-ima-plugin-props-v4.png" />
-          =======
-          <img class="bcls-image" alt="IMA3 properties in Studio" src="/assets/images/plugins/ima/studio-ima-plugin-props.png" />
-          >>>>>>> b684cc87a6fbf03b493bd2bc4604af3aa6b3e0b3
+          <img class="bcls-image" alt="IMA3 properties in Studio" src="/assets/images/plugins/ima/studio-ima-plugin-props-v4.png" />
         </figure>
       </li>
       <li>Click <strong>Save</strong>.</li>
@@ -162,12 +153,12 @@ layout: "staging"
       <li>
         For the <strong>JavaScript</strong> URL, enter:
         <pre>
-<code class="language-json" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs.ima3.min.js</code></pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js</code></pre>
       </li>
       <li>
         For the <strong>CSS</strong> URL, enter:
         <pre>
-<code class="language-json" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs.ima3.min.css</code></pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css</code></pre>
       </li>
       <!-- ** choose one of the following two steps, delete the other ** -->
       <li>
@@ -215,7 +206,7 @@ layout: "staging"
     <h2 id="Options">Options</h2>
 
     <p>
-      The video.js IMA3 plugin is built on top of the <a href="https://github.com/brightcove/videojs-ads">video.js ads framework</a> and accepts any options that the ad framework provides. Take a look at the ad framework <a href="https://github.com/videojs/videojs-contrib-ads/blob/main/docs/index.md">README</a> for details on the current set of overrideable settings. Both the IMA plugin specific options and ad framework options are documented here.
+      The video.js IMA3 plugin is built on top of the <a href="https://github.com/brightcove/videojs-ads">video.js ads framework</a> and accepts any options that the ad framework provides. Take a look at the ad framework <a href="https://github.com/videojs/videojs-contrib-ads/blob/main/docs/index.md">README</a> for details. Both the IMA plugin specific options and ad framework options are documented here.
     </p>
     <p>The options are:</p>
     <ul>
@@ -230,7 +221,6 @@ layout: "staging"
       <li><a href="#showVpaidControls">showVpaidControls</a></li>
       <li><a href="#timeout">timeout</a></li>
       <li><a href="#useMediaCuePoints">useMediaCuePoints</a></li>
-      <li><a href="#usePlayerAutoplayHandling">usePlayerAutoplayHandling</a></li>
       <li><a href="#vpaidMode">vpaidMode</a></li>
     </ul>
 
@@ -504,14 +494,6 @@ myPlayer.ima3({
     <p>
       If you are using Studio to setup advertising, when you select <strong>On cue point</strong> the <code translate="No">useMediaCuePoints</code> and
       <code translate="No">requestMode</code> options will be set correctly for you.
-    </p>
-
-    <h3 id="usePlayerAutoplayHandling">usePlayerAutoplayHandling</h3>
-
-    <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
-
-    <p>
-      Set to <code translate="No">true</code> to use the Brightcove Player's core autoplay handling. Otherwise, uses the IMA3 Plugin's default autoplay handling.
     </p>
 
     <h3 id="vpaidMode">vpaidMode</h3>
@@ -1673,7 +1655,7 @@ myPlayer.ready(function() {
     <h3>Conflict with gpt_proxy.js</h3>
 
     <p>
-      If using the GPT proxy script with IMA3, and the <strong translate="No">adTechOder</strong> is <strong translate="No">HTML5</strong> first,
+      If using the GPT proxy script with IMA3, and the <strong translate="No">adTechOrder</strong> is <strong translate="No">HTML5</strong> first,
       playback issues can occur. The IMA3 plugin will be affected when using any script that uses <strong translate="No">window.google</strong> or
       <strong translate="No">window.google.ima</strong>. It is suggested that you check if you're using Brightcove Player, and if so, don't load the proxy
       on those occasions.
