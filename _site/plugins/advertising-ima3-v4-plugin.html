@@ -1348,7 +1348,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li><a href="#clickTrackingElement">clickTrackingElement</a></li>
       <li><a href="#debug">debug</a></li>
-      <li><a href="#debugContribAds">debugContribAds</a></li>
       <li><a href="#disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</a></li>
       <li><a href="#hardTimeouts">hardTimeouts</a></li>
       <li><a href="#ima3SdkSettings">ima3SdkSettings</a></li>
@@ -1383,35 +1382,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   debug: true
 });</code></pre>
 
-    <p>The following screenshot shows the extensive information displayed by turning debug on.</p>
+    <p>The following screenshot shows part of the extensive information displayed by turning debug on.</p>
 
     <figure class="bcls-figure">
-      <img class="bcls-image" alt="debug output in console" src="/assets/images/plugins/ima/console-debug.png" />
+      <img class="bcls-image" alt="debug output in console" src="/assets/images/plugins/ima/console-debug-v4.png" />
     </figure>
-
-    <h3 id="debugContribAds">debugContribAds</h3>
-
-    <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
-    <p>Used to enable debug logging for videojs-contrib-ads. For ID3 <code translate="No">oncue</code> requests to work, the ID3 TXXX frame received must contain JSON data with the following fields:</p>
-    <ul>
-      <li>Ad cue tag format:
-        <ul>
-          <li>name: Required - must be the string <code translate="No">adCue</code></li>
-          <li>id: Required - a unique value to identify the ad given that times are relative in live streams</li>
-          <li>serverUrl: Optional - Override the <code translate="No">serverUrl</code> in the IMA3 config for this ad only</li>
-          <li>duration: Optional - appended as a <code translate="No">breaklength</code> parameter to the server url</li>
-        </ul>
-        Example: <code translate="No">{"name": "adCue", "id": 123}</code>
-      </li>
-      <li>Ad cancellation tag format:
-        <ul>
-          <li>name: Required - must be the string value <code translate="No">adCancel</code></li>
-          <li>id: Required - a unique value to identify the ad cancellation given that times are relative in live streams</li>
-
-        </ul>
-        Example: <code translate="No">{"name": "adCancel", "id": 234}</code>
-      </li>
-    </ul>
 
     <h3 id="disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</h3>
 
@@ -1575,8 +1550,7 @@ myPlayer.ima3({
     }
   },
   requestMode: 'onload',
-  debug: true,
-  debugContribAds: true
+  debug: true
 });</code></pre>
 
     <h3 id="showVpaidControls">showVpaidControls</h3>
@@ -2436,10 +2410,10 @@ player.ready(function () {
     </p>
 
     <pre class="line-numbers">
-<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js</code></pre>
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js</code></pre>
 
     <pre class="line-numbers">
-<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css</code></pre>
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css</code></pre>
 
     <p>The name of the plugin is <code translate="No">ima3</code>, and an example set of options is:</p>
 
@@ -2449,7 +2423,7 @@ player.ready(function () {
   "timeout": 5000
 }</code></pre>
 
-    <p>The following example uses the In-Page Embed implementation of the player to associate the IMA Plugin with a single instance of a player.</p>
+    <p>The following example uses the Advanced implementation of the player to associate the IMA Plugin with a single instance of a player.</p>
 
     <aside class="bcls-aside bcls-aside--information">
       In the code below, you see the <code translate="No">bc()</code> method is called to initialize the Brightcove Player, then the IMA3 plugin is
