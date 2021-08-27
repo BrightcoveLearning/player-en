@@ -2387,7 +2387,7 @@ player.ready(function () {
     <p>The output in the console from the above code is shown here:</p>
 
     <figure class="bcls-figure">
-      <img class="bcls-image" alt="console of contrib-ads properties" src="/assets/images/plugins/ima/contrib-ads-properties.png" />
+      <img class="bcls-image" alt="console of contrib-ads properties" src="/assets/images/plugins/ima/contrib-ads-properties-v4.png" />
     </figure>
   </section>
   <!-- <section class="bcls-section">
@@ -2613,6 +2613,25 @@ myPlayer.ready(function() {
 
   <section class="bcls-section">
     <h2 id="Known_issues">Known issues</h2>
+
+    <h3>Manually advancing videos in a playlist when there are postroll ads</h3>
+    <p>When manually advancing to the next video in a playlist, the postroll from the previous video, if present, may play simultaneously over the new video content. Alternatively, on mobile devices advancing the playlist manually may result in no new content playing at all.</p>
+    <p>This is caused by a 3rd party issue in Google's IMA SDK library. This issue should be addressed in an upcoming Google release.</p>
+
+    <h3>Safari's <strong>Stop Media With Sound</strong> setting and <code>autoplay: "play"</code> or <code>autoplay: true</code></h3>
+    <p>Safari behaves a bit different than other browsers in regards to autoplay. Specifically, if the browser setting is <strong>Stop Media With Sound</strong> and unmuted autoplay is attempted, the media element will still emit <code>play</code> and <code>playing</code> events even though autoplay is rejected. Currently, this will prevent a smooth fallback to click-to-play and cause ad playback to fail.</p>
+
+    <p>This issue will be addressed in a future 4.x plugin release. In the meantime, to avoid this issue, we recommend using either <code>muted</code> or <code>any</code> for the player's autoplay value.</p>
+
+    <h3>Overlays</h3>
+    <p>When using overlay ads, the position of the thumbnail seeking image may remain stuck to the left side of the progress bar, and the progress bar may not expand when hovering over it.</p>
+
+    <p>This issue will be addressed in a future 4.x plugin release.</p>
+
+    <h3>Livestream with cuepoint ads</h3>
+    <p>When playing cuepoint-triggered ads in a livestream, the ads will play muted and unmuting them will also unmute the livestream behind the ad.</p>
+
+    <p>This issue will be addressed in a future 4.x plugin release.</p>
 
     <h3>Picture-in-Picture disabled</h3>
     <p>
