@@ -1,0 +1,35 @@
+---
+title: "Migrating to IMA3 Plugin Version 4"
+description: "In this topic, you will be provided information about migrating to Brightcove's IMA3 Plugin version 4."
+parent: "plugins"
+---
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Overview">Overview</h2>
+    <p></p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Backwards_incompatible_changes">Backwards incompatible changes</h2>
+    <p></p>
+    <ul>
+      <li>Removes an internal dependency on the can-autoplay library and changes autoplay behavior to add support for Video.js <code>any</code>, <code>play</code> and <code>muted</code> values. This includes the removal of the following properties:
+        <<ul>
+      <li><code>player.ima3.canAutoPlayVideo</code></li>
+      <li><code>player.ima3.canAutoPlayMutedVideo</code></li>
+      <li><code>player.ima3.canAutoPlayMutedInlineVideo</code></li>
+    </ul>
+    </li>
+    <li>Removes the <code>player.ima3.adPlayer</code> and <code>player.ima3.adControlBar</code> components and replaces them with a middleware-based UI for ad playback.</li>
+    <li>Removes the <code>player.ima3.adTech</code> property.</li>
+    <li>Removes the <code>usePlayerAutoplayHandling</code> option.</li>
+    <li>Removes the <code>adTechOrder</code> option as Flash is no longer supported.</li>
+    <li>Removes the <code>debugContribAds</code> option, please use <code>debug</code> going forward</li>
+    <li>Removes an older naming scheme for videojs-ima3 distributed files, <code>videojs.ima3.x</code>, to <code>videojs-ima3.x</code></li>
+    </ul>
+  </section>
+
+</article>
