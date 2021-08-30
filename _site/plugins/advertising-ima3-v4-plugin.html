@@ -1873,7 +1873,7 @@ myPlayer.ima3({
     <pre class="line-numbers"><code class="language-html" translate="No">http://example.com/ad/{pageVariable.adConf=1234}</code></pre>
     becomes
     <pre class="line-numbers"><code class="language-html" translate="No">http://example.com/ad/1234</code></pre>
-    if <code>window.adConf</code> is undefined.</p>
+    <p>if <code>window.adConf</code> is undefined.</p>
   </section>
 
 
@@ -2087,7 +2087,7 @@ player.ima3.setAdsRenderingSettings(adsRenderingSettings);</code></pre>
     </p>
 
     <pre class="line-numbers">
-<code class="language-javascript" translate="No">player.on('ima3error', function(event) {
+<code class="language-javascript" translate="No">player.on('ima3-ready', function(event) {
   console.log('event', event);
 });</code></pre>
 
@@ -2104,8 +2104,8 @@ player.ima3.setAdsRenderingSettings(adsRenderingSettings);</code></pre>
           <td>The ima3 plugin code has loaded and is ready load the IMA SDK.</td>
         </tr>
         <tr>
-          <td>ima3error</td>
-          <td>There was an error loading the IMA3 SDK from Google. If it occurs, no ads will be displayed.</td>
+          <td>adserror</td>
+          <td>Indicates the SDK failed to load, but will also be triggered for other SDK-related errors. For example, if the AdsManager fails to initialize or start correctly.</td>
         </tr>
         <tr>
           <td>ima3-ad-error</td>

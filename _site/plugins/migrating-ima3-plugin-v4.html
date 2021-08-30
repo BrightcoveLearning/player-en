@@ -1146,7 +1146,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p></p>
+    <p>When upgrading from Brightcove's IMA3 plugin version 3 to version 4 there are some items to which you need to pay attention. Those items fall into the two following categories, and are detailed in the remanding of this document:</p>
+    <ul>
+      <li><a href="#Backwards_incompatible_changes">Backwards incompatible changes</a></li>
+      <li><a href="#Migration_guide">Migration guide</a></li>
+    </ul>
+
   </section>
 
   <section class="bcls-section">
@@ -1154,43 +1159,43 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p></p>
     <ul>
       <li>Removes an internal dependency on the can-autoplay library and changes autoplay behavior to add support for Video.js <code>any</code>, <code>play</code> and <code>muted</code> values. This includes the removal of the following properties:
-        <<ul>
-      <li><code>player.ima3.canAutoPlayVideo</code></li>
-      <li><code>player.ima3.canAutoPlayMutedVideo</code></li>
-      <li><code>player.ima3.canAutoPlayMutedInlineVideo</code></li>
-    </ul>
-    </li>
-    <li>Removes the <code>player.ima3.adPlayer</code> and <code>player.ima3.adControlBar</code> components and replaces them with a middleware-based UI for ad playback.</li>
-    <li>Removes the <code>player.ima3.adTech</code> property.</li>
-    <li>Removes the <code>usePlayerAutoplayHandling</code> option.</li>
-    <li>Removes the <code>adTechOrder</code> option as Flash is no longer supported.</li>
-    <li>Removes the <code>debugContribAds</code> option, please use <code>debug</code> going forward</li>
-    <li>Removes an older naming scheme for videojs-ima3 distributed files, <code>videojs.ima3.x</code>, to <code>videojs-ima3.x</code></li>
+        <ul>
+          <li><code>player.ima3.canAutoPlayVideo</code></li>
+          <li><code>player.ima3.canAutoPlayMutedVideo</code></li>
+          <li><code>player.ima3.canAutoPlayMutedInlineVideo</code></li>
+        </ul>
+      </li>
+      <li>Removes the <code>player.ima3.adPlayer</code> and <code>player.ima3.adControlBar</code> components and replaces them with a middleware-based UI for ad playback.</li>
+      <li>Removes the <code>player.ima3.adTech</code> property.</li>
+      <li>Removes the <code>usePlayerAutoplayHandling</code> option.</li>
+      <li>Removes the <code>adTechOrder</code> option as Flash is no longer supported.</li>
+      <li>Removes the <code>debugContribAds</code> option, please use <code>debug</code> going forward</li>
+      <li>Removes an older naming scheme for videojs-ima3 distributed files, <code>videojs.ima3.x</code>, to <code>videojs-ima3.x</code></li>
     </ul>
   </section>
 
   <section class="bcls-section">
-    <h2 id="Migration guide">Migration guide</h2>
+    <h2 id="Migration_guide">Migration guide</h2>
     <p>Updating information:</p>
     <ul>
-      <li>The minimum compatible player version for 4.x versions of the IMA plugin is v6.59.1.</li>
-      <li>Previous versions of the IMA3 plugin would treat <code>autoplay: true</code> as <code>autoplay: "any"</code> - falling back to muted autoplay if unmuted didn’t work. This is no longer the case. Instead, full control is granted to publishers who are able to select their preferred autoplay behavior. All possible Video.js autoplay values are supported. In order to emulate the fallback behavior of the IMA3 plugin 3.x, use <code>autoplay: "any"</code>.</li>
+      <li>The minimum compatible player version for 4.x versions of the IMA plugin is <strong>v6.59.1</strong>.</li>
+      <li>Previous versions of the IMA3 plugin would treat <code>autoplay: true</code> as <code>autoplay: "any"</code> then fall back to muted autoplay if unmuted didn’t work. This is no longer the case. Instead, full control is granted to publishers who are able to select their preferred autoplay behavior. All possible Video.js autoplay values are supported. In order to emulate the fallback behavior of the IMA3 plugin 3.x, use <code>autoplay: "any"</code>.</li>
+      <li>Advertisements played via the IMA3 plugin will use the same autoplay configuration set for Brightcove Player. Full control is granted and all possible Brightcove Player autoplay values are supported.</li>
     </ul>
-    <p>Migration steps for consideration</p>
+    <p>Migration steps for consideration:</p>
     <ul>
       <li>Remove references to <code>player.ima3.adPlayer</code> and <code>player.ima3.adControlBar</code> from custom integration code.</li>
-      <li>Any previously existing <code>adPlayer</code> method calls (ex. <code>adPlayer.currentTime()</code>, <code>adPlayer.duration()</code>) should be replaced with method calls on the player (ex. <code>player.currentTime()</code>, <code>player.duration()</code>), which will now pass through Video.js middleware.</li>
-      <li>For example, during content playback, <code>player.currentTime()</code> will return the current playhead position within the content. During ad playback, the same method will return the current playhead position within the ad.</li>
+      <li>Any previously existing <code>adPlayer</code> method calls (ex. <code>adPlayer.currentTime()</code>, <code>adPlayer.duration()</code>) should be replaced with method calls on the player (ex. <code>player.currentTime()</code>, <code>player.duration()</code>), which will now pass through Video.js middleware.
+        <ul>
+          <li>For example, during content playback, <code>player.currentTime()</code> will return the current playhead position within the content. During ad playback, the same method will return the current playhead position within the ad.</li>
+        </ul>
+      </li>
       <li>Remove references to the <code>player.ima3.adTech</code> property, which no longer has a use and has been removed.</li>
       <li>Use the <code>debug</code> option instead of <code>debugContribAds</code>.</li>
       <li>Remove the <code>usePlayerAutoplayHandling</code> and <code>adTechOrder</code> options as they now do nothing.</li>
     </ul>
   </section>
 
-  <section class="bcls-section">
-    <h2 id="section-name">IMA3 plugin and autoplay</h2>
-    <p>Advertisments played via the IMA3 plugin will use the same autoplay configuration set for Brightcove Player. Full control is granted and all possible Brightcove Player autoplay values are supported.</p>
-  </section>
 
 </article>
 <!-- complete bootstrap layout -->
