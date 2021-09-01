@@ -1165,14 +1165,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Configuring_Brightcove_Player">Configuring Brightcove Player</h2>
     <p>Delivery Rules can be configured in the Brightcove Player in the following ways:</p>
+    <ul>
+      <li><a href="#Using_the_player_embed_code">Using the player embed code</a></li>
+      <li><a href="#Using_the_JSON_editor">Using the JSON editor</a></li>
+      <li><a href="#Using_the_Catalog_API">Using the Catalog API</a></li>
+      <li><a href="#Using_the_Player_Management_API">Using the Player Management API</a></li>
+    </ul> 
+  </section>
 
-    <h3>Player management API</h3>
-    <p>When configuring players with the Player Management API, you can set the <code translate="No">delivery_config_id</code> configuration property as follows:</p>
-    <pre class="line-numbers">
-<code class="language-json" translate="No">{
-  &quot;delivery_config_id&quot;: &quot;abcdef&quot;,
-  ...
-}</code></pre>
+  <section class="bcls-section">
+    <h2 id="Using_the_player_embed_code">Using the player embed code</h2>
+    <p>When publishing a video in Video Cloud Studio's Media module, you can add delivery rules.</p>
 
     <h3>Standard embed code</h3>
     <p>With the standard embed code (iframe), use the <code translate="No">deliveryConfigId</code> query parameter:</p>
@@ -1187,8 +1190,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-html" translate="No">&lt;video-js data-delivery-config-id=&quot;abcdef&quot;&gt;</code></pre>
     <br>
     <aside class="bcls-aside bcls-aside--information">This will override any Delivery Rules set in the player configuration.</aside>
+  </section>
 
-    <h3>Using the Catalog API</h3>
+  <section class="bcls-section">
+    <h2 id="Using_the_JSON_editor">Using the JSON editor</h2>
+    <p>To add delivery rules to a player, you can edit the player configuration in the <strong>Players</strong> module.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module.</li>
+      <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
+      <li>
+        <p>Add the <code translate="No">delivery_config_id</code> attribute as follows:</p>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="JSON editor" src="/assets/images/playback/delivery-rules/json-editor.png" />
+          <figcaption class="bcls-caption--image">JSON editor</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_the_Catalog_API">Using the Catalog API</h2>
     <p>Using Javascript, you can fetch the delivery rule by its <code translate="No">deliveryConfigId</code> using the Catalog API:</p>
     <pre class="line-numbers"><code class="language-javascript" translate="No">var player = videojs.getPlayer('myPlayerId');
 player.ready(function () {
@@ -1206,6 +1226,17 @@ player.ready(function () {
     player.catalog.load(video);
   });
 });</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Using_the_Player_Management_API">Using the Player Management API</h2>
+    <p>When configuring players with the Player Management API, you can set the <code translate="No">delivery_config_id</code> configuration property as follows:</p>
+<pre class="line-numbers">
+<code class="language-json" translate="No">{
+&quot;delivery_config_id&quot;: &quot;abcdef&quot;,
+...
+}</code></pre>
+    <p>For more details, see the <a href="https://apis.support.brightcove.com/player-management/index.html">Player Management API</a> documents.</p>
   </section>
 
 </article>
