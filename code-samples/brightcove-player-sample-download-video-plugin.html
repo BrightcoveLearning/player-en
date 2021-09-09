@@ -13,7 +13,11 @@ parent: Code Samples
     <!-- UPDATE description -->
 
     <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-    <p>You see a download icon located on the right side of the control bar to download the highest quality MP4 rendition of the video loaded in the player. Once clicked, the download will begin and you will the percentage downloaded displayed as well as an indicator (three animated dots) that progress is being made. The button can be clicked only once to prevent accidental multiple downloads. Note that this plugin does work with videos in a playlist.</p>
+    <p>You see a download icon located on the right side of the control bar to download the highest quality MP4 rendition of the video loaded in the player. Once clicked, the download will begin and you will the percentage downloaded displayed as well as an indicator (three animated dots) that progress is being made, as shown here:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/during-download-display.png" alt="download display">
+    </figure>
+    <p>The button can be clicked only once to prevent accidental multiple downloads. Note that this plugin does work with videos in a playlist.</p>
     <p>There is a VERY similar sample using audio rather than video assets in the <a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Brightcove Player Sample: Download Audio Plugin</a> document.</p>
     <!--     <aside class="bcls-aside bcls-aside--information language-editable">Note that when you click the icon to download the video, there will be a delay:
       <ul>
@@ -192,9 +196,9 @@ parent: Code Samples
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Build the download image element +++</code></pre>
-    <p>At the top of the JavaScript code HTML <code translate="No">div</code> and <code translate="No">img</code> elements are created and stored in variables. Those elements are then manipulated using the CSS and SVG image to dynamically build an HTML element that functions as a download button. The HTML for the dynamically created element appears as follows:</p>
+    <p>At the top of the JavaScript code HTML <code translate="No">div</code> and <code translate="No">img</code> elements are created and stored in variables. Those elements are then manipulated using the CSS and SVG image to dynamically build an HTML element that functions as a download button. The HTML source for the dynamically created element appears as follows:</p>
     <pre class="line-numbers"><code class="language-javascript" translate="No">&lt;div class=&quot;vjs-control downloadStyle&quot;&gt;
-&lt;a href=&quot;http://f12.cf.brightcove.com/1752604059001/1752604059001_4457269242001_4457254747001.mp4?pubId=1752604059001&amp;amp;videoId=4457254747001&quot; title=&quot;Download Sea Marvels Collection&quot;&gt;&lt;/a&gt;
+  &lt;a href=&quot;http://f12.cf.brightcove.com/1752604059001/1752604059001_4457269242001_4457254747001.mp4?pubId=1752604059001&amp;amp;videoId=4457254747001&quot; title=&quot;Download Sea Marvels Collection&quot;&gt;&lt;/a&gt;
 &lt;/div&gt;</code></pre>
     <!-- UPDATE task 3 -->
 
@@ -203,12 +207,17 @@ parent: Code Samples
     <pre>
 <code class="language-javascript" translate="No">// +++ Place the download button +++</code></pre>
     <p>In this case, the download button is placed in the controlbar's spacer. First, a reference to the spacer element is obtained, then an attribute set to position the new element in the spacer is defined, and lastly the new element placed in the spacer.</p>
-  </section>
-  <!-- UPDATE CSS description -->
 
+    <h3>Start the download on user click</h3>
+    <p>Find the code which is labeled:</p>
+    <pre><code class="language-javascript" translate="No">// +++ On image click call the download function +++</code></pre>
+    <p>Here the <code>XMLHttpRequest()</code> object is instantiated, the <code>download()</code> function is called, which forces download in the same browser window/tab, and progress is monitored and displayed. </p>
+  </section>
+
+  <!-- UPDATE CSS description -->
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
-    <p>The CSS sizes and positions the download button for placement in the controlbar.</p>
+    <p>The CSS sizes and positions the download anchor for placement in the controlbar. It also defines SVG images for the download icon and the animated dots that show progress.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
