@@ -1145,50 +1145,56 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <article class="bcls-article">
   <summary>In this topic, you will learn how to create a link to allow the downloading of the best quality MP4 of a video playing in a Brightcove Player. The code will be written and explained, then later in the document converted into a plugin for easy use with different players.</summary>
 
-      <aside class="bcls-aside bcls-aside--information">The content in this document applies to Video Cloud only. Also, since iOS devices do not have a user-accessible file system, the plugin will not work on iOS devices.</aside>
-    <section class="bcls-section">
-        <h2 id="Player_example">Player example</h2>
-        <!-- UPDATE description -->
+  <aside class="bcls-aside bcls-aside--information">The content in this document applies to Video Cloud only. Also, since iOS devices do not have a user-accessible file system, the plugin will not work on iOS devices.</aside>
+  <section class="bcls-section">
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
 
-        <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-        <p>You will see a download icon located on the right side of the control bar to download the highest quality MP4 rendition of the video loaded in the player. This plugin does work with videos in a playlist.</p>
-        <p>There is a VERY similar sample using audio rather than video assets in the <a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Brightcove Player Sample: Download Audio Plugin</a> document.</p>
-        <aside class="bcls-aside bcls-aside--information language-editable">Note that when you click the icon to download the video, there will be a delay:
-          <ul>
-            <li>The plugin calculates the video size, and how long that takes depends on the duration of the video.</li>
-            <li>The Save dialog will not appear until the browser has completed downloading the file.</li>
-          </ul>
-        </aside>
-        <!-- UPDATE codepen here -->
+    <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>You see a download icon located on the right side of the control bar to download the highest quality MP4 rendition of the video loaded in the player. Once clicked, the download will begin and you will the percentage downloaded displayed as well as an indicator (three animated dots) that progress is being made. The button can be clicked only once to prevent accidental multiple downloads. Note that this plugin does work with videos in a playlist.</p>
+    <p>There is a VERY similar sample using audio rather than video assets in the <a href="/code-samples/brightcove-player-sample-download-audio-plugin.html">Brightcove Player Sample: Download Audio Plugin</a> document.</p>
+    <!--     <aside class="bcls-aside bcls-aside--information language-editable">Note that when you click the icon to download the video, there will be a delay:
+      <ul>
+        <li>The plugin calculates the video size, and how long that takes depends on the duration of the video.</li>
+        <li>The Save dialog will not appear until the browser has completed downloading the file.</li>
+      </ul>
+    </aside> -->
+    <!-- UPDATE codepen here -->
 
-        <p class="codepen" data-height="471" data-theme-id="34967" data-default-tab="result" data-user="rcrooks1969" data-slug-hash="JLxQNB" style="height: 471px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Download Video Plugin"><span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/JLxQNB/"> Download Video Plugin</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</span></p>
-        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-        <br/>
-        <aside class="bcls-aside bcls-aside--tip">
-            <p>BROWSER DOWNLOAD BEHAVIOR: Browsers have changed how they handle file downloads. Safari, Firefox and Chrome all open the downloaded video in a new window or tab, which generally is not desired behavior. For this reason this sample uses a client-side JavaScript tool to force browsers to do a proper download of the video. For detailed information of the tool see <a href="https://www.npmjs.com/package/downloadjs">https://www.npmjs.com/package/downloadjs</a>.</p>
-        </aside>
-       
-        <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18273-download-video-plugin">complete solution on GitHub</a>.</p>
-        <p>In addition to placing the download button in the controlbar, you can also place it over the player or in the HTML page, as shown here:</p>
-        <ul>
-            <li>Overlay placed on the video
-                <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Download overlay" width="352" height="264" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/download-overlay.png" />
-                    <figcaption class="bcls-caption--image">Download overlay</figcaption>
-                </figure>
-            </li>
-            <li>An HTML link you can place anywhere on your HTML page
-                <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Download link" width="352" height="264" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/download-insertion-point.png" />
-                    <figcaption class="bcls-caption--image">Download link</figcaption>
-                </figure>
-            </li>
-        </ul>
-        <p>Information on how to implement these different locations is shown at the bottom of this document.</p>
-        <aside class="bcls-aside bcls-aside--tip">For a version of the download button that uses an ADA compliant button, see the <a href="https://codepen.io/team/rcrooks1969/pen/PXGYgB">Download Plugin - ADA Compliant Button</a> CodePen.</aside>
-    </section>
-    <section class="bcls-section">
+    <p class="codepen" data-height="565" data-default-tab="result" data-slug-hash="JLxQNB" data-user="rcrooks1969" style="height: 565px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/JLxQNB">
+          Download Video Plugin</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@rcrooks1969</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    <br />
+    <aside class="bcls-aside bcls-aside--tip">
+      <p>BROWSER DOWNLOAD BEHAVIOR: Browsers have changed how they handle file downloads. Safari, Firefox and Chrome all open the downloaded video in a new window or tab, which generally is not desired behavior. For this reason this sample uses a client-side JavaScript tool to force browsers to do a proper download of the video. For detailed information of the tool see <a href="https://www.npmjs.com/package/downloadjs">https://www.npmjs.com/package/downloadjs</a>.</p>
+    </aside>
+
+    <h3>Source code</h3>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18273-download-video-plugin">complete solution on GitHub</a>.</p>
+    <p>In addition to placing the download button in the controlbar, you can also place it over the player or in the HTML page, as shown here:</p>
+    <ul>
+      <li>Overlay placed on the video
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Download overlay" width="352" height="264" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/download-overlay.png" />
+          <figcaption class="bcls-caption--image">Download overlay</figcaption>
+        </figure>
+      </li>
+      <li>An HTML link you can place anywhere on your HTML page
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Download link" width="352" height="264" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/download-insertion-point.png" />
+          <figcaption class="bcls-caption--image">Download link</figcaption>
+        </figure>
+      </li>
+    </ul>
+    <p>Information on how to implement these different locations is shown at the bottom of this document.</p>
+    <aside class="bcls-aside bcls-aside--tip">For a version of the download button that uses an ADA compliant button, see the <a href="https://codepen.io/team/rcrooks1969/pen/PXGYgB">Download Plugin - ADA Compliant Button</a> CodePen.</aside>
+  </section>
+  <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -1205,7 +1211,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -1231,131 +1239,134 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
     </details>
   </section>
-    <section class="bcls-section">
-        <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
-        <!-- UPDATE table, remove unneeded columns -->
+  <section class="bcls-section">
+    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+    <!-- UPDATE table, remove unneeded columns -->
 
-        <table class="bcls-table">
-            <thead class="bcls-table__head">
-                <tr>
-                    <th>API Methods</th>
-                    <th>API Events</th>
-                    <th>API Properties</th>
-                </tr>
-            </thead>
-            <tbody class="bcls-table__body">
-                <tr>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on"><code translate="No">on()</code></a></td>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:loadstart"><code translate="No">loadstart</code></a></td>
-                    <td><a href="/references/video-metadata-mediainfo.html"><code translate="No">player.mediainfo</code></a></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/CustomControlSpacer.html"><code translate="No">player.controlBar.customControlSpacer</code></a></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <!-- UPDATE player and HTML configuration -->
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>API Methods</th>
+          <th>API Events</th>
+          <th>API Properties</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on"><code translate="No">on()</code></a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:loadstart"><code translate="No">loadstart</code></a></td>
+          <td><a href="/references/video-metadata-mediainfo.html"><code translate="No">player.mediainfo</code></a></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/CustomControlSpacer.html"><code translate="No">player.controlBar.customControlSpacer</code></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <!-- UPDATE player and HTML configuration -->
 
-    <section class="bcls-section">
-        <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
-        <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
-        <h3>Player configuration</h3>
-        <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
-        <h3>Other HTML</h3>
-        <p>No other HTML changes are needed.</p>
-    </section>
-    <!-- UPDATE application flow -->
+  <section class="bcls-section">
+    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+    <h3>Player configuration</h3>
+    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
+    <h3>Other HTML</h3>
+    <p>No other HTML changes are needed.</p>
+  </section>
+  <!-- UPDATE application flow -->
 
-    <section class="bcls-section">
-        <h2 id="Application_flow">Application flow</h2>
-        <p>The basic logic behind this application is:</p>
-        <ul>
-            <li>Get video name and extract the MP4 renditions from the video sources array.</li>
-            <li>Loop over all the video renditions and extract the MP4 versions.</li>
-            <li>Sort the MP4 array on the <code translate="No">size</code> attribute, largest to smallest.</li>
-            <li>Assign the largest video to a variable.</li>
-            <li>Create a clickable image that downloads the video inside an HTML <code translate="No">div</code> element.</li>
-            <li>Place the download video image element in the DOM.</li>
-        </ul>
-        <!-- UPDATE task 1 -->
+  <section class="bcls-section">
+    <h2 id="Application_flow">Application flow</h2>
+    <p>The basic logic behind this application is:</p>
+    <ul>
+      <li>Get video name and extract the MP4 renditions from the video sources array.</li>
+      <li>Loop over all the video renditions and extract the MP4 versions.</li>
+      <li>Sort the MP4 array on the <code translate="No">size</code> attribute, largest to smallest.</li>
+      <li>Assign the largest video to a variable.</li>
+      <li>Create a clickable SVG image that downloads the video inside an HTML <code translate="No">div</code> element.</li>
+      <li>Place the download video SVG image element in the DOM.</li>
+      <li>Use an <code>XMLHttpRequest()</code> object to initiate and track progress of download.</li>
+    </ul>
+    <!-- UPDATE task 1 -->
 
-        <h3>Get video name and extract the MP4 renditions from the video sources array</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
-<code class="language-javascript" translate="No">// ### Get video name and the MP4 renditions ###</code></pre>
-        <p>First the <code translate="No">videoName</code> variable is assigned the name of the video&nbsp;(with spaces removed) for use in the HTML anchor tag dynamically built later in the code. Next the <code translate="No">renditionsAra</code> variable is assigned all the possible renditions for the video.</p>
-        <!-- UPDATE task 2 -->
+    <h3>Get video name and extract the MP4 renditions from the video sources array</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript" translate="No">// +++ Get video name and the MP4 renditions +++</code></pre>
+    <p>First the <code translate="No">videoName</code> variable is assigned the name of the video&nbsp;(with spaces removed) for use in the HTML anchor tag dynamically built later in the code. Next the <code translate="No">renditionsAra</code> variable is assigned all the possible renditions for the video.</p>
+    <!-- UPDATE task 2 -->
 
-        <h3>Loop over all the video renditions and extract the MP4 versions</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
-<code class="language-javascript" translate="No">// ### Loop over videos and extract only MP4 versions ###</code></pre>
-        <p>Loop over the array and assign to the <code translate="No">mp4Ara</code> variable renditions where the <code translate="No">container</code> is <strong>MP4</strong>, AND the rendition has a <code translate="No">src</code> property. The MP4 renditions appear twice in the <code translate="No">sources</code> array, once with a <code translate="No">src</code> property and once with a <code translate="No">stream_name</code> property. The first is for progressive download and the second for streaming.</p>
-        <p>The following screenshots show the console displaying all renditions and then the filtered renditions showing on MP4 renditions.</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="All renditions" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/console-all-renditions.png" />
-            <figcaption class="bcls-caption--image">All renditions</figcaption>
-        </figure>
-        <figure class="bcls-figure"><img class="bcls-image" alt="Only MP4 renditions after filtering" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/console-mp4-renditions-only.png" />
-            <figcaption class="bcls-caption--image">Only MP4 renditions after filtering</figcaption>
-        </figure>
-        <!-- UPDATE task 3 -->
+    <h3>Loop over all the video renditions and extract the MP4 versions</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript" translate="No">// +++ Loop over videos and extract only MP4 versions +++</code></pre>
+    <p>Loop over the array and assign to the <code translate="No">mp4Ara</code> variable renditions where the <code translate="No">container</code> is <strong>MP4</strong>, AND the rendition has a <code translate="No">src</code> property. The MP4 renditions appear twice in the <code translate="No">sources</code> array, once with a <code translate="No">src</code> property and once with a <code translate="No">stream_name</code> property. The first is for progressive download and the second for streaming.</p>
+    <p>The following screenshots show the console displaying all renditions and then the filtered renditions showing on MP4 renditions.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="All renditions" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/console-all-renditions.png" />
+      <figcaption class="bcls-caption--image">All renditions</figcaption>
+    </figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Only MP4 renditions after filtering" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/console-mp4-renditions-only.png" />
+      <figcaption class="bcls-caption--image">Only MP4 renditions after filtering</figcaption>
+    </figure>
+    <!-- UPDATE task 3 -->
 
-        <h3>Sort the MP4 array on the <code translate="No">size</code> attribute, largest to smallest</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
-<code class="language-javascript" translate="No">// ### Sort the renditions from highest to lowest on size ###</code></pre>
-        <p>Sort the <code translate="No">mp4Ara</code> using JavaScript's <code translate="No">sort()</code> method</p>
-        <!-- UPDATE task 3 -->
+    <h3>Sort the MP4 array on the <code translate="No">size</code> attribute, largest to smallest</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript" translate="No">// +++ Sort the renditions from highest to lowest on size +++</code></pre>
+    <p>Sort the <code translate="No">mp4Ara</code> using JavaScript's <code translate="No">sort()</code> method</p>
+    <!-- UPDATE task 3 -->
 
-        <h3>Assign the largest video to a variable</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
-<code class="language-javascript" translate="No">// ### Extract the highest rendition ###</code></pre>
-        <p>Assign the <code translate="No">highestQuality</code> variable the zeroth index value from the sorted MP4 renditions array.</p>
-        <!-- UPDATE task 3 -->
+    <h3>Assign the largest video to a variable</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript" translate="No">// +++ Extract the highest rendition +++</code></pre>
+    <p>Assign the <code translate="No">highestQuality</code> variable the zeroth index value from the sorted MP4 renditions array.</p>
+    <!-- UPDATE task 3 -->
 
-        <h3>Create an element that contains an clickable image inside an HTML <code translate="No">div</code> element</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
-<code class="language-javascript" translate="No">// ### Build the download image element ###</code></pre>
-        <p>At the top of the JavaScript code HTML <code translate="No">div</code> and <code translate="No">img</code> elements are created and stored in variables. Those elements are then manipulated to dynamically build an HTML element that functions as a download button. An example of how the dynamically created element might appear follows:</p>
-        <figure class="bcls-figure"><img class="bcls-image" alt="dynamically built download element" src="/assets/images/code-samples/brightcove-player-sample-download-video-plugin/download-element.png" /></figure>
-        <!-- UPDATE task 3 -->
+    <h3>Create an element that contains an clickable image inside an HTML <code translate="No">div</code> element</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript" translate="No">// +++ Build the download image element +++</code></pre>
+    <p>At the top of the JavaScript code HTML <code translate="No">div</code> and <code translate="No">img</code> elements are created and stored in variables. Those elements are then manipulated using the CSS and SVG image to dynamically build an HTML element that functions as a download button. The HTML for the dynamically created element appears as follows:</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">&lt;div class=&quot;vjs-control downloadStyle&quot;&gt;
+&lt;a href=&quot;http://f12.cf.brightcove.com/1752604059001/1752604059001_4457269242001_4457254747001.mp4?pubId=1752604059001&amp;amp;videoId=4457254747001&quot; title=&quot;Download Sea Marvels Collection&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+    <!-- UPDATE task 3 -->
 
-        <h3>Place the download button element in the DOM</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
-<code class="language-javascript" translate="No">// ### Place the download button ###</code></pre>
-        <p>In this case, the download button is placed in the controlbar's spacer. First, a reference to the spacer element is obtained, then an attribute set to position the new element in the spacer is defined, and lastly the new element placed in the spacer.</p>
-    </section>
-    <!-- UPDATE CSS description -->
+    <h3>Place the download button element in the DOM</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+<code class="language-javascript" translate="No">// +++ Place the download button +++</code></pre>
+    <p>In this case, the download button is placed in the controlbar's spacer. First, a reference to the spacer element is obtained, then an attribute set to position the new element in the spacer is defined, and lastly the new element placed in the spacer.</p>
+  </section>
+  <!-- UPDATE CSS description -->
 
-    <section class="bcls-section">
-        <h2 id="Application_styling">Application styling</h2>
-        <p>The CSS sizes and positions the download button for placement in the controlbar.</p>
-    </section>
-    <section class="bcls-section">
-        <h2 id="Plugin_code">Plugin code</h2>
-        <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
-        <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
-        <pre class="line-numbers">
+  <section class="bcls-section">
+    <h2 id="Application_styling">Application styling</h2>
+    <p>The CSS sizes and positions the download button for placement in the controlbar.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Plugin_code">Plugin code</h2>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
+    <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
+    <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
-        <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-        <pre class="line-numbers">
+    <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
+    <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>
-        <!-- UPDATE path to plugin's JavaScript -->
+    <!-- UPDATE path to plugin's JavaScript -->
 
-        <aside class="bcls-aside bcls-aside--tip">Since the plugin does not work with iOS, you may wish to add this code to the plugin to prevent the plugin from even trying to download on iOS:
-            <pre class="line-numbers">
+    <aside class="bcls-aside bcls-aside--tip">Since the plugin does not work with iOS, you may wish to add this code to the plugin to prevent the plugin from even trying to download on iOS:
+      <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.registerPlugin('downloadVideo', function() {
   if (videojs.browser.IS_IOS) {
     return;
@@ -1363,24 +1374,24 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   // rest of the plugin...
 });</code></pre>
-        </aside>
-        <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18273-download-video-plugin/blob/master/plugin/download-video.js">download-video.js</a>.</p>
-        <h3>Using the plugin with a player</h3>
-        <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
-        <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
-    </section>
-    <section class="bcls-section">
-        <h2 id="Overlay_implementation">Overlay implementation</h2>
-        <p>To replace the icon in the control bar, and have an overlay on the video, you need to make a few changes.</p>
-        <p>First, in the JavaScript remove all the code that creates and displays the linked icon. Replace that code with code that creates and appends an overlay.</p>
-        <pre class="line-numbers" data-start="1">
+    </aside>
+    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18273-download-video-plugin/blob/master/plugin/download-video.js">download-video.js</a>.</p>
+    <h3>Using the plugin with a player</h3>
+    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
+    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Overlay_implementation">Overlay implementation</h2>
+    <p>To replace the icon in the control bar, and have an overlay on the video, you need to make a few changes.</p>
+    <p>First, in the JavaScript remove all the code that creates and displays the linked icon. Replace that code with code that creates and appends an overlay.</p>
+    <pre class="line-numbers" data-start="1">
 <code class="language-javascript" translate="No">downloadString = "&lt;a href='" + highestQuality + "' download='" + videoName + "'&gt;Download the Video&lt;/a&gt;";
 overlay = document.createElement('p');
 overlay.innerHTML = downloadString;
 overlay.id = 'download-overlay';
 myPlayer.el().appendChild(overlay);</code></pre>
-        <p>You will also need to use CSS to style and place the overlay, which obviously can be changed to suit your implementation.</p>
-        <pre class="line-numbers" data-start="1">
+    <p>You will also need to use CSS to style and place the overlay, which obviously can be changed to suit your implementation.</p>
+    <pre class="line-numbers" data-start="1">
 <code class="language-css" translate="No">#download-overlay {
     background-color: #FFFFFF;
     color: #000000;
@@ -1392,44 +1403,44 @@ myPlayer.el().appendChild(overlay);</code></pre>
     width: 135px;
     text-align: center;
 }</code></pre>
-        <p>If you wish to use this approach for your plugin, you will need to place the CSS into a separate file, save in an&nbsp;Internet accessible URL, and enter that URL when associating the plugin with a player in Studio.</p>
-    </section>
-    <section class="bcls-section">
-        <h2 id="HTML_page_implementation">HTML page implementation</h2>
-        <p>To replace the icon in the control bar, and define a location in your HTML page for a download link, you need to make a few changes.</p>
-        <aside class="bcls-aside bcls-aside--warning">Note: This implementation will NOT work as a plugin when using the iframe player implementation. This is because the <code translate="No">&lt;p&gt;</code> tag set as the insertion point is external to the player code, and thus not reachable by the plugin, whose context is the player which is in the iframe.</aside>
-        <p>First, in your HTML page determine where you wish to insert the link and place the following HTML there.</p>
-        <pre class="line-numbers" data-start="1">
+    <p>If you wish to use this approach for your plugin, you will need to place the CSS into a separate file, save in an&nbsp;Internet accessible URL, and enter that URL when associating the plugin with a player in Studio.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="HTML_page_implementation">HTML page implementation</h2>
+    <p>To replace the icon in the control bar, and define a location in your HTML page for a download link, you need to make a few changes.</p>
+    <aside class="bcls-aside bcls-aside--warning">Note: This implementation will NOT work as a plugin when using the iframe player implementation. This is because the <code translate="No">&lt;p&gt;</code> tag set as the insertion point is external to the player code, and thus not reachable by the plugin, whose context is the player which is in the iframe.</aside>
+    <p>First, in your HTML page determine where you wish to insert the link and place the following HTML there.</p>
+    <pre class="line-numbers" data-start="1">
 <code class="language-html" translate="No">&lt;p id="insertionPoint"&gt;&lt;/p&gt;</code></pre>
-        <p>Next, in the JavaScript remove all the code that creates and displays the linked icon. Replace that code with code that creates a hyperlink and dynamically injects that hyperlink into the HTML page at your insertion point.</p>
-        <pre class="line-numbers" data-start="1">
+    <p>Next, in the JavaScript remove all the code that creates and displays the linked icon. Replace that code with code that creates a hyperlink and dynamically injects that hyperlink into the HTML page at your insertion point.</p>
+    <pre class="line-numbers" data-start="1">
 <code class="language-javascript" translate="No">downloadString = "&lt;a href='" + highestQuality + "' download='" + videoName + "'&gt;Download the Video&lt;/a&gt;";
 document.getElementById('insertionPoint').innerHTML = downloadString;</code></pre>
-    </section>
-    <section class="bcls-section">
-        <h2 id="Version_5_backwards_compatibility">Version 5 backwards compatibility</h2>
-        <p>If you wish to have the plugin work with both versions 5 and 6 a few changes must be made to the JavaScript. The changes will be listed, then a skeleton of the JavaScript displayed.</p>
-        <ol>
-            <li>Add the following variable declaration at the top of the JavaScript file. The variable defines how to register a plugin for both version 5 and version 6:
-                <pre class="line-numbers">
+  </section>
+  <section class="bcls-section">
+    <h2 id="Version_5_backwards_compatibility">Version 5 backwards compatibility</h2>
+    <p>If you wish to have the plugin work with both versions 5 and 6 a few changes must be made to the JavaScript. The changes will be listed, then a skeleton of the JavaScript displayed.</p>
+    <ol>
+      <li>Add the following variable declaration at the top of the JavaScript file. The variable defines how to register a plugin for both version 5 and version 6:
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">var registerPlugin = videojs.registerPlugin || videojs.plugin;</code></pre>
-            </li>
-            <li>Change the old first line of the JavaScript from:
-                <pre class="line-numbers">
+      </li>
+      <li>Change the old first line of the JavaScript from:
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {</code></pre>
-                to
-                <pre class="line-numbers">
+        to
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">registerPlugin("downloadButton", function() {</code></pre>
-            </li>
-            <li>Create a function below all existing code that calls the now defined plugin:
-                <pre class="line-numbers">
+      </li>
+      <li>Create a function below all existing code that calls the now defined plugin:
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var player = this;
   player.downloadButton();
 });</code></pre>
-            </li>
-            <li>Check to be sure the structure of the code appears as follows:
-                <pre class="line-numbers">
+      </li>
+      <li>Check to be sure the structure of the code appears as follows:
+        <pre class="line-numbers">
 <code class="language-javascript" translate="No">var registerPlugin = videojs.registerPlugin || videojs.plugin;
 
 registerPlugin("downloadButton", function() {
@@ -1451,9 +1462,9 @@ videojs.getPlayer('myPlayerID').ready(function() {
   var player = this;
   player.downloadButton();
 });</code></pre>
-            </li>
-        </ol>
-    </section>
+      </li>
+    </ol>
+  </section>
 </article>
 <!-- complete bootstrap layout -->
     </div>
