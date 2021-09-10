@@ -1253,8 +1253,12 @@ var myPlayer = this;
         <pre class="line-numbers">
 <code class="language-html" translate="No">https://players.brightcove.net/{accountId}/{playerId}_{embedId}/index.html?videoId={id}</code></pre>
       </li>
-      <li><code translate="No">keywords</code>: If <strong>true</strong>, include tags as keywords; default is <strong>false</strong>.</li>
-      <li><code translate="No">excludeTags</code>: Array of tags to not include as keywords, e.g. <strong>["youtubesync"]</strong>.</li>
+      <li><code translate="No">keywords</code>: If <strong>true</strong>, include tags as keywords.
+        <p>Default is <strong>false</strong>.</p>
+      </li>
+      <li><code translate="No">excludeTags</code>: Array of tags to not include as keywords.
+        <p>e.g. <strong>["youtubesync"]</strong></p>
+      </li>
       <li><code translate="No">baseObject</code>: An <strong>option</strong> object of properties onto which to build the video specific metadata. For example this could be used to include a publisher object:
         <pre class="line-numbers">
 <code class="language-json" translate="No">"baseObject": {
@@ -1270,8 +1274,20 @@ var myPlayer = this;
   }
 }</code></pre>
       </li>
-      <li><code translate="No">includeEmbedUrl</code>: If <strong>false</strong>, no embed url is included. Including this URL may be expected by search engines. Default is <strong>true</strong>.</li>
-      <li><code translate="No">preferLongDescription</code>: If <strong>true</strong>, use the long description if available. If <strong>false</strong>, or <strong>true</strong> and long description is not set, then the (short) description field will be used. Default is <strong>false</strong>.</li>
+      <li><code translate="No">includeEmbedUrl</code>: If <strong>false</strong>, no embed url is included. Including this URL may be expected by search engines.
+        <p>Default is <strong>true</strong>.</p>
+      </li>
+      <li><code translate="No">preferLongDescription</code>: If <strong>true</strong>, use the long description if available. If <strong>false</strong>, or <strong>true</strong> and long description is not set, then the (short) description field will be used.
+        <p>Default is <strong>false</strong>.</p>
+      </li>
+      <li>
+        <code translate="No">transcript</code>: If <strong>true</strong>, a captions or subtitles track with a matching language will be added as a transcript.
+        <p>Default is <strong>false</strong>.</p>
+      </li>
+      <li>
+        <code translate="No">transcriptMatchAny</code>: If <strong>true</strong> and <code translate="No">transcript</code> is also <strong>true</strong>, a transcript will be added from the first usable track, if there is no language match.
+        <p>Default is <strong>false</strong>.</p>
+      </li>
     </ul>
   </section>
 </article>
