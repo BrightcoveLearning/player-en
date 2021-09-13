@@ -1210,12 +1210,21 @@ var myPlayer = this;
     <figure class="bcls-figure"><img class="bcls-image" alt="Rich testing results" src="/assets/images/plugins/video-schema-generator/rich-testing-result.png" /></figure>
     <aside class="bcls-aside bcls-aside--information">
       <p>When you enter the URL for your page with a Brightcove Player, you may see the following error message: <strong>Page not eligible for rich results known by this test</strong></p>
-      <p>This is because rich results aren't found for players which include the Flash tech. Currently, all Brightcove Players include this by default. To avoid this error, you can set the top-level player configuration option as follows:</p>
-      <pre>
-        <code class="language-json" translate="No">"flash": false</code></pre>
-      <p>This will be the default in the next major version of the player.</p>
+      <p>This is because rich results aren't found for players which include the Flash tech. Currently, all Brightcove Players include this by default. To avoid this error, set the top-level player configuration option as follows:</p>
+      <ol class="bcls-tasklist-restart">
+        <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module.</li>
+        <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
+        <li>Add the following highlighted attribute to the player configuration:
+          <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/plugins/video-schema-generator/flash-false.png" alt="Flash false">
+            <figcaption class="bcls-caption--image">Flash false</figcaption>
+          </figure>
+        </li>
+        <li>Publish the change for the player.</li>
+      </ol>
+      <p>With the next major version release, the player will NOT include the Flash tech.</p>
     </aside>
-    <p>The results show you whether the pages passes, but also offers additional valuable information. For example, click on the video title to expand the video information:</p>
+    <p>The results show you whether the page passes, but also offers additional valuable information. For example, click on the video title to expand the video information:</p>
     <figure class="bcls-figure">
       <img class="bcls-image" src="/assets/images/plugins/video-schema-generator/rich-test-video-info.png" alt="Rich Testing Video Information">
       <figcaption class="bcls-caption--image">Rich Testing Video Information</figcaption>
