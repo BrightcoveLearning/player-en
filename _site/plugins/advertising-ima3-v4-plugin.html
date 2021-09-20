@@ -1356,7 +1356,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><a href="#disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</a></li>
       <li><a href="#hardTimeouts">hardTimeouts</a></li>
       <li><a href="#ima3SdkSettings">ima3SdkSettings</a></li>
+      <li><a href="#postrollTimeout">postrollTimeout</a></li>
+      <li><a href="#prerollTimeout">prerollTimeout</a></li>
       <li><a href="#requestMode">requestMode</a></li>
+      <li><a href="#sdkurl">sdkurl</a></li>
       <li><a href="#serverUrl">serverUrl</a></li>
       <li><a href="#showVpaidControls">showVpaidControls</a></li>
       <li><a href="#timeout">timeout</a></li>
@@ -1366,7 +1369,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
     <h3 id="clickTrackingElement">clickTrackingElement</h3>
 
-    <p>Type: <code translate="No">HTMLElement</code> Default Value: undefined</p>
+    <p>Type: <code translate="No">HTMLElement</code><br> Default Value: undefined</p>
 
     <p>
       If the HTML ad tech is being used in <a href="https://developers.google.com/web/fundamentals/design-and-ux/input/touch">custom ad playback</a> mode, this specifies an alternative HTML element to be used to track advertisement taps on devices that don't support input events over the video element. More details are available in the parameter documentation for the <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/reference/js/ima.AdDisplayContainer">IMA AdDisplayContainer</a>. If you provide a click tracking element, it is your responsibility to show and hide it at the appropriate times on the appropriate platforms. In most cases, it's best to leave this setting undefined and allow the plugin and IMA to manage ad interaction.
@@ -1374,7 +1377,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
     <h3 id="debug">debug</h3>
 
-    <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
+    <p>Type: <code translate="No">boolean</code><br> Default Value: <code translate="No">false</code></p>
 
     <p>
       If debug is set to true, the ads framework will output additional information about its current state during playback. This can be handy for diagnosing issues or unexpected behavior in an ad integration.
@@ -1395,7 +1398,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
     <h3 id="disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</h3>
 
-    <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
+    <p>Type: <code translate="No">boolean</code><br> Default Value: <code translate="No">false</code></p>
 
     <p>
       This property is part of the <code translate="No">ima3SdkSettings</code> object. It acts as a getter and setter to control whether to disable custom
@@ -1416,7 +1419,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
     <h3 id="hardTimeouts">hardTimeouts</h3>
 
-    <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">true</code></p>
+    <p>Type: <code translate="No">boolean</code><br> Default Value: <code translate="No">true</code></p>
 
     <p>
       Abandon ads that finish loading after they have timed out. This will prevent slow preroll ads from interrupting after the <code translate="No">timeout</code> has elapsed and content video has begun playing.
@@ -1433,7 +1436,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
     <h3 id="ima3SdkSettings">ima3SdkSettings</h3>
 
-    <p>Type: <code translate="No">object</code> Default Value: undefined</p>
+    <p>Type: <code translate="No">object</code><br> Default Value: undefined</p>
 
     <p>
       If provided, the properties of this object are used to set the page-level <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/reference/js/ima.ImaSdkSettings">Ima3SdkSettings</a> when the IMA SDK has finished loading. The properties of this object are expected to be the camel-cased equivalent of setter methods on the <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/reference/js/ima.ImaSdkSettings">SDK</a> settings object, minus the 'set' prefix. For example, if you provided this object when initializing the plugin:
@@ -1453,9 +1456,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-javascript" translate="No">window.google.ima.ImaSdkSettings.setNumRedirects(3);
 window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
 
+    <h3 id="postrollTimeout">postrollTimeout</h3>
+
+    <p>Type: <code translate="No">number</code><br> Default Value: <code translate="No">undefined</code></p>
+
+    <p>Controls <code>postrollTimeout</code> setting in <strong>videojs-contrib-ads</strong>. If provided, overrides any value set for <code>timeout</code>.</p>
+
+    <h3 id="prerollTimeout">prerollTimeout</h3>
+
+    <p>Type: <code translate="No">number</code><br> Default Value: <code translate="No">undefined</code></p>
+
+    <p>Controls <code>prerollTimeout</code> setting in <strong>videojs-contrib-ads</strong>. If provided, overrides any value set for <code>timeout</code>.</p>
+
     <h3 id="requestMode">requestMode</h3>
 
-    <p>Type: <code translate="No">string</code> Default Value: <code translate="No">onload</code></p>
+    <p>Type: <code translate="No">string</code><br> Default Value: <code translate="No">onload</code></p>
 
     <p>This option is part of the ad framework is configured as follows:</p>
 
@@ -1518,6 +1533,16 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
       </li>
     </ul>
 
+    <h3 id="sdkurl">sdkurl</h3>
+
+    <p>Type: <code translate="No">string</code></p>
+
+    <p>Default Value:</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">//imasdk.googleapis.com/js/sdkloader/ima3.js</code></pre>
+    <p>Set a custom URL to the IMA SDK script. This is not needed in production environments, but can be useful for debugging.</p>
+    <p>When debug is <code>true</code>, this will point to <code>ima3_debug.js</code> instead.</p>
+
+
     <h3 id="serverUrl">serverUrl</h3>
 
     <p>Type: <code translate="No">string</code> or <code translate="No">function</code></p>
@@ -1560,7 +1585,7 @@ myPlayer.ima3({
 
     <h3 id="showVpaidControls">showVpaidControls</h3>
 
-    <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
+    <p>Type: <code translate="No">boolean</code><br>Default Value: <code translate="No">false</code></p>
 
     <p>
       Set to <code translate="No">true</code> to show custom Brightcove controls over VPAID ads. They may or may not work depending on the VPAID
@@ -1571,7 +1596,7 @@ myPlayer.ima3({
 
     <h3 id="timeout">timeout</h3>
 
-    <p>Type: <code translate="No">number</code> Default Value: <code translate="No">4000</code></p>
+    <p>Type: <code translate="No">number</code><br> Default Value: <code translate="No">4000</code></p>
 
     <p>The maximum amount of time, in milliseconds, to wait for ads to play before an ad break is skipped.</p>
 
@@ -1594,7 +1619,7 @@ myPlayer.ima3({
 
     <h3 id="useMediaCuePoints">useMediaCuePoints</h3>
 
-    <p>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></p>
+    <p>Type: <code translate="No">boolean</code><br> Default Value: <code translate="No">false</code></p>
 
     <p>Enables the use of <strong translate="No">ad</strong> cue points (as defined in Studio) to trigger an ad to play.</p>
 
@@ -1613,7 +1638,7 @@ myPlayer.ima3({
 
     <h3 id="vpaidMode">vpaidMode</h3>
 
-    <p>Type: <code translate="No">string</code> Default Value: <code translate="No">ENABLED</code></p>
+    <p>Type: <code translate="No">string</code><br> Default Value: <code translate="No">ENABLED</code></p>
 
     <p>Specify VPAID 2 mode in the IMA HTML5 SDK.</p>
 
