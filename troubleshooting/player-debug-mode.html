@@ -6,16 +6,47 @@ parent: "Troubleshooting"
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
-
+  <aside class="bcls-aside bcls-aside--warning language-editable">This feature requires Brightcove Player version 6.46.0 or later.</aside>
   <section class="bcls-section">
     <h2 id="What is Brightcove Player debug mode">What is Brightcove Player debug mode?</h2>
     <p>When used, player debug mode causes player and plugins to show parts of their logs in the console to help in troubleshooting issues. Currently not every piece of the player interacts with debug mode, but more will in the future.</p>
+
     <p>There are a number of ways to "turn it off and on" and also control behavior, detailed later in this document.</p>
   </section>
 
   <section class="bcls-section">
-    <h2 id="section-name">section-title</h2>
-    <p></p>
+    <h2 id="Enabling_player_debug_mode">Enabling debug mode</h2>
+    <p>There are four ways to enable debug mode:</p>
+    <ul>
+      <li><a href="#player_configuration">Using the player configuration</a></li>
+      <li><a href="#query-parameters">Using query parameters in player standard code</a></li>
+      <li><a href="#attribute">Using the <code>data-debug</code> attribute in player advanced code</a></li>
+      <li><a href>Manual option using the <code>bc()</code> method</a></li>
+    </ul>
+
+    <h3 id="player_configuration">Player configuration</h3>
+    <p>In Studio, you can edit a player and in the <strong>JSON Editor</strong> you can add <code>"debug": true,</code> to enable debug mode.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/troubleshooting/player-debug-mode/player-configuration.png" alt="player configuration">
+    </figure>
+    <p>After adding the line of JSON, but sure to save and publish the player.</p>
+
+    <h3 id="query-parameters">Query parameters</h3>
+    <p>If you are using the Standard player code (iframe) you can use query parameters to enable debug mode. You simply add the query parameter <code>?debug</code> as shown here:</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;iframe src=&quot;https://players.brightcove.net/.../index.html<span class="bcls-highlight">?debug</span>&quot;&gt;&lt;/iframe&gt;</code></pre>
+
+    <h3 id="attribute">Attribute</h3>
+    <p>If you are using the Advanced player code you can add an attribute to enable debug mode, as shown highlighted here:</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+    <span class="bcls-highlight">data-debug</span>
+    data-account=&quot;1507807800001&quot;
+    data-player=&quot;5qbwL2GCf&quot;
+    ...&gt;&lt;/video-js&gt;
+    &lt;script src=&quot;https://players.brightcove.net/1507807800001/5qbwL2GCf_default/index.min.js&quot;&gt;</script></code></pre>
+
+
+
+    <h3 id="manual">Manual with <code>bc()</code> method</h3>
   </section>
 
 </article>
