@@ -11,7 +11,11 @@ parent: "Troubleshooting"
     <h2 id="What is Brightcove Player debug mode">What is Brightcove Player debug mode?</h2>
     <p>When used, player debug mode causes player and plugins to show parts of their logs in the console to help in troubleshooting issues. Currently not every piece of the player interacts with debug mode, but more will in the future.</p>
     <p>When debug mode is <em>on</em>, the player’s <a href="https://docs.videojs.com/tutorial-debugging.html">Video.js logging level</a> will be set to debug and logging history tracking will be enabled. When debug mode is <em>off</em>, the player’s logging level will be set to <code>off</code> and logging history tracking will be disabled.</p>
-    <p>There are a number of ways to "turn it on and off", detailed next in this document.</p>
+    <p>The debugging info is displayed in the console. Here is a sample of some debugging segments with info on <strong>proxy-tracks</strong>, <strong>IMA3 ads</strong> and <strong>seek events</strong>:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/troubleshooting/player-debug-mode/example-console.png" alt="example console">
+    </figure>
+    <p>There are a number of ways to turn debug mode on and off, detailed next in this document.</p>
   </section>
 
   <section class="bcls-section">
@@ -38,11 +42,11 @@ parent: "Troubleshooting"
     <h3 id="attribute">Attribute</h3>
     <p>If you are using the Advanced player code, you can use an attribute to enable debug mode. You add the attribute <code>data-debug</code> (highlighted) as shown here:</p>
     <pre class="line-numbers"><code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
-    <span class="bcls-highlight">data-debug</span>
-    data-account=&quot;1507807800001&quot;
-    data-player=&quot;5qbwL2GCf&quot;
-    ...&gt;&lt;/video-js&gt;
-    &lt;script src=&quot;https://players.brightcove.net/1507807800001/5qbwL2GCf_default/index.min.js&quot;&gt;</script></code></pre>
+  <span class="bcls-highlight">data-debug</span>
+  data-account=&quot;1507807800001&quot;
+  data-player=&quot;5qbwL2GCf&quot;
+  ...&gt;&lt;/video-js&gt;
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/5qbwL2GCf_default/index.min.js&quot;&gt;</script></code></pre>
 
     <h3 id="manual">Manual with <code>bc()</code> method</h3>
     <p>When manually calling the <code>bc()</code> function, <code>debug</code> can be passed as an option, as shown here:</p>
@@ -51,8 +55,25 @@ parent: "Troubleshooting"
 
   <section class="bcls-section">
     <h2 id="section-name">Controlling player debug mode at runtime</h2>
-    <p>If you choose to control debug at runtime you can do this using the <code>player.debug()</code> method. Here is some code that allows debug mode to be turned off and on.</p>
-    <pre class="line-numbers"><code class="language-html" translate="No"></code></pre>
+    <p>If you choose to control debug at runtime, you can do this using the <code>player.debug()</code> method. Here is some code that allows debug mode to be turned off and on.</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">... 
+&lt;button onclick=&quot;toggleDebug()&quot;&gt;Toggle Debug Mode&lt;/button&gt;
+...
+&lt;script&gt;
+  var myPlayer;
+  videojs.getPlayer('myPlayerID').ready(function () {
+    myPlayer = this;
+  });
+  function toggleDebug() {
+    if (myPlayer.debug()) {
+      myPlayer.debug(false);
+    } else {
+      myPlayer.debug(true);
+    }
+    console.log('debug state: ', myPlayer.debug());
+  }
+&lt;/script&gt;</code></pre>
+    <aside class="bcls-aside bcls-aside--warning language-editable">Note that logging is implementation specific, so turning debug mode off and on at runtime may not yield your expected results. For instance, even with debugging turned off using the <code>player.debug()</code> method, <strong>seek events</strong> are still reported.</aside>
   </section>
 
   <section class="bcls-section">
@@ -62,6 +83,26 @@ parent: "Troubleshooting"
       <li>debugon</li>
       <li>debugoff</li>
     </ul>
+    <p>Here is the code from above, but this time with event handlers added:</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">... 
+&lt;button onclick=&quot;toggleDebug()&quot;&gt;Toggle Debug Mode&lt;/button&gt;
+...
+&lt;script&gt;
+  var myPlayer;
+  videojs.getPlayer('myPlayerID').ready(function () {
+    myPlayer = this;
+    myPlayer.on('debugon', function () { console.log('dispatch debugon') });
+    myPlayer.on('debugoff', function () { console.log('dispatch debugoff') });
+  });
+  function toggleDebug() {
+    if (myPlayer.debug()) {
+      myPlayer.debug(false);
+    } else {
+      myPlayer.debug(true);
+    }
+    console.log('debug state: ', myPlayer.debug());
+  }
+&lt;/script&gt;</code></pre>
   </section>
 
 </article>
