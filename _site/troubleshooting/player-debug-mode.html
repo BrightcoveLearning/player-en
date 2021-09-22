@@ -1148,8 +1148,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="What is Brightcove Player debug mode">What is Brightcove Player debug mode?</h2>
     <p>When used, player debug mode causes player and plugins to show parts of their logs in the console to help in troubleshooting issues. Currently not every piece of the player interacts with debug mode, but more will in the future.</p>
-
-    <p>There are a number of ways to "turn it off and on" and also control behavior, detailed later in this document.</p>
+    <p>When debug mode is <em>on</em>, the player’s <a href="https://docs.videojs.com/tutorial-debugging.html">Video.js logging level</a> will be set to debug and logging history tracking will be enabled. When debug mode is <em>off</em>, the player’s logging level will be set to <code>off</code> and logging history tracking will be disabled.</p>
+    <p>There are a number of ways to "turn it on and off", detailed next in this document.</p>
   </section>
 
   <section class="bcls-section">
@@ -1170,11 +1170,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>After adding the line of JSON, but sure to save and publish the player.</p>
 
     <h3 id="query-parameters">Query parameters</h3>
-    <p>If you are using the Standard player code (iframe) you can use query parameters to enable debug mode. You simply add the query parameter <code>?debug</code> as shown here:</p>
+    <p>If you are using the Standard player code (iframe), you can use a query parameter to enable debug mode. You add the query parameter <code>?debug</code> (highlighted )as shown here:</p>
     <pre class="line-numbers"><code class="language-html" translate="No">&lt;iframe src=&quot;https://players.brightcove.net/.../index.html<span class="bcls-highlight">?debug</span>&quot;&gt;&lt;/iframe&gt;</code></pre>
 
     <h3 id="attribute">Attribute</h3>
-    <p>If you are using the Advanced player code you can add an attribute to enable debug mode, as shown highlighted here:</p>
+    <p>If you are using the Advanced player code, you can use an attribute to enable debug mode. You add the attribute <code>data-debug</code> (highlighted) as shown here:</p>
     <pre class="line-numbers"><code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
     <span class="bcls-highlight">data-debug</span>
     data-account=&quot;1507807800001&quot;
@@ -1182,9 +1182,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     ...&gt;&lt;/video-js&gt;
     &lt;script src=&quot;https://players.brightcove.net/1507807800001/5qbwL2GCf_default/index.min.js&quot;&gt;</script></code></pre>
 
-
-
     <h3 id="manual">Manual with <code>bc()</code> method</h3>
+    <p>When manually calling the <code>bc()</code> function, <code>debug</code> can be passed as an option, as shown here:</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">const player = bc('example', {debug: true});</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Debug_mode_events">Debug mode events</h2>
+    <p>When debug mode changes, the appropriate event is dispatched:</p>
+    <ul>
+      <li>debugon</li>
+      <li>debugoff</li>
+    </ul>
   </section>
 
 </article>
