@@ -15,65 +15,11 @@ parent: 'Release Notes'
   </aside>
 
   <section class="bcls-section">
-    <iframe src="https://players.brightcove.net/release-notes/brightcove-player-prerelease/index.html" frameborder="0" style="width: 100%;height:800px;min-height: 800px;"></iframe>
+    <p>The production release and pre-release notes are contained in a single feed. To get the latest pre-release details click the version in the form <code>vX.X.X-pre-release</code>.</p>
+    <iframe src="https://players.brightcove.net/release-notes/brightcove-player/index.html" frameborder="0" style="width: 100%;height:800px;min-height: 800px;"></iframe>
   </section>
 
 
-  <!--     <section id="features" class="bcls-section">
-        <h2>No pre-release versions at this time</h2>
-    </section> -->
-
-  <!-- HTML for standard pre-release-->
-
-  <div>&nbsp;</div>
-  <!--     <section class="bcls-section" id="features-latest">
-        <h2>VERSION 6 - v6.46.0</h2>
-
-        <p>1 Oct 2020</p>
-
-        <ul>
-            <li>Added support for multilingual metadata</li>
-            <li>Fixed cases where <code translate="no">player.language()</code> returned <code translate="no">undefined</code> by default</li>
-            <li>Fix a case where catalog parameter defaults could conflict between players on the same page - this was unlikely to have affected anyone except, in rare cases, where players from multiple accounts and of the same version were on the same page</li>
-        </ul>
-    </section>
- -->
-  <div>&nbsp;</div>
-
-  <!-- HTML for pre-release not yet in production player -->
-  <!--     <section id="features-not-in-yet" class="bcls-section">
-        <aside class="bcls-aside bcls-aside--information">
-            The features of the release(s) listed below have not yet been rolled into
-            a current release.
-        </aside>
-
-        <h2>VERSION 6 - v6.44.2</h2>
-
-        <p>16 Jun 2020</p>
-
-        <h3>Features</h3>
-        <ul>
-            <li>Add support for SSAI with IMA preroll (documentation coming soon)</li>
-        </ul>
-
-        <h3>Bug fixes</h3>
-        <ul>
-            <li>Update to <a href="https://github.com/videojs/video.js/blob/d4430a38a7bde4eb9a5d471d8db8c3b2ab628363/CHANGELOG.md#791-2020-07-13">Video.js 7.9.1</a></li>
-            <li>
-                Fix intermittent initialization failures on Chromecast devices
-            </li>
-            <li>
-                Do not break when <code translate="No">"hls": true</code> is in the player config. This configuration is not needed or used in any way, but some older players had it.
-            </li>
-            <li>
-                Fix player controls being unresponsive on iPhones when leaving fullscreen
-            </li>
-            <li>
-                Regression in support for the application ID
-            </li>
-        </ul>
-    </section>
- -->
   <section id="tryit" class="bcls-section">
     <h2>Try new version</h2>
 
@@ -90,7 +36,7 @@ parent: 'Release Notes'
     </p>
 
     <p>
-      Here is the curl command to update your player, where you substitute appropriate values for <strong>YOUR_EMAIL</strong> , <strong>YOUR_ACCOUNT_ID</strong> and <strong>YOUR_PLAYER_ID</strong> .
+      Here is the curl command to update your player, where you substitute appropriate values for <strong>YOUR_EMAIL</strong> , <strong>YOUR_ACCOUNT_ID</strong>, <strong>YOUR_PLAYER_ID</strong> and the latest pre-release version numbers for <strong>X.X.X</strong>.
     </p>
 
     <pre class="line-numbers">
@@ -101,7 +47,7 @@ parent: 'Release Notes'
   --data '{
     "player": {
     "template": {
-      "version": "6.59.1"
+      "version": "X.X.X"
       }
     }
   }' \
