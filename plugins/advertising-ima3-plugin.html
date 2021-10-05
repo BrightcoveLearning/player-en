@@ -84,8 +84,9 @@ parent: "Plugins"
         Select the <strong translate="No">Request Ads</strong> setting.
         <ul>
           <li>
-            <strong translate="No">On load</strong> - Ads are requested immediately when the player loads (this is normally the best experience for DFP /
-            VPAID).
+            <p> <strong translate="No">On load</strong> - Ads are requested immediately when the player loads (this is normally the best experience for DFP /
+              VPAID).</p>
+            <aside class="bcls-aside bcls-aside--information">Note that the player will not populate key/value pairs from the cue point configuration unless the the player is set to <strong translate="No">On cue point</strong>. </aside>
           </li>
           <li><strong translate="No">On play</strong> - The first ad request is delayed until playback is initiated.</li>
           <li>
@@ -93,8 +94,9 @@ parent: "Plugins"
             <code translate="No">player.ima3.adrequest()</code> method. This mode does not support preroll or postroll ads.
           </li>
           <li>
-            <strong translate="No">On cue point</strong> - Ad requests will be initiated on a dispatched ad cue point. See the
-            <a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a> document for complete details.
+            <p><strong translate="No">On cue point</strong> - Ad requests will be initiated on a dispatched ad cue point. See the
+              <a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a> document for complete details.</p>
+            <aside class="bcls-aside bcls-aside--tip">Cue point key/value pairs will only be substituted if the player is set to <strong translate="No">On cue point</strong>. </aside>
           </li>
         </ul>
       </li>
@@ -612,6 +614,7 @@ myPlayer.ima3({
             Free form text string that can be added and edited in the Media module of Studio; you should use the query parameter in the form
             <pre class="line-numbers">
 <code class="language-javascript" translate="No">cust_params={mediainfo.ad_keys}</code></pre>
+            <aside class="bcls-aside bcls-aside--tip">Cue point key/value pairs will only be substituted if the player's <a href="#Implement_using_Players_module_advertising_section">Request Ads</a> setting is set to <strong translate="No">On cue point</strong>. </aside>   
           </td>
         </tr>
         <tr>
@@ -728,7 +731,10 @@ myPlayer.ima3({
     <p>Dynamic macros provide access to values in the following:</p>
 
     <ul>
-      <li>The video's <code translate="No">customFields</code> object through the <code translate="No">mediainfo.customFields</code> variable.</li>
+      <li>
+        <p>The video's <code translate="No">customFields</code> object through the <code translate="No">mediainfo.customFields</code> variable.</p>
+        <aside class="bcls-aside bcls-aside--information">The <code translate="No">customFields</code> variable name is case sensitive.</aside>
+      </li>
       <li>The DOM's <code translate="No">window</code> object through the <code translate="No">pageVariable</code> variable.</li>
     </ul>
 
