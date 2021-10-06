@@ -6,18 +6,18 @@ description: In this document, you will learn how to use the IMA3 plugin and ad 
 <article class="bcls-article">
   <h1>Displaying Ads Using Ad Cue Points</h1>
   <summary>{{ page.description }}</summary>
-  <section id="Example_player" class="bcls-section">
-    <h2>Example player</h2>
+  <section class="bcls-section">
+    <h2 id="Example_player">Example player</h2>
     <p>The following demonstrates a player showing an advertisement at a cue point created at the two second mark of the video.</p>
     <iframe src="https://players.brightcove.net/1752604059001/rkptuIjul_default/index.html?videoId=5318598744001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" width="640" height="360"></iframe>
   </section>
-  <section id="Instructional_video" class="bcls-section">
-    <h2>Instructional video</h2>
+  <section class="bcls-section">
+    <h2 id="Instructional_video">Instructional video</h2>
     <p>The following is an instructional video that leads you through the process of using ad cue points to play ads during video playback.</p>
     <iframe src="https://players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5353307007001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" width="800" height="450"></iframe>
   </section>
-  <section id="Playing_a_video_non-fullscreen" class="bcls-section">
-    <h2>Implementation overview</h2>
+  <section class="bcls-section">
+    <h2 id="Playing_a_video_non-fullscreen">Implementation overview</h2>
     <p>To play ads based on ad cue points in the video, you will need to perform the following:</p>
     <ul>
       <li>In Studio's <strong>MEDIA</strong> module, create the ad cue point(s) in the video at your desired time(s).</li>
@@ -26,8 +26,8 @@ description: In this document, you will learn how to use the IMA3 plugin and ad 
       <li>Configure the <strong>IMA3</strong> plugin to use ad cue points.</li>
     </ul>
   </section>
-  <section id="Create_ad_cue_points" class="bcls-section">
-    <h2>Create ad cue points</h2>
+  <section class="bcls-section">
+    <h2 id="Create_ad_cue_points">Create ad cue points</h2>
     <p>You use Studio's <strong>MEDIA</strong> module to add ad cue points to a video. Click on a video, then perform the following tasks:</p>
     <ol>
       <li>Just below the video, click the <strong>Ad Cue Point</strong> button.</li>
@@ -38,8 +38,8 @@ description: In this document, you will learn how to use the IMA3 plugin and ad 
     <figure class="bcls-figure"><img class="bcls-image" alt="Create cue point in Studio" src="/assets/images/advertising/studio-create-cue-point.png" /></figure>
     <p>You may add multiple cue points. For more information on using cue points in Studio see the <a href="https://studio.support.brightcove.com/media/working-cue-points-media-module.html">Working with Cue Points in the Media Module</a> document.</p>
   </section>
-  <section id="Create/obtain_a_VAST_tag" class="bcls-section">
-    <h2>Create/obtain a VAST tag</h2>
+  <section class="bcls-section">
+    <h2 id="Create/obtain_a_VAST_tag">Create/obtain a VAST tag</h2>
     <p>When configuring the IMA3 plugin you will need to provide a URL to a location of a VAST tag. The VAST tag serves the ad for the player to play. In this example, a static VAST tag (which is actually a URL to a VAST XML document) is used. You may wish to use an ad server to randomly choose from multiple ads to be viewed. Regardless, the IMA3 plugin will need to point to a valid VAST tag.</p>
     <p>For this document, a static VAST tag will be used that plays a single advertisement. The VAST XML appears as follows:</p>
     <pre class="line-numbers">
@@ -84,8 +84,8 @@ description: In this document, you will learn how to use the IMA3 plugin and ad 
         &lt;/Ad&gt;
       &lt;/VAST&gt;</code></pre>
   </section>
-  <section id="Studio_implementation" class="bcls-section">
-    <h2>Studio implementation</h2>
+  <section class="bcls-section">
+    <h2 id="Studio_implementation">Studio implementation</h2>
     <p>You can use Studio to set up ad cue points. From a high-level you do the following:</p>
     <ul>
       <li>Set up the IMA3 plugin using the <strong>Advertising</strong> section in the <strong>PLAYERS</strong> module.</li>
@@ -107,8 +107,8 @@ description: In this document, you will learn how to use the IMA3 plugin and ad 
       <li>Return to the <strong>MEDIA</strong> module and publish a video with ad cue points using the newly configured player.</li>
     </ol>
   </section>
-  <section id="Plugin_configuration" class="bcls-section">
-    <h2>Plugin configuration</h2>
+  <section class="bcls-section">
+    <h2 id="Plugin_configuration">Plugin configuration</h2>
     <p>There are configuration settings you must make to the IMA3 plugin to correctly use ad cue points. They are:</p>
     <ul>
       <li><code translate="No">useMediaCuePoints</code> must be set to <code translate="No">true</code></li>
@@ -117,8 +117,8 @@ description: In this document, you will learn how to use the IMA3 plugin and ad 
     </ul>
     <p>For complete details on these options, see the <a href="/plugins/advertising-ima3-plugin.html#Options">Advertising with the IMA3 Plugin</a> document's <strong>Options</strong> section.</p>
   </section>
-  <section id="In-page_embed_implementation" class="bcls-section">
-    <h2>In-page embed implementation</h2>
+  <section class="bcls-section">
+    <h2 id="In-page_embed_implementation">In-page embed implementation</h2>
     <p>You can also implement ad cue points using the in-page embed player code. In the code below, the IMA3 plugin is loaded and configured all in the HTML page.</p>
     <p>The following code is the actual implementation:</p>
     <ul>
