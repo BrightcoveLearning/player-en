@@ -1271,7 +1271,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </p>
         <!-- <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Plugin options" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/chromecast/options.png" /> <figcaption class="bcls-caption--image">Plugin options</figcaption> </figure> -->
         <pre class="line-numbers">
- <code class="language-json" translate="No">{ "playerUrl" : "https://players.brightcove.net/1507807800001/default_default/index.min.js"
+ <code class="language-json" translate="No">{
+    "playerUrl" : "https://players.brightcove.net/1507807800001/default_default/index.min.js"
  }</code></pre>
         <p>See below for details on the options.</p>
       </li>
@@ -1341,7 +1342,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       &quot;units&quot;: &quot;px&quot;
     }
   },
-  <span class="bcls-highlight">  &quot;plugins&quot;: [ {
+  <span class="bcls-highlight">&quot;plugins&quot;: [ {
     &quot;name&quot;: &quot;chromecastReceiver&quot;, 
     &quot;options&quot;: {},
     &quot;stylesheets&quot;: [&quot;https://players.brightcove.net/videojs-chromecast-receiver/2/videojs-chromecast-receiver.css&quot;], 
@@ -1358,9 +1359,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>
       To pass options in code, you would use something similar to the following: </p>
     <pre class="line-numbers">
- <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() { var myPlayer = this;
- options = {};
- options.playerUrl = '//players.brightcove.net/1752604059001/default_default/index.min.js'; myPlayer.chromecastReceiver(options);
+ <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() { 
+    var myPlayer = this;
+    options = {};
+    options.playerUrl = '//players.brightcove.net/1752604059001/default_default/index.min.js'; myPlayer.chromecastReceiver(options);
  });</code></pre>
     <h3>Advice</h3>
     <p>If your web player(s) contains a large number of plugins or custom scripts, you should consider creating a lightweight player specifically for Chromecast playback.</p>
@@ -1376,13 +1378,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </aside>
       </li>
       <li>
-        <code translate="No">options.playerUrl </code><br /> <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: ''
+        <code translate="No">options.playerUrl </code><br />
+        <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: ''
         <!-- <code translate="No">URL of current player</code> -->
         <!-- <p>
  When unspecified, this will point to the player that is casting your videos. Supplying this option will force the receiver to load a specific player rather than the player that is currently casting the video. This is useful when you want specific player code to only run on the Chromecast.
  </p> -->
         <p>By default, the sender-side player is mirrored on the receiver. You can use this option to provide a custom receiver-side Brightcove Player URL.</p>
         <p>Since this is a Brightcove player that is loaded on the receiver, you can customize, style and debug the player outside of Chromecast.</p>
+        <p>Note that when using the <code>playerUrl</code> option, the players used as a sender and a receiver are different. If you are using domain restricted players, you need to use whitelisting. The whitelisting should be done for the <strong>sender</strong> player, NOT the player used as <strong>receiver</strong> (which is the player specified in this option).</p>
         <aside class="bcls-aside bcls-aside--information"> This should be a URL to an <code translate="No">index.min.js</code> file on the Brightcove CDN </aside>
       </li>
       <li>
@@ -1536,7 +1540,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 12 Jul 2021
+  Page last updated on 19 Oct 2021
 </div>
 
 
