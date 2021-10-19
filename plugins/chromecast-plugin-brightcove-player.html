@@ -3,33 +3,23 @@ title: 'Chromecast Plugin for Brightcove Player'
 description: In this topic, you will learn how to cast your videos to a Chromecast-connected TV, using the Chromecast plugin (2.x) for Brightcove Player.
 parent: Plugins
 ---
-
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
-
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>
-      Google Chromecast is a device that you plug into your TV's HDMI port.
-      Using your smartphone or computer as a remote control, you can use
-      Chromecast to access video content. The Chromecast Plugin for Brightcove
-      Player enables the player to cast video from your desktop or
-      Android Chrome browser to the Chromecast device.
+      Google Chromecast is a device that you plug into your TV's HDMI port. Using your smartphone or computer as a remote control, you can use Chromecast to access video content. The Chromecast Plugin for Brightcove Player enables the player to cast video from your desktop or Android Chrome browser to the Chromecast device.
     </p>
     <p>The plugin supports all
-      Video Cloud videos or external streams using HLS or DASH, including
-      DRM-encrypted streams using Widevine. Advertising is supported through
-      Video Cloud server-side ad insertion (SSAI). Client-side ads and playlists
-      are not supported.</p>
+      Video Cloud videos or external streams using HLS or DASH, including DRM-encrypted streams using Widevine. Advertising is supported through Video Cloud server-side ad insertion (SSAI). Client-side ads and playlists are not supported.</p>
     <p>To use the plugin follow these steps:</p>
     <ol class="bcls-tasklist">
       <li>
         Load the Chromecast Plugin for Brightcove Player (detailed below).
       </li>
       <li>
-        Be sure the Chromecast device is on the same network as your device that
-        will play the video.
+        Be sure the Chromecast device is on the same network as your device that will play the video.
       </li>
       <li>Start playing the video.</li>
       <li>Click the cast button and select your Chromecast device.</li>
@@ -38,35 +28,24 @@ parent: Plugins
   <section class="bcls-section">
     <h2 id="Chromecast_app_components">Chromecast app components</h2>
     <p>
-      The software behind Chromecast is comprised of the following components:
-    </p>
+      The software behind Chromecast is comprised of the following components: </p>
     <ul>
       <li>
         <p>
-          <strong>Sender application</strong>: This is any application that can initiate a cast session and communicate with a receiver. The sender
-          application can be thought of as the "client side" portion of the
-          Chromecast ecosystem.
+          <strong>Sender application</strong>: This is any application that can initiate a cast session and communicate with a receiver. The sender application can be thought of as the "client side" portion of the Chromecast ecosystem.
         </p>
         <p>
-          The Chromecast Plugin for Brightcove Player enables the sender app in
-          Brightcove Player. You will learn about it in this topic.
+          The Chromecast Plugin for Brightcove Player enables the sender app in Brightcove Player. You will learn about it in this topic.
         </p>
       </li>
       <li>
         <p>
-          <strong>Receiver application</strong>: This is a custom web application that is hosted on the public internet and runs on a Chromecast device. It handles
-          communication between the sender app and the receiver device. It can be thought of as a single page HTML
-          app with CSS and JavaScript assets.
+          <strong>Receiver application</strong>: This is a custom web application that is hosted on the public internet and runs on a Chromecast device. It handles communication between the sender app and the receiver device. It can be thought of as a single page HTML app with CSS and JavaScript assets.
         </p>
         <!-- <p>
-          As a Brightcove Player customer, you do not need to work with the code
-          and configuration of the receiver application. By default, this plugin
-          uses the Brightcove receiver app.
-        </p> -->
-        <aside class="bcls-aside bcls-aside--information">
-          For Chromecast to work with domain restricted players, you should
-          whitelist the Chromecast receiver's domain, which is
-          <code translate="No">players.brightcove.net</code>.
+ As a Brightcove Player customer, you do not need to work with the code and configuration of the receiver application. By default, this plugin uses the Brightcove receiver app.
+ </p> -->
+        <aside class="bcls-aside bcls-aside--information"> For Chromecast to work with domain restricted players, you should whitelist the Chromecast receiver's domain, which is <code translate="No">players.brightcove.net</code>.
         </aside>
       </li>
     </ul>
@@ -74,28 +53,24 @@ parent: Plugins
   <section class="bcls-section">
     <h2 id="Requirements">Requirements</h2>
     <p>
-      The following requirements are needed for the Chromecast plugin:
-    </p>
+      The following requirements are needed for the Chromecast plugin: </p>
     <ul>
       <li>
         Brightcove Player v6.45.0 or newer
       </li>
       <li>
-        Brightcove Chromecast plugin v2.0.0 or newer
-      </li>
+        Brightcove Chromecast plugin v2.0.0 or newer </li>
     </ul>
     <h3>Devices</h3>
     <p>The following devices are supported:</p>
-     <ul>
-        <li>Chromecast (3rd Generation)</li>
-        <li>Chromecast Ultra</li>
-        <li>Chromecast with Google TV (preliminary support)</li>
-      </ul>
-      <aside class="bcls-aside bcls-aside--information">
-          Older versions or combinations may continue working, but they are not supported. 
-        </aside>
+    <ul>
+      <li>Chromecast (3rd Generation)</li>
+      <li>Chromecast Ultra</li>
+      <li>Chromecast with Google TV (preliminary support)</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information"> Older versions or combinations may continue working, but they are not supported.
+    </aside>
   </section>
-
   <section class="bcls-section">
     <h2 id="How_it_Works">How it Works</h2>
     <p>The current implementation (plugin/receiver version 2.x) uses the CAF (Cast Application Framework) API.</p>
@@ -103,8 +78,7 @@ parent: Plugins
       When the Chromecast receiver plugin is added, the player will display a cast button in the player UI when there is an available Chromecast on the local network.
     </p>
     <p>
-      When this button is clicked or tapped, a cast session is initiated with the current video that is loaded in the Brightcove Player. Here's how it works:
-    </p>
+      When this button is clicked or tapped, a cast session is initiated with the current video that is loaded in the Brightcove Player. Here's how it works: </p>
     <ol class="bcls-tasklist-restart">
       <li>The plugin sends a set of parameters to the receiver.</li>
       <li>The receiver mirrors the sending player by loading it from Brightcove's CDN.</li>
@@ -115,91 +89,60 @@ parent: Plugins
     <h3>Analytics</h3>
     <p>Currently, from an analytics perspective, the cast session is treated as an entirely new playback session.</p>
     <p>From a UX perspective, the viewer will see their stream pause on the sender device and resume on the receiver.</p>
-    <p>From a data perspective, because our metrics are anonymized by default, it is logged as a new viewer starting a new stream on a separate device. This is what actually happens.</p>    <aside class="bcls-aside bcls-aside--information language-editable">Also note that Chromecast is categorized in the Analytics Module either as <code translate="no">android</code> or <code translate="no">linux</code>,  depending on its user-agent and Chromecast version.</aside>
-
-    
+    <p>From a data perspective, because our metrics are anonymized by default, it is logged as a new viewer starting a new stream on a separate device. This is what actually happens.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Also note that Chromecast is categorized in the Analytics Module either as <code translate="no">android</code> or <code translate="no">linux</code>, depending on its user-agent and Chromecast version.</aside>
   </section>
-
   <section class="bcls-section">
     <h2 id="Using_the_plugin">Using the plugin</h2>
     <p>
-      The Chromecast Plugin for Brightcove Player is used like all other
-      Brightcove Player plugins, that is you must load the plugin into the
-      player.
+      The Chromecast Plugin for Brightcove Player is used like all other Brightcove Player plugins, that is you must load the plugin into the player.
     </p>
     <h3>Using Studio</h3>
     <p>The following steps detail using Studio to load the plugin.</p>
-    <aside class="bcls-aside bcls-aside--information">
-          When configured in Studio, the Player Management API will automatically select the best version combination for your player. If you get <strong>v1.x</strong> of the Chromecast plugin, you need to update your player!
-        </aside>
+    <aside class="bcls-aside bcls-aside--information"> When configured in Studio, the Player Management API will automatically select the best version combination for your player. If you get <strong>v1.x</strong> of the Chromecast plugin, you need to update your player!
+    </aside>
     <ol class="bcls-tasklist-restart">
       <li>
-        Open the <strong>PLAYERS</strong> module and either create a new player
-        or locate the player to which you wish to add the plugin.
+        Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.
       </li>
       <li>Select the link for the player to open the player's properties.</li>
       <li>In the left navigation menu, select <strong>Plugins</strong>.</li>
       <li>
         <p>
-          Next, select the <strong>Add a Plugin</strong> button, and then select
-          <strong>Brightcove Plugin</strong>.
+          Next, select the <strong>Add a Plugin</strong> button, and then select <strong>Brightcove Plugin</strong>.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Add a Plugin button"
-            src="/assets/images/plugins/chromecast/add-a-plugin.png"
-          />
-          <figcaption class="bcls-caption--image">
-            Add a Plugin button
+          <img class="bcls-image--no-border" alt="Add a Plugin button" src="/assets/images/plugins/chromecast/add-a-plugin.png" />
+          <figcaption class="bcls-caption--image"> Add a Plugin button
           </figcaption>
         </figure>
       </li>
       <li>
         <p>
-          Expand the <strong>Brightcove Plugin</strong> dropdown and select
-          <strong>Chromecast Receiver</strong>.
+          Expand the <strong>Brightcove Plugin</strong> dropdown and select <strong>Chromecast Receiver</strong>.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="chromcast-receiver"
-            src="/assets/images/plugins/chromecast/cast-receiver.png"
-          />
-          <figcaption class="bcls-caption--image">
-            Chromecast Receiver
+          <img class="bcls-image--no-border" alt="chromcast-receiver" src="/assets/images/plugins/chromecast/cast-receiver.png" />
+          <figcaption class="bcls-caption--image"> Chromecast Receiver
           </figcaption>
         </figure>
       </li>
       <li>
         <p>
-          <strong>Optional</strong>: Enter the configuration options in the
-          <strong>Options(JSON)</strong> text box. An example for the default
-          player in the <strong>1752604059001</strong> account is shown. You, of
-          course, need to enter information for your player.
+          <strong>Optional</strong>: Enter the configuration options in the <strong>Options(JSON)</strong> text box. An example for the default player in the <strong>1752604059001</strong> account is shown. You, of course, need to enter information for your player.
         </p>
-        <!-- <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Plugin options" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/chromecast/options.png" />
-	<figcaption class="bcls-caption--image">Plugin options</figcaption>
-	</figure> -->
-
+        <!-- <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Plugin options" src="//learning-services-media.brightcove.com/doc-assets/player-development/plugins/chromecast/options.png" /> <figcaption class="bcls-caption--image">Plugin options</figcaption> </figure> -->
         <pre class="line-numbers">
-<code class="language-json" translate="No">{
-"playerUrl" : "https://players.brightcove.net/1507807800001/default_default/index.min.js"
-}</code></pre>
+ <code class="language-json" translate="No">{ "playerUrl" : "https://players.brightcove.net/1507807800001/default_default/index.min.js"
+ }</code></pre>
         <p>See below for details on the options.</p>
       </li>
       <li>
         <p>
-          Select the <strong>Save</strong> button. You will now see the
-          <strong>Chromecast Receiver</strong> plugin added to the list of
-          plugins for your player.
+          Select the <strong>Save</strong> button. You will now see the <strong>Chromecast Receiver</strong> plugin added to the list of plugins for your player.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Plugin added"
-            src="/assets/images/plugins/chromecast/plugin-added.png"
-          />
+          <img class="bcls-image--no-border" alt="Plugin added" src="/assets/images/plugins/chromecast/plugin-added.png" />
           <figcaption class="bcls-caption--image">Plugin added</figcaption>
         </figure>
       </li>
@@ -210,48 +153,29 @@ parent: Plugins
       <li>To close the open dialog, select <strong>Close</strong>.</li>
       <li>
         <p>
-          Return to the <strong>MEDIA</strong> and publish your video or
-          playlist using the player you just updated for Chromecast.
+          Return to the <strong>MEDIA</strong> and publish your video or playlist using the player you just updated for Chromecast.
         </p>
         <p>
-          Once the plugin is loaded, the video has started playing, and an
-          available Chromecast device is in range, the cast button will appear
-          in the player as shown here in this screenshot of a player:
-        </p>
+          Once the plugin is loaded, the video has started playing, and an available Chromecast device is in range, the cast button will appear in the player as shown here in this screenshot of a player: </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image"
-            alt="Cast button"
-            width="800"
-            height="402"
-            src="/assets/images/plugins/chromecast/cast-button.png"
-          />
+          <img class="bcls-image" alt="Cast button" width="800" height="402" src="/assets/images/plugins/chromecast/cast-button.png" />
         </figure>
-        <aside class="bcls-aside bcls-aside--information">
-            The Chromecast plugin's cast button will appear in the player's
-            controlbar when an available Chromecast device is in range.
+        <aside class="bcls-aside bcls-aside--information"> The Chromecast plugin's cast button will appear in the player's controlbar when an available Chromecast device is in range.
         </aside>
       </li>
     </ol>
-
     <h3>Configuring manually</h3>
     <p>Follow these steps to add the plugin using the JSON editor:</p>
     <ol class="bcls-tasklist-restart">
       <li>
-        Open the <strong>PLAYERS</strong> module and either create a new player
-        or locate the player to which you wish to add the plugin.
+        Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.
       </li>
       <li>Select the link for the player to open the player's properties.</li>
       <li>
         <p>In the left navigation menu, select <strong>JSON Editor</strong>.</p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Add a Plugin button"
-            src="/assets/images/plugins/chromecast/json-editor.png"
-          />
-          <figcaption class="bcls-caption--image">
-            JSON Editor
+          <img class="bcls-image--no-border" alt="Add a Plugin button" src="/assets/images/plugins/chromecast/json-editor.png" />
+          <figcaption class="bcls-caption--image"> JSON Editor
           </figcaption>
         </figure>
       </li>
@@ -261,14 +185,13 @@ parent: Plugins
           Your code should look similar to this:
         </p>
         <pre class="line-numbers">
-<code class="language-json" translate="No">{
+ <code class="language-json" translate="No">{ 
   &quot;compatibility&quot;: true,
   &quot;video_cloud&quot;: {
-    &quot;policy_key&quot;: &quot;<span class="bcls-input">your policy key</span>&quot;
-  },
+    &quot;policy_key&quot;: &quot;<span class="bcls-input">your policy key</span>&quot; },
   &quot;player&quot;: {
     &quot;template&quot;: {
-      &quot;name&quot;: &quot;single-video-template&quot;,
+      &quot;name&quot;: &quot;single-video-template&quot;, 
       &quot;version&quot;: &quot;6.45.4&quot;
     }
   },
@@ -280,81 +203,57 @@ parent: Plugins
       &quot;units&quot;: &quot;px&quot;
     }
   },
-<span class="bcls-highlight">  &quot;plugins&quot;: [
-    {
-      &quot;name&quot;: &quot;chromecastReceiver&quot;,
-      &quot;options&quot;: {},
-      &quot;stylesheets&quot;: [&quot;https://players.brightcove.net/videojs-chromecast-receiver/2/videojs-chromecast-receiver.css&quot;],
-      &quot;scripts&quot;: [&quot;https://players.brightcove.net/videojs-chromecast-receiver/2/videojs-chromecast-receiver.js&quot;]
-    }
+  <span class="bcls-highlight">&quot;plugins&quot;: [ {
+    &quot;name&quot;: &quot;chromecastReceiver&quot;, 
+    &quot;options&quot;: {},
+    &quot;stylesheets&quot;: [&quot;https://players.brightcove.net/videojs-chromecast-receiver/2/videojs-chromecast-receiver.css&quot;], 
+    &quot;scripts&quot;: [&quot;https://players.brightcove.net/videojs-chromecast-receiver/2/videojs-chromecast-receiver.js&quot;] }
   ]</span>
-}</code></pre>
+ }</code></pre>
         <p>See below for details on the options.</p>
       </li>
-      
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="Configuration_options">Configuration options</h2>
     <p>No matter which method you choose to setup the Chromecast Plugin for Brightcove Player, you can pass options to modify plugin behavior. While setting these options is not necessary, additional customization is possible for advanced users. </p>
     <p>
-      To pass options in code, you would use something similar to the following:
-    </p>
+      To pass options in code, you would use something similar to the following: </p>
     <pre class="line-numbers">
-<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
-  var myPlayer = this;
-  options = {};
-  options.playerUrl = '//players.brightcove.net/1752604059001/default_default/index.min.js';
-  myPlayer.chromecastReceiver(options);
-});</code></pre>
-
+ <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() { var myPlayer = this;
+ options = {};
+ options.playerUrl = '//players.brightcove.net/1752604059001/default_default/index.min.js'; myPlayer.chromecastReceiver(options);
+ });</code></pre>
     <h3>Advice</h3>
     <p>If your web player(s) contains a large number of plugins or custom scripts, you should consider creating a lightweight player specifically for Chromecast playback.</p>
     <p>Since the web player and its playback engine are somewhat resource intensive, running in a resource constrained environment (such as a Chromecast) with additional heavy scripts can negatively impact the user experience!</p>
     <h3>Options</h3>
     <p>
-      The Chromecast plugin supports the following options:
-    </p>
+      The Chromecast plugin supports the following options: </p>
     <ul>
       <li>
-        <code translate="No">options.appName </code><br />
-        <strong>Type</strong>: <code translate="No">string</code><br />
-        <strong>Default</strong>: 'Brightcove Chromecast CAF v2.0' 
+        <code translate="No">options.appName </code><br /> <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: 'Brightcove Chromecast CAF v2.0'
         <p>Override the default application name with your own custom name.</p>
-        <aside class="bcls-aside bcls-aside--tip">
-            This option is available with the <a href="http://players.brightcove.net/release-notes/brightcove-player-chromecast-receiver/index.html">Chromecast Receiver plugin version 2.2.0</a> and newer.
+        <aside class="bcls-aside bcls-aside--tip"> This option is available with the <a href="http://players.brightcove.net/release-notes/brightcove-player-chromecast-receiver/index.html">Chromecast Receiver plugin version 2.2.0</a> and newer.
         </aside>
       </li>
       <li>
-        <code translate="No">options.playerUrl </code><br />
-        <strong>Type</strong>: <code translate="No">string</code><br />
-        <strong>Default</strong>: '' 
+        <code translate="No">options.playerUrl </code><br /> <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: ''
         <!-- <code translate="No">URL of current player</code> -->
         <!-- <p>
-          When unspecified, this will point to the player that is casting your
-          videos. Supplying this option will force the receiver to load a
-          specific player rather than the player that is currently casting the
-          video. This is useful when you want specific player code to only run
-          on the Chromecast.
-        </p> -->
+ When unspecified, this will point to the player that is casting your videos. Supplying this option will force the receiver to load a specific player rather than the player that is currently casting the video. This is useful when you want specific player code to only run on the Chromecast.
+ </p> -->
         <p>By default, the sender-side player is mirrored on the receiver. You can use this option to provide a custom receiver-side Brightcove Player URL.</p>
         <p>Since this is a Brightcove player that is loaded on the receiver, you can customize, style and debug the player outside of Chromecast.</p>
-        <aside class="bcls-aside bcls-aside--information">
-            This should be a URL to an <code translate="No">index.min.js</code> file on the Brightcove CDN
-        </aside>
+        <aside class="bcls-aside bcls-aside--information"> This should be a URL to an <code translate="No">index.min.js</code> file on the Brightcove CDN </aside>
       </li>
       <li>
-        <code translate="No">options.splashScreen </code><br />
-        <strong>Type</strong>: <code translate="No">string</code><br />
-        <strong>Default</strong>: '' 
+        <code translate="No">options.splashScreen </code><br /> <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: ''
         <p>The splash screen that should be shown before a video and when videos are switching.</p>
       </li>
       <li>
-        <code translate="No">options.authRequest </code><br />
-        <strong>Type</strong>: <code translate="No">string</code> or <code translate="No">object</code> or <code translate="No">function</code><br />
-        <strong>Default</strong>: {}<br /><br />
-         <aside class="bcls-aside bcls-aside--information">
-            This is an uncommon option, so you probably won't need it!
+        <code translate="No">options.authRequest </code><br /> <strong>Type</strong>: <code translate="No">string</code> or <code translate="No">object</code> or <code translate="No">function</code><br /> <strong>Default</strong>: {}<br /><br />
+        <aside class="bcls-aside bcls-aside--information"> This is an uncommon option, so you probably won't need it!
         </aside>
         <p>You can use this option if you need the Chromecast to perform a request to get authorization to play content before a video is requested.</p>
         <p>You can also use this to get cookies, but your server will have to be set up to allow <code translate="No">players.brightcove.net</code> the ability to have cross domain cookies set if you are hosting your own content.</p>
@@ -363,86 +262,79 @@ parent: Plugins
         <h4>Object usage</h4>
         <p>When <code translate="No">authRequest</code> is an object, it can be used to specify certain request payload properties:</p>
         <table class="bcls-table">
-            <thead class="bcls-table__head">
-                <tr>
-                    <th>Property</th>
-                    <th>Type</th>
-                    <th>Required</th>
-                    <th>Default</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody class="bcls-table__body">
-                <tr>
-                    <td><code translate="No">url</code></td>
-                    <td><code translate="No">string</code></td>
-                    <td>Yes</td>
-                    <td><code translate="No">''</code></td>
-                    <td>The URL to request</td>
-                </tr>
-                <tr>
-                    <td><code translate="No">method</code></td>
-                    <td><code translate="No">string</code></td>
-                    <td>No</td>
-                    <td><code translate="No">GET</code></td>
-                    <td>The HTTP method to use</td>
-                </tr>
-                <tr>
-                    <td><code translate="No">body</code></td>
-                    <td><code translate="No">string</code></td>
-                    <td>No</td>
-                    <td><code translate="No">''</code></td>
-                    <td>The request body</td>
-                </tr>
-                <tr>
-                    <td><code translate="No">headers</code></td>
-                    <td><code translate="No">object</code></td>
-                    <td>No</td>
-                    <td><code translate="No">{}</code></td>
-                    <td>An object describing HTTP headers where the keys are the header name and the properties are the header values</td>
-                </tr>
-                <tr>
-                    <td><code translate="No">withCredentials</code></td>
-                    <td><code translate="No">boolean</code></td>
-                    <td>No</td>
-                    <td><code translate="No">false</code></td>
-                    <td>An object describing HTTP headers where the keys are the header name and the properties are the header values</td>
-                </tr>
-                <tr>
-                    <td><code translate="No">timeout</code></td>
-                    <td><code translate="No">number</code></td>
-                    <td>No</td>
-                    <td><code translate="No">15000</code></td>
-                    <td>How many milliseconds to wait before giving up on the auth request</td>
-                </tr>
-            </tbody>
+          <thead class="bcls-table__head">
+            <tr>
+              <th>Property</th>
+              <th>Type</th>
+              <th>Required</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody class="bcls-table__body">
+            <tr>
+              <td><code translate="No">url</code></td>
+              <td><code translate="No">string</code></td>
+              <td>Yes</td>
+              <td><code translate="No">''</code></td>
+              <td>The URL to request</td>
+            </tr>
+            <tr>
+              <td><code translate="No">method</code></td>
+              <td><code translate="No">string</code></td>
+              <td>No</td>
+              <td><code translate="No">GET</code></td>
+              <td>The HTTP method to use</td>
+            </tr>
+            <tr>
+              <td><code translate="No">body</code></td>
+              <td><code translate="No">string</code></td>
+              <td>No</td>
+              <td><code translate="No">''</code></td>
+              <td>The request body</td>
+            </tr>
+            <tr>
+              <td><code translate="No">headers</code></td>
+              <td><code translate="No">object</code></td>
+              <td>No</td>
+              <td><code translate="No">{}</code></td>
+              <td>An object describing HTTP headers where the keys are the header name and the properties are the header values</td>
+            </tr>
+            <tr>
+              <td><code translate="No">withCredentials</code></td>
+              <td><code translate="No">boolean</code></td>
+              <td>No</td>
+              <td><code translate="No">false</code></td>
+              <td>An object describing HTTP headers where the keys are the header name and the properties are the header values</td>
+            </tr>
+            <tr>
+              <td><code translate="No">timeout</code></td>
+              <td><code translate="No">number</code></td>
+              <td>No</td>
+              <td><code translate="No">15000</code></td>
+              <td>How many milliseconds to wait before giving up on the auth request</td>
+            </tr>
+          </tbody>
         </table>
         <h4>Function usage</h4>
         <p>When <code translate="No">authRequest</code> is a function, it should return either a string or an object per those usages.</p>
       </li>
       <!-- <li>
-        <code translate="No">js </code><br />
-        <strong>Default</strong>: <code translate="No">[] </code>
-        <p>
-          An array of custom JavaScript to load after the player JavaScript has
-          loaded on the Chromecast receiver.
-        </p>
-      </li> -->
+ <code translate="No">js </code><br />
+ <strong>Default</strong>: <code translate="No">[] </code> <p>
+ An array of custom JavaScript to load after the player JavaScript has loaded on the Chromecast receiver.
+ </p>
+ </li> -->
       <!-- <li>
-        <code translate="No">css </code><br />
-        <strong>Type</strong>: <code translate="No">Array</code><br />
-        <strong>Default</strong>: <code translate="No">[] </code>
-        <p>
-          An array of custom CSS to load after the player CSS is loaded on the
-          Chromecast receiver.
-        </p>
-      </li> -->
+ <code translate="No">css </code><br />
+ <strong>Type</strong>: <code translate="No">Array</code><br /> <strong>Default</strong>: <code translate="No">[] </code> <p>
+ An array of custom CSS to load after the player CSS is loaded on the Chromecast receiver.
+ </p>
+ </li> -->
     </ul>
-    
   </section>
-
   <section class="bcls-section">
-    <h2 id="Limitations_and_known_issues">Limitations and known issues</h2> 
+    <h2 id="Limitations_and_known_issues">Limitations and known issues</h2>
     <ul>
       <li>
         HEVC/4K content is only supported on Chromecast Ultra devices and newer Chromecast with Google TV devices.
@@ -451,58 +343,42 @@ parent: Plugins
       <li>We have seen issues with seeking on the sender after a caption track has been selected and is displayed in the receiver.</li>
       <li>On Chromecast with Google TV devices, we have seen issues with the UI as well as playback issues when using captions.</li>
       <li>
-        Google has stopped supporting non-secure origins (HTTP) with Chromecast,
-        hence the plugin will not work in non-secure contexts. In these cases,
-        the player's Chromecast button will not appear.
+        Google has stopped supporting non-secure origins (HTTP) with Chromecast, hence the plugin will not work in non-secure contexts. In these cases, the player's Chromecast button will not appear.
       </li>
       <li>
-        Since the Chromecast Plugin relies on the browser's support for casting,
-        it is only supported in the following OS/browser combinations:
-        <ul>
+        Since the Chromecast Plugin relies on the browser's support for casting, it is only supported in the following OS/browser combinations: <ul>
           <li>Desktop/Chrome</li>
           <li>Android/Chrome</li>
         </ul>
       </li>
       <li>
-        Google does not support multiple instances of the Chromecast sender
-        button on a single page. Possible workarounds would be to embed the
-        Brightcove Player using the Standard (iframe) player implementation, or
-        to dynamically instantiate and destroy players as needed. See the
-        document
-        <a
-          href="/code-samples/brightcove-player-sample-loading-player-dynamically.html"
-          >Brightcove Player Sample: Loading the Player Dynamically</a
-        >
+        Google does not support multiple instances of the Chromecast sender button on a single page. Possible workarounds would be to embed the Brightcove Player using the Standard (iframe) player implementation, or to dynamically instantiate and destroy players as needed. See the document
+        <a href="/code-samples/brightcove-player-sample-loading-player-dynamically.html">Brightcove Player Sample: Loading the Player Dynamically</a>
         for information on the latter possibility.
       </li>
       <li>
-        This plugin does not cast to Google Nest Hub. The plugin only supports
-        actual Chromecast devices (i.e. Chromecast and Chromecast Ultra).
+        This plugin does not cast to Google Nest Hub. The plugin only supports actual Chromecast devices (i.e. Chromecast and Chromecast Ultra).
       </li>
     </ul>
   </section>
-
   <section class="bcls-section">
     <h2 id="Changes_from_v1_x_to_v2_x">Changes from v1.x to v2.x</h2>
     <p>Besides internal changes, like using the CAF API instead of the v2 Chromecast API, the following interfaces have changed:</p>
     <ul>
       <li>
-       <code translate="No">options.css</code> and <code translate="No">options.js</code> are no longer supported.
+        <code translate="No">options.css</code> and <code translate="No">options.js</code> are no longer supported.
       </li>
       <li><code translate="No">customData.analyticsParams</code> was added</li>
       <li><code translate="No">customData.catalogData</code> was renamed <code translate="No">customData.catalogParams</code> to improve consistency with other usages</li>
       <li><code translate="No">customData.policyKey</code> was replaced by <code translate="No">customData.catalogParams.policyKey</code></li>
       <li><code translate="No">customData.keySystems</code> was added</li>
-     
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="Changelog">Changelog</h2>
     <p>
       See the
-      <a href="http://players.brightcove.net/release-notes/brightcove-player-chromecast-receiver/index.html"
-        >Chromecast Receiver and Plugin Release</a
-      >.
+      <a href="http://players.brightcove.net/release-notes/brightcove-player-chromecast-receiver/index.html">Chromecast Receiver and Plugin Release</a>.
     </p>
     <p>For historical release notes, see the <a href="/plugins/changelog/chromecast-plugin-changelog.html">changelog here</a>.</p>
   </section>
