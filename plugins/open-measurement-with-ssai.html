@@ -17,11 +17,7 @@ layout: staging
     <p>The Open Measurement (OM) plugin includes an opt-in feature set that uses VAST ad verification data and OM service/client scripts imported by the user to manage client sessions and OM ad life-cycle events during live or VOD content playback.</p>
    
     <aside class="bcls-aside bcls-aside--information">
-      <p>Notes:</p>
-      <ul>
-        <li>Open Measurement features for SSAI are currently NOT supported for standard iframe player embeds and require advanced in-page player implementation.</li>
-        
-      </ul>
+      Open Measurement features for SSAI are currently NOT supported for standard iframe player embeds and require advanced in-page player implementation.
     </aside>
     <!-- <p>For a video overview, see the following:</p>
     <p>
@@ -33,26 +29,66 @@ layout: staging
     <p>Open Measurement session features for SSAI require the following:</p>
     <ul>
       <li>Active membership with the <a href="https://iabtechlab.com/">IAB Tech Lab</a> for organization name space registration and access to OM SDK files.</li>
-      <li>Full support for VAST companion ads</li>
-      <li>New APIs for interacting with the timeline and linear ad rolls</li>
-      <li>Support for playlists, ad macros, and FairPlay</li>
-      <li>SSAI works with both DRM and non-DRM content.</li>
-      <li>One of the primary roles of SSAI is to enforce certain behaviors around seeking and ads.</li>
-      <li>Dual support for legacy Once UX VMAPs (using the uo namespace) and new Dynamic Delivery VMAPs (using the bc namespace)</li>
+      <li>
+        Access to and ability to directly host the <code translate="No">omweb-v1.js</code> service script and the <code translate="No">omid-session-client-v1.js</code> session client (part of the Web Video OM SDK files provided by IAB).
+        <ul>
+          <li><p></p>Optionally, if using the domain access mode, <code translate="No">omloader-v1.html</code> is also required.</li>
+        </ul>
+      </li>
+      <li>The SSAI plugin must be initialized on the player with required options.</li>
+      <li>VMAP/VAST XML must include <code translate="No">AdVerifications</code> tags and nested content.</li>
     </ul>
+    <aside class="bcls-aside bcls-aside--tip">
+      <p>Steps to achieve membership with IAB, the access and hosting of necessary scripts, and OM compliance validation are not within the scope of this document.</p>
+      <p>Please visit the <a href="https://iabtechlab.com/standards/open-measurement-sdk/">IAB Open Measurement SDK</a> landing page for information and further guidance.</p>
+    </aside>
   </section>
   <section class="bcls-section">
-    <h2 id="Features">Features</h2>
-    <p>Brightcove SSAI is a modern replacement for Once UX ad serving. The features include:</p>
+    <h2 id="Features">SSAI Options for Open Measurement</h2>
+    <p>Options can be passed to the SSAI plugin at initialization. Both the <code translate="No">enableOM</code> and <code translate="No">omParams</code> options are required for an OM session to be started.</p>
+    <h3><code translate="No">enableOM</code></h3>
+    <p>If <code translate="No">true</code> (and the necessary Open Measurement SDK scripts have been successfully imported), the plugin will use values from the <code translate="No">omParams</code> object to start an OM manager and create a new OM session client.</p>
+    <h4>Example</h4>
+    <pre>
+<code class="language-json" translate="No">&quot;enableOM&quot;: true</code></pre>
+
+
+    <h3><code translate="No">omParams</code></h3>
+    <p>An object describing the required parameters for starting an Open Measurement session client and OM ad/media event calls.</p>
     <ul>
-      <li>More complete VMAP/VAST parsing</li>
-      <li>Full support for VAST companion ads</li>
-      <li>New APIs for interacting with the timeline and linear ad rolls</li>
-      <li>Support for playlists, ad macros, and FairPlay</li>
-      <li>SSAI works with both DRM and non-DRM content.</li>
-      <li>One of the primary roles of SSAI is to enforce certain behaviors around seeking and ads.</li>
-      <li>Dual support for legacy Once UX VMAPs (using the uo namespace) and new Dynamic Delivery VMAPs (using the bc namespace)</li>
+      <li>
+        <p><code translate="No">omParams.partnerName</code></p>
+        <p>Partner name string. This is name-spaced to an organization upon IAB partnership.</p>
+      </li>
+      <li>
+        <p><code translate="No">omParams.partnerVersion</code></p>
+        <p>Partner application version string in a semver format.</p>
+      </li>
+      <li>
+        <p><code translate="No">omParams.accessMode</code></p>
+        <p>Preferred access mode string. Values:</p>
+        <ul>
+          <li><code translate="No">limited</code></li>
+          <li><code translate="No">domain</code></li>
+          <li><code translate="No">creative</code></li>
+          <li><p><code translate="No">full</code></p></li>
+        </ul>
+        <p>A missing or unrecognized value here will cause the OM client to default to <code translate="No">limited</code>/</p>
+        <aside class="bcls-aside bcls-aside--information">
+          As of October 2021, the <code translate="No">creative</code> access mode is translated to <code translate="No">full</code> by the OM manager, per session client requirements, and will appear as <code translate="No">full</code> in the OM ad session call data.
+        </aside>
+      </li>
     </ul>
+    <h4>Example</h4>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;omParams&quot;: {
+  &quot;partnerName&quot;: &quot;IAB Partner Name&quot;,
+  &quot;partnerVersion&quot;: &quot;1.0.0&quot;,
+  &quot;accessMode&quot;: &quot;full&quot;
+}</code></pre>
+
+
+   
   </section>
   <section class="bcls-section">
     <h2 id="Getting_started">Getting started</h2>
