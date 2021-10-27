@@ -195,12 +195,27 @@ layout: staging
   }
 });</code></pre>        
           </li>
+          <li>
+        <p>Import the OM scripts.</p>
+        <p>The <code translate="No">omweb-v1.js</code> and <code translate="No">omid-session-client-v1.js</code> files must be imported ahead of any other script tags in the page DOM. These can be hosted locally or via a CDN.</p>
+        <p>Example</p>
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&lt;script src=&quot;./omweb-v1.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;./omid-session-client-v1.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;./video.core.js&quot;&gt;&lt;/script&gt;
+...</code></pre>
+           </li> 
         </ul>
+        <li>
+          <p>Add the <code translate="No">domain</code> access mode. (Optional)</p>
+          <p>The <code translate="No">domain</code> access mode parameter will cause the imported OM service script to look for <code translate="No">omloader-v1.html</code> file in the following relative directory path:</p>
+          <pre>
+<code class="language-json" translate="No">.well-known/omid/omloader-v1.html</code></pre>
+          <p>If the file is missing from that specific path, the OM session client will fail to start.</p>
+          <p>For details, see the <a href="https://omsdk-files.s3-us-west-2.amazonaws.com/docs/WebVideo/Publisher%2BQuick%2BStart%2BGuide.pdf"> IAB documentation for publishers regarding access modes</a>.</p>
+        </li>
       </li>
     </ol>
-   
-
-   
   </section>
 
 
