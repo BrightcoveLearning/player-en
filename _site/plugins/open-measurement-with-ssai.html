@@ -1153,7 +1153,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The Open Measurement (OM) plugin includes an opt-in feature set that uses VAST ad verification data and OM service/client scripts imported by the user to manage client sessions and OM ad life-cycle events during live or VOD content playback.</p>
    
     <aside class="bcls-aside bcls-aside--information">
-      Open Measurement features for SSAI are currently NOT supported for standard iframe player embeds and require advanced in-page player implementation.
+      Open Measurement features for SSAI are currently NOT supported with the <strong>Standard</strong> iframe player embed code. Instead, you must use the <strong>Advanced</strong> in-page player embed code.
     </aside>
     <!-- <p>For a video overview, see the following:</p>
     <p>
@@ -1270,7 +1270,68 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Enabling OM features for the <code translate="No">videojs-ssai</code> plugin is nearly identical to (and actively leverages) a regular SSAI implementation.</p>
     <ol class="bcls-tasklist">
       <li>
-        <h3>Import OM Scripts</h3>
+        <p>Import the OM scripts.</p>
+        <p>The <code translate="No">omweb-v1.js</code> and <code translate="No">omid-session-client-v1.js</code> files must be imported ahead of any other script tags in the page DOM. These can be hosted locally or via a CDN.</p>
+        <p>Example</p>
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&lt;script src=&quot;./omweb-v1.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;./omid-session-client-v1.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;./video.core.js&quot;&gt;&lt;/script&gt;
+...</code></pre>
+      </li>
+      <li>
+        <p>When initializing the SSAI plugin, you must set OM options as follows:</p>
+        <ul>
+          <li>The SSAI <code translate="No">enableOM</code> option must be set to true.</li>
+          <li><code translate="No">omParams.partnerName</code> must be provided as the organization's IAB name space.</li>
+          <li><code translate="No">omParams.partnerName</code> must be provided as the app version.</li>
+          <li><code translate="No">omParams.accessMode</code> is optional, though the session client will default to a limited access mode if none is provided.</li>
+        </ul>
+        <p>These options can be passed to the plugin using Brightcove Player configuration using either of the following:</p>
+        <ul>
+          <li>
+            <p>The Studio <strong>Custom Plugin Options(JSON)</strong></p>
+            <p>In Video Clud Studio, navigate to the <strong>Players</strong> module. In the left navigation, select <strong>Plugins</strong>. Click <strong>Add a Plugin</strong> and select <strong>Custom Plugin</strong>.</p>
+            <p>Example</p>
+            <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  &quot;enableOM&quot;: true,
+  &quot;omParams&quot;: {
+    &quot;partnerName&quot;: &quot;IAB Partner Name&quot;,
+    &quot;partnerVersion&quot;: &quot;1.0.0&quot;,
+    &quot;accessMode&quot;: &quot;full&quot;
+  }
+}</code></pre>
+          </li>
+          <li>
+            <p>The Studio <strong>JSON Editor</strong></p>
+            <p>In Video Clud Studio, navigate to the <strong>Players</strong> module. In the left navigation, select <strong>JSON Editor</strong>. In the <code translate="No">plugins</code> array, add the OM options to the <code translate="No">options</code> object.</p>
+            <p>Example</p>
+            <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;options&quot;: {
+  &quot;enableOM&quot;: true,
+  &quot;omParams&quot;: {
+    &quot;partnerName&quot;: &quot;IAB Partner Name&quot;,
+    &quot;partnerVersion&quot;: &quot;1.0.0&quot;,
+    &quot;accessMode&quot;: &quot;full&quot;
+  }
+}</code></pre>
+          </li>
+          <li>
+            <p>The in-page <code translate="No">ssai()</code> method</p>
+            <p>In Video Cloud Studio, navigate to the <strong>Media</strong> module. Select a video. Select <strong>Publish and embed</strong>. Copy the <strong>Advanced</strong> player embed code. Include the <code translate="No">ssai()</code> method along with any other ssai-related options upon initialization.</p>  
+            <p>Example</p>
+            <pre class="line-numbers">
+<code class="language-json" translate="No">let ssai = window.ssai = player.ssai({
+  enableOM: true,
+  omParams: {
+    partnerName: 'IAB Partner Name',
+    partnerVersion: '1.0.0',
+    accessMode: 'full'
+  }
+});</code></pre>        
+          </li>
+        </ul>
       </li>
     </ol>
    
