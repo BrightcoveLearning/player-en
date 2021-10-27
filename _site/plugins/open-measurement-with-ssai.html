@@ -1222,10 +1222,64 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   &quot;partnerVersion&quot;: &quot;1.0.0&quot;,
   &quot;accessMode&quot;: &quot;full&quot;
 }</code></pre>
+  </section>
 
+  <section class="bcls-section">
+    <h2 id="Player_and_Extension_Support">Player and Extension Support</h2>
+    <p>The Open Measurement (OM) manager uses data from VAST <code translate="No">AdVerifications</code> tags to communicate player, ad, and media event information before and during content playback via the OM session client.</p>
+    <p><code translate="No">AdVerifications</code> tag support using VAST 3.0 is provided via <code translate="No">Extensions</code>. <code translate="No">AdVerifications</code> tags are expected to be nested in the <code translate="No">InLine</code> element with VAST 4.0 and up.</p>
+
+    <h3>VAST 3.0</h3>
+    <pre>
+<code class="language-json" translate="No">VAST/Ad/InLine/Extensions/AdVerifications/...</code></pre>
+
+    <h3>VAST 4.0+</h3>
+    <pre>
+<code class="language-json" translate="No">VAST/Ad/InLine/AdVerifications/...</code></pre>
+
+    <h3>Sample <code translate="No">AdVerifications</code> Tag and Child Elements</h3>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&lt;AdVerifications&gt;
+  &lt;Verification vendor=&quot;sample-vendor&quot;&gt;
+    &lt;JavaScriptResource apiFramework=&quot;omid&quot; browserOptional=&quot;false&quot;&gt;
+      &lt;![CDATA[vendor-defined-url/omid-script.js]]&gt;
+    &lt;/JavaScriptResource&gt;
+    &lt;VerificationParameters&gt;
+      &lt;![CDATA[vendor-defined-content]]&gt;
+    &lt;/VerificationParameters&gt;
+  &lt;/Verification&gt;
+&lt;/AdVerifications&gt;</code></pre>
+
+    <p>The SSAI OM manager is specifically interested in the following items for session context definition:</p>
+    <ul>
+      <li><code translate="No">vendor</code> attribute</li>
+      <li><code translate="No">JavascriptResource</code> content</li>
+      <li><code translate="No">VerificationParameters</code> content</li>
+    </ul>
+
+    <aside class="bcls-aside bcls-aside--tip">
+      <p>The SSAI plugin parses VMAP/VAST XML to a more javascript-friendly object. You can access VAST ad data by calling the following:</p>
+      <pre>
+<code class="language-json" translate="No">player.ssai().vmap.adBreaks[i].adSource.vastAdData</code></pre>
+        <p>The use of <code translate="No">[i]</code> denotes that the property is an array.</p>
+    </aside>   
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Basic_OM_Integration_for_SSAI">Basic OM Integration for SSAI</h2>
+    <p>Enabling OM features for the <code translate="No">videojs-ssai</code> plugin is nearly identical to (and actively leverages) a regular SSAI implementation.</p>
+   
 
    
   </section>
+
+
+
+
+
+
+
+
   <section class="bcls-section">
     <h2 id="Getting_started">Getting started</h2>
     <p>To play server-side ads from Video Cloud, follow these steps:</p>
