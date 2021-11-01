@@ -13,7 +13,7 @@ parent: Plugins
     <p>
       The <a href="https://iabtechlab.com/standards/open-measurement-sdk/">Open Measurement SDK</a> for web video can be integrated with the <a href="/plugins/implementing-server-side-ads-brightcove-player.html">videojs-ssai</a> plugin to allow IAB partners and ad vendors “third-party” access to creative performance measurement data using a standardized API.
     </p>
-    <p>The Open Measurement (OM) plugin includes an opt-in feature set that uses VAST ad verification data and OM service/client scripts imported by the user to manage client sessions and OM ad life-cycle events during live or VOD content playback.</p>
+    <p>The SSAI plugin includes an opt-in feature set that uses VAST ad verification data and Open Measurement (OM) service/client scripts imported by the user to manage client sessions and OM ad life-cycle events during live or VOD content playback.</p>
    
     <aside class="bcls-aside bcls-aside--information">
       Open Measurement features for SSAI are currently NOT supported with the <strong>Standard</strong> iframe player embed code. Instead, you must use the <strong>Advanced</strong> in-page player embed code.
@@ -27,17 +27,19 @@ parent: Plugins
     <h2 id="Requirements">Requirements</h2>
     <p>Open Measurement session features for SSAI require the following:</p>
     <ul>
-      <li>Active membership with the <a href="https://iabtechlab.com/">IAB Tech Lab</a> for organization name space registration and access to OM SDK files.</li>
+      <li>Active membership with the <a href="https://iabtechlab.com/">IAB Tech Lab</a> for organization name space registration and access to OM SDK files</li>
       <li>
-        Access to and ability to directly host the <code translate="No">omweb-v1.js</code> service script and the <code translate="No">omid-session-client-v1.js</code> session client (part of the Web Video OM SDK files provided by IAB).
+        Access to and ability to directly host the following: 
         <ul>
-          <li><p></p>Optionally, if using the domain access mode, <code translate="No">omloader-v1.html</code> is also required.</li>
+          <li><code translate="No">omweb-v1.js</code> service script</li>
+          <li><code translate="No">omid-session-client-v1.js</code> session client (part of the Web Video OM SDK files provided by IAB)</li>
+          <li>Optionally, if using the domain access mode, <code translate="No">omloader-v1.html</code> is also required</li>
         </ul>
       </li>
-      <li>The SSAI plugin must be initialized on the player with required options.</li>
-      <li>VMAP/VAST XML must include <code translate="No">AdVerifications</code> tags and nested content.</li>
-      <li>Brightcove Player SSAI Plugin v1.14.0 supports OM features.</li>
-      <li>You must use a Brightcove Player version 6.61.0 or higher.</li>
+      <li>The SSAI plugin must be initialized on the player with required options</li>
+      <li>VMAP/VAST XML must include <code translate="No">AdVerifications</code> tags and nested content</li>
+      <li>Brightcove Player SSAI Plugin v1.14.0 or higher</li>
+      <li>Brightcove Player v6.61.0 or higher</li>
     </ul>
     <aside class="bcls-aside bcls-aside--tip">
       <p>Steps to achieve membership with IAB, the access and hosting of necessary scripts, and OM compliance validation are not within the scope of this document.</p>
