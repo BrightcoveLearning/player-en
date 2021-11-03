@@ -1364,6 +1364,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><a href="#disableCustomPlaybackForIOS10Plus">disableCustomPlaybackForIOS10Plus</a></li>
       <li><a href="#hardTimeouts">hardTimeouts</a></li>
       <li><a href="#ima3SdkSettings">ima3SdkSettings</a></li>
+      <li><a href="#omidAccessModeRules">omidAccessModeRules</a></li>
       <li><a href="#postrollTimeout">postrollTimeout</a></li>
       <li><a href="#prerollTimeout">prerollTimeout</a></li>
       <li><a href="#requestMode">requestMode</a></li>
@@ -1463,6 +1464,32 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">window.google.ima.ImaSdkSettings.setNumRedirects(3);
 window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
+
+    <h3 id="omidAccessModeRules">omidAccessModeRules</h3>
+
+    <p>Type: <code translate="No">Three access modes</code><br>Default Value: <code translate="No">undefined</code></p>
+
+    <p>The OM SDK supports running verification scripts in different access modes, which control how much the verification script can access. The three access modes are:</p>
+    <ul>
+      <li>FULL: The verification script has direct access to the creative and the publisher page.</li>
+      <li>DOMAIN: The verification script is sandboxed and cannot access the creative or publisher page. However, the script is loaded in such a way that it can directly confirm what publisher domain it is on.</li>
+      <li>LIMITED: The verification script is sandboxed and cannot access the creative or publisher page, and cannot directly confirm what publisher domain it is on.</li>
+    </ul>
+    <p>Use the <code>omidAccessModeRules</code> option as follows:</p>
+    <pre class="line-numbers"><code class="language-json" translate="No">{
+  omidAccessModeRules: {
+    "FULL": ["exampleRegexPattern1"],
+    "DOMAIN": ["exampleRegexPattern2", "exampleRegexPattern3"],
+    "LIMITED": []
+  }
+}</code></pre>
+
+    <p>Note that the <code>enableOmidBeta</code> feature flag must be set to <code>true</code> in the <code>ima3DskSettings</code> to enable <code>omidAccessModeRules</code>, as follows:</p>
+    <pre class="line-numbers"><code class="language-json" translate="No">{
+  "featureFlags": {
+    "enableOmidBeta": true
+  }
+}</code></pre>
 
     <h3 id="postrollTimeout">postrollTimeout</h3>
 
