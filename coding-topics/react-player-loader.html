@@ -1,13 +1,12 @@
 ---
 title: React Player Loader
-parent: Coding Topics
 description: 'In this topic, you will learn how to use the React Player Loader to load a Brightcove Player in the browser as a React component.
-    '
+<aside class="bcls-aside bcls-aside--warning">The React Player Loader is an open source tool and is NOT officially supported by Brightcove. Also, this library supports only Brightcove Players v6.11.0 and higher.</aside>'
+parent: Coding Topics
 ---
+<h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <h1>React Player Loader</h1>
-  <summary>{{ page.description }}</summary>
-<aside class="bcls-aside bcls-aside--warning">The React Player Loader is an open source tool and is NOT officially supported by Brightcove. Also, this library supports only Brightcove Players v6.11.0 and higher.</aside>
+    <summary>{{ page.description }}</summary>
 
 <section class="bcls-section">
 <h2 id="Overview">Overview</h2>
@@ -165,4 +164,69 @@ description: 'In this topic, you will learn how to use the React Player Loader t
 https://players.api.brightcove.com/v2/accounts/ACCOUNT_ID/players/default/configuration</code></pre>
 
 </section>
+
+<section class="bcls-section">
+  <h2 id="Using_Playback_Restrictions">Using Playback Restrictions</h2>
+  
+  <p>To use <a href="/playback/playback-restrictions-with-bcp.html">Playback Restrictions</a> with the React Player Loader, all you need to do is get a reference to the player and pass the JSON Web Token (JWT) to it.</p>
+  <p>Here's an example:</p>
+  <pre class="line-numbers">
+  <code class="language-html" translate="No">&lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    
+    &lt;head&gt;
+        &lt;title&gt;Brightcove Player&lt;/title&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;script crossorigin src=&quot;https://unpkg.com/react@16/umd/react.development.js&quot;&gt;&lt;/script&gt;
+        &lt;script crossorigin src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot;&gt;&lt;/script&gt;
+        &lt;script crossorigin
+            src=&quot;https://solutions.brightcove.com/bcls/brightcove-player/reactjs/brightcove-react-player-loader.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    
+    &lt;body&gt;
+        &lt;main&gt;
+            &lt;h1&gt;Brightcove Player&lt;/h1&gt;
+            &lt;div id='container'&gt;&lt;/div&gt;
+    
+        &lt;/main&gt;
+    &lt;/body&gt;
+    &lt;script&gt;
+        var React = window.React;
+        var ReactDOM = window.ReactDOM;
+        var ReactPlayerLoader = window.BrightcoveReactPlayerLoader;
+        var myJwtToken = &quot;<span class="bcls-input">your jwt token</span>&quot;;
+        var myVideoId = &quot;<span class="bcls-input">your video Id</span>&quot;;
+    
+        // +++ Add the Brightcove Player +++
+        var reactPlayerLoader = window.reactPlayerLoader = ReactDOM.render(
+            React.createElement(ReactPlayerLoader, {
+                accountId: '<span class="bcls-input">your account Id</span>',
+                onSuccess: function (success) {
+                    console.log(reactPlayerLoader.player);
+                    // Get a reference to the BC Player
+                    var myPlayer = success.ref;
+                    // When ready...
+                    myPlayer.ready(function () {
+                        myPlayer.catalog.get({
+                            id: myVideoId,
+                            type: 'video',
+                            <span class="bcls-highlight">bcovAuthToken: myJwtToken</span>
+                        }).
+                            then(function (data) {
+                                myPlayer.catalog.load(data);
+                                myPlayer.muted(true);
+                                myPlayer.play();
+                            }).
+                            catch(function (error) {
+                                throw new Error(error);
+                            });
+                    });
+                }
+            }),
+            document.getElementById('container')
+        );
+    &lt;/script&gt;
+    &lt;/html&gt;</code></pre>
+  
+  </section>
 </article>
