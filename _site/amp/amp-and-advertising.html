@@ -1219,7 +1219,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>Configure the player without an ad server URL using the following:</p>
         <pre><code class="language-javascript">videojs.registerPlugin('setAdUrl', function() {
   this.ima3.settings.serverUrl = function(callback) {
-    if (window.queryStringParams.ampInitialConsentState === 1) {
+    if (window.queryStringParams.ampInitialConsentState === '1') {
       // Sufficient consent
       callback('https://ads.example.com/adwithconsent?string={pageVariable.queryStringParams.ampInitialConsentValue}');
     } else {
