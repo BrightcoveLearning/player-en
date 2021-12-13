@@ -1,22 +1,24 @@
 ---
 title: 'Brightcove Player Sample: Playback Rate Adjuster'
-description: 'In this topic, you will learn how to add a playback rate button to the Brightcove Player control bar, and use middleware to properly display the current time and video duration as you switch between playback speeds.'
+description: '<aside class="bcls-aside bcls-aside--warning">
+  <p>This sample is no longer needed since playback rate control is now a standard part of the player</p>
+  <p>Learn how to add a playback rate selector to your player: <a href="/general/player-configuration-guide.html#playback_rates">Player Configuration: playback_rates</a>.</p> </aside>'
 parent: Code Samples
 ---
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
 
+  <!-- <summary>In this topic, you will learn how to add a playback rate button to the Brightcove Player control bar, and use middleware to properly display the current time and video duration as you switch between playback speeds.</summary>
+
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
-    <!-- UPDATE description -->
     
     <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>Start video playback and select the playback rate button in the control bar (default is 1x). Choose a different rate to see how video playback speed changes. Notice that when you change the playback rate, the duration time displayed is re-calculated based on the selected rate.</p>
-    <!-- <aside class="bcls-aside bcls-aside--tip">If you don't want to code the middleware functions, you can use a plug and play solution. For details, see the  <a href="#Code_in_a_separate_JavaScript_file">Code in a separate JavaScript file</a> section.</aside> --><!-- UPDATE codepen here -->
     
     <p data-height="490" data-theme-id="34967" data-slug-hash="aGEVYZ" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="Playback Rate Adjuster" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/aGEVYZ/">Playback Rate Adjuster</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
     
     <h3>Source code</h3>
           <p>View the <a href="https://github.com/BrightcoveLearning/18597-playback-rate-adjuster">complete solution on GitHub</a>.</p>
@@ -89,7 +91,6 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
-    <!-- UPDATE table, remove unneeded columns -->
     
     <table class="bcls-table">
       <thead class="bcls-table__head">
@@ -110,7 +111,6 @@ parent: Code Samples
       </tbody>
     </table>
   </section>
-  <!-- UPDATE player and HTML configuration -->
   
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
@@ -123,7 +123,6 @@ parent: Code Samples
 <code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
   </section>
-  <!-- UPDATE application flow -->
   
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
@@ -134,7 +133,6 @@ parent: Code Samples
       <li>Define the playback rate options</li>
       <li>Initialize the playback rate button</li>
     </ul>
-    <!-- UPDATE task 1 -->
     
     <h3>Define the middleware functions</h3>
     <p>Find the code which is labeled:</p>
@@ -167,21 +165,18 @@ parent: Code Samples
         </ol>
       </li>
     </ol>
-    <!-- UPDATE task 5 -->
     
     <h3>Register the middleware with the player</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Register the middleware with the player +++</code></pre>
     <p>Register the middleware function with the player using the <code translate="No">use()</code> method.</p>
-    <!-- UPDATE task 6 -->
     
     <h3>Define the playback rate options</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Define the playback rate options +++</code></pre>
     <p>Define the playback rates that you want displayed in the playback rate menu button.</p>
-    <!-- UPDATE task 7 -->
     
     <h3>Initialize the playback rate button</h3>
     <p>Find the code which is labeled:</p>
@@ -189,7 +184,6 @@ parent: Code Samples
 <code class="language-javascript" translate="No">// +++ Initialize the playback rate button +++</code></pre>
     <p>Add the playback rate menu button to the player control bar, and initialize it with the values specified in the options object.</p>
   </section>
-  <!-- UPDATE CSS description -->
   
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
@@ -235,5 +229,6 @@ parent: Code Samples
       <p>The <strong>videojs-playbackrate-adjuster</strong> middleware is published to <strong>npm</strong> and available to include in your project: <a href="//unpkg.com/videojs-playbackrate-adjuster@1.0.0/dist/browser/videojs-playbackrate-adjuster.min.js">//unpkg.com/videojs-playbackrate-adjuster@1.0.0/dist/browser/videojs-playbackrate-adjuster.min.js</a></p>
       <p>Note that the <strong>unpkg.com</strong> site is free and open source. It does not guarantee uptime and infrastructure support.</p>
     </aside>
-  </section>
+  </section> -->
+
 </article>
