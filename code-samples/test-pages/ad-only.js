@@ -109,10 +109,13 @@ window.Promise || document.write('<script src="https://unpkg.com/es6-promise@3.2
 		player.on('ima3-ready', function() {
       console.log("ima3 ready");
 			// if the user has provided an in-line VAST ad server response use that instead of the ad tag
+      // console.log("use in-line VAST instead of ad tag",options.adsResponse);
 			if (options.adsResponse) {
-        console.log("use in-line VAST instead of ad tag");
+        console.log("in adsResponse section",options.adsResponse);
 				// re-map the requestAds function so we can intercept and change the adsRequest parameter
+        console.log("player request ads:",player.ima3);
 				player.ima3.adsLoader.__origRequestAdsFunc = player.ima3.adsLoader.requestAds;
+        console.log("adsRequest is this object value:",adsRequest);
 				player.ima3.adsLoader.requestAds = function(adsRequest) {
 					adsRequest.adTagUrl = null; // don't use the ad tag
 					adsRequest.adsResponse = options.adsResponse; // set the in-line VAST response

@@ -1166,7 +1166,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
     
-    <p>This sample provides helper JavaScript functions that demonstrate how to dynamically adjust the size of a <code translate="No">&lt;div&gt;</code> element in the page DOM, inject the Brightcove Player there, load and play an ad, and then remove the player. The ad that plays is configured either from an ad tag or in a VAST XML document. The player is set to autoplay and muted by default, which is the only way it will work in some browsers. You can change these settings if you choose.</p>
+    <p>This sample provides helper JavaScript functions that demonstrate how to dynamically adjust the size of a <code translate="No">&lt;div&gt;</code> element in the page DOM, inject the Brightcove Player there, load and play an ad, and then remove the player. The ad that plays is configured either from an ad tag. The player is set to autoplay and muted by default, which is the only way it will work in some browsers. You can change these settings if you choose.</p>
     <p>This sample can be used as-is or can be copied and modified to work with your custom page design.</p>
     <!-- UPDATE codepen here -->
     
@@ -1231,7 +1231,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>This sample shows a text-article-style web page with a hidden <code translate="No">&lt;div&gt;</code> element placed within the article. After a timer goes off, this hidden div is expanded and the player appears within it.</p>
         <aside class="bcls-aside bcls-aside--tip">You could modify this example to react to other conditions rather than a timer, for example user scrolling that brings a certain section of the page into view.</aside>
       </li>
-      <li>The player uses in-line VAST to play an ad. You can comment this out and un-comment the ad tag section if you want to use an ad tag adsResponse.</li>
+      <!-- <li>The player uses in-line VAST to play an ad. You can comment this out and un-comment the ad tag section if you want to use an ad tag adsResponse.</li> -->
+      <li>The player uses a VAST ad tag response to play an ad.</li>
       <li>When the ads are finished playing, the player is unloaded and removed from the DOM.</li>
     </ul>
   </section>
@@ -1299,11 +1300,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <li>The ad tag</li>
         </ul>
       </li>
-      <li><code translate="No">adsResponse</code>
+      <!-- <li><code translate="No">adsResponse</code>
         <ul>
           <li>In-line VAST string. If provided, it overrides the ad tag. Either the adTag or adsResponse must be supplied</li>
         </ul>
-      </li>
+      </li> -->
       <li><code translate="No">div</code>
         <ul>
           <li>The div where you want the ad player to be injected</li>
