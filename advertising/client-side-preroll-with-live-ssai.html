@@ -128,10 +128,10 @@ parent: Advertising
 </ol>
 </section>
 <section class="bcls-section">
-  <h2 id="Triggering_custom_player_events">Triggering custom player events</h2>
-  <p>When using this feature to trigger an IMA pre-roll ad, custom player events will not be triggered during SSAI playback.</p>
-  <p>The <code translate="No">ima_preroll_with_ssai</code> feature is designed to dispose of the player after displaying the IMA3 ad. Then, another player with the same id is re-initialized. This is why custom ad events won't be triggered with the initial player.</p>
-  <p>A reasonable workaround to ensure that custom ad listeners are triggered is to wrap them in a player <code translate="No">dispose</code> event listener and a videojs <code translate="No">setup</code> hook which is called after a player is created.</p>
+  <h2 id="Listening_to_player_events">Listening to player events</h2>
+  <p>When using this feature, player event listeners that are bound before or during the IMA pre-roll ad will need to be re-bound before SSAI playback begins.</p>
+  <p>The <code translate="No">ima_preroll_with_ssai</code> feature is designed to dispose of the player after displaying the IMA3 ad. Then, another player with the same id is re-initialized. This is why events won't be triggered with the initial player.</p>
+  <p>A reasonable workaround to ensure that player event listeners are triggered is to wrap them in a player <code translate="No">dispose</code> event listener and a videojs <code translate="No">setup</code> hook which is called after a player is created.</p>
   <p>Here is a code example:</p>
   <pre class="line-numbers"><code class="language-javascript" translate="No">const playerId = 'samplePlayer';
     let player = videojs.getPlayer(playerId);
