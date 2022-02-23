@@ -1161,12 +1161,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <h1>Adding Captions to Videos Programmatically</h1>
   <summary>In this topic, you will learn how to add captions to videos using the Brightcove Player.</summary>
   <style type="text/css">
-.vjs-text-track {
-	background-color: black;
-	font-size: medium;
-	font-weight: bold;
-}
-</style>
+    .vjs-text-track {
+      background-color: black;
+      font-size: medium;
+      font-weight: bold;
+    }
+  </style>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>Closed captions can be added to your videos to provide additional or interpretive information to individuals who wish to access it. Captions are necessary so the deaf and hard of hearing can access the audio portion of video presentations. To display captions for a video in the Brightcove Player, you need to complete the following tasks:</p>
@@ -1346,7 +1346,8 @@ you can accomplish using it.</code></pre>
         <tr>
           <td><code translate="No">backgroundOpacity</code></td>
           <td><code translate="No">1</code> (opaque)<br />
-            <code translate="No">.5</code> (semi-transparent)</td>
+            <code translate="No">.5</code> (semi-transparent)
+          </td>
         </tr>
         <tr>
           <td><code translate="No">color</code></td>
@@ -1386,7 +1387,8 @@ you can accomplish using it.</code></pre>
         <tr>
           <td><code translate="No">textOpacity</code></td>
           <td><code translate="No">1</code> (opaque)<br />
-            <code translate="No">.5</code> (semi-transparent)</td>
+            <code translate="No">.5</code> (semi-transparent)
+          </td>
         </tr>
         <tr>
           <td><code translate="No">windowColor</code></td>
@@ -1396,7 +1398,8 @@ you can accomplish using it.</code></pre>
           <td><code translate="No">windowOpacity</code></td>
           <td><code translate="No">1</code> (opaque)<br />
             <code translate="No">.5</code> (semi-transparent)<br />
-            <code translate="No">0</code> (transparent)</td>
+            <code translate="No">0</code> (transparent)
+          </td>
         </tr>
       </tbody>
     </table>
@@ -1498,17 +1501,21 @@ you can accomplish using it.</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="limitations">Limitations</h2>
-    <p>Captions are supported on the following device types and operating systems.</p>
     <ul>
-      <li>iOS 9+</li>
-      <li>Android 4+</li>
-      <li>Internet Explorer 8+</li>
-      <li>The latest Chrome, Safari, and Firefox browsers on desktops</li>
+      <li>Captions are supported on the following device types and operating systems.
+        <ul>
+          <li>iOS 9+</li>
+          <li>Android 4+</li>
+          <li>Internet Explorer 8+</li>
+          <li>The latest Chrome, Safari, and Firefox browsers on desktops</li>
+        </ul>
+      </li>
+      <li>Because Safari uses the native capabilities for styling captions, the <strong>Captions Settings</strong> menu option is not available in the the <strong>CC</strong> menu on Safari browsers (both iOS and macOS).</li>
+      <li>As noted earlier in the document, and repeated here, for viewers on iOS devices, when viewing videos with captions and ads, we suggest that you explicitly select a track and not set captions to Auto (Recommended) when the video is playing. Using the Auto (Recommended) setting may display incorrect subtitles for ads. Note that using the Auto (Recommended) setting does not affect the captions display for the actual video. Viewers will see video captions for ads but once the video starts playing (pre-rolls) or resumes (mid-rolls), captions will appear as expected. Also note that this "Auto" option cannot be removed due to an OS limitation from Apple. Apple devices use their own native player, therefore, customizing caption options is not possible.
+      </li>
     </ul>
-    <aside class="bcls-aside bcls-aside--information">Because Safari uses the native capabilities for styling captions, the <strong>Captions Settings</strong> menu option is not available in the the <strong>CC</strong> menu on Safari browsers (both iOS and macOS).</aside>
   </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
@@ -1524,7 +1531,7 @@ you can accomplish using it.</code></pre>
 
 <hr>
 <div class="last-updated">
-  Page last updated on 19 Jun 2021
+  Page last updated on 23 Feb 2022
 </div>
 
 
