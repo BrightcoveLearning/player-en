@@ -1163,17 +1163,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <br />
 
   <aside class="bcls-aside bcls-aside--warning">
-    <p>
-      <strong style="color:#990000">Note:</strong> By default, updates are applied to all players automatically. To prevent auto-updating of a player you must set it to manual updating (also known as locking a player). You can do this in the <a href="https://studio.support.brightcove.com/players/setting-player-update-mode-and-version.html">Studio Players module (external site)</a> or using the <a href="https://apis.support.brightcove.com/player-management/guides/opting-out-automatic-player-updates.html">Player Management API</a>.
-    </p>
-    <p>
-      Opting out of auto-updates should be a temporary measure, applied while you resolve any issues that the update creates. If you do not update players to the current version, you are missing out on new features and bug-fixes, and older versions of the player will cease to be supported at
-      some point.</p>
-    <p>For older player release notes, see <a href="/release-notes/brightcove-player-release-notes-archive.html">the archive</a>.</p>
-    <p>For older plugin release notes, see the individual <a href="/plugins/index.html">plugin pages</a>.</p>
+    <strong style="color:#990000">Note:</strong>:
+    <ul>
+      <li><strong>This page tracks Brightcove Player available <em>versions</em>, current<em> pre-releases</em>, and <em>stable releases</em>.</strong></li>
+      <li>By default, updates are applied to all players automatically. To prevent auto-updating of a player you must set it to manual updating (also known as locking a player). You can do this in the <a href="https://studio.support.brightcove.com/players/setting-player-update-mode-and-version.html">Studio Players module (external site)</a> or using the <a href="https://apis.support.brightcove.com/player-management/guides/opting-out-automatic-player-updates.html">Player Management API</a>.</li>
+      <li>Opting out of auto-updates should be a temporary measure, applied while you resolve any issues that the update creates. If you do not update players to the current version, you are missing out on new features and bug-fixes, and older versions of the player will cease to be supported at some point.</li>
+    </ul>
   </aside>
+  <h3>Available version entries</h3>
+  <p>Available version entries (formatted like <strong>v1.2.3</strong>) indicate a Player version that has been made available as a pre-release for manual update through the Studio JSON editor or the Player Management API. These entries represent every version of the Player that is available for use and the changes each version includes from the previous available version. When a Player version is made available, no players are auto-updated, but they may be used for verification of bug fixes or similar.</p>
+
+  <h3>Current pre-release entries</h3>
+  <p>Current pre-release entries (formatted like <strong>v1.2.3-pre-release</strong>) record the time when a Player version has been promoted to the current pre-release state. This will cause players that have opted-in to the latest pre-release in Studio to be auto-updated. Not all available versions become a current pre-release.</p>
+
+  <h3>Stable release entries</h3>
+  <p>Stable release entries (formatted like <strong>v1.2.3-release</strong>) record the time when a Player version has been promoted to the current stable release state. This will cause all players in <strong>automatic update mode</strong> in Studio to be updated and republished. Further, this sets default version for newly created players. Not all available versions become a current stable release.</p>
+
+
   <section class="bcls-section">
-    <iframe src="https://players.brightcove.net/release-notes/index.html" frameborder="0" style="width: 100%;height:100%;min-height: 3000px;"></iframe>
+    <iframe src="https://players.brightcove.net/release-notes/brightcove-player/index.html" frameborder="0" style="width: 100%;height:100%;min-height: 3000px;"></iframe>
   </section>
 </article>
 <!-- complete bootstrap layout -->
