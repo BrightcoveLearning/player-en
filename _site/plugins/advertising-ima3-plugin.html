@@ -1732,8 +1732,12 @@ myPlayer.ima3({
         <tr>
           <td>{document.referrer}</td>
           <td>Referring page URL. <aside class="bcls-aside bcls-aside--tip">
-              <p>Within the player iframe, <code translate="no">{document.referrer}</code> may not be able to determine the embedding site URL, as the value returned will depend on the referrer policy set by the browser and/or the site implementation. Notably Chrome now defaults to <strong>origin-when-cross-origin</strong> policy, which means <code translate="no">{document.referrer}</code> within the player frame will only get the origin. If you need the referrer to be available within the player, you can set a less restrictive policy on the iframe element, or pass the <code translate="no">pageURL</code> in a different way, such as a query parameter.</p>
-              <p>For more information, see Mozilla's <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> document.</p>
+              <ul>
+                <li>Within the player iframe, <code translate="no">{document.referrer}</code> may not be able to determine the embedding site URL, as the value returned will depend on the referrer policy set by the browser and/or the site implementation. Notably Chrome now defaults to <strong>origin-when-cross-origin</strong> policy, which means <code translate="no">{document.referrer}</code> within the player frame will only get the origin.</li>
+                <li>If you need the referrer to be available within the player, you can set a less restrictive policy on the iframe element, or pass the <code translate="no">pageURL</code> in a different way, such as a query parameter.</li>
+                <li>For more information, see Mozilla's <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> document.</li>
+                <li>The <code>{document.referrer}</code> macro can be replaced with an empty string due to cross-origin rules set by the parent page. In such cases, the <code>{window.location.href}</code> macro works as a replacement and it should be more reliable than <code>{document.referrer}</code>.</li>
+              </ul>
             </aside>
           </td>
         </tr>
