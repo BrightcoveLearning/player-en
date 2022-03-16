@@ -1154,167 +1154,193 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 
 <article class="bcls-article">
-<h1>360°/VR Video Plugin Changelog</h1>
-<summary>The following tracks changes to the plugin:</summary>
-<section class="bcls-section">
-  <h2 id="Changelog">Changelog</h2>
-  <h4>3 Mar 2020</h4>
-  <p>v1.7.2</p>
-  <ul>
-    <li>Null check fullscreen toggle to fix iOS without it.</li>
-  </ul> 
-  <h4>18 Nov 2019</h4>
-  <p>v1.7.1</p>
-  <ul>
-    <li>Increased touchmove threshold for "taps" on mobile</li>
-    <li>Added generator-helper dependencies back in</li>
-    <li>Added lint-staged as developer dependency</li>
-    <li>Fixed up package-lock URLs</li>
-  </ul>
-  <h4>9 Sep 2019</h4>
-  <p>v1.7.0</p>
-  <ul>
-    <li>Added support for Spatial audio rendering via Omnitone</li>
-  </ul>
-  <h4>28 Aug 2019</h4>
-  <p>v1.6.0</p>
-  <ul>
-    <li>Added 180 projection support</li>
-    <li>Added an initialization event that triggers after init() is finished</li>
-    <li>Added YouTube Equi-Angular Cubemap (EAC) projection</li>
-    <li>Updated <strong>npm-run-all</strong> to 4.1.5</li>
-    <li>Fixed JavaScript highlight in README.md</li>
-    <li>Updated examples and readme</li>
-    <li>Added a test, fix the build, update generator verison</li>
-    <li>Bug fix: Prevented switching to lowest resolution HLS resolution, due to non-displayed video</li>
-  </ul>
-  <h4>17 Sep 2018</h4>
-  <p>v1.5.0</p>
-  <ul>
-    <li>New feature: Motion controls option</li>
-    <li>Bug fix: Removed the postinstall script to prevent install issues</li>
-    <li>Updated to <strong class="nontranslate">generator-videojs-plugin 7.2.0 </strong></li>
-    <li>Updated <strong>videojs-generate-rollup-config</strong> to version 2.2.0</li>
-  </ul>
-  <h4>23 Aug 2018</h4>
-  <p>v1.4.7</p>
-  <ul>
-    <li>Using Generator 7</li>
-  </ul>
-  <h4>8 Aug 2018</h4>
-  <p>v1.4.6</p>
-  <ul>
-    <li>Updated dependencies</li>
-  </ul>
-  <h4>3 Aug 2018</h4>
-  <p>v1.4.5</p>
-  <ul>
-    <li>Babel the ES distribution by updating the generator</li>
-  </ul>
-  <h4>1 Aug 2018</h4>
-  <p>v1.4.4</p>
-  <ul>
-    <li>Dispose of event listeners on window correctly</li>
-  </ul>
-  <h4>20&nbsp;Jul 2018</h4>
-  <p>v1.4.3</p>
-  <ul>
-    <li>Corrected incorrect CSS naming</li>
-  </ul>
-  <h4>5 July 2018</h4>
-  <p>v1.4.2</p>
-  <ul>
-    <li>Update to generator v6</li>
-  </ul>
-  <h4>18 Jun 2018</h4>
-  <p>v1.4.1</p>
-  <ul>
-    <li>Bug fixed: iOS sizing issue when deactivating VR display</li>
-  </ul>
-  <h4>8 Jun 2018</h4>
-  <p>v1.4.0</p>
-  <ul>
-    <li>Hide control bar while moving, allow clicking to play/pause, allow right click</li>
-    <li>Update rollup and rollup-plugin-json</li>
-  </ul>
-  <h4>23 May 2018</h4>
-  <p>v1.3.0</p>
-  <ul>
-    <li>Now handles 360_CUBE projection</li>
-    <li>Bug Fix: FrontSide -&gt; BackSide for 360 videos due to changes in three.js</li>
-    <li>Bug Fix: No rotate instructions and iOS back arrow fix</li>
-    <li>Bug Fix: Re-implement touch pan controls</li>
-    <li>Bug Fix: Remove Safari video image canvas work-around</li>
-    <li>Bug Fix: vjs-fluid class usage, and remove <code translate="No">mutationobserver </code> work-around</li>
-    <li>Updated <strong>rollup</strong> to version 0.58.2</li>
-    <li>Updated <strong>rollup-plugin-babel</strong> to version 3.0.4</li>
-    <li>Updated <strong>rollup-plugin-commonjs</strong> to version 9.1.3</li>
-    <li>Updated <strong>three</strong> to version 0.92.0</li>
-  </ul>
-  <h4>8 May 2018</h4>
-  <p>v1.2.1</p>
-  <ul>
-    <li>Correctly show an error in IE/Safari when WebVR is unsupported</li>
-  </ul>
-  <h4>27 Mar 2018</h4>
-  <p>v1.2.0</p>
-  <ul>
-    <li>Bug fix: Chrome m55 Android gyro breakage by updating <strong>webvr-polyfill</strong></li>
-    <li>Updated <strong>Rollup</strong> to version 0.57.1</li>
-  </ul>
-  <h4>20 Feb 2018</h4>
-  <p>v1.1.1</p>
-  <ul>
-    <li>Expose version correctly</li>
-    <li><strong>OrbitControls</strong>: no pan, less speed, no zoom</li>
-    <li>Rework three example builds to fix webpack</li>
-  </ul>
-  <h4>31 Jan 2018</h4>
-  <p>v1.1.0</p>
-  <ul>
-    <li>Removed three unnecessary JavaScript files from the repo</li>
-    <li>Bug Fixes
-      <ul>
-        <li>Default projection typo</li>
-        <li>Native WebVR</li>
-        <li>Safari HLS</li>
-      </ul>
-    </li>
-  </ul>
-  <h4>4 Dec 2017</h4>
-  <p>v1.0.3</p>
-  <ul>
-    <li>Implemented workaround for firefox/polyfill display issue</li>
-  </ul>
-  <h4>19 Oct 2017</h4>
-  <p>v1.0.2</p>
-  <ul>
-    <li>Makes stereo modes so actually stereo</li>
-    <li>Updated information in readme about equirectangular</li>
-  </ul>
-  <h4>29 Aug 2017</h4>
-  <p>v1.0.1</p>
-  <ul>
-    <li>Made the <code translate="No">projection </code> values <code translate="No">equirectangular </code> and <code translate="No">360 </code> equivalent.</li>
-  </ul>
-  <h4>24 Aug 2017</h4>
-  <p>v1.0.0</p>
-  <ul>
-    <li>Added an option to force cardboard button</li>
-    <li>Exposed more of VRS methods</li>
-    <li>Added a cardboard button for native webvr support</li>
-    <li>Auto projection set to the correct value and not auto</li>
-    <li>Cleaned up window listeners</li>
-    <li>Correctly checks for cardboard button on control bar so two aren't added</li>
-    <li>Encode svg in CSS, use exact button replacement size</li>
-    <li>Made cardboard button pseudo fullscreen on iOS</li>
-    <li>Updated pin <strong>webvr-polyfill</strong> to 0.9.23</li>
-    <li>Fixed pixelation issues on some devices</li>
-    <li>Prevent initialization from happening twice</li>
-    <li>Separated and reset CardboardButton and BigVrPlayButton</li>
-    <li>Use player <code translate="No">fullscreenchange </code> event so fullscreen toggle works on Safari</li>
-  </ul>
-</section>
+  <h1>360°/VR Video Plugin Changelog</h1>
+  <summary>The following tracks changes to the plugin:</summary>
+  <section class="bcls-section">
+    <h2 id="Changelog">Changelog</h2>
+
+    <h4>31 Aug 2021</h4>
+    <p>v1.10.0</p>
+    <ul>
+      <li>Skipped syntax check with vjsverify due to three</li>
+    </ul>
+
+    <h4>31 Aug 2021</h4>
+    <p>v1.9.0</p>
+    <ul>
+      <li>Vendor three JavaScript files</li>
+      <li>Don't run tests on version</li>
+      <li>Updated generator-helpers</li>
+    </ul>
+
+    <h4>15 Jun 2021</h4>
+    <p>v1.8.0</p>
+    <ul>
+      <li>Added an option to prevent clicks from toggling playback</li>
+      <li>Added option to change the detail level of the projection sphere</li>
+      <li>Bug fix: Include edited three.js examples in module dist files</li>
+      <li>Bug fix: Separated 180_LR/180_TB, add 180_MONO, fix cropping in 180 views</li>
+      <li>Fixed publish by skipping require verification</li>
+      <li>Updated dependencies, readme, examples, and switch to github actions ci</li>
+    </ul>
+
+    <h4>3 Mar 2020</h4>
+    <p>v1.7.2</p>
+    <ul>
+      <li>Null check fullscreen toggle to fix iOS without it.</li>
+    </ul>
+    <h4>18 Nov 2019</h4>
+    <p>v1.7.1</p>
+    <ul>
+      <li>Increased touchmove threshold for "taps" on mobile</li>
+      <li>Added generator-helper dependencies back in</li>
+      <li>Added lint-staged as developer dependency</li>
+      <li>Fixed up package-lock URLs</li>
+    </ul>
+    <h4>9 Sep 2019</h4>
+    <p>v1.7.0</p>
+    <ul>
+      <li>Added support for Spatial audio rendering via Omnitone</li>
+    </ul>
+    <h4>28 Aug 2019</h4>
+    <p>v1.6.0</p>
+    <ul>
+      <li>Added 180 projection support</li>
+      <li>Added an initialization event that triggers after init() is finished</li>
+      <li>Added YouTube Equi-Angular Cubemap (EAC) projection</li>
+      <li>Updated <strong>npm-run-all</strong> to 4.1.5</li>
+      <li>Fixed JavaScript highlight in README.md</li>
+      <li>Updated examples and readme</li>
+      <li>Added a test, fix the build, update generator verison</li>
+      <li>Bug fix: Prevented switching to lowest resolution HLS resolution, due to non-displayed video</li>
+    </ul>
+    <h4>17 Sep 2018</h4>
+    <p>v1.5.0</p>
+    <ul>
+      <li>New feature: Motion controls option</li>
+      <li>Bug fix: Removed the postinstall script to prevent install issues</li>
+      <li>Updated to <strong class="nontranslate">generator-videojs-plugin 7.2.0 </strong></li>
+      <li>Updated <strong>videojs-generate-rollup-config</strong> to version 2.2.0</li>
+    </ul>
+    <h4>23 Aug 2018</h4>
+    <p>v1.4.7</p>
+    <ul>
+      <li>Using Generator 7</li>
+    </ul>
+    <h4>8 Aug 2018</h4>
+    <p>v1.4.6</p>
+    <ul>
+      <li>Updated dependencies</li>
+    </ul>
+    <h4>3 Aug 2018</h4>
+    <p>v1.4.5</p>
+    <ul>
+      <li>Babel the ES distribution by updating the generator</li>
+    </ul>
+    <h4>1 Aug 2018</h4>
+    <p>v1.4.4</p>
+    <ul>
+      <li>Dispose of event listeners on window correctly</li>
+    </ul>
+    <h4>20&nbsp;Jul 2018</h4>
+    <p>v1.4.3</p>
+    <ul>
+      <li>Corrected incorrect CSS naming</li>
+    </ul>
+    <h4>5 July 2018</h4>
+    <p>v1.4.2</p>
+    <ul>
+      <li>Update to generator v6</li>
+    </ul>
+    <h4>18 Jun 2018</h4>
+    <p>v1.4.1</p>
+    <ul>
+      <li>Bug fixed: iOS sizing issue when deactivating VR display</li>
+    </ul>
+    <h4>8 Jun 2018</h4>
+    <p>v1.4.0</p>
+    <ul>
+      <li>Hide control bar while moving, allow clicking to play/pause, allow right click</li>
+      <li>Update rollup and rollup-plugin-json</li>
+    </ul>
+    <h4>23 May 2018</h4>
+    <p>v1.3.0</p>
+    <ul>
+      <li>Now handles 360_CUBE projection</li>
+      <li>Bug Fix: FrontSide -&gt; BackSide for 360 videos due to changes in three.js</li>
+      <li>Bug Fix: No rotate instructions and iOS back arrow fix</li>
+      <li>Bug Fix: Re-implement touch pan controls</li>
+      <li>Bug Fix: Remove Safari video image canvas work-around</li>
+      <li>Bug Fix: vjs-fluid class usage, and remove <code translate="No">mutationobserver </code> work-around</li>
+      <li>Updated <strong>rollup</strong> to version 0.58.2</li>
+      <li>Updated <strong>rollup-plugin-babel</strong> to version 3.0.4</li>
+      <li>Updated <strong>rollup-plugin-commonjs</strong> to version 9.1.3</li>
+      <li>Updated <strong>three</strong> to version 0.92.0</li>
+    </ul>
+    <h4>8 May 2018</h4>
+    <p>v1.2.1</p>
+    <ul>
+      <li>Correctly show an error in IE/Safari when WebVR is unsupported</li>
+    </ul>
+    <h4>27 Mar 2018</h4>
+    <p>v1.2.0</p>
+    <ul>
+      <li>Bug fix: Chrome m55 Android gyro breakage by updating <strong>webvr-polyfill</strong></li>
+      <li>Updated <strong>Rollup</strong> to version 0.57.1</li>
+    </ul>
+    <h4>20 Feb 2018</h4>
+    <p>v1.1.1</p>
+    <ul>
+      <li>Expose version correctly</li>
+      <li><strong>OrbitControls</strong>: no pan, less speed, no zoom</li>
+      <li>Rework three example builds to fix webpack</li>
+    </ul>
+    <h4>31 Jan 2018</h4>
+    <p>v1.1.0</p>
+    <ul>
+      <li>Removed three unnecessary JavaScript files from the repo</li>
+      <li>Bug Fixes
+        <ul>
+          <li>Default projection typo</li>
+          <li>Native WebVR</li>
+          <li>Safari HLS</li>
+        </ul>
+      </li>
+    </ul>
+    <h4>4 Dec 2017</h4>
+    <p>v1.0.3</p>
+    <ul>
+      <li>Implemented workaround for firefox/polyfill display issue</li>
+    </ul>
+    <h4>19 Oct 2017</h4>
+    <p>v1.0.2</p>
+    <ul>
+      <li>Makes stereo modes so actually stereo</li>
+      <li>Updated information in readme about equirectangular</li>
+    </ul>
+    <h4>29 Aug 2017</h4>
+    <p>v1.0.1</p>
+    <ul>
+      <li>Made the <code translate="No">projection </code> values <code translate="No">equirectangular </code> and <code translate="No">360 </code> equivalent.</li>
+    </ul>
+    <h4>24 Aug 2017</h4>
+    <p>v1.0.0</p>
+    <ul>
+      <li>Added an option to force cardboard button</li>
+      <li>Exposed more of VRS methods</li>
+      <li>Added a cardboard button for native webvr support</li>
+      <li>Auto projection set to the correct value and not auto</li>
+      <li>Cleaned up window listeners</li>
+      <li>Correctly checks for cardboard button on control bar so two aren't added</li>
+      <li>Encode svg in CSS, use exact button replacement size</li>
+      <li>Made cardboard button pseudo fullscreen on iOS</li>
+      <li>Updated pin <strong>webvr-polyfill</strong> to 0.9.23</li>
+      <li>Fixed pixelation issues on some devices</li>
+      <li>Prevent initialization from happening twice</li>
+      <li>Separated and reset CardboardButton and BigVrPlayButton</li>
+      <li>Use player <code translate="No">fullscreenchange </code> event so fullscreen toggle works on Safari</li>
+    </ul>
+  </section>
 </article>
 <!-- complete bootstrap layout -->
     </div>
