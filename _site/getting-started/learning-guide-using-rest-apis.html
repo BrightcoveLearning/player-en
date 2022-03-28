@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will first get a high level overview of using the REST APIs. Then later in the document a deeper dive will discuss example code. The first example uses the Analytics API to retrieve and display in the Brightcove player controlbar the number of views the video currently in the player has had. The second, and slightly more complex, example uses the Analytics API in conjunction with the Brightcove Player catalog to retrieve the most popular videos from an account and show them in a playlist. The code discussion in this document will center on retrieving the desired data from the correct REST API.">
+  <meta name="description" content="In this topic, you will first get a high level overview of using the REST APIs. Then later in the document a deeper dive will discuss example code.">
   
   <title>Learning Guide: Using the REST APIs</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1163,12 +1163,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   If you update in one place, you MUST update it in all!
  -->
 
- <h1>Learning Guide: Using the REST APIs</h1>
- <article class="bcls-article">
-  <summary>In this topic, you will first get a high level overview of using the REST APIs. Then later in the document a deeper dive will discuss example code. The first example uses the <span translate="No">Analytics API</span> to retrieve and display in the Brightcove player controlbar the number of views the video currently in the player has had. The second, and slightly more complex, example uses the <span translate="No">Analytics API</span> in conjunction with the Brightcove Player catalog to retrieve the most popular videos from an account and show them in a playlist. The code discussion in this document will center on retrieving the desired data from the correct REST API.</summary>
+<h1>Learning Guide: Using the REST APIs</h1>
+<article class="bcls-article">
+  <summary>In this topic, you will first get a high level overview of using the REST APIs. Then later in the document a deeper dive will discuss example code.</summary>
+  <section class="bcls-section">
+    <p>An API (Application Programming Interface) is a set of rules that define how applications or devices can connect to, and communicate with, each other. A REST (REpresentational State Transfer) API is an API that conforms to specific design principles. REST APIs can also be referred to as RESTful APIs. The following diagram adds further details:
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/getting-started/REST-API-Intro.png" alt="rest api intro">
+    </figure>
+    </p>
+    <p>Brightcove has numerous platform RESTful APIs that allow you access almost every aspect of the Video Cloud/Brightcove Player platform programmatically. Typically the APIs are used to create integration between your CMS or other system, or to build custom apps to serve the specific needs of your users.</p>
+    <p>This document The first example uses the <span translate="No">Analytics API</span> to retrieve and display in the Brightcove player controlbar the number of views the video currently in the player has had. The second, and slightly more complex, example uses the <span translate="No">Analytics API</span> in conjunction with the Brightcove Player catalog to retrieve the most popular videos from an account and show them in a playlist. The code discussion in this document will center on retrieving the desired data from the correct REST API.</p>
+  </section>
+
   <section class="bcls-section">
     <h2 id="High_level_view">High level view</h2>
-    <p>To use the REST APIs you need to have a few pieces in place. Briefly, they are:</p>
+    <p>To use the Brightcove REST APIs you need to have a few pieces in place. Briefly, they are:</p>
     <ul>
       <li><strong>Client code</strong>: The client code asks for specific data then displays it according to application requirements. The client code will be discussed at some length in this document as it is what you will need to be writing most frequently.</li>
       <li><strong>Proxy server</strong>: For security reasons the REST APIs will not accept data requests directly from the client as that would encourage sending confidential information, like client credentials, from the client. This means that a proxy will act as an intermediary between the client and the REST API. The proxy used in the examples is written in PHP and discussed later in this document. The proxy must be setup on a server under your control, and can be written in the language of your choice. The suggested configuration of the proxy enables it to be written once and used by any of the APIs.</li>
@@ -1194,7 +1204,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>The proxy to return the data to the client.</li>
     </ul>
     <p>Note that the logic flow arrows from the box that calls <code translate="No">makeRequest()</code> (bottom-left box) seem to indicate that the code is executed at two different times, which is exactly the case. The call to the function is made, but the callback function is not executed until <code translate="No">makeRequest()</code> has done its job and the callback function is executed, which returns the requested data to the function calling code.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Client functionality overview" src="/assets/images/getting-started/lg-rest-proxy-API-call.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Client functionality overview" src="/assets/images/getting-started/lg-rest-proxy-API-call.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="Example_code_walkthrough">Example code walkthrough</h2>
@@ -1424,7 +1434,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>A couple of simple suggestions are made in this section, and are a great place to start your debugging adventure. The following two sections give you a way to see the most basic information you need, what is being passed in to make the call, and what is returned.</p>
     <h3>Checking the call options</h3>
     <p>The client side code discussed in this document is basically all about providing the correct options to be used with the proxy, and in turn the actual API. So knowing the options are correct is essential to the correct functioning of your code. A simple way to do this is log to the console the <code translate="No">options</code> object just before they get passed into the <code translate="No">makeRequest</code> function where they are used:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="debugging code log options" src="/assets/images/getting-started/lg-rest-debugging-code-log-options.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging code log options" src="/assets/images/getting-started/lg-rest-debugging-code-log-options.png" /></figure>
     <p>What the options object contains will vary upon what you are trying to do, but some basics will always be there, those being:</p>
     <ul>
       <li>The account ID. This can be either a separate property, or part of the API endPoint URL.</li>
@@ -1438,17 +1448,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
     </ul>
     <p>Other properties may be required in the options object depending on the API request. Here is an example of what you would see in the console when logging the options object for making a request for all the players in a specific account:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="debugging options simple" src="/assets/images/getting-started/lg-rest-debugging-options-simple.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging options simple" src="/assets/images/getting-started/lg-rest-debugging-options-simple.png" /></figure>
     <p>Here is a bit more complex logged options object used when updating players:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="debugging options" src="/assets/images/getting-started/lg-rest-debugging-options.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging options" src="/assets/images/getting-started/lg-rest-debugging-options.png" /></figure>
     <h3>Viewing returned data</h3>
     <p>What is returned will vary upon what data you have requested, and if an error is returned. But no matter what is returned, you will most likely want to see what data is returned. A simple way to do this is log to the console the raw <code translate="No">response</code> data just after the call to the <code translate="No">makeRequest</code> function:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="debugging code log options" src="/assets/images/getting-started/lg-rest-debugging-code-log-options.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging code log options" src="/assets/images/getting-started/lg-rest-debugging-code-log-options.png" /></figure>
     <p>What will be returned has nearly infinite possibilities, but following are a few examples. The first shows the beginning of a response when asking for all the players in an account:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="debugging response on players request" src="/assets/images/getting-started/lg-rest-debugging-response-multiple-players.png" /></figure>
     <aside class="bcls-aside bcls-aside--tip">This is a good example of when viewing the response can be exceedingly helpful for it shows the player information is stored in an array named <code translate="No">items</code>.</aside>
     <p>Here is the response after updating players, using the <code translate="No">PATCH</code> HTTP method:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="debugging response on player patch" src="/assets/images/getting-started/lg-rest-debugging-response-on-player-patch.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging response on player patch" src="/assets/images/getting-started/lg-rest-debugging-response-on-player-patch.png" /></figure>
     <p>Here is a more nicely formatted view of the data in the first response:</p>
     <pre class="line-numbers">
 	<code class="language-json" translate="No">{
@@ -1458,7 +1468,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 		"preview_embed_code": "&lt;iframe src='//preview-players.brightcove.net/v2/accounts/.../master/index.html' ...&gt;&lt;/iframe&gt;"
 	}</code></pre>
     <p>And finally, here is a very valuable response from when an error occurred. In this case, an account was being used without proper credentials:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="debugging response on error" src="/assets/images/getting-started/lg-rest-debugging-response-on-error.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="debugging response on error" src="/assets/images/getting-started/lg-rest-debugging-response-on-error.png" /></figure>
   </section>
   <h3>Other troubleshooting tips</h3>
   <p>If you are having problems, here are some other things to look for.</p>
