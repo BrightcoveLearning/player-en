@@ -1155,27 +1155,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h1>Advertising with the FreeWheel Plugin</h1>
 <article class="bcls-article">
-    <summary>In this topic, you will learn how to use the FreeWheel plugin to enable advertisements with video playback, and how it can be implemented using Studio and through custom coding</summary>
+  <summary>In this topic, you will learn how to use the FreeWheel plugin to enable advertisements with video playback, and how it can be implemented using Studio and through custom coding</summary>
 
   <style type="text/css">
-iframe {
-  width: 640px;
-  height: 360px;
-}
+    iframe {
+      width: 640px;
+      height: 360px;
+    }
 
-.video-js {
-  width: 450px;
-  height: 240px;
-  float: left;
-  margin: 15px;
-}
+    .video-js {
+      width: 450px;
+      height: 240px;
+      float: left;
+      margin: 15px;
+    }
 
-.vjs-playlist {
-  width: 250px;
-  float: left;
-  margin: 15px;
-}
-</style>
+    .vjs-playlist {
+      width: 250px;
+      float: left;
+      margin: 15px;
+    }
+  </style>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>This plugin enables FreeWheel ad technology for HTML5 in Brightcove Player.</p>
@@ -1209,7 +1209,7 @@ iframe {
       </tbody>
     </table>
     <!-- <aside class="bcls-aside bcls-aside--information">* Compatible with FreeWheel Flash Plugin version 6.4.6</aside> -->
-    
+
     <p>For reference, the versions of the plugin are tracked in the <a href="/plugins/plugin-version-reference.html">Plugin Version Reference</a> document.</p>
   </section>
   <section class="bcls-section">
@@ -1261,7 +1261,7 @@ iframe {
     ...
   }
 }</code></pre>
-<!-- <code class="language-json" translate="No">{
+        <!-- <code class="language-json" translate="No">{
   "adTechOrder": ["html5"],
   "Flash": {
     "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
@@ -1297,7 +1297,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     profile: "3aaa_profile",
     ...
 }</code></pre>
-<!-- <code class="language-json" translate="No">{
+    <!-- <code class="language-json" translate="No">{
   adTechOrder: ["html5"],
   Flash: {
     sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
@@ -1322,13 +1322,16 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <pre class="line-numbers" data-start="90">
 <code class="language-html" translate="No">&lt;link href="https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css" rel="stylesheet"&gt;
 
-&lt;video-js id="myPlayerID"
-  data-account="3676484086001"
-  data-player="8fb8f3c6-5b2b-471f-953c-56d65267ff11"
-  data-embed="default"
-  class="video-js" controls&gt;&lt;/video-js&gt;
-
-&lt;script src="https://players.brightcove.net/3676484086001/8fb8f3c6-5b2b-471f-953c-56d65267ff11_default/index.min.js"&gt;&lt;/script&gt;
+&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1507807800001&quot;
+  data-player=&quot;default&quot;
+  data-embed=&quot;default&quot;
+  controls=&quot;&quot;
+  data-video-id=&quot;4607746980001&quot;
+  data-playlist-id=&quot;&quot;
+  data-application-id=&quot;&quot;
+  width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;script src="https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.js"&gt;&lt;/script&gt;
 
@@ -1351,7 +1354,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
   });
 &lt;/script&gt;</code></pre>
 
-<!-- myPlayer.FreeWheelPlugin({
+    <!-- myPlayer.FreeWheelPlugin({
   adTechOrder: ["html5"],
   Flash: {
     sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
@@ -1429,7 +1432,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     <aside class="bcls-aside bcls-aside--information">Since Flash is no longer supported in Brightcove Player, the <code translate="No">adTechOrder</code> and <code translate="No">Flash</code> options are not applicable.</aside>
     <ul>
       <li><strong translate="No">adTechOrder</strong>:
-        
+
         <ul>
           <li>Type: <code translate="No">Array</code> Default Value: <code translate="No">["html5"]</code></li>
           <li>The array contains the ad integration technologies to attempt to use, in order of descending precedence.</li>
@@ -1603,7 +1606,8 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
           <td>{mediainfo.ad_keys}</td>
           <td>Free form text string that can be added and edited in the Media module of Studio; you should use the query parameter in the form
             <pre class="line-numbers">
-<code class="language-javascript" translate="No">cust_params={mediainfo.ad_keys}</code></pre></td>
+<code class="language-javascript" translate="No">cust_params={mediainfo.ad_keys}</code></pre>
+          </td>
         </tr>
         <tr>
           <td>{player.duration}</td>
@@ -1648,7 +1652,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
             <td>SDK URLs</td>
             <!-- <td>https://mssl.fwmrm.net/p/release/latest-AS3/adm/prd/AdManager.swf<br />
               https://mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js</td> -->
-              <td>https://mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js</td>
+            <td>https://mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js</td>
           </tr>
           <tr>
             <td>Server URL</td>
@@ -1696,7 +1700,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
   }
 }]</code></pre>
 
-<!-- "Flash": {
+    <!-- "Flash": {
   "networkId": 99999,
   "profile": "2aaa_profile",
   "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
@@ -2051,7 +2055,7 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
   <section class="bcls-section">
     <h2 id="Ad_parameters">Ad parameters</h2>
     <p>Ad parameters can be used with a <code translate="No">GET</code> request to the FreeWheel ad server.</p>
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -2064,18 +2068,18 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
         <tr>
           <td>Video Asset Fallback ID</td>
           <td><code translate="No">ad.afid</code></td>
-          <td>Sets the video asset fallback ID (<code translate="No">videoAsset@fallbackId</code>) included with the FreeWheel <code translate="No">GET</code> ad request. This ID is used when an ad request's video asset ID is not recognized.<br/><br/>
+          <td>Sets the video asset fallback ID (<code translate="No">videoAsset@fallbackId</code>) included with the FreeWheel <code translate="No">GET</code> ad request. This ID is used when an ad request's video asset ID is not recognized.<br /><br />
             Example: <code translate="No">ad.afid=AssetFallBackId</code>
           </td>
         </tr>
-        
+
       </tbody>
     </table>
   </section>
 
   <section class="bcls-section">
     <h2 id="Known_issues">Known issues</h2>
-    
+
     <h3>Dynamically re-using the same player with FreeWheel</h3>
     <p>If you are loading videos dynamically and re-using the same player, the FreeWheel configuration settings will contain the same values as they were set at the time the FreeWheel plugin was instantiated, with two exceptions. The first exception is if you are using ad macros. The second exception is you can update the settings using <code translate="No">player.FreeWheelPlugin.settings.Html5</code> or <code translate="No">player.FreeWheelPlugin.settings.Flash</code> on an <code translate="No">fw-before-ad-request</code> event.</p>
     <h3>Resizing player during ad playback</h3>
@@ -2098,7 +2102,6 @@ player.trigger('fw-resizeplayer');</code></pre>
     <p>For older releases, see the <a href="/plugins/changelog/advertising-freewheel-plugin-changelog.html">changelog here</a>.</p>
   </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
