@@ -70,10 +70,10 @@ parent: 'Publishing Videos & Players'
   </section>
   <section class="bcls-section">
     <h2 id="Attributes">Attributes</h2>
-    <p>Numerous attributes are available for the <code translate="No">&lt;video&gt;</code> tag to provide additional information about how a player should behave. The table below details available attributes.</p>
+    <p>Numerous attributes are available for the <code translate="No">&lt;video-js&gt;</code> tag to provide additional information about how a player should behave. The table below details available attributes.</p>
     <aside class="bcls-aside bcls-aside--tip">
-      <p>When using tag attributes that can only be true or false (data type <strong>Boolean</strong>), you simply include the attribute (no equals sign) to turn it on.</p>
-      <p>RIGHT: <code translate="No">controls</code></p>
+      <p>When using tag attributes that can only be true or false (data type <strong>Boolean</strong>), you simply include the attribute set equal to the empty string to turn it on.</p>
+      <p>RIGHT: <code translate="No">controls=""</code></p>
       <p>WRONG: <code translate="No">controls="true"</code></p>
       <p>In order to use Booleans, the attribute should be disabled by default in the player configuration settings, then it is enabled by including the attribute in the in-page embed code. For instance, if <code translate="No">autoplay</code> is enabled in the player configuration there is no way to disable that feature in the in-page embed code. This means that if you want to control a Boolean attribute, you want to be sure it is disabled in the player configuration then you can optionally enable it by placing the appropriate attribute in the in-page embed code. Enabling the attribute in the player configuration overrides omitting the attribute in the in-page embed code.</p>
     </aside>
@@ -98,7 +98,8 @@ parent: 'Publishing Videos & Players'
             </ul>
             If any of the above fail, the player will display the "Big Play Button" as if autoplay was set to false.<br />
             <br />
-            Getting a video to autoplay can be a complex situation. See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for further details.</td>
+            Getting a video to autoplay can be a complex situation. See the <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a> document for further details.
+          </td>
           <td>Boolean or String</td>
         </tr>
         <tr>
@@ -113,7 +114,7 @@ parent: 'Publishing Videos & Players'
         </tr>
         <tr>
           <td><code translate="No">crossorigin</code></td>
-          <td>If <strong>true</strong>, the underlying <strong>&lt;video&gt;</strong> element will have <strong>crossorigin="anonymous"</strong>. This means that any videos or text tracks pulled into the player must have CORS headers.
+          <td>If <strong>true</strong>, the underlying <strong>&lt;video-js&gt;</strong> element will have <strong>crossorigin="anonymous"</strong>. This means that any videos or text tracks pulled into the player must have CORS headers.
             <aside class="bcls-aside bcls-aside--information">Note: This feature should only be used if you know that all your content (video and text tracks) have CORS headers applied to them.</aside>
           </td>
           <td>Boolean</td>
