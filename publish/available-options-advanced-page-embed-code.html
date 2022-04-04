@@ -57,10 +57,6 @@ parent: 'Publishing Videos & Players'
           <li>The iframe code will cause application logic to fail, like a redirect from the parent page</li>
         </ul>
         <p>Even if your final implementation does not use the iframe embed&nbsp;code, you can still use the In-Page code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
-        <h3>Chrome and "broken" HTML video icon</h3>
-        <p>Chrome versions 67+ will display a broken video icon momentarily until the <code translate="No">&lt;video ...&gt;</code> tag gets converted into a Brightcove Player. The icon appears as follows:</p>
-        <figure class="bcls-figure"><img class="bcls-image" width="200" height="109" alt="chrome broken video icon" src="/assets/images/publish/chrome-broken-video-icon.png" /></figure>
-        <p>If you are using Brightcove Player version 6.11+, you change the video tag to <code translate="No">&lt;video-js ...&gt;</code> and you will NOT see the icon.</p>
       </div>
       <div class="BCL-concept">
         <h2 id="recommend">Recommendation</h2>
@@ -72,10 +68,11 @@ parent: 'Publishing Videos & Players'
     <h2 id="Attributes">Attributes</h2>
     <p>Numerous attributes are available for the <code translate="No">&lt;video-js&gt;</code> tag to provide additional information about how a player should behave. The table below details available attributes.</p>
     <aside class="bcls-aside bcls-aside--tip">
-      <p>When using tag attributes that can only be true or false (data type <strong>Boolean</strong>), you simply include the attribute set equal to the empty string to turn it on.</p>
-      <p>RIGHT: <code translate="No">controls=""</code></p>
-      <p>WRONG: <code translate="No">controls="true"</code></p>
-      <p>In order to use Booleans, the attribute should be disabled by default in the player configuration settings, then it is enabled by including the attribute in the in-page embed code. For instance, if <code translate="No">autoplay</code> is enabled in the player configuration there is no way to disable that feature in the in-page embed code. This means that if you want to control a Boolean attribute, you want to be sure it is disabled in the player configuration then you can optionally enable it by placing the appropriate attribute in the in-page embed code. Enabling the attribute in the player configuration overrides omitting the attribute in the in-page embed code.</p>
+      <p>When using tag attributes that can only be true or false (data type <strong>Boolean</strong>), you simply include the attribute (no equals sign) to turn it on.</p>
+      <p>RIGHT: <code translate="No">muted</code></p>
+      <p>WRONG: <code translate="No">muted="true"</code></p>
+      <p>The presence of the attribute enables it, so <code translate="No">muted="true"</code> will work. Even using <code>muted="false"</code> will mute the video since the <code>muted</code> attribute is present. You will see in the Studio's generated player code <code>controls=""</code>, which of course works, but setting the attribute equal to the empty string is not necessary.</p>
+      <p>Also, when using Booleans the attribute should be disabled by default in the player configuration settings, then it is enabled by including the attribute in the in-page embed code. For instance, if <code translate="No">autoplay</code> is enabled in the player configuration there is no way to disable that feature in the in-page embed code. This means that if you want to control a Boolean attribute, you want to be sure it is disabled in the player configuration then you can optionally enable it by placing the appropriate attribute in the in-page embed code. Enabling the attribute in the player configuration overrides omitting the attribute in the in-page embed code.</p>
     </aside>
     <table class="bcls-table">
       <thead class="bcls-table__head">
