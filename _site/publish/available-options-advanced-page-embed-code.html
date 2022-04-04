@@ -1233,7 +1233,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>When using tag attributes that can only be true or false (data type <strong>Boolean</strong>), you simply include the attribute (no equals sign) to turn it on.</p>
       <p>RIGHT: <code translate="No">muted</code></p>
       <p>WRONG: <code translate="No">muted="true"</code></p>
-      <p>The presence of the attribute enables it, so <code translate="No">muted="true"</code> will work. Even using <code>muted="false"</code> will mute the video since the <code>muted</code> attribute is present. You will see in the Studio's generated player code <code>controls=""</code>, which of course works, but setting the attribute equal to the empty string is not necessary.</p>
+      <p>The presence of the attribute enables it, so <code translate="No">muted="true"</code> will work. Even using <code translate="No">muted="false"</code> will mute the video since the <code translate="No">muted</code> attribute is present. You will see in the Studio's generated player code <code translate="No">controls=""</code>, which of course works, but setting the attribute equal to the empty string is not necessary.</p>
       <p>Also, when using Booleans the attribute should be disabled by default in the player configuration settings, then it is enabled by including the attribute in the in-page embed code. For instance, if <code translate="No">autoplay</code> is enabled in the player configuration there is no way to disable that feature in the in-page embed code. This means that if you want to control a Boolean attribute, you want to be sure it is disabled in the player configuration then you can optionally enable it by placing the appropriate attribute in the in-page embed code. Enabling the attribute in the player configuration overrides omitting the attribute in the in-page embed code.</p>
     </aside>
     <table class="bcls-table">
@@ -1294,7 +1294,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <td>String</td>
         </tr>
         <tr>
-          <td>data-embed</td>
+          <td><code translate="No">data-delivery-config-id</code></td>
+          <td>A Dynamic Delivery Rules configuration ID</td>
+          <td>String</td>
+        </tr>
+        <tr>
+          <td><code translate="No">data-embed</code></td>
           <td>Displays information if you are using embeds (parent-child player relationships).</td>
           <td>String</td>
         </tr>
@@ -1319,19 +1324,24 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <td>String</td>
         </tr>
         <tr class="video-cloud-only">
-          <td>data-video-id</td>
+          <td><code translate="No">data-video-id</code></td>
           <td>Sets the ID or reference ID of the video in the player.</td>
           <td>String</td>
         </tr>
         <tr>
-          <td>height</td>
+          <td><code translate="No">height</code></td>
           <td>Sets the display height of the video, measured in pixels <strong>ONLY</strong>. For further details using percentages for the height see the <a href="/styling/sizing-player.html#Using_percentages">Sizing the Player</a> document.</td>
           <td>Number</td>
         </tr>
         <tr>
-          <td><code translate="No">lang</code></td>
+          <td><code translate="No">language</code></td>
           <td>Sets the language (using a valid language code, usually two letters) for the player.</td>
           <td>String</td>
+        </tr>
+        <tr>
+          <td><code translate="No">languages</code></td>
+          <td>An array of strings that will cause the specified languages to be included in the player.</td>
+          <td>Array</td>
         </tr>
         <tr>
           <td><code translate="No">loop</code></td>
@@ -1344,14 +1354,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <td>Boolean</td>
         </tr>
         <tr>
-          <td>playsinline</td>
+          <td><code translate="No">playsinline</code></td>
           <td>If the platform and OS allow it, will display video content within the player's playback area, meaning it won't displayed fullscreen or in an independent, resizable window; does work on iPhone and iPad</td>
           <td>Boolean</td>
         </tr>
         <tr>
-          <td>preload</td>
+          <td><code translate="No">preload</code></td>
           <td>Informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. Possible values are <code translate="No">none</code>, <code translate="No">metadata</code> or <code translate="No">auto</code>. See the next section for further details.</td>
           <td>String</td>
+        </tr>
+        <tr>
+          <td><code translate="No">techOrder</code></td>
+          <td>The order in which playback techs should be used.</td>
+          <td>Array</td>
         </tr>
         <tr>
           <td><code translate="No">width</code></td>
