@@ -1163,7 +1163,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <article class="bcls-article">
   <h1>Sizing the Player</h1>
-  <summary>This topic shows you how to size your video and player using the iframe and embed_in_page implementations.</summary>
+  <summary>This topic shows you how to size your video and player using the Standard (iframe) and Advanced (in-page embed) implementations.</summary>
   <section class="bcls-section">
     <aside class="bcls-aside bcls-aside--information">Note: This document details setting fixed player size, that is setting the <code translate="No">width</code> and <code translate="No">height</code> attributes. To create a responsive sized player, see the <a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a> document.</aside>
     <h2 id="Sizing_considerations">Sizing considerations</h2>
@@ -1198,8 +1198,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>You can also use CSS to size the player, as detailed in the following sections.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="useiframe">Use iframe</h2>
-    <p>For the iframe implementation, the player size can be set by supplying the <code translate="No">width</code> and <code translate="No">height</code> attributes for the <code translate="No">iframe</code> element. There are several ways to do this:</p>
+    <h2 id="useiframe">Use Standard (iframe)</h2>
+    <p>For the Standard (iframe) implementation, the player size can be set by supplying the <code translate="No">width</code> and <code translate="No">height</code> attributes for the <code translate="No">iframe</code> element. There are several ways to do this:</p>
     <ul>
       <li>
         <p>Add attributes to the <code translate="No">iframe</code> element</p>
@@ -1232,7 +1232,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-    <aside class="bcls-aside bcls-aside--tip">When using the the <code translate="No">width</code> and/or <code translate="No">height</code> attributes inline with either the iframe or in-page embed player implementations the units are pixels. You can include the <code translate="No">px</code> after the number, but technically that not proper HTML syntax. See the <a href="#Using_percentages">Using percentages</a> section later in this document for the way to use percentage values.</aside>
+    <aside class="bcls-aside bcls-aside--tip">When using the the <code translate="No">width</code> and/or <code translate="No">height</code> attributes inline with either the Standard (iframe) or in-page embed player implementations the units are pixels. You can include the <code translate="No">px</code> after the number, but technically that not proper HTML syntax. See the <a href="#Using_percentages">Using percentages</a> section later in this document for the way to use percentage values.</aside>
     <h3>Use CSS with the <code translate="No">iframe</code> element</h3>
     <p>In CSS, set the <code translate="No">width</code> and <code translate="No">height</code> attributes for the <code translate="No">iframe</code> element.</p>
     <pre class="line-numbers">
@@ -1257,8 +1257,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 &lt;iframe id=&quot;myPlayer&quot; ...</code></pre>
   </section>
   <section class="bcls-section">
-    <h2 id="useembedinpage">Use embed_in_page</h2>
-    <p>For the embed_in_page implementation, the player size can be set by supplying the <code translate="No">width</code> and height attributes for the <code translate="No">video</code> element. There are several ways to do this:</p>
+    <h2 id="useembedinpage">Use Advanced (in-page embed)</h2>
+    <p>For the Advanced (in-page embed) implementation, the player size can be set by supplying the <code translate="No">width</code> and height attributes for the <code translate="No">video</code> element. There are several ways to do this:</p>
     <ul>
       <li>Add attributes to the <code translate="No">video</code> element</li>
       <li>Use CSS with the class attribute</li>
@@ -1302,7 +1302,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Using_percentages">Using percentages</h2>
-    <p>When using the <code translate="No">height</code> and/or <code translate="No">width</code> attributes on Brightcove Player's <code translate="No">iframe</code> or <code translate="No">video</code> tags, those attributes are measured in pixels <strong>only</strong>. In fact, you do not enter any units at all for the <code translate="No">height</code> and <code translate="No">width</code> attributes (you can enter the <code translate="No">px</code>, but technically it is invalid HTML):</p>
+    <p>When using the <code translate="No">height</code> and/or <code translate="No">width</code> attributes on Brightcove Player's <code translate="No">Standard (iframe)</code> or <code translate="No">video</code> tags, those attributes are measured in pixels <strong>only</strong>. In fact, you do not enter any units at all for the <code translate="No">height</code> and <code translate="No">width</code> attributes (you can enter the <code translate="No">px</code>, but technically it is invalid HTML):</p>
     <pre class="line-numbers">
 <code class="language-html" translate="No">width="480"</code></pre>
     <p>You can use percentages, and this can be accomplished using CSS in two different ways:</p>
@@ -1314,8 +1314,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   data-player="default"
   data-embed="default"
   data-application-id
-  class="video-js"
-  controls
+  controls=&quot;&quot;
   <span class="bcls-highlight">style="width: 100%;height: 100%"</span>&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/1507807800001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
       </li>
@@ -1333,8 +1332,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   data-player="H1xW7NWcz"
   data-embed="default"
   data-application-id
-  class="video-js"
-  controls&gt;&lt;/video-js&gt;
+  controls=&quot;&quot;&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/1752604059001/H1xW7NWcz_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
       </li>
     </ul>
@@ -1409,7 +1407,7 @@ body.vjs-full-window {
 
 <hr>
 <div class="last-updated">
-  Page last updated on 01 Feb 2022
+  Page last updated on 06 Apr 2022
 </div>
 
 
