@@ -6,6 +6,7 @@ parent: 'Styling & Appearance'
   <h1>Sizing the Player</h1>
   <summary>This topic shows you how to size your video and player using the iframe and embed_in_page implementations.</summary>
   <section class="bcls-section">
+    <aside class="bcls-aside bcls-aside--information">Note: This document details setting fixed player size, that is setting the <code translate="No">width</code> and <code translate="No">height</code> attributes. To create a responsive sized player, see the <a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a> document.</aside>
     <h2 id="Sizing_considerations">Sizing considerations</h2>
     <p>There are two important concepts to keep in mind when sizing the video and the player:</p>
     <ul>
@@ -20,7 +21,7 @@ parent: 'Styling & Appearance'
     <p>The video aspect ratio is the relation between width and height. Classic TVs use a 4:3 aspect ratio, while widescreen uses a 16:9 aspect ratio.</p>
     <p>When you create a player, you can specify the video width and height using Studio. Use the <strong translate="No">Players</strong> module,<strong> Player Information </strong>section.</p>
     <aside class="bcls-aside bcls-aside--tip">Note: To determine a video's aspect ratio, simply divide the height by the width. For example, a video with a height of 360 pixels and a width of 640 pixels has a ratio of .5625 (360/640 = .5625), which is 16:9 (9/16 = .5625).</aside>
-    <figure class="bcls-figure"><img class="bcls-image" alt="sizing-studio-aspect-ratio" src="/assets/images/styling/sizing-player/sizing-studio-aspect-ratio.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="sizing-studio-aspect-ratio" src="/assets/images/styling/sizing-player/sizing-studio-aspect-ratio.png" /></figure>
     <p>The video aspect ratio will remain the same and the player controls will be positioned correctly as the player responsively resizes.</p>
     <h3 id="incorrectratio">Using an incorrect ratio</h3>
     <p>When you specify a media aspect ratio that is different than the dimensions of your video, you will get letter boxing around the video and the player controls will not be positioned over the video.</p>
@@ -34,7 +35,7 @@ parent: 'Styling & Appearance'
   <section class="bcls-section">
     <h2 id="setplayersize">Set player size</h2>
     <p>You can set the size of the player using Studio. Use the <strong>Players</strong> module, <strong>Player Information</strong> section.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="sizing player in studio" src="/assets/images/styling/sizing-player/sizing-studio-size.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="sizing player in studio" src="/assets/images/styling/sizing-player/sizing-studio-size.png" /></figure>
     <p>You can also use CSS to size the player, as detailed in the following sections.</p>
   </section>
   <section class="bcls-section">
@@ -51,7 +52,7 @@ parent: 'Styling & Appearance'
         <p>Use CSS with an <code translate="No">id</code> attribute</p>
       </li>
     </ul>
-    <aside class="bcls-aside bcls-aside--information">Note: By/styling/responsive-sizing-brightcove-player.html setting the <code translate="No">width</code> and <code translate="No">height</code> attributes, you create a player that is fixed in size. To create a responsively sizing player, see the <a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a> document.</aside>
+    <aside class="bcls-aside bcls-aside--information">Note: By setting the <code translate="No">width</code> and <code translate="No">height</code> attributes, you create a player that is fixed in size. To create a responsively sizing player, see the <a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a> document.</aside>
     <h3>Add attributes to the <code translate="No">iframe</code> element</h3>
     <p>Add and set the <code translate="No">width</code> and <code translate="No">height</code> attributes to the <code translate="No">iframe</code> element.</p>
     <pre class="line-numbers">
@@ -64,9 +65,11 @@ parent: 'Styling & Appearance'
 &lt;/head&gt;
 
 &lt;body&gt;
-  &lt;iframe src='https://players.brightcove.net/1752604059001/0711ceb1-07cf-430c-bd6f-951937e2c488_default/index.html'
-    allowfullscreen webkitallowfullscreen mozallowfullscreen
-<span class="bcls-highlight">    width="640" height="360"&gt;&lt;/iframe&gt;</span>
+
+  &lt;iframe src=&quot;https://players.brightcove.net/1507807800001/rf1BTdKk6M_default/index.html?videoId=6116766236001&quot;
+    allowfullscreen=&quot;&quot;
+    allow=&quot;encrypted-media&quot;
+    <span class="bcls-highlight">width=&quot;960&quot; height=&quot;540&quot;</span>&gt;&lt;/iframe&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
@@ -74,54 +77,25 @@ parent: 'Styling & Appearance'
     <h3>Use CSS with the <code translate="No">iframe</code> element</h3>
     <p>In CSS, set the <code translate="No">width</code> and <code translate="No">height</code> attributes for the <code translate="No">iframe</code> element.</p>
     <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;!doctype html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Size the Player&lt;/title&gt;
-
-  &lt;!-- Page styles --&gt;
-  &lt;style&gt;
-<span class="bcls-highlight">    iframe {
+<code class="language-html" translate="No">&lt;!-- Page styles --&gt;
+&lt;style&gt;
+  <span class="bcls-highlight">iframe {
       width: 640px;
       height: 360px;
-    }</span>
-  &lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-  &lt;iframe src='https://players.brightcove.net/1752604059001/0711ceb1-07cf-430c-bd6f-951937e2c488_default/index.html'
-    allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+   }</span>
+&lt;/style&gt;</code></pre>
     <h3>Use CSS with an <code translate="No">id</code> attribute</h3>
     <p>In CSS, reference an <code translate="No">id</code> added to the <code translate="No">iframe</code> element. This approach is useful if you have more than one <code translate="No">iframe</code> element on the page.</p>
     <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;!doctype html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Size the Player&lt;/title&gt;
-
-  &lt;!-- Page styles --&gt;
-  &lt;style&gt;
-<span class="bcls-highlight">    #myPlayer {
-      width: 640px;
-      height: 360px;
-    }</span>
-  &lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-<span class="bcls-highlight">  &lt;iframe id="myPlayer"</span>
-    src='https://players.brightcove.net/1752604059001/0711ceb1-07cf-430c-bd6f-951937e2c488_default/index.html'
-    allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<code class="language-html" translate="No">&lt;!-- Page styles --&gt;
+&lt;style&gt;
+  <span class="bcls-highlight">#myPlayer {
+    width: 640px;
+    height: 360px;
+  }</span>
+&lt;/style&gt;
+...
+&lt;iframe id=&quot;myPlayer&quot; ...</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="useembedinpage">Use embed_in_page</h2>
@@ -135,88 +109,37 @@ parent: 'Styling & Appearance'
     <h3>Add attributes to the <code translate="No">video</code> element</h3>
     <p>Add and set the <code translate="No">width</code> and <code translate="No">height</code> attributes to the <code translate="No">video</code> element.</p>
     <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;!doctype html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Size the Player&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-  &lt;video-js
-    data-account="1752604059001"
-    data-player="860a1ffd-4be3-4df6-9d46-c0621534108b"
-    data-embed="default"
-    class="video-js" controls
-<span class="bcls-highlight">    width="640" height="360"&gt;&lt;/video-js&gt;</span>
-
-  &lt;script src="https://players.brightcove.net/1752604059001/860a1ffd-4be3-4df6-9d46-c0621534108b_default/index.min.js"&gt;&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<code class="language-html" translate="No">&lt;video-js data-account=&quot;1507807800001&quot;
+  data-player=&quot;rf1BTdKk6M&quot;
+  data-embed=&quot;default&quot;
+  controls=&quot;&quot;
+  data-video-id=&quot;6116766236001&quot;
+  data-playlist-id=&quot;&quot;
+  data-application-id=&quot;&quot;
+  <span class="bcls-highlight">width=&quot;960&quot; height=&quot;540&quot;</span>&gt;&lt;/video-js&gt;
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/rf1BTdKk6M_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
     <h3>Use CSS with the class attribute</h3>
     <p>The <code translate="No">video</code> element has a class attribute which can be referenced from CSS to set the player size.</p>
     <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;!doctype html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Size the Player&lt;/title&gt;
-
-  &lt;!-- Page styles --&gt;
-  &lt;style&gt;
-<span class="bcls-highlight">    .video-js {
-      width: 640px;
-      height: 360px;
-    }</span>
-  &lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-  &lt;video-js
-    data-account="1752604059001"
-    data-player="0711ceb1-07cf-430c-bd6f-951937e2c488"
-    data-embed="default"
-<span class="bcls-highlight">    class="video-js"</span> controls&gt;&lt;/video-js&gt;
-
-  &lt;script src="https://players.brightcove.net/1752604059001/0711ceb1-07cf-430c-bd6f-951937e2c488_default/index.min.js"&gt;&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<code class="language-html" translate="No">&lt;!-- Page styles --&gt;
+&lt;style&gt;
+  <span class="bcls-highlight">.video-js {
+    width: 640px;
+    height: 360px;
+  }</span>
+ &lt;/style&gt;</code></pre>
     <h3>Use CSS with an <code translate="No">id</code> attribute</h3>
     <p>In CSS, reference an <code translate="No">id</code> added to the <code translate="No">video</code> element. This approach is useful if you have more than one <code translate="No">video</code> element on the page.</p>
     <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;!doctype html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Size the Player&lt;/title&gt;
-
-  &lt;!-- Page styles --&gt;
-  &lt;style&gt;
-<span class="bcls-highlight">    #video_1 {
-      width: 640px;
-      height: 360px;
-    }</span>
-  &lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-<span class="bcls-highlight">  &lt;video-js id="video_1"</span>
-    data-account="1752604059001"
-    data-player="860a1ffd-4be3-4df6-9d46-c0621534108b"
-    data-embed="default"
-    class="video-js" controls&gt;&lt;/video-js&gt;
-
-  &lt;script src="https://players.brightcove.net/1752604059001/860a1ffd-4be3-4df6-9d46-c0621534108b_default/index.min.js"&gt;&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<code class="language-html" translate="No">&lt;!-- Page styles --&gt;
+&lt;style&gt;
+  <span class="bcls-highlight">#video_1 {
+    width: 640px;
+     height: 360px;
+  }</span>
+&lt;/style&gt;
+...
+&lt;video-js id="video_1" ...</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="Using_percentages">Using percentages</h2>
