@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will gain an understanding of cue points with Brightcove Player. You will then see how to programmatically create cue points and  handle when a cue point is dispatched.">
+  <meta name="description" content="In this topic, you will gain an understanding of cue points with Brightcove Player. You will then see how to programmatically create cue points and handle when a cue point is dispatched.">
   
   <title>Implementing Cue Points Programmatically</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1163,13 +1163,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <article class="bcls-article">
   <h1>Implementing Cue Points Programmatically</h1>
-  <summary>In this topic, you will gain an understanding of cue points with Brightcove Player. You will then see how to programmatically create cue points and  handle when a cue point is dispatched.</summary>
+  <summary>In this topic, you will gain an understanding of cue points with Brightcove Player. You will then see how to programmatically create cue points and handle when a cue point is dispatched.</summary>
   <style type="text/css">
-.video-js {
-  		width: 640px;
-  		height: 360px;
-  	}
-</style>
+    .video-js {
+      width: 640px;
+      height: 360px;
+    }
+  </style>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>Cue points can be set for a video. During video playback, an event is dispatched when each cue point is hit.</p>
@@ -1219,24 +1219,29 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>To prevent a race condition of trying to process cue points before they are loaded, you need to use the <code translate="No">loadedmetadata</code> event to be dispatched before dealing with the cue points. Once the proper text track has been read, use the <code translate="No">oncuechange</code> event to listen for cue points events to be dispatched.</p>
     <p>The following code shows listening for cue points and displaying the data from the cue point. Note that in this example the video is statically bound to the Player.</p>
     <ul>
-      <li>Line 24: Create a paragraph element as a location in which to inject dynamically created HTML.</li>
-      <li>Lines 31,43: Use the <code translate="No">one()</code> method to add an event listener for the <code translate="No">loadedmetadata</code> event only once. The event handler function is defined here anonymously.</li>
-      <li>Line 32: Retrieve the TextTracks array using the <code translate="No">textTracks()</code> method, then assign the zeroth element, which holds the cue points, to the variable <code translate="No">tt</code>. Note that it may be possible in some implementations that the cue points could be in a different array element. See the <a href="#findtrack">Find correct track</a> section below for more information.</li>
-      <li>Lines 33,41: Sets the event handler function for when the <code translate="No">oncuechange</code>event is dispatched.</li>
-      <li>Line 34: Check to be sure that you are getting the first (zeroth array element) cue point dispatch. Without this condition, you would see that each cue point would be acted upon twice. Note that if you are using cue points that have durations that overlap this condition would have to be different.</li>
-      <li>Lines 35-39: Dynamically create HTML using information from the cue point and inject into the HTML page.</li>
-      <li>Line 42: Play the video.</li>
+      <li>Line 11: Create a paragraph element as a location in which to inject dynamically created HTML.</li>
+      <li>Lines 18,30: Use the <code translate="No">one()</code> method to add an event listener for the <code translate="No">loadedmetadata</code> event only once. The event handler function is defined here anonymously.</li>
+      <li>Line 19: Retrieve the TextTracks array using the <code translate="No">textTracks()</code> method, then assign the zeroth element, which holds the cue points, to the variable <code translate="No">tt</code>. Note that it may be possible in some implementations that the cue points could be in a different array element. See the <a href="#findtrack">Find correct track</a> section below for more information.</li>
+      <li>Lines 20,28: Sets the event handler function for when the <code translate="No">oncuechange</code>event is dispatched.</li>
+      <li>Line 21: Check to be sure that you are getting the first (zeroth array element) cue point dispatch. Without this condition, you would see that each cue point would be acted upon twice. Note that if you are using cue points that have durations that overlap this condition would have to be different.</li>
+      <li>Lines 22-26: Dynamically create HTML using information from the cue point and inject into the HTML page.</li>
+      <li>Line 29: Play the video.</li>
     </ul>
-    <pre class="line-numbers" data-start="17">
-<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
-data-account="1507807800001"
-data-player="6aac508a-741e-41a2-bc7a-5805644cf089"
-data-embed="default"
-data-video-id="1507781667001"
-class="video-js" controls&gt;&lt;/video-js&gt;
+    <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1507807800001&quot;
+  data-player=&quot;zN3V18ZPEu&quot;
+  data-embed=&quot;default&quot;
+  controls=&quot;&quot;
+  data-video-id=&quot;1507781667001&quot;
+  data-playlist-id=&quot;&quot;
+  data-application-id=&quot;&quot;
+  width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
 
 &lt;p id="insertionPoint"&gt;&lt;/p&gt;
-&lt;script src="https://players.brightcove.net/1507807800001/6aac508a-741e-41a2-bc7a-5805644cf089_default/index.min.js"&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/zN3V18ZPEu_default/index.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var player = this;
@@ -1259,27 +1264,29 @@ class="video-js" controls&gt;&lt;/video-js&gt;
     <p>In this section of the document, you will learn to process catalog cue points when the video is dynamically loaded into the player using the <code translate="No">catalog.getVideo()</code> and <code translate="No">catalog.load()</code> methods.</p>
     <p>When you use the player catalog to get and load the video, processing cue points is bit easier than when you use a statically bound video, as you do not need to use the <code translate="No">loadedmetadata</code> event.</p>
     <ul>
-      <li>Line 76: Create a paragraph element as a location in which to inject dynamically created HTML.</li>
-      <li>Lines 83,97: Use the <code translate="No">catalog.getVideo()</code> method to retrieve a video. The callback function is defined here anonymously.</li>
-      <li>Line 85: Use the <code translate="No">catalog.load()</code> method to load the video into the player.</li>
-      <li>Line 86: Retrieve the TextTracks array using the <code translate="No">textTracks()</code> method, then assign the zeroth element, which holds the cue points, to the variable <code translate="No">tt</code>. Note that it may be possible in some implementations that the cue points could be in a different array element. See the <a href="#findtrack">Find correct track</a> section below for more information.</li>
-      <li>Lines 87,95: Sets the event handler function for when the <code translate="No">oncuechange</code>event is dispatched.</li>
-      <li>Line 88: Check to be sure the first (zeroth array element) cue point is defined. Without this condition you would see that each cue point would be acted upon twice, the second time with no defined elements in the <code translate="No">activecues</code> array (since the second cue change is for cue point end). Note that if you are using cue points that have durations that overlap this condition would have to be different.</li>
-      <li>Lines 89-93: Dynamically create HTML using information from the cue point and inject into the HTML page.</li>
-      <li>Line 96: Play the video.</li>
+      <li>Line 11: Create a paragraph element as a location in which to inject dynamically created HTML.</li>
+      <li>Lines 17,31: Use the <code translate="No">catalog.getVideo()</code> method to retrieve a video. The callback function is defined here anonymously.</li>
+      <li>Line 19: Use the <code translate="No">catalog.load()</code> method to load the video into the player.</li>
+      <li>Line 21: Retrieve the TextTracks array using the <code translate="No">textTracks()</code> method, then assign the zeroth element, which holds the cue points, to the variable <code translate="No">tt</code>. Note that it may be possible in some implementations that the cue points could be in a different array element. See the <a href="#findtrack">Find correct track</a> section below for more information.</li>
+      <li>Lines 22-30: Sets the event handler function for when the <code translate="No">oncuechange</code>event is dispatched.</li>
+      <li>Line 23: Check to be sure the first (zeroth array element) cue point is defined. Without this condition you would see that each cue point would be acted upon twice, the second time with no defined elements in the <code translate="No">activecues</code> array (since the second cue change is for cue point end). Note that if you are using cue points that have durations that overlap this condition would have to be different.</li>
+      <li>Lines 24-28: Dynamically create HTML using information from the cue point and inject into the HTML page.</li>
+      <li>Line 32: Play the video.</li>
     </ul>
-    <pre class="line-numbers" data-start="69">
-<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
-  data-account="1507807800001"
-  data-player="3c59134e-89e8-4864-87e2-3cc871f8c361"
-  data-embed="default"
-  data-video-id=""
-  class="video-js" controls&gt;&lt;/video-js&gt;
+    <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1507807800001&quot;
+  data-player=&quot;zN3V18ZPEu&quot;
+  data-embed=&quot;default&quot;
+  controls=&quot;&quot;
+  data-video-id=&quot;&quot;
+  data-playlist-id=&quot;&quot;
+  data-application-id=&quot;&quot;
+  width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
 
-  &lt;p id="insertionPoint"&gt;&lt;/p&gt;
+&lt;p id="insertionPoint"&gt;&lt;/p&gt;
 
-  &lt;script src="https://players.brightcove.net/1507807800001/3c59134e-89e8-4864-87e2-3cc871f8c361_default/index.min.js"&gt;&lt;/script&gt;
-
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/zN3V18ZPEu_default/index.min.js&quot;&gt;&lt;/script&gt;
   &lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var player = this;
@@ -1439,12 +1446,12 @@ insects
         <li>Line 150: Play the video.</li>
       </ul>
       <pre class="line-numbers" data-start="115">
-<code class="language-html" translate="No">&lt;video-js id="myPlayerID2"
+<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
   data-account="1752604059001"
   data-player="8cfb6785-c4be-43b4-af68-7ca2fe3a6ebf"
   data-embed="default"
   data-video-id="3851380732001"
-  class="video-js" controls&gt;
+  controls=""&gt;
 
   &lt;track kind="metadata" src="https://solutions.brightcove.com/bcls/tests/player/cuepoints.vtt" /&gt;
 &lt;/video-js&gt;
@@ -1557,9 +1564,8 @@ insects
   data-account="1507807800001"
   data-player="default"
   data-embed="default"
-  class="video-js"
   width="640" height="360"
-  controls&gt;&lt;/video-js&gt;
+  controls=""&gt;&lt;/video-js&gt;
 
 &lt;script src="https://players.brightcove.net/1507807800001/default_default/index.min.js"&gt;&lt;/script&gt;
 
@@ -1635,79 +1641,83 @@ insects
     </ul>
   </section>
 </article>
-<script src="https://players.brightcove.net/1752604059001/VkIrj2aFx_default/index.min.js"></script><script src="https://players.brightcove.net/3676484087001/4f14e962-a11f-441f-8c00-0c89b8edb0a6_default/index.min.js"></script><script translate="no">
-  videojs.getPlayer('myPlayerID').ready(function() {
-  	var player = this;
-  	player.one("loadedmetadata",function(){
-  		var tt = player.textTracks()[0];
-  		tt.oncuechange = function() {
-  			if(tt.activeCues[0] !== undefined){
-  				var dynamicHTML = "id: <strong>" + tt.activeCues[0].id + ", ";
-  				dynamicHTML += "text: <strong>" + tt.activeCues[0].text + ", ";
-  				dynamicHTML += "startTime: <strong>" + tt.activeCues[0].startTime + ",  ";
-  				dynamicHTML += "endTime: <strong>" + tt.activeCues[0].endTime + "";
-  				document.getElementById("insertionPoint").innerHTML += dynamicHTML + "<br/>";
-  			}
-  		}
-  		//player.play();
-  		player.muted(true);
-  	});
+<script src="https://players.brightcove.net/1752604059001/VkIrj2aFx_default/index.min.js"></script>
+<script src="https://players.brightcove.net/3676484087001/4f14e962-a11f-441f-8c00-0c89b8edb0a6_default/index.min.js"></script>
+<script translate="no">
+  videojs.getPlayer('myPlayerID').ready(function () {
+    var player = this;
+    player.one("loadedmetadata", function () {
+      var tt = player.textTracks()[0];
+      tt.oncuechange = function () {
+        if (tt.activeCues[0] !== undefined) {
+          var dynamicHTML = "id: <strong>" + tt.activeCues[0].id + ", ";
+          dynamicHTML += "text: <strong>" + tt.activeCues[0].text + ", ";
+          dynamicHTML += "startTime: <strong>" + tt.activeCues[0].startTime + ",  ";
+          dynamicHTML += "endTime: <strong>" + tt.activeCues[0].endTime + "";
+          document.getElementById("insertionPoint").innerHTML += dynamicHTML + "<br/>";
+        }
+      }
+      //player.play();
+      player.muted(true);
+    });
   });
-  </script><script translate="no">
-  videojs.getPlayer('myPlayerID2').ready(function() {
-  	var myPlayer = this;
+</script>
+<script translate="no">
+  videojs.getPlayer('myPlayerID2').ready(function () {
+    var myPlayer = this;
 
-  	myPlayer.one("loadedmetadata",function(){
-  		var trackIndex = myPlayer.textTracks().length -1;
-  		var tt = myPlayer.textTracks()[trackIndex];
-  		tt.oncuechange = function() {
-  			if(tt.activeCues[0] !== undefined){
-console.log('tt.activeCues[0]',tt.activeCues[0]);
-  				var dynamicHTML = "id: <strong>" + tt.activeCues[0].id + ", ";
-  				dynamicHTML += "text: <strong>" + tt.activeCues[0].text + ", ";
-  				dynamicHTML += "startTime: <strong>" + tt.activeCues[0].startTime + ",  ";
-  				dynamicHTML += "endTime: <strong>" + tt.activeCues[0].endTime + "";
-  				document.getElementById("insertionPoint2").innerHTML += dynamicHTML + "<br/><br/>";
-  				jsonData = JSON.parse(tt.activeCues[0].text);
-  				document.getElementById("insertionPoint2").innerHTML += jsonData.title + ": " + jsonData.description + "<br/><br/>";
-  			} else {
-  				document.getElementById("insertionPoint2").innerHTML += "<strong>Cue point duration over" + "<br/><br/>";
-  			}
-  		} //end oncuechange
-  		//myPlayer.play();
-  		myPlayer.muted(true);
-  	}); //end loadedmetadata
+    myPlayer.one("loadedmetadata", function () {
+      var trackIndex = myPlayer.textTracks().length - 1;
+      var tt = myPlayer.textTracks()[trackIndex];
+      tt.oncuechange = function () {
+        if (tt.activeCues[0] !== undefined) {
+          console.log('tt.activeCues[0]', tt.activeCues[0]);
+          var dynamicHTML = "id: <strong>" + tt.activeCues[0].id + ", ";
+          dynamicHTML += "text: <strong>" + tt.activeCues[0].text + ", ";
+          dynamicHTML += "startTime: <strong>" + tt.activeCues[0].startTime + ",  ";
+          dynamicHTML += "endTime: <strong>" + tt.activeCues[0].endTime + "";
+          document.getElementById("insertionPoint2").innerHTML += dynamicHTML + "<br/><br/>";
+          jsonData = JSON.parse(tt.activeCues[0].text);
+          document.getElementById("insertionPoint2").innerHTML += jsonData.title + ": " + jsonData.description + "<br/><br/>";
+        } else {
+          document.getElementById("insertionPoint2").innerHTML += "<strong>Cue point duration over" + "<br/><br/>";
+        }
+      } //end oncuechange
+      //myPlayer.play();
+      myPlayer.muted(true);
+    }); //end loadedmetadata
 
   }); //end ready
-  </script><script translate="no">
+</script>
+<script translate="no">
   var myPlayer3,
-  textTrack;
+    textTrack;
 
-  videojs.getPlayer('myPlayerID3').ready(function() {
-  	var myPlayer3 = this;
-  	myPlayer3.src({
-  		"type": "video/mp4",
-  		"src": "//solutions.brightcove.com/bcls/assets/videos/Water-In-Motion.mp4"
-  	});
-  	textTrack = myPlayer3.addTextTrack('metadata', 'Timed Cue Point');
-  	textTrack.addCue(new window.VTTCue(2,4,'cue point 1 text'));
-  	textTrack.addCue(new window.VTTCue(6,8,'cue point 2 text'));
-  	textTrack.addCue(new window.VTTCue(10,11,'cue point 3 text'));
-  	textTrack.addCue(new window.VTTCue(15,20,'cue point 4 text - LAST CUEPOINT'));
-  	var tt = myPlayer3.textTracks()[0];
-  	tt.oncuechange = function() {
-  		if(tt.activeCues[0] !== undefined){
-  			//var dynamicHTML = "id: " + tt.activeCues[0].id + ", ";
-  			var dynamicHTML = "text: <strong>" + tt.activeCues[0].text + ", ";
-  			dynamicHTML += "startTime: <strong>" + tt.activeCues[0].startTime + ",  ";
-  			dynamicHTML += "endTime: <strong>" + tt.activeCues[0].endTime + "";
-  			document.getElementById("insertionPoint3").innerHTML += dynamicHTML + "<br/>";
-  		} else {
-  			document.getElementById("insertionPoint3").innerHTML += "Cue point duration over" + "<br/><br/>";
-  		}
-  	} //end oncuechange
+  videojs.getPlayer('myPlayerID3').ready(function () {
+    var myPlayer3 = this;
+    myPlayer3.src({
+      "type": "video/mp4",
+      "src": "//solutions.brightcove.com/bcls/assets/videos/Water-In-Motion.mp4"
+    });
+    textTrack = myPlayer3.addTextTrack('metadata', 'Timed Cue Point');
+    textTrack.addCue(new window.VTTCue(2, 4, 'cue point 1 text'));
+    textTrack.addCue(new window.VTTCue(6, 8, 'cue point 2 text'));
+    textTrack.addCue(new window.VTTCue(10, 11, 'cue point 3 text'));
+    textTrack.addCue(new window.VTTCue(15, 20, 'cue point 4 text - LAST CUEPOINT'));
+    var tt = myPlayer3.textTracks()[0];
+    tt.oncuechange = function () {
+      if (tt.activeCues[0] !== undefined) {
+        //var dynamicHTML = "id: " + tt.activeCues[0].id + ", ";
+        var dynamicHTML = "text: <strong>" + tt.activeCues[0].text + ", ";
+        dynamicHTML += "startTime: <strong>" + tt.activeCues[0].startTime + ",  ";
+        dynamicHTML += "endTime: <strong>" + tt.activeCues[0].endTime + "";
+        document.getElementById("insertionPoint3").innerHTML += dynamicHTML + "<br/>";
+      } else {
+        document.getElementById("insertionPoint3").innerHTML += "Cue point duration over" + "<br/><br/>";
+      }
+    } //end oncuechange
   }); //end ready
-  </script>
+</script>
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
