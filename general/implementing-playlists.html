@@ -128,15 +128,14 @@ description: In this topic, you will learn the how to use playlists to display a
     <figure class="bcls-figure"><img class="bcls-image" alt="playlist enable studio" src="/assets/images/general/studio-code.png" /></figure>
     <p>If you wish to have a responsive player, which is an excellent option, the player code appears as shown here:</p>
     <pre class="line-numbers">
-  <code class="language-html" translate="No">&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
-    &lt;div style="padding-top: 56.25%;"&gt;
-      &lt;iframe src="https://players.brightcove.net/1752604059001/S13cJdUBz_default/index.html?playlistId=5718313430001"
-        allowfullscreen
-        webkitallowfullscreen
-        mozallowfullscreen
-        style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;</code></pre>
+<code class="language-html" translate="No">&lt;div style=&quot;position: relative; display: block; max-width: 960px;&quot;&gt;
+  &lt;div style=&quot;padding-top: 56.25%;&quot;&gt;
+    &lt;iframe src=&quot;https://players.brightcove.net/1507807800001/P0hzAkylr_default/index.html?playlistId=1653281884164948705&quot;
+     allowfullscreen=&quot;&quot; 
+     allow=&quot;encrypted-media&quot; 
+     style=&quot;position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;&quot;&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
     <p>The two <code translate="No">div</code> elements and associated attributes are what make the player responsive.</p>
     <h3>Adjust <code translate="No">padding-top</code> for a horizontal playlist</h3>
     <p>The code just displayed is for the player ONLY. If you are using a <strong>horizontal</strong> playlist, you must manually adjust the code a bit to make room for the playlist. Use the following table to correctly change the <code translate="No">&lt;div style="padding-top: 56.25%;"&gt;</code> value.</p>
@@ -188,16 +187,15 @@ description: In this topic, you will learn the how to use playlists to display a
       <li>
         <p>Get the Advanced embed code. After you publish the playlist using your configured player (as detailed in the section above), choose the <strong>Advanced</strong> code. It should be similar to this:</p>
         <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;video-js
-  data-account="1752604059001"
-  data-player="5dBwlwbNk"
-  data-embed="default"
-  controls=""
-  data-video-id=""
-  data-playlist-id="5686354139001"
-  data-application-id=""
-  width="960" height="540"&gt;
-&lt;/video-js&gt;</code></pre>
+<code class="language-html" translate="No">&lt;video-js data-account=&quot;1507807800001&quot; 
+  data-player=&quot;P0hzAkylr&quot; 
+  data-embed=&quot;default&quot; 
+  controls=&quot;&quot; 
+  data-video-id=&quot;&quot; 
+  data-playlist-id=&quot;1653281884164948705&quot; 
+  data-application-id=&quot;&quot; 
+  width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/P0hzAkylr_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
         <p>If you viewed the player with the code above, you will NOT see a playlist. When using the Advanced implementation of the player you MUST wrap the player in the Playlist Player Container.</p>
       </li>
       <li>
@@ -209,18 +207,16 @@ description: In this topic, you will learn the how to use playlists to display a
         </ul>
         <pre class="line-numbers">
 <code class="language-html" translate="No"><span class="bcls-highlight">&lt;div class="vjs-playlist-player-container" style="width: 960px;"&gt;</span>
-  &lt;video-js
-    data-account="1752604059001"
-    data-player="5dBwlwbNk"
-    data-embed="default"
-    controls=""
-    data-video-id=""
-    data-playlist-id="5686354139001"
-    data-application-id=""
-    width="960" height="540"&gt;
-  &lt;/video-js&gt;
+  &lt;video-js data-account=&quot;1507807800001&quot;
+  data-player=&quot;P0hzAkylr&quot;
+  data-embed=&quot;default&quot;
+  controls=&quot;&quot;
+  data-video-id=&quot;&quot;
+  data-playlist-id=&quot;1653281884164948705&quot;
+  data-application-id=&quot;&quot;
+  width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
 <span class="bcls-highlight">&lt;/div&gt;</span>
-&lt;script src="https://players.brightcove.net/1752604059001/5dBwlwbNk_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/P0hzAkylr_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
       </li>
     </ol>
     <h4>Responsive, vertical playlist</h4>
@@ -455,7 +451,8 @@ description: In this topic, you will learn the how to use playlists to display a
 
   &lt;/body&gt;
 
-  &lt;/html&gt;</code></pre> --><!-- <h3>Making the playlist horizontal</h3>
+  &lt;/html&gt;</code></pre> -->
+    <!-- <h3>Making the playlist horizontal</h3>
 
 <p>If you wish to have a horizontal playlist, there are only a couple of things you need to do. They are:</p>
 
@@ -528,7 +525,8 @@ description: In this topic, you will learn the how to use playlists to display a
 
   &lt;/body&gt;
 
-  &lt;/html&gt;</code></pre> --></section>
+  &lt;/html&gt;</code></pre> -->
+  </section>
   <section class="bcls-section">
     <h2 id="Set_the_initial_video">Set the initial video</h2>
     <p>By default, the first video in the playlist is initially loaded into the player. If you wish to load another video in the playlist first, there are four possibilities:</p>
@@ -541,29 +539,28 @@ description: In this topic, you will learn the how to use playlists to display a
     data-player="BJQXwfiuG"
     data-embed="default"
     data-application-id
-    class="video-js"
-    controls&gt;&lt;/video-js&gt;
+    controls=""&gt;&lt;/video-js&gt;
   &lt;script src="https://players.brightcove.net/1507807800001/BJQXwfiuG_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
         <p>This is built in Brightcove Player functionality.</p>
       </li>
       <li>If you are using the <strong>Advanced (in-page embed)</strong> player on a page. You can add the following URL parameter to the <strong>page</strong> request:
         <pre class="line-numbers">
   <code class="language-html" translate="No">?playlistVideoId=5510487311001</code></pre>
-        The player will automatically play the desired video from the playlist. This is built in Brightcove Player functionality.</li>
+        The player will automatically play the desired video from the playlist. This is built in Brightcove Player functionality.
+      </li>
       <li>If you are using a <strong>Standard (iframe)</strong> player on a page. You can add a URL parameter to the iframe's <code translate="No">src</code> attribute:
         <pre class="line-numbers">
   <code class="language-html" translate="No">&lt;iframe src=".../index.html<span class="bcls-highlight">?playlistId=5531423971001&amp;playlistVideoId=5510487311001</span>" ...</code></pre>
         The player will automatically play the desired video from the playlist. This is built in Brightcove Player functionality. A sample of this technique is shown here (You will need to scroll the code far to the right to see the use of the parameter):
         <pre class="line-numbers">
-  <code class="language-html" translate="No">&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
+<code class="language-html" translate="No">&lt;div style="position: relative; display: block; max-width: 640px;"&gt;
   &lt;div style="padding-top: 56.25%;"&gt;
-    &lt;iframe src="https://players.brightcove.net/1752604059001/HkYoUgMwW_default/index.html?playlistId=5531423971001<span class="bcls-input">&amp;playlistVideoId=5510487311001</span>"
-        allowfullscreen
-        webkitallowfullscreen
-        mozallowfullscreen
-        style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"&gt;&lt;/iframe&gt;
+    &lt;iframe src=&quot;https://players.brightcove.net/1507807800001/P0hzAkylr_default/index.html?playlistId=1653281884164948705&quot;
+      allowfullscreen=&quot;&quot;
+      allow=&quot;encrypted-media&quot;
+      style=&quot;position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;&quot;&gt;&lt;/iframe&gt;
   &lt;/div&gt;
-  &lt;/div&gt;</code></pre>
+ &lt;/div&gt;</code></pre>
       </li>
       <li>You are using an iframe player and wish to pass the desired video's ID on the <strong>URL page request</strong>. This differs from #3 as you do not want to have to edit the iframe's code on the actual page, but use the URL from the page request. This is NOT built in Brightcove Player functionality, but can be done with custom code on the HTML page. A sample of this technique is shown next.</li>
     </ol>
@@ -598,8 +595,7 @@ description: In this topic, you will learn the how to use playlists to display a
 
         <span class="bcls-highlight">// Dynamically build the iframe
         iframe.setAttribute('allowfullscreen', 'allowfullscreen');
-        iframe.setAttribute('webkitallowfullscreen', 'webkitallowfullscreen');
-        iframe.setAttribute('mozallowfullscreen', 'mozallowfullscreen');
+        iframe.setAttribute('allow', 'encrypted-media');
         iframe.setAttribute('style', "width: 610px;height: 344px");
         iframe.src = 'https://players.brightcove.net/1752604059001/H1HpIEcCb_default/index.html?playlistId=4450721964001&amp;playlistVideoId=' + theParamVideoID;
         // Insert the iframe into the page
@@ -648,10 +644,6 @@ description: In this topic, you will learn the how to use playlists to display a
     &lt;meta charset="UTF-8"&gt;
     &lt;title&gt;Untitled Document&lt;/title&gt;
     &lt;style type="text/css"&gt;
-      .video-js {
-        height: 350px;
-        width: 625px;
-      }
       .vjs-playlist {
         width: 625px;
       }
@@ -667,9 +659,9 @@ description: In this topic, you will learn the how to use playlists to display a
       data-player="default"
       data-embed="default"
       data-application-id
-      class="video-js"
-      controls
-      autoplay&gt;&lt;/video-js&gt;
+      controls=""
+      autoplay
+      width="960" height="540"&gt;&lt;/video-js&gt;
     &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
 
     &lt;!-- Location of the playlist --&gt;
