@@ -1168,21 +1168,23 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--information">As of April 2018, Chrome halted autoplay of unmuted video. Be aware, there are special circumstances where Chrome may autoplay an unmuted video. See Google's <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">Autoplay Policy Changes</a> document for full details.</aside>
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>The following video will behave differently depending on the browser/platform on which you run the video. If the video will autoplay with audio, it does so. If not, you will see the video begin to play, but an unmute button will appear. If you click that button you will hear the audio for the video. Generally, when using iOS, Safari or Chrome, a video will NOT autoplay if the video is not muted. This sample shows a way to autoplay the video and presents an obvious button for unmuting.</p>
     <p>If you are using an IMA3 pre-roll, you will want to see the <a href="#Using_a_pre-roll_ad">Using a pre-roll ad</a> section in this document. This section details the minor changes you will need to apply to the code shown in the following CodePen to make the functionality work with an IMA pre-roll ad.</p>
     <!-- UPDATE codepen here -->
-    
+
     <p data-height="456" data-theme-id="34967" data-slug-hash="jzmWzL" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="Autoplay with Unmute Button" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/jzmWzL/">Autoplay with Unmute Button</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-    
+
     <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18567-autoplay-unmute-button">complete solution on GitHub</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18567-autoplay-unmute-button">complete solution on GitHub</a>.</p>
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -1199,7 +1201,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -1228,7 +1232,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -1255,9 +1259,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
       </tbody>
     </table>
-    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
+    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</aside> -->
+  </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -1270,16 +1275,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
      data-account="1752604059001"
      data-player="default"
      data-embed="default"
-     data-application-id
-     class="video-js"
-     controls
+     data-application-id=""
+     controls=""
      <span class="bcls-highlight">playsinline</span>&gt;&lt;/video-js&gt;
 &lt;/div&gt;</code></pre>
     <h3>Other HTML</h3>
     <p>No other HTML elements, other than those mentioned in the previous section, are added to the page.</p>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
@@ -1312,22 +1316,23 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-javascript" translate="No">// ### Add button's event listener ###</code></pre>
     <p>Using JavaScript's <code translate="No">addEventListener()</code>, the event handler for a click is dynamically created. In the event handler the player is unmuted, the volume level set, and lastly the button removed from the DOM.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Configure the button</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// ###  Configure the button ###</code></pre>
     <p>In this code section the button's label is set, the look of the button is configured, and a <code translate="No">class</code> is added for a CSS reference that positions the button.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Add the button to the container</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// ### Add the button to the container ###</code></pre>
     <p>The single line of code places the button in the <code translate="No">div</code> that constrains the player.</p>
-    <!-- UPDATE task 3 --></section>
+    <!-- UPDATE task 3 -->
+  </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Using_a_pre-roll_ad">Using a pre-roll ad</h2>
     <p>Since the ad is playing when the unmute button appears, you need to unmute the ad player rather than the content player. To do this you would use the following for the click handler:</p>
@@ -1368,14 +1373,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ...
 });</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
-    
+
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18567-autoplay-unmute-button-iossafari/blob/master/plugin/unmute-button.js">unmute-button.js</a>.</p>
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
     <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
   </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
