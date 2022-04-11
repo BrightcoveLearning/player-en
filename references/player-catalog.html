@@ -5,7 +5,6 @@ parent: References
 <article class="bcls-article">
   <h1>Player Catalog</h1>
   <summary>In this topic, you will learn to use Brightcove Player's <strong>catalog</strong> library of methods for making requests to the Video Cloud catalog. The catalog's library makes it easy to get information on Video Cloud media and load them into a player.
-    </p>
     <aside class="bcls-aside bcls-aside--information">The content in this document applies to Video Cloud only.</aside>
   </summary>
   <section class="bcls-section">
@@ -32,52 +31,72 @@ parent: References
         <tr>
           <td><code translate="No">type</code></td>
           <td><code translate="No">string</code></td>
-          <td><p>The type of request to make. Must be one of <strong>video</strong>, <strong>playlist</strong>, or <strong>search</strong>.</p></td>
+          <td>
+            <p>The type of request to make. Must be one of <strong>video</strong>, <strong>playlist</strong>, or <strong>search</strong>.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">policyKey</code></td>
           <td style="white-space: nowrap;"><code translate="No">string</code></td>
-          <td><p>The policy key for this account. This will default to the policy key of the player.<strong translate="No">**</strong> Note that if you pass a different account ID as a parameter, you must also pass the corresponding policy key for that account.</p></td>
+          <td>
+            <p>The policy key for this account. This will default to the policy key of the player.<strong translate="No">**</strong> Note that if you pass a different account ID as a parameter, you must also pass the corresponding policy key for that account.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">deliveryConfigId</code></td>
           <td style="white-space: nowrap;"><code translate="No">string</code></td>
-          <td><p>The delivery rules id. See <a href="https://apis.support.brightcove.com/delivery-rules/getting-started/overview-delivery-rules.html">Overview: Delivery Rules</a>.</p></td>
+          <td>
+            <p>The delivery rules id. See <a href="https://apis.support.brightcove.com/delivery-rules/getting-started/overview-delivery-rules.html">Overview: Delivery Rules</a>.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">[id]</code></td>
           <td style="white-space: nowrap;"><code translate="No">string</code></td>
-          <td><p>A video or playlist ID or reference ID prefixed by "ref:". <strong translate="No">Required</strong> for video and playlist requests. <strong translate="No">DEPRECATED:</strong> For backward-compatibility, this is supported as a search query instead of <code translate="No">q</code>. This can be provided as a sub-object, which is also a <code translate="No">CatalogParams</code> object, which can be used to provide parameters.</p></td>
+          <td>
+            <p>A video or playlist ID or reference ID prefixed by "ref:". <strong translate="No">Required</strong> for video and playlist requests. <strong translate="No">DEPRECATED:</strong> For backward-compatibility, this is supported as a search query instead of <code translate="No">q</code>. This can be provided as a sub-object, which is also a <code translate="No">CatalogParams</code> object, which can be used to provide parameters.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">[q]</code></td>
           <td style="white-space: nowrap;"><code translate="No">string</code></td>
-          <td><p>A search query. <strong translate="No">Required</strong> for search requests, ignored for others.</p></td>
+          <td>
+            <p>A search query. <strong translate="No">Required</strong> for search requests, ignored for others.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">[adConfigId]</code></td>
           <td style="white-space: nowrap;"><code translate="No">string</code></td>
-          <td><p>A Video Could SSAI ad configuration ID.</p></td>
+          <td>
+            <p>A Video Could SSAI ad configuration ID.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">[tveToken]</code></td>
           <td style="white-space: nowrap;"><code translate="No">string</code></td>
-          <td><p>An optional TVE token to be sent as a query string parameter.</p></td>
+          <td>
+            <p>An optional TVE token to be sent as a query string parameter.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">[limit]</code></td>
           <td style="white-space: nowrap;"><code translate="No">string</code></td>
-          <td><p><em>Supported for <strong translate="No">playlist</strong> and <strong translate="No">search</strong> types only.</em> Limit the number of videos returned.</p></td>
+          <td>
+            <p><em>Supported for <strong translate="No">playlist</strong> and <strong translate="No">search</strong> types only.</em> Limit the number of videos returned.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">[offset]</code></td>
           <td style="white-space: nowrap;"><code translate="No">string</code></td>
-          <td><p><em>Supported for <strong translate="No">playlist</strong> and <strong translate="No">search</strong> types only.</em> The number of videos to skip.</p></td>
+          <td>
+            <p><em>Supported for <strong translate="No">playlist</strong> and <strong translate="No">search</strong> types only.</em> The number of videos to skip.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">[sort]</code></td>
           <td style="white-space: nowrap;"><code translate="No">string</code></td>
-          <td><p><em>Supported for <strong translate="No">search</strong> type only.</em> How the videos should be sorted for searches.</p></td>
+          <td>
+            <p><em>Supported for <strong translate="No">search</strong> type only.</em> How the videos should be sorted for searches.</p>
+          </td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code translate="No">[bcovAuthToken]</code></td>
@@ -90,7 +109,7 @@ parent: References
       <p>**Note: By default the policy key generated with a player is NOT search enabled. This means you must either (choose one):</p>
       <ul>
         <li>
-          <p >Use the <code translate="No">policyKey</code> parameter to pass a search-enabled policy key.</p>
+          <p>Use the <code translate="No">policyKey</code> parameter to pass a search-enabled policy key.</p>
         </li>
         <li>
           <p>Use the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> to overwrite the player's default policy key. You can use a curl statement similar to the following to do so:</p>
@@ -113,7 +132,7 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
   </section>
   <section class="bcls-section">
     <h2 id="getVideo"><code translate="No">getVideo( )</code> method</h2>
-    <p >The <code translate="No">getVideo(params | videoID,callback,[adConfigId]) =&gt; XMLHttpRequest</code> method makes a <code translate="No">catalog</code> request for the video with the specified id and invokes a callback when the request completes.</p>
+    <p>The <code translate="No">getVideo(params | videoID,callback,[adConfigId]) =&gt; XMLHttpRequest</code> method makes a <code translate="No">catalog</code> request for the video with the specified id and invokes a callback when the request completes.</p>
     <h3>Parameters</h3>
     <ul>
       <li>
@@ -227,7 +246,8 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
   // +++ Place playlist in player, but -1 parameter does not load playlist video in player +++
   myPlayer.playlist(myPlaylist, -1);
 });</code></pre>
-      Of course, you then have to load the video manually. See the <a href="/code-samples/brightcove-player-sample-play-video-playlist.html">Brightcove Player Sample: Play Video Before Playlist</a> for an example of this technique.</aside>
+      Of course, you then have to load the video manually. See the <a href="/code-samples/brightcove-player-sample-play-video-playlist.html">Brightcove Player Sample: Play Video Before Playlist</a> for an example of this technique.
+    </aside>
   </section>
   <section class="bcls-section">
     <h2 id="load">load( ) method</h2>
@@ -766,9 +786,8 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
   data-account="1507807800001"
   data-player="default"
   data-embed="default"
-  data-application-id
-  class="video-js"
-  controls&gt;&lt;/video-js&gt;
+  data-application-id=""
+  controls=""&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/1507807800001/default_default/index.min.js"&gt;&lt;/script&gt;
 
 &lt;script type="text/javascript" src="inactive-error-check.js"&gt;&lt;/script&gt;
@@ -799,9 +818,8 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
   data-account="1486906377"
   data-player="XJhO7JGxY"
   data-embed="default"
-  data-application-id
-  class="video-js"
-  controls
+  data-application-id=""
+  controls=""
   width="640"
   height="360"&gt;&lt;/video-js&gt;
 &lt;script src="//players.brightcove.net/1486906377/XJhO7JGxY_default/index.min.js"&gt;&lt;/script&gt;
@@ -834,9 +852,8 @@ https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/co
   data-account="5977711152001"
   data-player="iYNDnCGt9"
   data-embed="default"
-  data-application-id
-  class="video-js"
-  controls
+  data-application-id=""
+  controls=""
   width="640"
   height="360"&gt;&lt;/video-js&gt;
 &lt;script src="//players.brightcove.net/5977711152001/iYNDnCGt9_default/index.min.js"&gt;&lt;/script&gt;

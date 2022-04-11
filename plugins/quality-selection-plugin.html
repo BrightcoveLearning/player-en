@@ -5,9 +5,9 @@ parent: Plugins
 ---
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-    <summary>{{ page.description }}</summary>
+  <summary>{{ page.description }}</summary>
 
-    <br/>
+  <br />
   <aside class="bcls-aside bcls-aside--information">
     <p>Note: The Quality Selection Plugin does not work with all video sources. The following points clarify the situation:</p>
     <ul>
@@ -24,24 +24,24 @@ parent: Plugins
     <aside class="bcls-aside bcls-aside--information">If you have a fast Internet connection, you may have to make a number of selections before you see the gear spin as changes take place quickly with HLS renditions, which this video is using.</aside>
     <video data-video-id="5842800655001" data-account="1752604059001" data-player="B1CWQFiPZ" data-embed="default" data-application-id="" class="video-js" controls="" width="640" height="360">&nbsp;</video>
     <script src="//players.brightcove.net/1752604059001/B1CWQFiPZ_default/index.min.js"></script>
-    </section>
-    <section class="bcls-section">
-      <h2 id="Quality_options">Quality options</h2>
-      <p>When the gear icon is clicked, a number of quality options are displayed for user selection. For example, a video with the following renditions:</p>
-      <figure class="bcls-figure"><img class="bcls-image" alt="All video renditions" src="/assets/images/plugins/quality-selection/video-renditions.png" /></figure>
-      <p>will create the following quality options:</p>
-      <figure class="bcls-figure"><img class="bcls-image" alt="Quality options" src="/assets/images/plugins/quality-selection/quality-options.png" /></figure>
-      <p>Here is how those options are built and then a specific rendition selected:</p>
-      <ul>
-        <li>All renditions are grouped based on lines of horizontal resolution (e.g. 270p, 360p, 540p, 720p and 1080p in the example above) and used as quality options.</li>
-        <li>After user selection of a group, if there are multiple renditions in the selected group the standard adaptive bitrate streaming algorithm then chooses the optimal rendition in the selected resolution group. The process is how rendition selection currently works, but only within a selected resolution group.</li>
-        <li>If resolution information is not available, options will fallback to show options <strong>SD</strong> and <strong>HD</strong>, for Standard Definition and High Definition respectively. The plugin will use bitrate information for each rendition to determine whether it is SD or HD, using a configurable dividing line.</li>
-      </ul>
-    </section>
-    <section class="bcls-section">
-      <h2 id="Buffering">Buffering</h2>
-      <p>When changing the quality it is possible that some buffering will take place and you will see the loading spinner appear. This is because the quality is changed immediately on quality selection and segments will need to be downloaded. If you prefer to have the same smooth transition behavior seen with automatic rendition switches, you can manually initialize the player with the following option:</p>
-      <pre class="line-numbers">
+  </section>
+  <section class="bcls-section">
+    <h2 id="Quality_options">Quality options</h2>
+    <p>When the gear icon is clicked, a number of quality options are displayed for user selection. For example, a video with the following renditions:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="All video renditions" src="/assets/images/plugins/quality-selection/video-renditions.png" /></figure>
+    <p>will create the following quality options:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Quality options" src="/assets/images/plugins/quality-selection/quality-options.png" /></figure>
+    <p>Here is how those options are built and then a specific rendition selected:</p>
+    <ul>
+      <li>All renditions are grouped based on lines of horizontal resolution (e.g. 270p, 360p, 540p, 720p and 1080p in the example above) and used as quality options.</li>
+      <li>After user selection of a group, if there are multiple renditions in the selected group the standard adaptive bitrate streaming algorithm then chooses the optimal rendition in the selected resolution group. The process is how rendition selection currently works, but only within a selected resolution group.</li>
+      <li>If resolution information is not available, options will fallback to show options <strong>SD</strong> and <strong>HD</strong>, for Standard Definition and High Definition respectively. The plugin will use bitrate information for each rendition to determine whether it is SD or HD, using a configurable dividing line.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Buffering">Buffering</h2>
+    <p>When changing the quality it is possible that some buffering will take place and you will see the loading spinner appear. This is because the quality is changed immediately on quality selection and segments will need to be downloaded. If you prefer to have the same smooth transition behavior seen with automatic rendition switches, you can manually initialize the player with the following option:</p>
+    <pre class="line-numbers">
 <code class="language-javascript" translate="No">var options = {
   html5: {
     hls: {
@@ -49,55 +49,55 @@ parent: Plugins
     }
   }
 };</code></pre>
-      <p>Details on manually initializing the player using the <code translate="No">bc()</code> method can be found in the <a href="/coding-topics/using-bc-and-getplayer-methods.html#bc_method_details">Using bc() and getPlayer() Methods</a> document.</p>
-    </section>
-    <section class="bcls-section">
-      <h2 id="Gear_spinning">Gear spinning</h2>
-      <p>The gear icon spinning represents changes to the rendition used. The rules for spinning differ for DASH and HLS sources:</p>
-      <ul>
-        <li>For DASH sources, the gear will spin until the quality has changed in the player and being rendered on screen.</li>
-        <li>For HLS sources, the gear stops spinning when the internal algorithm has decided to start LOADING the new quality, not when it has been rendered. This decision happens quickly, so it is probable you won't see the spinning action that frequently with an HLS source.</li>
-      </ul>
-    </section>
-    <section class="bcls-section">
-      <h2 id="Implement_using_Players_module">Implement using Players module</h2>
-      <p>To implement the quality selection plugin using the Players module, follow these steps:</p>
-      <ol class="bcls-tasklist">
-        <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
-        <li>Click the link for the player to open the player's properties.</li>
-        <li>Click <strong>Controls</strong> in the left navigation menu.</li>
-        <li>Check the box in front of <strong>Quality Selector</strong>.
-          <figure class="bcls-figure"><img class="bcls-image" alt="Configuration show quality selector" src="/assets/images/plugins/quality-selection/studio-show-quality-selector.png" /></figure>
-        </li>
-        <li>Use a radio button to display either the different resolutions available, or simply an <strong>HD/SD</strong> option.</li>
-        <li>Click <strong>Save</strong>.</li>
-        <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
-        <li>To close the open dialog, click <strong>Close</strong>.</li>
-      </ol>
-    </section>
-    <section class="bcls-section">
-      <h2 id="Implement_using_Code">Implement using Code</h2>
-      <p>To implement the quality selection plugin using code, follow these steps:</p>
-      <ol class="bcls-tasklist-restart">
-        <li>
-          <p>
-            In an editor, open your HTML code where you want the Brightcove Player to reside.
-          </p>
-        </li>
-        <li>
-          <p>
-            In the <code translate="No">head</code> section, add the quality selection plugin default style sheet.
-          </p>
-          <pre>
+    <p>Details on manually initializing the player using the <code translate="No">bc()</code> method can be found in the <a href="/coding-topics/using-bc-and-getplayer-methods.html#bc_method_details">Using bc() and getPlayer() Methods</a> document.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Gear_spinning">Gear spinning</h2>
+    <p>The gear icon spinning represents changes to the rendition used. The rules for spinning differ for DASH and HLS sources:</p>
+    <ul>
+      <li>For DASH sources, the gear will spin until the quality has changed in the player and being rendered on screen.</li>
+      <li>For HLS sources, the gear stops spinning when the internal algorithm has decided to start LOADING the new quality, not when it has been rendered. This decision happens quickly, so it is probable you won't see the spinning action that frequently with an HLS source.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Implement_using_Players_module">Implement using Players module</h2>
+    <p>To implement the quality selection plugin using the Players module, follow these steps:</p>
+    <ol class="bcls-tasklist">
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Controls</strong> in the left navigation menu.</li>
+      <li>Check the box in front of <strong>Quality Selector</strong>.
+        <figure class="bcls-figure"><img class="bcls-image" alt="Configuration show quality selector" src="/assets/images/plugins/quality-selection/studio-show-quality-selector.png" /></figure>
+      </li>
+      <li>Use a radio button to display either the different resolutions available, or simply an <strong>HD/SD</strong> option.</li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Implement_using_Code">Implement using Code</h2>
+    <p>To implement the quality selection plugin using code, follow these steps:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          In an editor, open your HTML code where you want the Brightcove Player to reside.
+        </p>
+      </li>
+      <li>
+        <p>
+          In the <code translate="No">head</code> section, add the quality selection plugin default style sheet.
+        </p>
+        <pre>
 <code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.css&quot; rel='stylesheet'&gt;</code></pre>
-        </li>
-        <li>
-          <p>
-            In the <code translate="No">body</code> section, add the advanced player embed code.
-          </p>
-          <aside class="bcls-aside bcls-aside--tip">To the player embed code, we've added an <code translate="No">id</code> attribute so that we can get a reference to the player in a later script.
-          </aside>
-          <pre class="line-numbers">
+      </li>
+      <li>
+        <p>
+          In the <code translate="No">body</code> section, add the advanced player embed code.
+        </p>
+        <aside class="bcls-aside bcls-aside--tip">To the player embed code, we've added an <code translate="No">id</code> attribute so that we can get a reference to the player in a later script.
+        </aside>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id=&quot;myPlayerID&quot;</span>
   data-account=&quot;1752604059001&quot;
   data-player=&quot;default&quot;
@@ -108,30 +108,30 @@ parent: Plugins
   data-application-id=&quot;&quot;
   width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
 &lt;script src=&quot;https://players.brightcove.net/1752604059001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-        </li>
-        <li>
-          <p>
-            After your player embed code, add the quality selection plugin script file.
-          </p>
-          <pre>
+      </li>
+      <li>
+        <p>
+          After your player embed code, add the quality selection plugin script file.
+        </p>
+        <pre>
 <code class="language-html" translate="No">&lt;script src=&quot;https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-        </li>
-        <li>
-          <p>
-            Below the plugin script, add a script that does the following:
-          </p>
-          <ul>
-            <li>
-              Get a reference to the Brightcove Player.
-            </li>
-            <li>
-              Register the quality selection plugin with the player.
-            </li>
-            <li>
-              Specify any plugin options that you want to use. In this example, we are setting the default quality selection to <code translate="No">720p</code>.
-            </li>
-          </ul>
-          <pre class="line-numbers">
+      </li>
+      <li>
+        <p>
+          Below the plugin script, add a script that does the following:
+        </p>
+        <ul>
+          <li>
+            Get a reference to the Brightcove Player.
+          </li>
+          <li>
+            Register the quality selection plugin with the player.
+          </li>
+          <li>
+            Specify any plugin options that you want to use. In this example, we are setting the default quality selection to <code translate="No">720p</code>.
+          </li>
+        </ul>
+        <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;script type=&quot;text/javascript&quot;&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
@@ -140,14 +140,14 @@ parent: Plugins
     });
   });
 &lt;/script&gt;</code></pre>
-        </li>
-      </ol>
-      <details>
-        <summary>
-          <h2 id="Complete_code_example">Complete code example</h2>
-        </summary>
-        <p>Here is a complete code example for using the quality selection plugin, setting the initial default resolution:</p>
-        <pre class="line-numbers">
+      </li>
+    </ol>
+    <details>
+      <summary>
+        <h2 id="Complete_code_example">Complete code example</h2>
+      </summary>
+      <p>Here is a complete code example for using the quality selection plugin, setting the initial default resolution:</p>
+      <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -189,35 +189,35 @@ parent: Plugins
     &lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-      </details>
-    </section>
-    <section class="bcls-section">
-      <h2 id="Configuration_options">Configuration options</h2>
-      <p>The following options are available to configure the plugin if you are implementing the plugin using code:</p>
-      <ul>
-        <li>
-          <h3><code translate="No">defaultResolution</code></h3>
-          <ul>
-            <li>Type: <code translate="No">String</code></li>
-            <li>Default: <code translate="No">none</code></li>
-            <li>Defines the default resolution or resolution mapping to use. Pass it either the horizontal resolution or <strong>SD</strong>/<strong>HD</strong>.</li>
-          </ul>
-          <h4>Change default initial resolution in Video Cloud Studio</h4>
-          <p>Follow these steps to change the default resolution in Video Cloud Studio:</p>
-          <ol class="bcls-tasklist-restart">
-            <li>In the <strong>PLAYERS</strong> module, select the player to which you have added the Quality Selection Plugin.</li>
-            <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
-            <li>Locate the section about the Quality Selection Plugin in the <code>plugins</code> section, shown here:
-              <pre class="line-numbers"><code class="language-json" translate="No">{
+    </details>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Configuration_options">Configuration options</h2>
+    <p>The following options are available to configure the plugin if you are implementing the plugin using code:</p>
+    <ul>
+      <li>
+        <h3><code translate="No">defaultResolution</code></h3>
+        <ul>
+          <li>Type: <code translate="No">String</code></li>
+          <li>Default: <code translate="No">none</code></li>
+          <li>Defines the default resolution or resolution mapping to use. Pass it either the horizontal resolution or <strong>SD</strong>/<strong>HD</strong>.</li>
+        </ul>
+        <h4>Change default initial resolution in Video Cloud Studio</h4>
+        <p>Follow these steps to change the default resolution in Video Cloud Studio:</p>
+        <ol class="bcls-tasklist-restart">
+          <li>In the <strong>PLAYERS</strong> module, select the player to which you have added the Quality Selection Plugin.</li>
+          <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
+          <li>Locate the section about the Quality Selection Plugin in the <code>plugins</code> section, shown here:
+            <pre class="line-numbers"><code class="language-json" translate="No">{
     "registry_id": "@brightcove/videojs-quality-menu",
     "version": "1.x",
     "options": {
       "useResolutionLabels": true
     }
   }</code></pre>
-            </li>
-            <li>To the <code>options</code> section, add your desired default resolution, as shown in the highlighted section (don't forget to add a comma at the end of the previous line):
-              <pre class="line-numbers"><code class="language-json" translate="No">{
+          </li>
+          <li>To the <code>options</code> section, add your desired default resolution, as shown in the highlighted section (don't forget to add a comma at the end of the previous line):
+            <pre class="line-numbers"><code class="language-json" translate="No">{
     "registry_id": "@brightcove/videojs-quality-menu",
     "version": "1.x",
     "options": {
@@ -225,105 +225,105 @@ parent: Plugins
       <span class="bcls-highlight">"defaultResolution": "720p"</span>
     }
   }</code></pre>
-            </li>
-            <li>Click <strong>Save</strong> to save the altered JSON.</li>
-            <li>Publish the changed player.</li>
-          </ol>
-          <aside class="bcls-aside bcls-aside--tip">Of course, similar steps can be used to set any of the options in this section using Video Cloud Studio.</aside>
-        </li>
-        <li>
-          <h3><code translate="No">sdBitrateLimit</code></h3>
-          <ul>
-            <li>Type: <code translate="No">Number</code></li>
-            <li>Default: <code translate="No">2000000</code></li>
-            <li>Defines the upper bitrate limit (exclusive) for considering a rendition <strong>SD</strong>.</li>
-          </ul>
-        </li>
-        <li>
-          <h3><code translate="No">useResolutionLabels</code></h3>
-          <ul>
-            <li>Type: <code translate="No">Boolean</code></li>
-            <li>Default: <code translate="No">true</code></li>
-            <li>When <code translate="No">true</code>, the plugin will attempt to categorize renditions by lines of horizontal resolution when available. Set to false to always use <strong>SD</strong>/<strong>HD</strong> categorization.</li>
-          </ul>
-          <p>To implement the <code translate="No">useResolutionLabels</code> option, you would enter the following in the plugin's options in Studio:</p>
-          <pre class="line-numbers">
+          </li>
+          <li>Click <strong>Save</strong> to save the altered JSON.</li>
+          <li>Publish the changed player.</li>
+        </ol>
+        <aside class="bcls-aside bcls-aside--tip">Of course, similar steps can be used to set any of the options in this section using Video Cloud Studio.</aside>
+      </li>
+      <li>
+        <h3><code translate="No">sdBitrateLimit</code></h3>
+        <ul>
+          <li>Type: <code translate="No">Number</code></li>
+          <li>Default: <code translate="No">2000000</code></li>
+          <li>Defines the upper bitrate limit (exclusive) for considering a rendition <strong>SD</strong>.</li>
+        </ul>
+      </li>
+      <li>
+        <h3><code translate="No">useResolutionLabels</code></h3>
+        <ul>
+          <li>Type: <code translate="No">Boolean</code></li>
+          <li>Default: <code translate="No">true</code></li>
+          <li>When <code translate="No">true</code>, the plugin will attempt to categorize renditions by lines of horizontal resolution when available. Set to false to always use <strong>SD</strong>/<strong>HD</strong> categorization.</li>
+        </ul>
+        <p>To implement the <code translate="No">useResolutionLabels</code> option, you would enter the following in the plugin's options in Studio:</p>
+        <pre class="line-numbers">
 <code class="language-json" translate="No">{
   "useResolutionLabels": false
 }</code></pre>
-          <p>The resulting quality options would appear as follows:</p>
-          <figure class="bcls-figure"><img class="bcls-image" alt="Options SD and HD only" src="/assets/images/plugins/quality-selection/quality-options-sd-hd-only.png" /></figure>
-          <p>The player would then select the optimal rendition from the selected group. As detailed in this section, <code translate="No">sdBitrateLimit</code> is configurable to determine the renditions classified as <strong>SD</strong> and <strong>HD.</strong></p>
-          <aside class="bcls-aside bcls-aside--tip">Contradictory settings will not work. For instance, neither of the following make sense to use as in both cases you are providing an illegal value for a label based on the <code translate="No">useResolutionLabels</code> setting.
-            <pre class="line-numbers">
+        <p>The resulting quality options would appear as follows:</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="Options SD and HD only" src="/assets/images/plugins/quality-selection/quality-options-sd-hd-only.png" /></figure>
+        <p>The player would then select the optimal rendition from the selected group. As detailed in this section, <code translate="No">sdBitrateLimit</code> is configurable to determine the renditions classified as <strong>SD</strong> and <strong>HD.</strong></p>
+        <aside class="bcls-aside bcls-aside--tip">Contradictory settings will not work. For instance, neither of the following make sense to use as in both cases you are providing an illegal value for a label based on the <code translate="No">useResolutionLabels</code> setting.
+          <pre class="line-numbers">
 <code class="language-json" translate="No">"useResolutionLabels": true,
 "defaultResolution": "HD"</code></pre>
-            <pre class="line-numbers">
+          <pre class="line-numbers">
 <code class="language-json" translate="No">"useResolutionLabels": false,
 "defaultResolution": "1080p"</code></pre>
-          </aside>
-        </li>
-        <li>
-          <h3><code translate="No">resolutionLabelBitrates</code></h3>
-          <ul>
-            <li>Type: <code translate="No">Boolean</code></li>
-            <li>Default: <code translate="No">false</code></li>
-            <li>When <code translate="No">true</code>, the plugin will attach bitrate information to the resolution labels (e.g. 720p @ 13806 kbps). This option has no effect when <code translate="No">useResolutionLabels</code> is false or when resolution information is unavailable.</li>
-          </ul>
-          <p>When this configuration option is set the <code translate="No">true</code>, the quality selector will appear as follows:</p>
-          <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="/assets/images/plugins/quality-selection/bitrates-displayed.png" /></figure>
-        </li>
-      </ul>
-    </section>
+        </aside>
+      </li>
+      <li>
+        <h3><code translate="No">resolutionLabelBitrates</code></h3>
+        <ul>
+          <li>Type: <code translate="No">Boolean</code></li>
+          <li>Default: <code translate="No">false</code></li>
+          <li>When <code translate="No">true</code>, the plugin will attach bitrate information to the resolution labels (e.g. 720p @ 13806 kbps). This option has no effect when <code translate="No">useResolutionLabels</code> is false or when resolution information is unavailable.</li>
+        </ul>
+        <p>When this configuration option is set the <code translate="No">true</code>, the quality selector will appear as follows:</p>
+        <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="/assets/images/plugins/quality-selection/bitrates-displayed.png" /></figure>
+      </li>
+    </ul>
+  </section>
 
-    <section class="bcls-section">
-      <h2 id="Styling_the_control">Styling the control</h2>
-      <p>CSS is used to style the gear icon, as well as the menu that appears. The following table shows the common components you can style, the components' selectors and finally the CSS property to set.</p>
-      <table class="bcls-table">
-        <thead class="bcls-table__head">
-          <tr>
-            <th>Component</th>
-            <th>Selector</th>
-            <th>Property</th>
-          </tr>
-        </thead>
-        <tbody class="bcls-table__body">
-          <tr>
-            <td>Gear icon</td>
-            <td>button.vjs-quality-menu-button.vjs-menu-button.vjs-menu-button-popup.vjs-button</td>
-            <td>color</td>
-          </tr>
-          <tr>
-            <td>Color of menu items</td>
-            <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-menu-item</td>
-            <td>background-color</td>
-          </tr>
-          <tr>
-            <td>Text color of menu items</td>
-            <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-menu-item-text</td>
-            <td>color</td>
-          </tr>
-          <tr>
-            <td>Color of selected menu item</td>
-            <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-menu-item.vjs-selected</td>
-            <td>background-color</td>
-          </tr>
-          <tr>
-            <td>Text color of selected item</td>
-            <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-menu-item.vjs-selected .vjs-menu-item-text</td>
-            <td>color</td>
-          </tr>
-          <tr>
-            <td>Text color of <strong>HD</strong> label</td>
-            <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-quality-menu-item-sub-label</td>
-            <td>color</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>For example, to achieve the following:</p>
-      <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="/assets/images/plugins/quality-selection/styled-menu.png" /></figure>
-      <p>You would use this CSS:</p>
-      <pre class="line-numbers">
+  <section class="bcls-section">
+    <h2 id="Styling_the_control">Styling the control</h2>
+    <p>CSS is used to style the gear icon, as well as the menu that appears. The following table shows the common components you can style, the components' selectors and finally the CSS property to set.</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Component</th>
+          <th>Selector</th>
+          <th>Property</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Gear icon</td>
+          <td>button.vjs-quality-menu-button.vjs-menu-button.vjs-menu-button-popup.vjs-button</td>
+          <td>color</td>
+        </tr>
+        <tr>
+          <td>Color of menu items</td>
+          <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-menu-item</td>
+          <td>background-color</td>
+        </tr>
+        <tr>
+          <td>Text color of menu items</td>
+          <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-menu-item-text</td>
+          <td>color</td>
+        </tr>
+        <tr>
+          <td>Color of selected menu item</td>
+          <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-menu-item.vjs-selected</td>
+          <td>background-color</td>
+        </tr>
+        <tr>
+          <td>Text color of selected item</td>
+          <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-menu-item.vjs-selected .vjs-menu-item-text</td>
+          <td>color</td>
+        </tr>
+        <tr>
+          <td>Text color of <strong>HD</strong> label</td>
+          <td>div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-quality-menu-item-sub-label</td>
+          <td>color</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>For example, to achieve the following:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="All video bitrates" src="/assets/images/plugins/quality-selection/styled-menu.png" /></figure>
+    <p>You would use this CSS:</p>
+    <pre class="line-numbers">
 <code class="language-css" translate="No">/* Style the icon */
 button.vjs-quality-menu-button.vjs-menu-button.vjs-menu-button-popup.vjs-button {
   color: red;
@@ -348,23 +348,22 @@ div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.v
 div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-menu-button-use-resolution .vjs-quality-menu-item-sub-label {
   color: lime;
 }</code></pre>
-    </section>
-    <section class="bcls-section">
-      <h2 id="Known_issues">Known issues</h2>
-      <ul>
-        <li>The plugin functions with Brightcove Player version 5.17.0 and later. Functionality with earlier versions of the player is not supported.</li>
-        <li>The quality selector does not work in Safari.</li>
-        <li>The quality selector does not appear in iOS.</li>
-        <li>At times the quality switch will not happen at the desired time, it can take longer than expected.</li>
-        <li>Setting the source in the player configuration and building with single video template will cause the quality menu to not be initialized properly. This is because the source will be set through a call to the <code translate="No">videojs</code> constructor, which does not have access to the player or plugins. The source should be set by calling <code translate="No">player.src()</code>. This does not affect Video Cloud users.</li>
-        <li>The quality menu will not be displayed when using DASH content with Silverlight.</li>
-        <li>The Video Quality in the selector is re-set to <strong>Auto</strong> at every player load. It does not maintain any previous setting.</li>
-      </ul>
-    </section>
-    <section class="bcls-section">
-      <h2 id="Changelog">Changelog</h2>
-      <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-quality-menu/index.html">Quality Menu Plugin Release Notes</a>.</p>
-      <p>For historical release notes, see the <a href="/plugins/changelog/quality-selection-plugin-changelog.html">changelog here</a>.</p>
-    </section>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Known_issues">Known issues</h2>
+    <ul>
+      <li>The plugin functions with Brightcove Player version 5.17.0 and later. Functionality with earlier versions of the player is not supported.</li>
+      <li>The quality selector does not work in Safari.</li>
+      <li>The quality selector does not appear in iOS.</li>
+      <li>At times the quality switch will not happen at the desired time, it can take longer than expected.</li>
+      <li>Setting the source in the player configuration and building with single video template will cause the quality menu to not be initialized properly. This is because the source will be set through a call to the <code translate="No">videojs</code> constructor, which does not have access to the player or plugins. The source should be set by calling <code translate="No">player.src()</code>. This does not affect Video Cloud users.</li>
+      <li>The quality menu will not be displayed when using DASH content with Silverlight.</li>
+      <li>The Video Quality in the selector is re-set to <strong>Auto</strong> at every player load. It does not maintain any previous setting.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Changelog">Changelog</h2>
+    <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-quality-menu/index.html">Quality Menu Plugin Release Notes</a>.</p>
+    <p>For historical release notes, see the <a href="/plugins/changelog/quality-selection-plugin-changelog.html">changelog here</a>.</p>
   </section>
 </article>

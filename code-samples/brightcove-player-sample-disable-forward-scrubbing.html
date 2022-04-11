@@ -10,20 +10,22 @@ parent: Code Samples
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>Initially you will NOT be able to scrub forward, but it is possible to scrub backward. Once the video reaches 50% played, you can scrub either forward or backward. The percentage of when to allow forward scrubbing is easily set in the code.</p>
     <!-- UPDATE codepen here -->
-    
+
     <p data-height="452" data-theme-id="34967" data-slug-hash="OvzyMN" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="Disable Forward Scrubbing" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/OvzyMN/">Disable Forward Scrubbing</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
     <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18571-disable-forward-scrubbing">complete solution on GitHub</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18571-disable-forward-scrubbing">complete solution on GitHub</a>.</p>
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -38,7 +40,7 @@ parent: Code Samples
       </ul>
     </details>
   </section>
-  
+
   <section class="bcls-section">
     <h2 id="Middleware_functions">Middleware functions</h2>
     <p>This sample uses Video.js middleware to implement the code solution. At a very high level, the use cases where middleware is of most value is when you want to intercept and alter core behaviors of the player, such as setting the source or current time. Video.js middleware in general is not discussed at length in this document, but the actual code used for the middleware function is explained. Here are documents from Video.js sources that do detail middleware:</p>
@@ -60,7 +62,7 @@ parent: Code Samples
     </ol>
   </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -70,7 +72,7 @@ parent: Code Samples
     <p>No other HTML elements are added to the page.</p>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
@@ -80,7 +82,7 @@ parent: Code Samples
       <li>Alter the <code translate="No">setCurrentTime()</code> method to check if the time to which the viewer is trying to scrub is less than the current time in the player, or the scrub forward percentage has passed. If either is true, move the playhead to that time. If false, keep the video playing at the current time.</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Create the skeleton for the middleware function</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -93,7 +95,7 @@ parent: Code Samples
 };</code></pre>
     <p>Note that the <code translate="No">player</code> object is passed to the function.</p>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Implement the <code translate="No">setSource()</code> method</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -104,7 +106,7 @@ parent: Code Samples
   next(null, srcObj);
 },</code></pre>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Alter the setCurrentTime() method</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -127,7 +129,7 @@ parent: Code Samples
 }</code></pre>
   </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
     <p>The CSS on the page simply sets the size of the player.</p>
@@ -143,9 +145,8 @@ parent: Code Samples
   data-account="1752604059001"
   data-player="default"
   data-embed="default"
-  data-application-id
-  class="video-js"
-  controls&gt;&lt;/video-js&gt;
+  data-application-id=""
+  controls=""&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
 
 <span class="bcls-highlight">&lt;script type="text/javascript"&gt;
@@ -186,9 +187,8 @@ parent: Code Samples
   data-account="1752604059001"
   data-player="default"
   data-embed="default"
-  data-application-id
-  class="video-js"
-  controls&gt;&lt;/video-js&gt;
+  data-application-id=""
+  controls=""&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
 
 <span class="bcls-highlight">&lt;script src="disable-forward-scrubbing.js"&gt;&lt;/script&gt;</span></code></pre>
