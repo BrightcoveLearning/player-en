@@ -49,7 +49,7 @@ description: 'This topic provides information on Video Cloud’s <a href="https:
     <p>The values included in the MRSS should be based on the following rules.</p>
     <table class="bcls-table">
       <caption class="bcls-caption--table">
-      TVE RSS Fields
+        TVE RSS Fields
       </caption>
       <thead class="bcls-table__head">
         <tr>
@@ -60,39 +60,49 @@ description: 'This topic provides information on Video Cloud’s <a href="https:
       <tbody class="bcls-table__body">
         <tr>
           <td><code translate="No">channel</code></td>
-          <td><ul>
+          <td>
+            <ul>
               <li>If present, use <code translate="No">bcadobepassrequestorid</code></li>
               <li>If not present, use the value set in the account settings</li>
-            </ul></td>
+            </ul>
+          </td>
         </tr>
         <tr>
           <td><code translate="No">item-title</code></td>
-          <td><ul>
+          <td>
+            <ul>
               <li>If present, use <code translate="No">bcadobepasstitle</code></li>
               <li>If not present, use <code translate="No">name</code></li>
-            </ul></td>
+            </ul>
+          </td>
         </tr>
         <tr>
           <td><code translate="No">guid</code></td>
-          <td><ul>
+          <td>
+            <ul>
               <li>If present, use <code translate="No">bcadobepassreferenceid</code></li>
               <li>If not present, use <code translate="No">reference_id</code></li>
-            </ul></td>
+            </ul>
+          </td>
         </tr>
         <tr>
           <td><code translate="No">rating</code></td>
-          <td><ul>
+          <td>
+            <ul>
               <li>If present, use <code translate="No">bcadobepassrequestorid</code></li>
               <li>Only send if both <code translate="No">bcadobepassrating</code> and <code translate="No">bcadobepassratingscheme</code> are present</li>
-            </ul></td>
+            </ul>
+          </td>
         </tr>
         <tr>
           <td><code translate="No">rating-scheme</code></td>
-          <td><ul>
+          <td>
+            <ul>
               <li>If present, use <code translate="No">bcadobepassrating</code></li>
               <li>Only send if both <code translate="No">bcadobepassrating</code> and <code translate="No">bcadobepassratingscheme</code> are present</li>
             </ul>
-            <aside class="bcls-aside bcls-aside--information">Note: Currently, the only values in use are <code translate="No">v-chip</code> or <code translate="No">mpaa</code> but others may be used in the future.</aside></td>
+            <aside class="bcls-aside bcls-aside--information">Note: Currently, the only values in use are <code translate="No">v-chip</code> or <code translate="No">mpaa</code> but others may be used in the future.</aside>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -114,7 +124,6 @@ description: 'This topic provides information on Video Cloud’s <a href="https:
   &lt;video-js id="<span class="bcls-highlight">tve-player</span>"
     data-account="account1234"
     data-player="player-id"
-    class="video-js"
     controls&gt;
   &lt;/video-js&gt;
   &lt;script src="//players.brightcove.net/account1234/player-id_default/index.min.js"&gt;&lt;/script&gt;
