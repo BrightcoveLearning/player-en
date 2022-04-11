@@ -8,7 +8,9 @@ parent: Code Samples
   <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -34,60 +36,63 @@ parent: Code Samples
       <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
     </details>
   </section>
-<section id="Select_implementation" class="bcls-section">
-  <h2>Select implementation</h2>
-  <p>Although the player described here will work in an iframe embed, there is some CSS applied to the player to round the corners and keep the controls visible. This styling depends on the player having an ID and will only work with the in-page embed. The in-page embed is used here.</p>
-</section>
-<section id="The_player" class="bcls-section">
-  <h2>The player</h2>
-  <p>The sample player is in the JSFiddle below. Click the CSS tab to see the CSS applied to the player.</p>
-  <!--default player--><script async src="//jsfiddle.net/Brightcove_Learning/ym1zttxd/5/embed/result,css/dark/"></script></section>
-<section id="How_it_works" class="bcls-section">
-  <h2>How it works</h2>
-  <p>The following sections explain the player and CSS code used in the example.</p>
-  <p class="video-cloud-only">This player also requires audio-only content. See <a href="https://apis.support.brightcove.com/general/audio-content.html">Audio Content</a> to learn how to add audio content to Video Cloud.</p>
-  <p class="player-only">This player also requires audio-only content in the form of a MP4 file with no video track. A poster for the audio is optional, but can be used to display the audio title, as shown in the sample player here.</p>
-</section>
-<section id="Create_the_player" class="bcls-section">
-  <h2>Create the player</h2>
-  <p>To create a player and assign a video to it, follow these steps:</p>
-  <ol>
-    <li>In the <strong>Players</strong> module, create a new player or use an existing one.</li>
-    <li>Edit the player settings to change the size:
-      <ul>
-        <li>Choose a fixed size</li>
-        <li>Choose a custom aspect ratio</li>
-        <li>Set the width to whatever you like, but set the <strong>height</strong> to <strong>80</strong> pixels</li>
-      </ul>
-      <figure>
-        <figcaption>Player sizing</figcaption>
-        <img alt="Player sizing" src="/assets/images/code-samples/brightcove-player-sample-audio-player-simulated/player-sizing.png" /></figure>
-    </li>
-    <li><span class="video-cloud-only">In the <strong>Media</strong> module, select an <a href="https://apis.support.brightcove.com/general/audio-content.html">audio-only item</a> and publish it with this player.</span><span class="player-only">Assign audio-only content to the player and publish it.</span></li>
-    <li>Copy the In-Page embed code and paste it into a new HTML file.</li>
-    <li>Add the <code translate="No">id</code> <strong>audioOnly</strong> to the player.</li>
-  </ol>
-  <aside class="bcls-aside bcls-aside--information">For details on how to get this embed code, see the <a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a> document.</aside>
-  <p>The embed code should look similar to this:</p>
-  <pre class="line-numbers video-cloud-only" data-start="1">
-<code class="language-html" translate="No">&lt;video-js id="audioOnly" data-video-id="4841158458001" data-account="1752604059001" data-player="rkgpS9K" data-embed="default" class="video-js" controls style="width: 480px; height: 80px;"&gt;&lt;/video-js&gt;
+  <section id="Select_implementation" class="bcls-section">
+    <h2>Select implementation</h2>
+    <p>Although the player described here will work in an iframe embed, there is some CSS applied to the player to round the corners and keep the controls visible. This styling depends on the player having an ID and will only work with the in-page embed. The in-page embed is used here.</p>
+  </section>
+  <section id="The_player" class="bcls-section">
+    <h2>The player</h2>
+    <p>The sample player is in the JSFiddle below. Click the CSS tab to see the CSS applied to the player.</p>
+    <!--default player-->
+    <script async src="//jsfiddle.net/Brightcove_Learning/ym1zttxd/5/embed/result,css/dark/"></script>
+  </section>
+  <section id="How_it_works" class="bcls-section">
+    <h2>How it works</h2>
+    <p>The following sections explain the player and CSS code used in the example.</p>
+    <p class="video-cloud-only">This player also requires audio-only content. See <a href="https://apis.support.brightcove.com/general/audio-content.html">Audio Content</a> to learn how to add audio content to Video Cloud.</p>
+    <p class="player-only">This player also requires audio-only content in the form of a MP4 file with no video track. A poster for the audio is optional, but can be used to display the audio title, as shown in the sample player here.</p>
+  </section>
+  <section id="Create_the_player" class="bcls-section">
+    <h2>Create the player</h2>
+    <p>To create a player and assign a video to it, follow these steps:</p>
+    <ol>
+      <li>In the <strong>Players</strong> module, create a new player or use an existing one.</li>
+      <li>Edit the player settings to change the size:
+        <ul>
+          <li>Choose a fixed size</li>
+          <li>Choose a custom aspect ratio</li>
+          <li>Set the width to whatever you like, but set the <strong>height</strong> to <strong>80</strong> pixels</li>
+        </ul>
+        <figure>
+          <figcaption>Player sizing</figcaption>
+          <img alt="Player sizing" src="/assets/images/code-samples/brightcove-player-sample-audio-player-simulated/player-sizing.png" />
+        </figure>
+      </li>
+      <li><span class="video-cloud-only">In the <strong>Media</strong> module, select an <a href="https://apis.support.brightcove.com/general/audio-content.html">audio-only item</a> and publish it with this player.</span><span class="player-only">Assign audio-only content to the player and publish it.</span></li>
+      <li>Copy the In-Page embed code and paste it into a new HTML file.</li>
+      <li>Add the <code translate="No">id</code> <strong>audioOnly</strong> to the player.</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information">For details on how to get this embed code, see the <a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a> document.</aside>
+    <p>The embed code should look similar to this:</p>
+    <pre class="line-numbers video-cloud-only" data-start="1">
+<code class="language-html" translate="No">&lt;video-js id="audioOnly" data-video-id="4841158458001" data-account="1752604059001" data-player="rkgpS9K" data-embed="default" controls="" style="width: 480px; height: 80px;"&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/1752604059001/rkgpS9K_default/index.min.js"\&gt;&lt;/script&gt;
 </code></pre>
-  <pre class="line-numbers player-only" data-start="1">
-<code class="language-html" translate="No">&lt;video-js id="audioOnly" data-account="3676484086001" data-player="B1doF3j" data-embed="default" class="video-js" controls style="width: 480px; height: 80px;"&gt;&lt;/video-js&gt;
+    <pre class="line-numbers player-only" data-start="1">
+<code class="language-html" translate="No">&lt;video-js id="audioOnly" data-account="3676484086001" data-player="B1doF3j" data-embed="default" controls="" style="width: 480px; height: 80px;"&gt;&lt;/video-js&gt;
 &lt;script src="https://players.brightcove.net/3676484086001/B1doF3j_default/index.min.js"&gt;&lt;/script&gt;
 </code></pre>
-</section>
-<section id="Add_custom_CSS" class="bcls-section">
-  <h2>Add custom CSS</h2>
-  <p>Now add some custom CSS in a style block in the head section of the page. The styles will do three things:</p>
-  <ul>
-    <li>Remove the background on the big play button (because it's too large for the height of the player)</li>
-    <li>Keep the control bar visible during playback even if the user mouses off</li>
-    <li>Round the corners of the player to make it look a little more audio-player-like</li>
-  </ul>
-  <p>The CSS code you need to add is shown below:</p>
-  <pre class="line-numbers" data-start="1">
+  </section>
+  <section id="Add_custom_CSS" class="bcls-section">
+    <h2>Add custom CSS</h2>
+    <p>Now add some custom CSS in a style block in the head section of the page. The styles will do three things:</p>
+    <ul>
+      <li>Remove the background on the big play button (because it's too large for the height of the player)</li>
+      <li>Keep the control bar visible during playback even if the user mouses off</li>
+      <li>Round the corners of the player to make it look a little more audio-player-like</li>
+    </ul>
+    <p>The CSS code you need to add is shown below:</p>
+    <pre class="line-numbers" data-start="1">
 <code class="language-html" translate="No">/* keep the controls visible during playback */
 #audioOnly .vjs-control-bar {
     transform: none;
@@ -107,5 +112,5 @@ parent: Code Samples
 #audioOnly .vjs-dock-text {
     border-radius: 1em 1em 0 0;
 }</code></pre>
-</section>
+  </section>
 </article>
