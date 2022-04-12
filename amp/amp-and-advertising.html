@@ -34,7 +34,7 @@ parent: "amp"
   <section class="bcls-section">
     <h2 id="Using_macros_in_ad_calls">Using macros in ad calls</h2>
     <p>If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin. Macros for video metadata such as <code>{mediainfo.tags}</code> can be used as normal. (For the full list of video metadata macros see the <a href="/plugins/advertising-ima3-plugin.html#Ad_macros_and_the_serverUrl">Ad macros and the serverUrl</a> of the <em>Advertising with the IMA3 Plugin</em> document.) However to use <code>{pageVariable.*}</code> macros, some additional steps are needed for AMP, since the AMP player is in an iframe.</p>
-    <p>First, configure the player to parse query parameters, using the Brightcove Player's <code>query_string_to_window</code> configuration option. To add all query string parameters to the global namespace, add the following to your player configuration:</p>
+    <p>First, configure the player to parse query parameters, using the Brightcove Player's <a href="/general/player-configuration-guide.html#query_string_to_window"><code>query_string_to_window</code></a> configuration option. To add all query string parameters to the global namespace, add the following to your player configuration:</p>
     <pre class="line-numbers">
     <code class="language-bash" translate="No">"query_string_to_window": {
       "target": "qsParams"
