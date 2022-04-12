@@ -6,9 +6,38 @@ parent: "amp"
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
+
   <section class="bcls-section">
-    <h2 id="Implementing_Advertising_in_an_AMP_player">Implementing Advertising in an AMP player</h2>
-    <p>Advertising, including prerolls, works in players used in AMP. The ad plugin and its configuration just needs to be included in the player's configuration. If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin as described later in this document.</p>
+    <h2 id="Introduction">Introduction</h2>
+    <p>Advertising including prerolls, works in players used in AMP. The ad plugin and its configuration just needs to be included in the player's configuration. For a basic set up using a static ad tag follow the steps in the <a href="#Basic_setup_with_static_ad_tag">Basic setup with static ad tag</a> section in this document.</p>
+    <p>Often you'll want to use macros to add dynamic information to the ad calls. For information using this technique, see the <a href="#Using_macros_in_ad_calls">Using macros in ad calls</a> section in this document.</p>
+    <p>In AMP you can use client-side consent, providing users with additional control over their online experience. See the <a href="#AMP_consent_and_Advertising">AMP-consent and Advertising</a> section in this document for more information.</p>
+    <p>Note that AMP is very strict in what can be added to a valid AMP page, as detailed in the <a href="/amp/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a> document. For example, you CANNOT use the standard practice of adding an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin. So advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Basic_setup_with_static_ad_tag">Basic setup with static ad tag</h2>
+    <p>To configure a player with a static ad tag you must do the following:</p>
+    <ol>
+      <li>Create the player.</li>
+      <li>Configure advertising using a static ad tag as shown in <a href="/advertising/step-step-implementing-advertising.html">steps 1-15 of the Step-by-Step: Implementing Advertising</a> document.</li>
+      <li>Configure your player to use AMP as shown in the first half of the <a href="/amp/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a> document.</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--tip language-editable">To check player configuration open the <strong>JSON Editor</strong> section in your player properties and check the plugin configuration. It should be similar to the following (using your player and ad configuration changes):
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/amp/ad-json-plugin-config.png" alt="JSON ad plugin configuration">
+      </figure>
+    </aside>
+    <p>Once you place your AMP player code on a page the ad(s) will play along with your video.</p>
+  </section>
+
+
+  <section class="bcls-section">
+    <h2 id=">Using_macros_in_ad_calls">Using macros in ad calls</h2>
+    <p>If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin. Macros for video metadata such as <code>{mediainfo.tags}</code> can be used as normal. (For the full list of video metadata macros see the <a href="/plugins/advertising-ima3-plugin.html#Ad_macros_and_the_serverUrl">Ad macros and the serverUrl</a> of the <em>Advertising with the IMA3 Plugin</em> document.) However to use <code>{pageVariable.*}</code> macros, some additional steps are needed for AMP, since the AMP player is in an iframe.</p>
+
+
+
     <p>AMP is very strict in what can be added to a valid AMP page, as detailed in the <a href="/amp/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a> document. For example, you CANNOT use the standard practice of adding an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin.</p>
     <p>To reiterate, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
     <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code translate="No">{pageVariable.<span class="bcls-highlight">adId</span>}</code>, you must alter the player's configuration. You can use a custom parameter like:</p>
@@ -28,22 +57,6 @@ parent: "amp"
   ]
 }</code></pre>
     <p>For specific instructions on updating a player configuration, see <a href="https://apis.support.brightcove.com/player-management/references/reference.html#operation/UpdatePlayerConfiguration">Player Configurations - Update a Player Configuration</a> from the Player Management API reference.</p>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="section-name">Basic setup with static ad tag</h2>
-    <p>To configure a player with a static ad tag you must do the following:</p>
-    <ol>
-      <li>Create the player</li>
-      <li>Configure advertising using a static ad tag as shown in <a href="/advertising/step-step-implementing-advertising.html">steps 1-15 of the Step-by-Step: Implementing Advertising</a> document.</li>
-      <li>Configure your player to use AMP as shown in the first half of the <a href="/amp/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a> document.</li>
-    </ol>
-    <aside class="bcls-aside bcls-aside--tip language-editable">To check player configuration open the <strong>JSON Editor</strong> section in your player properties and check the plugin configuration. It should be similar to the following (using your player and ad configuration changes):
-      <figure class="bcls-figure">
-        <img class="bcls-image" src="/assets/images/amp/ad-json-plugin-config.png" alt="JSON ad plugin configuration">
-      </figure>
-    </aside>
-    <p>Once you place your AMP player code on a page the ad will play along with your video.</p>
   </section>
 
   <section class="bcls-section">
