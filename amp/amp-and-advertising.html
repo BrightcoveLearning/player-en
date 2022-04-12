@@ -31,15 +31,30 @@ parent: "amp"
     <p>Once you place your AMP player code on a page the ad(s) will play along with your video.</p>
   </section>
 
-
   <section class="bcls-section">
-    <h2 id=">Using_macros_in_ad_calls">Using macros in ad calls</h2>
+    <h2 id="Using_macros_in_ad_calls">Using macros in ad calls</h2>
     <p>If you need to include article-specific values in your ad server calls, you can pass custom data through to a player plugin. Macros for video metadata such as <code>{mediainfo.tags}</code> can be used as normal. (For the full list of video metadata macros see the <a href="/plugins/advertising-ima3-plugin.html#Ad_macros_and_the_serverUrl">Ad macros and the serverUrl</a> of the <em>Advertising with the IMA3 Plugin</em> document.) However to use <code>{pageVariable.*}</code> macros, some additional steps are needed for AMP, since the AMP player is in an iframe.</p>
+    <p>First, configure the player to parse query parameters, using the Brightcove Player's <code>query_string_to_window</code> configuration option. To add all query string parameters to the global namespace, add the following to your player configuration:</p>
+    <pre class="line-numbers">
+    <code class="language-bash" translate="No">"query_string_to_window": {
+      "target": "qsParams"
+    }</code></pre>
+    <p>Note the <code>qsParams</code> name is the object in which the parameters are stored. You can change the name as you choose, in which case you change the name used in the macros later.</p>
+    <p>Next, to pass data, add as many <code>data-param-*</code> parameters as needed to the <code>&lt;amp-brightcove&gt;</code> embed code. For example:</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">data-param-ad-id="prerollonly"
+data-param-site-section="celebrity"
+data-param-post-id="A12345"</code></pre>
+    <p>Now, within the player's iframe, that extra data is available as camel-cased properties of the target object:</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">window.qsParams.adId
+window.qsParams.siteSection
+window.qsParams.postId</code></pre>
 
 
-
-    <p>AMP is very strict in what can be added to a valid AMP page, as detailed in the <a href="/amp/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a> document. For example, you CANNOT use the standard practice of adding an <code translate="No">id</code> to the <code translate="No">amp-brightcove</code> tag then use a <code translate="No">script</code> block to configure, for instance, the IMA3 plugin.</p>
-    <p>To reiterate, advertising must be implemented in the player's configuration, either using Studio or the Player Management API.</p>
+    <p>These can be used in <code>{pageVariable.*}</code> macros in the ad configuration (carriage returns added for readability):</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">https://ads.example.com/ad?ad={pageVariable.qsParams.adId}
+    &amp;video={mediainfo.id}&amp;article={pageVariable.qsParams.postId}
+    &amp;section={pageVariable.qsParams.siteSection}</code></pre>
+    <!-- 
     <p>If you wish to use ad configuration URLs that utilize an ad macro such as <code translate="No">{pageVariable.<span class="bcls-highlight">adId</span>}</code>, you must alter the player's configuration. You can use a custom parameter like:</p>
     <pre class="line-numbers">
   <code class="language-html" translate="No">data-param-ad-id="preonlybumper"</code></pre>
@@ -56,7 +71,8 @@ parent: "amp"
     "adId"
   ]
 }</code></pre>
-    <p>For specific instructions on updating a player configuration, see <a href="https://apis.support.brightcove.com/player-management/references/reference.html#operation/UpdatePlayerConfiguration">Player Configurations - Update a Player Configuration</a> from the Player Management API reference.</p>
+ -->
+    <p>For specific instructions on using the Player Management API to update a player configuration, see <a href="https://apis.support.brightcove.com/player-management/references/reference.html#operation/UpdatePlayerConfiguration">Player Configurations - Update a Player Configuration</a>.</p>
   </section>
 
   <section class="bcls-section">
