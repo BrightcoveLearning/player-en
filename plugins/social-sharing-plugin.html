@@ -4,7 +4,7 @@ description: 'In this topic, you will learn how to use the social media plugin t
 parent: Plugins
 ---
 <h1>{{ page.title }}</h1>
- <article class="bcls-article">
+<article class="bcls-article">
   <summary>{{ page.description }}</summary>
 
   <section class="bcls-section">
@@ -38,7 +38,7 @@ parent: Plugins
 				<li>Review the available <a href="#Options">Options</a> to customize the social media plugin.</li>
 			</ul>
 		</aside> -->
-        
+
         <ul>
           <li>
             <p><a href="#Configure_player">Configure the player properties</a><br />
@@ -155,7 +155,7 @@ parent: Plugins
     </ul>
     <h3><code translate="No">options.embedCode</code></h3>
     <p>The custom embed code for sharing the video (the Brightcove Player iframe embed code). This option allows you to completely override the contents of the <strong>Embed Code</strong> field located in the sharing dialog.
-      <figure class="bcls-figure"><img class="bcls-image" alt="Social Media Embed Code" src="/assets/images/plugins/social/social-media-embedcode.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Social Media Embed Code" src="/assets/images/plugins/social/social-media-embedcode.png" /></figure>
     </p>
     <p>You can get the value of this property by using the <a href="#getembedcode">getEmbedCode()</a> method.</p>
     <ul>
@@ -251,7 +251,7 @@ parent: Plugins
       <li>Default: <code translate="No">false </code></li>
     </ul>
 
-    
+
     <h3>Options example:</h3>
     <pre class="line-numbers"><code class="language-json" translate="No">{
   "title": "Tiger",
@@ -328,14 +328,17 @@ parent: Plugins
               </tr>
               <tr>
                 <td><span class="video-cloud-only">Video Cloud</span><span class="player-only">Brightcove Player</span> Account (Publisher ID):</td>
-                <td><!-- <input id="accountID" class="required papi-request" type="text" size="60" value="1486906377" required> -->
+                <td>
+                  <!-- <input id="accountID" class="required papi-request" type="text" size="60" value="1486906377" required> -->
                   <input id="accountID" class="required papi-request" type="text" size="60" placeholder="your account id" required="" />
-                  <!--Brightcove Learning Doc Samples--></td>
+                  <!--Brightcove Learning Doc Samples-->
+                </td>
               </tr>
               <tr>
                 <td class="align-top no-wrap">Policy key:</td>
                 <td><input id="policyKey" class="required papi-request" type="text" size="250" placeholder="your policy key" required="" />
-                  <p>&nbsp;</p></td>
+                  <p>&nbsp;</p>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -348,18 +351,24 @@ parent: Plugins
             <tbody>
               <tr>
                 <td>URL for your player page:</td>
-                <td><!-- <input id="pageURL" type="text" size="60" class="required papi-request" value="https://yourwebpage.com"  required /> -->
-                  <input id="pageURL" type="text" size="60" class="required papi-request" placeholder="https://yourwebpage.com" required="" /></td>
+                <td>
+                  <!-- <input id="pageURL" type="text" size="60" class="required papi-request" value="https://yourwebpage.com"  required /> -->
+                  <input id="pageURL" type="text" size="60" class="required papi-request" placeholder="https://yourwebpage.com" required="" />
+                </td>
               </tr>
               <tr>
                 <td>Twitter @username of website:</td>
-                <td><!-- <input id="pageTwitter" type="text" size="60" class="required papi-request" value="@username"  required /> -->
-                  <input id="pageTwitter" type="text" size="60" class="required papi-request" placeholder="@username" required="" /></td>
+                <td>
+                  <!-- <input id="pageTwitter" type="text" size="60" class="required papi-request" value="@username"  required /> -->
+                  <input id="pageTwitter" type="text" size="60" class="required papi-request" placeholder="@username" required="" />
+                </td>
               </tr>
               <tr>
                 <td>Player ID (from Players Module):</td>
-                <td><!-- <input id="playerID" class="required papi-request" size="60" value="default" required /> -->
-                  <input id="playerID" class="required papi-request" size="60" placeholder="your player id" required="" /></td>
+                <td>
+                  <!-- <input id="playerID" class="required papi-request" size="60" value="default" required /> -->
+                  <input id="playerID" class="required papi-request" size="60" placeholder="your player id" required="" />
+                </td>
               </tr>
               <tr>
                 <td>Player width:</td>
@@ -380,8 +389,10 @@ parent: Plugins
             <tbody>
               <tr>
                 <td>Video ID (from Media Module):</td>
-                <td><!-- <input id="videoID" class="required papi-request" size="60" value="4779638563001" required /> -->
-                  <input id="videoID" class="required papi-request" size="60" placeholder="your video id" required="" /></td>
+                <td>
+                  <!-- <input id="videoID" class="required papi-request" size="60" value="4779638563001" required /> -->
+                  <input id="videoID" class="required papi-request" size="60" placeholder="your video id" required="" />
+                </td>
               </tr>
             </tbody>
           </table>
@@ -399,7 +410,7 @@ parent: Plugins
 	<legend>Generated Results</legend>
 	<div id="generatedResults"></div>
 	</fieldset> -->
-    
+
     <div id="publishingCodeWrapper">
       <fieldset>
         <legend>Metadata Code </legend>
@@ -414,8 +425,10 @@ parent: Plugins
       <li>Save your changes. You are now ready to use the social media sharing interface with your player.</li>
     </ol>
     <aside class="bcls-aside bcls-aside--tip">You will want to provide a secure URL value for your HTML player page ( <code translate="No">&lt;meta property="og:video:secure_url" content=""/&gt; </code>) for Facebook users that use secure browsing (HTTPS).</aside>
-    <!-- script for the social meta tag generator form - calls playback api --> <script src="https://solutions.brightcove.com/bcls/brightcove-player/social-plugin/social.js">
-			</script></section>
+    <!-- script for the social meta tag generator form - calls playback api -->
+    <script src="https://solutions.brightcove.com/bcls/brightcove-player/social-plugin/social.js">
+    </script>
+  </section>
   <section class="bcls-section">
     <h2 id="Sharing_on_Facebook">Sharing on Facebook</h2>
     <p>At this time, only Facebook's native player will play videos in a Facebook wall. If you would like to share your videos and have them play in the Facebook wall, you can use Brightcove Social. For details, see the <a href="https://studio.support.brightcove.com/social/getting-started-brightcove-social.html">Getting Started with Brightcove Social</a> document.</p>
@@ -437,7 +450,8 @@ parent: Plugins
                   <li>Host poster images on your own server and use those URLs in the appropriate meta tags.</li>
                   <li>Implement server-side code to retrieve media URLs from the Playback API and update the appropriate meta tags on a daily basis.</li>
                 </ul>
-                For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.</aside>
+                For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.
+              </aside>
             </li>
             <li>Lines 14-16: provide a description for your video, along with player dimensions.</li>
           </ul>
@@ -477,7 +491,7 @@ parent: Plugins
     &lt;/style&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;iframe src='https://players.brightcove.net/1752604059001/oVYJtofHRF_default/index.html?videoId=4172255216001' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;
+    &lt;iframe src='https://players.brightcove.net/1752604059001/oVYJtofHRF_default/index.html?videoId=4172255216001' allowfullscreen allow='encrypted-media'&gt;&lt;/iframe&gt;
   &lt;/body&gt;</code></pre>
     </div>
     <div class="player-only">
@@ -497,7 +511,8 @@ parent: Plugins
                   <li>Host poster images on your own server and use those URLs in the appropriate meta tags.</li>
                   <li>Implement server-side code to retrieve media URLs from the Playback API and update the appropriate meta tags on a daily basis.</li>
                 </ul>
-                For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.</aside>
+                For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.
+              </aside>
             </li>
             <li>Lines 97-99: provide a description for your video, along with player dimensions.</li>
           </ul>
@@ -531,7 +546,7 @@ parent: Plugins
 			&lt;meta name="twitter:player:stream:content_type" content="video/mp4" /&gt;
 		&lt;/head&gt;
 		&lt;body&gt;
-			&lt;iframe style='width: 640px;height: 360px;' src='https://players.brightcove.net/3676484087001/oVYJtofHRF_default/index.html' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;
+			&lt;iframe style='width: 640px;height: 360px;' src='https://players.brightcove.net/3676484087001/oVYJtofHRF_default/index.html' allowfullscreen allow='encrypted-media'&gt;&lt;/iframe&gt;
 		&lt;/body&gt;
 	&lt;/html&gt;
 	</code>
@@ -544,7 +559,8 @@ parent: Plugins
     <ul>
       <li><a href="https://studio.support.brightcove.com/players/configuring-social-properties-player.html">Configuring the Social Properties for a Player</a></li>
     </ul>
-    <!-- <aside class="bcls-aside bcls-aside--tip">Note: You do not need to use the <a href="#Options">embedCode</a> property when sharing a Smart Player to Facebook. All you need are the Open Graph (og) meta tags as described above.</aside> --></section>
+    <!-- <aside class="bcls-aside bcls-aside--tip">Note: You do not need to use the <a href="#Options">embedCode</a> property when sharing a Smart Player to Facebook. All you need are the Open Graph (og) meta tags as described above.</aside> -->
+  </section>
   <section class="bcls-section">
     <h2 id="Sharing_on_Twitter">Sharing on Twitter</h2>
     <p>If you want to share your video on Twitter, you need to include the twitter meta tags.</p>
@@ -565,7 +581,8 @@ parent: Plugins
                   <li>Host poster images on your own server and use those URLs in the appropriate meta tags.</li>
                   <li>Implement server-side code to retrieve media URLs from the Playback API and update the appropriate meta tags on a daily basis.</li>
                 </ul>
-                For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.</aside>
+                For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.
+              </aside>
             </li>
             <li>Line 69: points to the URL for your Brightcove Player. Notice that the query parameters define the <code translate="No">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
             <li>Lines 70-71: provide the player dimensions.</li>
@@ -600,7 +617,7 @@ parent: Plugins
     &lt;meta name="twitter:player:stream:content_type" content="video/mp4" /&gt;</span>
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;iframe style='width: 640px;height: 360px;' src='https://players.brightcove.net/1752604059001/oVYJtofHRF_default/index.html?videoId=4172255216001' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;
+    &lt;iframe style='width: 640px;height: 360px;' src='https://players.brightcove.net/1752604059001/oVYJtofHRF_default/index.html?videoId=4172255216001' allowfullscreen allow='encrypted-media'&gt;&lt;/iframe&gt;
   &lt;/body&gt;</code></pre>
     </div>
     <div class="player-only">
@@ -618,7 +635,8 @@ parent: Plugins
                   <li>Host poster images on your own server and use those URLs in the appropriate meta tags.</li>
                   <li>Implement server-side code to retrieve media URLs from the Playback API and update the appropriate meta tags on a daily basis.</li>
                 </ul>
-                For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.</aside>
+                For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.
+              </aside>
             </li>
             <li>Line 144: points to the URL for your Brightcove Player. Notice that the query parameters define the <code translate="No">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
             <li>Lines 145-146: provide the player dimensions.</li>
@@ -654,7 +672,7 @@ parent: Plugins
 		&lt;meta name="twitter:player:stream:content_type" content="video/mp4" /&gt;</span>
 	&lt;/head&gt;
 	&lt;body&gt;
-		&lt;iframe style='width: 640px;height: 360px;' src='https://players.brightcove.net/3676484087001/oVYJtofHRF_default/index.html' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;
+		&lt;iframe style='width: 640px;height: 360px;' src='https://players.brightcove.net/3676484087001/oVYJtofHRF_default/index.html' allowfullscreen allow='encrypted-media'&gt;&lt;/iframe&gt;
 	&lt;/body&gt;
 	&lt;/html&gt;</code></pre>
     </div>

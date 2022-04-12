@@ -1163,7 +1163,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h1>Open Measurement for Server-Side Ads (SSAI) and Brightcove Player</h1>
 <article class="bcls-article">
-    <summary>In this topic, you will learn how to use the iab Open Measurement SDK with Brightcove Player's Server-Side Ad Insertion (SSAI) plugin.</summary>
+  <summary>In this topic, you will learn how to use the iab Open Measurement SDK with Brightcove Player's Server-Side Ad Insertion (SSAI) plugin.</summary>
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
@@ -1172,13 +1172,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       The <a href="https://iabtechlab.com/standards/open-measurement-sdk/">Open Measurement SDK</a> for web video can be integrated with the <a href="/plugins/implementing-server-side-ads-brightcove-player.html">videojs-ssai</a> plugin to allow IAB partners and ad vendors “third-party” access to creative performance measurement data using a standardized API.
     </p>
     <p>The SSAI plugin includes an opt-in feature set that uses VAST ad verification data and Open Measurement (OM) service/client scripts imported by the user to manage client sessions and OM ad life-cycle events during live or VOD content playback.</p>
-   
+
     <aside class="bcls-aside bcls-aside--information">
       Open Measurement features for SSAI are currently NOT supported with the <strong>Standard</strong> iframe player embed code. Instead, you must use the <strong>Advanced</strong> in-page player embed code.
     </aside>
     <!-- <p>For a video overview, see the following:</p>
     <p>
-      <iframe src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5995509672001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="encrypted-media" width="800" height="450"></iframe>
+      <iframe src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5995509672001" allowfullscreen="" allow="encrypted-media" width="800" height="450"></iframe>
     </p> -->
   </section>
   <section class="bcls-section">
@@ -1187,7 +1187,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>Active membership with the <a href="https://iabtechlab.com/">IAB Tech Lab</a> for organization name space registration and access to OM SDK files</li>
       <li>
-        Access to and ability to directly host the following: 
+        Access to and ability to directly host the following:
         <ul>
           <li><code translate="No">omweb-v1.js</code> service script</li>
           <li><code translate="No">omid-session-client-v1.js</code> session client (part of the Web Video OM SDK files provided by IAB)</li>
@@ -1233,7 +1233,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <code class="language-json" translate="No">.well-known/omid/omloader-v1.html</code></pre>
         <p>If the file is missing from that specific path, the OM session client will fail to start.</p>
         <p>For details, see the <a href="https://omsdk-files.s3-us-west-2.amazonaws.com/docs/WebVideo/Publisher%2BQuick%2BStart%2BGuide.pdf"> IAB documentation for publishers regarding access modes</a>.</p>
-      </li>   
+      </li>
     </ol>
   </section>
 
@@ -1244,10 +1244,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>In Video Cloud Studio, navigate to the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
       <li>Click the link for the player to open the player's properties.</li>
       <li>In the left navigation, click <strong>Plugins</strong>.</li>
-      <li><p>From the <strong>Add a Plugin</strong> dropdown, select <strong>Custom Plugin</strong>.</p>
+      <li>
+        <p>From the <strong>Add a Plugin</strong> dropdown, select <strong>Custom Plugin</strong>.</p>
         <figure class="bcls-figure">
           <img class="bcls-image" alt="Custom Plugin" src="/assets/images/plugins/ssai/custom-plugin.png" />
-        </figure></li>
+        </figure>
+      </li>
       <li>For the <strong>Plugin Name</strong> enter <code translate="No">ssai</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter:
         <pre>
@@ -1378,7 +1380,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <li><code translate="No">limited</code></li>
           <li><code translate="No">domain</code></li>
           <li><code translate="No">creative</code></li>
-          <li><p><code translate="No">full</code></p></li>
+          <li>
+            <p><code translate="No">full</code></p>
+          </li>
         </ul>
         <p>A missing or unrecognized value here will cause the OM client to default to <code translate="No">limited</code>/</p>
         <aside class="bcls-aside bcls-aside--information">
@@ -1432,8 +1436,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>The SSAI plugin parses VMAP/VAST XML to a more javascript-friendly object. You can access VAST ad data by calling the following:</p>
       <pre>
 <code class="language-json" translate="No">player.ssai().vmap.adBreaks[i].adSource.vastAdData</code></pre>
-        <p>The use of <code translate="No">[i]</code> denotes that the property is an array.</p>
-    </aside>   
+      <p>The use of <code translate="No">[i]</code> denotes that the property is an array.</p>
+    </aside>
   </section>
 
   <section class="bcls-section">
@@ -1441,61 +1445,61 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>The OM manager currently listens for and mediates the following Brightcove Player ad events:</p>
     <div style="overflow-x:auto;">
       <table class="bcls-table">
-              <caption class="bcls-caption--table">Brightcove Player events</caption>
-              <thead class="bcls-table__head">
-                  <tr>
-                      <th>Event</th>
-                      <th>Description</th>                         
-                  </tr>
-              </thead>
-              <tbody class="bcls-table__body">
-                  <tr>
-                    <td><code translate="No">ads-ad-started</code></td>
-                    <td>start</td>            
-                  </tr>
-                  <tr>
-                    <td><code translate="No">ads-first-quartile</code></td>
-                    <td>first quartile</td>            
-                  </tr>      
-                  <tr>
-                    <td><code translate="No">ads-midpoint</code></td>
-                    <td>midpoint</td>            
-                  </tr>      
-                  <tr>
-                    <td><code translate="No">ads-third-quartile</code></td>
-                    <td>third quartile</td>            
-                  </tr>
-                  <tr>
-                    <td><code translate="No">ads-ad-ended</code></td>
-                    <td>complete</td>            
-                  </tr>
-                  <tr>
-                    <td><code translate="No">ads-pause</code></td>
-                    <td>pause</td>            
-                  </tr>
-                  <tr>
-                    <td><code translate="No">ads-play</code></td>
-                    <td>resume</td>            
-                  </tr>
-                  <tr>
-                    <td><code translate="No">adwaiting</code></td>
-                    <td>bufferStart</td>            
-                  </tr>
-                  <tr>
-                    <td><code translate="No">adplaying</code></td>
-                    <td>bufferEnd</td>            
-                  </tr>
-                  <tr>
-                    <td><code translate="No">advolumechange</code></td>
-                    <td>player volume change</td>            
-                  </tr>
-                  <tr>
-                    <td><code translate="No">ads-ad-skipped</code></td>
-                    <td>skipped</td>            
-                  </tr>
-              </tbody>
-          </table>
-      </div>
+        <caption class="bcls-caption--table">Brightcove Player events</caption>
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Event</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">ads-ad-started</code></td>
+            <td>start</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ads-first-quartile</code></td>
+            <td>first quartile</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ads-midpoint</code></td>
+            <td>midpoint</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ads-third-quartile</code></td>
+            <td>third quartile</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ads-ad-ended</code></td>
+            <td>complete</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ads-pause</code></td>
+            <td>pause</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ads-play</code></td>
+            <td>resume</td>
+          </tr>
+          <tr>
+            <td><code translate="No">adwaiting</code></td>
+            <td>bufferStart</td>
+          </tr>
+          <tr>
+            <td><code translate="No">adplaying</code></td>
+            <td>bufferEnd</td>
+          </tr>
+          <tr>
+            <td><code translate="No">advolumechange</code></td>
+            <td>player volume change</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ads-ad-skipped</code></td>
+            <td>skipped</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <section class="bcls-section">
@@ -1514,7 +1518,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>For historical release notes, see the <a href="/plugins/changelog/server-side-ads-plugin-changelog.html">changelog here</a>.</p>
   </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
