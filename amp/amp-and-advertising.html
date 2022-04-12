@@ -28,7 +28,7 @@ parent: "amp"
         <img class="bcls-image" src="/assets/images/amp/ad-json-plugin-config.png" alt="JSON ad plugin configuration">
       </figure>
     </aside>
-    <p>Once you place your AMP player code on a page the ad(s) will play along with your video.</p>
+    <p>Once you place your AMP player code on a page the ad(s) play along with your video.</p>
   </section>
 
   <section class="bcls-section">
@@ -63,7 +63,7 @@ window.qsParams.postId</code></pre>
 <code class="language-bash" translate="No">"query_string_to_window": {
   "target": "queryStringParams"
 }</code></pre>
-    <p>Note the <code translate="no">queryStringsParams</code> name is the "variable" in which the parameters will be stored, and you can change the name as you choose.</p>
+    <p>Note the <code translate="no">queryStringsParams</code> name is the "variable" in which the parameters are stored, and you can change the name as you choose.</p>
     <p>If for some reason you prefer to only assign limited parameters to the global namespace you can do so. For instance, to make only the <code class="language-html" translate="No">data-param-<span class="bcls-highlight">ad-id</span>="..."</code> available to the plugin, you add the following to the player configuration:</p>
     <pre class="line-numbers">
 <code class="language-bash" translate="No">"query_string_to_window": {
@@ -79,16 +79,16 @@ window.qsParams.postId</code></pre>
     <h2 id="AMP_consent_and_Advertising">AMP-consent and Advertising</h2>
     <p>In AMP you can use client-side consent, providing users with additional control over their online experience. If your AMP page is managing user consent with AMP-consent, and you are using advertising in the player, you may then want to adapt the player's ad request depending on that consent. Do so by adding a
     <pre><code class="language-javascript">data-block-on-consent="_till_responded"</code></pre>
-    attribute to the amp-brightcove element. This will cause the player load to be delayed until the user has accepted or rejected consent. On subsequent pages where the consent is known, the player will load normally without a delay.</p>
+    attribute to the amp-brightcove element. This causes the player load to be delayed until the user has accepted or rejected consent. On subsequent pages where the consent is known, the player loads normally without a delay.</p>
     <aside class="bcls-aside bcls-aside--information">For more information on AMP user consent, see AMP's <a href="https://amp.dev/documentation/examples/user-consent/client_side_user_consent_flow/">Client Side User Consent Flow</a> document.</aside>
     <h3>Ad configurations</h3>
     <p>The simplest scenario to implement advertising and AMP is to use Brightcove Player's standard IMA advertising integration with Google Ad Manager, which expects <code translate="no">npa=1</code> to be added to the ad request if consent is unknown or not given. To do this, add</p>
     <pre><code class="language-javascript">"imaAddNpa": true</code></pre>
-    <p>to the options of the player's AMP Support Plugin, and this will be automatically added to the ad server URL, as shown here:</p>
+    <p>to the options of the player's AMP Support Plugin, and this is automatically added to the ad server URL, as shown here:</p>
     <figure class="bcls-figure">
       <img class="bcls-image" src="/assets/images/amp/amp-ad-plugin-config.png" alt="plugin configuration">
     </figure>
-    <p>For other changes to the ad server URL, the consent state will be set on the player's iframe with three query parameters:</p>
+    <p>For other changes to the ad server URL, the consent state are set on the player's iframe with three query parameters:</p>
 
     <ul>
       <li><code translate="no">ampInitialConsentState</code>: Whether consent is accepted, rejected, unknown</li>
