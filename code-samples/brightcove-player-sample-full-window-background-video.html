@@ -8,24 +8,25 @@ parent: Code Samples
   <summary>{{ page.description }}</summary>
 
   <style media="screen" type="text/css">
-.cp_embed_wrapper {
-  /* required for resize to work */
-  overflow: hidden;
+    .cp_embed_wrapper {
+      /* required for resize to work */
+      overflow: hidden;
 
-  /* make resizeble! */
-  resize: both;
+      /* make resizeble! */
+      resize: both;
 
-  /* required to see the handle */
-  background: white;
-  padding-bottom: 10px;
+      /* required to see the handle */
+      background: white;
+      padding-bottom: 10px;
 
-  /* default height */
-  height: 600px;
-}
-.cp_embed_wrapper iframe {
-  height: 100% !important;
-}
-</style>
+      /* default height */
+      height: 600px;
+    }
+
+    .cp_embed_wrapper iframe {
+      height: 100% !important;
+    }
+  </style>
   <section class="bcls-section">
     <h2 id="introduction">Introduction</h2>
     <p>In the player you will see there are four videos that continually play as background videos. Also, at the start of each video the title and description of each video are displayed overlaying the background video. This sample is functionally identical to <a href="/code-samples/brightcove-player-sample-background-video-playlist.html">this background video sample</a>, except that here the video fills the entire window, regardless of how the browser window is sized or resized. To get a sense of this, you can resize the Codepen below by clicking and dragging from the lower-right corner:</p>
@@ -36,17 +37,20 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
-    <!-- UPDATE description --><!-- UPDATE codepen here -->
-    
+    <!-- UPDATE description -->
+    <!-- UPDATE codepen here -->
+
     <p data-height="600" data-theme-id="34967" data-slug-hash="zMbLqa" data-default-tab="result" data-user="rcrooks1969" data-pen-title="Full Window Background Video Playlist" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/zMbLqa/">Full Window Background Video Playlist</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
     <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18700-brightcove-player-sample-full-window-background-video">complete solution on GitHub</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18700-brightcove-player-sample-full-window-background-video">complete solution on GitHub</a>.</p>
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -63,7 +67,9 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -92,7 +98,7 @@ parent: Code Samples
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -116,7 +122,7 @@ parent: Code Samples
     </table>
   </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -134,7 +140,6 @@ parent: Code Samples
     <ul>
       <li>Add the attribute <code translate="No">data-playlist-id="<span class="bcls-input">{your playlist id}</span>"</code></li>
       <li>Add the attribute <code translate="No">id="myPlayerID"</code></li>
-      <li>Remove the attribute <code translate="No">class="video-js"</code></li>
       <li>Add the attribute <code translate="No">style="object-fit: cover;"</code></li>
     </ul>
     <pre class="line-numbers">
@@ -153,7 +158,7 @@ parent: Code Samples
 <span class="bcls-highlight">&lt;/div&gt;</span></code></pre>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
@@ -163,14 +168,14 @@ parent: Code Samples
       <li>On the load of every video from the playlist display the video title and short description.</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Set the playlist to repeat</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Set the playlist to repeat +++</code></pre>
     <p>The <code translate="No">repeat()</code> method from the Playlist API is used to keep the playlist playing indefinitely.</p>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Display the title and description</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -178,7 +183,7 @@ parent: Code Samples
     <p>An event handler is used to wait for the <code translate="No">loadstart</code> event. This is done as the <code translate="No">mediainfo</code> object is not populated until that event is dispatched. Then the <code translate="No">name</code> and <code translate="No">description</code> are injected into the HTML.</p>
   </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
     <p>The CSS performs the following tasks:</p>
@@ -209,7 +214,7 @@ parent: Code Samples
   ...
 });</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
-    
+
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18700-brightcove-player-sample-full-window-background-video/blob/master/js/full-window-background.js">full-window-background.js</a>.</p>
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
@@ -217,10 +222,10 @@ parent: Code Samples
   </section>
 </article>
 <script translate="no">
-  var BCLS = ( function (window, document) {
+  var BCLS = (function (window, document) {
     var cp_embed_wrapper = document.querySelector('.cp_embed_wrapper'),
       resize_button = document.getElementById('resize_button');
-    resize_button.addEventListener('click', function() {
+    resize_button.addEventListener('click', function () {
       cp_embed_wrapper.setAttribute('style', 'height:800px;');
     });
   })(window, document);
