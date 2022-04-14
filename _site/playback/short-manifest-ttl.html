@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="In this topic, you will learn how to use Brightcove Player to deliver video to China from outside the country.">
   
-  <title>Skins and Player Versions</title>
+  <title>China Delivery with Brightcove Player</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -63,9 +63,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       
       
       
-      <li class="breadcrumb-item"><a href="/styling/">Styling & Appearance</a></li>
+      <li class="breadcrumb-item"><a href="/playback/">Playback</a></li>
       
-      <li class="breadcrumb-item active" aria-current="page">Skins and Player Versions</li>
+      <li class="breadcrumb-item active" aria-current="page">China Delivery with Brightcove Player</li>
     </ol>
   </nav>
 </header>
@@ -1161,57 +1161,160 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
 
 
+<h1>China Delivery with Brightcove Player</h1>
 <article class="bcls-article">
-  <h1>Skins and Player Versions</h1>
-  <summary></summary>
-  <header id="top" class="section">
-    <p>In this topic, you will learn about the differences between two Brightcove Player skins, one for Brightcove Player 1.x and the other for Brightcove Player 5.x and 6.x. In this document, since Brightcove Player 5.x and Brightcove Player 6.x use the same skin, they will collectively be referred to as <strong>5+</strong> players.</p>
-  </header>
-  <section class="bcls-section">
-    <h2 id="Overview">Overview</h2>
-    <p>The following summarizes the situation in regard to Brightcove Player skins:</p>
-    <ul>
-      <li>Brightcove Player 5+ instances will, of course, use the new skin, named <strong>luna</strong>.</li>
-      <li>Players that existed before the global update to version 5.x were left on the 1.x skin, named <strong>graphite</strong>.</li>
-    </ul>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Determine_current_skin">Determine current skin</h2>
-    <p>An easy way to determine if your player has the old (graphite) or new (luna) skin is to check the initial play button, often referred to by its CSS name, <code translate="No">vjs-big-play-button</code>.</p>
-    <ul>
-      <li>The first screenshot below shows the 1.x skin with a rectangular big play button located near the top left of the player.</li>
-      <li>The second screenshot shows the 5+ skin with a circular big play button centered in the player. Also note that the title of the video is automatically displayed in the 5+ skin.</li>
-    </ul>
-    <figure class="bcls-figure"><img class="bcls-image" alt="1x skin" src="/assets/images/styling/skins-player-versions/1xskin.png" /></figure>
-    <figure class="bcls-figure"><img class="bcls-image" alt="5x skin" src="/assets/images/styling/skins-player-versions/5xskin.png" /></figure>
-    <p>A centered, circular button is not a guarantee of the 5+ skin as it is possible to use CSS to customize the 1.x button, but it is a likely indicator.</p>
-    <p>Documents exist for changing the appearance and styling of both the 1.x and 5+ skins. This table summarizes available documents.</p>
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th style="width:50%">5+ Skin Documentation</th>
-          <th style="width:50%">1.x Skin Documentation</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td><a href="/styling/customizing-player-appearance.html">Customize Player Appearance</a></td>
-          <td><a href="/styling/customizing-player-appearance-legacy-skin.html">Customize Player Appearance</a></td>
-        </tr>
-        <tr>
-          <td><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></td>
-          <td><a href="/styling/quick-start-player-customization-legacy-skin.html">Quick Start to Player Customization</a></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td><a href="/code-samples/brightcove-player-sample-horizontal-volume-control.html">Horizontal Volume Control</a></td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Other documents on appearance and styling are not skin specific.</p>
-  </section>
-</article>
+  <summary>In this topic, you will learn how to use Brightcove Player to deliver video to China from outside the country.</summary> 
 
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+
+    <p>Brightcove provides a solution for delivering video to China from outside the country. The solution is comprised of two parts:</p>
+    <ul>
+      <li>A proxy server hosted within China</li>
+      <li>A connected China-specific CDN</li>
+    </ul>
+
+    <p>The proxy routes non-video traffic (Playback API requests, Analytics beacons, and the web player itself) to and from viewers in China to Brightcove infrastructure located outside.</p>
+
+    <p>The CDN is connected to the proxy and handles the video and image content.</p>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Requirements">Requirements</h2>
+    <p>The following requirements are needed to support Brightcove China Delivery:</p>
+    <h3>Setup</h3>
+    <ul>
+      <li>
+        There are setup requirements in addition to configuring your player
+        <p>For details, see <a href="https://studio.support.brightcove.com/general/china-delivery-overview.html">Overview: China Delivery</a></p>
+      </li>
+    </ul>
+    <h3>Brightcove Player</h3>
+    <ul>
+      <li>Brightcove Player version 6.44+ required; latest version recommended</li>
+    </ul>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Configuring_Brightcove_Player">Configuring Brightcove Player</h2>
+    <p>To deliver video within China, you must configure the player to use the Brightcove China Delivery proxy.</p>
+    <p>To create a China-compatible player, follow these steps:</p>
+
+    <ol class="bcls-tasklist">
+      <li>
+        <p>
+          In Video Cloud Studio, open the <strong>PLAYERS</strong> module. Use an existing player or create a new one.
+        </p>
+        <aside class="bcls-aside bcls-aside--information">Remember to use a Brightcove Player version 6.44 or newer (latest release recommended).</aside>
+      </li>
+      <li>Select the player's name link to open the player's properties.</li>
+      <li><p>In the left navigation, select <strong>JSON Editor</strong>.</p>
+      <figure class="bcls-figure"><img class="bcls-image--no-border" alt="JSON Editor" src="/assets/images/playback/china-json-editor.png" />
+        <figcaption class="bcls-caption--image">JSON Editor</figcaption>
+        </figure>
+      </li>
+      <li><p>To set the proxy, add the following:</p>
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;</code></pre>
+        <aside class="bcls-aside bcls-aside--information">This should be a hostname only. No protocol (e.g., https://) and no special characters including forward slashes.</aside>
+      </li>
+      <li>
+        <p>
+          Your code should look similar to this:
+        </p>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="China proxy setting" src="/assets/images/playback/china-proxy-setting.png" />
+        <figcaption class="bcls-caption--image">China proxy setting</figcaption>
+        </figure>
+      </li>
+      <li>Click <strong>Save</strong>, and publish the player.</li>
+      <li>When you embed or share your player, notice that the embed code uses the Brightcove Player CDN.
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&lt;script
+  src=&quot;//<span class="bcls-highlight">players.brightcove.net</span>/1752604059001/jnOD8yLME_default/index.min.js&quot;&gt;
+&lt;/script&gt;</code></pre>
+      </li>
+      <li>Change the Brightcove Player CDN to use your China Delivery domain.
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&lt;script
+  src=&quot;//<span class="bcls-highlight">china.example.com</span>/1752604059001/jnOD8yLME_default/index.min.js&quot;&gt;
+&lt;/script&gt;</code></pre>
+          <aside class="bcls-aside bcls-aside--warning">Using the <code translate="No">players.brightcove.net</code> domain will result in an inability to play content and degraded player load times in China.</aside>
+      </li>
+    </ol>
+
+    <h3>Note</h3>
+    <p>With <code translate="No">china_proxy_domain</code> set, all requests initiated by the player will be sent to URLs within that domain. Using the sample value above (<strong>china.example.com</strong>) users may see requests to:</p>
+    <table class="bcls-table">
+            <!-- <caption class="bcls-caption--table">Table Caption (optional <strong><caption class="bcls-caption--table"></strong>)</caption> -->
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>System</th>
+                    <th>Path</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body"> 
+                <tr>
+                    <td>Players CDN</td>
+                    <td>//china.example.com/players/...</td>
+                </tr>
+                <tr>
+                    <td>Playback API</td>
+                    <td>//china.example.com/playback/v1/...</td>
+                </tr>
+                <tr>
+                    <td>Analytics</td>
+                    <td>//china.example.com/v2/tracker...</td>
+                </tr>
+                
+            </tbody>
+        </table>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Localization">Localization</h2>
+    <p>With <code translate="No">china_proxy_domain</code> set, Brightcove Player will <strong>automatically</strong> be configured with two languages:</p>
+    <ul>
+      <li><code translate="No">zh-Hans</code>: Simplified Chinese (default)</li>
+      <li><code translate="No">zh-Hant</code>: Traditional Chinese</li>
+    </ul>
+
+    <p>Setting a <code translate="No">china_proxy_domain</code> has the same effect as setting the following configurations (though these are not needed):</p>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;language&quot;: &quot;zh-Hans&quot;,
+&quot;languages&quot;: [&quot;zh-Hans&quot;, &quot;zh-Hant&quot;],
+</code></pre>
+    <p>This default effect of the <code translate="No">china_proxy_domain</code> will not occur if any value is provided for the <code translate="No">language</code> or <code translate="No">languages</code> configuration! To override default behavior, you can mix and match these configurations.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Adding_more_languages">Adding more languages</h2>
+    <p>If more languages than <code translate="No">zh-Hans</code> and <code translate="No">zh-Hant</code> are needed, you can add a languages configuration to the player. This configuration might look something like:</p>
+   
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;,
+&quot;languages&quot;: [&quot;zh-Hans&quot;, &quot;zh-Hant&quot;, &quot;en&quot;, &quot;jp&quot;],
+</code></pre>
+    <p>The player in this example would still default to <code translate="No">zh-Hans</code>, but would also add the English and Japanese languages.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Changing_the_default_language">Changing the default language</h2>
+    <p>To configure a different default language than <code translate="No">zh-Hans</code>, add a <code translate="No">language</code> configuration. The configuration should look similar to this:</p>
+   
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;,
+&quot;language&quot;: &quot;zh-Hant&quot;,
+</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Limitations">Limitations</h2>
+    <p>For details about the limitations for this feature, see the <a href="https://studio.support.brightcove.com/general/china-delivery-overview.html#Limitations">Overview: China Delivery</a> document.</p>
+  </section>
+
+</article>
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
@@ -1227,7 +1330,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 17 Jun 2021
+  Page last updated on 14 Apr 2022
 </div>
 
 

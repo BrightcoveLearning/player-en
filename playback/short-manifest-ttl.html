@@ -1,0 +1,160 @@
+---
+title: 'China Delivery with Brightcove Player'
+description: "In this topic, you will learn how to use Brightcove Player to deliver video to China from outside the country."
+parent: Playback
+---
+
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary> 
+
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+
+    <p>Brightcove provides a solution for delivering video to China from outside the country. The solution is comprised of two parts:</p>
+    <ul>
+      <li>A proxy server hosted within China</li>
+      <li>A connected China-specific CDN</li>
+    </ul>
+
+    <p>The proxy routes non-video traffic (Playback API requests, Analytics beacons, and the web player itself) to and from viewers in China to Brightcove infrastructure located outside.</p>
+
+    <p>The CDN is connected to the proxy and handles the video and image content.</p>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Requirements">Requirements</h2>
+    <p>The following requirements are needed to support Brightcove China Delivery:</p>
+    <h3>Setup</h3>
+    <ul>
+      <li>
+        There are setup requirements in addition to configuring your player
+        <p>For details, see <a href="https://studio.support.brightcove.com/general/china-delivery-overview.html">Overview: China Delivery</a></p>
+      </li>
+    </ul>
+    <h3>Brightcove Player</h3>
+    <ul>
+      <li>Brightcove Player version 6.44+ required; latest version recommended</li>
+    </ul>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Configuring_Brightcove_Player">Configuring Brightcove Player</h2>
+    <p>To deliver video within China, you must configure the player to use the Brightcove China Delivery proxy.</p>
+    <p>To create a China-compatible player, follow these steps:</p>
+
+    <ol class="bcls-tasklist">
+      <li>
+        <p>
+          In Video Cloud Studio, open the <strong>PLAYERS</strong> module. Use an existing player or create a new one.
+        </p>
+        <aside class="bcls-aside bcls-aside--information">Remember to use a Brightcove Player version 6.44 or newer (latest release recommended).</aside>
+      </li>
+      <li>Select the player's name link to open the player's properties.</li>
+      <li><p>In the left navigation, select <strong>JSON Editor</strong>.</p>
+      <figure class="bcls-figure"><img class="bcls-image--no-border" alt="JSON Editor" src="/assets/images/playback/china-json-editor.png" />
+        <figcaption class="bcls-caption--image">JSON Editor</figcaption>
+        </figure>
+      </li>
+      <li><p>To set the proxy, add the following:</p>
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;</code></pre>
+        <aside class="bcls-aside bcls-aside--information">This should be a hostname only. No protocol (e.g., https://) and no special characters including forward slashes.</aside>
+      </li>
+      <li>
+        <p>
+          Your code should look similar to this:
+        </p>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="China proxy setting" src="/assets/images/playback/china-proxy-setting.png" />
+        <figcaption class="bcls-caption--image">China proxy setting</figcaption>
+        </figure>
+      </li>
+      <li>Click <strong>Save</strong>, and publish the player.</li>
+      <li>When you embed or share your player, notice that the embed code uses the Brightcove Player CDN.
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&lt;script
+  src=&quot;//<span class="bcls-highlight">players.brightcove.net</span>/1752604059001/jnOD8yLME_default/index.min.js&quot;&gt;
+&lt;/script&gt;</code></pre>
+      </li>
+      <li>Change the Brightcove Player CDN to use your China Delivery domain.
+        <pre class="line-numbers">
+<code class="language-json" translate="No">&lt;script
+  src=&quot;//<span class="bcls-highlight">china.example.com</span>/1752604059001/jnOD8yLME_default/index.min.js&quot;&gt;
+&lt;/script&gt;</code></pre>
+          <aside class="bcls-aside bcls-aside--warning">Using the <code translate="No">players.brightcove.net</code> domain will result in an inability to play content and degraded player load times in China.</aside>
+      </li>
+    </ol>
+
+    <h3>Note</h3>
+    <p>With <code translate="No">china_proxy_domain</code> set, all requests initiated by the player will be sent to URLs within that domain. Using the sample value above (<strong>china.example.com</strong>) users may see requests to:</p>
+    <table class="bcls-table">
+            <!-- <caption class="bcls-caption--table">Table Caption (optional <strong><caption class="bcls-caption--table"></strong>)</caption> -->
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>System</th>
+                    <th>Path</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body"> 
+                <tr>
+                    <td>Players CDN</td>
+                    <td>//china.example.com/players/...</td>
+                </tr>
+                <tr>
+                    <td>Playback API</td>
+                    <td>//china.example.com/playback/v1/...</td>
+                </tr>
+                <tr>
+                    <td>Analytics</td>
+                    <td>//china.example.com/v2/tracker...</td>
+                </tr>
+                
+            </tbody>
+        </table>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Localization">Localization</h2>
+    <p>With <code translate="No">china_proxy_domain</code> set, Brightcove Player will <strong>automatically</strong> be configured with two languages:</p>
+    <ul>
+      <li><code translate="No">zh-Hans</code>: Simplified Chinese (default)</li>
+      <li><code translate="No">zh-Hant</code>: Traditional Chinese</li>
+    </ul>
+
+    <p>Setting a <code translate="No">china_proxy_domain</code> has the same effect as setting the following configurations (though these are not needed):</p>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;language&quot;: &quot;zh-Hans&quot;,
+&quot;languages&quot;: [&quot;zh-Hans&quot;, &quot;zh-Hant&quot;],
+</code></pre>
+    <p>This default effect of the <code translate="No">china_proxy_domain</code> will not occur if any value is provided for the <code translate="No">language</code> or <code translate="No">languages</code> configuration! To override default behavior, you can mix and match these configurations.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Adding_more_languages">Adding more languages</h2>
+    <p>If more languages than <code translate="No">zh-Hans</code> and <code translate="No">zh-Hant</code> are needed, you can add a languages configuration to the player. This configuration might look something like:</p>
+   
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;,
+&quot;languages&quot;: [&quot;zh-Hans&quot;, &quot;zh-Hant&quot;, &quot;en&quot;, &quot;jp&quot;],
+</code></pre>
+    <p>The player in this example would still default to <code translate="No">zh-Hans</code>, but would also add the English and Japanese languages.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Changing_the_default_language">Changing the default language</h2>
+    <p>To configure a different default language than <code translate="No">zh-Hans</code>, add a <code translate="No">language</code> configuration. The configuration should look similar to this:</p>
+   
+    <pre class="line-numbers">
+<code class="language-json" translate="No">&quot;china_proxy_domain&quot;: &quot;china.example.com&quot;,
+&quot;language&quot;: &quot;zh-Hant&quot;,
+</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Limitations">Limitations</h2>
+    <p>For details about the limitations for this feature, see the <a href="https://studio.support.brightcove.com/general/china-delivery-overview.html#Limitations">Overview: China Delivery</a> document.</p>
+  </section>
+
+</article>
