@@ -6,25 +6,27 @@ parent: Code Samples
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
-
+  <aside class="bcls-aside bcls-aside--tip language-editable">There is now a built-in Brightcove Player plugin that more simply implements this functionality. See the <a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">Picture-in-Picture Plugin (aka "floating" or "pinned")</a> document for details.</aside>
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>Using the plus sign (<strong>+</strong>) to the top-left of the player, drag the player to a location and drop it. Then scroll the page text up and down and you will see the player stays fixed in location.</p>
     <!-- UPDATE codepen here -->
-    
+
     <p data-height="494" data-theme-id="34967" data-slug-hash="eyGvxr" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="18195-floating-player" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/eyGvxr/">18195-floating-player</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
     <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18195-floating-player">complete solution on GitHub</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18195-floating-player">complete solution on GitHub</a>.</p>
     <aside class="bcls-aside bcls-aside--tip">To add picture-in-picture functionality to your player, also see the <a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">Picture-in-Picture Plugin</a> document.</aside>
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -41,7 +43,9 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -72,7 +76,7 @@ parent: Code Samples
     <p>No Brightcove Player API resources are used in this sample. It is all CSS and JavaScript.</p>
   </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -82,7 +86,7 @@ parent: Code Samples
     <p>An HTML <code translate="No">&lt;div&gt;</code> tag wraps the player code.</p>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
@@ -92,21 +96,21 @@ parent: Code Samples
       <li>Create an event handler for the <code translate="No">onmousemove</code> event (dragging)</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Act on mouse down</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// ### Act on mouse down ###</code></pre>
     <p>Prepares for dragging of the player and sets the event handler for <code translate="No">onmousemove</code>.</p>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Act on mouse move</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// ### Act on mouse move ###</code></pre>
     <p>Tracks the mouse position on the screen.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Act on mouse up</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -114,7 +118,7 @@ parent: Code Samples
     <p>Sets the player position and clears multiple event handlers, for instance <code translate="No">onmousemove</code>.</p>
   </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
     <p>The CSS for <code translate="No">#playerWrapper:before</code> defines the circle with the plug sign in it that is located at the top-left of the player. The CSS for <code translate="No">#playerWrapper</code> defines the border around the player.</p>
