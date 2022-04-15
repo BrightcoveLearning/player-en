@@ -7,34 +7,36 @@ parent: Code Samples
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
 
-      <aside class="bcls-aside bcls-aside--warning">This sample adds and updates a cookie in the user's web browser. This may be a potential privacy concern in certain geographic areas.</aside>
-    <section class="bcls-section">
-        <h2 id="Player_example">Player example</h2>
-        <!-- UPDATE description -->
+  <aside class="bcls-aside bcls-aside--warning">This sample adds and updates a cookie in the user's web browser. This may be a potential privacy concern in certain geographic areas.</aside>
+  <section class="bcls-section">
+    <h2 id="Player_example">Player example</h2>
+    <!-- UPDATE description -->
 
-        <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-        <p>When the player initially loads, a cookie will be checked for the last watched position of the video. If the cookie is present, the video will begin playing at that point. When the video finishes playing, the cookie will be set to zero.</p>
-        <p>Play the video and stop it at some point during playback. When you refresh the page, the video will resume playing where you left off.</p>
-        <!-- UPDATE codepen here -->
+    <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
+    <p>When the player initially loads, a cookie will be checked for the last watched position of the video. If the cookie is present, the video will begin playing at that point. When the video finishes playing, the cookie will be set to zero.</p>
+    <p>Play the video and stop it at some point during playback. When you refresh the page, the video will resume playing where you left off.</p>
+    <aside class="bcls-aside bcls-aside--information">The CodePen above will work on browsers that allow iframes to set cookies. To test the sample on browsers that do not allow cookies to be set from an iframe either:
+      <ul>
+        <li>View the sample <a href="/code-samples/sample-pages/multi-session-playback.html">here</a> where the code is not in an iframe</li>
+        <li>Edit the CodePen (you will be forced to fork it) and switch to <a href="https://blog.codepen.io/documentation/views/debug-view/">Codepen's Debug View</a></li>
+        <li>Copy the code into your own web page</li>
+      </ul>
+      <p>Note: <strong>Safari 13+</strong> does NOT allow cookies to be set from an iframe. By default Safari now discards cookies set in an iframe. </p>
+    </aside> <!-- UPDATE codepen here -->
 
-        <p data-height="555" data-theme-id="34967" data-slug-hash="LmNJda" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="Multiple Session Playback" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/LmNJda/">Multiple Session Playback</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-        <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
+    <p data-height="555" data-theme-id="34967" data-slug-hash="LmNJda" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="Multiple Session Playback" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/LmNJda/">Multiple Session Playback</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
 
-        <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18198-multiple-session-playback">complete solution on GitHub</a>.</p>
+    <h3>Source code</h3>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18198-multiple-session-playback">complete solution on GitHub</a>.</p>
 
-        <aside class="bcls-aside bcls-aside--information">The CodePen above will work on browsers that allow iframes to set cookies. To test the sample on browsers that do not allow cookies to be set from an iframe either:
-            <ul>
-                <li>View the sample <a href="https:/code-samples/sample-pages/multi-session-playback.html">here</a> where the code is not in an iframe</li>
-                <li>Edit the CodePen (you will be forced to fork it) and switch to <a href="https://blog.codepen.io/documentation/views/debug-view/">Codepen's Debug View</a></li>
-                <li>Copy the code into your own web page</li>
-            </ul>
-            <p>Note: <strong>Safari 13+</strong> does NOT allow cookies to be set from an iframe. By default Safari now discards cookies set in an iframe. </p>
-        </aside>
-    </section>
-    <section class="bcls-section">
+
+  </section>
+  <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -51,7 +53,9 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -77,124 +81,124 @@ parent: Code Samples
       <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
     </details>
   </section>
-    <section class="bcls-section">
-        <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
-        <!-- UPDATE table, remove unneeded columns -->
+  <section class="bcls-section">
+    <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
+    <!-- UPDATE table, remove unneeded columns -->
 
-        <table class="bcls-table">
-            <thead class="bcls-table__head">
-                <tr>
-                    <th>Player API Methods</th>
-                    <th>Player API Events</th>
-                </tr>
-            </thead>
-            <tbody class="bcls-table__body">
-                <tr>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#ready">ready()</a></td>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:loadeddata">loadeddata</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on()</a></td>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:timeupdate">timeupdate</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#currentTime">currentTime()</a></td>
-                    <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:play">play</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <!-- UPDATE player and HTML configuration -->
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Player API Methods</th>
+          <th>Player API Events</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#ready">ready()</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:loadeddata">loadeddata</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.on">on()</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:timeupdate">timeupdate</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#currentTime">currentTime()</a></td>
+          <td><a href="https://docs.brightcove.com/brightcove-player/current-release/Player.html#event:play">play</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <!-- UPDATE player and HTML configuration -->
 
-    <section class="bcls-section">
-        <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
-        <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
-        <h3>Player configuration</h3>
-        <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
-        <h3>Other HTML</h3>
-        <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
-        <pre>
+  <section class="bcls-section">
+    <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
+    <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
+    <h3>Player configuration</h3>
+    <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
+    <h3>Other HTML</h3>
+    <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video-js</code> tag in the player embed code.</p>
+    <pre>
 <code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
 ...</code></pre>
-        <p>For testing purposes, we've added two HTML elements below the player to display the initial value of the session cookie and the current value of the cookie as the video plays.</p>
-        <pre class="line-numbers">
+    <p>For testing purposes, we've added two HTML elements below the player to display the initial value of the session cookie and the current value of the cookie as the video plays.</p>
+    <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;p&gt;video start cookie value = &lt;span id="cookieDisplay1"&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;current cookie value = &lt;span id="cookieDisplay2"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
-    </section>
-    <!-- UPDATE application flow -->
+  </section>
+  <!-- UPDATE application flow -->
 
-    <section class="bcls-section">
-        <h2 id="Application_flow">Application flow</h2>
-        <p>The basic logic behind this application is:</p>
-        <ul>
-            <li>Read the browser cookie.</li>
-            <li>Check the cookie value.</li>
-            <li>Start video playback.</li>
-            <li>Increment the cookie.</li>
-            <li>Reset the cookie.</li>
-        </ul>
-        <!-- UPDATE task 1 -->
+  <section class="bcls-section">
+    <h2 id="Application_flow">Application flow</h2>
+    <p>The basic logic behind this application is:</p>
+    <ul>
+      <li>Read the browser cookie.</li>
+      <li>Check the cookie value.</li>
+      <li>Start video playback.</li>
+      <li>Increment the cookie.</li>
+      <li>Reset the cookie.</li>
+    </ul>
+    <!-- UPDATE task 1 -->
 
-        <h3>Read the browser cookie</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
+    <h3>Read the browser cookie</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
 <code class="language-javascript" translate="No">// +++ Read browser cookie +++</code></pre>
-        <p>Initialize variables and read the browser cookie associated with the Brightcove video position. The cookie is named <code translate="No">BC_position</code>.</p>
-        <!-- UPDATE task 2 -->
+    <p>Initialize variables and read the browser cookie associated with the Brightcove video position. The cookie is named <code translate="No">BC_position</code>.</p>
+    <!-- UPDATE task 2 -->
 
-        <h3>Check the cookie value</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
+    <h3>Check the cookie value</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
 <code class="language-javascript" translate="No">// +++ Check the cookie value +++</code></pre>
-        <p>If the cookie exists, then set the video start position to this value. Otherwise, start from the beginning of the video.</p>
-        <!-- UPDATE task 3 -->
+    <p>If the cookie exists, then set the video start position to this value. Otherwise, start from the beginning of the video.</p>
+    <!-- UPDATE task 3 -->
 
-        <h3>Start video playback</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
+    <h3>Start video playback</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
 <code class="language-javascript" translate="No">// +++ Start video playback +++</code></pre>
-        <p>If video position is greater than zero, than start playback at that point. Otherwise, let the user start video playback from the beginning.</p>
-        <!-- UPDATE task 4 -->
+    <p>If video position is greater than zero, than start playback at that point. Otherwise, let the user start video playback from the beginning.</p>
+    <!-- UPDATE task 4 -->
 
-        <h3>Increment the cookie</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
+    <h3>Increment the cookie</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
 <code class="language-javascript" translate="No">// +++ Increment the cookie +++</code></pre>
-        <p>Listen for when the current playback position has changed. This should be every 15-250 milliseconds. When the integer value for the current playback position changes, then update the cookie.</p>
-        <!-- UPDATE task 5 -->
+    <p>Listen for when the current playback position has changed. This should be every 15-250 milliseconds. When the integer value for the current playback position changes, then update the cookie.</p>
+    <!-- UPDATE task 5 -->
 
-        <h3>Reset the cookie</h3>
-        <p>Find the code which is labeled:</p>
-        <pre>
+    <h3>Reset the cookie</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
 <code class="language-javascript" translate="No">// +++ Reset the cookie +++</code></pre>
-        <p>When video playback reaches the end, then reset the cookie value to zero.</p>
-    </section>
-    <!-- UPDATE CSS description -->
+    <p>When video playback reaches the end, then reset the cookie value to zero.</p>
+  </section>
+  <!-- UPDATE CSS description -->
 
-    <section class="bcls-section">
-        <h2 id="Application_styling">Application styling</h2>
-        <p>There are no additional styles for this sample.</p>
-    </section>
-    <section class="bcls-section">
-        <h2 id="Plugin_code">Plugin code</h2>
-        <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
-        <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
-        <pre class="line-numbers">
+  <section class="bcls-section">
+    <h2 id="Application_styling">Application styling</h2>
+    <p>There are no additional styles for this sample.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Plugin_code">Plugin code</h2>
+    <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
+    <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
+    <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
   var myPlayer = this;
   ...
 });</code></pre>
-        <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-        <pre class="line-numbers">
+    <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
+    <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
   var myPlayer = this;
   ...
 });</code></pre>
-        <!-- UPDATE path to plugin's JavaScript -->
+    <!-- UPDATE path to plugin's JavaScript -->
 
-        <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18198-multiple-session-playback/blob/master/plugin/multiple-session.js">multiple-session.js</a>.</p>
-        <h3>Using the plugin with a player</h3>
-        <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
-        <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
-    </section>
+    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18198-multiple-session-playback/blob/master/plugin/multiple-session.js">multiple-session.js</a>.</p>
+    <h3>Using the plugin with a player</h3>
+    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
+    <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
+  </section>
 </article>
