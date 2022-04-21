@@ -8,19 +8,23 @@
 </head>
 
 <body>
-  <iframe src="https://players.brightcove.net/1486906377/5vx7HmbsDg_default/index.html?videoId=1728556714173490147" allowfullscreen="" allow="encrypted-media" width="960" height="540"></iframe>
+
+  <div style="max-width: 960px;">
+    <video-js 
+    id="myPlayerID"
+    data-account="1752604059001" data-player="GjkNfCUHx" data-embed="default" controls="" data-video-id="5510486328001" data-playlist-id="" data-application-id="" class="vjs-fluid">
+    </video-js>
+  </div>
+  <script src="https://players.brightcove.net/1752604059001/GjkNfCUHx_default/index.min.js"></script>
 
 
-  <!-- <script src="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js"></script> -->
-
-  <!-- <script>
+  <script>
     videojs.getPlayer('myPlayerID').ready(function() {
       var myPlayer = this;
-      myPlayer.customEndscreen({
-        "content": "<strong>Content</strong> for <em>custom</em> end screen"
-      })
+      // myPlayer.audioOnlyMode(true);
+      myPlayer.audioPosterMode(true);
     });
-  </script>  -->
+  </script> 
 
 </body>
 </html>
