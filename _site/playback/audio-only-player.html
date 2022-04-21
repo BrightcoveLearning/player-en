@@ -1166,38 +1166,26 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2> 
-    <p>The Playlist Endscreen plugin allows you to display a playlist when a video ends. This playlist can be related videos, using a smart playlist, or it can be videos unrelated to the main video.</p> 
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-          <tr>
-              <th style="text-align: center;">End screen WILL appear</th>
-              <th style="text-align: center;">End screen will NOT appear</th>                         
-          </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-          <tr>
-            <td>
-              <ul>
-                <li>A playlist ID is available AND</li>
-                <li>The plugin is enabled</li>
-              </ul>
-            </td>   
-            <td>
-              <ul>
-                <li>No playlist ID is provided</li>
-                <li>The playlist ID is unset at runtime</li>
-                <li>The plugin is disabled</li>
-              </ul>
-            </td>                    
-          </tr>            
-      </tbody>
-    </table>
+    <p>Brightcove Player supports playback of audio-only assets with either of the following properties:</p> 
+    <ul>
+      <li>
+       <p> Audio-only mode</p>
+       <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Audio-only mode" src="/assets/images/playback/audio-only/audio-only-mode.png" />
+        <figcaption class="bcls-caption--image">Audio-only mode</figcaption>
+      </figure>
+      </li>
+      <li>
+       <p> Audio-poster mode</p>
+       <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Audio-poster mode" src="/assets/images/playback/audio-only/audio-poster-mode.png" />
+        <figcaption class="bcls-caption--image">Audio-poster mode</figcaption>
+      </figure>
+      </li>
+    </ul>
+    <p>These properties can be set in the player configuration or in the page script.</p>
 
     <br/>
     <p>The user can also click on the end screen button in the UI to display the playlist end screen. The button tooltip uses the plugin title. In this case, the default, <strong>Related videos</strong>, is being used.</p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Playlist Endscreen button" src="/assets/images/plugins/playlist-endscreen/related-videos-button.png" />
-      <figcaption class="bcls-caption--image">Playlist Endscreen button</figcaption>
-      </figure>
+    
 
     <h3>Example</h3>
     <p>This example shows a playlist of related videos when the main video ends.</p>
