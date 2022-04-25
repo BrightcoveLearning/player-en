@@ -63,8 +63,8 @@ layout: staging
     <h2 id="Implementation_notes">Implementation notes</h2> 
     <p>When using audio assets with Brightcove Player, there are two options to customize the player:</p>
     <ul>
-      <li><strong>Audio Only Mode</strong> - The player UI is hidden except for the control bar</li>
-      <li><strong>Audio Poster Mode</strong> - The poster image is permanently displayed during playback</li>
+      <li>Audio Only Mode</li>
+      <li>Audio Poster Mode</li>
     </ul>
     <p>Both modes cannot be enabled at the same time.</p>
     <ul>
@@ -72,45 +72,68 @@ layout: staging
       <li>Enabling one mode programmatically via <code translate="No">player.audioOnlyMode(true)</code> or <code translate="No">player.audioPosterMode(true)</code> will disable the other mode if it is enabled.</li>
     </ul>
 
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Audio_Only_Mode">Audio Only Mode</h2> 
+    <h3>Audio Only Mode</h3>
     <p>In this mode, all player UI is hidden except for the control bar. Note that this mode does change the dimensions of the player.</p>
 
-    
+    <h3>Audio Poster Mode</h3>
+    <p>In this mode, the poster image is permanently displayed during playback. The player dimensions remain the same as a video player in this mode.</p>
+    <aside class="bcls-aside bcls-aside--tip">Audio poster mode is automatically enabled when loading a source with an audio mimeType.</aside>
 
   </section>
 
   <section class="bcls-section">
-    <h2 id="Implement_using_code">Implement using code</h2> 
-    <p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the plugin code and stylesheet are as follows:</p>
+    <h2 id="Implement_using_configuration">Implement using configuration</h2> 
+    <p>Audio playback mode can be set in the player configuration.</p>
+
+    <ol class="bcls-tasklist">
+      <li>
+        <p>In Video Cloud Studio, select the <strong>Players</strong> module and then <strong>JSON Editor</strong>.</p>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Player configuration JSON" src="/assets/images/playback/audio-only/audio-only-json.png" />
+        </figure>
+      </li>
+      <li>
+        <p>In the editor, add one of the following:</p>
+        <pre><code class="language-javascript" translate="No">"audio_only_mode": true</code></pre>
+        <p>OR</p>
+        <pre><code class="language-javascript" translate="No">"audio_poster_mode": true</code></pre>
+        <br/>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Audio only code" src="/assets/images/playback/audio-only/audio-only-json-code.png" />
+        </figure>
+      </li>
+      <li>Click <span class="button-blue">Save</span>.</li>
+      <li>Publish your player changes.</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_embed_code">Implement using embed code</h2> 
+    <p>Another option to implement audio mode is to update the player embed code on your web page.</p>
+    <aside class="bcls-aside bcls-aside--information">For this option, you do not have to update the player configuration as shown in the section above. </aside>
+
+    <h3>Enable/disable audio mode</h3>
+    <p>Audio mode can be enabled or disabled asynchronously by calling the following methods which return a <code translate="No">Promise</code>.</p>
+    <pre><code class="language-javascript" translate="No">player.audioOnlyMode(true|false)</code></pre>
+    <p>OR</p>
+    <pre><code class="language-javascript" translate="No">player.audioPosterMode(true|false)</code></pre>
+
+    <h3>Check audio mode state</h3>
+    <p>When called without arguments, these methods return a <code translate="No">Boolean</code> value indicating the current audio mode state.</p>
+    <pre><code class="language-javascript" translate="No">player.audioOnlyMode()</code></pre>
+    <p>OR</p>
+    <pre><code class="language-javascript" translate="No">player.audioPosterMode()</code></pre>
+
+    <h3>Steps</h3>
     <ol class="bcls-tasklist-restart">
       <li>
-        <p>Include the plugin code:</p>
-        <pre>
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.js</code></pre>
+        <p>In Video Cloud Studio, select the <strong>Media</strong> module and select a video.</p>
       </li>
       <li>
-        <p>Include the plugin styles:</p>
-        <pre>
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.css</code></pre>
+        <p>Select <strong>Publish and embed</strong>, and copy the <strong>Advanced</strong> embed code.</p>
       </li>
-      <li>Use the plugin name to load it into the player: <code translate="No">playlistEndscreen</code></li> 
       <li>
-        <p>An example set of options is:</p>
+        <p>Here is an example using the Advanced Embed implementation to set the audio mode for the player.</p>
         <pre class="line-numbers">
-<code class="language-html" translate="No">{
-  &quot;playlistId&quot;: &quot;4602525726001&quot;,
-  &quot;title&quot;: &quot;Watch More&quot;
-}</code></pre>
-      </li>
-      <li>
-        <p>Here is an example using the Advanced Embed implementation to associate the Playlist Endscreen plugin with a single instance of a player.</p>
-        <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.css&quot; rel=&quot;stylesheet&quot;&gt;
-  
-  &lt;div style=&quot;max-width: 960px;&quot;&gt;
+<code class="language-html" translate="No">&lt;div style=&quot;max-width: 960px;&quot;&gt;
   &lt;video-js id=&quot;myPlayerID&quot;
     data-account=&quot;<span class="bcls-input">your account ID</span>&quot;
     data-player=&quot;<span class="bcls-input">your player ID</span>&quot;
@@ -124,62 +147,19 @@ layout: staging
 &lt;/div&gt;
 &lt;script src=&quot;https://players.brightcove.net/<span class="bcls-input">your account ID</span>/<span class="bcls-input">your player ID</span>_default/index.min.js&quot;&gt;&lt;/script&gt;
 
-&lt;!-- script for the Playlist Endscreen plugin --&gt;
-&lt;script src=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.js&quot;&gt;&lt;/script&gt;
-
 &lt;!-- custom script --&gt;
 &lt;script&gt;
-  videojs.getPlayer('myPlayerID').ready(function() {
+  videojs.getPlayer(&apos;myPlayerID&apos;).ready(function() {
     var myPlayer = this;
 
-    // initialize the Playlist Endscreen plugin
-    myPlayer.playlistEndscreen({&quot;playlistId&quot;: &quot;<span class="bcls-input">your playlist ID</span>&quot;}); 
+    // Set either audio only mode OR audio poster mode
+    myPlayer.audioOnlyMode(true);
+    // myPlayer.audioPosterMode(true);
   });
 &lt;/script&gt;</code></pre>
       </li>
     </ol>
-  </section>
 
-  <section class="bcls-section">
-    <h2 id="Options">Options</h2> 
-    <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
-
-    <h3>playlistId</h3>
-    <code translate="No">playlistId</code>
-    <ul>
-      <li>The string representing the playlist ID to be displayed in the end screen.</li>
-      <li>Type: <code translate="No">string</code></li>
-      <li>Default: <code translate="No">""</code></li>
-      <li>Value: <code translate="No">"related"</code> -  As of version 1.1.0, the playlist endscreen plugin can display related videos instead of a specific playlist. Since this uses the playback api’s /related endpoint, the player must have a <a href="https://apis.support.brightcove.com/policy/getting-started/overview-policy-api.html#Search_videos">search enabled policy key.</a></li>
-    </ul>
-
-    <h3>title</h3>
-    <code translate="No">title</code>
-    <ul>
-      <li>The string to customize the end screen title, this will also modify the button tooltip.</li>
-      <li>Type: <code translate="No">string</code></li>
-      <li>Default: <code translate="No">"Related videos"</code></li>
-    </ul>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Options">Setting playlist ID</h2> 
-    <p>This plugin requires an ID for a playlist. The playlist will be fetched from the Playback API and the results will be used to populate the end screen. The playlist ID should come from one of the following sources:</p>
-    <ul>
-      <li>
-        <p>Attribute on in-page embeds: <code translate="No">data-endscreen-playlist-id="123456789"</code></p>
-      </li>
-      <li>
-        <p>Query string for iframes: <code translate="No">&endscreenPlaylistId=123456789</code></p>
-      </li>
-      <li>
-        <p>Plugin option: <code translate="No">player.playlistEndscreen({&quot;playlistId&quot;: "123456789"})</code></p>
-        <p>This can be added to the player configuration, or used at runtime, as in the <a href="#Implement_using_code">example above</a>.</p>
-      </li>
-      <li>
-        <p>Programmatic post-plugin-init: <code translate="No">player.playlistEndscreen().setPlaylistId("123456789")</code></p>
-      </li>
-    </ul>
   </section>
   
   
@@ -189,8 +169,4 @@ layout: staging
       <li></li>
     </ul>
   </section> -->
-  <section class="bcls-section"> 
-    <h2 id="changelog">Changelog</h2>
-    <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-playlist-endscreen/index.html">Playlist Endscreen Plugin Release Notes</a>.</p>
-  </section>
 </article>
