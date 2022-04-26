@@ -433,6 +433,7 @@ parent: General Information
       <li><a href="#ad_config_id">ad_config_id</a></li>
       <li><a href="#ad_failover">ad_failover</a></li>
       <li><a href="#application_id">application_id</a></li>
+      <li><a href="#audio_only_playback">audio only playback</a></li>
       <li><a href="#autoadvance">autoadvance</a></li>
       <li><a href="#autoplay">autoplay</a></li>
       <li><a href="#video_cloud">base_url (property of video_cloud)</a></li>
@@ -581,6 +582,30 @@ parent: General Information
           </tr>
         </tbody>
       </table>
+    </section>
+
+    <section class="bcls-section">
+      <h3 id="audio_only_playback">audio only playback</h3>
+
+      <p>When using audio assets with Brightcove Player, there are two options to customize the player:</p>
+      <ul>
+        <li>
+          <p><strong>Audio Only Mode</strong></p>
+          <p>In this mode, all player UI is hidden except for the control bar.</p>
+    <aside class="bcls-aside bcls-aside--information">This mode changes the dimensions of the player. The vertical height of the Audio Only player is <code translate="No">45px</code>.</aside>
+        </li>
+        <li>
+          <p><strong>Audio Poster Mode</strong></p>
+          <p>In this mode, the poster image is permanently displayed during playback. The player dimensions remain the same as a video player in this mode.</p>
+    <aside class="bcls-aside bcls-aside--tip">Audio poster mode is automatically enabled when loading a source with an audio mimeType.</aside>
+        </li>
+      </ul>
+      <p>Both modes cannot be enabled at the same time.</p>
+      <ul>
+        <li>If both <code translate="No">audio_only_mode</code> and <code translate="No">audio_poster_mode</code> are set to true in the player configuration, <strong>Audio Only Mode</strong> will take precedence.</li>
+        <li>Enabling one mode programmatically via <code translate="No">player.audioOnlyMode(true)</code> or <code translate="No">player.audioPosterMode(true)</code> will disable the other mode if it is enabled.</li>
+      </ul>
+      <p>For implementation details, see the <a href="/playback/audio-only-player.html">Audio Only with Brightcove Player</a> document.</p>
     </section>
 
     <section class="bcls-section">
