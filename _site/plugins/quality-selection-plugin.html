@@ -1522,8 +1522,14 @@ div.vjs-quality-menu-wrapper.vjs-menu-button.vjs-menu-button-popup.vjs-control.v
     <h2 id="Known_issues">Known issues</h2>
     <ul>
       <li>The plugin functions with Brightcove Player version 5.17.0 and later. Functionality with earlier versions of the player is not supported.</li>
-      <li>The quality selector does not work in Safari.</li>
-      <li>The quality selector does not appear in iOS.</li>
+      <li>The quality selector does not appear in Safari. </li>
+      <li>The quality selector does not appear in iOS.  This is an Apple limitation, apple does not allow manually controlling the playback quality on iOS or desktop as it uses adaptive bitrate streaming to adjust the quality level automatically, based on bandwidth, connection speed, screen size, etc.</li>
+      <aside class="bcls-aside bcls-aside--information">
+        <p>Notes: 
+        <ul>
+          <li>There is no way for Brightcove to override this as Apple doesn't expose any APIs to allow for overriding their built-in rendition selection.</li>
+       <li>The Brightcove Player uses Safari’s native playback engine on macOS and iOS/iPadOS, which does not allow quality selection by the user. The engine has its own rendition selection algorithm that results in a good user experience.</li>
+       </ul></p></aside>
       <li>At times the quality switch will not happen at the desired time, it can take longer than expected.</li>
       <li>Setting the source in the player configuration and building with single video template will cause the quality menu to not be initialized properly. This is because the source will be set through a call to the <code translate="No">videojs</code> constructor, which does not have access to the player or plugins. The source should be set by calling <code translate="No">player.src()</code>. This does not affect Video Cloud users.</li>
       <li>The quality menu will not be displayed when using DASH content with Silverlight.</li>
