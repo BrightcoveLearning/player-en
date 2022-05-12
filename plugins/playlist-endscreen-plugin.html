@@ -104,8 +104,8 @@ parent: Plugins
         <p>An example set of options is:</p>
         <pre class="line-numbers">
 <code class="language-html" translate="No">{
-  &quot;playlistId&quot;: &quot;4602525726001&quot;,
-  &quot;title&quot;: &quot;Watch More&quot;
+  playlistId: &quot;4602525726001&quot;,
+  title: &quot;Watch More&quot;
 }</code></pre>
       </li>
       <li>
@@ -136,7 +136,7 @@ parent: Plugins
     var myPlayer = this;
 
     // initialize the Playlist Endscreen plugin
-    myPlayer.playlistEndscreen({&quot;playlistId&quot;: &quot;<span class="bcls-input">your playlist ID</span>&quot;}); 
+    myPlayer.playlistEndscreen({playlistId: &quot;<span class="bcls-input">your playlist ID</span>&quot;}); 
   });
 &lt;/script&gt;</code></pre>
       </li>
@@ -163,10 +163,22 @@ parent: Plugins
       <li>Type: <code translate="No">string</code></li>
       <li>Default: <code translate="No">"Related videos"</code></li>
     </ul>
+
+    <h3>publishTime</h3>
+    <code translate="No">publishTime</code>
+    <ul>
+      <li>Determines if the published date is shown. Depending on thresholds may appear as a date or like <strong>5 days ago</strong>.</li>
+      <li>Type: <code translate="No">boolean</code></li>
+      <li>Default: <code translate="No">false</code></li>
+    </ul>
+    <p>The two possible publish time formats are shown in the following example:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/plugins/playlist-endscreen/publishTime.png" alt="publish time">
+    </figure>
   </section>
 
   <section class="bcls-section">
-    <h2 id="Options">Setting playlist ID</h2>
+    <h2 id="Setting_playlist_ID">Setting playlist ID</h2>
     <p>This plugin requires an ID for a playlist. The playlist will be fetched from the Playback API and the results will be used to populate the end screen. The playlist ID should come from one of the following sources:</p>
     <ul>
       <li>
@@ -186,12 +198,14 @@ parent: Plugins
   </section>
 
 
-  <!-- <section class="bcls-section">
-    <h2 id="Known_issues">Known issues</h2>
-    <ul>
-      <li></li>
-    </ul>
-  </section> -->
+  <section class="bcls-section">
+    <h2 id="Event">Event</h2>
+    <p>A <code>playlist-endscreen-select</code> event is triggered when a video is selected from the playlist. The following example shows the syntax:</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.on('playlist-endscreen-select', (e, data) => {
+  videojs.log('User chose video ${data.to} from video ${data.from}');
+});</code></pre>
+  </section>
+
   <section class="bcls-section">
     <h2 id="changelog">Changelog</h2>
     <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-playlist-endscreen/index.html">Playlist Endscreen Plugin Release Notes</a>.</p>
