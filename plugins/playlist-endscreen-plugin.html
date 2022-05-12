@@ -9,53 +9,55 @@ parent: Plugins
   <summary>{{ page.description }}</summary>
 
   <section class="bcls-section">
-    <h2 id="Overview">Overview</h2> 
-    <p>The Playlist Endscreen plugin allows you to display a playlist when a video ends. This playlist can be related videos, using a smart playlist, or it can be videos unrelated to the main video.</p> 
+    <h2 id="Overview">Overview</h2>
+    <p>The Playlist Endscreen plugin allows you to display a playlist when a video ends. This playlist can be related videos, using a smart playlist, or it can be videos unrelated to the main video.</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
-          <tr>
-              <th style="text-align: center;">End screen WILL appear</th>
-              <th style="text-align: center;">End screen will NOT appear</th>                         
-          </tr>
+        <tr>
+          <th style="text-align: center;">End screen WILL appear</th>
+          <th style="text-align: center;">End screen will NOT appear</th>
+        </tr>
       </thead>
       <tbody class="bcls-table__body">
-          <tr>
-            <td>
-              <ul>
-                <li>A playlist ID is available AND</li>
-                <li>The plugin is enabled</li>
-              </ul>
-            </td>   
-            <td>
-              <ul>
-                <li>No playlist ID is provided</li>
-                <li>The playlist ID is unset at runtime</li>
-                <li>The plugin is disabled</li>
-              </ul>
-            </td>                    
-          </tr>            
+        <tr>
+          <td>
+            <ul>
+              <li>A playlist ID is available AND</li>
+              <li>The plugin is enabled</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>No playlist ID is provided</li>
+              <li>The playlist ID is unset at runtime</li>
+              <li>The plugin is disabled</li>
+            </ul>
+          </td>
+        </tr>
       </tbody>
     </table>
 
-    <br/>
+    <br />
     <p>The user can also click on the end screen button in the UI to display the playlist end screen. The button tooltip uses the plugin title. In this case, the default, <strong>Related videos</strong>, is being used.</p>
     <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Playlist Endscreen button" src="/assets/images/plugins/playlist-endscreen/related-videos-button.png" />
       <figcaption class="bcls-caption--image">Playlist Endscreen button</figcaption>
-      </figure>
+    </figure>
 
     <h3>Example</h3>
     <p>This example shows a playlist of related videos when the main video ends.</p>
 
     <p class="codepen" data-height="560" data-theme-id="34967" data-default-tab="result" data-user="bcls1969" data-slug-hash="LYWxorm" style="height: 560px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Playlist Endscreen Plugin">
       <span>See the Pen <a href="https://codepen.io/team/bcls1969/pen/LYWxorm">
-      Playlist Endscreen Plugin</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls1969">@bcls1969</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
+          Playlist Endscreen Plugin</a> by Brightcove Learning Services (<a href="https://codepen.io/bcls1969">@bcls1969</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
     </p>
     <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-    <br/>
+    <br />
     <details>
-      <summary><h3 id="Using_the_CodePen">Using the CodePen</h3></summary>
+      <summary>
+        <h3 id="Using_the_CodePen">Using the CodePen</h3>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -70,7 +72,7 @@ parent: Plugins
   </section>
 
   <section class="bcls-section">
-    <h2 id="Requirements">Requirements</h2> 
+    <h2 id="Requirements">Requirements</h2>
     <p>The following requirements are needed to use the Playlist Endscreen plugin:</p>
     <ul>
       <li>Brightcove Player v6.51.3 and newer</li>
@@ -78,26 +80,26 @@ parent: Plugins
   </section>
 
   <section class="bcls-section">
-    <h2 id="Implement_using_Players_module">Implement using Players module</h2> 
+    <h2 id="Implement_using_Players_module">Implement using Players module</h2>
     <p>Playlist end screens can be implemented using Video Cloud Studio's <strong>Players</strong> module. For details, see the <a href="https://studio.support.brightcove.com/players/configuring-playlist-endscreen-using-plugin.html">Configuring a Playlist Endscreen Using the playlist-endscreen Plugin</a> document.</p>
-    
+
   </section>
 
   <section class="bcls-section">
-    <h2 id="Implement_using_code">Implement using code</h2> 
+    <h2 id="Implement_using_code">Implement using code</h2>
     <p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the plugin code and stylesheet are as follows:</p>
     <ol class="bcls-tasklist-restart">
       <li>
         <p>Include the plugin code:</p>
         <pre>
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.js</code></pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1/videojs-playlist-endscreen.js</code></pre>
       </li>
       <li>
         <p>Include the plugin styles:</p>
         <pre>
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.css</code></pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1/videojs-playlist-endscreen.css</code></pre>
       </li>
-      <li>Use the plugin name to load it into the player: <code translate="No">playlistEndscreen</code></li> 
+      <li>Use the plugin name to load it into the player: <code translate="No">playlistEndscreen</code></li>
       <li>
         <p>An example set of options is:</p>
         <pre class="line-numbers">
@@ -109,7 +111,7 @@ parent: Plugins
       <li>
         <p>Here is an example using the Advanced Embed implementation to associate the Playlist Endscreen plugin with a single instance of a player.</p>
         <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.css&quot; rel=&quot;stylesheet&quot;&gt;
+<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1/videojs-playlist-endscreen.css&quot; rel=&quot;stylesheet&quot;&gt;
   
   &lt;div style=&quot;max-width: 960px;&quot;&gt;
   &lt;video-js id=&quot;myPlayerID&quot;
@@ -126,7 +128,7 @@ parent: Plugins
 &lt;script src=&quot;https://players.brightcove.net/<span class="bcls-input">your account ID</span>/<span class="bcls-input">your player ID</span>_default/index.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- script for the Playlist Endscreen plugin --&gt;
-&lt;script src=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1.0.4/videojs-playlist-endscreen.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1/videojs-playlist-endscreen.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- custom script --&gt;
 &lt;script&gt;
@@ -142,7 +144,7 @@ parent: Plugins
   </section>
 
   <section class="bcls-section">
-    <h2 id="Options">Options</h2> 
+    <h2 id="Options">Options</h2>
     <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
 
     <h3>playlistId</h3>
@@ -151,7 +153,7 @@ parent: Plugins
       <li>The string representing the playlist ID to be displayed in the end screen.</li>
       <li>Type: <code translate="No">string</code></li>
       <li>Default: <code translate="No">""</code></li>
-      <li>Value: <code translate="No">"related"</code> -  As of version 1.1.0, the playlist endscreen plugin can display related videos instead of a specific playlist. Since this uses the playback api’s /related endpoint, the player must have a <a href="https://apis.support.brightcove.com/policy/getting-started/overview-policy-api.html#Search_videos">search enabled policy key.</a></li>
+      <li>Value: <code translate="No">"related"</code> - As of version 1.1.0, the playlist endscreen plugin can display related videos instead of a specific playlist. Since this uses the playback api’s /related endpoint, the player must have a <a href="https://apis.support.brightcove.com/policy/getting-started/overview-policy-api.html#Search_videos">search enabled policy key.</a></li>
     </ul>
 
     <h3>title</h3>
@@ -164,7 +166,7 @@ parent: Plugins
   </section>
 
   <section class="bcls-section">
-    <h2 id="Options">Setting playlist ID</h2> 
+    <h2 id="Options">Setting playlist ID</h2>
     <p>This plugin requires an ID for a playlist. The playlist will be fetched from the Playback API and the results will be used to populate the end screen. The playlist ID should come from one of the following sources:</p>
     <ul>
       <li>
@@ -182,15 +184,15 @@ parent: Plugins
       </li>
     </ul>
   </section>
-  
-  
+
+
   <!-- <section class="bcls-section">
     <h2 id="Known_issues">Known issues</h2>
     <ul>
       <li></li>
     </ul>
   </section> -->
-  <section class="bcls-section"> 
+  <section class="bcls-section">
     <h2 id="changelog">Changelog</h2>
     <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-playlist-endscreen/index.html">Playlist Endscreen Plugin Release Notes</a>.</p>
   </section>
