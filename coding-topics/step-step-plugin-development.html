@@ -268,6 +268,17 @@ description: In this topic you will learn via a hands-on introduction about plug
       <li>Browse the HTML page and you should see the plugin functioning correctly with the iframe.</li>
     </ol>
   </section>
+
+  <section class="bcls-section">
+    <h2 id="Plugins_with_multiple_players_on_one_page">Plugins with multiple players on one page</h2>
+    <p>When using different players on one page and both players happen to be using a plugin of the same name, but are actually different plugins, only the first player loaded's plugin will be used. The reason this happens is that <code>videojs</code> is a global variable. Because the two players appear to be the same version since the plugin names are the same, they share the same <code>videojs</code>, and for efficiency's sake the player only loads one version. This means plugins of the same name registered using <code>videojs.registerPlugin()</code> are shared between all players of the same version.</p>
+    <p>There are a couple of solutions to this issue. They are:</p>
+    <ul>
+      <li>Make the plugin names different.</li>
+      <li>Do not implement the functionality as a Video.js plugin, but rather as a general script.</li>
+    </ul>
+  </section>
+
   <section class="bcls-section">
     <h2 id="3rd_party_libraries"><span translate="no">3rd party</span> libraries</h2>
     <p>If your plugin has dependencies on 3rd party libraries, for instance jQuery, you need to include them in one of these two ways:</p>
