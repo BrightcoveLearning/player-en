@@ -89,12 +89,10 @@ parent: Getting Started
     <p>This code section initializes variables and gets ready to make the call to <code translate="No">makeRequest()</code>. Generally speaking, for a read request you will need to provide the following information:</p>
     <ol>
       <li>The URL to the proxy you will be using, for example (of course, this needs to be proxy under your control):
-        <pre class="line-numbers">
-	<code class="language-html" translate="No">https://solutions.brightcove.com/bcls/bcls-proxy/doc-samples-proxy-v2.php</code></pre>
+<pre class="line-numbers"><code class="language-html" translate="No">https://solutions.brightcove.com/bcls/bcls-proxy/doc-samples-proxy-v2.php</code></pre>
       </li>
       <li>The URL needed for the actual request, normally dynamically constructed:
-        <pre class="line-numbers">
-	<code class="language-html" translate="No">https://analytics.api.brightcove.com/v1/alltime/accounts/1752604059001/videos/4825279519001</code></pre>
+<pre class="line-numbers"><code class="language-html" translate="No">https://analytics.api.brightcove.com/v1/alltime/accounts/1752604059001/videos/4825279519001</code></pre>
       </li>
       <li>The HTTP method, for instance <code translate="No">GET</code>.</li>
     </ol>
@@ -105,8 +103,7 @@ parent: Getting Started
       <li>Lines 7-12: Wait for the <code translate="No">loadstart</code> event so the <code translate="No">mediainfo</code> object is populated. Assign variables to hold values needed for the <span translate="No">Analytics API</span> endpoint.</li>
       <li>Line 13: Set the HTTP method for the call.</li>
     </ul>
-    <pre class="line-numbers">
-	<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
+<pre class="line-numbers"><code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
 	&nbsp; var myPlayer = this,
 		accountId = myPlayer.bcinfo.accountId,
 		options = {};
@@ -138,8 +135,7 @@ parent: Getting Started
     </ul>
     <p>The following screenshot from the console shows actual displayed data from the <code translate="No">console.log</code> statements:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="Processing of data in callback function" src="/assets/images/getting-started/lg-rest-console-data-process-callback-function.png" /></figure>
-    <pre class="line-numbers">
-	<code class="language-javascript" translate="No">// +++ Make the request to the <span translate="No">Analytics API</span> +++
+<pre class="line-numbers"><code class="language-javascript" translate="No">// +++ Make the request to the <span translate="No">Analytics API</span> +++
 	// Extract views from data returned by Analytics API
 	makeRequest(options, <span class="bcls-highlight">function(viewsRaw) {
 	var viewsCount;
@@ -206,8 +202,7 @@ parent: Getting Started
       <li>Line 35: Initializes the request to the proxy.</li>
       <li>Line 38: Sends the request, which is asynchronous.</li>
     </ul>
-    <pre class="line-numbers">
-	<code class="language-javascript" translate="No">function makeRequest(options, callback) {
+<pre class="line-numbers"><code class="language-javascript" translate="No">function makeRequest(options, callback) {
 	var httpRequest = new XMLHttpRequest(),
 	response,
 	requestParams,
@@ -257,8 +252,7 @@ parent: Getting Started
       <li>Line 13: Style the <code translate="No">spacer</code> to display the total views right-justified and down 10px from the top of the <code translate="No">spacer</code>.</li>
       <li>Line 15: Add the newly created, populated and styled element to the <code translate="No">spacer</code>.</li>
     </ul>
-    <pre class="line-numbers">
-	<code class="language-javascript" translate="No">/**
+<pre class="line-numbers"><code class="language-javascript" translate="No">/**
 	* Dynamically build a div that is then
 	* placed in the controlbar's spacer element
 	*/
@@ -290,8 +284,7 @@ parent: Getting Started
       <li>The URL to the proxy, which will be dependent upon where you store your proxy.</li>
       <li>The HTTP method type, for example <code translate="No">GET</code>, <code translate="No">POST</code> or <code translate="No">PATCH</code>.</li>
       <li>The API endpoint URL used by the proxy to make the actual request from the API. For example:
-        <pre class="line-numbers">
-	<code class="language-html" translate="No">https://players.api.brightcove.com/v2/accounts/57838016001/players
+<pre class="line-numbers"<code class="language-html" translate="No">https://players.api.brightcove.com/v2/accounts/57838016001/players
 	https://edge.api.brightcove.com/playback/v1/accounts/1752604059001/videos/5842800655001
 	https://analytics.api.brightcove.com/v1/alltime/accounts/1752604059001/videos/4093643993001</code></pre>
       </li>
@@ -309,8 +302,7 @@ parent: Getting Started
     <p>Here is the response after updating players, using the <code translate="No">PATCH</code> HTTP method:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="debugging response on player patch" src="/assets/images/getting-started/lg-rest-debugging-response-on-player-patch.png" /></figure>
     <p>Here is a more nicely formatted view of the data in the first response:</p>
-    <pre class="line-numbers">
-	<code class="language-json" translate="No">{
+<pre class="line-numbers"><code class="language-json" translate="No">{
 		"id": "1OHQdsTAr",
 		"preview_url": "http://preview-players.brightcove.net/v2/accounts/.../master/index.html",
 		"preview_embed_in_page": "http://preview-players.brightcove.net/v2/accounts/.../master/in_page.embed",
@@ -355,8 +347,7 @@ parent: Getting Started
       <li>Receive data back from API.</li>
       <li>Send data back to client.</li>
     </ol>
-    <pre class="line-numbers">
-	<code class="language-javascript" translate="No">&lt;?php
+<pre class="line-numbers"><code class="language-javascript" translate="No">&lt;?php
 	/**
 	 * proxy for Brightcove RESTful APIs
 	 * gets an access token, makes the request, and returns the response
@@ -547,8 +538,7 @@ parent: Getting Started
       <li>Lines 9-12: Call the <code translate="No">getVideoData</code> helper function that uses a callback function to populate the <code translate="No">videoObjects</code> array based on IDs passed.</li>
       <li>Line 11: Populate the playlist with the array of video objects.</li>
     </ul>
-    <pre class="line-numbers">
-	<code class="language-javascript" translate="No">// +++ Make the <span translate="No">CMS API</span> request to get matching video IDs +++
+<pre class="line-numbers"><code class="language-javascript" translate="No">// +++ Make the <span translate="No">CMS API</span> request to get matching video IDs +++
 	makeRequest(options, <span class="bcls-highlight">function(mostWatchedVideos) {
 		var JSONmostWatchedVideos;
 		// Convert response string into JSON
