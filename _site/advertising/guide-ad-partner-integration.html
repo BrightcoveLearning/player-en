@@ -1333,10 +1333,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section id="example" class="bcls-section">
     <h2>Examples</h2>
-    <h3>Sample implementation</h3>
-    <p>The hands-on exercise section of the <a href="/plugins/advertising-ima3-plugin.html#Implement_using_Players_module_advertising_section">Advertising with IMA3 Plugin Guide</a> walks you through a simple implementation of using a plugin for IMA3 advertising.</p>
+    <p>This section provides two examples. The first is a template implementation. This provides the basic approach to ad integration, but requires your details to be added. The second example is a full working example.</p>
     <h3>Pseudo code integration</h3>
-    <p>Here's pseudo code of what a basic ad integration might look like. This example shows a single preroll ad before each content video, and demonstrates the interaction points offered by the ads plugin. This is not actually a runnable example, as it needs more information as specified in the code comments.</p>
+    <p>Here's pseudo code of what a basic ad integration might look like. This example shows a single preroll ad before each content video, and demonstrates the interaction points offered by the ads plugin. <em>This is <strong>not</strong> actually a runnable example, as it needs more information as specified in the code comments.</em></p>
     <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
   videojs.getPlayer('myPlayerID').one('loadedmetadata', function(){
@@ -1363,6 +1362,88 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     });
   });
 &lt;/script&gt;</code></pre>
+    <h3>Fully functional example</h3>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Contrib ads ad plugin&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;video-js id=&quot;myPlayerID&quot;
+    data-account=&quot;1752604059001&quot;
+    data-player=&quot;default&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-video-id=&quot;6077029038001&quot;
+    data-playlist-id=&quot;&quot;
+    data-application-id=&quot;&quot;
+    width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+
+  &lt;script src=&quot;https://players.brightcove.net/1752604059001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.9.0/videojs.ads.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    const player = videojs.getPlayer(&quot;myPlayerID&quot;);
+    let creative = &apos;&apos;;
+
+    player.ads();
+
+    player.on(&apos;contentupdate&apos;, function () {
+
+    // Console output
+    console.log(&quot;### videojs EVENT: contentupdate&quot;);
+
+    // can fetch ad inventory here...
+    player.setTimeout(() =&gt; {
+      creative = &apos;https://solutions.brightcove.com/bcls/ads/bc-ads/bcls-ad-1-8seconds.mp4&apos;;
+    }, 100);
+    player.trigger(&apos;adsready&apos;);
+
+    // Console output
+    console.log(&quot;### videojs EVENT: adsready&quot;);
+
+    });
+
+    player.on(&apos;loadedmetadata&apos;, function () {
+    // Console output
+    console.log(&quot;### videojs EVENT: loadedmetadata&quot;);
+    });
+
+    player.on(&apos;readyforpreroll&apos;, function () {
+
+      // Console output
+      console.log(&quot;### videojs EVENT: readyforpreroll&quot;);
+
+      player.ads.startLinearAdMode();
+      // play your linear ad content
+      player.src(creative);
+      player.one(&apos;durationchange&apos;, function () {
+      player.play();
+      });
+      // when ad has finished restore player
+      player.one(&apos;adended&apos;, function () {
+
+        // Console output
+        console.log(&quot;### videojs EVENT: adended&quot;);
+
+        player.ads.endLinearAdMode();
+      });
+    });
+
+    player.on(&apos;ended&apos;, function () {
+      // Console output
+      console.log(&quot;### videojs EVENT: ended&quot;);
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
   </section>
   <section id="faq" class="bcls-section">
     <h2>FAQ</h2>
@@ -1391,7 +1472,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 17 Jun 2021
+  Page last updated on 01 Jun 2022
 </div>
 
 
