@@ -7,7 +7,7 @@ description: This document describes functionality you can implement if you wish
   <h1>Guide: Ad Partner Integration</h1>
   <summary>{{ page.description }}</summary>
   <section id="Overview" class="bcls-section">
-    <h2>Overview</h2>
+    <h2 id="Overview">Overview</h2>
     <p>If your advertising system is compliant with Google IMA3, for instance, you do not need this information but can simply use the existing plugin for IMA3, documented in the <a href="/plugins/advertising-ima3-plugin.html">Advertising with IMA3 Plugin Guide</a>.</p>
     <p>If you have determined you need this functionality, this content explains the advertising API framework needed for advertising integrations with the Brightcove Player. You can see two implementations of this framework that Brightcove has produced, those being for Google's IMA3 and FreeWheel (reference documents shown in the next paragraph).</p>
     <p>Again, this document is NOT intended for customers wanting to use an existing ad framework with their videos. Documents more suitable for these customers are:</p>
@@ -18,7 +18,7 @@ description: This document describes functionality you can implement if you wish
     </ul>
   </section>
   <section id="frameworkfunctionality" class="bcls-section">
-    <h2>Ad framework functionality</h2>
+    <h2 id="Ad_framework_functionality">Ad framework functionality</h2>
     <p>Brightcove provides an advertising API framework as the basis for custom ad plugins. The framework provides common functionality needed by video advertisement libraries working with the Brightcove Player, reducing the code you have to write for your ad integration. The framework is provided as an open source project upon which you can build. The project code is available from the GitHub repository <a href="https://github.com/videojs/videojs-contrib-ads">videojs-contrib-ads</a>.</p>
     <p>The ad framework enables ad partners to:</p>
     <ul>
@@ -29,7 +29,7 @@ description: This document describes functionality you can implement if you wish
     </ul>
   </section>
   <section id="baseknowledge" class="bcls-section">
-    <h2>Base knowledge</h2>
+    <h2 id="Base_knowledge">Base knowledge</h2>
     <p>To use and build upon the advertising API framework you will need a thorough understanding of Brightcove Player plugin architecture. The following documents provide this knowledge:</p>
     <ul>
       <li><a href="/plugins/overview-brightcove-player-plugins.html">Overview: Player Plugins</a></li>
@@ -42,7 +42,7 @@ description: This document describes functionality you can implement if you wish
     </ul>
   </section>
   <section id="using" class="bcls-section">
-    <h2>Using the framework</h2>
+    <h2 id="Using_the_framework">Using the framework</h2>
     <p>The following sections provide details on using the framework.</p>
     <h3>Include the framework resources</h3>
     <p>To use the plugin you must first be sure to include the CSS and JavaScript for the plugin.</p>
@@ -170,7 +170,7 @@ description: This document describes functionality you can implement if you wish
     </table>
   </section>
   <section id="example" class="bcls-section">
-    <h2>Examples</h2>
+    <h2 id="Examples">Examples</h2>
     <p>This section provides two examples. The first is a template implementation. This provides the basic approach to ad integration, but requires your details to be added. The second example is a full working example.</p>
     <h3>Pseudo code integration</h3>
     <p>Here's pseudo code of what a basic ad integration might look like. This example shows a single preroll ad before each content video, and demonstrates the interaction points offered by the ads plugin. <em>This is <strong>not</strong> actually a runnable example, as it needs more information as specified in the code comments.</em></p>
@@ -282,7 +282,7 @@ description: This document describes functionality you can implement if you wish
 &lt;/html&gt;</code></pre>
   </section>
   <section id="faq" class="bcls-section">
-    <h2>FAQ</h2>
+    <h2 id="FAQ">FAQ</h2>
     <p class="bcls-question">How can an ad plugin access media metadata?</p>
     <p class="bcls-answer">For Video Cloud customers, the plugin will access metadata via the <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object, which will be populated with metadata set in Video Cloud. Brightcove Player customers will be responsible for populating the <a href="/references/video-metadata-mediainfo.html">mediainfo object manually</a> since they'll be using a non-Video Cloud CMS.</p>
     <p class="bcls-question">How can options be specified for an ad plugin?</p>
