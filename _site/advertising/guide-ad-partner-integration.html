@@ -1332,35 +1332,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </table>
   </section>
   <section id="example" class="bcls-section">
-    <h2 id="Examples">Examples</h2>
-    <p>This section provides two examples. The first is a template implementation. This provides the basic approach to ad integration, but requires your details to be added. The second example is a full working example.</p>
-    <h3>Pseudo code integration</h3>
-    <p>Here's pseudo code of what a basic ad integration might look like. This example shows a single preroll ad before each content video, and demonstrates the interaction points offered by the ads plugin. <em>This is <strong>not</strong> actually a runnable example, as it needs more information as specified in the code comments.</em></p>
-    <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;script type="text/javascript"&gt;
-    const player = videojs.getPlayer("myPlayerID");
-    player.ads(); // initialize the ad framework
-
-    // request ads whenever there's new video content
-    player.on('contentupdate', function(){
-      // fetch ad inventory asynchronously, then ...
-      player.trigger('adsready');
-    });
-
-    player.on('readyforpreroll', function() {
-      player.ads.startLinearAdMode();
-      // play your linear ad content
-      player.src('http://url/to/your/ad.content');
-      player.one('durationchange', function(){
-        player.play();
-      });
-      // when all your linear ads have finished...
-      player.one('adend', function() {
-        player.ads.endLinearAdMode();
-      });
-    });
-&lt;/script&gt;</code></pre>
-    <h3>Fully functional example</h3>
+    <h2 id="Example">Example</h2>
+    <p>This section provides an example of an implementation with a full working sample.</p>
     <pre class="line-numbers"><code class="language-html" translate="No">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 
