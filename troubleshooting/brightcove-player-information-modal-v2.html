@@ -1,0 +1,179 @@
+---
+title: Brightcove Player Information Modal
+parent: Troubleshooting
+description: In this topic you will learn how you can view player information from the Player Information Modal window.
+---
+<article class="bcls-article">
+  <h1>Brightcove Player Information Modal</h1>
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="View_player_information">View player information</h2>
+    <p>You display the player information by right-clicking on the player and selecting <strong>Player Information</strong>, as shown in this screenshot.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Select Player Information from context menu" src="/assets/images/troubleshooting/modal-context-menu.png" /></figure>
+    <aside class="bcls-aside bcls-aside--information">Note: On mobile you can use the long press to open the modal.</aside>
+    <p>Once you select <strong>Player Information</strong> you will see the modal window containing information about the player, as shown in this screenshot.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Player Information in modal" src="/assets/images/troubleshooting/modal-modal-with-info.png" /></figure>
+    <h3>Player Information</h3>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Brightcove Player Version</td>
+          <td>The version of the Brightcove Player used</td>
+        </tr>
+        <tr>
+          <td>Video.js Version</td>
+          <td>The Video.js version on which this version of Brightcove Player is built upon</td>
+        </tr>
+        <tr>
+          <td>Account ID</td>
+          <td>Your Video Cloud account ID</td>
+        </tr>
+        <tr>
+          <td>Player ID</td>
+          <td>ID of the player used</td>
+        </tr>
+        <tr>
+          <td>Embed ID</td>
+          <td>If the value is default it means the player is not a child player; if the value is not default, it is the ID of the parent of the player</td>
+        </tr>
+        <tr>
+          <td>Application ID</td>
+          <td>The application ID is used to differentiate multiple uses of a single player on different web pages for analytics reasons; it is invisible to the user.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Media Information</h3>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Current Media Type</td>
+          <td>Type of the video/media in the player</td>
+        </tr>
+        <tr>
+          <td>DRM Key System</td>
+          <td>If the video/media in the player is encoded with Digital Rights Management, the key system being used; most likely one of Google Widevine, Apple Fairplay or Microsoft Playready</td>
+        </tr>
+        <tr>
+          <td>Video ID</td>
+          <td>The Video Cloud ID of the video/media in the player</td>
+        </tr>
+        <tr>
+          <td>Video Name</td>
+          <td>The Video Cloud name of the video/media in the player</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Player Plugins</h3>
+    <p>Only Brightcove supplied plugins that are part of the player configuration will appear in this section. If you add a Brightcove plugin in an HTML page's JavaScript, it will NOT appear in the list. Customer developed plugins, even if listed as part of the player's configuration, will NOT appear.</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Name</td>
+          <td>Name of the plugin</td>
+        </tr>
+        <tr>
+          <td>Version</td>
+          <td>Version of the plugin used in the player</td>
+        </tr>
+        <tr>
+          <td>Active?</td>
+          <td>Reports if the plugin is currently in use; for instance the Picture-in-Picture plugin can be loaded, but the viewer has not clicked on the icon so it would not be active at that time</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Playback Engine</h3>
+    <ul>
+      <li><strong>Library Engines</strong> - Playback technologies used and associated versions</li>
+      <li><strong>Statistics</strong>
+
+      </li>
+    </ul>
+    <h3>Device Capabilities</h3>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Close_the_modal_window">Close the modal window</h2>
+    <p>You close the modal either pressing the <strong>ESC</strong> key or by clicking on the close icon at the top-left.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Close icon" src="/assets/images/troubleshooting/modal-close-modal.png" /></figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Alter_the_context_menu">Alter the context menu</h2>
+    <p>You can alter the menu that appears on right-click, called the context menu. To do this you must alter the configuration of your player. You can do this in two ways:</p>
+    <ul>
+      <li>Using Studio's <strong>JSON Editor</strong> from the <strong>PLAYERS</strong> module.</li>
+      <li>A tool to perform the configuration change is <a href="https://general.support.brightcove.com/developer/concepts-set-curl.html">curl</a>.</li>
+    </ul>
+    <p>The two changes you can make, and how to affect them, are shown here.</p>
+    <aside class="bcls-aside bcls-aside--warning">Note: The curl statements below use the Player Management API to alter player configuration. In the curl statements you will see values of <strong>$EMAIL</strong>, <strong>$ACCOUNT_ID</strong> and <strong>$PLAYER_ID</strong>. You must either create environment variables by those names and assign corresponding values, or supply the literal values for the variables.</aside>
+    <h3>Prevent the menu appearing</h3>
+    <p>If you wish to prevent the player information context menu from appearing at all, you can do one of the following:</p>
+    <h4>Use the JSON Editor</h4>
+    <p>Alter the player's configuration by adding the highlighted property (be sure to save the change):</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="JSON Editor no debugger" src="/assets/images/troubleshooting/modal-json-editor-no-context-menu.png" /></figure>
+    <h4>Use curl</h4>
+    <pre class="line-numbers">
+<code class="language-bash" translate="No">curl \
+  --header "Content-Type: application/json" \
+  --user $EMAIL \
+  --request PATCH \
+  --data '{
+      "context_menu": false
+  }' \
+  https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
+    <aside class="bcls-aside bcls-aside--information">Note: Whenever you make a change to a player using curl, you need to re-publish the player. You can do that in Studio, and you will see your player is marked as needing to be published in the <strong>Status</strong> column:
+      <figure class="bcls-figure"><img class="bcls-image" alt="Status shows needs to be published" src="/assets/images/troubleshooting/modal-needs-to-be-published.png" /></figure>
+      <p>You can also use curl to publish your player:</p>
+      <pre class="line-numbers">
+<code class="language-bash" translate="No">curl \
+  --header "Content-Type: application/json" \
+  --user $EMAIL \
+  --request POST \
+    https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/publish</code></pre>
+    </aside>
+    <h3>Prevent the Brightcove menu option</h3>
+    <p>If you wish to prevent the <strong>About Brightcove</strong> menu option from appearing, you can do one of the following:</p>
+    <h4>Use the JSON Editor</h4>
+    <p>Alter the player's configuration by adding the highlighted property (be sure to save the change):</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="JSON Editor no Brightcove Player branding" src="/assets/images/troubleshooting/modal-json-editor-no-bc-branding.png" /></figure>
+    <h4>Use curl</h4>
+    <pre class="line-numbers">
+<code class="language-bash" translate="No">curl \
+  --header "Content-Type: application/json" \
+  --user $EMAIL \
+  --request PATCH \
+  --data '{
+    "context_menu": {
+      "brightcove_branding": false
+    }
+  }' \
+  https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
+    <aside class="bcls-aside bcls-aside--information">Note: Whenever you make a change to a player using curl, you need to re-publish the player. You can do that in Studio, and you will see your player is marked as needing to be published in the <strong>Status</strong> column:
+      <figure class="bcls-figure"><img class="bcls-image" alt="Status shows needs to be published" src="/assets/images/troubleshooting/modal-needs-to-be-published.png" /></figure>
+      <p>You can also use curl to publish your player:</p>
+      <pre class="line-numbers">
+<code class="language-bash" translate="No">curl \
+  --header "Content-Type: application/json" \
+  --user $EMAIL \
+  --request POST \
+  https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/publish</code></pre>
+    </aside>
+  </section>
+</article>
