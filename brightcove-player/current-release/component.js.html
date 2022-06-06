@@ -34,7 +34,7 @@
     <div class="title">
       <h1><a href="index.html" class="link">Brightcove Player API Documentation</a></h1>
 
-      <span class="version">v6.64.1</span>
+      <span class="version">v6.65.1</span>
 
     </div>
     <div class="search-container" id="search-container">
@@ -1020,7 +1020,6 @@
               <li><a href="ChaptersTrackMenuItem.html#show">show</a></li>
               <li><a href="ChaptersTrackMenuItem.html#toggleClass">toggleClass</a></li>
               <li><a href="ChaptersTrackMenuItem.html#triggerReady">triggerReady</a></li>
-              <li><a href="ChaptersTrackMenuItem.html#update">update</a></li>
               <li><a href="ChaptersTrackMenuItem.html#width">width</a></li>
             </ul>
             <div class="member-type">Events</div>
@@ -3190,6 +3189,7 @@
               <li><a href="Player.html#addRemoteTextTrack">addRemoteTextTrack</a></li>
               <li><a href="Player.html#addTextTrack">addTextTrack</a></li>
               <li><a href="Player.html#aspectRatio">aspectRatio</a></li>
+              <li><a href="Player.html#audioOnlyMode">audioOnlyMode</a></li>
               <li><a href="Player.html#audioPosterMode">audioPosterMode</a></li>
               <li><a href="Player.html#audioTracks">audioTracks</a></li>
               <li><a href="Player.html#autoplay">autoplay</a></li>
@@ -5917,12 +5917,15 @@ class Component {
    *        The `Player` that this class should be attached to.
    *
    * @param {Object} [options]
-   *        The key/value store of player options.
+   *        The key/value store of component options.
    *
    * @param {Object[]} [options.children]
    *        An array of children objects to intialize this component with. Children objects have
    *        a name property that will be used if more than one component of the same type needs to be
    *        added.
+   *
+   * @param  {string} [options.className]
+   *         A class or space separated list of classes to add the component
    *
    * @param {Component~ReadyCallback} [ready]
    *        Function that gets called when the `Component` is ready.
@@ -5967,6 +5970,10 @@ class Component {
       this.el_ = this.createEl();
     }
 
+    if (options.className &amp;&amp; this.el_) {
+      options.className.split(' ').forEach(c => this.addClass(c));
+    }
+
     // if evented is anything except false, we want to mixin in evented
     if (options.evented !== false) {
       // Make this an evented object and use `el_`, if available, as its event bus
@@ -6006,8 +6013,11 @@ class Component {
    * Dispose of the `Component` and all child components.
    *
    * @fires Component#dispose
+   *
+   * @param {Object} options
+   * @param {Element} options.originalEl element with which to replace player element
    */
-  dispose() {
+  dispose(options = {}) {
 
     // Bail out if the component has already been disposed.
     if (this.isDisposed_) {
@@ -6051,7 +6061,11 @@ class Component {
     if (this.el_) {
       // Remove element from DOM
       if (this.el_.parentNode) {
-        this.el_.parentNode.removeChild(this.el_);
+        if (options.restoreEl) {
+          this.el_.parentNode.replaceChild(options.restoreEl, this.el_);
+        } else {
+          this.el_.parentNode.removeChild(this.el_);
+        }
       }
 
       this.el_ = null;

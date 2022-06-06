@@ -34,7 +34,7 @@
     <div class="title">
       <h1><a href="index.html" class="link">Brightcove Player API Documentation</a></h1>
 
-      <span class="version">v6.64.1</span>
+      <span class="version">v6.65.1</span>
 
     </div>
     <div class="search-container" id="search-container">
@@ -1020,7 +1020,6 @@
               <li><a href="ChaptersTrackMenuItem.html#show">show</a></li>
               <li><a href="ChaptersTrackMenuItem.html#toggleClass">toggleClass</a></li>
               <li><a href="ChaptersTrackMenuItem.html#triggerReady">triggerReady</a></li>
-              <li><a href="ChaptersTrackMenuItem.html#update">update</a></li>
               <li><a href="ChaptersTrackMenuItem.html#width">width</a></li>
             </ul>
             <div class="member-type">Events</div>
@@ -3190,6 +3189,7 @@
               <li><a href="Player.html#addRemoteTextTrack">addRemoteTextTrack</a></li>
               <li><a href="Player.html#addTextTrack">addTextTrack</a></li>
               <li><a href="Player.html#aspectRatio">aspectRatio</a></li>
+              <li><a href="Player.html#audioOnlyMode">audioOnlyMode</a></li>
               <li><a href="Player.html#audioPosterMode">audioPosterMode</a></li>
               <li><a href="Player.html#audioTracks">audioTracks</a></li>
               <li><a href="Player.html#autoplay">autoplay</a></li>
@@ -6154,7 +6154,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5075">line 5075</a></code>
+                <code><a href="player.js.html#line5243">line 5243</a></code>
               </div>
 
             </h4>
@@ -6235,7 +6235,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5065">line 5065</a></code>
+                <code><a href="player.js.html#line5233">line 5233</a></code>
               </div>
 
             </h4>
@@ -6324,7 +6324,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4852">line 4852</a></code>
+                <code><a href="player.js.html#line5020">line 5020</a></code>
               </div>
 
             </h4>
@@ -6487,7 +6487,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line764">line 764</a></code>
+                <code><a href="component.js.html#line778">line 778</a></code>
               </div>
 
             </h4>
@@ -6735,7 +6735,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line786">line 786</a></code>
+                <code><a href="component.js.html#line800">line 800</a></code>
               </div>
 
             </h4>
@@ -6980,7 +6980,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line455">line 455</a></code>
+                <code><a href="component.js.html#line469">line 469</a></code>
               </div>
 
             </h4>
@@ -7255,7 +7255,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line810">line 810</a></code>
+                <code><a href="component.js.html#line824">line 824</a></code>
               </div>
 
             </h4>
@@ -7405,7 +7405,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4374">line 4374</a></code>
+                <code><a href="player.js.html#line4542">line 4542</a></code>
               </div>
 
             </h4>
@@ -7639,7 +7639,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4348">line 4348</a></code>
+                <code><a href="player.js.html#line4516">line 4516</a></code>
               </div>
 
             </h4>
@@ -7897,7 +7897,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line996">line 996</a></code>
+                <code><a href="player.js.html#line1017">line 1017</a></code>
               </div>
 
             </h4>
@@ -8070,14 +8070,194 @@
 
           <dt>
 
-            <h4 class="name" id="audioPosterMode">
+            <h4 class="name" id="audioOnlyMode">
 
-              <span class="type-signature"></span>audioPosterMode<span class="signature">(value<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span>
+              <span class="type-signature"></span>audioOnlyMode<span class="signature">(value<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise|boolean}</span>
 
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4305">line 4305</a></code>
+                <code><a href="player.js.html#line4370">line 4370</a></code>
+              </div>
+
+            </h4>
+
+
+
+          </dt>
+          <dd>
+
+
+            <div class="description">
+              <p>Get the current audioOnlyMode state or set audioOnlyMode to true or false.</p>
+              <p>Setting this to <code>true</code> will hide all player components except the control bar,
+                as well as control bar components needed only for video.</p>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="container-params">
+              <h5>Parameters:</h5>
+
+              <table class="params">
+                <thead>
+                  <tr>
+
+                    <th>Name</th>
+
+
+                    <th>Type</th>
+
+
+                    <th>Attributes</th>
+
+
+
+
+                    <th class="last">Description</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+
+                  <tr>
+
+                    <td class="name"><code>value</code></td>
+
+
+                    <td class="type">
+
+
+                      <span class="param-type">boolean</span>
+
+
+
+                    </td>
+
+
+                    <td class="attributes">
+
+                      &lt;optional><br>
+
+
+
+
+
+                    </td>
+
+
+
+
+                    <td class="description last">
+                      <p>The value to set audioOnlyMode to.</p>
+                    </td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="container-returns">
+              <h5>Returns:</h5>
+
+
+
+
+
+              <span class="param-type">Promise</span>
+              |
+
+              <span class="param-type">boolean</span>
+
+
+
+
+
+              - <p>A Promise is returned when setting the state, and a boolean when getting
+                the present state</p>
+
+
+
+
+
+            </div>
+
+
+
+
+
+            <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </dl>
+
+
+
+
+          </dd>
+
+
+
+
+          <dt>
+
+            <h4 class="name" id="audioPosterMode">
+
+              <span class="type-signature"></span>audioPosterMode<span class="signature">(value<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise|boolean}</span>
+
+
+              <div class="container-source members">
+                <code><a href="player.js.html">player.js</a></code>,
+                <code><a href="player.js.html#line4447">line 4447</a></code>
               </div>
 
             </h4>
@@ -8183,13 +8363,17 @@
 
 
 
+              <span class="param-type">Promise</span>
+              |
+
               <span class="param-type">boolean</span>
 
 
 
 
 
-              - <p>True if audioPosterMode is on, false otherwise.</p>
+              - <p>A Promise is returned when setting the state, and a boolean when getting
+                the present state</p>
 
 
 
@@ -8251,7 +8435,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4996">line 4996</a></code>
+                <code><a href="player.js.html#line5164">line 5164</a></code>
               </div>
 
             </h4>
@@ -8361,7 +8545,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3700">line 3700</a></code>
+                <code><a href="player.js.html#line3721">line 3721</a></code>
               </div>
 
             </h4>
@@ -8550,7 +8734,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1150">line 1150</a></code>
+                <code><a href="component.js.html#line1164">line 1164</a></code>
               </div>
 
             </h4>
@@ -8648,7 +8832,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4632">line 4632</a></code>
+                <code><a href="player.js.html#line4800">line 4800</a></code>
               </div>
 
             </h4>
@@ -9101,7 +9285,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2630">line 2630</a></code>
+                <code><a href="player.js.html#line2651">line 2651</a></code>
               </div>
 
             </h4>
@@ -9222,7 +9406,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2659">line 2659</a></code>
+                <code><a href="player.js.html#line2680">line 2680</a></code>
               </div>
 
             </h4>
@@ -9333,7 +9517,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2648">line 2648</a></code>
+                <code><a href="player.js.html#line2669">line 2669</a></code>
               </div>
 
             </h4>
@@ -9445,7 +9629,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line681">line 681</a></code>
+                <code><a href="component.js.html#line695">line 695</a></code>
               </div>
 
             </h4>
@@ -9564,7 +9748,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1584">line 1584</a></code>
+                <code><a href="component.js.html#line1598">line 1598</a></code>
               </div>
 
             </h4>
@@ -9748,7 +9932,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1559">line 1559</a></code>
+                <code><a href="component.js.html#line1573">line 1573</a></code>
               </div>
 
             </h4>
@@ -9898,7 +10082,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3250">line 3250</a></code>
+                <code><a href="player.js.html#line3271">line 3271</a></code>
               </div>
 
             </h4>
@@ -10067,7 +10251,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line372">line 372</a></code>
+                <code><a href="component.js.html#line386">line 386</a></code>
               </div>
 
             </h4>
@@ -10186,7 +10370,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1463">line 1463</a></code>
+                <code><a href="component.js.html#line1477">line 1477</a></code>
               </div>
 
             </h4>
@@ -10372,7 +10556,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1407">line 1407</a></code>
+                <code><a href="component.js.html#line1421">line 1421</a></code>
               </div>
 
             </h4>
@@ -10558,7 +10742,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line341">line 341</a></code>
+                <code><a href="component.js.html#line355">line 355</a></code>
               </div>
 
             </h4>
@@ -10678,7 +10862,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3861">line 3861</a></code>
+                <code><a href="player.js.html#line3882">line 3882</a></code>
               </div>
 
             </h4>
@@ -10860,7 +11044,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line658">line 658</a></code>
+                <code><a href="player.js.html#line679">line 679</a></code>
               </div>
 
             </h4>
@@ -10979,7 +11163,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4530">line 4530</a></code>
+                <code><a href="player.js.html#line4698">line 4698</a></code>
               </div>
 
             </h4>
@@ -11202,7 +11386,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line828">line 828</a></code>
+                <code><a href="player.js.html#line849">line 849</a></code>
               </div>
 
             </h4>
@@ -11394,7 +11578,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4702">line 4702</a></code>
+                <code><a href="player.js.html#line4870">line 4870</a></code>
               </div>
 
             </h4>
@@ -11505,7 +11689,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4714">line 4714</a></code>
+                <code><a href="player.js.html#line4882">line 4882</a></code>
               </div>
 
             </h4>
@@ -11618,7 +11802,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1063">line 1063</a></code>
+                <code><a href="component.js.html#line1077">line 1077</a></code>
               </div>
 
             </h4>
@@ -11791,7 +11975,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1109">line 1109</a></code>
+                <code><a href="component.js.html#line1123">line 1123</a></code>
               </div>
 
             </h4>
@@ -11912,7 +12096,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1136">line 1136</a></code>
+                <code><a href="component.js.html#line1150">line 1150</a></code>
               </div>
 
             </h4>
@@ -12032,7 +12216,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3638">line 3638</a></code>
+                <code><a href="player.js.html#line3659">line 3659</a></code>
               </div>
 
             </h4>
@@ -12142,7 +12326,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3620">line 3620</a></code>
+                <code><a href="player.js.html#line3641">line 3641</a></code>
               </div>
 
             </h4>
@@ -12252,7 +12436,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3649">line 3649</a></code>
+                <code><a href="player.js.html#line3670">line 3670</a></code>
               </div>
 
             </h4>
@@ -12363,7 +12547,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2508">line 2508</a></code>
+                <code><a href="player.js.html#line2529">line 2529</a></code>
               </div>
 
             </h4>
@@ -12542,7 +12726,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3661">line 3661</a></code>
+                <code><a href="player.js.html#line3682">line 3682</a></code>
               </div>
 
             </h4>
@@ -12654,7 +12838,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1124">line 1124</a></code>
+                <code><a href="component.js.html#line1138">line 1138</a></code>
               </div>
 
             </h4>
@@ -12774,7 +12958,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4929">line 4929</a></code>
+                <code><a href="player.js.html#line5097">line 5097</a></code>
               </div>
 
             </h4>
@@ -12920,7 +13104,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2749">line 2749</a></code>
+                <code><a href="player.js.html#line2770">line 2770</a></code>
               </div>
 
             </h4>
@@ -13116,7 +13300,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4266">line 4266</a></code>
+                <code><a href="player.js.html#line4287">line 4287</a></code>
               </div>
 
             </h4>
@@ -13306,7 +13490,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line885">line 885</a></code>
+                <code><a href="player.js.html#line906">line 906</a></code>
               </div>
 
             </h4>
@@ -13524,7 +13708,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line966">line 966</a></code>
+                <code><a href="component.js.html#line980">line 980</a></code>
               </div>
 
             </h4>
@@ -13705,7 +13889,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3053">line 3053</a></code>
+                <code><a href="player.js.html#line3074">line 3074</a></code>
               </div>
 
             </h4>
@@ -13849,7 +14033,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line587">line 587</a></code>
+                <code><a href="player.js.html#line608">line 608</a></code>
               </div>
 
             </h4>
@@ -13954,7 +14138,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2090">line 2090</a></code>
+                <code><a href="player.js.html#line2111">line 2111</a></code>
               </div>
 
             </h4>
@@ -14043,7 +14227,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2559">line 2559</a></code>
+                <code><a href="player.js.html#line2580">line 2580</a></code>
               </div>
 
             </h4>
@@ -14230,7 +14414,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line234">line 234</a></code>
+                <code><a href="component.js.html#line248">line 248</a></code>
               </div>
 
             </h4>
@@ -14349,7 +14533,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1306">line 1306</a></code>
+                <code><a href="component.js.html#line1320">line 1320</a></code>
               </div>
 
             </h4>
@@ -14471,7 +14655,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5138">line 5138</a></code>
+                <code><a href="player.js.html#line5307">line 5307</a></code>
               </div>
 
             </h4>
@@ -14581,7 +14765,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2979">line 2979</a></code>
+                <code><a href="player.js.html#line3000">line 3000</a></code>
               </div>
 
             </h4>
@@ -14676,7 +14860,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3970">line 3970</a></code>
+                <code><a href="player.js.html#line3991">line 3991</a></code>
               </div>
 
             </h4>
@@ -14865,7 +15049,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2919">line 2919</a></code>
+                <code><a href="player.js.html#line2940">line 2940</a></code>
               </div>
 
             </h4>
@@ -14959,7 +15143,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3026">line 3026</a></code>
+                <code><a href="player.js.html#line3047">line 3047</a></code>
               </div>
 
             </h4>
@@ -15053,7 +15237,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3116">line 3116</a></code>
+                <code><a href="player.js.html#line3137">line 3137</a></code>
               </div>
 
             </h4>
@@ -15177,7 +15361,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line961">line 961</a></code>
+                <code><a href="player.js.html#line982">line 982</a></code>
               </div>
 
             </h4>
@@ -15362,7 +15546,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4909">line 4909</a></code>
+                <code><a href="player.js.html#line5077">line 5077</a></code>
               </div>
 
             </h4>
@@ -15475,7 +15659,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line924">line 924</a></code>
+                <code><a href="player.js.html#line945">line 945</a></code>
               </div>
 
             </h4>
@@ -15660,7 +15844,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1143">line 1143</a></code>
+                <code><a href="component.js.html#line1157">line 1157</a></code>
               </div>
 
             </h4>
@@ -15758,7 +15942,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3009">line 3009</a></code>
+                <code><a href="player.js.html#line3030">line 3030</a></code>
               </div>
 
             </h4>
@@ -15900,7 +16084,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line890">line 890</a></code>
+                <code><a href="component.js.html#line904">line 904</a></code>
               </div>
 
             </h4>
@@ -16089,7 +16273,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2218">line 2218</a></code>
+                <code><a href="player.js.html#line2239">line 2239</a></code>
               </div>
 
             </h4>
@@ -16199,7 +16383,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line398">line 398</a></code>
+                <code><a href="component.js.html#line412">line 412</a></code>
               </div>
 
             </h4>
@@ -16373,7 +16557,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line385">line 385</a></code>
+                <code><a href="component.js.html#line399">line 399</a></code>
               </div>
 
             </h4>
@@ -16547,7 +16731,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line420">line 420</a></code>
+                <code><a href="component.js.html#line434">line 434</a></code>
               </div>
 
             </h4>
@@ -16742,7 +16926,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4815">line 4815</a></code>
+                <code><a href="player.js.html#line4983">line 4983</a></code>
               </div>
 
             </h4>
@@ -16853,7 +17037,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4415">line 4415</a></code>
+                <code><a href="player.js.html#line4583">line 4583</a></code>
               </div>
 
             </h4>
@@ -16977,7 +17161,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3201">line 3201</a></code>
+                <code><a href="player.js.html#line3222">line 3222</a></code>
               </div>
 
             </h4>
@@ -17122,7 +17306,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3139">line 3139</a></code>
+                <code><a href="player.js.html#line3160">line 3160</a></code>
               </div>
 
             </h4>
@@ -17280,7 +17464,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1182">line 1182</a></code>
+                <code><a href="component.js.html#line1196">line 1196</a></code>
               </div>
 
             </h4>
@@ -17433,7 +17617,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line332">line 332</a></code>
+                <code><a href="component.js.html#line346">line 346</a></code>
               </div>
 
             </h4>
@@ -17531,7 +17715,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3370">line 3370</a></code>
+                <code><a href="player.js.html#line3391">line 3391</a></code>
               </div>
 
             </h4>
@@ -17753,7 +17937,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line800">line 800</a></code>
+                <code><a href="component.js.html#line814">line 814</a></code>
               </div>
 
             </h4>
@@ -17927,7 +18111,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5247">line 5247</a></code>
+                <code><a href="player.js.html#line5416">line 5416</a></code>
               </div>
 
             </h4>
@@ -18091,7 +18275,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1644">line 1644</a></code>
+                <code><a href="player.js.html#line1665">line 1665</a></code>
               </div>
 
             </h4>
@@ -18261,7 +18445,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line867">line 867</a></code>
+                <code><a href="player.js.html#line888">line 888</a></code>
               </div>
 
             </h4>
@@ -18445,7 +18629,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line851">line 851</a></code>
+                <code><a href="component.js.html#line865">line 865</a></code>
               </div>
 
             </h4>
@@ -18544,7 +18728,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line351">line 351</a></code>
+                <code><a href="component.js.html#line365">line 365</a></code>
               </div>
 
             </h4>
@@ -18663,7 +18847,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line578">line 578</a></code>
+                <code><a href="component.js.html#line592">line 592</a></code>
               </div>
 
             </h4>
@@ -18761,7 +18945,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4287">line 4287</a></code>
+                <code><a href="player.js.html#line4308">line 4308</a></code>
               </div>
 
             </h4>
@@ -18926,7 +19110,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line194">line 194</a></code>
+                <code><a href="component.js.html#line208">line 208</a></code>
               </div>
 
             </h4>
@@ -19045,7 +19229,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2804">line 2804</a></code>
+                <code><a href="player.js.html#line2825">line 2825</a></code>
               </div>
 
             </h4>
@@ -19228,7 +19412,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3073">line 3073</a></code>
+                <code><a href="player.js.html#line3094">line 3094</a></code>
               </div>
 
             </h4>
@@ -19406,7 +19590,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4456">line 4456</a></code>
+                <code><a href="player.js.html#line4624">line 4624</a></code>
               </div>
 
             </h4>
@@ -19591,7 +19775,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4485">line 4485</a></code>
+                <code><a href="player.js.html#line4653">line 4653</a></code>
               </div>
 
             </h4>
@@ -19703,7 +19887,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3536">line 3536</a></code>
+                <code><a href="player.js.html#line3557">line 3557</a></code>
               </div>
 
             </h4>
@@ -19792,7 +19976,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4772">line 4772</a></code>
+                <code><a href="player.js.html#line4940">line 4940</a></code>
               </div>
 
             </h4>
@@ -19958,7 +20142,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line295">line 295</a></code>
+                <code><a href="component.js.html#line309">line 309</a></code>
               </div>
 
             </h4>
@@ -20227,7 +20411,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3770">line 3770</a></code>
+                <code><a href="player.js.html#line3791">line 3791</a></code>
               </div>
 
             </h4>
@@ -20404,7 +20588,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1427">line 1427</a></code>
+                <code><a href="player.js.html#line1448">line 1448</a></code>
               </div>
 
             </h4>
@@ -20496,7 +20680,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2715">line 2715</a></code>
+                <code><a href="player.js.html#line2736">line 2736</a></code>
               </div>
 
             </h4>
@@ -20676,7 +20860,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line362">line 362</a></code>
+                <code><a href="component.js.html#line376">line 376</a></code>
               </div>
 
             </h4>
@@ -20796,7 +20980,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5160">line 5160</a></code>
+                <code><a href="player.js.html#line5329">line 5329</a></code>
               </div>
 
             </h4>
@@ -20928,7 +21112,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line219">line 219</a></code>
+                <code><a href="component.js.html#line233">line 233</a></code>
               </div>
 
             </h4>
@@ -21103,7 +21287,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2446">line 2446</a></code>
+                <code><a href="player.js.html#line2467">line 2467</a></code>
               </div>
 
             </h4>
@@ -21213,7 +21397,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2457">line 2457</a></code>
+                <code><a href="player.js.html#line2478">line 2478</a></code>
               </div>
 
             </h4>
@@ -21326,7 +21510,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2345">line 2345</a></code>
+                <code><a href="player.js.html#line2366">line 2366</a></code>
               </div>
 
             </h4>
@@ -21443,7 +21627,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4237">line 4237</a></code>
+                <code><a href="player.js.html#line4258">line 4258</a></code>
               </div>
 
             </h4>
@@ -21626,7 +21810,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4959">line 4959</a></code>
+                <code><a href="player.js.html#line5127">line 5127</a></code>
               </div>
 
             </h4>
@@ -21797,7 +21981,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2470">line 2470</a></code>
+                <code><a href="player.js.html#line2491">line 2491</a></code>
               </div>
 
             </h4>
@@ -21909,7 +22093,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line204">line 204</a></code>
+                <code><a href="component.js.html#line218">line 218</a></code>
               </div>
 
             </h4>
@@ -22028,7 +22212,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3751">line 3751</a></code>
+                <code><a href="player.js.html#line3772">line 3772</a></code>
               </div>
 
             </h4>
@@ -22223,7 +22407,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3790">line 3790</a></code>
+                <code><a href="player.js.html#line3811">line 3811</a></code>
               </div>
 
             </h4>
@@ -22402,7 +22586,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3675">line 3675</a></code>
+                <code><a href="player.js.html#line3696">line 3696</a></code>
               </div>
 
             </h4>
@@ -22579,7 +22763,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line695">line 695</a></code>
+                <code><a href="component.js.html#line709">line 709</a></code>
               </div>
 
             </h4>
@@ -22700,7 +22884,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5181">line 5181</a></code>
+                <code><a href="player.js.html#line5350">line 5350</a></code>
               </div>
 
             </h4>
@@ -22835,7 +23019,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2602">line 2602</a></code>
+                <code><a href="player.js.html#line2623">line 2623</a></code>
               </div>
 
             </h4>
@@ -22946,7 +23130,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2613">line 2613</a></code>
+                <code><a href="player.js.html#line2634">line 2634</a></code>
               </div>
 
             </h4>
@@ -23057,7 +23241,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5026">line 5026</a></code>
+                <code><a href="player.js.html#line5194">line 5194</a></code>
               </div>
 
             </h4>
@@ -23167,7 +23351,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5017">line 5017</a></code>
+                <code><a href="player.js.html#line5185">line 5185</a></code>
               </div>
 
             </h4>
@@ -23277,7 +23461,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line917">line 917</a></code>
+                <code><a href="component.js.html#line931">line 931</a></code>
               </div>
 
             </h4>
@@ -23436,7 +23620,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line539">line 539</a></code>
+                <code><a href="component.js.html#line553">line 553</a></code>
               </div>
 
             </h4>
@@ -23587,7 +23771,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line820">line 820</a></code>
+                <code><a href="component.js.html#line834">line 834</a></code>
               </div>
 
             </h4>
@@ -23737,7 +23921,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4390">line 4390</a></code>
+                <code><a href="player.js.html#line4558">line 4558</a></code>
               </div>
 
             </h4>
@@ -23901,7 +24085,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4046">line 4046</a></code>
+                <code><a href="player.js.html#line4067">line 4067</a></code>
               </div>
 
             </h4>
@@ -24042,7 +24226,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1497">line 1497</a></code>
+                <code><a href="component.js.html#line1511">line 1511</a></code>
               </div>
 
             </h4>
@@ -24246,7 +24430,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2841">line 2841</a></code>
+                <code><a href="player.js.html#line2862">line 2862</a></code>
               </div>
 
             </h4>
@@ -24410,7 +24594,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1533">line 1533</a></code>
+                <code><a href="component.js.html#line1547">line 1547</a></code>
               </div>
 
             </h4>
@@ -24588,7 +24772,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3094">line 3094</a></code>
+                <code><a href="player.js.html#line3115">line 3115</a></code>
               </div>
 
             </h4>
@@ -24714,7 +24898,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3545">line 3545</a></code>
+                <code><a href="player.js.html#line3566">line 3566</a></code>
               </div>
 
             </h4>
@@ -24805,7 +24989,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3575">line 3575</a></code>
+                <code><a href="player.js.html#line3596">line 3596</a></code>
               </div>
 
             </h4>
@@ -24895,7 +25079,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3601">line 3601</a></code>
+                <code><a href="player.js.html#line3622">line 3622</a></code>
               </div>
 
             </h4>
@@ -24984,7 +25168,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3584">line 3584</a></code>
+                <code><a href="player.js.html#line3605">line 3605</a></code>
               </div>
 
             </h4>
@@ -25073,7 +25257,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3609">line 3609</a></code>
+                <code><a href="player.js.html#line3630">line 3630</a></code>
               </div>
 
             </h4>
@@ -25162,7 +25346,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4662">line 4662</a></code>
+                <code><a href="player.js.html#line4830">line 4830</a></code>
               </div>
 
             </h4>
@@ -25327,7 +25511,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2428">line 2428</a></code>
+                <code><a href="player.js.html#line2449">line 2449</a></code>
               </div>
 
             </h4>
@@ -25474,7 +25658,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2409">line 2409</a></code>
+                <code><a href="player.js.html#line2430">line 2430</a></code>
               </div>
 
             </h4>
@@ -25565,7 +25749,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2485">line 2485</a></code>
+                <code><a href="player.js.html#line2506">line 2506</a></code>
               </div>
 
             </h4>
@@ -25741,7 +25925,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5152">line 5152</a></code>
+                <code><a href="player.js.html#line5321">line 5321</a></code>
               </div>
 
             </h4>
@@ -25852,7 +26036,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5145">line 5145</a></code>
+                <code><a href="player.js.html#line5314">line 5314</a></code>
               </div>
 
             </h4>
@@ -25962,7 +26146,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3294">line 3294</a></code>
+                <code><a href="player.js.html#line3315">line 3315</a></code>
               </div>
 
             </h4>
@@ -26129,7 +26313,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line905">line 905</a></code>
+                <code><a href="component.js.html#line919">line 919</a></code>
               </div>
 
             </h4>
@@ -26313,7 +26497,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1436">line 1436</a></code>
+                <code><a href="component.js.html#line1450">line 1450</a></code>
               </div>
 
             </h4>
@@ -26532,7 +26716,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1371">line 1371</a></code>
+                <code><a href="component.js.html#line1385">line 1385</a></code>
               </div>
 
             </h4>
@@ -26758,7 +26942,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line843">line 843</a></code>
+                <code><a href="component.js.html#line857">line 857</a></code>
               </div>
 
             </h4>
@@ -26857,7 +27041,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3479">line 3479</a></code>
+                <code><a href="player.js.html#line3500">line 3500</a></code>
               </div>
 
             </h4>
@@ -27046,7 +27230,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2785">line 2785</a></code>
+                <code><a href="player.js.html#line2806">line 2806</a></code>
               </div>
 
             </h4>
@@ -27157,7 +27341,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1290">line 1290</a></code>
+                <code><a href="player.js.html#line1311">line 1311</a></code>
               </div>
 
             </h4>
@@ -27333,7 +27517,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5006">line 5006</a></code>
+                <code><a href="player.js.html#line5174">line 5174</a></code>
               </div>
 
             </h4>
@@ -27443,7 +27627,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line835">line 835</a></code>
+                <code><a href="component.js.html#line849">line 849</a></code>
               </div>
 
             </h4>
@@ -27645,7 +27829,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4496">line 4496</a></code>
+                <code><a href="player.js.html#line4664">line 4664</a></code>
               </div>
 
             </h4>
@@ -27756,7 +27940,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line719">line 719</a></code>
+                <code><a href="component.js.html#line733">line 733</a></code>
               </div>
 
             </h4>
@@ -27859,7 +28043,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1496">line 1496</a></code>
+                <code><a href="player.js.html#line1517">line 1517</a></code>
               </div>
 
             </h4>
@@ -28006,7 +28190,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4063">line 4063</a></code>
+                <code><a href="player.js.html#line4084">line 4084</a></code>
               </div>
 
             </h4>
@@ -28190,7 +28374,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3921">line 3921</a></code>
+                <code><a href="player.js.html#line3942">line 3942</a></code>
               </div>
 
             </h4>
@@ -28379,7 +28563,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5261">line 5261</a></code>
+                <code><a href="player.js.html#line5430">line 5430</a></code>
               </div>
 
             </h4>
@@ -28543,7 +28727,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4435">line 4435</a></code>
+                <code><a href="player.js.html#line4603">line 4603</a></code>
               </div>
 
             </h4>
@@ -28653,7 +28837,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4986">line 4986</a></code>
+                <code><a href="player.js.html#line5154">line 5154</a></code>
               </div>
 
             </h4>
@@ -28763,7 +28947,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4425">line 4425</a></code>
+                <code><a href="player.js.html#line4593">line 4593</a></code>
               </div>
 
             </h4>
@@ -28873,7 +29057,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2683">line 2683</a></code>
+                <code><a href="player.js.html#line2704">line 2704</a></code>
               </div>
 
             </h4>
@@ -29050,7 +29234,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line853">line 853</a></code>
+                <code><a href="player.js.html#line874">line 874</a></code>
               </div>
 
             </h4>
@@ -29237,7 +29421,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4718">line 4718</a></code>
+                <code><a href="player.js.html#line4886">line 4886</a></code>
               </div>
 
             </h4>
@@ -29914,7 +30098,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1755">line 1755</a></code>
+                <code><a href="player.js.html#line1776">line 1776</a></code>
               </div>
 
             </h4>
@@ -30013,7 +30197,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1773">line 1773</a></code>
+                <code><a href="player.js.html#line1794">line 1794</a></code>
               </div>
 
             </h4>
@@ -30113,7 +30297,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1018">line 1018</a></code>
+                <code><a href="component.js.html#line1032">line 1032</a></code>
               </div>
 
             </h4>
@@ -30221,7 +30405,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3893">line 3893</a></code>
+                <code><a href="player.js.html#line3914">line 3914</a></code>
               </div>
 
             </h4>
@@ -30316,7 +30500,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3882">line 3882</a></code>
+                <code><a href="player.js.html#line3903">line 3903</a></code>
               </div>
 
             </h4>
@@ -30411,7 +30595,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line588">line 588</a></code>
+                <code><a href="player.js.html#line609">line 609</a></code>
               </div>
 
             </h4>
@@ -30524,7 +30708,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2586">line 2586</a></code>
+                <code><a href="player.js.html#line2607">line 2607</a></code>
               </div>
 
             </h4>
@@ -30727,7 +30911,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1904">line 1904</a></code>
+                <code><a href="player.js.html#line1925">line 1925</a></code>
               </div>
 
             </h4>
@@ -30831,7 +31015,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2995">line 2995</a></code>
+                <code><a href="player.js.html#line3016">line 3016</a></code>
               </div>
 
             </h4>
@@ -30926,7 +31110,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3096">line 3096</a></code>
+                <code><a href="player.js.html#line3117">line 3117</a></code>
               </div>
 
             </h4>
@@ -31032,7 +31216,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4028">line 4028</a></code>
+                <code><a href="player.js.html#line4049">line 4049</a></code>
               </div>
 
             </h4>
@@ -31127,7 +31311,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3039">line 3039</a></code>
+                <code><a href="player.js.html#line3060">line 3060</a></code>
               </div>
 
             </h4>
@@ -31222,7 +31406,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1856">line 1856</a></code>
+                <code><a href="player.js.html#line1877">line 1877</a></code>
               </div>
 
             </h4>
@@ -31330,7 +31514,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2814">line 2814</a></code>
+                <code><a href="player.js.html#line2835">line 2835</a></code>
               </div>
 
             </h4>
@@ -31432,7 +31616,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4466">line 4466</a></code>
+                <code><a href="player.js.html#line4634">line 4634</a></code>
               </div>
 
             </h4>
@@ -31531,7 +31715,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3118">line 3118</a></code>
+                <code><a href="player.js.html#line3139">line 3139</a></code>
               </div>
 
             </h4>
@@ -31736,7 +31920,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5224">line 5224</a></code>
+                <code><a href="player.js.html#line5393">line 5393</a></code>
               </div>
 
             </h4>
@@ -31939,7 +32123,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5217">line 5217</a></code>
+                <code><a href="player.js.html#line5386">line 5386</a></code>
               </div>
 
             </h4>
@@ -32038,7 +32222,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1402">line 1402</a></code>
+                <code><a href="player.js.html#line1423">line 1423</a></code>
               </div>
 
             </h4>
@@ -32148,7 +32332,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1878">line 1878</a></code>
+                <code><a href="player.js.html#line1899">line 1899</a></code>
               </div>
 
             </h4>
@@ -32252,7 +32436,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1679">line 1679</a></code>
+                <code><a href="player.js.html#line1700">line 1700</a></code>
               </div>
 
             </h4>
@@ -32357,7 +32541,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4976">line 4976</a></code>
+                <code><a href="player.js.html#line5144">line 5144</a></code>
               </div>
 
             </h4>
@@ -32461,7 +32645,7 @@
 
               <div class="container-source members">
                 <code><a href="resize-manager.js.html">resize-manager.js</a></code>,
-                <code><a href="resize-manager.js.html#line107">line 107</a></code>
+                <code><a href="resize-manager.js.html#line108">line 108</a></code>
               </div>
 
             </h4>
@@ -32560,7 +32744,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1792">line 1792</a></code>
+                <code><a href="player.js.html#line1813">line 1813</a></code>
               </div>
 
             </h4>
@@ -32758,7 +32942,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3814">line 3814</a></code>
+                <code><a href="player.js.html#line3835">line 3835</a></code>
               </div>
 
             </h4>
@@ -32966,7 +33150,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1706">line 1706</a></code>
+                <code><a href="player.js.html#line1727">line 1727</a></code>
               </div>
 
             </h4>
@@ -33072,7 +33256,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line736">line 736</a></code>
+                <code><a href="component.js.html#line750">line 750</a></code>
               </div>
 
             </h4>
@@ -33279,7 +33463,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1829">line 1829</a></code>
+                <code><a href="player.js.html#line1850">line 1850</a></code>
               </div>
 
             </h4>
@@ -33383,7 +33567,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1810">line 1810</a></code>
+                <code><a href="player.js.html#line1831">line 1831</a></code>
               </div>
 
             </h4>
@@ -33482,7 +33666,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1548">line 1548</a></code>
+                <code><a href="player.js.html#line1569">line 1569</a></code>
               </div>
 
             </h4>
@@ -33850,7 +34034,7 @@
 
               <div class="container-source members">
                 <code><a href="component.js.html">component.js</a></code>,
-                <code><a href="component.js.html#line1268">line 1268</a></code>
+                <code><a href="component.js.html#line1282">line 1282</a></code>
               </div>
 
             </h4>
@@ -33958,7 +34142,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line2203">line 2203</a></code>
+                <code><a href="player.js.html#line2224">line 2224</a></code>
               </div>
 
             </h4>
@@ -34273,7 +34457,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5231">line 5231</a></code>
+                <code><a href="player.js.html#line5400">line 5400</a></code>
               </div>
 
             </h4>
@@ -34374,7 +34558,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4080">line 4080</a></code>
+                <code><a href="player.js.html#line4101">line 4101</a></code>
               </div>
 
             </h4>
@@ -34469,7 +34653,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line4106">line 4106</a></code>
+                <code><a href="player.js.html#line4127">line 4127</a></code>
               </div>
 
             </h4>
@@ -34564,7 +34748,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3948">line 3948</a></code>
+                <code><a href="player.js.html#line3969">line 3969</a></code>
               </div>
 
             </h4>
@@ -34663,7 +34847,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line3938">line 3938</a></code>
+                <code><a href="player.js.html#line3959">line 3959</a></code>
               </div>
 
             </h4>
@@ -34868,7 +35052,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line5240">line 5240</a></code>
+                <code><a href="player.js.html#line5409">line 5409</a></code>
               </div>
 
             </h4>
@@ -34967,7 +35151,7 @@
 
               <div class="container-source members">
                 <code><a href="player.js.html">player.js</a></code>,
-                <code><a href="player.js.html#line1724">line 1724</a></code>
+                <code><a href="player.js.html#line1745">line 1745</a></code>
               </div>
 
             </h4>

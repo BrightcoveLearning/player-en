@@ -34,7 +34,7 @@
     <div class="title">
       <h1><a href="index.html" class="link">Brightcove Player API Documentation</a></h1>
 
-      <span class="version">v6.64.1</span>
+      <span class="version">v6.65.1</span>
 
     </div>
     <div class="search-container" id="search-container">
@@ -1020,7 +1020,6 @@
               <li><a href="ChaptersTrackMenuItem.html#show">show</a></li>
               <li><a href="ChaptersTrackMenuItem.html#toggleClass">toggleClass</a></li>
               <li><a href="ChaptersTrackMenuItem.html#triggerReady">triggerReady</a></li>
-              <li><a href="ChaptersTrackMenuItem.html#update">update</a></li>
               <li><a href="ChaptersTrackMenuItem.html#width">width</a></li>
             </ul>
             <div class="member-type">Events</div>
@@ -3190,6 +3189,7 @@
               <li><a href="Player.html#addRemoteTextTrack">addRemoteTextTrack</a></li>
               <li><a href="Player.html#addTextTrack">addTextTrack</a></li>
               <li><a href="Player.html#aspectRatio">aspectRatio</a></li>
+              <li><a href="Player.html#audioOnlyMode">audioOnlyMode</a></li>
               <li><a href="Player.html#audioPosterMode">audioPosterMode</a></li>
               <li><a href="Player.html#audioTracks">audioTracks</a></li>
               <li><a href="Player.html#autoplay">autoplay</a></li>
@@ -6038,6 +6038,12 @@ function videojs(id, options, ready) {
 
   options = options || {};
 
+  // Store a copy of the el before modification, if it is to be restored in destroy()
+  // If div ingest, store the parent div
+  if (options.restoreEl === true) {
+    options.restoreEl = (el.parentNode &amp;&amp; el.parentNode.hasAttribute('data-vjs-player') ? el.parentNode : el).cloneNode(true);
+  }
+
   hooks('beforesetup').forEach((hookFunction) => {
     const opts = hookFunction(el, mergeOptions(options));
 
@@ -6083,7 +6089,7 @@ if (window.VIDEOJS_NO_DYNAMIC_STYLE !== true &amp;&amp; Dom.isReal()) {
         height: 150px;
       }
 
-      .vjs-fluid {
+      .vjs-fluid:not(.vjs-audio-only-mode) {
         padding-top: 56.25%
       }
     `);

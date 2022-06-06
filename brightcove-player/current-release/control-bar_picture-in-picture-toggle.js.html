@@ -34,7 +34,7 @@
     <div class="title">
       <h1><a href="index.html" class="link">Brightcove Player API Documentation</a></h1>
 
-      <span class="version">v6.64.1</span>
+      <span class="version">v6.65.1</span>
 
     </div>
     <div class="search-container" id="search-container">
@@ -1020,7 +1020,6 @@
               <li><a href="ChaptersTrackMenuItem.html#show">show</a></li>
               <li><a href="ChaptersTrackMenuItem.html#toggleClass">toggleClass</a></li>
               <li><a href="ChaptersTrackMenuItem.html#triggerReady">triggerReady</a></li>
-              <li><a href="ChaptersTrackMenuItem.html#update">update</a></li>
               <li><a href="ChaptersTrackMenuItem.html#width">width</a></li>
             </ul>
             <div class="member-type">Events</div>
@@ -3190,6 +3189,7 @@
               <li><a href="Player.html#addRemoteTextTrack">addRemoteTextTrack</a></li>
               <li><a href="Player.html#addTextTrack">addTextTrack</a></li>
               <li><a href="Player.html#aspectRatio">aspectRatio</a></li>
+              <li><a href="Player.html#audioOnlyMode">audioOnlyMode</a></li>
               <li><a href="Player.html#audioPosterMode">audioPosterMode</a></li>
               <li><a href="Player.html#audioTracks">audioTracks</a></li>
               <li><a href="Player.html#autoplay">autoplay</a></li>
@@ -5904,6 +5904,21 @@ class PictureInPictureToggle extends Button {
     super(player, options);
     this.on(player, ['enterpictureinpicture', 'leavepictureinpicture'], (e) => this.handlePictureInPictureChange(e));
     this.on(player, ['disablepictureinpicturechanged', 'loadedmetadata'], (e) => this.handlePictureInPictureEnabledChange(e));
+
+    this.on(player, ['loadedmetadata', 'audioonlymodechange', 'audiopostermodechange'], () => {
+      // This audio detection will not detect HLS or DASH audio-only streams because there was no reliable way to detect them at the time
+      const isSourceAudio = player.currentType().substring(0, 5) === 'audio';
+
+      if (isSourceAudio || player.audioPosterMode() || player.audioOnlyMode()) {
+        if (player.isInPictureInPicture()) {
+          player.exitPictureInPicture();
+        }
+        this.hide();
+      } else {
+        this.show();
+      }
+
+    });
 
     // TODO: Deactivate button on player emptied event.
     this.disable();
