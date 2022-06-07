@@ -1173,13 +1173,174 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>You display the player information by right-clicking on the player and selecting <strong>Player Information</strong>, as shown in this screenshot.</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="Select Player Information from context menu" src="/assets/images/troubleshooting/modal-context-menu.png" /></figure>
     <aside class="bcls-aside bcls-aside--information">Note: On mobile you can use the long press to open the modal.</aside>
-    <p>Once you select <strong>Player Information</strong> you will see the modal window containing information about the player, as shown in this screenshot.</p>
+    <p>Once you select <strong>Player Information</strong> you will see the modal window containing information about the player, as shown in this screenshot. Details for each field are shown below the screenshot.</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="Player Information in modal" src="/assets/images/troubleshooting/modal-modal-with-info.png" /></figure>
-    <aside class="bcls-aside bcls-aside--information">Note: Only Brightcove supplied plugins that are part of the configuration will appear in the <strong>Plugins</strong> section. If you add a Brightcove plugin in an HTML page's JavaScript, it will NOT appear in the list. Customer developed plugins, even if listed as part of the player's configuration, will NOT appear.</aside>
+    <h3>Player Information</h3>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Brightcove Player Version</td>
+          <td>The version of the Brightcove Player used</td>
+        </tr>
+        <tr>
+          <td>Video.js Version</td>
+          <td>The Video.js version on which this version of Brightcove Player is built upon</td>
+        </tr>
+        <tr>
+          <td>Account ID</td>
+          <td>Your Video Cloud account ID</td>
+        </tr>
+        <tr>
+          <td>Player ID</td>
+          <td>ID of the player used</td>
+        </tr>
+        <tr>
+          <td>Embed ID</td>
+          <td>If the value is default it means the player is not a child player; if the value is not default, it is the ID of the parent of the player</td>
+        </tr>
+        <tr>
+          <td>Application ID</td>
+          <td>The application ID is used to differentiate multiple uses of a single player on different web pages for analytics reasons; it is invisible to the user.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Media Information</h3>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Current Media Type</td>
+          <td>Type of the video/media in the player</td>
+        </tr>
+        <tr>
+          <td>DRM Key System</td>
+          <td>If the video/media in the player is encoded with Digital Rights Management, the key system being used; one of Google Widevine, Apple FairPlay or Microsoft PlayReady</td>
+        </tr>
+        <tr>
+          <td>Video ID</td>
+          <td>The Video Cloud ID of the video/media in the player</td>
+        </tr>
+        <tr>
+          <td>Video Name</td>
+          <td>The Video Cloud name of the video/media in the player</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Player Plugins</h3>
+    <p>Only Brightcove supplied plugins that are part of the player configuration will appear in this section. If you add a Brightcove plugin in an HTML page's JavaScript, it will NOT appear in the list. Customer developed plugins, even if listed as part of the player's configuration, will NOT appear.</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Name</td>
+          <td>Name of the plugin</td>
+        </tr>
+        <tr>
+          <td>Version</td>
+          <td>Version of the plugin used in the player</td>
+        </tr>
+        <tr>
+          <td>Active?</td>
+          <td>A plugin being active means it has been initialized on the player (e.g. by calling <code>player.pip()</code> either automatically or manually); a plugin may be available, but not active on a player</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Playback Engine</h3>
+    <ul>
+      <li><strong>Library Engines</strong> - Playback technologies used and associated versions</li>
+      <li><strong>Statistics</strong>
+        <table class="bcls-table">
+          <thead class="bcls-table__head">
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody class="bcls-table__body">
+            <tr>
+              <td>Current Bandwidth</td>
+              <td>The measured bytes per second</td>
+            </tr>
+            <tr>
+              <td>Media Bytes Transferred</td>
+              <td>The number of bytes of media downloaded so far</td>
+            </tr>
+            <tr>
+              <td>Media Requests</td>
+              <td>The number of segments loaded so far</td>
+            </tr>
+            <tr>
+              <td>Media Transfer Duration</td>
+              <td>The total time spent downloading media</td>
+            </tr>
+            <tr>
+              <td>Rendition Width</td>
+              <td>The width of the rendition downloaded to the player</td>
+            </tr>
+            <tr>
+              <td>Rendition Height</td>
+              <td>The height of the rendition downloaded to the player</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+    <h3>Device Capabilities</h3>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>Media Source Extensions (MSE)</td>
+          <td>Whether or not the device/browser supports MSE</td>
+        </tr>
+        <tr>
+          <td>Encrypted Media Extensions (EME)</td>
+          <td>Whether or not the device/browser supports EME</td>
+        </tr>
+        <tr>
+          <td>Widevine</td>
+          <td>Whether or not the device/browser supports Widevine DRM</td>
+        </tr>
+        <tr>
+          <td>PlayReady</td>
+          <td>Whether or not the device/browser supports PlayReady DRM</td>
+        </tr>
+        <tr>
+          <td>FairPlay</td>
+          <td>Whether or not the device/browser supports FairPlay DRM</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Device Format Support</h3>
+    <p>The different video/media formats and whether the player can play those formats. Note that the value <strong>Probably</strong> is dictated by the HTML standard:</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">The <code>canPlayType(type)</code> method must return the empty string if type is a type that the user agent knows it cannot render or is the type <code>"application/octet-stream"</code>; it must return <code>"probably"</code> if the user agent is confident that the type represents a media resource that it can render if used in with this audio or video element; and it must return <code>"maybe"</code> otherwise. Implementers are encouraged to return "maybe" unless the type can be confidently established as being supported or not. Generally, a user agent should never return <code>"probably"</code> for a type that allows the codecs parameter if that parameter is not present.</aside>
+    <p>For full details see <a href="https://html.spec.whatwg.org/multipage/media.html#dom-navigator-canplaytype-dev">MIME types</a> section of HTML Standards document.</p>
   </section>
-  <section id="Close_the_modal_window" class="bcls-section">
-    <h2>Close the modal window</h2>
-    <p>You close the modal either pressing the <strong>ESC</strong> key or by clicking on the close icon at the top-left.</p>
+  <section class="bcls-section">
+    <h2 id="Close_the_modal_window">Close the modal window</h2>
+    <p>You close the modal either pressing the <strong>ESC</strong> key or by clicking on the close icon at the top-right.</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="Close icon" src="/assets/images/troubleshooting/modal-close-modal.png" /></figure>
   </section>
   <section class="bcls-section">
