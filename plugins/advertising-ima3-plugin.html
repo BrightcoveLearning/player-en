@@ -324,11 +324,12 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
 
     <h3 id="omidAccessModeRules">omidAccessModeRules</h3>
 
-    <p>Type: <code translate="No">Three access modes</code><br>Default Value: <code translate="No">undefined</code></p>
+    <p>Type: <code translate="No">Four access modes</code><br>Default Value: <code translate="No">undefined</code></p>
 
-    <p>The OM SDK supports running verification scripts in different access modes, which control how much the verification script can access. The three access modes are:</p>
+    <p>The OM SDK supports running verification scripts in different access modes, which control how much the verification script can access. The four access modes are:</p>
     <ul>
       <li>FULL: The verification script has direct access to the creative and the publisher page.</li>
+      <li>CREATIVE: The verification script and creative are sandboxed from the publisher page. However, the script has direct access to the creative.</li>
       <li>DOMAIN: The verification script is sandboxed and cannot access the creative or publisher page. However, the script is loaded in such a way that it can directly confirm what publisher domain it is on.</li>
       <li>LIMITED: The verification script is sandboxed and cannot access the creative or publisher page, and cannot directly confirm what publisher domain it is on.</li>
     </ul>
@@ -347,6 +348,15 @@ window.google.ima.ImaSdkSettings.setPpid('publisher-provided-id');</code></pre>
     "enableOmidBeta": true
   }
 }</code></pre>
+
+    <p>Access mode rules must be set at the <strong>ad-request</strong> level. To set different access modes for different verification script providers, pass a dictionary that maps each <code>OmidVerificationVendor</code> to one of the access modes listed above. <code>OmidVerificationVendor.OTHER</code> is used to set the default access mode for all vendors not explicitly included in the dictionary. If no access mode rules are specified, verification scripts run in <strong>LIMITED</strong> access mode for vendors.</p>
+
+    <p>See the following example which sets GOOGLE to <code>google.ima.OmidAccessMode.FULL</code>. All other providers, including those listed in OmidVerificationVendor, default to how <code>OmidVerificationVendor.OTHER</code> is set.</p>
+
+    <pre class="line-numbers"><code class="language-javascript" translate="No">request.omidAccessModeRules = {};
+request.omidAccessModeRules[google.ima.OmidVerificationVendor.GOOGLE] = google.ima.OmidAccessMode.FULL;
+request.omidAccessModeRules[google.ima.OmidVerificationVendor.OTHER] = google.ima.OmidAccessMode.DOMAIN;</code></pre>
+
 
     <h3 id="postrollTimeout">postrollTimeout</h3>
 
