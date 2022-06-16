@@ -1168,6 +1168,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <article class="bcls-article">
   <h1>Using bc() and getPlayer() Methods</h1>
   <summary>In this topic, you will learn about the <code translate="No">bc()</code> and <code translate="No">getPlayer()</code> methods, including the function of each and best practices of their use. Also included in this document is a comparison of the <code translate="No">getPlayer()</code> and <code translate="No">videojs()</code> methods for obtaining a reference to a Brightcove Player.</summary>
+  
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
     <p>A basic requirement when doing development with Brightcove Player is obtaining a reference to the player. The best practice for performing this has changed over the life of Brightcove Player 6.x. Here are best practices you should follow (details for each bullet are later in this document):</p>
@@ -1187,6 +1188,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>If you are manually instantiating the player on the page, use the <code translate="No">bc()</code> method, which will generate a reference to the player.</li>
     </ul>
   </section>
+
   <section class="bcls-section">
     <h2 id="reference"><code translate="No">getPlayer()</code> versus <code translate="No">videojs()</code></h2>
     <p>If you have been doing development with Brightcove Player for any length of time, you almost assuredly have seen code similar to the following used to get a reference to the player and store it in the <code translate="No">myPlayer</code> variable:</p>
@@ -1201,6 +1203,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   });
   </code></pre>
   </section>
+
   <section class="bcls-section">
     <h2 id="versus"><code translate="No">video-js</code> tag versus <code translate="No">video</code> tag</h2>
     <p>For Brightcove Player <strong>v6.11.0+</strong> it is a best practice to use <code translate="No">&lt;video-js&gt;</code> over <code translate="No">&lt;video&gt;</code>. The reasons for this are:</p>
@@ -1211,6 +1214,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>In some cases, such as when using non-Video Cloud media, using <code translate="No">&lt;video-js&gt;</code> will give the player more control over the initialization process. This prevents any automatic browser behaviors that may be associated with the <code translate="No">&lt;video&gt;</code> element.</li>
     </ul>
   </section>
+
   <section class="bcls-section">
     <h2 id="bc_method_details"><code translate="No">bc()</code> method details</h2>
     <p>The <code translate="No">bc()</code> method is used to instantiate a player at a time of your choosing. The <a href="/publish/delaying-player-instantiation.html">Delaying Player Instantiation</a> document discusses use cases and implementations. The <a href="/code-samples/brightcove-player-sample-vertical-volume-control.html">Brightcove Player Sample: Vertical Volume Control</a> shows another use of the <code translate="No">bc()</code> method where you want to change the direction of the volume control to vertical, which must occur before the player is instantiated.</p>
@@ -1298,7 +1302,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
       </tbody>
     </table>
+    <aside class="bcls-aside bcls-aside--information"> Please note that the <code translate="no">bc()</code> method currently doesn't support implementations where the user adds players from different accounts.
+    
+    </aside>
   </section>
+
 </article>
 <!-- complete bootstrap layout -->
     </div>
