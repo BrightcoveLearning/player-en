@@ -1171,20 +1171,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
     <p>In this sample you will see a video play that is NOT in the playlist, then followed by the videos in the playlist.</p>
     <!-- UPDATE codepen here -->
-    
+
     <p data-height="450" data-theme-id="34967" data-slug-hash="BVWVZp" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="Play Video Before Playlist" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/BVWVZp/">Play Video Before Playlist</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
     <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18604-play-video-playlist">complete solution on GitHub</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18604-play-video-playlist">complete solution on GitHub</a>.</p>
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -1201,7 +1203,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -1230,7 +1234,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -1239,16 +1243,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td><a href="/references/player-catalog.html#getPlaylist">catalog.getPlaylist()</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://player.support.brightcove.com/references/guide-playlist-api.html#playlist">playlist()</a></td>
-        </tr>
-        <tr>
           <td><a href="/references/player-catalog.html#getVideo">catalog.getVideo()</a></td>
         </tr>
         <tr>
           <td><a href="/references/player-catalog.html#load">catalog.load()</a></td>
+        </tr>
+        <tr>
+          <td><a href="/references/player-catalog.html#getPlaylist">catalog.getPlaylist()</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/references/guide-playlist-api.html#playlist">playlist()</a></td>
         </tr>
         <tr>
           <td><a href="https://docs.brightcove.com/brightcove-player/current-release/module-events.html#.one">one()</a></td>
@@ -1258,9 +1262,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
       </tbody>
     </table>
-    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</aside> --></section>
+    <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</aside> -->
+  </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -1270,39 +1275,39 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>An HTML <code translate="No">&lt;div&gt; </code> tag is added, which specifies the location of the playlist.</p>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
       <li>Define the video to be played before the playlist, and the desired playlist.</li>
-      <li>Get the playlist, but do NOT put the first video from the playlist in the player.</li>
       <li>Get the video to be played before the playlist, and put it in the player.</li>
+      <li>Get the playlist, but do NOT put the first video from the playlist in the player.</li>
       <li>Add an event handler so when the video not in the playlist is finished playing, the first video from the playlist is put in the player.</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Define video and playlist</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Define playlist and video to be played before playlist +++</code></pre>
     <p>Simply assign values to variables. Note in the plugin version of this code these values will be passed into the plugin.</p>
     <!-- UPDATE task 2 -->
-    
+
+    <h3>Retrieve non-playlist video and put in player</h3>
+    <p>Find the code which is labeled:</p>
+    <pre>
+    <code class="language-javascript" translate="No">// +++ Retrieve video to play before playlist and load it +++</code></pre>
+    <p>You use the <code translate="No">catalog.getVideo() </code> and <code translate="No">catalog.load() </code> methods to perform this task.</p>
+    <!-- UPDATE task 3 -->
+
     <h3>Retrieve the playlist, but do NOT put the first video in the player</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// +++ Retrieve playlist +++</code></pre>
     <p>You use the <code translate="No">catalog.getPlaylist() </code> method to get the playlist. The neat feature here is that you can pass a second parameter of <code translate="No">-1 </code> which prevents the first video from the playlist being loaded into the player.</p>
     <!-- UPDATE task 3 -->
-    
-    <h3>Retrieve non-playlist video and put in player</h3>
-    <p>Find the code which is labeled:</p>
-    <pre>
-<code class="language-javascript" translate="No">// +++ Retrieve video to play before playlist and load it +++</code></pre>
-    <p>You use the <code translate="No">catalog.getVideo() </code> and <code translate="No">catalog.load() </code> methods to perform this task.</p>
-    <!-- UPDATE task 3 -->
-    
+
     <h3>Play first video in playlist when non-playlist video ends</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -1310,7 +1315,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Use the <code translate="No">one() </code> method to create an event handler to listen for when the player dispatches the <code translate="No">ended </code> event. You then use the <code translate="No">playlist.currentItem() </code> to place the first video in the playlist into the player.</p>
   </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
     <p>The CSS sizes the player and playlist, and also places them side-by-side in the page.</p>
@@ -1331,14 +1336,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ...
 });</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
-    
+
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18604-play-video-playlist/blob/master/plugin/video-before-playlist.js">video-before-playlist.js</a>.</p>
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
     <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
   </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
