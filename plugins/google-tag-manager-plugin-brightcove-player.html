@@ -3,35 +3,23 @@ title: 'Google Tag Manager Plugin for Brightcove Player'
 description: In this topic, you will learn how to use the Google Tag Manager (GTM) plugin for Brightcove Player.
 parent: Plugins
 ---
-
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
-
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-
     <p>
-      The Google Tag Manager (GTM) plugin allows you to integrate GTM
-      functionality with Brightcove Player.
+      The Google Tag Manager (GTM) plugin allows you to integrate GTM functionality with Brightcove Player.
     </p>
-
     <p>
       Tag managers allow you to add and publish tags without having to use code.
-      Because they are a client-side solution, tag managers enable you to
-      collect data across different marketing technologies. This empowers
-      marketers by giving them the ability to collect user and player data
-      across a diverse set of collection points.
-    </p>
-
-    <p>
-      If you are already using Google Analytics, Adwords and DoubleClick, then
-      you may also want to use Google Tag Manager, as it integrates well with
-      these tools. GTM offers a large number of variable and trigger options.
+      Because they are a client-side solution, tag managers enable you to collect data across different marketing technologies. This empowers marketers by giving them the ability to collect user and player data across a diverse set of collection points.
     </p>
     <p>
-      The Google Tag Manager plugin enables you to track Brightcove Player events using the Google Analytics dashboard. The following player events can be tracked: 
+      If you are already using Google Analytics, Adwords and DoubleClick, then you may also want to use Google Tag Manager, as it integrates well with these tools. GTM offers a large number of variable and trigger options.
     </p>
+    <p>
+      The Google Tag Manager plugin enables you to track Brightcove Player events using the Google Analytics dashboard. The following player events can be tracked: </p>
     <ul>
       <li>
         Player load
@@ -43,7 +31,7 @@ parent: Plugins
         Video view
       </li>
       <li>
-        Video engagement
+        Video engagement
       </li>
       <li>
         Play request
@@ -52,20 +40,17 @@ parent: Plugins
         Video complete
       </li>
       <li>
-        Advanced player events such as ad start, ad end
-      </li>
+        Advanced player events such as ad start, ad end </li>
       <li>
-        Errors which disrupt the playback experience
-      </li>
+        Errors which disrupt the playback experience </li>
     </ul>
-
     <details>
-      <summary><p id="Tag_management_terminology">Tag management terminology</p></summary> 
+      <summary>
+        <p id="Tag_management_terminology">Tag management terminology</p>
+      </summary>
       <p>
-        Here are some of the common terms you will encounter when using Google Tag
-        Manager (GTM).
+        Here are some of the common terms you will encounter when using Google Tag Manager (GTM).
       </p>
-  
       <table class="bcls-table">
         <thead class="bcls-table__head">
           <tr>
@@ -77,20 +62,13 @@ parent: Plugins
           <tr>
             <td><strong>Container</strong></td>
             <td>
-              Your tag management system account can have multiple containers
-              (profiles), with its own tags and variables. Each container can have
-              multiple environments, usually set up for development, staging and
-              production.
+              Your tag management system account can have multiple containers (profiles), with its own tags and variables. Each container can have multiple environments, usually set up for development, staging and production.
             </td>
           </tr>
           <tr>
             <td><strong>Data layer</strong></td>
             <td>
-              The data layer refers to the collection of data that lives in the
-              code of your web page. This JavaScript object is used to pass
-              information from your website to your tag manager container. You can
-              then use this information to populate variables and activate
-              triggers in your tag configurations.
+              The data layer refers to the collection of data that lives in the code of your web page. This JavaScript object is used to pass information from your website to your tag manager container. You can then use this information to populate variables and activate triggers in your tag configurations.
             </td>
           </tr>
           <tr>
@@ -103,66 +81,49 @@ parent: Plugins
           <tr>
             <td><strong>Tag</strong></td>
             <td>
-              Tags are code snippets placed on your web page to collect user
-              interaction data. Tag management systems simplify the process of
-              adding tags to your site, requiring that you only supply the tag id
-              and tag event type.
+              Tags are code snippets placed on your web page to collect user interaction data. Tag management systems simplify the process of adding tags to your site, requiring that you only supply the tag id and tag event type.
             </td>
           </tr>
           <tr>
             <td><strong>Tag marketplace</strong></td>
             <td>
               Tag marketplace templates provide code snippets for deploying a tag.
-              While this reduces the amount of code knowledge needed, some
-              familiarity with JavaScript and HTML is required for successful
-              implementation.
+              While this reduces the amount of code knowledge needed, some familiarity with JavaScript and HTML is required for successful implementation.
             </td>
           </tr>
           <tr>
             <td><strong>Tracker</strong></td>
             <td>
-              Trackers are objects that collect, store data and send that data to
-              Google Tag Manager.
+              Trackers are objects that collect, store data and send that data to Google Tag Manager.
             </td>
           </tr>
           <tr>
             <td><strong>Trigger</strong></td>
             <td>
-              Triggers tell when tag code should be added to a page. These are
-              user-defined conditions.
+              Triggers tell when tag code should be added to a page. These are user-defined conditions.
             </td>
           </tr>
         </tbody>
-      </table> 
+      </table>
     </details>
   </section>
-
   <section class="bcls-section">
-    <h2 id="Requirements">Requirements</h2> 
+    <h2 id="Requirements">Requirements</h2>
     <p>The following requirements are needed to use the GTM plugin:</p>
     <ul>
       <li>Brightcove Player v6.46.0 and newer</li>
     </ul>
   </section>
-
   <section class="bcls-section">
     <h2 id="Getting_started">Getting started</h2>
     <p>
-      To set up Google Tag Manager follow these steps:
-    </p>
+      To set up Google Tag Manager follow these steps: </p>
     <!-- <ul>
-      <li>Define tag configurations for Google Analytics</li>
-      <li>Define triggers to fire beacons</li>
-      <li>
-        <p>Create variables for events and custom dimensions</p>
-
-        <aside class="bcls-aside bcls-aside--information">
-          Make sure that each dimension's name and index number from Google Tag
-          Manager matches the player's plugin JSON file.
-        </aside>
-      </li>
-    </ul> -->
-
+ <li>Define tag configurations for Google Analytics</li> <li>Define triggers to fire beacons</li> <li>
+ <p>Create variables for events and custom dimensions</p> <aside class="bcls-aside bcls-aside--information"> Make sure that each dimension's name and index number from Google Tag Manager matches the player's plugin JSON file.
+ </aside>
+ </li>
+ </ul> -->
     <h3>Steps</h3>
     <ol class="bcls-tasklist">
       <li>
@@ -170,30 +131,22 @@ parent: Plugins
       </li>
       <li>
         <p>
-         In <a href="https://tagmanager.google.com/#/home">Tag Manager</a>, create an account or use an existing account. To create a new account, select the <strong>Create Account</strong> button.
+          In <a href="https://tagmanager.google.com/#/home">Tag Manager</a>, create an account or use an existing account. To create a new account, select the <strong>Create Account</strong> button.
         </p>
         <p>
           By default, a new container is created for a new account. You can create additional containers within each account.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Create account"
-            src="/assets/images/plugins/google-tag-manager/create-account.png"
-          />
+          <img class="bcls-image--no-border" alt="Create account" src="/assets/images/plugins/google-tag-manager/create-account.png" />
           <figcaption class="bcls-caption--image">Create account</figcaption>
         </figure>
       </li>
       <li>
         <p>
-         Enter values for your new account page, including account name and container name. Select a target platform.
+          Enter values for your new account page, including account name and container name. Select a target platform.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="New account information"
-            src="/assets/images/plugins/google-tag-manager/new-account.png"
-          />
+          <img class="bcls-image--no-border" alt="New account information" src="/assets/images/plugins/google-tag-manager/new-account.png" />
           <figcaption class="bcls-caption--image">New account information</figcaption>
         </figure>
       </li>
@@ -201,19 +154,16 @@ parent: Plugins
         Select the <strong>Create</strong> button.
       </li>
       <!-- <li>
-        Copy your Google Analytics account id for later use.
-      </li>
-      <li>
-        Copy your Google Tag Manager tracking id for later use. This should be formatted as <code translate="No">GTM-XXXXXX</code>.
-      </li> -->
+ Copy your Google Analytics account id for later use.
+ </li>
+ <li>
+ Copy your Google Tag Manager tracking id for later use. This should be formatted as <code translate="No">GTM-XXXXXX</code>.
+ </li> -->
     </ol>
   </section>
-
   <section class="bcls-section">
     <h2 id="Reviewing_events_to_track">Reviewing events to track</h2>
-
     <p>Review the table below and determine which events you want to track.</p>
-
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -227,22 +177,19 @@ parent: Plugins
           <td>Player Load</td>
           <td><code translate="No">bcvideo_player_load</code></td>
           <td>
-            Player has been loaded and is ready for playback
-          </td>
+            Player has been loaded and is ready for playback </td>
         </tr>
         <tr>
           <td>Video Impression</td>
           <td><code translate="No">bcvideo_video_impression</code></td>
           <td>
-            Video has been loaded into a player and is ready for playback
-          </td>
+            Video has been loaded into a player and is ready for playback </td>
         </tr>
         <tr>
           <td>Video View</td>
           <td><code translate="No">bcvideo_video_view</code></td>
           <td>
-            Video has started playing back either through auto-play or due to user interaction
-          </td>
+            Video has started playing back either through auto-play or due to user interaction </td>
         </tr>
         <tr>
           <td>Video Engagement</td>
@@ -255,29 +202,25 @@ parent: Plugins
           <td>Play Request</td>
           <td><code translate="No">bcvideo_play_request</code></td>
           <td>
-            Playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario
-          </td>
+            Playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario </td>
         </tr>
         <tr>
           <td>Ad Start</td>
           <td><code translate="No">bcvideo_ad_start</code></td>
           <td>
-            Control is handed over to an advertising agent by the playback platform
-          </td>
+            Control is handed over to an advertising agent by the playback platform </td>
         </tr>
         <tr>
           <td>Ad End</td>
           <td><code translate="No">bcvideo_ad_end</code></td>
           <td>
-            Control is handed back from the advertising agent to the playback platform
-          </td>
+            Control is handed back from the advertising agent to the playback platform </td>
         </tr>
         <tr>
           <td>Error</td>
           <td><code translate="No">bcvideo_error</code></td>
           <td>
-            A fatal error has occurred which disrupts the playback experience
-          </td>
+            A fatal error has occurred which disrupts the playback experience </td>
         </tr>
         <tr>
           <td>Video Complete</td>
@@ -289,37 +232,26 @@ parent: Plugins
       </tbody>
     </table>
   </section>
-
   <section class="bcls-section">
     <h2 id="Creating_variables_tags_&_triggers">Creating Variables, Tags & Triggers</h2>
     <p>Every Brightcove event that you want tracked must be created as an Event Tag in Google Tag Manager (GTM). The event IDs from GTM will then be used inside the Players module. This allows Brightcove event data to be passed to GTM events.</p>
-    <p>For each Event Tag, you need to create a GTM trigger to send the event to Google Analytics. Then, in the GTM <strong>Variables</strong> tab, you will create the custom parameters associated with each event.</p>
-    
-    <!-- <p>You can create Variables, Tags and Triggers in Google Tag Manager, as shown below, or you can <a href="#Importing_a_container_file_in_GTM">import a Container file in GTM</a>. </p> -->
-    
+    <p>For each Event Tag, you need to create a GTM trigger to send the event to Google Analytics. Then, in the GTM <strong>Variables</strong> tab, you will create the custom parameters associated with each event.</p> <!-- <p>You can create Variables, Tags and Triggers in Google Tag Manager, as shown below, or you can <a href="#Importing_a_container_file_in_GTM">import a Container file in GTM</a>. </p> -->
     <h3>Adding Variables to GTM</h3>
     <p>Brightcove parameters carry additional data and are passed with events. Every Brightcove parameter that will be recorded must be created as a Variable in Google Tag Manager. The parameter name will be used inside the player, allowing Brightcove parameters to be passed to Google Tag Manager Variables.</p>
-
     <p>
-      To create Variables in Google Tag Manager, follow these steps
-    </p>
+      To create Variables in Google Tag Manager, follow these steps </p>
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
-         Login to your Google Tag Manager account
-        </p>
+          Login to your Google Tag Manager account </p>
       </li>
       <li>
-        Select <strong>Variables</strong> in the left side navigation. 
+        Select <strong>Variables</strong> in the left side navigation.
       </li>
       <li>
         <p>In the <strong>User-Defined Variables</strong> section, select the <strong>New</strong> button.</p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Data Layer Variable"
-            src="/assets/images/plugins/google-tag-manager/new-variable.png"
-          />
+          <img class="bcls-image--no-border" alt="Data Layer Variable" src="/assets/images/plugins/google-tag-manager/new-variable.png" />
           <figcaption class="bcls-caption--image">Data Layer Variable</figcaption>
         </figure>
       </li>
@@ -328,11 +260,7 @@ parent: Plugins
           For <strong>variable type</strong>, select <strong>Data Layer Variable</strong>.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Data Layer Variable"
-            src="/assets/images/plugins/google-tag-manager/variable-type.png"
-          />
+          <img class="bcls-image--no-border" alt="Data Layer Variable" src="/assets/images/plugins/google-tag-manager/variable-type.png" />
           <figcaption class="bcls-caption--image">Data Layer Variable</figcaption>
         </figure>
       </li>
@@ -345,27 +273,22 @@ parent: Plugins
             <strong>Data Layer Variable Name</strong> - Name of the variable
           </li>
           <li>
-            <strong>Data Layer Version</strong> - Version 2
+            <strong>Data Layer Version</strong> - Version 2
           </li>
-        </ul>   
+        </ul>
       </li>
       <li>
         <p>
           Select <strong>Save</strong>.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Save variable"
-            src="/assets/images/plugins/google-tag-manager/save-variable.png"
-          />
+          <img class="bcls-image--no-border" alt="Save variable" src="/assets/images/plugins/google-tag-manager/save-variable.png" />
           <figcaption class="bcls-caption--image">Save variable</figcaption>
         </figure>
       </li>
       <li>
         <p>
-          Brightcove parameters you can create as GTM variables:
-        </p>
+          Brightcove parameters you can create as GTM variables: </p>
         <ul>
           <li>
             <strong>Account</strong> - Brightcove account name
@@ -389,7 +312,7 @@ parent: Plugins
             <strong>Video Name</strong> - Name of the video
           </li>
           <li>
-            <strong>Range</strong> - The range of seconds viewed in the format  StartSecond..EndSecond
+            <strong>Range</strong> - The range of seconds viewed in the format StartSecond..EndSecond
           </li>
           <li>
             <strong>Video Seconds Viewed</strong> - Count of watched seconds
@@ -410,10 +333,10 @@ parent: Plugins
             <strong>Video Playhead</strong> - The time in the video at which the event is triggered
           </li>
           <li>
-            <strong>Country</strong> - ISO-3166 (alpha 2) country code, e.g.: US
+            <strong>Country</strong> - ISO-3166 (alpha 2) country code, e.g.: US
           </li>
           <li>
-            <strong>Country Name</strong> - Human readable country name e.g.: United States
+            <strong>Country Name</strong> - Human readable country name e.g.: United States
           </li>
           <li>
             <strong>Region</strong> - ISO-3166 (alpha 2) region code
@@ -445,48 +368,35 @@ parent: Plugins
           <li>
             <strong>Device OS Version</strong> - The version of OS being used by the device
           </li>
-        </ul>   
+        </ul>
       </li>
       <li>
         <p>
-          Your user-defined Variables should look similar to this in GTM:
-        </p>
+          Your user-defined Variables should look similar to this in GTM: </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="User-defined variables"
-            src="/assets/images/plugins/google-tag-manager/user-defined-vars.png"
-          />
+          <img class="bcls-image--no-border" alt="User-defined variables" src="/assets/images/plugins/google-tag-manager/user-defined-vars.png" />
           <figcaption class="bcls-caption--image">User-defined variables</figcaption>
         </figure>
       </li>
     </ol>
-
     <h3>Adding Tags to GTM</h3>
     <p>After you determine which events you want to track, Tags must be created in Google Tag Manager.</p>
-
     <p>
-      To create Tags in Google Tag Manager, follow these steps
-    </p>
+      To create Tags in Google Tag Manager, follow these steps </p>
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
-         Login to your Google Tag Manager account
-        </p>
+          Login to your Google Tag Manager account </p>
       </li>
       <li>
-        Select <strong>Tags</strong> in the left side navigation, and select the <strong>New</strong> button. 
+        Select <strong>Tags</strong> in the left side navigation, and select the <strong>New</strong> button.
       </li>
       <li>
         <p>
           Select the <strong>Tag Type</strong> as <strong>Google Analytics: Universal Analytics</strong>.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Tag configuration"
-            src="/assets/images/plugins/google-tag-manager/tag-configuration.png"
-          />
+          <img class="bcls-image--no-border" alt="Tag configuration" src="/assets/images/plugins/google-tag-manager/tag-configuration.png" />
           <figcaption class="bcls-caption--image">Tag configuration</figcaption>
         </figure>
       </li>
@@ -519,7 +429,7 @@ parent: Plugins
           <li>
             <strong>Tracking ID</strong> - Tracking ID of GA dashboard. Select Tracking ID Variable.
           </li>
-        </ul>   
+        </ul>
       </li>
       <li>
         <p>
@@ -528,44 +438,31 @@ parent: Plugins
       </li>
       <li>
         <p>
-          Your Tags should look similar to this in GTM:
-        </p>
+          Your Tags should look similar to this in GTM: </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Tags in GTM"
-            src="/assets/images/plugins/google-tag-manager/tags-in-gtm.png"
-          />
+          <img class="bcls-image--no-border" alt="Tags in GTM" src="/assets/images/plugins/google-tag-manager/tags-in-gtm.png" />
           <figcaption class="bcls-caption--image">Tags in GTM</figcaption>
         </figure>
       </li>
     </ol>
-
     <h3>Adding Triggers to GTM</h3>
     <p>For each event that you want to track, you also need a Trigger in Google Tag Manager.</p>
-
     <p>
-      To create Triggers in Google Tag Manager, follow these steps
-    </p>
+      To create Triggers in Google Tag Manager, follow these steps </p>
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
-         Login to your Google Tag Manager account
-        </p>
+          Login to your Google Tag Manager account </p>
       </li>
       <li>
-        Select <strong>Triggers</strong> in the left side navigation, and select the <strong>New</strong> button. 
+        Select <strong>Triggers</strong> in the left side navigation, and select the <strong>New</strong> button.
       </li>
       <li>
         <p>
           Select the <strong>Trigger Type</strong> as <strong>Custom Event</strong>.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Trigger configuration"
-            src="/assets/images/plugins/google-tag-manager/trigger-configuration.png"
-          />
+          <img class="bcls-image--no-border" alt="Trigger configuration" src="/assets/images/plugins/google-tag-manager/trigger-configuration.png" />
           <figcaption class="bcls-caption--image">Trigger configuration</figcaption>
         </figure>
       </li>
@@ -581,70 +478,46 @@ parent: Plugins
       </li>
       <li>
         <p>
-          Your Triggers should look similar to this in GTM:
-        </p>
+          Your Triggers should look similar to this in GTM: </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Triggers in GTM"
-            src="/assets/images/plugins/google-tag-manager/triggers-in-gtm.png"
-          />
+          <img class="bcls-image--no-border" alt="Triggers in GTM" src="/assets/images/plugins/google-tag-manager/triggers-in-gtm.png" />
           <figcaption class="bcls-caption--image">Triggers in GTM</figcaption>
         </figure>
       </li>
     </ol>
   </section>
-
   <section class="bcls-section">
     <h2 id="Integrating_with_Brightcove">Integrating with Brightcove</h2>
     <p>
       To integrate GTM with Brightcove Player, add the Google Tag Manager plugin to your player.
     </p>
-
     <h3>Using Studio</h3>
-
     <p>
       The following steps detail using Video Cloud Studio to load the plugin.
     </p>
-
     <ol class="bcls-tasklist-restart">
       <li>
-        In Video Cloud Studio, open the <strong>PLAYERS</strong> module and either create a new player
-        or locate the player to which you wish to add the plugin.
+        In Video Cloud Studio, open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.
       </li>
       <li>Select the link for the player to open the player's properties.</li>
       <li>Select <strong>Plugins</strong> in the left navigation menu.</li>
       <li>
         <p>
-          Next, select the <strong>Add a Plugin</strong> button, and then select
-          <strong>Brightcove Plugin</strong>.
+          Next, select the <strong>Add a Plugin</strong> button, and then select <strong>Brightcove Plugin</strong>.
         </p>
-
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Add a Plugin button"
-            src="/assets/images/plugins/google-tag-manager/add-a-plugin.png"
-          />
-          <figcaption class="bcls-caption--image">
-            Add a Plugin button
+          <img class="bcls-image--no-border" alt="Add a Plugin button" src="/assets/images/plugins/google-tag-manager/add-a-plugin.png" />
+          <figcaption class="bcls-caption--image"> Add a Plugin button
           </figcaption>
         </figure>
       </li>
       <li>
         <p>
-          Expand the <strong>Brightcove Plugin</strong> dropdown and select
-          <strong>Google Tag Manager</strong>.
+          Expand the <strong>Brightcove Plugin</strong> dropdown and select <strong>Google Tag Manager</strong>.
         </p>
-
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Google Tag Manager plugin"
-            src="/assets/images/plugins/google-tag-manager/gtm-plugin.png"
-          />
-          <figcaption class="bcls-caption--image">
-            Google Tag Manager plugin
+          <img class="bcls-image--no-border" alt="Google Tag Manager plugin" src="/assets/images/plugins/google-tag-manager/gtm-plugin.png" />
+          <figcaption class="bcls-caption--image"> Google Tag Manager plugin
           </figcaption>
         </figure>
       </li>
@@ -655,67 +528,66 @@ parent: Plugins
         <p>
           Field descriptions:
         </p>
-
         <ul>
           <li><code translate="No">tracker</code> - Your Google Tag Manager tracking id (GTM-XXXXXXX)</li>
+          <li><code translate="No">paramsToTrack</code> - Custom dimensions you want to track</li>
           <li><code translate="No">eventsToTrack</code> - Events you want to track</li>
-          <li>
-            <code translate="No">paramsToTrack</code> - Custom dimensions you want to track
-          </li>
+          <!-- <li><code translate="No">milestones</code> - An array of integers to alter the milestones from the default of 25, 50, 75, 100%. Of course, this is only applicable when <code>bcvideo_video_milestone</code> is being tracked.</li> -->
         </ul>
         <p>Here is an example:</p>
-
         <pre class="line-numbers">
-<code class="language-json" translate="No">{
-  "tracker":"<span class="bcls-input">your Google Tag Manager id</span>",
-	"paramsToTrack": {
-    "bcvideo_video_seconds_viewed":"video_seconds_viewed",
-    "bcvideo_video_playhead":"video_playhead",
+ <code class="language-json" translate="No">{ 
+  "tracker":"<span class="bcls-input">your Google Tag Manager id</span>", 
+  "paramsToTrack": {
+    "bcvideo_video_seconds_viewed":"video_seconds_viewed", 
+    "bcvideo_video_playhead":"video_playhead", 
     "bcvideo_account":"account",
     "bcvideo_player":"player",
-    "bcvideo_player_name":"player_name",
+    "bcvideo_player_name":"player_name", 
     "bcvideo_video":"video",
-    "bcvideo_video_name":"video_name",
-	"bcvideo_session":"session",
-    "bcvideo_platform_version":"platform_version",
-	"bcvideo_range":"range",
-    "bcvideo_video_duration":"video_duration",
+    "bcvideo_video_name":"video_name", 
+    "bcvideo_session":"session",
+    "bcvideo_platform_version":"platform_version", 
+    "bcvideo_range":"range",
+    "bcvideo_video_duration":"video_duration", 
     "bcvideo_video_percent_viewed":"video_percent_viewed",
-    "bcvideo_error_code":"error_code",
-    "bcvideo_video_milestone":"video_milestone",
+    "bcvideo_error_code":"error_code", 
+    "bcvideo_video_milestone":"video_milestone", 
     "bcvideo_destination":"destination"
   },
   "eventsToTrack": {
-    "video_impression": "Video Impression",
-	"video_view": "Video View",
-	"video_complete": "Video Complete",
+    "video_impression": "Video Impression", 
+    "video_view": "Video View",
+    "video_complete": "Video Complete", 
     "play_request": "Play Request",
-    "video_engagement": "Video Engagement",
+    "video_engagement": "Video Engagement", 
     "ad_start": "Ad Start",
     "ad_end": "Ad End",
     "player_load": "Player Load",
     "error": "Error"
-  }
+  }<!-- ,
+  "milestones": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100
+  ] -->
 }</code></pre>
-
-        <aside class="bcls-aside bcls-aside--tip">
-          Make sure your custom dimensions in the JSON object match the name and
-          index within Google Analytics.
+        <aside class="bcls-aside bcls-aside--tip"> Make sure your custom dimensions in the JSON object match the name and index within Google Analytics.
         </aside>
       </li>
       <li>
         <p>
-          Select the <strong>Save</strong> button. You will now see the
-          <strong>Google Tag Manager</strong> plugin added to the list of
-          plugins for your player.
+          Select the <strong>Save</strong> button. You will now see the <strong>Google Tag Manager</strong> plugin added to the list of plugins for your player.
         </p>
-
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Save button"
-            src="/assets/images/plugins/google-tag-manager/gtm-save.png"
-          />
+          <img class="bcls-image--no-border" alt="Save button" src="/assets/images/plugins/google-tag-manager/gtm-save.png" />
           <figcaption class="bcls-caption--image">Save button</figcaption>
         </figure>
       </li>
@@ -726,150 +598,110 @@ parent: Plugins
       <li>To close the dialog, select <strong>Close</strong>.</li>
       <li>
         <p>
-          Return to the <strong>MEDIA</strong> and publish your video or
-          playlist using the player you just updated for Google Tag Manager.
+          Return to the <strong>MEDIA</strong> and publish your video or playlist using the player you just updated for Google Tag Manager.
         </p>
-
         <p>
-          When your player loads and the user interacts with the player, the
-          specified events and parameters will be tracked.
+          When your player loads and the user interacts with the player, the specified events and parameters will be tracked.
         </p>
       </li>
     </ol>
   </section>
 
   <section class="bcls-section">
-    <h2 id="Creating_custom_dimensions">
-      Creating custom dimensions
+    <h2 id="Creating_custom_dimensions"> Creating custom dimensions
     </h2>
     <p>
       Custom dimensions are metrics that you create yourself in Google Analytics. By using Google Scripts, you can automate the process of adding custom dimensions in Google Analytics.
     </p>
-
     <p>To use a Google App Script to create custom dimensions, follow these steps:</p>
     <ol class="bcls-tasklist-restart">
       <!-- <li>
-    Open the <a href="https://drive.google.com/file/d/1Boxem7n4UNy7IbofMTTw2bmsdviSIvbZ/view">custom app script</a>.
-  </li> -->
-    <li>If you are new to custom dimensions, review Google's <a href="https://support.google.com/analytics/answer/2709828?hl=en">Custom dimensions & metrics</a> document.</li>
-    <li>
-      Log in to Google.
-    </li>
-    <li>
-      <p>
-        Navigate to the
-        <a href="https://script.google.com/home/start"
-          >G Suite Developer Hub</a
-        >
-        and select the Apps Script new blank project.
-      </p>
-
-      <figure class="bcls-figure">
-        <img
-          class="bcls-image--no-border"
-          alt="Apps Script project"
-          src="/assets/images/plugins/google-tag-manager/apps-script-project.png"
-        />
-        <figcaption class="bcls-caption--image">
-          Apps Script project
-        </figcaption>
-      </figure>
-    </li>
-    <li>
-      <p>
-        Select <strong>Untitled project</strong> and give your project a name.
-      </p>
-
-      <figure class="bcls-figure">
-        <img
-          class="bcls-image--no-border"
-          alt="Script editor"
-          src="/assets/images/plugins/google-tag-manager/script-editor.png"
-        />
-        <figcaption class="bcls-caption--image">
-          Script editor
-        </figcaption>
-      </figure>
-    </li>
-    <li>
-      <p>Copy the following custom app script code to an editor, and update the following values:</p>
-      <ul>
-        <li>
-          <code translate="No">accountId</code> - Your Google Analytics account ID
-        </li>
-        <li>
-          <code translate="No">webPropertyId</code> - Your Google account tracking ID
-        </li>
-        <li>
-          <code translate="No">dimensions</code> - The custom dimensions to be added. The current list contains all of the custom dimensions. Notice that the dimensions are prefixed with <code translate="No">bcvideo_</code>. This is to ensure there are no naming conflicts with these variables.
-        </li>
-      </ul>
-
+ Open the <a href="https://drive.google.com/file/d/1Boxem7n4UNy7IbofMTTw2bmsdviSIvbZ/view">custom app script</a>.
+ </li> -->
+      <li>If you are new to custom dimensions, review Google's <a href="https://support.google.com/analytics/answer/2709828?hl=en">Custom dimensions & metrics</a> document.</li>
+      <li>
+        Log in to Google.
+      </li>
+      <li>
+        <p>
+          Navigate to the
+          <a href="https://script.google.com/home/start">G Suite Developer Hub</a>
+          and select the Apps Script new blank project.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Apps Script project" src="/assets/images/plugins/google-tag-manager/apps-script-project.png" />
+          <figcaption class="bcls-caption--image"> Apps Script project
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          Select <strong>Untitled project</strong> and give your project a name.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Script editor" src="/assets/images/plugins/google-tag-manager/script-editor.png" />
+          <figcaption class="bcls-caption--image"> Script editor
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>Copy the following custom app script code to an editor, and update the following values:</p>
+        <ul>
+          <li>
+            <code translate="No">accountId</code> - Your Google Analytics account ID
+          </li>
+          <li>
+            <code translate="No">webPropertyId</code> - Your Google account tracking ID
+          </li>
+          <li>
+            <code translate="No">dimensions</code> - The custom dimensions to be added. The current list contains all of the custom dimensions. Notice that the dimensions are prefixed with <code translate="No">bcvideo_</code>. This is to ensure there are no naming conflicts with these variables.
+          </li>
+        </ul>
         <pre class="line-numbers">
-<code class="language-javascript" translate="No">//Set values for GA Account ID and web property ID to which you have to set custom dimensions.
-var accountId='<span class="bcls-input">your account id</span>';
-var webPropertyId='<span class="bcls-input">your tracking code</span>';
-//Add required custom dimensions to be created to this list
-var dimensions=<span class="bcls-highlight">['bcvideo_video_seconds_viewed','bcvideo_video_playhead','bcvideo_account','bcvideo_player','bcvideo_player_name','bcvideo_video','bcvideo_video_name','bcvideo_session','bcvideo_platform_version','bcvideo_range','bcvideo_video_duration',
-'bcvideo_video_percent_viewed','bcvideo_error_code','bcvideo_milestone','bcvideo_destination'];</span>
-
-
-//Function to create custom dimensions in GA
-function createGACustomDimensions() {
-
-  //This loop iterates through the custom dimensions in order to set the custom dimension scope, active values into our GA property
-  for(var index=0;index&lt;dimensions.length;index++){
-  var customDimensions ={
-    'name': dimensions[index],
-    'scope':'HIT',
-    'active':true,
-  }
-
-  //This create a request to the new custom dimension
-  Analytics.Management.CustomDimensions.insert(customDimensions,accountId,webPropertyId);
-
-  // Pause for 1 second between adding each custom dimension, this ensure that the GA property has time
-  // to process the request fully before moving to the next custom dimension.
-  Utilities.sleep(1000)
+ <code class="language-javascript" translate="No">//Set values for GA Account ID and web property ID to which you have to set custom dimensions.
+var accountId='<span class="bcls-input">your account id</span>'; 
+var webPropertyId='<span class="bcls-input">your tracking code</span>'; 
+//Add required custom dimensions to be created to this list 
+var dimensions=<span class="bcls-highlight">['bcvideo_video_seconds_viewed','bcvideo_video_playhead','bcvideo_account','bcvideo_player','bcvideo_player_name','bcvideo_video','bcvideo_video_name','bcvideo_session','bcvideo_platform_version','bcvideo_range','bcvideo_video_duration', 'bcvideo_video_percent_viewed','bcvideo_error_code','bcvideo_milestone','bcvideo_destination'];</span> 
+ 
+//Function to create custom dimensions in GA 
+function createGACustomDimensions() { 
+  //This loop iterates through the custom dimensions in order to set the custom dimension scope, active values into our GA property 
+  for(var index=0;index&lt;dimensions.length;index++){ 
+    var customDimensions ={
+      'name': dimensions[index],
+      'scope':'HIT',
+      'active':true,
+    }
+    //This create a request to the new custom dimension 
+    Analytics.Management.CustomDimensions.insert(customDimensions,accountId,webPropertyId); 
+    
+    // Pause for 1 second between adding each custom dimension, this ensure that the GA property has time 
+    // to process the request fully before moving to the next custom dimension.
+    Utilities.sleep(1000)
   }
 }</code></pre>
-
-        <aside class="bcls-aside bcls-aside--tip">
-        In this example, we are putting the dimensions in an object named <code translate="No">customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code translate="No">bcvideo_{dimension}</code>
-      </aside>
-      <!-- <aside class="bcls-aside bcls-aside--tip">
-        In this example, we are putting the dimensions in an object named <code translate="No">customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code translate="No">customDimensions.{dimension}</code></code> 
-      </aside> -->
-
+        <aside class="bcls-aside bcls-aside--tip"> In this example, we are putting the dimensions in an object named <code translate="No">customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code translate="No">bcvideo_{dimension}</code> </aside>
+        <!-- <aside class="bcls-aside bcls-aside--tip"> In this example, we are putting the dimensions in an object named <code translate="No">customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code translate="No">customDimensions.{dimension}</code></code> </aside> -->
         <!-- <aside class="bcls-aside bcls-aside--tip">The script should be configured to access the <a href="https://developers.google.com/analytics/devguides/reporting/core/v4">Google Analytics API</a> from the resource menu.</aside> -->
       </li>
       <li>
         <p>
-          Replace the <code translate="No">function myFunction(){}</code> code block, as shown
-          below, with your custom app script.
+          Replace the <code translate="No">function myFunction(){}</code> code block, as shown below, with your custom app script.
         </p>
-
         <pre class="line-numbers">
-<code class="language-javascript" translate="No">function myFunction() {
-
-}</code></pre>
+ <code class="language-javascript" translate="No">function myFunction() { }</code></pre>
       </li>
       <li>
-        Save the project. You need to save the project to be able to use Google
-        Analytics API.
+        Save the project. You need to save the project to be able to use Google Analytics API.
       </li>
       <li>
         <p>
           To enable Google Analytics API, in the script editor, select <strong>Resources</strong> &gt; <strong>Advanced Google services</strong>.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Advanced Google Services"
-            src="/assets/images/plugins/google-tag-manager/advanced-services.png"
-          />
-          <figcaption class="bcls-caption--image">
-            Advanced Google Services
+          <img class="bcls-image--no-border" alt="Advanced Google Services" src="/assets/images/plugins/google-tag-manager/advanced-services.png" />
+          <figcaption class="bcls-caption--image"> Advanced Google Services
           </figcaption>
         </figure>
       </li>
@@ -878,37 +710,22 @@ function createGACustomDimensions() {
           Then, find <strong>Advanced Google services</strong>, and turn it <strong>on</strong>. Select <strong>OK</strong>.
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Google Analytics API"
-            src="/assets/images/plugins/google-tag-manager/enable-gtm2.png"
-          />
-          <figcaption class="bcls-caption--image">
-            Google Analytics API
+          <img class="bcls-image--no-border" alt="Google Analytics API" src="/assets/images/plugins/google-tag-manager/enable-gtm2.png" />
+          <figcaption class="bcls-caption--image"> Google Analytics API
           </figcaption>
         </figure>
       </li>
       <li>
         <p>To run your app script, select <strong>Run</strong> &gt; <strong>Run function</strong>, and choose your script.</p>
-
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Run script"
-            src="/assets/images/plugins/google-tag-manager/run-script.png"
-          />
+          <img class="bcls-image--no-border" alt="Run script" src="/assets/images/plugins/google-tag-manager/run-script.png" />
           <figcaption class="bcls-caption--image">Run script</figcaption>
         </figure>
       </li>
       <li>
         <p>In the authorization dialog, select <strong>Review Permissions</strong>.</p>
-
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Authorization dialog"
-            src="/assets/images/plugins/google-tag-manager/authorization-dialog.png"
-          />
+          <img class="bcls-image--no-border" alt="Authorization dialog" src="/assets/images/plugins/google-tag-manager/authorization-dialog.png" />
           <figcaption class="bcls-caption--image">Authorization dialog</figcaption>
         </figure>
       </li>
@@ -916,279 +733,60 @@ function createGACustomDimensions() {
         <p>
           Select the <strong>Allow</strong> button.
         </p>
-         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Allow permissions"
-            src="/assets/images/plugins/google-tag-manager/allow-permissions.png"
-          />
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Allow permissions" src="/assets/images/plugins/google-tag-manager/allow-permissions.png" />
           <figcaption class="bcls-caption--image">Allow permissions</figcaption>
         </figure>
       </li>
     </ol>
   </section>
-
   <section class="bcls-section">
-    <h2 id="Viewing_custom_dimensions">
-      Viewing custom dimensions
+    <h2 id="Viewing_custom_dimensions"> Viewing custom dimensions
     </h2>
     <p>
-      To view custom dimensions in Google Analytics, follow these steps:
-    </p>
-
-    <ol class="bcls-tasklist-restart">
-    <li>
-      Log in to Google Analytics.
-    </li>
-    <li>
-      <p>
-       Select <strong>Admin</strong>
-      </p>
-      <figure class="bcls-figure">
-        <img
-          class="bcls-image--no-border"
-          alt="Analytics admin"
-          src="/assets/images/plugins/google-tag-manager/analytics-admin.png"
-        />
-        <figcaption class="bcls-caption--image">
-          Analytics admin
-        </figcaption>
-      </figure>
-    </li>
-    <li>
-      <p>
-       Click on <strong>Custom Definitions</strong> to expand it, then select <strong>Custom Dimensions</strong>.
-      </p>
-      <figure class="bcls-figure">
-        <img
-          class="bcls-image--no-border"
-          alt="Custom dimensions"
-          src="/assets/images/plugins/google-tag-manager/custom-dimensions.png"
-        />
-        <figcaption class="bcls-caption--image">
-          Custom dimensions
-        </figcaption>
-      </figure>
-    </li>
-    <li>
-      <p>
-       You should see the custom dimensions along with their associated indices.
-      </p>
-      <figure class="bcls-figure">
-        <img
-          class="bcls-image--no-border"
-          alt="Dimensions and indices"
-          src="/assets/images/plugins/google-tag-manager/dimensions-indices.png"
-        />
-        <figcaption class="bcls-caption--image">
-          Dimensions and indices
-        </figcaption>
-      </figure>
-    </li>
-    
-    </ol>
-  </section>
-
-  <!-- <section class="bcls-section">
-    <h2 id="Importing_a_container_file_in_GTM">Importing a container file</h2>
-
-    <p>
-     One way to add Variables, Tags and Triggers to Google Tag Manager is to import a JSON-formatted Container file. For details, see Google's <a href="https://support.google.com/tagmanager/answer/6106997?hl=en">Container export and import</a> document.
-    </p>
-    <h3>Steps</h3>
-    <p>
-      Follow these steps to import a Container file:
-    </p>
+      To view custom dimensions in Google Analytics, follow these steps: </p>
     <ol class="bcls-tasklist-restart">
       <li>
-        <p>
-         In your JSON-formatted Container file, set the following values:
-        </p>
-        <ul>
-          <li>
-            <code translate="No">publicID</code> - Your GTM tracker ID (GTM-XXXXXX)
-          </li>
-          <li>
-             <code translate="No">value</code> - Your GA tracker ID (UA-111111111-1)
-          </li>
-        </ul>
-        <p>
-          Snippet1 from an example Container file:
-        </p>
-        <pre class="line-numbers">
-<code class="language-json" translate="No">...
-&quot;container&quot;: {
-   &quot;path&quot;: &quot;accounts/470123456/containers/13171830&quot;,
-    &quot;accountId&quot;: &quot;470123456&quot;,
-    &quot;containerId&quot;: &quot;13171830&quot;,
-    &quot;name&quot;: &quot;solutions.brightcove.com&quot;,
-    &quot;publicId&quot;: &quot;<span class="bcls-input">your GTM tracker ID</span>&quot;,
-    &quot;usageContext&quot;: [
-        &quot;WEB&quot;
-    ],
-    &quot;fingerprint&quot;: &quot;1571234567890&quot;,
-    ...
-</code></pre>
-  <p>
-      Snippet2 from an example Container file:
-    </p>
-    <pre class="line-numbers">
-<code class="language-json" translate="No">...
-{
-    &quot;accountId&quot;: &quot;470123456&quot;,
-    &quot;containerId&quot;: &quot;13171830&quot;,
-    &quot;variableId&quot;: &quot;2&quot;,
-    &quot;name&quot;: &quot;Google Analytics Settings&quot;,
-    &quot;type&quot;: &quot;gas&quot;,
-    &quot;parameter&quot;: [
-        {
-            &quot;type&quot;: &quot;TEMPLATE&quot;,
-            &quot;key&quot;: &quot;trackingId&quot;,
-            &quot;value&quot;: &quot;<span class="bcls-input">your GA tracker ID</span>&quot;
-        }
-    ],
-    &quot;fingerprint&quot;: &quot;1573675830590&quot;
-}
- ...
-</code></pre>
-      </li>
-      <li>
-        Log in to your GTM account.
-      </li>
-      <li>
-        Select the <strong>Admin</strong> tab. 
-      </li>
-      <li>
-        Select <strong>Import Container</strong>
+        Log in to Google Analytics.
       </li>
       <li>
         <p>
-         Select <strong>Choose container file</strong>.
+          Select <strong>Admin</strong>
         </p>
         <figure class="bcls-figure">
-          <img
-            class="bcls-image--no-border"
-            alt="Import container file"
-            src="/assets/images/plugins/google-tag-manager/import-container.png"
-          />
-          <figcaption class="bcls-caption--image">Import container file</figcaption>
+          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/analytics-admin.png" />
+          <figcaption class="bcls-caption--image"> Analytics admin
+          </figcaption>
         </figure>
       </li>
       <li>
-        Select <strong>Existing</strong> workspace.
+        <p>
+          Click on <strong>Custom Definitions</strong> to expand it, then select <strong>Custom Dimensions</strong>.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Custom dimensions" src="/assets/images/plugins/google-tag-manager/custom-dimensions.png" />
+          <figcaption class="bcls-caption--image"> Custom dimensions
+          </figcaption>
+        </figure>
       </li>
       <li>
-        Preview the file and publish it. This will create the necessary Variables, Tags and Triggers in GTM.
+        <p>
+          You should see the custom dimensions along with their associated indices.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Dimensions and indices" src="/assets/images/plugins/google-tag-manager/dimensions-indices.png" />
+          <figcaption class="bcls-caption--image"> Dimensions and indices
+          </figcaption>
+        </figure>
       </li>
     </ol>
-  </section> -->
-
-  <section class="bcls-section">
-    <h2 id="Events_and_parameters">Events and parameters</h2>
-
-    <p>
-      The following events and parameters are available to send to Google Tag
-      Manager.
-    </p>
-
-    <h3>Events</h3>
-
-    <p>These events come from your player.</p>
-
-    <ul>
-      <li><code translate="No">player_load</code></li>
-      <li><code translate="No">video_impression</code></li>
-      <li><code translate="No">play_request</code></li>
-      <li><code translate="No">video_view</code></li>
-      <li>
-        <code translate="No">video_engagement</code>
-        <ul>
-          <li><code translate="No">video_engagement</code> - 25% Milestone</li>
-          <li><code translate="No">video_engagement</code> - 50% Milestone</li>
-          <li><code translate="No">video_engagement</code> - 75% Milestone</li>
-        </ul>
-      </li>
-      <li><code translate="No">ad_start</code></li>
-      <li><code translate="No">ad_end</code></li>
-      <li><code translate="No">error</code></li>
-      <li><code translate="No">video_complete</code> - 100% Milestone</li>
-    </ul>
-
-    <p>
-      The video watched percentage (<code translate="No">video_engagement</code>) can be
-      calculated as follows (similar to video_engagement event in Google and
-      Adobe analytics):
-    </p>
-
-    <pre>
-<code class="language-json" translate="No">Video watched percentage = duration the user actually watched / total video duration</code></pre>
-
-    <p>
-      For example, in a 20 second video, the 25% milestone can be achieved in
-      both of the below cases
-    </p>
-
-    <ul>
-      <li>User watches from 0-5 seconds</li>
-      <li>
-        User watches from 0-1st second and skip to 11th second and watch to 15th
-        second
-      </li>
-    </ul>
-
-    <p>
-      In both of the above cases, the user watched 5 seconds, so milestone will
-      be reported as 25%.
-    </p>
-
-    <h3>Parameters</h3>
-
-    <p>These parameters come from your player.</p>
-
-    <ul>
-      <li><code translate="No">account</code></li>
-      <li><code translate="No">player</code></li>
-      <li><code translate="No">player_name</code></li>
-      <li><code translate="No">video</code></li>
-      <li><code translate="No">video_name</code></li>
-      <li><code translate="No">video_duration</code></li>
-      <li><code translate="No">range</code></li>
-      <li><code translate="No">video_seconds_viewed</code></li>
-      <li><code translate="No">session</code></li>
-      <li><code translate="No">platform_version</code></li>
-      <li><code translate="No">video_percent_viewed</code></li>
-      <li><code translate="No">video_playhead</code></li>
-    </ul>
-
-    <h3>Automatic parameters</h3>
-
-    <p>
-      These parameters are automatically sent to Google Tag Manager, so you
-      don't have to specify these in the JSON code.
-    </p>
-
-    <ul>
-      <li><code translate="No">country</code></li>
-      <li><code translate="No">country_name</code></li>
-      <li><code translate="No">region</code></li>
-      <li><code translate="No">region_name</code></li>
-      <li><code translate="No">city</code></li>
-      <li><code translate="No">browser</code></li>
-      <li><code translate="No">browser_type</code></li>
-      <li><code translate="No">destination</code></li>
-      <li><code translate="No">source</code></li>
-      <li><code translate="No">device_type</code></li>
-      <li><code translate="No">device_os</code></li>
-      <li><code translate="No">device_os_version</code></li>
-    </ul>
   </section>
-
-  <section class="bcls-section">
-    <h2 id="Changelog">Changelog</h2>
-
-    <p>
-      See the <a href="http://players.brightcove.net/release-notes/brightcove-player-google-tag-manager/index.html">Google Tag Manager Plugin Release Notes</a>.
-    </p>
-    <p>For historical release notes, see the <a href="/plugins/changelog/google-tag-manager-plugin-changelog.html">changelog here</a>.</p>
-  </section>
-</article>
+  <!-- <section class="bcls-section"> <h2 id="Importing_a_container_file_in_GTM">Importing a container file</h2> <p>
+ One way to add Variables, Tags and Triggers to Google Tag Manager is to import a JSON-formatted Container file. For details, see Google's <a href="https://support.google.com/tagmanager/answer/6106997?hl=en">Container export and import</a> document.
+ </p>
+ <h3>Steps</h3>
+ <p>
+ Follow these steps to import a Container file: </p>
+ <ol class="bcls-tasklist-restart"> <li>
+ <p>
+ In your JSON-formatted Container file, set the following values: </p>
