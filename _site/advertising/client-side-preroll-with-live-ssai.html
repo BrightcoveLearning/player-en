@@ -1169,17 +1169,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
 
 
-<!-- 
-  This content appears on:
-  
-  https://player.support.brightcove.com/advertising/client-side-preroll-with-live-ssai.html
-
-  https://live.support.brightcove.com/live-module/client-side-preroll-with-live-ssai.html
-
-  If you update in one place, you MUST update it in all!
-  Images are stored on the player-dev site.
- -->
-
 <h1>Client-Side Pre-roll Ads with Live SSAI</h1>
 <article class="bcls-article">
   <summary>In this topic, you will learn how use Brightcove Player to play a client-side pre-roll ad with live streams enabled for server-side ad insertion (SSAI).</summary>
@@ -1187,7 +1176,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <section class="bcls-section">
 <h2 id="overview">Overview</h2>
 
-<p>When delivering live streams with server-side ad insertion (SSAI) using Brightcove Player, you can insert a client-side pre-roll ad. For client-side ads, this feature supports IMA ads.</p> 
+<p>When delivering live streams with server-side ad insertion (SSAI) using Brightcove Player, you can insert a client-side pre-roll ad. For client-side ads, this feature supports IMA ads.</p>
 
 <aside class="bcls-aside bcls-aside--information">
 <p>This feature requires the following:</p>
@@ -1224,13 +1213,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <p>The Live module supports Server-Side Ad Insertion (SSAI) enabling server-side ads can be requested and displayed during a live stream. To create your live stream, see the following:</p>
 <ul>
   <li>
-    <a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html">Implementing Server-Side Ads in the Live Module</a>
+    <a href="implementing-server-side-ads-live-module.html">Implementing Server-Side Ads in the Live Module</a>
   </li>
 </ul>
 
 <h3 id="Create_a_Brightcove_player">Create a Brightcove player</h3>
 
-<p>Create a new Brightcove player using Video Cloud Studio. For details, see the <a href="https://studio.support.brightcove.com/basics/video-cloud-basics-creating-player.html">Quick Start: Creating and Styling a Player</a> document.</p>
+<p>Create a new Brightcove player using the <strong>Players</strong> module. For details, see the <a href="https://studio.support.brightcove.com/get-started/basics/creating-player.html">Quick Start: Creating and Styling a Player</a> document.</p>
 
 <aside class="bcls-aside bcls-aside--information">You must use a Brightcove Player version 6.44.0+.</aside>
 </section>
@@ -1238,16 +1227,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <section class="bcls-section">
 <h2 id="Implementing_client_side_pre_roll_using_Studio">Implementing client-side pre-roll using Studio</h2>
 
-<p>The easiest way to configure your player for auto-failover ads is with Video Cloud Studio. Once you have created an ad configuration and player, then you are ready to configure the player for auto-failover as follows:</p>
+<p>The easiest way to configure your player for auto-failover ads is by using Studio. Once you have created an ad configuration and player, then you are ready to configure the player for auto-failover as follows:</p>
 
 <ol class="bcls-tasklist-restart">
-	<li>Open the <strong>PLAYERS</strong> module and locate the player to which you want to add advertising functionality.</li>
-	<li>Select the link for the player to open the player's properties.</li>
-	<li>In the left navigation menu, select <strong>Advertising</strong>.</li>
+	<li>Open the <strong>Players</strong> module and locate the player to which you want to add advertising functionality.</li>
+	<li>Click the link for the player to open the player properties.</li>
+	<li>In the left navigation menu, click <strong>Advertising</strong>.</li>
 	<li>Check the <strong>Enable Client-Side (IMA)</strong> checkbox.</li>
 	<li>Include the URL for your IMA Ad Tag. For this example, we will use the sample Ad Tag URL.
 
-	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable client-side ads" src="/assets/images/advertising/enable-client-side.png" />
+	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable client-side ads" src="/assets/images/s-live-img/live-module/live-ssai/enable-client-side.png" />
 	<figcaption class="bcls-caption--image">Enable client-side ads</figcaption>
 	</figure>
 
@@ -1260,19 +1249,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 	</li>
 	<li>From the <strong>Select Configuration</strong> dropdown menu, select the ad configuration that you would like to associate with this player.</li>
 	<li>If you want overlays to display over your ads, check the <strong>Enable ad information overlays</strong> checkbox. This includes "Learn More" and ad count down overlays.
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable SSAI" src="/assets/images/advertising/enable-ssai.png" />
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable SSAI" src="/assets/images/s-live-img/live-module/live-ssai/enable-ssai.png" />
       <figcaption class="bcls-caption--image">Enable SSAI</figcaption>
     </figure>
     <aside class="bcls-aside bcls-aside--information">Overlays will not display until you enable them here and configure them in your VAST ad tag.</aside>
   </li>
 	<li>Click the <strong>Save</strong> button.</li> 
-  <li>In the left navigation menu, select <strong>JSON Editor</strong>.
+  <li>In the left navigation menu, click <strong>JSON Editor</strong>.
   </li>
   <li>
     <p>
       In the JSON editor, scroll down until you see the <code translate="No">ad_failover: true</code> property.
     </p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Ad failover property" src="/assets/images/advertising/ad_failover.png" />
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Ad failover property" src="/assets/images/s-live-img/live-module/live-ssai/ad_failover.png" />
       <figcaption class="bcls-caption--image">Ad failover property</figcaption>
     </figure>
   </li>
@@ -1281,16 +1270,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 </code></pre>
   </li>
   <li>Your JSON editor should look similar to this:
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="IMA pre-roll property" src="/assets/images/advertising/ima-preroll.png" />
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="IMA pre-roll property" src="/assets/images/s-live-img/live-module/live-ssai/ima-preroll.png" />
       <figcaption class="bcls-caption--image">IMA pre-roll property</figcaption>
     </figure>
   </li>
-  <li>Click the <strong>Save</strong> button.</li>
-	<li>To publish the player, select <strong>Publish &amp; Embed &gt; Publish Changes</strong>.
+  <li>Click  <span class="button-blue">Save</span>.</li>
+	<li>To publish the player, click <span class="button-blue">Publish &amp; Embed</span> &gt; <strong>Publish Changes</strong>.
 	</li>
-  <li>Now, you are ready to publish your live event. For details, see the <a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#Publishing_the_live_event">Implementing Server-Side Ads in the Live Module</a> document.
+  <li>Now, you are ready to publish your live event. For details, see the <a href="implementing-server-side-ads-live-module.html#Publishing_the_live_event">Implementing Server-Side Ads in the Live Module</a> document.
   </li>
-</ol>
+</ol> 
 </section>
 <section class="bcls-section">
   <h2 id="Listening_to_player_events">Listening to player events</h2>
@@ -1338,6 +1327,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
 </article>
 
+
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
@@ -1353,7 +1343,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 02 Feb 2022
+  Page last updated on 20 Jul 2022
 </div>
 
 
