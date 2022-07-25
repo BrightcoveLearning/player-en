@@ -1176,6 +1176,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <aside class="bcls-aside bcls-aside--warning language-editable">This functionality is only available for Brightcove Player 6.66.2 or later.</aside>
     <h2 id="Intorduction">Introduction</h2>
     <p>Bumper videos play before the content video in the player. The poster is displayed for the content video, but when the player starts to play the bumper is shown first followed by the content video. In the following example a demo ad is shown followed by the content video.</p>
+
     <div style="width: 960px; height: 540px;">
       <video-js data-account="1752604059001"
         data-player="Wj0445Avw"
@@ -1189,6 +1190,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         data-bumper-id="4446983094001"></video-js>
       <script src="https://players.brightcove.net/1752604059001/Wj0445Avw_default/index.min.js"></script>
     </div>
+
     <p>The content video's poster, title and short description are displayed, but when play initiates the bumper is played then the content video.</p>
   </section>
 
@@ -1202,7 +1204,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ul>
     <p>Details follow.</p>
     <h3>Advanced (embed) code</h3>
-
+    <p>To enable the player using the advanced player code add the <code>data-bumper-id="<em>your_bumper_id</em>"</code> attribute to your player code.</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;div style=&quot;width: 960px; height: 540px;&quot;&gt;
+  &lt;video-js data-account=&quot;1752604059001&quot;
+    data-player=&quot;Wj0445Avw&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-video-id=&quot;5755775186001&quot;
+    data-playlist-id=&quot;&quot;
+    data-application-id=&quot;&quot;
+    width=&quot;960&quot; height=&quot;540&quot;
+    class=&quot;vjs-fill&quot;
+    <span class="bcls-highlight">data-bumper-id=&quot;4446983094001&quot;</span>&gt;&lt;/video-js&gt;
+  &lt;script src=&quot;https://players.brightcove.net/1752604059001/Wj0445Avw_default/index.min.js&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;</code></pre>
+    <p>Of course, the order of the attributes in HTML don't matter, so the <code>data-bumper-id="<em>your_bumper_id</em>"</code> could have been placed anywhere.</p>
     <h3>standard (iframe) code</h3>
 
     <h3>JSON configuration</h3>
