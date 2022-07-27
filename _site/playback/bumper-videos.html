@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex,nofollow"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic, you will learn how to implement bumper videos, that is videos that play before the content video.">
+  <meta name="description" content="In this topic, you will learn how to implement bumper videos, that is videos that play before the main content video.">
   
   <title>Bumper Videos</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1170,7 +1170,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h1>Bumper Videos</h1>
 <article class="bcls-article">
-  <summary>In this topic, you will learn how to implement bumper videos, that is videos that play before the content video.</summary>
+  <summary>In this topic, you will learn how to implement bumper videos, that is videos that play before the main content video.</summary>
 
   <section class="bcls-section">
     <aside class="bcls-aside bcls-aside--warning language-editable">This functionality is only available for Brightcove Player 6.66.2 or later.</aside>
@@ -1195,7 +1195,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Implementation">Implementation</h2>
-    <p>There are three ways to implement a video bumper, the are:</p>
+    <p>There are three ways to implement a video bumper, they are:</p>
     <ul>
       <li>Using an attribute in the advanced (embed) code</li>
       <li>Using a query string in the standard (iframe) code</li>
@@ -1217,7 +1217,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <span class="bcls-highlight">data-bumper-id=&quot;4446983094001&quot;</span>&gt;&lt;/video-js&gt;
   &lt;script src=&quot;https://players.brightcove.net/1752604059001/Wj0445Avw_default/index.min.js&quot;&gt;&lt;/script&gt;
 &lt;/div&gt;</code></pre>
-    <p>Of course, the order of the attributes in HTML doesn't matter, so the <code>data-bumper-id="<em>your_bumper_id</em>"</code> could have been placed anywhere.</p>
+    <p>Of course, the order of the attributes in HTML doesn't matter, so the <code>data-bumper-id="<em>your_bumper_id</em>"</code> could have been placed anywhere in the <code>&lt;video&gt;</code> tag.</p>
 
     <h3>Standard (iframe) code</h3>
     <p>To enable the player using the standard (iframe) code, add the query parameter <code>&bumperId=<em>your_bumper_id</em></code> to your query string, as highlighted in the following HTML.</p>
@@ -1227,12 +1227,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   allow=&quot;encrypted-media&quot; width=&quot;960&quot; height=&quot;540&quot;&gt;</iframe></code></pre>
 
     <h3>JSON configuration</h3>
-    <p>You can enable the bumper video on all instance of a specific player by changing that player's configuration. This means you do not have to add anything to the player code on the page, as shown in the two instances above. To change the player's configuration in Studio go to <strong>Players</strong>, then click on the player you are altering. In the player's properties click <strong>JSON Editor</strong>. Add to the <strong>video_cloud</strong> section bumper video information, as highlighted.</p>
+    <p>You can enable the bumper video on all instance of a specific player by changing that player's configuration. This means you do not have to add anything to the player code on the page, as shown in the two instances above.</p>
+    <p>To change the player's configuration in Studio, go to <strong>Players</strong> module, then click on the player you are altering. In the player's properties click <strong>JSON Editor</strong>. Add to the <strong>video_cloud</strong> section bumper video information, as highlighted.</p>
     <pre class="line-numbers"><code class="language-json" translate="No">{
   "compatibility": true,
   <span class="bcls-highlight">"video_cloud"</span>: {
-    "policy_key": "BCpkADawqM0iKt-2XVs6ZMVqw2zuJ7m2yqfET7SgonzI3dAhYFcmJDRgD3EjLhEC6hMLQBa08qAdYf0G55vTI9bcz3NuP1DojBtiGNnGHG0XRBCww9FjZAJNYoFIuO4tkaNW8-Oz9GPqE65R",
-    <span class="bcls-highlight">"bumper": {
+    "policy_key": "BCpkADawqM0iKt-2XVs6ZMVqw2zuJ7m2yqfET7SgonzI3dAhYFcmJDRgD3EjLhEC6hMLQBa08qAdYf0G55vTI9bcz3NuP1DojBtiGNnGHG0XRBCww9FjZAJNYoFIuO4tkaNW8-Oz9GPqE65R",<span class="bcls-highlight">
+    "bumper": {
       "id": "4446983094001"
     }</span>
    },
@@ -1247,11 +1248,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
-    <p>When using the JSON configuration you can also use the following options:</p>
+    <p>When using the JSON configuration, you can also use the following options:</p>
     <ul>
-
+      <li><code>show_controls</code> - Removes controls during bumper playback when specified (false by default)</li>
+      <li><code>progress_bar_color</code> - Changes the progress bar color when specified (undefined by default - inherits the normal player progress bar color)</li>
+      <li><code>prevent_seeking</code> - Prevents seeking when specified (false by default)</li>
     </ul>
-
+    <p>The options can be added to the player's JSON configuration:</p>
+    <pre class="line-numbers"><code class="language-json" translate="No">{
+  "compatibility": true,
+  "video_cloud": {
+    "policy_key": "BCpkADawqM0iKt-2XVs6ZMVqw2zuJ7m2yqfET7SgonzI3dAhYFcmJDRgD3EjLhEC6hMLQBa08qAdYf0G55vTI9bcz3NuP1DojBtiGNnGHG0XRBCww9FjZAJNYoFIuO4tkaNW8-Oz9GPqE65R",
+    "bumper": {
+      "id": "4446983094001",<span class="bcls-highlight">
+      "show_controls": true,
+      "progress_bar_color": "#654321",
+      "prevent_seeking": true</span>
+    }
+  },
+  ...</code></pre>
   </section>
 
 </article>
@@ -1270,7 +1285,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 26 Jul 2022
+  Page last updated on 27 Jul 2022
 </div>
 
 
