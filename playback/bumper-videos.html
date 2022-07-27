@@ -63,13 +63,31 @@ layout: "staging"
   allow=&quot;encrypted-media&quot; width=&quot;960&quot; height=&quot;540&quot;&gt;</iframe></code></pre>
 
     <h3>JSON configuration</h3>
-
-
+    <p>You can enable the bumper video on all instance of a specific player by changing that player's configuration. This means you do not have to add anything to the player code on the page, as shown in the two instances above. To change the player's configuration in Studio go to <strong>Players</strong>, then click on the player you are altering. In the player's properties click <strong>JSON Editor</strong>. Add to the <strong>video_cloud</strong> section bumper video information, as highlighted.</p>
+    <pre class="line-numbers"><code class="language-json" translate="No">{
+  "compatibility": true,
+  <span class="bcls-highlight">"video_cloud"</span>: {
+    "policy_key": "BCpkADawqM0iKt-2XVs6ZMVqw2zuJ7m2yqfET7SgonzI3dAhYFcmJDRgD3EjLhEC6hMLQBa08qAdYf0G55vTI9bcz3NuP1DojBtiGNnGHG0XRBCww9FjZAJNYoFIuO4tkaNW8-Oz9GPqE65R",
+    <span class="bcls-highlight">"bumper": {
+      "id": "4446983094001"
+    }</span>
+   },
+   "player": {
+    "template": {
+    "name": "single-video-template",
+    "version": "6.66.2"
+   }
+  },
+  ...</code></pre>
   </section>
 
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
-    <p></p>
+    <p>When using the JSON configuration you can also use the following options:</p>
+    <ul>
+
+    </ul>
+
   </section>
 
 </article>
