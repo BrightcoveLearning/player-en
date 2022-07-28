@@ -4,12 +4,14 @@ git submodule add https://github.com/BrightcoveLearning/s-support
 git submodule add https://github.com/BrightcoveLearning/s-jekyll-page-includes
 git submodule add https://github.com/BrightcoveLearning/s-training
 git submodule add https://github.com/BrightcoveLearning/s-live
+git submodule add https://github.com/BrightcoveLearning/s-misc
 cd ..
 cd assets/images
 git submodule add https://github.com/BrightcoveLearning/s-support-img
 git submodule add https://github.com/BrightcoveLearning/s-feather-img
 git submodule add https://github.com/BrightcoveLearning/s-training-img
 git submodule add https://github.com/BrightcoveLearning/s-live-img
+git submodule add https://github.com/BrightcoveLearning/s-misc-img
 cd ..
 git submodule add https://github.com/BrightcoveLearning/s-site-assets-favicons
 git submodule add https://github.com/BrightcoveLearning/s-site-assets-stylesheets
