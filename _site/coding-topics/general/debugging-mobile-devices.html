@@ -1,0 +1,1655 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="In this topic, you will learn about debugging JavaScript on mobile devices. During development testing and debugging content on mobile platforms can be very challenging.">
+  
+  <title>Debugging on Mobile Devices</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/s-site-assets-favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/s-site-assets-favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/s-site-assets-favicons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/s-site-assets-favicons/site.webmanifest">  
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+  <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/learning-paths/learning-paths.css">
+  <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/landing-page.css">
+  <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2728311-17"></script>
+<script translate="no">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-2728311-17');
+</script>
+  <script src="/assets/js/sajari-head.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="/assets/s-site-assets-images/COVE004_Brightcove_Player_Logo_RGB_K.svg" alt="Brightcove" style="max-width: 200px;"></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Select Language</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script translate="no">
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+
+
+&nbsp;<span class="secondary-nav"><a href="https://support.brightcove.com/product-updates.html">Product Updates</a> <span style="vertical-align: middle;margin-left:1em;margin-right:1em;">|</span> <a href="https://supportportal.brightcove.com">Contact Support</a> <span style="vertical-align: middle;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">System Status</a></span>
+    <br>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item first-item"><a href="/">Home</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/coding-topics/general/">Developers</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Debugging on Mobile Devices</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+				<select id="site_select" class="bcls-select" style="margin-left: 1rem;">
+					<option value="">Other Brightcove Docs</option>
+					
+						
+							<option value="https://support.brightcove.com">Documentation Home</option>
+						
+					
+						
+							<option value="https://support.brightcove.com/">-- VIDEO CLOUD --</option>
+						
+					
+						
+							<option value="https://studio.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+						
+					
+						
+							<option value="https://player.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+						
+					
+						
+							<option value="https://apis.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+						
+					
+						
+							<option value="https://sdks.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+						
+					
+						
+							<option value="https://integrations.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+						
+					
+						
+							<option value="https://general.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+						
+					
+						
+							<option value="https://support.brightcove.com/">-- VIDEO ESSENTIALS --</option>
+						
+					
+						
+							<option value="https://audience-insights.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+						
+					
+						
+							<option value="https://beacon-help.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+						
+					
+						
+							<option value="https://beacon.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+						
+					
+						
+							<option value="https://corptv.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+						
+					
+						
+							<option value="https://live.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+						
+					
+						
+							<option value="https://zencoder.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+						
+					
+						
+							<option value="https://support.brightcove.com/">-- VIDEO CLOUD ADD-ONS --</option>
+						
+					
+						
+							<option value="https://gallery.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+						
+					
+						
+							<option value="https://studio.support.brightcove.com/social/index.html">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+						
+					
+						
+							<option value="https://interactivity.support.brightcove.com/index.html">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+						
+					
+						
+							<option value="https://ssai.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+						
+					
+						
+							<option value="https://campaign.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+						
+					
+						
+							<option value="https://engage.support.brightcove.com">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Engage</option>
+						
+					
+				</select>
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Home</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Getting Started</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/developer-basics-videos.html">Developer Basics Videos</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/what-brightcove-player.html">What is the Brightcove Player?</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player.html">Overview: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/overview-brightcove-player-plugins.html">Overview: Brightcove Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/training/player-development-training-videos.html">Player Development Training Videos</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-brightcove-player.html">Step-by-Step: Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-developing-brightcove-player.html">Training: Developing with the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/basics/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Learn the Basics</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/basics/developer-basics-advanced-player-code.html">Advanced Player Code</a></li>
+                  
+                
+                  
+                    <li><a href="/basics/developer-basics-autoplaying-video.html">Autoplaying a Video</a></li>
+                  
+                
+                  
+                    <li><a href="/basics/developer-basics-custom-plugin-converting-code.html">Custom Plugin - Converting Code</a></li>
+                  
+                
+                  
+                    <li><a href="/basics/developer-basics-custom-plugin-passing-data.html">Custom Plugin - Passing Data</a></li>
+                  
+                
+                  
+                    <li><a href="/basics/developer-basics-custom-plugin-using-studio.html">Custom Plugin - Using Studio</a></li>
+                  
+                
+                  
+                    <li><a href="/basics/developer-basics-custom-plugin-why-and-how.html">Custom Plugin - Why and How</a></li>
+                  
+                
+                  
+                    <li><a href="/training/developer-basics-videos.html">Developer Basics Videos</a></li>
+                  
+                
+                  
+                    <li><a href="/basics/developer-basics-generating-player-code.html">Generating Player Code</a></li>
+                  
+                
+                  
+                    <li><a href="/basics/developer-basics-preparing-write-code.html">Preparing to Write Code</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/references/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;References</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/references/brightcove-player-5-6-migration-guide.html">Brightcove Player 5 to 6 Migration Guide</a></li>
+                  
+                
+                  
+                    <li><a href="/brightcove-player/current-release/index.html">Brightcove Player API Documentation</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-cookies.html">Brightcove Player Cookies</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-system-requirements.html">Brightcove Player System Requirements</a></li>
+                  
+                
+                  
+                    <li><a href="/references/catalog-search-architecture.html">Catalog Search Architecture</a></li>
+                  
+                
+                  
+                    <li><a href="https://general.support.brightcove.com/general/known-issues-studio-brightcove-player-and-apis.html">Known Issues</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-catalog.html">Player Catalog</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-feature-support-browser.html">Player Feature Support by Browser</a></li>
+                  
+                
+                  
+                    <li><a href="/references/player-metadata-bcinfo.html">Player Metadata from bcinfo</a></li>
+                  
+                
+                  
+                    <li><a href="/brightcove-player/current-release/Player.html">Player Methods/Events API</a></li>
+                  
+                
+                  
+                    <li><a href="/references/guide-playlist-api.html">Playlist API Guide</a></li>
+                  
+                
+                  
+                    <li><a href="/references/video-metadata-mediainfo.html">Video Metadata from mediainfo</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/plugins/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Plugins</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/plugins/360degvr-video-plugin.html">360º Video</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-intelligence-plugin.html">Ad Intelligence Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with SSAI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/open-measurement-with-ssai.html">Advertising with SSAI and Open Measurement</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/airplay-plugin.html">AirPlay</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/brightcove-player-plugins.html">Brightcove Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/chromecast-plugin-brightcove-player.html">Chromecast</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/custom-endscreen-plugin.html">Custom Endscreen</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-thumbnail-previews-plugin.html">Display Thumbnail Previews</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/google-tag-manager-plugin-brightcove-player.html">Google Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/hls-plugin.html">HLS</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/live-dvrux-plugin.html">Live DVRUX</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-overlay-plugin.html">Overlay</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/overview-brightcove-player-plugins.html">Overview: Player Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/picture-picture-plugin-aka-floating-or-pinned.html">Picture-in-Picture</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playerplugin-version-testing.html">Player/Plugin Version Testing</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playlist-endscreen-plugin.html">Playlist Endscreen</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playlist-ui-plugin.html">Playlist UI</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/changelog/index.html">Plugin Changelog</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-registry.html">Plugin Registry</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/plugin-version-reference.html">Plugin Version Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/quality-selection-plugin.html">Quality Selection</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/social-sharing-plugin.html">Social Media</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/tealium-plugin-brightcove-player.html">Tealium Tag Manager</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/thumbnails-plugin.html">Thumbnail Seeking</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/video-seo-schema-generator-plugin.html">Video SEO Schema Generator</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/advertising/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Advertising</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/advertising/ad-events-and-ad-objects.html">Ad Events and Ad Objects</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/ad-only-plugin.html">Ad Only Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-freewheel-plugin.html">Advertising with the FreeWheel Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/advertising-ima3-plugin.html">Advertising with the IMA3 Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/implementing-server-side-ads-brightcove-player.html">Advertising with Server-Side Ads (SSAI)</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/open-measurement-with-ssai.html">Advertising with SSAI and Open Measurement</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/client-side-preroll-with-live-ssai.html">Client-Side Pre-roll Ads with Live SSAI</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/flash-no-longer-valid-ima.html">Flash No Longer Valid with IMA</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-ad-partner-integration.html">Guide: Ad Partner Integration</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/guide-contrib-ads-migration.html">Guide: contrib-ads Migration</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/jump-start-header-bidding-ad.html">Jump Start: Header Bidding Ad</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/jump-start-outstream-ad.html">Jump Start: Outstream Ad</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/jump-start-pre-roll-ad.html">Jump Start: Pre-roll Ad</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/known-issues-server-side-ad-insertion-ssai.html">Known Issues: Server-Side Ad Insertion (SSAI)</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/step-step-implementing-advertising.html">Step-by-Step: Implementing Advertising</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/testing-pre-release-advertising-plugins.html">Testing Pre-Release Advertising Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-dfp-premium-brightcove-player.html">Using DFP Premium with Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/using-player-enhancements-live-ssai-brightcove-player.html">Using Player Enhancements for Live SSAI</a></li>
+                  
+                
+                  
+                    <li><a href="/advertising/video-cloud-ssai-ad-tag-validation.html">Video Cloud SSAI Ad Tag Validation</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/publish/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Publishing Videos & Players</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/publish/assigning-video-player-programmatically.html">Assigning Video to Player Programmatically</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/available-options-advanced-page-embed-code.html">Options for Advanced (in-page) Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/available-options-standard-iframe-embed-code.html">Options for Standard (iframe) Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/brightcove-player-loader.html">Brightcove Player Loader</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/bulk-updating-brightcove-default-player.html">Bulk Updating Brightcove Default Player</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/choosing-correct-embed-code.html">Choosing the Correct Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/delaying-player-instantiation.html">Delaying Player Instantiation</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/pre-release-player.html">Pre-release Player</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/syndication-strategies.html">Syndication Strategies</a></li>
+                  
+                
+                  
+                    <li><a href="/publish/using-non-brightcove-player.html">Using a Non-Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="https://studio.support.brightcove.com/publish/using-multiple-players-one-page.html">Using Multiple Players on One Page</a></li>
+                  
+                
+                  
+                    <li><a href="https://studio.support.brightcove.com/publish/using-reference-ids.html">Using Reference IDs</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/troubleshooting/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Troubleshooting</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-playback-technology-app.html">Brightcove Playback Technology App</a></li>
+                  
+                
+                  
+                    <li><a href="/references/brightcove-player-error-reference.html">Brightcove Player Error Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-player-information-modal.html">Brightcove Player Information Modal</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-player-troubleshooting-guide.html">Brightcove Player Troubleshooting Guide</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/creating-charles-log.html">Creating a Charles Log</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/creating-network-log.html">Creating a Network Log</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">Domain Restrictions Messaging</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-error-messages-plugin.html">Display Error Messages Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/manually-setting-player-version.html">Manually Setting the Player Version</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/player-debug-mode.html">Player Debug Mode</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playerplugin-version-testing.html">Player/Plugin Version Testing</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/player-informational-properties.html">Player Informational Properties</a></li>
+                  
+                
+                  
+                    <li><a href="/code-samples/brightcove-player-sample-live-custom-error-message.html">Sample: Live Custom Error Message</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/step-step-brightcove-player-debugger.html">Step-by-Step: Brightcove Player Debugger</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/running-network-path-trace.html">Running a Network Path Trace</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/using-player-reference.html">Using the Player Reference</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/vetting-brightcove-player-releases.html">Vetting Brightcove Player Releases</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/viewing-player-configuration.html">Viewing the Player Configuration</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/styling/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Styling & Appearance</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/customizing-player-appearance-legacy-skin.html">Customizing Player Appearance - Legacy Skin</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/brightcove-player-sample-player-styling-playground.html">Player Styling Playground</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/quick-start-player-customization-legacy-skin.html">Quick Start: Player Customization - Legacy Skin</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/step-step-player-customization.html">Step-by-Step: Player Customization</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/responsive-sizing-brightcove-player.html">Responsive Sizing for the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/sizing-player.html">Sizing the Player</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/skins-and-player-versions.html">Skins and Player Versions</a></li>
+                  
+                
+                  
+                    <li><a href="https://studio.support.brightcove.com/media/styling-captions.html">Styling Captions</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/playback/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Playback</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/playback/audio-only-player.html">Audio only player</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/autoplay-considerations.html">Autoplay Considerations</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/brightcove-playback-technology-app.html">Brightcove Playback Technology App</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/china-delivery-with-bcp.html">China Delivery</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/xdr-with-bcplayer.html">Cross-Device Resume</a></li>
+                  
+                
+                  
+                    <li><a href="https://studio.support.brightcove.com/publish/deep-linking.html">Deep Linking</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/delivering-hls-video.html">Delivering HLS Video</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/using-delivery-rules-with-bcp.html">Delivery Rules</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/determining-which-rendition-will-play.html">Determining Which Rendition Will Play</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/forensic-watermarking-with-bcp.html">Forensic Watermarking</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/guide-playback-technology.html">Guide: Playback Technology</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/hls-plugin.html">HLS Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/ios-and-brightcove-player.html">iOS and Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/playback-restrictions-with-bcp.html">Playback Restrictions</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/overview-https-support.html">Overview: HTTPS Support</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/quality-selection-plugin.html">Quality Selection Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/static-url-delivery.html">Static URL Delivery</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/streaming-playready-protected-content-dynamic-delivery.html">Streaming PlayReady Protected Content</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/using-brightcove-player-tve.html">Using the Brightcove Player for TVE</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/content-protection/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;DRM & Content Protection</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="https://studio.support.brightcove.com/players/configuring-player-content-restrictions.html">Configuring Player Content Restrictions</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/creating-dash-drm-manifest-brightcove-player.html">Creating a DASH DRM Manifest for the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/domain-restrictions-messaging.html">Domain Restrictions Messaging</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/configuring-brightcove-player-drm.html">DRM Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/overview-content-protection.html">Overview: Content Protection</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/policy-keys.html">Policy Keys</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/restricting-video-playback-using-ip-address.html">Restricting Video Playback Using IP Address</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">Signed URLs and Token Auth with a Live Stream</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/coding-topics/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Coding Topics</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/publish/brightcove-player-loader.html">Brightcove Player Loader</a></li>
+                  
+                
+                  
+                    <li><a href="/references/catalog-search-architecture.html">Catalog Search Upgrade</a></li>
+                  
+                
+                  
+                    <li><a href="/code-samples/brightcove-player-sample-trigger-rewind-custom-event.html">Custom Event</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/guide-playback-technology.html">Guide: Playback Technology</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/programmatically-localizing-brightcove-player.html">Localizing Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/localizing-plugins.html">Localizing Plugins</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/player-events.html">Player Events</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/overview-components.html">Overview: Components</a></li>
+                  
+                
+                  
+                    <li><a href="/playback/overview-https-support.html">Overview: HTTPS Support</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/overview-player-api.html">Overview: Player API</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/react-player-loader.html">React Player Loader</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/reporting-brightcove-player-configurations.html">Reporting on Brightcove Player Configurations</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/requirejs-and-brightcove-player.html">RequireJS and Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/retrieve-bitrate-current-rendition.html">Retrieve Bitrate of Current Rendition</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/step-step-videojs-plugin-generator.html">Step-by-Step: Video.js Plugin Generator</a></li>
+                  
+                
+                  
+                    <li><a href="/coding-topics/using-bc-and-getplayer-methods.html">Using bc() and getPlayer() Methods</a></li>
+                  
+                
+                  
+                    <li><a href="/troubleshooting/viewing-player-configuration.html">Viewing the Player Configuration</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;General Information</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="https://studio.support.brightcove.com/publish/adding-application-id-player-embed-code.html">Adding an Application ID to the Player Embed Code</a></li>
+                  
+                
+                  
+                    <li><a href="/general/adding-captions-videos-programmatically.html">Adding Captions to Videos Programmatically</a></li>
+                  
+                
+                  
+                    <li><a href="https://studio.support.brightcove.com/media/adding-chapters-video.html">Adding Chapters to a Video</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-player-6-now-default-version.html">Brightcove Player 6 Now Default Version</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-player-accessibility.html">Brightcove Player Accessibility</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/custom-endscreen-plugin.html">Custom Endscreen Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/display-overlay-plugin.html">Display Overlay Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/general/ga-self-configure.html">Google Analytics Self Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/references/guide-playlist-api.html">Guide: Playlist API</a></li>
+                  
+                
+                  
+                    <li><a href="/general/identify-and-delete-low-performing-videos.html">Identify and Delete Low Performing Videos</a></li>
+                  
+                
+                  
+                    <li><a href="/general/implementing-cue-points-programmatically.html">Implementing Cue Points Programmatically</a></li>
+                  
+                
+                  
+                    <li><a href="/general/implementing-playlists.html">Implementing Playlists</a></li>
+                  
+                
+                  
+                    <li><a href="/general/implementing-modaldialog.html">Implementing the ModalDialog</a></li>
+                  
+                
+                  
+                    <li><a href="/general/live-hls.html">Live HLS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/live-stream-configuration.html">Live Stream Configuration</a></li>
+                  
+                
+                  
+                    <li><a href="/general/multiple-audio-tracks.html">Multiple Audio Tracks</a></li>
+                  
+                
+                  
+                    <li><a href="/general/player-configuration-guide.html">Player Configuration Guide</a></li>
+                  
+                
+                  
+                    <li><a href="/general/playing-live-streams.html">Playing Live Streams</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/playlist-ui-plugin.html">Playlist UI Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="/general/rename-608-708-captions.html">Rename 608/708 Captions in the Player</a></li>
+                  
+                
+                  
+                    <li><a href="/content-protection/signed-urls-and-token-auth-live-stream.html">Signed URLs and Token Auth with a Live Stream</a></li>
+                  
+                
+                  
+                    <li><a href="/plugins/social-sharing-plugin.html">Social Media Plugin</a></li>
+                  
+                
+                  
+                    <li><a href="https://apis.support.brightcove.com/player-management/getting-started/step-step-player-management.html">Step-by-Step: Player Management</a></li>
+                  
+                
+                  
+                    <li><a href="/styling/styling-playlists.html">Styling Playlists</a></li>
+                  
+                
+                  
+                    <li><a href="/general/using-screen-reader-brightcove-player.html">Using a Screen Reader with the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="/general/versions-brightcove-player-documentation.html">Versions of the Brightcove Player Documentation</a></li>
+                  
+                
+                  
+                    <li><a href="/general/volume-control.html">Volume Control</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/code-samples/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Code Samples</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/code-samples/index-thumb.html">Code Samples by Group</a></li>
+                  
+                
+                  
+                    <li><a href="/code-samples/index.html">Code Sample Index</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/amp/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;AMP</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/amp/amp-using-video-cloud-video.html">AMP Using a Video Cloud Video</a></li>
+                  
+                
+                  
+                    <li><a href="/amp/amp-using-external-video.html">AMP Using an External Video</a></li>
+                  
+                
+                  
+                    <li><a href="/amp/amp-and-advertising.html">AMP and Advertising</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/training/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Training</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">All Online Training Courses</a></li>
+                  
+                
+                  
+                    <li><a href="/training/developer-basics-videos.html">Developer Basics Videos</a></li>
+                  
+                
+                  
+                    <li><a href="/training/player-development-training-videos.html">Player Development Training Videos</a></li>
+                  
+                
+                  
+                    <li><a href="/training/register-training.html">Register for Instructor-led Training</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-developing-brightcove-player.html">Training: Developing with the Brightcove Player</a></li>
+                  
+                
+                  
+                    <li><a href="https://apis.support.brightcove.com/player-management/getting-started/training-demand-quick-start-player-management.html">Training: Quick Start to Player Management</a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">Brightcove University Training Courses</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/release-notes/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Release Notes</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/release-notes/brightcove-player-release-notes.html">Brightcove Player Release Notes</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html"><span style="color:#8E9093">+</span>&nbsp;&nbsp;Support</a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Contact Sales</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+                  
+                
+                  
+                    <li><a href="/support/reset-support-portal-password.html">Reset Your Support Portal Password</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/s-feather-img/menu.svg" alt="Navigation Menu"></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Page Contents</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/s-feather-img/external-link.svg" alt="open in new tab" style="margin-top:4em;width: 1.5em;"></a>
+
+
+
+  
+    
+
+
+<article class="bcls-article">
+  <h1>Debugging on Mobile Devices</h1>
+  <summary>In this topic, you will learn about debugging JavaScript on mobile devices. During development testing and debugging content on mobile platforms can be very challenging.</summary>
+
+  <section class="bcls-section">
+    <h2 id="Overview">Overview</h2>
+    <p>In this document you will learn how to get started with debugging on mobile devices and covers the following solutions:</p>
+    <ul>
+      <li>Debugging on iOS devices</li>
+      <li>Debugging on Android devices</li>
+      <li>Using Charles on mobile devices</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information">This document serves as a jumping off point for developers to debug on mobile devices. It does not cover all methods for mobile debugging. For more information on debugging in general, visit the <a href="/developer/concepts-javascript-debugging-basics.html">JavaScript Debugging Basics</a> documentation.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Debugging_with_iOS">Debugging with iOS</h2>
+    <div class="BCL-concept">
+      <div class="BCL-subsection">
+        <h3>Minimum requirements for iOS debugging</h3>
+        <ul>
+          <li>Safari version 6+ running on Mac MacOS</li>
+          <li>iPhone or iPad with iOS 6+</li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--information">Note: if you are on iOS 10.3 or later, open the Settings and navigate to General &gt; About &gt; Certificate Trust Settings, and find the Charles Proxy certificate, and switch it on to enable full trust for it.</aside>
+      </div>
+      <div class="BCL-subsection">
+        <h3>Using Safari Remote Debugging</h3>
+        <p>Apple's iOS 6 update introduced Safari Remote Debugging, which allows you debug web pages in the Safari app on iOS devices. To get started, follow the steps below:</p>
+        <ol class="bcls-tasklist">
+          <li>Connect your iOS device to your machine via USB cable.</li>
+          <li>On your device, open the <strong>Settings</strong> app. Select <strong>Safari</strong>, scroll down to the bottom of the page and open the <strong>Advanced</strong> menu. Enable the <strong>Web Inspector</strong> option.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Web Inspector" src="/assets/images/s-misc-img/developer/debugging-on-mobile/ios/01-iOS.png" />
+              <figcaption class="bcls-caption--image">Web Inspector</figcaption>
+            </figure>
+          </li>
+          <li>Still on your device, open the <strong>Safari</strong> app and browse to any web page.</li>
+          <li>On your Mac, launch <strong>Safari</strong>, open the <strong>Preferences</strong> (<strong>Safari &gt; Preferences</strong>), and navigate to the <strong>Advanced</strong> section. Enable the <strong>Show Develop menu in the menu bar</strong> option.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Show Develop Menu" src="/assets/images/s-misc-img/developer/debugging-on-mobile/ios/02-iOS.png" />
+              <figcaption class="bcls-caption--image">Show Develop Menu</figcaption>
+            </figure>
+          </li>
+          <li>Open the <strong>Develop</strong> menu. You will see your iOS device listed. When you mouse over your device name, you will see the URL to the site you've browsed to on your device displayed.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Find the Device" src="/assets/images/s-misc-img/developer/debugging-on-mobile/ios/03-iOS.png" />
+              <figcaption class="bcls-caption--image">Find the Device</figcaption>
+            </figure>
+          </li>
+          <li>Select the URL and a <strong>Web Inspector</strong> window will open, allowing you to preview, inspect, and debug content on your mobile browser from your desktop.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Debug on Desktop" src="/assets/images/s-misc-img/developer/debugging-on-mobile/ios/04-iOS.png" />
+              <figcaption class="bcls-caption--image">Debug on Desktop</figcaption>
+            </figure>
+          </li>
+          <li>In the <strong>Resources</strong> section, you can preview and inspect the web page. Hovering over elements in the <strong>Web Inspector</strong> will highlight the corresponding elements in the browser on your iOS device.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Inspecting Elements" src="/assets/images/s-misc-img/developer/debugging-on-mobile/ios/05-iOS.png" />
+              <figcaption class="bcls-caption--image">Inspecting Elements</figcaption>
+            </figure>
+          </li>
+          <li>You can also use the <strong>Debugger</strong> and <strong>Console</strong> sections to further debug your page by setting breakpoints, logging data, etc.</li>
+        </ol>
+        <aside class="bcls-aside bcls-aside--information">For more detailed information on how to use Safari Web Inspector, visit the <a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Introduction/Introduction.html">Apple's developer documentation</a>.</aside>
+      </div>
+    </div>
+  </section>
+  <!-- div id="ios" -->
+  
+  <section class="bcls-section">
+    <h2 id="Debugging_with_Android">Debugging with Android</h2>
+    <div class="BCL-concept">
+      <div class="BCL-subsection">
+        <h3>Minimum requirements for Android debugging</h3>
+        <ul>
+          <li>Chrome 32+ running on Mac or Windows</li>
+          <li>Android device with Chrome for Android 32+</li>
+        </ul>
+        <p class="BCL-aside">Note: The steps in this section were written using a device running Android 11.</p>
+        <!-- <p class="BCL-aside">Note: The steps in this section were written using a device running Android 4.3.</p> -->
+      </div>
+      <div class="BCL-subsection">
+        <h3>Enabling debugging on your device</h3>
+        <p>Before you can begin debugging content on your device, you need to enable USB debugging in your device settings.</p>
+        <ol class="bcls-tasklist-restart">
+          <li>If you are a running Android 4.2+, you will need to enable your device's <strong>Developer options</strong> before you can turn on USB debugging. On your device, open the <strong>Settings</strong> app and select the <strong>About phone</strong> menu. Locate your device's <strong>Build number</strong> and tap it seven times.
+            <aside class="bcls-aside bcls-aside--tip">If you are running an older version of Android, you can enable USB debugging by going directly to Settings &gt; Developer options.</aside>
+          </li>
+          <li>Enter your device password. You should now see a message that states, <strong>You are now a developer!</strong>.</li>
+          <li>To access your <strong>Developer options</strong> in Android 11, return to <strong>Settings</strong> and select <strong>System</strong>.</li>
+          <li>Expand <strong>Advanced</strong>, and tap <strong>Developer options</strong>.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Developer options" src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/system.png" />
+              <figcaption class="bcls-caption--image">Developer options</figcaption>
+            </figure>
+          </li>
+          <li>Scroll down to <strong>USB debugging</strong> and turn on the toggle.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Enable USB Debugging" src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/enable-usb.png" />
+              <figcaption class="bcls-caption--image">Enable USB Debugging</figcaption>
+            </figure>
+          </li>
+          <li>For more details, see Android's <a href="https://developer.android.com/studio/debug/dev-options">Configure on-device developer options</a> document.</li>
+          </li>
+        </ol>
+      </div>
+      <div class="BCL-subsection">
+        <h3>Remote debugging using Chrome for Android</h3>
+        <p>Now that USB debugging is enabled on your device, follow these steps to start remote debugging with Chrome:</p>
+        <ol class="bcls-tasklist-restart">
+          <li>On your computer, launch <strong>Chrome</strong> and browse to <code translate="No">chrome://inspect#devices</code>.</li>
+          <li>Select the checkbox for <strong>Discover USB devices</strong>.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Discover USB Devices" src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/discover-devices.png" />
+              <figcaption class="bcls-caption--image">Discover USB Devices</figcaption>
+            </figure>
+          </li>
+          <li>Connect your device to your machine using a USB cable. On your device, you will be prompted with a dialog asking if you would like to allow USB debugging. Select <strong>Allow</strong> to let your computer to connect to your device.
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="Allow Connection to Device" src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/device-connection.png" />
+              <figcaption class="bcls-caption--image">Allow Connection to Device</figcaption>
+            </figure>
+            <aside class="bcls-aside bcls-aside--information">If you are on a Windows machine, you may need to install USB drivers. For more information, visit the <a href="//developer.android.com/tools/extras/oem-usb.html">Android Developer documentation</a>.</aside>
+          </li>
+          <li>On your device, open the <strong>Chrome</strong> app and browse to a web page.</li>
+          <li>Return to <strong>Chrome</strong> on your computer. On the <code translate="No">chrome://inspect#devices</code> page, you should see your connected device. Below your device name, you will be able to see a list of all of the pages open in Chrome on your device.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Connected Devices" src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/connected-devices.png" />
+              <figcaption class="bcls-caption--image">Connected Devices</figcaption>
+            </figure>
+          </li>
+          <li>To begin debugging a web page, select the <strong>inspect</strong> link below the page URL. This will open Chrome's <strong>Developer Tools</strong>.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Inspect Web Page" src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/inspect-page.png" />
+              <figcaption class="bcls-caption--image">Inspect Web Page</figcaption>
+            </figure>
+          </li>
+          <li>To the left of the <strong>Elements</strong> tab, you can select the device icon to open DevTool's Screencast feature. This allows you to open a live preview of the content as it appears on your mobile device. For more information on how you can use screencasting to interact with your device, visit <a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging#screencasting">Google's documentation</a>.</li>
+        </ol>
+        <aside class="bcls-aside bcls-aside--information">For more detailed information on how to use Chrome Developer Tools, visit the <a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging">Google's developer documentation</a>.</aside>
+      </div>
+    </div>
+  </section>
+  <!-- div id="android" -->
+  
+  <section class="bcls-section">
+    <h2 id="Setting_up_Charles_Proxy">Setting up Charles Proxy</h2>
+      <p>Charles is a web proxy that can be run on your own computer, allowing you to record data that is sent and received via your web browser. Visit the <a href="//www.charlesproxy.com/">Charles website</a> for more information on this application.</p>
+      <div class="BCL-subsection">
+        <h3>Minimum requirements for Charles</h3>
+        <ul>
+          <li>Charles is compatible with Windows, Mac and Linux</li>
+          <li>iOS and/or Android device</li>
+        </ul>
+      </div>
+        <p>Follow the steps below to get Charles running on your machine.</p>
+        <ol class="bcls-tasklist-restart">
+          <li><a href="//www.charlesproxy.com/download/">Download</a> and install Charles on your machine.</li>
+          <!-- <li>On your computer, run <strong>Charles</strong>. From the menu, select <strong>Proxy &gt; Proxy Settings</strong>. Ensure a port has been assigned (e.g., 8888) and the <strong>Enable transparent HTTP proxying</strong> option is selected.</li> -->
+          <li>On your computer, run <strong>Charles</strong>. From the menu, select <strong>Proxy &gt; Proxy Settings</strong>. Ensure a port has been assigned (e.g., 8888).
+            <figure class="bcls-figure"><img class="bcls-image" alt="Proxy settings" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/proxy-settings.png" />
+              <figcaption class="bcls-caption--image">Proxy settings</figcaption>
+            </figure>
+          </li>
+          <li>Select <strong>OK</strong> to save changes and close the dialog.</li>
+          <li>From the menu, select <strong>Proxy &gt; SSL Proxy Settings</strong>. Ensure the <strong>Enable SSL Proxying</strong> option is selected.
+            <figure class="bcls-figure"><img class="bcls-image" alt="SSL Proxy settings" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/ssl-proxy-settings.png" />
+              <figcaption class="bcls-caption--image">SSL Proxy settings</figcaption>
+            </figure>
+          </li>
+          <li>In the <strong>Location</strong> section, select the <strong>Add</strong> button. In the <strong>Edit Location</strong> dialog, navigate to the <strong>Port</strong> field and enter <strong>443</strong>. Select <strong>OK</strong> to save this change.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Location port 443" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/port-443.png" />
+              <figcaption class="bcls-caption--image">Location port 443</figcaption>
+            </figure>
+          </li>
+          <li>Select <strong>OK</strong> to close the <strong>Edit Location</strong> dialog.
+            <figure class="bcls-figure"><img class="bcls-image" alt="SSL settings with location" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/ssl-settings-location.png" />
+              <figcaption class="bcls-caption--image">SSL settings with location</figcaption>
+            </figure>
+          </li>
+          <li>Select <strong>OK</strong> to exit the <strong>SSL Proxying Settings</strong> dialog.</li>
+          <li>Navigate to <strong>Help &gt; SSL Proxying &gt; Install Charles Root Certificate on a Mobile Device or Remote Browser</strong>.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Install root certificate" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/01-root-certificate.png" />
+              <figcaption class="bcls-caption--image">Install root certificate</figcaption>
+            </figure>
+          </li>
+          <li id="proxy_hostname_value">You should see a message that identifies the local Server IP and Port number (8888) that you will use to set up the device. You should also see the URL to download and install the certificate. Copy these to your computer for later use.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Certificate message" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/02-certificate-msg.png" />
+              <figcaption class="bcls-caption--image">Certificate message</figcaption>
+            </figure>
+            <aside class="bcls-aside bcls-aside--information">Notice that you will need to enable the Charles certificate to be trusted.</aside>
+          </li>
+        </ol>
+      </section>
+      
+      <section class="bcls-section">
+        <h2 id="Using_Charles_with_iOS_devices">Using Charles with iOS devices</h2>
+        <p>In this section, you will learn how to set up your iOS device to work with Charles on your computer.</p>
+        <ol class="bcls-tasklist-restart">
+          <li>On your device, make sure you are connected to the same network as your computer. You can verify this by navigating to <strong>settings &gt; Wifi</strong> and selecting the network name to show advanced options.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Device network" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/03-device-network.png" />
+              <figcaption class="bcls-caption--image">Device network</figcaption>
+            </figure>
+          </li>
+          <li>In the HTTP section at the bottom, select <strong>Manual</strong> mode. Then, add the Server IP and Port number (8888) that you copied from Charles in a previous step.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Wifi details" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/04-wifi-details.png" />
+              <figcaption class="bcls-caption--image">Wifi details</figcaption>
+            </figure>
+          </li>
+          <li>On your device, open a browser and navigate to <a href="//www.charlesproxy.com/getssl/">http://www.charlesproxy.com/getssl</a>. You will be redirected to your device settings where you will be prompted to install the <strong>Charles Proxy Custom Root Certificate</strong> profile. Select the <strong>Install</strong> button to install the Charles certificate on your device.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Install Charles certificate" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/06-charles-install.png" />
+              <figcaption class="bcls-caption--image">Install Charles certificate</figcaption>
+            </figure>
+          </li>
+          <li>Follow the steps to install the Charles certificate. When complete, select <strong>Done</strong>.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Charles profile installed" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/09-profile-installed.png" />
+              <figcaption class="bcls-caption--image">Charles profile installed</figcaption>
+            </figure>
+          </li>
+          <li>Next, you are ready to ensure that your device trusts the Charles certificate. On your device, navigate to <strong>General &gt; About &gt; Certificate Trust Settings</strong>. Here you should find the Charles Proxy certificate.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Certificate Trust Settings" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/certificate-trust-settings.png" />
+              <figcaption class="bcls-caption--image">Certificate Trust Settings</figcaption>
+            </figure>
+          </li>
+          <li>Enable the Charles certificate. Notice the warning message. You may want to disable this certificate when not debugging with Charles.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Enable trust certificate" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/enable-trust.png" />
+              <figcaption class="bcls-caption--image">Enable trust certificate</figcaption>
+            </figure>
+          </li>
+          <!-- <li>On your device, return to the browser and open any web page. Charles will alert you about the connection attempt. You should allow this.
+    <figure class="bcls-figure"><img class="bcls-image" alt="Allow Charles connection" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/10-connection-alert.png" />
+    <figcaption class="bcls-caption--image">Allow Charles connection</figcaption>
+    </figure>
+    </li> -->
+          <li>Now, you will be able to see any data sent and received in Charles.
+            <figure class="bcls-figure"><img class="bcls-image" alt="See Charles data" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/11-charles-data.png" />
+              <figcaption class="bcls-caption--image">See Charles data</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </section>
+
+      <section class="bcls-section">
+        <h2 id="Using_Charles_with_Android_11">Using Charles with Android 11</h2>
+        <p>In this section, you will learn how to set up your Android device to work with Charles on your computer.</p>
+        <aside class="bcls-aside bcls-aside--information">These steps were performed on a device running Android 11.</aside>
+        
+        <ol class="bcls-tasklist-restart">
+          <li>On your device, go to <strong>Settings</strong> &gt; <strong>Network & internet</strong>.</li>
+          <li>Tap <strong>Wi-Fi</strong>.You will see a list of networks that you have connected to on your device.</li>
+          <li>Select the wireless network that you are currently connected to. Remember, this network must match the network you are connected to on your computer..</li>
+          <li>Tap the pencil icon to edit your internet settings.</li>
+          <li>Set <strong>Proxy</strong> to <strong>Manual</strong>.</li>
+          <li>Paste the value for your Charles <strong>Proxy hostname</strong>, which you should have copied it to your clipboard in <a href="#proxy_hostname_value">the step above</a>. For the <strong>Proxy port</strong>, enter <code translate="No">8888</code>.
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="Proxy host/port values" src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/host-port-values.png" />
+              <figcaption class="bcls-caption--image">Proxy host/port values</figcaption>
+            </figure>
+          </li>
+          <li>Tap <strong>Save</strong>.</li>
+          <li>On your device, open a browser, navigate to <a href="//www.charlesproxy.com/getssl/">https://www.charlesproxy.com/getssl/</a>. This should automatically download the Charles SSL certificate to your device.</li>
+          <li>To install the certificate with Android 11, follow these steps:
+            <ol>
+              <li>Open <strong>Settings</strong>.</li>
+              <li>Navigate to <strong>Security</strong> &gt; <strong>Encryption & credentials</strong> &gt; <strong>Install a certificate</strong>.</li>
+              <li>Select <strong>CA certificate</strong>.</li>
+              <li>You will see a warning. Select <strong>Install anyway</strong>.
+                <figure class="bcls-figure"><img width="400" class="bcls-image" alt="Install anyway" src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/install-anyway.png" />
+                  <figcaption class="bcls-caption--image">Install anyway</figcaption>
+                </figure>
+              </li>
+              <li>Select the Charles proxy SSL certificate.</li>
+              <li>Confirm the certificate installation.</li>
+            </ol>
+          </li>
+          <li>In your device's default browser, navigate to a website. You will be able to see any data sent and received in Charles. Note that it may help to filter the structure list (in this case filter for <strong>brightcove</strong>).
+            <figure class="bcls-figure"><img class="bcls-image" alt="See Data Transfer" src="/assets/images/s-misc-img/developer/debugging-on-mobile/charles/07-charles.png" />
+              <figcaption class="bcls-caption--image">See Data Transfer</figcaption>
+            </figure>
+          </li>
+          <li>To filter network traffic so that you only see traffic from your Android device and not your local machine:
+            <ol>
+              <li>In the Charles top menu, select <strong>Proxy</strong>.</li>
+              <li>Uncheck <strong>macOS Proxy</strong> (or <strong>Windows Proxy</strong>).</li>
+            </ol>
+          </li>
+          <li><strong>Optional</strong>: To clear certificates from your device (running Android 11):
+            <ol>
+              <li>On your device, open <strong>Settings</strong>.</li>
+              <li>Navigate to <strong>Security</strong> &gt; <strong>Encryption & credentials</strong>.</li>
+              <li>Tap <strong>Clear credentials</strong>.</li>
+              <li>Tap <strong>OK</strong> to confirm.</li>
+            </ol>
+          </li>
+        </ol>
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Using_Charles_with_Android_7">Using Charles with Android 7</h2>
+      <p>Beginning with Android 7 (SDK v24), the SSL network is no longer directly viewable as this SDK version introduced a new security feature. To see network traffic through Charles, you need to explicitly tell your Android application to allow SSL intercepts.</p>
+      
+      <ol class="bcls-tasklist-restart">
+        <li>
+          <p>In your application, open the <strong>AndroidManifest.xml</strong> file.</p>
+          <figure class="bcls-figure">
+            <img
+              class="bcls-image--no-border"
+              alt="Android manifest file"
+              src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/android-manifest.png"
+            />
+          </figure>
+        </li>
+        <li>
+          <p>In the <code translate="No">application</code> section, add a <code translate="No">networkSecurityConfig</code> option.</p>
+          <figure class="bcls-figure">
+            <img
+              class="bcls-image--no-border"
+              alt="Network security option"
+              src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/network-security.png"
+            />
+          </figure>
+        </li>
+        <li>
+          <p>In an xml resource folder, add a <code translate="No">network_security_config.xml</code> file as follows:</p>
+          <figure class="bcls-figure">
+            <img
+              class="bcls-image--no-border"
+              alt="Network security xml file"
+              src="/assets/images/s-misc-img/developer/debugging-on-mobile/android/network-security-config.png"
+            />
+          </figure>
+        </li>
+        <li>That's it. You should now see all network traffic coming through Charles.</li>
+      </ol>
+      <h3>Resources</h3>
+      <p>For details, see the following:</p>
+      <ul>
+        <li><a href="https://medium.com/mobile-app-development-publication/android-nougat-charlesing-ssl-network-efa0951e66de">Enable Android Nougat for Charles SSL network</a></li>
+        <li><a href="https://sdks.support.brightcove.com/android/framework/android-pie-support-native-sdk-android.html">Android Pie Support with the Native SDK for Android</a></li>
+      </ul>
+  </section>
+  </article>
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Page Contents</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Page last updated on 28 Jul 2022
+</div>
+
+
+
+<div class="footer-container">
+  <footer class="bcls-footer" role="contentinfo">
+    <div class="row">
+      <div class="region region-footer-top-center col-md-12">
+        <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+          <img src="https://support.brightcove.com/site-assets/images/site/SVG/COVE004_Brightcove_Logo_093020_RGB_KO.svg" class="bc-footer-logo" alt="Brightcove">
+  
+          <h2>Brightcove Support</h2>
+  
+          <ul class="menu">
+            <li>
+              <a href="https://status.brightcove.com">System Status</a>
+            </li>
+            <li>
+              <a href="https://supportportal.brightcove.com">Contact Support</a>
+            </li>
+            <li>
+              <a href="https://support.brightcove.com/">Documentation</a>
+            </li>
+          </ul>
+  
+        </nav>
+        <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+  
+          <h2>Training</h2>
+  
+          <ul class="menu">
+            <li>
+              <a href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Online Courses</a>
+            </li>
+            <li>
+              <a href="https://studio.support.brightcove.com/get-started/training/register-training.html">Register for a course</a>
+            </li>
+            <li>
+              <a href="https://university.brightcove.com/">Brightcove University</a>
+            </li>
+          </ul>
+  
+        </nav>
+        <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+  
+          <h2>Brightcove</h2>
+  
+          <ul class="menu">
+            <li>
+              <a href="https://www.brightcove.com">Brightcove.com</a>
+            </li>
+            <li>
+              <a href="https://supportportal.brightcove.com">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="region region-footer-bottom-center col-md-12">
+        <div class="bcls-copyright footer-menu">
+          <table>
+            <tr>
+              <td>
+                <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+              </td>
+              <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a></td>
+              <td>
+                <div class="gf-links-cols footer-menu">
+                  <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="/assets/s-site-assets-scripts/sajari-search-box.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  <script src="/assets/s-site-assets-scripts/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
