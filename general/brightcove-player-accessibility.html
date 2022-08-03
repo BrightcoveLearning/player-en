@@ -6,6 +6,11 @@ description: In this topic you will learn about the Brightcove Player accessibil
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
     <summary>{{ page.description }}</summary>
+    <style type="text/css">
+      details summary {
+        font-size: 1.35rem;
+      }
+    </style>
 
     <!-- <section class="bcls-section">
       <h2 id="Introduction">Introduction</h2>
@@ -39,7 +44,7 @@ description: In this topic you will learn about the Brightcove Player accessibil
       </ul> 
     </section>
     <section class="bcls-section">
-      <h2 id="keyboard_controls">Keyboard controls</h2>
+      <h2 id="Keyboard_controls">Keyboard controls</h2>
       <p>The Brightcove Player can be controlled using the keyboard. By tabbing to the player controls, the following keys can be used to control and manipulate the player:</p>
       <ul>
         <li>Big play button - Press <strong>Space</strong> or <strong>Enter</strong> to play video</li>
@@ -60,7 +65,7 @@ description: In this topic you will learn about the Brightcove Player accessibil
       </ul>
     </section>
     <section class="bcls-section">
-      <h2 id="screen_readers">Screen readers</h2>
+      <h2 id="Screen_readers">Screen readers</h2>
       <p>The Brightcove Player is compatible with screen readers on desktop browsers as well as iOS and Android devices. Brightcove will test and attempt to resolve issues with:</p>
       <ul>
         <li>TalkBack on latest Android OS</li>
@@ -68,6 +73,52 @@ description: In this topic you will learn about the Brightcove Player accessibil
         <li>The latest version of JAWS on Windows with Firefox and Chrome on Windows</li>
         <li>Mac OS VoiceOver with Safari, Chrome and Firefox</li>
       </ul>
+    </section>
+    <section class="bcls-section">
+      <h2 id="Brightcove_Player_Accessibility_FAQ">Brightcove Player Accessibility FAQ</h2>
+      <p>Here are some common questions and answers about accessibility when using Brightcove Plaeyr.</p>
+
+      <details>
+        <summary>What version of the player is compliant with WCAG 2.1 AA?</summary>
+        <p>Our most recent set of tests were validated against player version <strong>6.64.3</strong>, with the default skin with the blue progress bar indicator (also known as the <strong>Sapphire</strong> skin). We worked with a third-party vendor to ensure an unbiased review.</p>
+      </details>
+      <br/>
+
+      <details>
+        <summary>Is the player skin customizable?</summary>
+        <p>We ran tests and found that the player skin failed on color contrast. Is there anything we can do?</p>
+        <p>Yes! The color scheme is customizable. For details, see the following:
+        </p>
+        <ul>
+          <li><a href="https://studio.support.brightcove.com/players/styling-players.html">Styling Players in Studio</a></li>
+          <li><a href="https://player.support.brightcove.com/styling/customizing-player-appearance.html">Customizing Player Appearance</a></li>
+        </ul>
+      </details>
+      <br/>
+
+      <details>
+        <summary>How can we add a <code translate="No">title</code> to the iframe?</summary>
+        <p>The WCAG guidelines require a <code translate="No">title</code> attribute when embedding the player via an iframe.</p>
+        <p>Because the player dynamically loads content from the catalog, it is not possible to give the iframe a meaningful or relevant title before a video is loaded. The player is not able to update the title of the parent iframe element. Customers can add your own title to the iframe using:</p>
+        <pre><code class="language-javascript" translate="No">&lt;iframe title=&quot;My video title&quot; src=&quot;//players.brightcove.net/...&quot;&gt;</code></pre>
+      </details>
+      <br/>
+
+      <details>
+        <summary>Are captions present in the embed code?</summary>
+        <p>During an audit you may notice that captions were not present in the embed code (WCAG 2.1 AA Success Criterion 1.2.2).</p>
+        <p>Brightcove makes caption tracks available for the user. If tracks have been added to the video they will be made available to the user once the video has loaded. Similar to the title attribute above, the player cannot know if accompanying captions/text tracks exist until the video details have been returned by the Brightcove backend systems. In this case, the user will have the tracks, but the captions will not be present in the embed code.</p>
+      </details>
+      <br/>
+
+      <details>
+        <summary>Who can we reach out to with further questions?</summary>
+        <p>If you've run the player through an automated tool, and an item was flagged and it's not included in VPAT or in this FAQ, you can contact Brightcove.</p>
+        <p>For existing customers, please contact your Brightcove account manager.</p>
+        <p>For new customers, reach out to the <a href="https://www.brightcove.com/en/contact-sales/">Brightcove sales team</a>.</p>
+      </details>
+      <br/>
+     
     </section> -->
 
 
