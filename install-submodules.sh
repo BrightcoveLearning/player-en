@@ -13,11 +13,11 @@ git submodule add https://github.com/BrightcoveLearning/s-feather-img
 git submodule add https://github.com/BrightcoveLearning/s-training-img
 git submodule add https://github.com/BrightcoveLearning/s-live-img
 git submodule add https://github.com/BrightcoveLearning/s-misc-img
+git submodule add https://github.com/BrightcoveLearning/s-apis-general-img
 cd ..
 git submodule add https://github.com/BrightcoveLearning/s-site-assets-favicons
 git submodule add https://github.com/BrightcoveLearning/s-site-assets-stylesheets
 git submodule add https://github.com/BrightcoveLearning/s-site-assets-scripts
 git submodule add https://github.com/BrightcoveLearning/s-site-assets-images
-git submodule add https://github.com/BrightcoveLearning/s-apis-general-img
 cd ..
 git submodule update --init --recursive
