@@ -256,13 +256,16 @@ description: This document describes functionality you can implement if you wish
   </section>
   <section id="faq" class="bcls-section">
     <h2 id="FAQ">FAQ</h2>
-    <p class="bcls-question">How can an ad plugin access media metadata?</p>
-    <p class="bcls-answer">For Video Cloud customers, the plugin will access metadata via the <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object, which will be populated with metadata set in Video Cloud. Brightcove Player customers will be responsible for populating the <a href="/references/video-metadata-mediainfo.html">mediainfo object manually</a> since they'll be using a non-Video Cloud CMS.</p>
-    <p class="bcls-question">How can options be specified for an ad plugin?</p>
-    <p class="bcls-answer">Plugin options can be specified in Studio's <strong>Players &gt; Plugins</strong> section. The player with the plugin containing options can be published using an iframe or in-page embed code, but the plugin options contain static info (e.g., description). You can pass dynamic data to the plugin using the technique shown in the <a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a> document.</p>
-    <p class="bcls-question">How should an ad plugin support Flash-based ads?</p>
-    <p class="bcls-answer">Brightcove recommends packaging a Flash-based ad player as part of your ad plugin implementation and overlaying that player over the content while the player is in linear ad mode.</p>
-    <p class="bcls-question">How can cue points trigger mid-rolls?</p>
-    <p class="bcls-answer">On cue change, call <code translate="No">startLinearAdMode()</code> to begin the midroll. For information on listening for, and setting, cue points see the <a href="/advertising/displaying-ads-using-ad-cue-points.html">Using Cue Points</a> document.</p>
-  </section>
+    <details>
+      <summary>How can an ad plugin access media metadata?</summary>
+    For Video Cloud customers, the plugin will access metadata via the <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object, which will be populated with metadata set in Video Cloud. Brightcove Player customers will be responsible for populating the <a href="/references/video-metadata-mediainfo.html">mediainfo object manually</a> since they'll be using a non-Video Cloud CMS.</details>
+    <details>
+      <summary>How can options be specified for an ad plugin?</summary>
+    Plugin options can be specified in Studio's <strong>Players &gt; Plugins</strong> section. The player with the plugin containing options can be published using an iframe or in-page embed code, but the plugin options contain static info (e.g., description). You can pass dynamic data to the plugin using the technique shown in the <a href="/coding-topics/pass-data-plugin.html">Pass Data to the Plugin</a> document.</details>
+    <details>
+      <summary>How should an ad plugin support Flash-based ads?</summary>
+   Brightcove recommends packaging a Flash-based ad player as part of your ad plugin implementation and overlaying that player over the content while the player is in linear ad mode.</details>
+   <details>
+    <summary>How can cue points trigger mid-rolls?</summary>
+   On cue change, call <code translate="No">startLinearAdMode()</code> to begin the midroll. For information on listening for, and setting, cue points see the <a href="/advertising/displaying-ads-using-ad-cue-points.html">Using Cue Points</a> document.</details>
 </article>
