@@ -27,7 +27,7 @@
         "name":"Great Blue Heron", 
         "sources":[
           {
-          "src":"//support.brightcove.com/test-assets/videos/Great_Blue_Heron.mp4",
+          "src":"https://support.brightcove.com/test-assets/videos/Great_Blue_Heron.mp4",
           "type":"application/x-mpegURL"
           }]	
         },
@@ -35,7 +35,7 @@
         "name":"Oyster Catcher", 
         "sources":[
           {
-          "src":"//support.brightcove.com/test-assets/videos/oystercatcher.mp4",
+          "src":"https://support.brightcove.com/test-assets/videos/oystercatcher.mp4",
           "type":"application/x-mpegURL"
           }]
         }
