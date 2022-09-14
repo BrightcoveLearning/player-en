@@ -438,6 +438,7 @@ parent: General Information
       <li><a href="#autoplay">autoplay</a></li>
       <li><a href="#video_cloud">base_url (property of video_cloud)</a></li>
       <li><a href="#block_robots">block_robots</a></li>
+      <li><a href="#china_proxy_domain">china_proxy_domain</a></li>
       <li><a href="#context_menu">context_menu</a></li>
       <li><a href="#crossorigin">crossorigin</a></li>
       <li><a href="#css">css</a></li>
@@ -454,10 +455,10 @@ parent: General Information
       <li><a href="#language">language</a></li>
       <li><a href="#languages">languages</a></li>
       <li><a href="#loop">loop</a></li>
-      <li><a href="#media">media</a></li>
     </ul>
 
     <ul style="display:inline-block;vertical-align:top;margin-left:1em;">
+      <li><a href="#media">media</a></li>
       <li><a href="#muted">muted</a></li>
       <li><a href="#picture_in_picture_control">picture_in_picture_control</a></li>
       <li><a href="#play_button">play_button</a></li>
@@ -476,9 +477,8 @@ parent: General Information
       <li><a href="#stylesheets">stylesheets</a></li>
       <li><a href="#suppress_not_supported_error">suppress_not_supported_error</a></li>
       <li><a href="#teach_order">tech_order</a></li>
-      <li><a href="#player">version (propery of player)</a></li>
-      <li><a href="#video_cloud">video_cloud</a></li>
       <li><a href="#umd">umd</a></li>
+      <li><a href="#player">version (property of player)</a></li>
       <li><a href="#video_cloud">video_cloud</a></li>
       <li><a href="#volume_orientation">volume_orientation</a></li>
       <li><a href="#vttjs">vttjs</a></li>
@@ -592,12 +592,12 @@ parent: General Information
         <li>
           <p><strong>Audio Only Mode</strong></p>
           <p>In this mode, all player UI is hidden except for the control bar.</p>
-    <aside class="bcls-aside bcls-aside--information">This mode changes the dimensions of the player. The vertical height of the Audio Only player is <code translate="No">45px</code>.</aside>
+          <aside class="bcls-aside bcls-aside--information">This mode changes the dimensions of the player. The vertical height of the Audio Only player is <code translate="No">45px</code>.</aside>
         </li>
         <li>
           <p><strong>Audio Poster Mode</strong></p>
           <p>In this mode, the poster image is permanently displayed during playback. The player dimensions remain the same as a video player in this mode.</p>
-    <aside class="bcls-aside bcls-aside--tip">Audio poster mode is automatically enabled when loading a source with an audio mimeType.</aside>
+          <aside class="bcls-aside bcls-aside--tip">Audio poster mode is automatically enabled when loading a source with an audio mimeType.</aside>
         </li>
       </ul>
       <p>Both modes cannot be enabled at the same time.</p>
@@ -728,7 +728,7 @@ parent: General Information
       <pre class="line-numbers"><code class="language-html" translate="No">&lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow&quot;&gt;</code></pre>
     </section>
 
-    <!--     <section class="bcls-section">
+    <section class="bcls-section">
       <h3 id="china_proxy_domain">china_proxy_domain</h3>
 
       <p><code translate="No">china_proxy_domain</code> information:</p>
@@ -740,7 +740,7 @@ parent: General Information
           <pre class="line-numbers"><code class="language-json" translate="No">"china_proxy_domain": "china.example.com"</code></pre>
         </li>
       </ul>
-    </section> -->
+    </section>
 
     <section class="bcls-section">
       <h3 id="context_menu">context_menu</h3>
@@ -1935,19 +1935,19 @@ parent: General Information
                 <td>false</td>
                 <td>"none"</td>
                 <td>Disables all Brightcove Player styling. This is the option to use for a highly customized UI from the ground up.</td>
-               
+
               </tr>
               <tr>
                 <td>undefined</td>
                 <td>"luna"</td>
                 <td>Leaving this <code translate="No">undefined</code> will cause the player to use the default skin (a.k.a. Luna).</td>
-              
+
               </tr>
               <tr>
                 <td>"sapphire"</td>
                 <td>"sapphire"</td>
                 <td>Default skin when using Video Cloud Studio to create players, but not the default for the player itself.</td>
-              
+
               </tr>
             </tbody>
           </table>
