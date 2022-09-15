@@ -17,18 +17,6 @@ parent: Plugins
     <p>
       <iframe src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5995509672001" allowfullscreen="" allow="encrypted-media" width="800" height="450"></iframe>
     </p>
-
-    <aside class="bcls-aside bcls-aside--information">
-      <p>Notes:</p>
-      <p><strong>SSAI midroll behavior</strong></p>
-      Because server-side ads (SSAI) are stitched into the stream, the treatment of SSAI midrolls differs from that of CSAI midrolls. 
-    For SSAI midrolls, here is the expected behavior:
-      <ul>
-        <li>When a user moves the playhead past an ad, the ad will play before the content resumes</li>
-        <li>When the user moves the playhead back before the ad, the ad will play again</li>
-      </ul>
-      In conclusion, every time a user crosses a midroll ad, it will play immediately, no matter how many times they cross it.  
-    </aside>
   </section>
 
   <section class="bcls-section">
@@ -480,7 +468,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
   </section>
 
   <section class="bcls-section">
-    <h2 id="Limitations">Limitations</h2>
+    <h2 id="Notes">Notes</h2>
     <h3>SSAI VOD</h3>
       <ul>
         <li>
@@ -501,6 +489,15 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
         <li>For a list of limitations, see the <a href="https://apis.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html">Brightcove Live API with SSAI</a> document.   
         </li>
       </ul>  
+
+      <h3>SSAI midroll behavior</h3>
+      Because server-side ads (SSAI) are stitched into the stream, the treatment of SSAI midrolls differs from that of CSAI midrolls. 
+    For SSAI midrolls, here is the expected behavior:
+      <ul>
+        <li>When a user moves the playhead past an ad, the ad will play before the content resumes</li>
+        <li>When the user moves the playhead back before the ad, the ad will play again</li>
+      </ul>
+      In conclusion, every time a user crosses a midroll ad, it will play immediately, no matter how many times they cross it. 
   </section>
 
   <section class="bcls-section">
