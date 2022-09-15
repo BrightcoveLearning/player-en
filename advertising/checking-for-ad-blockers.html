@@ -9,7 +9,7 @@ parent: "Advertising"
 
   <section class="bcls-section">
     <h2 id="section-name">Using the usingAdBlocker() method</h2>
-    <p>Brightcove Player has as method that that checks to see if an ad blocker is being used by the browser player your video. This method is <code>usingAdBlocker()</code>. Once the determination is made if an ad blocker is present, your business rules will guide you on further actions. In the following example three ads will be displayed during the video, or if an ad blocker is present a message is displayed below the player.</p>
+    <p>Brightcove Player has as method that that checks to see if an ad blocker is being used by the browser playing your video. This method is <code>usingAdBlocker()</code>. Once the determination is made if an ad blocker is detected, your business rules will guide you on further actions. In the following example three ads will be displayed during the video, or if an ad blocker is detected a message is displayed below the player.</p>
     <div style="width: 600px;">
       <video-js id="myPlayerID"
         data-account="1752604059001"
@@ -23,7 +23,7 @@ parent: "Advertising"
     </div>
     <div id="ad-blocker-note"></div>
     <br>
-    <p>In case you don't have an ad blocker installed for testing, the message boxed in red is what is displayed when an ad blocker is detected:</p>
+    <p>In case you don't have an ad blocker installed for testing, for this example the message boxed in red is displayed when an ad blocker is detected:</p>
     <figure class="bcls-figure">
       <img class="bcls-image" src="/assets/advertising/checking-for-ad-blocker/ad-blocked.png" alt="">
     </figure>
@@ -31,8 +31,61 @@ parent: "Advertising"
 
   <section class="bcls-section">
     <h2 id="Implementation">Implementation</h2>
-    <p>The following code is a full example of using the <code>usingAdBlocker()</code> method. The full example uses a JavaScript promise as the implementation.</p>
-    <pre class="line-numbers"><code class="language-html" translate="No"></code></pre>
+    <p>The following code is a full example of using the <code>usingAdBlocker()</code> method. Basically the code does the following:</p>
+    <ul>
+      <li>Uses a promise to check and see if an ad blocker is detected.</li>
+      <li>If yes, a paragraph is dynamically created and inserted into a pre-existing <code>div</code>.</li>
+    </ul>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;div style=&quot;width: 600px;&quot;&gt;
+    &lt;video-js id=&quot;myPlayerID&quot;
+      data-account=&quot;1752604059001&quot;
+      data-player=&quot;ZDaDSLULho&quot;
+      data-embed=&quot;default&quot;
+      controls=&quot;&quot;
+      data-video-id=&quot;5701193190001&quot;
+      data-playlist-id=&quot;&quot;
+      data-application-id=&quot;&quot;
+      width=&quot;600&quot; height=&quot;337.5&quot; class=&quot;vjs-fluid&quot;&gt;&lt;/video-js&gt;
+  &lt;/div&gt;
+  &lt;script src=&quot;https://players.brightcove.net/1752604059001/ZDaDSLULho_default/index.min.js&quot;&gt;&lt;/script&gt;
+  
+  &lt;div id=&quot;ad-blocker-note&quot;&gt;&lt;/div&gt;
+  
+  &lt;script&gt;
+    videojs.getPlayer(&apos;myPlayerID&apos;).ready(function () {
+      var myPlayer = this;
+      myPlayer.usingAdBlocker().then( hasBlocker =&gt; {
+        if (hasBlocker) {
+          var newP = document.createElement(&quot;p&quot;);
+          newP = &apos;&lt;strong&gt;Ads will not play as you are using an ad blocker.&lt;/strong&gt;&apos;;
+          document.getElementById(&quot;ad-blocker-note&quot;).insertAdjacentHTML(&apos;afterbegin&apos;, newP);
+      }
+    });
+  
+  &lt;/script&gt;
+  
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+    <p>Of course, you can use an <code>if</code> statement for the JavaScript logic.</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.getPlayer(&apos;myPlayerID&apos;).ready(function () {
+  var myPlayer = this;
+  if (myPlayer.usingAdBlocker()) {
+    var newP = document.createElement("p");
+    newP = '<strong>This ad will not play as you are using an ad blocker.</strong>';
+    document.getElementById("ad-blocker-note2").insertAdjacentHTML('afterbegin', newP);
+  }
+});</code></pre>
   </section>
 
   <script src="https://players.brightcove.net/1752604059001/ZDaDSLULho_default/index.min.js"></script>
@@ -52,4 +105,4 @@ parent: "Advertising"
     });
   </script>
 
-</article>–
+</article>
