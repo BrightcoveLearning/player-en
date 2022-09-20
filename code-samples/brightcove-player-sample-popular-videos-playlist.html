@@ -176,15 +176,13 @@ parent: Code Samples
 
     <h3>Set up the <span translate="No">Analytics API</span> request</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Set up <span translate="No">Analytics API</span> request +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Set up <span translate="No">Analytics API</span> request +++</code></pre>
     <p>Set up the URL parameters for the <span translate="No">Analytics API</span> request. This request will return 6 videos from our Brightcove account that have the most video views in the last 24 hours. They will be sorted in descending order.</p>
     <!-- UPDATE task 2 -->
 
     <h3>Get data from the Analytics API</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Get data from <span translate="No">Analytics API</span> +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Get data from <span translate="No">Analytics API</span> +++</code></pre>
     <p>This example calls a <a href="#proxy_code">server-side proxy</a> written in PHP to send your HTTP request to the Analytics API.</p>
     <!-- UPDATE task 3 -->
 
@@ -197,15 +195,13 @@ parent: Code Samples
 
     <h3>Get the video objects</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Get the video objects +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Get the video objects +++</code></pre>
     <p>For each video id returned from the Analytics API, use the <code translate="No">catalog.getVideo()</code> method to get the video object.</p>
     <!-- UPDATE task 5 -->
 
     <h3>Load the playlist</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Load the playlist +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Load the playlist +++</code></pre>
     <p>Using the video object array, use the <code translate="No">playlist()</code> method to load the videos into the player's playlist.</p>
   </section>
   <!-- UPDATE CSS description -->
@@ -218,10 +214,9 @@ parent: Code Samples
     <h2 id="Plugin_code">Plugin code</h2>
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
-    <pre class="line-numbers">
-		<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
-			var myPlayer = this;
-			...
+    <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
+var myPlayer = this;
+...
 		});</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
     <pre class="line-numbers">
