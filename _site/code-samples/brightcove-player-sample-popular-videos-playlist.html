@@ -1697,15 +1697,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <p>The playlist will appear automatically as soon as the video data is retrieved. The request to the <span translate="No">Analytics API</span> to get the 6 most viewed videos in the past 24 hours is shown, along with the API response.</p>
     <!-- UPDATE codepen here -->
-    
+
     <p data-height="711" data-theme-id="34967" data-slug-hash="ELWVXr" data-default-tab="result" data-user="bcls1969" data-embed-version="2" data-pen-title="18183-popular-videos-playlist" class="codepen">See the Pen <a href="https://codepen.io/team/bcls1969/pen/ELWVXr/">18183-popular-videos-playlist</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@bcls1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
     <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18183-popular-videos-playlist">complete solution on GitHub</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18183-popular-videos-playlist">complete solution on GitHub</a>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
@@ -1723,7 +1723,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -1740,7 +1742,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -1768,7 +1772,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Getting_Credentials">Getting Credentials</h2></summary>
+      <summary>
+        <h2 id="Getting_Credentials">Getting Credentials</h2>
+      </summary>
       <p>To get a <code translate="No">client_id</code> and <code translate="No">client_secret</code>, you will need to go to the OAuth UI and register this app:</p>
       <ul>
         <li><a href="https://studio.support.brightcove.com/admin/managing-api-authentication-credentials.html">Managing API Authentication Credentials</a></li>
@@ -1793,7 +1799,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -1814,7 +1820,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </table>
   </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -1822,25 +1828,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
     <h3>Other HTML</h3>
     <p>When using the Advanced (in-page embed) player, you need to add an HTML element to specify the location of the playlist. For details, see the <a href="/general/implementing-playlists.html#Advanced_in_page_embed_player">Implementing Playlists</a> document.</p>
-    <pre>
-		<code class="language-html" translate="No">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
+    <pre><code class="language-html" translate="No">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
     <p>Remember to add the <code translate="No">id</code> attribute to the <code translate="No">video</code> tag in the player embed code.</p>
-    <pre>
-		<code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
-		...</code></pre>
+    <pre><code class="language-html" translate="No">&lt;video-js <span class="bcls-highlight">id="myPlayerID"</span>
+...</code></pre>
     <p>For testing purposes, we've added HTML elements below the player to display the <span translate="No">Analytics API</span> request and response.</p>
-    <pre class="line-numbers">
-		<code class="language-html" translate="No">&lt;p&gt;
-			&lt;strong&gt;Analytics API request:&lt;/strong&gt;
-		&lt;/p&gt;
-		&lt;pre id="apiRequest"&gt;&lt;/pre&gt;
-		&lt;p&gt;
-			&lt;strong&gt;Analytics Response data&lt;/strong&gt;
-		&lt;/p&gt;
-		&lt;pre id="responseData"&gt;&lt;/pre&gt;</code></pre>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;p&gt;
+  &lt;strong&gt;Analytics API request:&lt;/strong&gt;
+&lt;/p&gt;
+&lt;pre id="apiRequest"&gt;&lt;/pre&gt;
+&lt;p&gt;
+  &lt;strong&gt;Analytics Response data&lt;/strong&gt;
+&lt;/p&gt;
+&lt;pre id="responseData"&gt;&lt;/pre&gt;</code></pre>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
@@ -1852,35 +1855,35 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>Load the playlist</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Set up the <span translate="No">Analytics API</span> request</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 		<code class="language-javascript" translate="No">// +++ Set up <span translate="No">Analytics API</span> request +++</code></pre>
     <p>Set up the URL parameters for the <span translate="No">Analytics API</span> request. This request will return 6 videos from our Brightcove account that have the most video views in the last 24 hours. They will be sorted in descending order.</p>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Get data from the Analytics API</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 		<code class="language-javascript" translate="No">// +++ Get data from <span translate="No">Analytics API</span> +++</code></pre>
     <p>This example calls a <a href="#proxy_code">server-side proxy</a> written in PHP to send your HTTP request to the Analytics API.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Extract the video ids</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 		<code class="language-javascript" translate="No">// +++ Extract the video ids +++</code></pre>
     <p>Extract the video ids from the API response data, and store them in an array.</p>
     <!-- UPDATE task 4 -->
-    
+
     <h3>Get the video objects</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 		<code class="language-javascript" translate="No">// +++ Get the video objects +++</code></pre>
     <p>For each video id returned from the Analytics API, use the <code translate="No">catalog.getVideo()</code> method to get the video object.</p>
     <!-- UPDATE task 5 -->
-    
+
     <h3>Load the playlist</h3>
     <p>Find the code which is labeled:</p>
     <pre>
@@ -1888,7 +1891,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Using the video object array, use the <code translate="No">playlist()</code> method to load the videos into the player's playlist.</p>
   </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
     <p>CSS is used to style the player and the playlist. For testing purposes, the <span translate="No">Analytics API</span> request and response fields are also styled with CSS.</p>
@@ -1909,7 +1912,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 			...
 		});</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
-    
+
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18183-popular-videos-playlist/blob/master/plugin/popular-videos.js">popular-videos.js</a>.</p>
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
@@ -1920,7 +1923,6 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>In order to build your own version the sample app on this page, you must create and host your own proxy. (The proxies used by Brightcove Learning Services only accept requests from Brightcove domains.) A sample proxy, very similar to the one we use, but without the checks that block requests from non-Brightcove domains, can be found in <a href="https://github.com/BrightcoveLearning/sample-proxy-apps">this GitHub repository</a>. You will also find basic instructions for using it there, and a more elaborate guide to building apps around the proxy in <a href="/getting-started/learning-guide-using-rest-apis.html">Using the REST APIs</a>.</p>
   </section>
 </article>
-
 <!-- complete bootstrap layout -->
     </div>
     <div class="col-sm-2 right-side-bar">
