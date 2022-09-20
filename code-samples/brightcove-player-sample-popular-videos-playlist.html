@@ -188,8 +188,7 @@ parent: Code Samples
 
     <h3>Extract the video ids</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Extract the video ids +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Extract the video ids +++</code></pre>
     <p>Extract the video ids from the API response data, and store them in an array.</p>
     <!-- UPDATE task 4 -->
 
@@ -215,15 +214,14 @@ parent: Code Samples
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
     <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
-var myPlayer = this;
-...
-		});</code></pre>
+  var myPlayer = this;
+  ...
+});</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-    <pre class="line-numbers">
-		<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
-			var myPlayer = this;
-			...
-		});</code></pre>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
+  var myPlayer = this;
+  ...
+});</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
 
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18183-popular-videos-playlist/blob/master/plugin/popular-videos.js">popular-videos.js</a>.</p>
