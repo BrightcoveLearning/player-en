@@ -34,7 +34,7 @@
     <div class="title">
       <h1><a href="index.html" class="link">Brightcove Player API Documentation</a></h1>
 
-      <span class="version">v6.65.1</span>
+      <span class="version">v6.66.5</span>
 
     </div>
     <div class="search-container" id="search-container">
@@ -5915,6 +5915,8 @@ class Html5 extends Tech {
     const source = options.source;
     let crossoriginTracks = false;
 
+    this.featuresVideoFrameCallback = this.featuresVideoFrameCallback &amp;&amp; this.el_.tagName === 'VIDEO';
+
     // Set the source if one is provided
     // 1) Check if the source is new (if not, we want to keep the original so playback isn't interrupted)
     // 2) Check to see if the network state of the tag was failed at init, and if so, reset the source
@@ -5989,8 +5991,6 @@ class Html5 extends Tech {
     // on iOS, we want to proxy `webkitbeginfullscreen` and `webkitendfullscreen`
     // into a `fullscreenchange` event
     this.proxyWebkitFullscreen_();
-
-    this.featuresVideoFrameCallback = this.featuresVideoFrameCallback &amp;&amp; this.el_.tagName === 'VIDEO';
 
     this.triggerReady();
   }
@@ -6621,12 +6621,15 @@ class Html5 extends Tech {
 
   /**
    * Native requestVideoFrameCallback if supported by browser/tech, or fallback
+   * Don't use rVCF on Safari when DRM is playing, as it doesn't fire
+   * Needs to be checked later than the constructor
+   * This will be a false positive for clear sources loaded after a Fairplay source
    *
    * @param {function} cb function to call
    * @return {number} id of request
    */
   requestVideoFrameCallback(cb) {
-    if (this.featuresVideoFrameCallback) {
+    if (this.featuresVideoFrameCallback &amp;&amp; !this.el_.webkitKeys) {
       return this.el_.requestVideoFrameCallback(cb);
     }
     return super.requestVideoFrameCallback(cb);
@@ -6638,7 +6641,7 @@ class Html5 extends Tech {
    * @param {number} id request id to cancel
    */
   cancelVideoFrameCallback(id) {
-    if (this.featuresVideoFrameCallback) {
+    if (this.featuresVideoFrameCallback &amp;&amp; !this.el_.webkitKeys) {
       this.el_.cancelVideoFrameCallback(id);
     } else {
       super.cancelVideoFrameCallback(id);
@@ -8029,7 +8032,7 @@ export default Html5;
 
   <footer>
     <img class="logo" src="//docs.brightcove.com/brightcove-player/doc-header-image/bc-logo.png" style="width: 50px; height: 46px">
-    <div class="footer-text"><span class='copyright'>©2017 <a href='https://brightcove.com' target='_blank'>Brightcove, Inc</a>.</div>
+    <div class="footer-text"><span class='copyright'>©2022 <a href='https://brightcove.com' target='_blank'>Brightcove, Inc</a>.</div>
   </footer>
   <script>prettyPrint();</script>
   <script src="scripts/jquery.min.js"></script>
