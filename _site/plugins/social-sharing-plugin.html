@@ -1726,6 +1726,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </ul>
     </aside>
   </section>
+
   <section class="bcls-section">
     <h2 id="Configure_player">Configure player</h2>
     <p>To add the social sharing plugin, follow these steps:</p>
@@ -1738,7 +1739,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>To publish the player, select <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
       <li>To close the open dialog, select <strong>Close</strong>.</li>
     </ol>
+    <aside class="bcls-aside bcls-aside--information">
+     <p>Please note that if you implement the Social Sharing plugin with a player using iFrame embed, the resulting Direct Link URL is not always the page URL, and it could show the player URL, for example, <code translate="no">"players.brightcove.net"</code>.</p>
+     <p>This is due to the following header directive on the parent page:</p>
+     <pre class="line-numbers"><code class="language-js" translate="No">referrer-policy: no-referrer-when-downgrade</code></pre>
+     <p>When this is present, the plugin returns the full URL of the parent page. Otherwise, it returns the player URL.</p>
+    </aside>
   </section>
+
   <section class="bcls-section">
     <h2 id="Configure_player_with_options">Configure player with options</h2>
     <p>For a more advanced configuration, you can use <a href="#Options">Options</a> to configure the plugin. To do so, follow these steps:</p>
