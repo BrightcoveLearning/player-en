@@ -1,6 +1,7 @@
 ---
 title: 'Brightcove Player Sample: All Time Video Views'
-description: '<p>In this topic, you will learn how to display the all-time views for each video loaded into a player.</p><aside class="bcls-aside bcls-aside--information">The content in this document applies to Video Cloud only.</aside>'
+description: '<p>In this topic, you will learn how to display the all-time views for each video loaded into a player.</p>
+<aside class="bcls-aside bcls-aside--information">The content in this document applies to Video Cloud only.</aside>'
 parent: Code Samples
 ---
 <h1>{{ page.title }}</h1>
@@ -13,16 +14,16 @@ parent: Code Samples
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <p>The player below includes a playlist to show you that the code used to retrieve all time views will work with playlists. It will also work with a single video player.</p>
     <p>You should see the all-time views for the first video displayed below the player. Select other videos in the playlist to see their all-time views displayed. Note that the views report area will be blank for a short period of time when the data is being retrieved.</p>
     <!-- UPDATE codepen here -->
-    
-    <p data-height="470" data-theme-id="34967" data-slug-hash="ppjJrm" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="18154-all-time-video-views" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/ppjJrm/">18154-all-time-video-views</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+    <p data-height="500" data-theme-id="34967" data-slug-hash="ppjJrm" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="18154-all-time-video-views" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/ppjJrm/">18154-all-time-video-views</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
     <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
     <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18154-all-time-video-views">complete solution on GitHub</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18154-all-time-video-views">complete solution on GitHub</a>.</p>
     <aside class="bcls-aside bcls-aside--information">Note:
       <ul>
         <li>This application code requires a proxy on the server to get the all-time views from the Analytics API. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</li>
@@ -32,7 +33,9 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -49,7 +52,9 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -78,7 +83,7 @@ parent: Code Samples
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -111,7 +116,7 @@ parent: Code Samples
     </table>
   </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -121,12 +126,12 @@ parent: Code Samples
     <p>An HTML <code translate="No">&lt;div&gt;</code> tag with a <code translate="No">class</code> of <code translate="No">vjs-playlist</code> and an <code translate="No">id</code> of <code translate="No">bcls_alltimePlaysPlaylist</code> is added as the location for the playlist.</p>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
     <ul>
-      <li>Create an HTML element to hold the views information. This is a dynamically created <code translate="No">&lt;p&gt;</code> tag, and is dynamically placed in the DOM&gt;.</li>
+      <li>Create an HTML element to hold the views information. This is a dynamically created <code translate="No">&lt;p&gt;</code> tag, and is dynamically placed in the DOM.</li>
       <li>Retrieve the ID of the first video placed in the player for use in retrieving its all time views.</li>
       <li>Setup to retrieve other video's IDs as they play from the playlist</li>
       <li>Prepare to make the <span translate="No">Analytics API</span> request for the desired video.</li>
@@ -134,43 +139,38 @@ parent: Code Samples
       <li>Display the returned views data.</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Dynamically create and place an HTML paragraph element</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Create the element to hold the video views +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Create the element to hold the video views +++</code></pre>
     <p>Here a paragraph element is created, styled and placed. Note that the code accounts for the existence of a playlist when determining placement.</p>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Set listener for future requests</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Set listener for future requests +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Set listener for future requests +++</code></pre>
     <p>Because of some initialization tasks, the first <code translate="No">loadedmetadata</code> event is used with the <code translate="No">one()</code> method. After that the code uses the <code translate="No">on()</code> method to handle all following <code translate="No">loadedmetadata</code> event dispatching.</p>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Get the ID of the video initially placed in player.</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Get the current video id from mediainfo then start process to get views count +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Get the current video id from mediainfo then start process to get views count +++</code></pre>
     <p>The ID is part of the <code translate="No">mediainfo</code> object.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Prepare information for request to proxy/Analytics API</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Prepare information for request to proxy/Analytics API +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Prepare information for request to proxy/Analytics API +++</code></pre>
     <p>This is nearly standard code used for all Brightcove REST API calls and detail in the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Make actual call to proxy/Analytics API</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-		<code class="language-javascript" translate="No">// +++ Prepare information for request to proxy/Analytics API +++</code></pre>
+    <pre><code class="language-javascript" translate="No">// +++ Prepare information for request to proxy/Analytics API +++</code></pre>
     <p>This is nearly standard code used for all Brightcove REST API calls and detail in the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</p>
   </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
     <p>The CSS used styles the player/playlist size and placement.</p>
@@ -179,19 +179,17 @@ parent: Code Samples
     <h2 id="Plugin_code">Plugin code</h2>
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
-    <pre class="line-numbers">
-		<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
-			var myPlayer = this;
-			...
-		});</code></pre>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
+	var myPlayer = this;
+	...
+});</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-    <pre class="line-numbers">
-		<code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
-			var myPlayer = this;
-			...
-		});</code></pre>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
+  var myPlayer = this;
+  ...
+});</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
-    
+
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18154-all-time-video-views/blob/master/plugin/all-time-views.js">all-time-views.js</a>.</p>
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
