@@ -1668,7 +1668,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
     <section class="bcls-section">
       <h2 id="Introduction">Introduction</h2>
-      <p>With Brightcove Player 7, there are many changes and improvements to the backend of the player. These include:</p>
+      <p>Version 7 is the next major version release of Brightcove Player, available in October 2022. The changes and improvements to the player include those in Video.js 8 and VHS (Video.js HTTP Streaming) 3. </p>
+      <p>Features and improvements include:</p>
       <ul>
         <li>Designed for most modern browsers</li>
         <li>ES6 by default</li>
@@ -1683,252 +1684,52 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li>Modern design</li>
         <li>Improved player behavior</li>
       </ul>
+      <p>We are extremely proud that Brightcove Player remains the industry-leading web video player.</p>
       <aside class="bcls-aside bcls-aside--information">Brightcove will <strong>never</strong> automatically upgrade players to a new major version.</aside>
-
     </section>
 
     <section class="bcls-section">
-      <h2>Object</h2>
+      <h2 id="Browser and Device Support">Browser and Device Support</h2>
+      <h3>Updated System Requirements</h3>
+      <p>The system requirements for Brightcove Player 7 are as follows:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Browser/Engine</th>
+            <th>Platforms/OS</th>
+            <th>Minimum Version</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td>Chrome</td>
+            <td>Windows, macOS, Android, iPadOS <sup><a href="#n1"> [1]</a></sup>, iOS <sup><a href="#n1"> [1]</a></sup></td>
+            <td>Current and two previous major versions</td>
+          </tr>
+          <tr>
+            <td>Edge</td>
+            <td>Windows, macOS, Android, iPadOS <sup><a href="#n1"> [1]</a></sup>, iOS <sup><a href="#n1"> [1]</a></sup></td>
+            <td>Current and two previous major versions</td>
+          </tr>
+          <tr>
+            <td>Firefox</td>
+            <td>Windows, macOS, Android, iPadOS <sup><a href="#n1"> [1]</a></sup>, iOS <sup><a href="#n1"> [1]</a></sup></td>
+            <td>Current and two previous major versions</td>
+          </tr>
+          <tr>
+            <td>Safari</td>
+            <td>macOS, iPadOS, iOS</td>
+            <td>Current and two previous major versions</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>The following notes refer to table above.</p>
+      <p id="n1"><sup>[1]</sup> On iPadOS and iOS, only the Safari browser engine is allowed. Alternative browsers, like Chrome and Firefox and Edge, use Safari under the hood. Their behavior will not match the real versions of those browsers.</p>
+      
+
+    </section>
+
    
-    <p class="video-cloud-only">The <code translate="No">mediainfo</code> property is an object which contains information (metadata) on the current video in the player.</p>
-    <p class="player-only">The <code translate="No">mediainfo</code> property is an object which contains information (metadata) on the current video in the player. You populate the object with video information from your CMS (content management system) or database.</p>
-    <p>After the <code translate="No">mediainfo</code> object is populated you can use it for convenient data retrieval when wishing to display video information, like the video name or description. The object is also used in analytics collection.</p>
-    <h3>Fields in mediainfo</h3>
-    <p>The fields present in the <code translate="No">mediainfo</code> property are as follows:</p>
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th>Field Name</th>
-          <th>Description</th>
-          <th>Data Type</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td><code translate="No">accountId</code></td>
-          <td>Brightcove account</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No">adKeys</code></td>
-          <td>For future support</td>
-          <td>N/A</td>
-        </tr>
-        <tr>
-          <td><code translate="No">createdAt</code></td>
-          <td>Creation date and time</td>
-          <td>UTC (2011-09-28T20:06:37.879Z)</td>
-        </tr>
-        <tr>
-          <td><code translate="No">cuePoints</code></td>
-          <td>List of cue points as an array of objects</td>
-          <td>array of objects</td>
-        </tr>
-        <tr>
-          <td><code translate="No">customFields</code></td>
-          <td>Key-value pairs of custom field names and associated values</td>
-          <td>Object</td>
-        </tr>
-        <tr>
-          <td><code translate="No">description</code></td>
-          <td>Short description, 250 characters maximum</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No">duration</code></td>
-          <td>Length of video in seconds</td>
-          <td>numeric</td>
-        </tr>
-        <tr>
-          <td><code translate="No">economics</code></td>
-          <td>Contains either <strong translate="No">AD_SUPPORTED</strong> or <strong translate="No">FREE</strong>. If the media is marked <strong translate="No">FREE</strong>, neither IMA3 nor FreeWheel ads will play.</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No">id</code></td>
-          <td><span class="video-cloud-only">Video ID</span><span class="player-only">Unique identifier associated with the video</span></td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No">link</code></td>
-          <td>Object that contains link <strong translate="No">text</strong> and <strong translate="No">url</strong> properties</td>
-          <td>object</td>
-        </tr>
-        <tr>
-          <td><code translate="No">longDescription</code></td>
-          <td>Description, 5000 characters maximum</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No">name</code></td>
-          <td>Video title</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No">poster</code></td>
-          <td>URL to the poster image</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No">posterSources</code></td>
-          <td>Array containing poster sources</td>
-          <td>array</td>
-        </tr>
-        <tr>
-          <td><code translate="No">publishedAt</code></td>
-          <td>Publication date and time</td>
-          <td>UTC (2011-09-28T20:06:37.879Z)</td>
-        </tr>
-        <tr>
-          <td><code translate="No">rawSources</code></td>
-          <td>Rendition information</td>
-          <td>array</td>
-        </tr>
-        <tr>
-          <td><code translate="No">referenceId</code></td>
-          <td>Video reference ID<span class="player-only">Key or identifier from external database or CMS</span></td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No">sources</code></td>
-          <td>List of renditions as an array of objects; each object includes at least two elements: <strong translate="No">type</strong> and <strong translate="No">src</strong></td>
-          <td>array of objects</td>
-        </tr>
-        <tr>
-          <td><code translate="No">tags</code></td>
-          <td>Tags (metadata) associated with the video</td>
-          <td>array of strings</td>
-        </tr>
-        <tr>
-          <td><code translate="No">textTracks</code></td>
-          <td>Array that holds text tracks for captions, cue points, etc.</td>
-          <td>array</td>
-        </tr>
-        <tr>
-          <td><code translate="No">thumbnail</code></td>
-          <td>URL to the thumbnail image</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No">thumbnailSources</code></td>
-          <td>Data structure containing poster thumbnails</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td><code translate="No"><a href="#variant">variants</a></code></td>
-          <td>An array of objects containing multilingual metadata for the videos; the object properties: <code translate="no">language</code>, <code translate="no">name</code>, <code translate="no">description</code>, <code translate="no">long_description</code>, and <code translate="no">custom_fields</code></td>
-          <td>Array</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-  <section id="code" class="bcls-section video-cloud-only">
-    <h2>Populate mediainfo</h2>
-    <p>Using the <code translate="No">on()</code> method you wait for the <code translate="No">loadstart</code> event to be dispatched, then in the corresponding event handler you access the values stored in <code translate="No">mediainfo</code> object. From the code below note the use of <code translate="No">console.log</code> that displays the <code translate="No">mediainfo</code> object (lines 111-113).</p>
-    <pre class="line-numbers" data-start="100">
-<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
-  data-video-id="4093643993001"
-  data-account="1752604059001"
-  data-player="VJvZIueYx"
-  data-embed="default"
-  controls=""&gt;&lt;/video-js&gt;
-&lt;script src="https://players.brightcove.net/1752604059001/VJvZIueYx_default/index.min.js"&gt;&lt;/script&gt;
-
-&lt;script type="text/javascript"&gt;
-  videojs.getPlayer('myPlayerID').ready(function() {
-    var myPlayer = this;
-    <span class="bcls-highlight">myPlayer.on('loadstart',function(){
-      console.log('mediainfo', myPlayer.mediainfo);
-    })</span>
-  });
-&lt;/script&gt;</code></pre>
-    <p>An example display from the console is shown here:</p>
-    <aside class="bcls-aside bcls-aside--information">In this screenshot, the old style snake case (account_id) property names are shown along with the current camel case (accountId) names.</aside>
-    <figure class="bcls-figure"><img class="bcls-image" alt="console display" src="/assets/images/references/mediainfo/console-display.png" /></figure>
-  </section>
-  <section id="populatetheobject" class="bcls-section player-only">
-    <h2>Populate the object</h2>
-    <p>You can manually populate the <code translate="No">mediainfo</code> property with metadata from your CMS or database. You can then use the <code translate="No">mediainfo</code> object's <code translate="No">sources</code> property to populate the player with a video rendition.</p>
-    <aside class="bcls-aside bcls-aside--warning  player-only">Note: If this manual process of building and populating the <code translate="No">mediainfo</code> object is NOT done 3rd party analytics will probably fail. This is because <code translate="No">mediainfo</code> is the integration point for plugins to get video metadata.</aside>
-    <ul>
-      <li>Lines 32-37: In-page embed player implementation</li>
-      <li>Lines 40-52: Manually creates the a video object; in actuality data comes from CMS or database and object built dynamically</li>
-      <li>Line 54-55: Ensures the player is ready to use and assigns the player instance to a variable</li>
-      <li>Line 56: Assigns the manually created video object to the player's <code translate="No">mediainfo</code> object</li>
-      <li>Line 57: Uses the player's <code translate="No">src</code> method to assign one or more video renditions, which are stored in the <code translate="No">mediainfo</code> object's <code translate="No">sources</code> property, to the player</li>
-    </ul>
-    <pre class="line-numbers" data-start="32">
-<code class="language-html" translate="No">  &lt;video-js id="myPlayerID"
-    data-account="3676484086001"
-    data-player="2433352b-a2e2-4b7e-9a15-2d9ec7f07e9d"
-    data-embed="default"
-    controls=""&gt;&lt;/video-js&gt;
-  &lt;script src="https://players.brightcove.net/3676484086001/2433352b-a2e2-4b7e-9a15-2d9ec7f07e9d_default/index.min.js"&gt;&lt;/script&gt;
-
-  &lt;script type="text/javascript"&gt;
-    //Populate video object (normally from database or CMS)
-    var videoObject = new Object();
-    videoObject.name = "Hand made video object test";
-    videoObject.id = "1234msb";
-    videoObject.description = "short description for hand made video object";
-    videoObject.accountId = "1507807800001";
-    videoObject.sources = [{
-        "src": "http://solutions.brightcove.com/bcls/assets/videos/Tiger.m3u8",
-        "type": "application/x-mpegURL"
-      }, {
-        "src": "http://solutions.brightcove.com/bcls/assets/videos/Tiger.mp4",
-        "type": "video/mp4"
-      }];
-
-    videojs.getPlayer('myPlayerID').ready(function() {
-      var myPlayer = this;
-      <span class="bcls-highlight">myPlayer.mediainfo = videoObject;
-      myPlayer.src(myPlayer.mediainfo.sources);</span>
-    });
-  &lt;/script&gt;</code></pre>
-  </section>
-  <section class="bcls-section">
-    <h2 id="displaytagsfields">Display tags and custom fields</h2>
-    <aside class="bcls-aside bcls-aside--information player-only">Although it is unlikely you would manually populate the <strong translate="No">custom fields</strong> and <strong translate="No">tags</strong> objects, it is possible, so this content is included.</aside>
-    <p>Both the tags and custom fields are stored in complex data structures. The <strong translate="No">customFields</strong> in an object and <strong translate="No">tags</strong> in an array. The following screenshot shows the custom fields and tags highlighted in the <code translate="No">mediainfo</code> object.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="tags and custom fields in console display" src="/assets/images/references/mediainfo/tags-custom-fields.png" /></figure>
-    <p>To display the data from these complex data structures you need two kinds of loops. A <code translate="No">for</code> loop is used to iterate over the tags array (lines 16-20) and inject the dynamically built HTML unordered list into a <code translate="No">&lt;div&gt;</code> ( defined in line 9). A <code translate="No">for-in</code> loop is used to iterate over the custom fields object (lines 24-27) and inject the dynamically built HTML unordered list into the <code translate="No">&lt;div&gt;</code>.</p>
-    <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
-  data-video-id="4093643993001"
-  data-account="1752604059001"
-  data-player="VJvZIueYx"
-  data-embed="default"
-  controls=""&gt;&lt;/video-js&gt;
-&lt;script src="https://players.brightcove.net/1752604059001/VJvZIueYx_default/index.min.js"&gt;&lt;/script&gt;
-
-&lt;div id="displayInfo"&gt;&lt;/div&gt;
-
-&lt;script type="text/javascript"&gt;
-  videojs.getPlayer('myPlayerID').ready(function() {
-    var myPlayer = this;
-    myPlayer.on('loadstart',function(){
-      //Use JavaScript to display the tags
-      <span class="bcls-highlight">var numTags = myPlayer.mediainfo.tags.length;
-      displayInfo.innerHTML += "&lt;h1&gt;Tags:&lt;/h1&gt;&lt;ul&gt;";
-      for (var i = 0; i &lt; numTags; i++) {
-        displayInfo.innerHTML += "&lt;li&gt;" + myPlayer.mediainfo.tags[i] + "&lt;/li&gt;";
-      };</span>
-      displayInfo.innerHTML += "&lt;/ul&gt;&lt;br /&gt;";
-
-      //Use JavaScript to display custom fields
-      <span class="bcls-highlight">displayInfo.innerHTML += "&lt;h1&gt;Custom Fields:&lt;/h1&gt;&lt;ul&gt;";
-      for (var key in myPlayer.mediainfo.customFields) {
-       displayInfo.innerHTML += "&lt;li&gt;&lt;strong&gt;" + key + "&lt;/strong&gt;: " + myPlayer.mediainfo.customFields[key] + "&lt;/li&gt;";
-      }</span>
-      displayInfo.innerHTML += "&lt;/ul&gt;";
-    })
-  });
-&lt;/script&gt;</code></pre>
-    <p>The rendered HTML appears as shown in this screenshot.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="tags and custom display in HTML" src="/assets/images/references/mediainfo/html-display.png" /></figure>
-    <aside class="bcls-aside bcls-aside--information video-cloud-only">Note: The custom field keys, <strong translate="No">customfield1</strong> and <strong translate="No">customfield2</strong>, are demo names only. You would choose key names that reflect the data stored in the custom field.</aside>
-  </section>
 </article>
 <!-- complete bootstrap layout -->
     </div>
