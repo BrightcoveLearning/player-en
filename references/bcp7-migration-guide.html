@@ -258,21 +258,21 @@ layout: staging
 
       <h3>DRM Support by Default</h3>
       <p>Change applies to BCP7</p>
-      <aside class="bcls-aside bcls-aside--tip">No migration necessary. Brightcove recommends removing the DRM plugin from your configurations.</aside>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary - Brightcove recommends removing the DRM plugin from your configurations</aside>
       <p>The existing DRM plugin will no longer be needed with Brightcove Player 7. The player will support DRM out of the box in a manner identical to previous player versions.</p>
       <p>This makes it easier to configure DRM by simply enabling DRM protection on your media content without having to remember to also enable it on your players.</p>
       <p>No migration is needed. Players that are configured with the DRM plugin and Player 7 will not break.</p>
 
       <h3>Analytics <code translate="No">play_request</code> Event</h3>
       <p>Change applies to BCP7</p>
-      <aside class="bcls-aside bcls-aside--tip">No migration necessary. Expect that <code translate="No">play_request</code> metrics may drop after upgrading.</aside>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary - expect that <code translate="No">play_request</code> metrics may drop after upgrading.</aside>
       <p>Brightcove Player 7 will send a <code translate="No">play_request</code> beacon only the first time there is a request to begin playback - either through a viewer hitting the play button or some form of autoplay (i.e. calling the <code translate="No">play()</code> method).</p>
       <p>In earlier versions, we sent <code translate="No">play_request</code> beacons anytime there was a player <code translate="No">play</code> event. This included anytime content playback was requested, such as a viewer pausing and resuming or a client-side advertisement ending and returning to content playback.</p>
       <p>Brightcove's Product and Data organizations discussed this and determined that the intent of this event was to track the initial request for playback to begin. This means it's likely that anyone tracking play_request metrics will see that number drop after upgrading to Player 7. If this happens, it does not indicate a problem.</p>
 
       <h3>Timeout Error Enhancements</h3>
       <p>Change applies to BCP7</p>
-      <aside class="bcls-aside bcls-aside--tip">No migration necessary.</aside>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary</aside>
       <p>Brightcove Player has long supported a special error we call a timeout. What this typically means is that the player expects to be playing content (i.e. it is not paused), but playback is not proceeding. Generally, this means that content cannot be buffered due to network issues or some other condition which caused the player to stall out, such as the TTL on a manifest URL has expired.</p>
       <p>While we call this an “error” it is unique from most errors in that it is recoverable. For example, if network conditions improve and content buffering recovers, playback can resume.</p>
       <p>With Player 6, the error modal dialog does not close if playback resumes, leading to a poor viewer experience. </p>
@@ -280,7 +280,7 @@ layout: staging
 
       <h3>Unsupported Browser UI</h3>
       <p>Change applies to BCP7</p>
-      <aside class="bcls-aside bcls-aside--tip">No migration necessary - unless external code included in your player is throwing an error.</aside>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary - unless external code included in your player is throwing an error</aside>
       <p>With Player 6, when it is loaded in an unsupported browser, an error will likely be thrown and logged in the browser console, but nothing will be surfaced to the viewer.</p>
       <p>Player 7 has a new UI to make these cases more clear. When the player is loaded in an unsupported browser, you will see a message similar to this: </p>
       <figure class="bcls-figure">
@@ -323,6 +323,36 @@ layout: staging
   // were sent to the Data Collection API.
   player.log(&apos;video_engagement beacon sent!&apos;, e.params);
 });</code></pre>
+
+      <h3>Brightcove Namespace</h3>
+      <p>Change applies to BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary, but worth watching this space for future enhancements and consolidation</aside>
+      <p>A source of confusion for our users has been the proliferation of core properties and methods across different objects attached to each instance of Brightcove Player. Some examples of this include <code translate="No">bcAnalytics</code> and <code translate="No">catalog</code>.</p>
+      <p>With player 7, we will begin consolidating these disparate features into a new core namespace:</p>
+      <ul>
+        <li><code translate="No">brightcove</code></li>
+      </ul>
+      <p>This namespace will be the single location for Brightcove-specific player enhancements and integrations. This namespace will be attached as a property of each player instance.</p>
+      <h4>Goals</h4>
+      <p>The goals for the <code translate="No">brightcove</code> namespace include:</p>
+      <ul>
+        <li>Internally, the goal is to reduce complexity and duplicate code across multiple sub-components and plugins of Brightcove Player</li>
+        <li>Externally, the goal is to improve the integration developer experience by unifying disparate pieces of core functionality into a single namespace</li>
+      </ul>
+      <p>For now, we are only exposing some utility functions on this namespace, which are accessible under:</p>
+      <ul>
+        <li><code translate="No">brightcove.util</code></li>
+      </ul>
+      <p>A handful of these are copies of Video.js utility functions, but we will be unifying those over time as well. The number of functions exposed on this object is too many to list here, but complete documentation will be forthcoming.</p>
+      <p>There is no migration necessary here - yet - but exposing functionality via the central brightcove namespace will be an iterative process of porting functionality onto this object and deprecating old properties/methods. It's important to note that we will not break backward compatibility within a major release, so <code translate="No">bcAnalytics</code> and <code translate="No">catalog</code> are not going away until Brightcove Player 8.</p>
+
+      <h3>Improved ABR Algorithm</h3>
+      <p>Change applies to VJS8/VHS3/BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary</aside>
+      <p>The ABR algorithm that VHS and the Brightcove Player use has been improved with the goal of reducing rebuffering events while maintaining a higher bitrate choice. This is achieved by using a moving average bandwidth estimation instead of just the most recent bandwidth estimation.</p>
+      <p>Further, we aim to optimize bandwidth usage by being smart about when we do a rendition switch to avoid throwing out buffered high quality content in order to switch to a lower rendition.</p>
+      <p>You can see more about the thinking behind these adjustments in this <a href="https://gist.github.com/gesinger/8aa3608278b3c398fe8dc5facf57eb3e">GitHub Gist</a> and its final implementation in this <a href="https://github.com/videojs/http-streaming/pull/886">GitHub pull request</a>.</p>
+      <p>To learn more about the ABR algorithm, see the <a href="https://player.support.brightcove.com/playback/determining-which-rendition-will-play.html">Determining Which Rendition Will Play</a> document.</p>
 
      
 
