@@ -2012,6 +2012,71 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>You can see more about the thinking behind these adjustments in this <a href="https://gist.github.com/gesinger/8aa3608278b3c398fe8dc5facf57eb3e">GitHub Gist</a> and its final implementation in this <a href="https://github.com/videojs/http-streaming/pull/886">GitHub pull request</a>.</p>
       <p>To learn more about the ABR algorithm, see the <a href="https://player.support.brightcove.com/playback/determining-which-rendition-will-play.html">Determining Which Rendition Will Play</a> document.</p>
 
+      <h3><code translate="No">sourceset</code> Event </h3>
+      <p>Change applies to VJS8/BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary, but maybe worth experimenting with using this event in your integration</aside>
+      <p>This event has existed for years in Video.js behind a feature flag. We have now enabled it, by default, as a way to detect if the player's source is changing, potentially before the standard event, <code translate="No">loadstart</code>, used for detection of source changes.</p>
+      <p><strong>Example</strong></p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">player.on(&apos;sourceset&apos;, (e) =&gt; {
+  player.log(&apos;The media source is changing!&apos;);
+});</code></pre>
+
+      <h3>Retry on Error</h3>
+      <p>Change applies to VJS8/BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary</aside>
+      <p>If the player is given a list of sources and the first one fails to load, Video.js will now try the next media source in order until it finds one it can play or runs out of sources.</p>
+      <p>This is more relevant to Player-only customers because, when going through the Playback API, this error condition is unlikely to ever occur.</p>
+
+      <h3><code translate="No">TitleBar</code> Component </h3>
+      <p>Change applies to VJS8/BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">Migration necessary only if integration code interacts with the player “dock” components</aside>
+      <p>We removed the <strong>videojs-dock</strong> plugin and re-implemented similar functionality in a new core component for Video.js: the <code translate="No">TitleBar</code> component.</p>
+      <p>The new <code translate="No">TitleBar</code> component will show a UI element across the top of the player which displays the title and/or description of the current media in the player. The <code translate="No">TitleBar</code> will not show if no title or description is provided.</p>
+
+      <h4>Video Cloud customers</h4>
+      <p>The <code translate="No">TitleBar</code> is automatically populated if your player is integrated with Video Cloud through the Playback API.</p>
+
+      <h4>Player-only customers</h4>
+      <p>Player-only customers may use one of the following methods to populate the <code translate="No">TitleBar</code>:</p>
+      <ul>
+        <li>
+          <p><strong>Using <code translate="No">loadMedia</code> to Populate the <code translate="No">TitleBar</code></strong></p>
+          <p>The easiest way to provide a title and/or description is to use your player's <code translate="No">loadMedia</code> method:</p>
+          <pre class="line-numbers"><code class="language-javascript" translate="No">player.loadMedia({
+  artist: &apos;Extremely&apos;,
+  album: &apos;Oceans&apos;,
+  title: &apos;Oceans&apos;,
+  description: &apos;Journey in to the depths ... and race with dolphins at play.&apos;,
+  poster: &apos;https://vjs.zencdn.net/v/oceans.png&apos;,
+  src: [{
+    src: &apos;https://vjs.zencdn.net/v/oceans.mp4&apos;,
+    type: &apos;video/mp4&apos;
+  }, {
+    src: &apos;https://vjs.zencdn.net/v/oceans.webm&apos;,
+    type: &apos;video/webm&apos;
+  }]
+})</code></pre>
+          <p>If you're not familiar with the <code translate="No">loadMedia</code> method, it's a way to provide additional metadata for your media beyond what is available through the src method alone. As you see in the above example, the title and description are provided and will be used to populate the title bar.</p>
+        </li>
+        <li>
+          <p><strong>Populating the <code translate="No">TitleBar</code> Directly</strong></p>
+          <p>The <code translate="No">TitleBar</code> can also be populated through direct input using the component's <code translate="No">update</code> method:</p>
+          <pre class="line-numbers"><code class="language-javascript" translate="No">player.titleBar.update({
+  title: &apos;Oceans&apos;,
+  description: &apos;Journey in to the depths ... and race with dolphins at play.&apos;
+});</code></pre>
+          <p>The title and/or description can be removed by passing an empty string for one or both of these values:</p>
+          <pre class="line-numbers"><code class="language-javascript" translate="No">player.titleBar.update({
+  title: &apos;&apos;,
+  description: &apos;&apos;
+});</code></pre>
+          <p>If both are removed, the <code translate="No">TitleBar</code> will no longer be visible.</p>
+        </li>
+      </ul>
+      <h4>Brightcove Player Migration</h4>
+      <p>It is unlikely that migration for this is needed by the vast majority of Brightcove customers.</p>
+      <p>However, it's possible that any third party code depending on <code translate="No">player.dock</code> would need to be updated to uses the APIs for the <code translate="No">TitleBar</code> mentioned in the <strong>Player-only customers</strong> section.</p>
+
      
 
 
