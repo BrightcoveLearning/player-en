@@ -277,6 +277,53 @@ layout: staging
       <p>While we call this an “error” it is unique from most errors in that it is recoverable. For example, if network conditions improve and content buffering recovers, playback can resume.</p>
       <p>With Player 6, the error modal dialog does not close if playback resumes, leading to a poor viewer experience. </p>
       <p>Going forward, the player's timeout modal dialog will give the viewer the option to dismiss it or to trigger a reload of the video source from the Playback API, so that new manifest URLs are retrieved. In the latter case, the player will preserve the playback position for VOD streams. While this is not an ideal experience, it's better than a non-functional player.</p>
+
+      <h3>Unsupported Browser UI</h3>
+      <p>Change applies to BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary - unless external code included in your player is throwing an error.</aside>
+      <p>With Player 6, when it is loaded in an unsupported browser, an error will likely be thrown and logged in the browser console, but nothing will be surfaced to the viewer.</p>
+      <p>Player 7 has a new UI to make these cases more clear. When the player is loaded in an unsupported browser, you will see a message similar to this: </p>
+      <figure class="bcls-figure">
+        <img class="bcls-image--no-border" alt="Unsupported browser message" src="/assets/images/references/bcp7/unsupported-browser.png" />
+      </figure>
+      <p>There are two cases where you could expect to see this error:</p>
+      <ul>
+        <li>Unsupported browsers like Internet Explorer</li>
+        <li>An uncaught JavaScript error was thrown during the player initialization process</li>
+      </ul>
+      <p>If you see this message and your browser should be supported, check the browser console. If the error is coming from your own code, you may be able to address it. Otherwise, reach out to <a href="https://supportportal.brightcove.com/s/login">Brightcove customer support</a> for help.</p>
+
+      <h3>Analytics Player Event Renaming</h3>
+      <p>Change applies to BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">
+        <p>Migration:</p>
+        <ul>
+          <li>Replace <code translate="No">analytics_request</code> with <code translate="No">analytics-beacon</code></li>
+          <li>Replace <code translate="No">analytics_request_*</code> with <code translate="No">analytics-beacon-*</code> where <code translate="No">*</code> is an analytics event name with <code translate="No">_</code> replaced by <code translate="No">-</code></li>
+        </ul>
+      </aside>
+      <h4>Old</h4>
+      <p>Prior to version 7, the player triggered <code translate="No">analytics_request</code> events and <code translate="No">analytics_request_*</code> events where <code translate="No">*</code> stood for the analytics beacon event name. For example, when the player sent a beacon representing a  <code translate="No">video_engagement</code> event, the player would trigger both:</p>
+      <ul>
+        <li><code translate="No">analytics_request</code></li>
+        <li><code translate="No">analytics_request_video_engagement</code></li>
+      </ul>
+      <h4>New</h4>
+      <p>To be consistent in our event naming, we want to use lower-case-hyphenated event names. When we discuss the small HTTP requests sent to our Data Collection API, we refer to them as “beacons”, so we are using that terminology as well.</p>
+      <p>We've renamed these events to be the following: (where the <code translate="No">*</code> stands for the analytics beacon event name with <code translate="No">_</code> replaced by <code translate="No">-</code>)</p>
+      <ul>
+        <li><code translate="No">analytics-beacon</code></li>
+        <li><code translate="No">analytics-beacon-*</code></li>
+      </ul>
+      <p><strong>Example</strong></p>
+      <p>If you want to know when the player sent a <code translate="No">video_engagement</code> event beacon, you could do something like this:</p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">player.on(&apos;analytics-beacon-video-engagement&apos;, (e) =&gt; {
+  // The event object in the callback contains a `params` object, which
+  // has a JavaScript object representataion of the query params that
+  // were sent to the Data Collection API.
+  player.log(&apos;video_engagement beacon sent!&apos;, e.params);
+});</code></pre>
+
      
 
 
