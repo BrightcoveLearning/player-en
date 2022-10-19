@@ -419,6 +419,110 @@ layout: staging
       <p>It is unlikely that migration for this is needed by the vast majority of Brightcove customers.</p>
       <p>However, it's possible that any third party code depending on <code translate="No">player.dock</code> would need to be updated to uses the APIs for the <code translate="No">TitleBar</code> mentioned in the <strong>Player-only customers</strong> section.</p>
 
+      <h3>Video.js Utility Objects</h3>
+      <p>Change applies to VJS8/VHS3/BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary, but deprecated function usages should be updated to use the functions attached to these new objects or <code translate="No">player.brightcove.util</code> functions</aside>
+      <p>Over time, the <code translate="No">videojs</code> namespace has become cluttered with a wide variety of utility functions. Brightcove is introducing a more deliberately designed interface for these utility functions.</p>
+      <p>The guiding principle here was that if a function didn't feel like a core part of the library, but was still potentially useful, we exposed it as part of a utility object instead of a top-level function.</p>
+      <p>Here are the utility objects attached to <code translate="No">videojs</code> in 8.0.0:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Object</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">videojs.dom</code></td>
+            <td>DOM functions (available previously)</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.fn</code></td>
+            <td>Function... functions</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.num</code></td>
+            <td>Number functions</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.obj</code></td>
+            <td>Object functions</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.str</code></td>
+            <td>String functions</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.time</code></td>
+            <td>Time-related functions</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.url</code></td>
+            <td>URL-related functions</td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.browser</code></td>
+            <td>Various user-agent detection values (available previously)</td>
+          </tr>   
+        </tbody>
+      </table>
+
+      <h3>Other Brightcove Player Features and Enhancements</h3>
+      <p>Changes apply to BCP7</p>
+      <ul>
+        <li>
+          <p>The <code translate="No">not-hover</code> class name has been renamed to <code translate="No">vjs-hide-controls</code>.</p> 
+          <p>The naming of this old class did not follow our naming standards and its purpose was unclear. Any CSS (or JavaScript) targeting that class name would need to be updated.</p>
+        </li>
+        <li>
+          <p>The <code translate="No">style</code> element the player creates for Video.js CSS had the <code translate="No">id="bc-style-vjs"</code> attribute. This <code translate="No">id</code> has been changed to a <code translate="No">class</code> attribute.</p>
+          <p>In earlier player versions, when using multiple players, this could theoretically create a situation where multiple elements in the DOM shared an id which is against the HTML specification. </p>
+        </li>
+      </ul>
+
+      <h3>Other Video.js Features and Enhancements</h3>
+      <p>Changes apply to VJS8</p>
+      <ul>
+        <li>
+          <p><code translate="No">addClass</code> and <code translate="No">removeClass</code> methods can now be given multiple class names in a space-separated string, like <code translate="No">foo bar</code>.</p> 
+        </li>
+        <li>
+          <p>Clicking the playback rate menu button will now open the playback rate menu, bring it into alignment with other menu buttons.</p> 
+        </li>
+        <li>
+          <p>Invalid event types will now throw errors instead of log warnings.</p> 
+        </li>
+      </ul>
+
+      <h3>Other VHS Features and Enhancements</h3>
+      <p>Changes apply to VHS3</p>
+      <ul>
+        <li>
+          <p>Gaps are skip detected immediately instead of waiting the duration of the gap before skipping.</p> 
+        </li>
+        <li>
+          <p>Removed the deprecated <code translate="No">smoothQualityChange</code> method</p> 
+        </li>
+        <li>
+          <p>Improved behavior when encountering <code translate="No">output-restricted</code> event handling</p> 
+        </li>
+        <li>
+          <p>Cleaned up parameters of <code translate="No">excludePlaylist</code></p> 
+        </li>
+        <li>
+          <p>Changed many names for more inclusive language usage, such as:</p> 
+          <ul>
+            <li>“master” becomes “main”</li>
+            <li>“blacklist” becomes “exclude” or “excludeList”</li>
+            <li>“whitelist” becomes “allow” or “allowList”</li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+
      
 
 
