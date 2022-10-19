@@ -519,14 +519,73 @@ layout: staging
           </ul>
         </li>
       </ul>
+    </section>
 
+    <section class="bcls-section">
+      <h2 id="Deprecations">Deprecations</h2>
+      <p>Deprecations refer to changes that Brightcove plans to make in the next major version. In general, these will log a warning to the browser console to aid developers in future-proofing their integrations.</p>
 
+      <h3>Top-Level Utility Functions</h3>
+      <p>Change applies to VJS8/VHS3/BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary, but deprecated function usages should be updated to use the functions attached to new Video.js utility objects or <code translate="No">player.brightcove.util</code> functions</aside>
+      <p>Over time, the <code translate="No">videojs</code> namespace has become cluttered with a wide variety of utility functions. Brightcove has introduced a new organizational principle of exposing utility objects to better organize the <code translate="No">videojs</code> API.</p>
+      <p>As a result, many top-level functions have been deprecated. Each of these functions will now log a warning the first time they are used (and only once, so as not to clutter the browser console).</p>
 
-
-     
-
-
-         
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Deprecated Function</th>
+            <th>Instead, use…</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">videojs.bind</code></td>
+            <td>native <code translate="No">Function.prototype.bind</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.computedStyle</code></td>
+            <td><code translate="No">videojs.dom.computedStyle</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.createTimeRange</code></td>
+            <td><code translate="No">videojs.time.createTimeRanges</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.createTimeRanges</code></td>
+            <td><code translate="No">videojs.time.createTimeRanges</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.defineLazyProperty</code></td>
+            <td><code translate="No">videojs.obj.defineLazyProperty</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.formatTime</code></td>
+            <td><code translate="No">videojs.time.formatTime</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.isCrossOrigin</code></td>
+            <td><code translate="No">videojs.url.isCrossOrigin</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.mergeOptions</code></td>
+            <td><code translate="No">videojs.obj.merge</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.parseUrl</code></td>
+            <td><code translate="No">videojs.url.parseUrl</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.resetFormatTime</code></td>
+            <td><code translate="No">videojs.time.resetFormatTime</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.setFormatTime</code></td>
+            <td><code translate="No">videojs.time.setFormatTime</code></td>
+          </tr>
+        </tbody>
+      </table>
+  
     </section>
 
    
