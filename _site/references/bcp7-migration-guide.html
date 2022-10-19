@@ -2317,14 +2317,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
       <h3>Graphite Skin</h3>
       <p>Change applies to BCP7</p>
-      <aside class="bcls-aside bcls-aside--tip">Migration necessary if your integration code is relying on the Graphite skin. Otherwise, a player with <code translate="No">"skin": "graphite"</code> that is updated to Brightcove Player 7 will use Sapphire instead.</aside>
+      <aside class="bcls-aside bcls-aside--tip">Migration necessary if your integration code is relying on the Graphite skin; Otherwise, a player with <code translate="No">"skin": "graphite"</code> that is updated to Brightcove Player 7 will use Sapphire instead</aside>
       <p>The Graphite skin is no longer available.</p>
       <p>The only skin supported by Brightcove Player 7 upon release is the default Sapphire skin. The only other option is <code translate="No">null</code>, which will turn off all CSS, allowing advanced users to write their own skin from scratch.</p>
       <p>If you had <code translate="No">"skin": "graphite"</code> in your player JSON configuration, remove it. Any customizations based on the Graphite CSS may need to be updated.</p>
 
       <h3>Query String Support in In-Page Embeds</h3>
       <p>Change applies to BCP7</p>
-      <aside class="bcls-aside bcls-aside--tip">Migration only necessary if relying on in-page embed's implicit support of <code translate="No">autoplay</code> or <code translate="No">t</code> query parameters in the parent URL.</aside>
+      <aside class="bcls-aside bcls-aside--tip">Migration only necessary if relying on in-page embed's implicit support of <code translate="No">autoplay</code> or <code translate="No">t</code> query parameters in the parent URL</aside>
       <p>When embedded in-page, Brightcove Player 7 will no longer recognize the <code translate="No">autoplay</code> query parameter or <code translate="No">t</code> query parameter (or any other query parameter).</p>
       <p>Query parameters are an ideal way to provide data at the embed code level for iframe embeds, but for in-page embeds, they would need to exist in the embedding website's URL.</p>
       <p>These two parameters were previously supported because older versions of Internet Explorer required workarounds for the Fullscreen API, which was not adequately supported. However, they caused several customers some confusion when their own web page URLs included these parameters for other purposes, but they impacted the behavior of the their embedded Brightcove Player.</p>
@@ -2332,7 +2332,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
       <h3>Top-level Playlist-related Configurations</h3>
       <p>Change applies to BCP7</p>
-      <aside class="bcls-aside bcls-aside--tip">Migration necessary if using legacy playlist implementations, controlled by top-level JSON configurations (i.e. not through the <code translate="No">plugins</code> array in JSON configuration).</aside>
+      <aside class="bcls-aside bcls-aside--tip">Migration necessary if using legacy playlist implementations, controlled by top-level JSON configurations (i.e. not through the <code translate="No">plugins</code> array in JSON configuration)</aside>
       <p>With earlier Player versions, there were multiple legacy playlist plugins/implementations and methods of configuration. Maintaining multiple playlist implementations caused a significant amount of confusion and complexity, so Brightcove simplified and clarified playlist implementation.</p>
       <p>In short, all top-level, playlist-related configurations are no longer supported in Brightcove Player 7, including:</p>
       <ul>
@@ -2349,6 +2349,49 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>However, it had no impact on the Brightcove Playlist UI plugin.</p>
       <h4>Migration</h4>
       <p>The migration path for playlists is to always use the Brightcove Playlist UI plugin, which is configurable through Studio. The old top-level configurations have never been exposed through Studio.</p>
+
+      <h3><code translate="No">videojs.extend()</code> Function</h3>
+      <p>Change applies to VJS8/BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">Migration necessary if currently using this function to extend Video.js classes</aside>
+      <p>The <code translate="No">extend()</code> function was previously used to extend Video.js components and advanced plugins.</p>
+      <p>We are now using native ES6 classes everywhere and the old <code translate="No">videojs.extend()</code> function only works with plain function prototypes, making it unusable with the native ES6 classes that make up Video.js 8. So, it has been removed.</p>
+
+      <h4>Old</h4>
+      <p>For example, the old way to create a component using <code translate="No">extend()</code> was:</p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">const Component = videojs.getComponent(&apos;Component&apos;);
+
+const MyComponent = videojs.extend(Component, {
+  constructor: function(player, options) {
+    Component.call(this, player, options);
+  }
+});
+
+videojs.registerComponent(&apos;MyComponent&apos;, MyComponent);</code></pre>
+
+      <h4>New</h4>
+      <p>Going forward, only ES6 classes are supported. The equivalent would be:</p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">const Component = videojs.getComponent(&apos;Component&apos;);
+
+class MyComponent extends Component {
+  constructor(player, options) {
+    super(player, options);
+  }
+}
+
+videojs.registerComponent(&apos;MyComponent&apos;, MyComponent);</code></pre>
+
+      <p>Users whose integration code depends on <code translate="No">videojs.extend()</code> will need to update their implementations before updating to Brightcove Player 7.</p>
+
+      <h3><code translate="No">firstplay</code> Event</h3>
+      <p>Change applies to VJS8/BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">Migration necessary if currently using the <code translate="No">firstplay</code> event</aside>
+      <p>The <code translate="No">firstplay</code> event was removed. This was a legacy event that was fired the first time a <code translate="No">play</code> event was fired. However, there's a better way to hook into the first <code translate="No">play</code> event for a given source, using the <code translate="No">one()</code> method:</p>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">// Each time the source is about to change, listen for the first play event.
+player.on(&apos;sourceset&apos;, () =&gt; {
+  player.one(&apos;play&apos;, callback);
+});</code></pre>
+
+
       
   
     </section>
