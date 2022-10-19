@@ -2189,6 +2189,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <p>Over time, the <code translate="No">videojs</code> namespace has become cluttered with a wide variety of utility functions. Brightcove has introduced a new organizational principle of exposing utility objects to better organize the <code translate="No">videojs</code> API.</p>
       <p>As a result, many top-level functions have been deprecated. Each of these functions will now log a warning the first time they are used (and only once, so as not to clutter the browser console).</p>
 
+      <aside class="bcls-aside bcls-aside--warning">Expect all of the deprecated functions in the following two tables to be removed in Video.js 9 and Brightcove Player 8</aside>
+
       <table class="bcls-table">
         <thead class="bcls-table__head">
           <tr>
@@ -2241,6 +2243,70 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <td><code translate="No">videojs.setFormatTime</code></td>
             <td><code translate="No">videojs.time.setFormatTime</code></td>
           </tr>
+        </tbody>
+      </table>
+
+      <p>There are also a number of older functions that remain usable, but deprecated:</p>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Deprecated Function</th>
+            <th>Instead, use…</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">videojs.addClass</code></td>
+            <td>native <code translate="No">videojs.dom.addClass</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.appendContent</code></td>
+            <td><code translate="No">videojs.dom.appendContent</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.createEl</code></td>
+            <td><code translate="No">videojs.dom.createEl</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.emptyEl</code></td>
+            <td><code translate="No">videojs.dom.emptyEl</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.getAttributes</code></td>
+            <td><code translate="No">videojs.dom.getAttributes</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.hasClass</code></td>
+            <td><code translate="No">videojs.dom.hasClass</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.insertContent</code></td>
+            <td><code translate="No">videojs.dom.insertContent</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.isEl</code></td>
+            <td><code translate="No">videojs.dom.isEl</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.isTextNode</code></td>
+            <td><code translate="No">videojs.dom.isTextNode</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.plugin</code></td>
+            <td><code translate="No">videojs.registerPlugin</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.removeClass</code></td>
+            <td><code translate="No">videojs.dom.removeClass</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.setAttributes</code></td>
+            <td><code translate="No">videojs.dom.setAttributes</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">videojs.toggleClass</code></td>
+            <td><code translate="No">videojs.dom.toggleClass</code></td>
+          </tr>          
         </tbody>
       </table>
   
