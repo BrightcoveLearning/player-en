@@ -1891,6 +1891,32 @@ function timeupdateHandler(evt) {
 .on(event, function () {})
 .on(event, function () {});</code></pre>
   </section>
+  <!-- *** Uncomment the section below and delete the section above when BCP7 releases *** -->
+  <section class="bcls-section">
+    <h2 id="analytics_events">Analytics events</h2>
+    <p>An event is triggered each time a beacon is sent to the Analytics data collector. You can listen for any beacon or specific ones.</p>
+    <h3>Listen for all beacons</h3>
+    <p>You can track all analytics beacons sent by listening for the <code translate="No">analytics-beacon</code> event:</p>
+<pre class="line-numbers"><code class="language-javascript" translate="No">player.on('analytics-beacon', function(e) {
+  videojs.log('sent a(n) ' + e.params.event + ' beacon!', e.params);
+});</code></pre>
+    <h3>Listen for specific beacons</h3>
+    <p>You can track specific analytics beacons sent by listening for the <code translate="No">analytics-beacon-<span class="bcls-input">{beacon_name}</span></code> event.</p>
+    <p><code translate="No">{beacon_name}</code> is the name of any of the player events that are sent to the data collector. For a complete list of these events, see the <a href="https://apis.support.brightcove.com/data-collection/references/reference.html#tag/Events">Data Collection API Reference</a>.</p>
+    <h4>Example</h4>
+<pre class="line-numbers"><code class="language-javascript" translate="No">player.on('analytics-beacon-video-impression', function(e) {
+  videojs.log('sent an impression beacon!', e.params);
+});</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="No_support_for_method_chaining">No support for method chaining</h2>
+    <p>As of version 6 of Brightcove Player method chaining with events is no longer supported. This means you CANNOT do this:</p>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">player.on(event, function () {})
+.on(event, function () {})
+.on(event, function () {})
+.on(event, function () {});</code></pre>
+  </section>
 </article>
 
 <!-- complete bootstrap layout -->
