@@ -203,6 +203,7 @@ function timeupdateHandler(evt) {
   myPlayer.off('timeupdate', timeupdateHandler);
 }</code></pre>
   </section>
+  
   <section class="bcls-section">
     <h2 id="analytics_events">Analytics events</h2>
     <p>An event is triggered each time a beacon is sent to the Analytics data collector. You can listen for any beacon or specific ones.</p>
@@ -219,17 +220,8 @@ function timeupdateHandler(evt) {
   videojs.log('sent an impression beacon!', e.params);
 });</code></pre>
   </section>
-  <section class="bcls-section">
-    <h2 id="No_support_for_method_chaining">No support for method chaining</h2>
-    <p>As of version 6 of Brightcove Player method chaining with events is no longer supported. This means you CANNOT do this:</p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">player.on(event, function () {})
-.on(event, function () {})
-.on(event, function () {})
-.on(event, function () {});</code></pre>
-  </section>
-  <!-- *** Uncomment the section below and delete the section above when BCP7 releases *** -->
-  <section class="bcls-section">
+   <!-- **** Uncomment the section below and delete the section above when BCP7 releases **** -->
+   <!-- <section class="bcls-section">
     <h2 id="analytics_events">Analytics events</h2>
     <p>An event is triggered each time a beacon is sent to the Analytics data collector. You can listen for any beacon or specific ones.</p>
     <h3>Listen for all beacons</h3>
@@ -244,7 +236,9 @@ function timeupdateHandler(evt) {
 <pre class="line-numbers"><code class="language-javascript" translate="No">player.on('analytics-beacon-video-impression', function(e) {
   videojs.log('sent an impression beacon!', e.params);
 });</code></pre>
-  </section>
+  </section> -->
+
+
   <section class="bcls-section">
     <h2 id="No_support_for_method_chaining">No support for method chaining</h2>
     <p>As of version 6 of Brightcove Player method chaining with events is no longer supported. This means you CANNOT do this:</p>
@@ -254,4 +248,5 @@ function timeupdateHandler(evt) {
 .on(event, function () {})
 .on(event, function () {});</code></pre>
   </section>
+  
 </article>
