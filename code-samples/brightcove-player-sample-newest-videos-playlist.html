@@ -1,6 +1,6 @@
 ---
 title: 'Brightcove Player Sample: Newest Videos in Playlist'
-description: 'In this topic, you will learn how to  use the <a href="https://apis.support.brightcove.com/cms/">CMS API</a> to return the last ten videos created in an account and display them in a playlist.'
+description: 'In this topic, you will learn how to use the <a href="https://apis.support.brightcove.com/cms/">CMS API</a> to return the last ten videos created in an account and display them in a playlist.'
 parent: Code Samples
 ---
 <h1>{{ page.title }}</h1>
@@ -15,19 +15,27 @@ parent: Code Samples
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
     <!-- UPDATE description -->
-    
+
     <p>In the following player, you see a playlist that contains the 10 most recent videos added to the Knowledge Team's account. Note this is an active account, and sometimes the team experiments in this account and non-playable videos might appear.</p>
     <!-- UPDATE codepen here -->
-    
-    <p data-height="430" data-theme-id="34967" data-slug-hash="mqwmqV" data-default-tab="result" data-user="rcrooks1969" data-embed-version="2" data-pen-title="Newest Videos in a Playlist" class="codepen">See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/mqwmqV/">Newest Videos in a Playlist</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-    
+
+    <p class="codepen" data-height="658.2890625" data-default-tab="result" data-slug-hash="mqwmqV" data-user="rcrooks1969" style="height: 658.2890625px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/mqwmqV">
+          Newest Videos in a Playlist</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@rcrooks1969</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+    <!-- UPDATE link to GitHub source -->
+
     <h3>Source code</h3>
-          <p>View the <a href="https://github.com/BrightcoveLearning/18181-newest-videos-playlist">complete solution on GitHub</a>.</p>
+    <p>View the <a href="https://github.com/BrightcoveLearning/18181-newest-videos-playlist">complete solution on GitHub</a>.</p>
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Using_the_CodePen">Using the CodePen</h2></summary>
+      <summary>
+        <h2 id="Using_the_CodePen">Using the CodePen</h2>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -44,7 +52,9 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="Development_sequence">Development sequence</h2></summary> 
+      <summary>
+        <h2 id="Development_sequence">Development sequence</h2>
+      </summary>
       <p>Here is the recommended development sequence:</p>
       <ol>
         <li>Use the In-Page embed player implementation to test the functionality of your player, plugin and CSS (if CSS is needed)</li>
@@ -73,7 +83,7 @@ parent: Code Samples
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
-    
+
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -93,15 +103,16 @@ parent: Code Samples
   </section>
   <section class="bcls-section">
     <details>
-      <summary><h2 id="getCredentials">Get credentials</h2></summary>
+      <summary>
+        <h2 id="getCredentials">Get credentials</h2>
+      </summary>
       <p>To use the <span translate="No">CMS API</span> you will need proper credentials.</p>
       <p>The easiest way to get credentials in most cases is through the Studio Admin API Authentication section (requires admin permissions on your account). See <a href="https://studio.support.brightcove.com/admin/managing-api-authentication-credentials.html">Managing API Authentication Credentials</a> for details. In most cases, you probably just want to get permissions for all <span translate="No">CMS API</span> operation:</p>
       <figure class="bcls-figure"><img class="bcls-image" alt="CMS API Permissions" src="/assets/images/code-samples/brightcove-player-sample-newest-videos-playlist/cms-permissions.png" />
         <figcaption class="bcls-caption--image">CMS API Permissions</figcaption>
       </figure>
       <p>If the permissions you need are not available in Studio, or if you prefer to get them directly from the OAuth API, use your choice of the <strong>Get Client Credentials</strong> documents listed below. Whichever option you choose, you will need to ask for the correct operation permissions. The following can be used with cURL or Postman to get all permissions for the CMS API:</p>
-      <pre class="line-numbers">
-      <code class="language-json" translate="No">"operations": [
+      <pre class="line-numbers"><code class="language-json" translate="No">"operations": [
         "video-cloud/video/all",
         "video-cloud/playlist/all",
         "video-cloud/sharing-relationships/all",
@@ -114,7 +125,7 @@ parent: Code Samples
     </details>
   </section>
   <!-- UPDATE player and HTML configuration -->
-  
+
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
     <p>This section details any special configuration needed during player creation. In addition, other HTML elements that must be added to the page, beyond the in-page embed player implementation code, are described.</p>
@@ -122,11 +133,10 @@ parent: Code Samples
     <p>No special configuration is required for the Brightcove Player you create for this sample.</p>
     <h3>Other HTML</h3>
     <p>An HTML ordered list is used as the location for the playlist, which is standard practice:</p>
-    <pre class="line-numbers">
-      <code class="language-html" translate="No">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;div class="vjs-playlist"&gt;&lt;/div&gt;</code></pre>
   </section>
   <!-- UPDATE application flow -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
     <p>The basic logic behind this application is:</p>
@@ -138,59 +148,52 @@ parent: Code Samples
       <li>The array of video objects is assigned as the player's playlist.</li>
     </ul>
     <!-- UPDATE task 1 -->
-    
+
     <h3>Initialize values</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### Set up data for <span translate="No">CMS API</span> request ###</code></pre>
+    <pre><code class="language-javascript" translate="No">// ### Set up data for <span translate="No">CMS API</span> request ###</code></pre>
     <p>A function is called where variables are created that setup for the call to the CMS API. For instance, the request URL is built, and appears as follows:</p>
-    <pre class="line-numbers">
-      <code class="language-javascript" translate="No">https://cms.api.brightcove.com/v1/accounts/1752604059001/videos?sort=-created_at&amp;limit=10</code></pre>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">https://cms.api.brightcove.com/v1/accounts/1752604059001/videos?sort=-created_at&amp;limit=10</code></pre>
     <!-- UPDATE task 2 -->
-    
+
     <h3>Make the call to the CMS API</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### Make the <span translate="No">CMS API</span> request to get matching video IDs ###</code></pre>
+    <pre><code class="language-javascript" translate="No">// ### Make the <span translate="No">CMS API</span> request to get matching video IDs ###</code></pre>
     <p>The function <code translate="No">getNewestVideos</code> is called. Passed to the function are the configuration options previously built and a callback function. The callback function is used as the transport to return data from the API. For further details on this technique see the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Extract video IDs from data returned from CMS API</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### Standard code to extract videos from returned data ###</code></pre>
+    <pre><code class="language-javascript" translate="No">// ### Standard code to extract videos from returned data ###</code></pre>
     <p>The <span translate="No">CMS API</span> returns more than just the video IDs, so all IDs need to be extracted from the returned, raw data.</p>
     <!-- UPDATE task 3 -->
-    
+
     <h3>Retrieve video objects using IDs and place in an array</h3>
     <p>Find the code which is labeled:</p>
-    <pre>
-      <code class="language-javascript" translate="No">// ### Get video objects from IDs ###</code></pre>
+    <pre><code class="language-javascript" translate="No">// ### Get video objects from IDs ###</code></pre>
     <p>The code from the comment just above to the end of the <code translate="No">script</code> block all involves getting the actual video objects (using the Video Cloud catalog) and placing them in an array for use as a playlist.</p>
   </section>
   <!-- UPDATE CSS description -->
-  
+
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
-    <p>The CSS sizes both the player and playlist, and places them beside each other.</p>
+    <p>No CSS is needed for this sample.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Plugin_code">Plugin code</h2>
     <p>Normally when converting the JavaScript into a Brightcove Player plugin nominal changes are needed. One required change is to replace the standard use of the <code translate="No">ready()</code> method with the code that defines a plugin.</p>
     <p>Here is the very commonly used start to JavaScript code that will work with the player:</p>
-    <pre class="line-numbers">
-      <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
-        var myPlayer = this;
-        ...
-      });</code></pre>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
+  var myPlayer = this;
+  ...
+});</code></pre>
     <p>You will change the first line to use the standard syntax to start a Brightcove Player plugin:</p>
-    <pre class="line-numbers">
-      <code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
-        var myPlayer = this;
-        ...
-      });</code></pre>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">videojs.registerPlugin('pluginName', function(options) {
+  var myPlayer = this;
+  ...
+});</code></pre>
     <!-- UPDATE path to plugin's JavaScript -->
-    
+
     <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18181-newest-videos-playlist/blob/master/plugin/newest-videos-in-playlist-plugin.js">newest-videos-in-playlist-plugin.js</a>.</p>
     <h3>Using the plugin with a player</h3>
     <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
