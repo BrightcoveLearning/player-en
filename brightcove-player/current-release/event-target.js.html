@@ -34,7 +34,7 @@
     <div class="title">
       <h1><a href="index.html" class="link">Brightcove Player API Documentation</a></h1>
 
-      <span class="version">v6.66.5</span>
+      <span class="version">v6.66.6</span>
 
     </div>
     <div class="search-container" id="search-container">
@@ -6072,6 +6072,7 @@ EventTarget.prototype.queueTrigger = function(event) {
   window.clearTimeout(oldTimeout);
 
   const timeout = window.setTimeout(() => {
+    map.delete(type);
     // if we cleared out all timeouts for the current target, delete its map
     if (map.size === 0) {
       map = null;
