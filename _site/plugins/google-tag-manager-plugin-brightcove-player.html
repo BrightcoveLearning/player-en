@@ -1826,7 +1826,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
   <section class="bcls-section">
     <h2 id="Reviewing_events_to_track">Reviewing events to track</h2>
-    <p>Review the table below and determine which events you want to track.</p>
+    <p>Review the table below and determine which events you want to track. The following listed events must be created as triggers.</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -1838,56 +1838,56 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td>Player Load</td>
-          <td><code translate="No">bcvideo_player_load</code></td>
+          <td><code translate="No">player_load</code></td>
           <td>
             Player has been loaded and is ready for playback </td>
         </tr>
         <tr>
           <td>Video Impression</td>
-          <td><code translate="No">bcvideo_video_impression</code></td>
+          <td><code translate="No">video_impression</code></td>
           <td>
             Video has been loaded into a player and is ready for playback </td>
         </tr>
         <tr>
           <td>Video View</td>
-          <td><code translate="No">bcvideo_video_view</code></td>
+          <td><code translate="No">video_view</code></td>
           <td>
             Video has started playing back either through auto-play or due to user interaction </td>
         </tr>
         <tr>
           <td>Video Engagement</td>
-          <td><code translate="No">bcvideo_video_engagement</code></td>
+          <td><code translate="No">video_engagement</code></td>
           <td>
             A user watched a range of seconds of a video's timeline. This event is a heartbeat for tracking video engagement and will likely be sent many times during playback, depending on the user interaction and the length of the video.
           </td>
         </tr>
         <tr>
           <td>Play Request</td>
-          <td><code translate="No">bcvideo_play_request</code></td>
+          <td><code translate="No">play_request</code></td>
           <td>
             Playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario </td>
         </tr>
         <tr>
           <td>Ad Start</td>
-          <td><code translate="No">bcvideo_ad_start</code></td>
+          <td><code translate="No">ad_start</code></td>
           <td>
             Control is handed over to an advertising agent by the playback platform </td>
         </tr>
         <tr>
           <td>Ad End</td>
-          <td><code translate="No">bcvideo_ad_end</code></td>
+          <td><code translate="No">ad_end</code></td>
           <td>
             Control is handed back from the advertising agent to the playback platform </td>
         </tr>
         <tr>
           <td>Error</td>
-          <td><code translate="No">bcvideo_error</code></td>
+          <td><code translate="No">error</code></td>
           <td>
             A fatal error has occurred which disrupts the playback experience </td>
         </tr>
         <tr>
           <td>Video Complete</td>
-          <td><code translate="No">bcvideo_video_complete</code></td>
+          <td><code translate="No">video_complete</code></td>
           <td>
             Video playback finishes
           </td>
@@ -1928,12 +1928,10 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </figure>
       </li>
       <li>
-        <p>
-          Enter the details:
-        </p>
+        <p>These are the configuration details:</p>
         <ul>
           <li>
-            <strong>Data Layer Variable Name</strong> - Name of the variable
+            <strong>Data Layer Variable Name</strong> - Name of the variable 
           </li>
           <li>
             <strong>Data Layer Version</strong> - Version 2
@@ -1941,12 +1939,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </ul>
       </li>
       <li>
+        <p>First, create three user-defined variables called; <strong>Event Action</strong>, <strong>Event Category</strong>, and <strong>Event Label</strong>. The configuration should look similar to this.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Event action variable" src="/assets/images/plugins/google-tag-manager/event-action-variable.png" />
+          <figcaption class="bcls-caption--image">Event action variable</figcaption>
+        </figure>
+      </li>
+      <li>
         <p>
-          Select <strong>Save</strong>.
+          Then create the variables required to reflect the Brightcove parameters. In this case, the name of the <strong>Data Layer Variable</strong> should match what is in the player’s JSON config for <code>paramsToTrack</code> after <strong>customDimensions</strong> in the GTM variable. Here is an example:
         </p>
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Save variable" src="/assets/images/plugins/google-tag-manager/save-variable.png" />
-          <figcaption class="bcls-caption--image">Save variable</figcaption>
+          <img class="bcls-image--no-border" alt="Account variable" src="/assets/images/plugins/google-tag-manager/account-variable.png" />
+          <figcaption class="bcls-caption--image">Account variable</figcaption>
         </figure>
       </li>
       <li>
@@ -1995,7 +2000,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <li>
             <strong>Video Playhead</strong> - The time in the video at which the event is triggered
           </li>
-          <li>
+          <!-- <li>
             <strong>Country</strong> - ISO-3166 (alpha 2) country code, e.g.: US
           </li>
           <li>
@@ -2015,11 +2020,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           </li>
           <li>
             <strong>Browser Type</strong> - Common name of browser used (i.e. Chrome, Edge, Firefox)
-          </li>
+          </li> -->
           <li>
             <strong>Destination</strong> - URI that originated the event
           </li>
-          <li>
+          <!-- <li>
             <strong>Source</strong> - URI that sent end-user to destination
           </li>
           <li>
@@ -2030,7 +2035,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           </li>
           <li>
             <strong>Device OS Version</strong> - The version of OS being used by the device
-          </li>
+          </li> -->
         </ul>
       </li>
       <li>
@@ -2131,8 +2136,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>
         <p>
-          Enter the Event name.
-        </p>
+          Enter the Event name; the event name should look similar to the image below.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Trigger configuration name" src="/assets/images/plugins/google-tag-manager/trigger-configuration-name.png" />
+          <figcaption class="bcls-caption--image">Trigger configuration name</figcaption>
+        </figure>
       </li>
       <li>
         <p>
@@ -2193,42 +2201,40 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </p>
         <ul>
           <li><code translate="No">tracker</code> - Your Google Tag Manager tracking id (GTM-XXXXXXX)</li>
-          <li><code translate="No">paramsToTrack</code> - Custom dimensions you want to track</li>
           <li><code translate="No">eventsToTrack</code> - Events you want to track</li>
+          <li><code translate="No">paramsToTrack</code> - Custom dimensions you want to track</li>
           <li><code translate="No">milestones</code> - An array of integers to alter the milestones from the default of 25, 50, 75, 100%. Of course, this is only applicable when <code>bcvideo_video_milestone</code> is being tracked.</li>
         </ul>
         <p>Here is an example:</p>
         <pre class="line-numbers">
  <code class="language-json" translate="No">{ 
   "tracker":"<span class="bcls-input">your Google Tag Manager id</span>", 
-  "paramsToTrack": {
-    "bcvideo_video_seconds_viewed":"video_seconds_viewed", 
-    "bcvideo_video_playhead":"video_playhead", 
-    "bcvideo_account":"account",
-    "bcvideo_player":"player",
-    "bcvideo_player_name":"player_name", 
-    "bcvideo_video":"video",
-    "bcvideo_video_name":"video_name", 
-    "bcvideo_session":"session",
-    "bcvideo_platform_version":"platform_version", 
-    "bcvideo_range":"range",
-    "bcvideo_video_duration":"video_duration", 
-    "bcvideo_video_percent_viewed":"video_percent_viewed",
-    "bcvideo_error_code":"error_code", 
-    "bcvideo_video_milestone":"video_milestone", 
-    "bcvideo_destination":"destination"
-  },
   "eventsToTrack": {
-    "video_impression": "Video Impression", 
-    "video_view": "Video View",
-    "video_complete": "Video Complete", 
-    "play_request": "Play Request",
-    "video_engagement": "Video Engagement", 
-    "ad_start": "Ad Start",
     "ad_end": "Ad End",
+    "ad_start": "Ad Start",
+    "error": "Error",
+    "play_request": "Play Request",
     "player_load": "Player Load",
-    "error": "Error"
-  }<!-- ,
+    "video_complete": "Video Complete",
+    "video_engagement": "Video Engagement",
+    "video_impression": "Video Impression",
+    "video_view": "Video View"
+  },
+  "paramsToTrack": {
+    "bcvideo_video_duration": "duration",
+    "bcvideo_error_code": "error",
+    "bcvideo_account": "account",
+    "bcvideo_session": "session",
+    "bcvideo_video_milestone": "milestone",
+    "bcvideo_video_name": "video_name",
+    "bcvideo_range": "range",
+    "bcvideo_video_seconds_viewed": "seconds_viewed",
+    "bcvideo_player_name": "player_name",
+    "bcvideo_video_percent_viewed": "percent_viewed",
+    "bcvideo_destination": "destination",
+    "bcvideo_video_playhead": "playhead"
+  }
+<!-- ,
   "milestones": [
     10,
     20,
@@ -2274,8 +2280,46 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <h2 id="Creating_custom_dimensions"> Creating custom dimensions
     </h2>
     <p>
-      Custom dimensions are metrics that you create yourself in Google Analytics. By using Google Scripts, you can automate the process of adding custom dimensions in Google Analytics.
+      Custom dimensions are metrics that you create yourself in Google Analytics. There are two ways to add custom dimensions, the first is adding the dimensions directly in Google Analytics, and the other is using Google Scripts.
     </p>
+    <p>To add the Custom Dimensions directly in Google Analytics, follow these steps:</p>
+    <aside class="bcls-aside bcls-aside--tip">Please note that you must create a Universal Google Analytics instance instead of a v4 one. Brightcove Google Tag Manager Plugin only works with Universal Google Analytics.</aside>
+   
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>Log in to Google Analytics.</p>
+      </li>
+      <li>
+        <p>Select <strong>Admin</strong>.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/analytics-admin.png" />
+          <figcaption class="bcls-caption--image"> Analytics admin
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>Click on <strong>Custom Definitions</strong> to expand it, then select <strong>Custom Dimensions</strong>.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Custom dimensions" src="/assets/images/plugins/google-tag-manager/custom-dimensions.png" />
+          <figcaption class="bcls-caption--image"> Custom dimensions
+          </figcaption>
+      </li>
+      <li>
+        <p>Click the <strong>New Custom Dimension</strong> button.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="New Custom dimensions" src="/assets/images/plugins/google-tag-manager/create-custom-dimensions.png" />
+          <figcaption class="bcls-caption--image"> New Custom dimensions
+          </figcaption>
+      </li>
+      <li>
+        <p>Enter the <strong>Custom Dimension Name</strong> and then click on <strong>Create</strong>. Google Analytics will assign an index number automatically. You will need to create a custom dimension for each parameter you want to track.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Add Custom dimensions" src="/assets/images/plugins/google-tag-manager/add-custom-dimension.png" />
+          <figcaption class="bcls-caption--image"> Add Custom dimensions
+          </figcaption>
+         
+      </li>
+       </ol>
     <p>To use a Google App Script to create custom dimensions, follow these steps:</p>
     <ol class="bcls-tasklist-restart">
       <!-- <li>
@@ -2402,6 +2446,7 @@ function createGACustomDimensions() {
         </figure>
       </li>
     </ol>
+    
   </section>
   <section class="bcls-section">
     <h2 id="Viewing_custom_dimensions"> Viewing custom dimensions
