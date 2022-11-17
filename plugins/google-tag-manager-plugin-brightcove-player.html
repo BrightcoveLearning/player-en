@@ -163,7 +163,7 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="Reviewing_events_to_track">Reviewing events to track</h2>
-    <p>Review the table below and determine which events you want to track. The following listed events must be created as triggers.</p>
+    <p>Review the table below and determine which events you want to track.</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -231,6 +231,7 @@ parent: Plugins
         </tr>
       </tbody>
     </table>
+    <aside class="bcls-aside bcls-aside--tip">Please note that the events listed in the table above must be created as triggers.</aside>
   </section>
   <section class="bcls-section">
     <h2 id="Creating_variables_tags_&_triggers">Creating Variables, Tags & Triggers</h2>
@@ -277,6 +278,17 @@ parent: Plugins
       </li>
       <li>
         <p>First, create three user-defined variables called; <strong>Event Action</strong>, <strong>Event Category</strong>, and <strong>Event Label</strong>. The configuration should look similar to this.</p>
+        <ul>
+          <li>
+            <strong>Event Action</strong> - eventAction 
+          </li>
+          <li>
+            <strong>Event Category</strong> - eventCategory
+          </li>
+          <li>
+            <strong>Event Label</strong> - eventLabel
+          </li>
+        </ul>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Event action variable" src="/assets/images/plugins/google-tag-manager/event-action-variable.png" />
           <figcaption class="bcls-caption--image">Event action variable</figcaption>
@@ -619,9 +631,9 @@ parent: Plugins
     <p>
       Custom dimensions are metrics that you create yourself in Google Analytics. There are two ways to add custom dimensions, the first is adding the dimensions directly in Google Analytics, and the other is using Google Scripts.
     </p>
-    <p>To add the Custom Dimensions directly in Google Analytics, follow these steps:</p>
+    <h3>Adding custom dimensions with Google Analytics</h3>
+    <p>To add the ustom dimensions directly in Google Analytics, follow these steps:</p>
     <aside class="bcls-aside bcls-aside--tip">Please note that you must create a Universal Google Analytics instance instead of a v4 one. Brightcove Google Tag Manager Plugin only works with Universal Google Analytics.</aside>
-   
     <ol class="bcls-tasklist-restart">
       <li>
         <p>Log in to Google Analytics.</p>
@@ -656,7 +668,8 @@ parent: Plugins
           </figcaption>
          
       </li>
-       </ol>
+    </ol>
+    <h3>Adding custom dimensions with Google App Script</h3>
     <p>To use a Google App Script to create custom dimensions, follow these steps:</p>
     <ol class="bcls-tasklist-restart">
       <!-- <li>
