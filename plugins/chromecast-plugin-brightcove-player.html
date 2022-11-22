@@ -165,13 +165,14 @@ parent: Plugins
       The Chromecast plugin supports the following options: </p>
     <ul>
       <li>
-        <code translate="No">options.appName </code><br /> <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: 'Brightcove Chromecast CAF v2.0'
+        <h3><code translate="No">options.appName </code></h3>
+        <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: 'Brightcove Chromecast CAF v2.0'
         <p>Override the default application name with your own custom name.</p>
         <aside class="bcls-aside bcls-aside--tip"> This option is available with the <a href="http://players.brightcove.net/release-notes/brightcove-player-chromecast-receiver/index.html">Chromecast Receiver plugin version 2.2.0</a> and newer.
         </aside>
       </li>
       <li>
-        <code translate="No">options.playerUrl </code><br />
+        <h3><code translate="No">options.playerUrl </code></h3>
         <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: ''
         <!-- <code translate="No">URL of current player</code> -->
         <!-- <p>
@@ -183,11 +184,27 @@ parent: Plugins
         <aside class="bcls-aside bcls-aside--information"> This should be a URL to an <code translate="No">index.min.js</code> file on the Brightcove CDN </aside>
       </li>
       <li>
-        <code translate="No">options.splashScreen </code><br /> <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: ''
+        <h3><code translate="No">options.splashScreen </code></h3> 
+        <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: ''
         <p>The splash screen that should be shown before a video and when videos are switching.</p>
       </li>
       <li>
-        <code translate="No">options.authRequest </code><br /> <strong>Type</strong>: <code translate="No">string</code> or <code translate="No">object</code> or <code translate="No">function</code><br /> <strong>Default</strong>: {}<br /><br />
+        <h3><code translate="No">options.ssaiDynamicMacros</code></h3> 
+        <strong>Type</strong>: <code translate="No">Array</code><br /> <strong>Default</strong>: undefined
+        <p>This option allows users to pass a set of dynamic ad macros into the Chromecast receiver from the web player.</p>
+        <p>Each element of this array should be a string that matches the name of a global variable (a property of <code translate="No">window</code>). This value will then be passed to the player on the Chromecast and used when resolving ad macros in a VOD SSAI URL.</p>
+        <p>For example, let's say your SSAI implementation relies on the <code translate="No">exampleMacro</code> being available globally. You would add the following to your Chromecast plugin options:</p>
+        <pre><code class="language-javascript" translate="No">&quot;ssaiDynamicMacros&quot;: [&quot;exampleMacro&quot;]</code></pre>
+        <p>When the sender player casts, will pass the value of <code translate="No">window.exampleMacro</code> across to the receiver, where it will be picked up automatically by the built-in SSAI ad macro resolution.</p>
+
+      </li>
+      </ul>
+      <h3>Uncommon options</h3>
+      <p>The following options are not generally used.</p>
+      <ul>
+      <li>
+        <h3><code translate="No">options.authRequest </code></h3> 
+        <strong>Type</strong>: <code translate="No">string</code> or <code translate="No">object</code> or <code translate="No">function</code><br /> <strong>Default</strong>: {}<br /><br />
         <aside class="bcls-aside bcls-aside--information"> This is an uncommon option, so you probably won't need it!
         </aside>
         <p>You can use this option if you need the Chromecast to perform a request to get authorization to play content before a video is requested.</p>
