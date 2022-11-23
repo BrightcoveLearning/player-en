@@ -204,7 +204,7 @@ function timeupdateHandler(evt) {
 }</code></pre>
   </section>
   
-  <section class="bcls-section">
+  <!-- <section class="bcls-section">
     <h2 id="analytics_events">Analytics events</h2>
     <p>An event is triggered each time a beacon is sent to the Analytics data collector. You can listen for any beacon or specific ones.</p>
     <h3>Listen for all beacons</h3>
@@ -219,9 +219,10 @@ function timeupdateHandler(evt) {
 <pre class="line-numbers"><code class="language-javascript" translate="No">player.on('analytics_request_video_impression', function(e) {
   videojs.log('sent an impression beacon!', e.params);
 });</code></pre>
-  </section>
+
+  </section> -->
    <!-- **** Uncomment the section below and delete the section above when BCP7 releases **** -->
-   <!-- <section class="bcls-section">
+   <section class="bcls-section">
     <h2 id="analytics_events">Analytics events</h2>
     <p>An event is triggered each time a beacon is sent to the Analytics data collector. You can listen for any beacon or specific ones.</p>
     <h3>Listen for all beacons</h3>
@@ -236,7 +237,8 @@ function timeupdateHandler(evt) {
 <pre class="line-numbers"><code class="language-javascript" translate="No">player.on('analytics-beacon-video-impression', function(e) {
   videojs.log('sent an impression beacon!', e.params);
 });</code></pre>
-  </section> -->
+<aside class="bcls-aside bcls-aside--information">Please note that the events are <code translate="no">analytics-beacon</code> instead of <code translate="no">analytics_request</code> in Brightcove Player v7+.</aside>
+  </section>
 
 
   <section class="bcls-section">
