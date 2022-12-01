@@ -9,18 +9,18 @@ parent: Playback
   <summary>{{ page.description }}</summary>
 
   <section class="bcls-section">
-    <h2 id="Introduction">Introduction</h2> 
-    <p>Brightcove Player supports playback of audio-only assets either with the player UI hidden except for the control bar, or with the poster image permanently displayed during playback </p> 
-   
+    <h2 id="Introduction">Introduction</h2>
+    <p>Brightcove Player supports playback of audio-only assets either with the player UI hidden except for the control bar, or with the poster image permanently displayed during playback </p>
+
     <h3> Audio only mode</h3>
-       <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Audio-only mode" src="/assets/images/playback/audio-only/audio-only-mode.png" />
-        <figcaption class="bcls-caption--image">Audio only mode</figcaption>
-      </figure>
-    
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Audio-only mode" src="/assets/images/playback/audio-only/audio-only-mode.png" />
+      <figcaption class="bcls-caption--image">Audio only mode</figcaption>
+    </figure>
+
     <h3> Audio poster mode</h3>
-      <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Audio-poster mode" src="/assets/images/playback/audio-only/audio-poster-mode.png" />
-        <figcaption class="bcls-caption--image">Audio poster mode</figcaption>
-      </figure>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Audio-poster mode" src="/assets/images/playback/audio-only/audio-poster-mode.png" />
+      <figcaption class="bcls-caption--image">Audio poster mode</figcaption>
+    </figure>
 
 
     <h3>Example</h3>
@@ -28,14 +28,16 @@ parent: Playback
 
     <p class="codepen" data-height="474" data-default-tab="result" data-slug-hash="yLprobB" data-user="rcrooks1969" style="height: 474px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
       <span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/yLprobB">
-      Untitled</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@rcrooks1969</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
+          Untitled</a> by Brightcove Learning Services (<a href="https://codepen.io/team/rcrooks1969">@rcrooks1969</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
     </p>
     <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-    <br/>
+    <br />
     <details>
-      <summary><h3 id="Using_the_CodePen">Using the CodePen</h3></summary>
+      <summary>
+        <h3 id="Using_the_CodePen">Using the CodePen</h3>
+      </summary>
       <p>Here are some tips to effectively use the above CodePen:</p>
       <ul>
         <li>Toggle the actual display of the player by clicking the <strong translate="No">Result</strong> button.</li>
@@ -50,7 +52,7 @@ parent: Playback
   </section>
 
   <section class="bcls-section">
-    <h2 id="Requirements">Requirements</h2> 
+    <h2 id="Requirements">Requirements</h2>
     <p>The following requirements are needed for this feature:</p>
     <ul>
       <li>Brightcove Player v6.65.1 and newer</li>
@@ -59,7 +61,7 @@ parent: Playback
   </section>
 
   <section class="bcls-section">
-    <h2 id="Implementation_notes">Implementation notes</h2> 
+    <h2 id="Implementation_notes">Implementation notes</h2>
     <p>When using audio assets with Brightcove Player, there are two options to customize the player:</p>
     <ul>
       <li>Audio Only Mode</li>
@@ -82,7 +84,7 @@ parent: Playback
   </section>
 
   <section class="bcls-section">
-    <h2 id="Implement_using_configuration">Implement using configuration</h2> 
+    <h2 id="Implement_using_configuration">Implement using configuration</h2>
     <p>Audio playback mode can be set in the player configuration.</p>
 
     <ol class="bcls-tasklist">
@@ -96,7 +98,7 @@ parent: Playback
         <pre><code class="language-javascript" translate="No">"audio_only_mode": true</code></pre>
         <p>OR</p>
         <pre><code class="language-javascript" translate="No">"audio_poster_mode": true</code></pre>
-        <br/>
+        <br />
         <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Audio only code" src="/assets/images/playback/audio-only/audio-only-json-code.png" />
         </figure>
       </li>
@@ -106,10 +108,14 @@ parent: Playback
   </section>
 
   <section class="bcls-section">
-    <h2 id="Implement_using_embed_code">Implement using embed code</h2> 
+    <h2 id="Implement_using_embed_code">Implement using embed code</h2>
     <p>Another option to implement audio mode is to update the player embed code on your web page.</p>
-    <aside class="bcls-aside bcls-aside--information">For this option, you do not have to update the player configuration as shown in the section above. </aside>
-
+    <aside class="bcls-aside bcls-aside--information">For this option:
+      <ul>
+        <li>You do not have to update the player configuration as shown in the section above.</li>
+        <li>You must use the <strong>Advanced Embed Code</strong>.</li>
+      </ul>
+    </aside>
     <h3>Enable/disable audio mode</h3>
     <p>Audio mode can be enabled or disabled asynchronously by calling the following methods which return a <code translate="No">Promise</code>.</p>
     <pre><code class="language-javascript" translate="No">player.audioOnlyMode(true|false)</code></pre>
@@ -161,8 +167,8 @@ parent: Playback
     </ol>
 
   </section>
-  
-  
+
+
   <!-- <section class="bcls-section">
     <h2 id="Known_issues">Known issues</h2>
     <ul>
