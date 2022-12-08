@@ -2006,12 +2006,8 @@ Balance
           return;
         }
 
-  const { id, text, startTime, endTime } = activeCue;
-  outputEl.innerHTML += `id: ${id}, text: ${text}, startTime: ${startTime}, endTime: ${endTime}\n\n`;
-  /* outputEl.innerHTML += `id: ${id}\n\n`
-  outputEl.innerHTML += `text: ${text}\n\n`;
-  outputEl.innerHTML += `startTime: ${startTime}, endTime: ${endTime}\n\n`;
-  */
+          const { id, text, startTime, endTime } = activeCue;
+          outputEl.innerHTML += `id: ${id}\ntext: ${text}\nstartTime: ${startTime}, endTime: ${endTime}\n`;
   try {
   const { title, description } = JSON.parse(text);
   outputEl.innerHTML += `${title}: ${description}\n\n`
@@ -2271,7 +2267,7 @@ Balance
 
 <hr>
 <div class="last-updated">
-  Page last updated on 13 Apr 2022
+  Page last updated on 08 Dec 2022
 </div>
 
 
