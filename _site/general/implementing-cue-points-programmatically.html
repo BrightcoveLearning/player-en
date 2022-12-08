@@ -1917,22 +1917,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">WEBVTT
 
-multiCell
-00:00:02.000 --&gt; 00:00:05.000
+Carry
+00:00:03.000 --> 00:00:09.000
 {
-"title": "Multi-celled organisms",
-"description": "Multi-celled organisms have different types of cells that perform specialized functions.",
-"src": "multiCell.jpg",
-"href": "http://en.wikipedia.org/wiki/Multicellular"
+"id": "First cue point",
+"title": "Carry the rim",
+"description": "Getting ready to mount a tire on the rim."
 }
 
-insects
-00:00:10.000 --&gt; 00:00:15.000
+Balance
+00:00:10.000 --> 00:00:15.000
 {
-"title": "Insects",
-"description": "Insects are the most diverse group of animals on the planet with estimates for the total number of current species range from two million to 50 million. The first insects appeared around 400 million years ago, identifiable by a hard exoskeleton, three-part body, six legs, compound eyes and antennae.",
-"src": "insects.jpg",
-"href": "http://en.wikipedia.org/wiki/Insects"
+"id": "Second cue point",
+"title": "Balance the tire and rim",
+"description": "Spin the mounted tire to check the balance."
 }</code></pre>
     <p>When you play the following video, you will see the cue point WebVTT file shown above processed. At the start of a cue point, you see dynamically created HTML injected into the page, followed by some parsed JSON from the <strong>text</strong> field. At the end of the cue point the message <strong>Cue point duration over</strong> is displayed.</p>
     <video-js id="myPlayerID2" data-video-id="4607357817001" data-account="1752604059001" data-player="VkIrj2aFx" data-embed="default" controls="">
@@ -1968,44 +1966,61 @@ insects
         <li>Lines 146-147: Display a note that the cue point end has been reached.</li>
         <li>Line 150: Play the video.</li>
       </ul>
-      <pre class="line-numbers" data-start="115">
-<code class="language-html" translate="No">&lt;video-js id="myPlayerID"
-  data-account="1752604059001"
-  data-player="8cfb6785-c4be-43b4-af68-7ca2fe3a6ebf"
-  data-embed="default"
-  data-video-id="3851380732001"
-  controls=""&gt;
+      <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
+  data-account=&quot;1752604059001&quot;
+  data-player=&quot;default&quot;
+  data-embed=&quot;default&quot;
+  controls=&quot;&quot;
+  data-video-id=&quot;4607357817001&quot;
+  data-playlist-id=&quot;&quot;
+  data-application-id=&quot;&quot;
+  width=&quot;640&quot; height=&quot;360&quot;&gt;
 
-  &lt;track kind="metadata" src="https://solutions.brightcove.com/bcls/tests/player/cuepoints.vtt" /&gt;
+  &lt;track kind=&quot;metadata&quot; label=&quot;external-metadata-vtt&quot; src=&quot;https://solutions.brightcove.com/bcls/brightcove-player/cuepoints/cuepoints-2022.vtt&quot; /&gt;
+
 &lt;/video-js&gt;
 
-&lt;p id="insertionPoint2"&gt;&lt;/p&gt;
+&lt;pre id=&quot;insertionPoint&quot;&gt;&lt;/pre&gt;
 
-&lt;script src="https://players.brightcove.net/1752604059001/8cfb6785-c4be-43b4-af68-7ca2fe3a6ebf_default/index.min.js"&gt;&lt;/script&gt;
+&lt;script src=&quot;https://players.brightcove.net/1752604059001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
 
-&lt;script type="text/javascript"&gt;
-  videojs.getPlayer('myPlayerID').ready(function() {
-    var myPlayer = this;
-    myPlayer.one("loadedmetadata", function () {
-      var trackIndex = myPlayer.textTracks().length - 1;
-      var tt = myPlayer.textTracks()[trackIndex];
-      tt.oncuechange = function () {
-        if (tt.activeCues[0] !== undefined) {
-          var dynamicHTML = "id: " + tt.activeCues[0].id + ", ";
-          dynamicHTML += "text: " + tt.activeCues[0].text + ", ";
-          dynamicHTML += "startTime: " + tt.activeCues[0].startTime + ",  ";
-          dynamicHTML += "endTime: " + tt.activeCues[0].endTime;
-          document.getElementById("insertionPoint2").innerHTML += dynamicHTML + "&lt;br/&gt;&lt;br/&gt;";
-          jsonData = JSON.parse(tt.activeCues[0].text);
-          document.getElementById("insertionPoint2").innerHTML += jsonData.title + ": " + jsonData.description + "&lt;br/&gt;&lt;br/&gt;";
-        } else {
-          document.getElementById("insertionPoint2").innerHTML += "Cue point duration over" + "&lt;br/&gt;&lt;br/&gt;";
+&lt;script type=&quot;text/javascript&quot;&gt;
+  const player = videojs.getPlayer(&apos;myPlayerID&apos;);
+    player.ready(() =&gt; {
+      player.one(&quot;loadedmetadata&quot;, () =&gt; {
+        const tt = [].find.call(player.textTracks(), ({ label }) =&gt; label === &apos;external-metadata-vtt&apos;);
+
+      if (!tt) {
+        return;
+      }
+
+      tt.mode = &apos;hidden&apos;;
+
+      tt.oncuechange = () =&gt; {
+        const outputEl = document.getElementById(&quot;insertionPoint&quot;);
+        const activeCue = tt.activeCues[0];
+
+        if (!activeCue) {
+          outputEl.innerHTML += `Cue point duration over\n\n`;
+          return;
         }
-      } //end oncuechange
-      myPlayer.play();
-      myPlayer.muted(true);
-    }); //end loadedmetadata
-  }); //end ready
+
+  const { id, text, startTime, endTime } = activeCue;
+  outputEl.innerHTML += `id: ${id}, text: ${text}, startTime: ${startTime}, endTime: ${endTime}\n\n`;
+  /* outputEl.innerHTML += `id: ${id}\n\n`
+  outputEl.innerHTML += `text: ${text}\n\n`;
+  outputEl.innerHTML += `startTime: ${startTime}, endTime: ${endTime}\n\n`;
+  */
+  try {
+  const { title, description } = JSON.parse(text);
+  outputEl.innerHTML += `${title}: ${description}\n\n`
+  } catch (e) {
+  //ignore
+  }
+  }
+  });
+  });
 &lt;/script&gt;</code></pre>
     </div>
     <div class="player-only">
