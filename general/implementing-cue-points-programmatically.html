@@ -285,16 +285,17 @@ Balance
       <h3>Process cue points code</h3>
       <p>&nbsp;</p>
       <ul>
-        <li>Line 122: Create a text track by reading in the WebVTT file using the <code translate="No">&lt;track&gt;</code> tag.</li>
-        <li>Line 126: Create a paragraph element as a location in which to inject dynamically created HTML.</li>
-        <li>Lines 134,152: Use the <code translate="No">one()</code> method to listen only once for the <code translate="No">loadedmetadata</code> event. The event handler function is defined here anonymously.</li>
-        <li>Line 135: Assign to a variable the index of the last text track loaded.</li>
-        <li>Line 136: Retrieve the textTracks array using the <code translate="No">textTracks()</code> method the assign the last element of the array to a variable using the index determined in the previous step. See the <a href="#findtrack">Find correct track</a> section below for variations on this logic.</li>
-        <li>Lines 137,149: Sets the event handler function for when the <code translate="No">oncuechange</code>event is dispatched.</li>
-        <li>Line 138: Check to be sure the first (zeroth array element) cue point is defined in the activeCues array. This tells you that this is a start cue point event.</li>
-        <li>Lines 139-145: Dynamically create HTML using information from the cue point and inject into the HTML page. This includes parsing JSON and displaying various fields of that JSON.</li>
-        <li>Lines 146-147: Display a note that the cue point end has been reached.</li>
-        <li>Line 150: Play the video.</li>
+        <li>Line 11: Create a text track by reading in the WebVTT file using the <code translate="No">&lt;track&gt;</code> tag.</li>
+        <li>Line 15: Create a <code translate="" No>&lt;pre&gt;&lt;/pre&gt;</code> element as a location in which to inject dynamically created HTML. Note that a <code translate="No">&lt;pre&gt;&lt;/pre&gt;</code> element is used instead of a paragraph element so JavaScript 5 backtick notation can be used.</li>
+        <li>Lines 22,50: Use the <code translate="No">one()</code> method to listen only once for the <code translate="No">loadedmetadata</code> event. The event handler function is defined here as an arrow function.</li>
+        <li>Line 23: Assign the <code>tt</code> variable the text tracks defined by the WebVTT file. The data structure appears as follows:
+          <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/general/cue-points-console.jpg" alt="cue points data structure">
+          </figure>
+        </li>
+        <li>Lines 31,49: Sets the event handler function for when the <code translate="No">oncuechange</code>event is dispatched.</li>
+        <li>Lines 35,38: If there is not an active cue, this is the cue point stop, so display the cue point duration is over.</li>
+        <li>Lines 40-48: Dynamically create HTML using information from the cue point and inject into the HTML page. This includes parsing JSON and displaying various fields of that JSON. Note that is using JavaScript 5 backtick notation.</li>
       </ul>
       <pre class="line-numbers">
 <code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot;
