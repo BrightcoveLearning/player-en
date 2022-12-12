@@ -1,32 +1,69 @@
 ---
 title: Brightcove Player Documentation
 parent: null
+layout: landing_page
 ---
 <!-- main content -->
-<article class="bcls-article">
-  <h1>Brightcove Player Documentation</h1>
-  <p>
-    Brightcove Player development allows you to customize, integrate with, or add functionality to your players. Development tools are the Player API, and the standard web technologies of HTML5, CSS and JavaScript.
-  </p>
-  <p>
-    Check out the extensive list of
-    <a href="/code-samples/index.html">code samples</a> for player customization possibilities.
-  </p>
-  <p>Brightcove Player version:</p>
-  <p>
-    Current: <a href="/release-notes/brightcove-player-release-notes.html">v6.66.7</a> </p>
-  <p>
-    Pre-release: <a href="/release-notes/brightcove-player-release-notes.html">v7.0.0</a> </p>
-  <section class="card-wrapper">
-    {% for section in site.data.navigation offset:1 %} <section class="bcls-card-small" onclick="window.location.href='{{ section.url }}'">
-      <div class="card-content">
-        <h2>{{ section.name }}</h2>
-        <ul class="bcls-topic-list">
-          {% for doc in section.docs limit:4 %} <li><a href="{{ doc.url }}">{{ doc.name }}</a></li> {% endfor %}
-        </ul>
-        <p style="font-size:small;"><a href="{{ section.url }}">View all...</a></p>
+<div class="page-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      <div class="page-intro single-col-max mx-auto" style="text-align:
+        center;">
+        <!-- <p>Brightcove Player development allows you to customize, integrate
+          with, or add functionality to your players. Development tools are the
+          Player API, and the standard web technologies of HTML5, CSS and
+          JavaScript.</p> -->
+        <p>Check out the extensive list of <a class="theme-link"
+            href="/code-samples/index.html">code samples</a> for player
+          customization possibilities.
+        </p>
+        <p>Brightcove Player version:</p>
+        <p> Current: <a class="theme-link"
+            href="/release-notes/brightcove-player-release-notes.html">v6.66.7</a>
+        </p>
+        <p>Pre-release: <a class="theme-link"
+            href="/release-notes/brightcove-player-release-notes.html">v7.0.0</a>
+        </p>
       </div>
-    </section>
-    {% endfor %}
-  </section>
-</article>
+
+      <div class="row justify-content-center">
+
+        {% for section in site.data.navigation offset:1 %}
+        <div class="col-12 col-lg-4 py-3">
+          <div class="card card-hover shadow-sm">
+
+            <div class="card-body">
+              <h5 class="card-title mb-3">
+                <span class="span-icon card-icon-holder icon-theme me-2">
+                  <i class="fas fa-arrow-down"></i>
+                </span><!--//card-icon-holder-->
+                <span class="card-title-text">{{ section.name }}</span>
+              </h5>
+              <div class="card-text">
+                {% for doc in section.docs limit:4 %} <li><a class="theme-link"
+                    href="{{ doc.url }}">{{ doc.name }}</a></li> {% endfor %}
+              </div>
+              <a class="card-link-mask" href="{{ section.url }}"></a>
+            </div><!--//card-body-->
+
+          </div><!--//card-->
+        </div><!--//col-->
+        {% endfor %}
+
+        <!-- <section class="card-wrapper">
+            {% for section in site.data.navigation offset:1 %} 
+            <section class="bcls-card-small" onclick="window.location.href='{{ section.url }}'">
+              <div class="card-content">
+                <h2>{{ section.name }}</h2>
+                <ul class="bcls-topic-list">
+                  {% for doc in section.docs limit:4 %} <li><a href="{{ doc.url }}">{{ doc.name }}</a></li> {% endfor %}
+                </ul>
+                <p style="font-size:small;"><a href="{{ section.url }}">View all...</a></p>
+              </div>
+            </section>
+            {% endfor %}
+          </section> -->
+      </div><!--//row-->
+    </div><!--//container-->
+  </div><!--//container-->
+</div><!--//page-content-->

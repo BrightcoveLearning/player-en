@@ -2,31 +2,70 @@
 title: Learn the Basics
 description: Guides to help you get started.
 parent: Home
+layout: index_pages
 ---
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      <article class="bcls-article">
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.description }}</p>
+       
+        <table width="80%" border="0">
+          <tbody>
+            <tr bgcolor="#CCCCCC">
+              <th width="32%" scope="col">Topics in this section</th>
+            </tr>
+            <tr>
+              <td width="32%">
+              </br>
+                <ul>
+                  {% for item in site.data.navigation %}
+                  {% if item.name == page.title %}
+                  {% for entry in item.docs %}
+                  <li><a class="theme-link"  href="{{ entry.url }}">{{ entry.name }}</a> {% if
+                    entry.docs %}
+                    <ul class="bcls-topic-list">
+                      {% for subentry in entry.docs %}
+                      <li><a class="theme-link"  href="{{ subentry.url }}">{{ subentry.name }}</a></li>
+                      {% endfor %}
+                    </ul>
+                    {% endif %} </li>
+                  {% endfor %}
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+              </td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-  <article class="bcls-article">
-  <h1>{{ page.title }}</h1>
-  <summary>{{ page.description }}</summary>
-  <section class="card-wrapper">
-    <section class="bcls-card">
-      <div class="card-content">
-        <h2 id="Topics_in_this_section">Topics in this section</h2>
-        <ul>
-          {% for item in site.data.navigation %}
-          {% if item.name == page.title %}
-          {% for entry in item.docs %}
-          <li><a href="{{ entry.url }}">{{ entry.name }}</a> {% if entry.docs %}
-            <ul class="bcls-topic-list">
-              {% for subentry in entry.docs %}
-              <li><a href="{{ subentry.url }}">{{ subentry.name }}</a></li>
-              {% endfor %}
-            </ul>
-            {% endif %} </li>
-          {% endfor %}
-          {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-    </section>
-  </section>
-</article>
+        <!-- <section class="card-wrapper">
+          <section class="bcls-card">
+            
+            <div class="card-content">
+              <h2 id="Topics_in_this_section">Topics in this section</h2>
+              <ul>
+                {% for item in site.data.navigation %}
+                {% if item.name == page.title %}
+                {% for entry in item.docs %}
+                <li><a class="theme-link"  href="{{ entry.url }}">{{ entry.name }}</a> {% if
+                  entry.docs %}
+                  <ul class="bcls-topic-list">
+                    {% for subentry in entry.docs %}
+                    <li><a class="theme-link"  href="{{ subentry.url }}">{{ subentry.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %} </li>
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </section>
+        </section> -->
+      </article>
+    </div>
+  </div>
+</div>
