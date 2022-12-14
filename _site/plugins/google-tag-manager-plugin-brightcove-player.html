@@ -1690,15 +1690,26 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>
-      The Google Tag Manager (GTM) plugin allows you to integrate GTM functionality with Brightcove Player.
-    </p>
-    <p>
-      Tag managers allow you to add and publish tags without having to use code.
-      Because they are a client-side solution, tag managers enable you to collect data across different marketing technologies. This empowers marketers by giving them the ability to collect user and player data across a diverse set of collection points.
-    </p>
+      The Google Tag Manager (GTM) plugin allows you to integrate GTM functionality with Brightcove Player. Examples of tags, which generally is code that sends data to a system like Google Analytics, you may wish to manage include:</p>
+    <ul>
+      <li>Google Analytics Universal tracking code or GA4 tracking code</li>
+      <li>Adwords Remarketing and/or Conversion Tracking code</li>
+      <li>Custom HTML scripts</li>
+    </ul>
+    <p>For an introduction to GTM from Google itself, watch the video located on the <a href="https://support.google.com/tagmanager/answer/6102821?hl=en">Tag Manager overview</a> document.</p>
     <p>
       If you are already using Google Analytics, Adwords and DoubleClick, then you may also want to use Google Tag Manager, as it integrates well with these tools. GTM offers a large number of variable and trigger options.
     </p>
+    <h3>Major implementation steps</h3>
+    <p>From a high-lever perspective, here are the major steps you must follow to implement to use GTM:</p>
+    <ol>
+      <li>Create a GTM account and setup a container, which are both part of the initial GTM setup.</li>
+      <li>Upon completion of initial setup, you will need to copy and paste the container snippets that need to be implemented on your web pages. Google suggest as locations hight in the <code>&lt;head&gt;</code> tag and immediately after the opening <code>&lt;body&gt;</code> tag.</li>
+      <li>Add tags, for instance for Google Analytics or Brightcove Player.</li>
+      <li>Publish your tags.</li>
+    </ol>
+    <p>For an overview of the installation process from Google itself, watch the video located on the <a href="https://support.google.com/tagmanager/answer/6103696?hl=en&ref_topic=3441530">Set up and install Tag Manager</a> document. Detailed hands on steps follow later in this document.</p>
+    <h3>Working with Brightcove Player</h3>
     <p>
       The Google Tag Manager plugin enables you to track Brightcove Player events using the Google Analytics dashboard. The following player events can be tracked: </p>
     <ul>
@@ -1798,18 +1809,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Getting_started">Getting started</h2>
     <p>
-      To set up Google Tag Manager follow these steps: </p>
-    <!-- <ul>
- <li>Define tag configurations for Google Analytics</li> <li>Define triggers to fire beacons</li> <li>
- <p>Create variables for events and custom dimensions</p> <aside class="bcls-aside bcls-aside--information"> Make sure that each dimension's name and index number from Google Tag Manager matches the player's plugin JSON file.
+      To set up Google Tag Manager follow these steps: </p> <!-- <ul>
+ <li>Define tag configurations for Google Analytics</li> <li>Define triggers to fire beacons</li> <li> <p>Create variables for events and custom dimensions</p> <aside class="bcls-aside bcls-aside--information"> Make sure that each dimension's name and index number from Google Tag Manager matches the player's plugin JSON file.
  </aside>
  </li>
  </ul> -->
     <h3>Steps</h3>
     <ol class="bcls-tasklist">
-      <li>
-        Review Google's documentation to <a href="https://support.google.com/tagmanager/answer/6103696?hl=en">Setup and install Tag Manager</a>.
-      </li>
       <li>
         <p>
           In <a href="https://tagmanager.google.com/#/home">Tag Manager</a>, create an account or use an existing account. To create a new account, select the <strong>Create Account</strong> button.
@@ -1833,6 +1839,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>
         Select the <strong>Create</strong> button.
+      </li>
+      <li>Agree to the terms of service.</li>
+      <li>The <em>Install Google Tag Manager</em> dialog appears. From here you will need to copy the snippets and place in the locations specified.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="New account information" src="/assets/images/plugins/google-tag-manager/snippets.png" />
+          <figcaption class="bcls-caption--image">Snippets</figcaption>
+        </figure>
+      </li>
+      <li>If you ever need to get back to the snippets, you click the container ID in the GTM dashboard.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="New account information" src="/assets/images/plugins/google-tag-manager/click-id-for-snippets.png" />
+          <figcaption class="bcls-caption--image">Container ID to see snippets again</figcaption>
+        </figure>
       </li>
       <!-- <li>
  Copy your Google Analytics account id for later use.
@@ -1950,7 +1969,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>These are the configuration details:</p>
         <ul>
           <li>
-            <strong>Data Layer Variable Name</strong> - Name of the variable 
+            <strong>Data Layer Variable Name</strong> - Name of the variable
           </li>
           <li>
             <strong>Data Layer Version</strong> - Version 2
@@ -1961,7 +1980,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>First, create three user-defined variables called; <strong>Event Action</strong>, <strong>Event Category</strong>, and <strong>Event Label</strong>. The configuration should look similar to this.</p>
         <ul>
           <li>
-            <strong>Event Action</strong> - eventAction 
+            <strong>Event Action</strong> - eventAction
           </li>
           <li>
             <strong>Event Category</strong> - eventCategory
@@ -1977,8 +1996,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
       <li>
         <p>
-          Then create the variables required to reflect the Brightcove parameters. In this case, the name of the <strong>Data Layer Variable</strong> should match what is in the player’s JSON config for <code>paramsToTrack</code> after <strong>customDimensions</strong> in the GTM variable. Here is an example:
-        </p>
+          Then create the variables required to reflect the Brightcove parameters. In this case, the name of the <strong>Data Layer Variable</strong> should match what is in the player’s JSON config for <code>paramsToTrack</code> after <strong>customDimensions</strong> in the GTM variable. Here is an example: </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Account variable" src="/assets/images/plugins/google-tag-manager/account-variable.png" />
           <figcaption class="bcls-caption--image">Account variable</figcaption>
@@ -2031,41 +2049,31 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
             <strong>Video Playhead</strong> - The time in the video at which the event is triggered
           </li>
           <!-- <li>
-            <strong>Country</strong> - ISO-3166 (alpha 2) country code, e.g.: US
-          </li>
-          <li>
-            <strong>Country Name</strong> - Human readable country name e.g.: United States
-          </li>
-          <li>
-            <strong>Region</strong> - ISO-3166 (alpha 2) region code
-          </li>
-          <li>
-            <strong>Region Name</strong> - Human readable region name
-          </li>
-          <li>
-            <strong>City</strong> - City Name
-          </li>
-          <li>
-            <strong>Browser</strong> - Full name and version of the browser used
-          </li>
-          <li>
-            <strong>Browser Type</strong> - Common name of browser used (i.e. Chrome, Edge, Firefox)
-          </li> -->
+ <strong>Country</strong> - ISO-3166 (alpha 2) country code, e.g.: US </li>
+ <li>
+ <strong>Country Name</strong> - Human readable country name e.g.: United States </li>
+ <li>
+ <strong>Region</strong> - ISO-3166 (alpha 2) region code </li>
+ <li>
+ <strong>Region Name</strong> - Human readable region name </li>
+ <li>
+ <strong>City</strong> - City Name
+ </li>
+ <li>
+ <strong>Browser</strong> - Full name and version of the browser used </li>
+ <li>
+ <strong>Browser Type</strong> - Common name of browser used (i.e. Chrome, Edge, Firefox) </li> -->
           <li>
             <strong>Destination</strong> - URI that originated the event
           </li>
           <!-- <li>
-            <strong>Source</strong> - URI that sent end-user to destination
-          </li>
-          <li>
-            <strong>Device Type</strong> - Override to specify the OS of the device that originated the event in cases where the User-Agent is unreliable
-          </li>
-          <li>
-            <strong>Device OS</strong> - The name of OS being used by the device
-          </li>
-          <li>
-            <strong>Device OS Version</strong> - The version of OS being used by the device
-          </li> -->
+ <strong>Source</strong> - URI that sent end-user to destination </li>
+ <li>
+ <strong>Device Type</strong> - Override to specify the OS of the device that originated the event in cases where the User-Agent is unreliable </li>
+ <li>
+ <strong>Device OS</strong> - The name of OS being used by the device </li>
+ <li>
+ <strong>Device OS Version</strong> - The version of OS being used by the device </li> -->
         </ul>
       </li>
       <li>
@@ -2165,8 +2173,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </figure>
       </li>
       <li>
-        <p>
-          Enter the Event name; the event name should look similar to the image below.
+        Enter the Event name; the event name should look similar to the image below.
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Trigger configuration name" src="/assets/images/plugins/google-tag-manager/trigger-configuration-name.png" />
           <figcaption class="bcls-caption--image">Trigger configuration name</figcaption>
@@ -2208,8 +2215,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Add a Plugin button" src="/assets/images/plugins/google-tag-manager/add-a-plugin.png" />
-          <figcaption class="bcls-caption--image"> Add a Plugin button
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Add a Plugin button </figcaption>
         </figure>
       </li>
       <li>
@@ -2218,8 +2224,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Google Tag Manager plugin" src="/assets/images/plugins/google-tag-manager/gtm-plugin.png" />
-          <figcaption class="bcls-caption--image"> Google Tag Manager plugin
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Google Tag Manager plugin </figcaption>
         </figure>
       </li>
       <li>
@@ -2237,47 +2242,40 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </ul>
         <p>Here is an example:</p>
         <pre class="line-numbers">
- <code class="language-json" translate="No">{ 
-  "tracker":"<span class="bcls-input">your Google Tag Manager id</span>", 
-  "eventsToTrack": {
-    "ad_end": "Ad End",
-    "ad_start": "Ad Start",
-    "error": "Error",
-    "play_request": "Play Request",
-    "player_load": "Player Load",
-    "video_complete": "Video Complete",
-    "video_engagement": "Video Engagement",
-    "video_impression": "Video Impression",
-    "video_view": "Video View"
-  },
-  "paramsToTrack": {
-    "bcvideo_video_duration": "duration",
-    "bcvideo_error_code": "error",
-    "bcvideo_account": "account",
-    "bcvideo_session": "session",
-    "bcvideo_video_milestone": "milestone",
-    "bcvideo_video_name": "video_name",
-    "bcvideo_range": "range",
-    "bcvideo_video_seconds_viewed": "seconds_viewed",
-    "bcvideo_player_name": "player_name",
-    "bcvideo_video_percent_viewed": "percent_viewed",
-    "bcvideo_destination": "destination",
-    "bcvideo_video_playhead": "playhead"
-  }
-<!-- ,
-  "milestones": [
-    10,
-    20,
-    30,
-    40,
-    50,
-    60,
-    70,
-    80,
-    90,
-    100
-  ] -->
-}</code></pre>
+ <code class="language-json" translate="No">{ "tracker":"<span class="bcls-input">your Google Tag Manager id</span>", "eventsToTrack": {
+ "ad_end": "Ad End",
+ "ad_start": "Ad Start",
+ "error": "Error",
+ "play_request": "Play Request",
+ "player_load": "Player Load",
+ "video_complete": "Video Complete",
+ "video_engagement": "Video Engagement", "video_impression": "Video Impression", "video_view": "Video View"
+ },
+ "paramsToTrack": {
+ "bcvideo_video_duration": "duration",
+ "bcvideo_error_code": "error",
+ "bcvideo_account": "account",
+ "bcvideo_session": "session",
+ "bcvideo_video_milestone": "milestone", "bcvideo_video_name": "video_name",
+ "bcvideo_range": "range",
+ "bcvideo_video_seconds_viewed": "seconds_viewed", "bcvideo_player_name": "player_name",
+ "bcvideo_video_percent_viewed": "percent_viewed", "bcvideo_destination": "destination",
+ "bcvideo_video_playhead": "playhead"
+ }
+ <!-- ,
+ "milestones": [
+ 10,
+ 20,
+ 30,
+ 40,
+ 50,
+ 60,
+ 70,
+ 80,
+ 90,
+ 100
+ ] -->
+ }</code></pre>
         <aside class="bcls-aside bcls-aside--tip"> Make sure your custom dimensions in the JSON object match the name and index within Google Analytics.
         </aside>
       </li>
@@ -2305,10 +2303,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </li>
     </ol>
   </section>
-
   <section class="bcls-section">
-    <h2 id="Creating_custom_dimensions"> Creating custom dimensions
-    </h2>
+    <h2 id="Creating_custom_dimensions"> Creating custom dimensions </h2>
     <p>
       Custom dimensions are metrics that you create yourself in Google Analytics. There are two ways to add custom dimensions, the first is adding the dimensions directly in Google Analytics, and the other is using Google Scripts.
     </p>
@@ -2323,31 +2319,29 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <p>Select <strong>Admin</strong>.</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/analytics-admin.png" />
-          <figcaption class="bcls-caption--image"> Analytics admin
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Analytics admin </figcaption>
         </figure>
       </li>
       <li>
         <p>Click on <strong>Custom Definitions</strong> to expand it, then select <strong>Custom Dimensions</strong>.</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Custom dimensions" src="/assets/images/plugins/google-tag-manager/custom-dimensions.png" />
-          <figcaption class="bcls-caption--image"> Custom dimensions
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Custom dimensions </figcaption>
+        </figure>
       </li>
       <li>
         <p>Click the <strong>New Custom Dimension</strong> button.</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="New Custom dimensions" src="/assets/images/plugins/google-tag-manager/create-custom-dimensions.png" />
-          <figcaption class="bcls-caption--image"> New Custom dimensions
-          </figcaption>
+          <figcaption class="bcls-caption--image"> New Custom dimensions </figcaption>
+        </figure>
       </li>
       <li>
         <p>Enter the <strong>Custom Dimension Name</strong> and then click on <strong>Create</strong>. Google Analytics will assign an index number automatically. You will need to create a custom dimension for each parameter you want to track.</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Add Custom dimensions" src="/assets/images/plugins/google-tag-manager/add-custom-dimension.png" />
-          <figcaption class="bcls-caption--image"> Add Custom dimensions
-          </figcaption>
-         
+          <figcaption class="bcls-caption--image"> Add Custom dimensions </figcaption>
+        </figure>
       </li>
     </ol>
     <h3>Adding custom dimensions with Google App Script</h3>
@@ -2363,13 +2357,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>
         <p>
           Navigate to the
-          <a href="https://script.google.com/home/start">G Suite Developer Hub</a>
-          and select the Apps Script new blank project.
+          <a href="https://script.google.com/home/start">G Suite Developer Hub</a> and select the Apps Script new blank project.
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Apps Script project" src="/assets/images/plugins/google-tag-manager/apps-script-project.png" />
-          <figcaption class="bcls-caption--image"> Apps Script project
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Apps Script project </figcaption>
         </figure>
       </li>
       <li>
@@ -2378,8 +2370,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Script editor" src="/assets/images/plugins/google-tag-manager/script-editor.png" />
-          <figcaption class="bcls-caption--image"> Script editor
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Script editor </figcaption>
         </figure>
       </li>
       <li>
@@ -2397,31 +2388,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </ul>
         <pre class="line-numbers">
  <code class="language-javascript" translate="No">//Set values for GA Account ID and web property ID to which you have to set custom dimensions.
-var accountId='<span class="bcls-input">your account id</span>'; 
-var webPropertyId='<span class="bcls-input">your tracking code</span>'; 
-//Add required custom dimensions to be created to this list 
-var dimensions=<span class="bcls-highlight">['bcvideo_video_seconds_viewed','bcvideo_video_playhead','bcvideo_account','bcvideo_player','bcvideo_player_name','bcvideo_video','bcvideo_video_name','bcvideo_session','bcvideo_platform_version','bcvideo_range','bcvideo_video_duration', 'bcvideo_video_percent_viewed','bcvideo_error_code','bcvideo_milestone','bcvideo_destination'];</span> 
- 
-//Function to create custom dimensions in GA 
-function createGACustomDimensions() { 
-  //This loop iterates through the custom dimensions in order to set the custom dimension scope, active values into our GA property 
-  for(var index=0;index&lt;dimensions.length;index++){ 
-    var customDimensions ={
-      'name': dimensions[index],
-      'scope':'HIT',
-      'active':true,
-    }
-    //This create a request to the new custom dimension 
-    Analytics.Management.CustomDimensions.insert(customDimensions,accountId,webPropertyId); 
-    
-    // Pause for 1 second between adding each custom dimension, this ensure that the GA property has time 
-    // to process the request fully before moving to the next custom dimension.
-    Utilities.sleep(1000)
-  }
-}</code></pre>
-        <aside class="bcls-aside bcls-aside--tip"> In this example, we are putting the dimensions in an object named <code translate="No">customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code translate="No">bcvideo_{dimension}</code> </aside>
-        <!-- <aside class="bcls-aside bcls-aside--tip"> In this example, we are putting the dimensions in an object named <code translate="No">customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code translate="No">customDimensions.{dimension}</code></code> </aside> -->
-        <!-- <aside class="bcls-aside bcls-aside--tip">The script should be configured to access the <a href="https://developers.google.com/analytics/devguides/reporting/core/v4">Google Analytics API</a> from the resource menu.</aside> -->
+ var accountId='<span class="bcls-input">your account id</span>'; var webPropertyId='<span class="bcls-input">your tracking code</span>'; //Add required custom dimensions to be created to this list var dimensions=<span class="bcls-highlight">['bcvideo_video_seconds_viewed','bcvideo_video_playhead','bcvideo_account','bcvideo_player','bcvideo_player_name','bcvideo_video','bcvideo_video_name','bcvideo_session','bcvideo_platform_version','bcvideo_range','bcvideo_video_duration', 'bcvideo_video_percent_viewed','bcvideo_error_code','bcvideo_milestone','bcvideo_destination'];</span> //Function to create custom dimensions in GA function createGACustomDimensions() {
+ //This loop iterates through the custom dimensions in order to set the custom dimension scope, active values into our GA property for(var index=0;index&lt;dimensions.length;index++){ var customDimensions ={
+ 'name': dimensions[index],
+ 'scope':'HIT',
+ 'active':true,
+ }
+ //This create a request to the new custom dimension Analytics.Management.CustomDimensions.insert(customDimensions,accountId,webPropertyId); // Pause for 1 second between adding each custom dimension, this ensure that the GA property has time // to process the request fully before moving to the next custom dimension.
+ Utilities.sleep(1000)
+ }
+ }</code></pre>
+        <aside class="bcls-aside bcls-aside--tip"> In this example, we are putting the dimensions in an object named <code translate="No">customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code translate="No">bcvideo_{dimension}</code> </aside> <!-- <aside class="bcls-aside bcls-aside--tip"> In this example, we are putting the dimensions in an object named <code translate="No">customDimensions</code>. To add these as data layer variables, you need to reference each variable name as <code translate="No">customDimensions.{dimension}</code></code> </aside> --> <!-- <aside class="bcls-aside bcls-aside--tip">The script should be configured to access the <a href="https://developers.google.com/analytics/devguides/reporting/core/v4">Google Analytics API</a> from the resource menu.</aside> -->
       </li>
       <li>
         <p>
@@ -2439,8 +2416,7 @@ function createGACustomDimensions() {
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Advanced Google Services" src="/assets/images/plugins/google-tag-manager/advanced-services.png" />
-          <figcaption class="bcls-caption--image"> Advanced Google Services
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Advanced Google Services </figcaption>
         </figure>
       </li>
       <li>
@@ -2449,8 +2425,7 @@ function createGACustomDimensions() {
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Google Analytics API" src="/assets/images/plugins/google-tag-manager/enable-gtm2.png" />
-          <figcaption class="bcls-caption--image"> Google Analytics API
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Google Analytics API </figcaption>
         </figure>
       </li>
       <li>
@@ -2477,13 +2452,10 @@ function createGACustomDimensions() {
         </figure>
       </li>
     </ol>
-    
   </section>
   <section class="bcls-section">
-    <h2 id="Viewing_custom_dimensions"> Viewing custom dimensions
-    </h2>
-    <p>
-      To view custom dimensions in Google Analytics, follow these steps: </p>
+    <h2 id="Viewing_custom_dimensions"> Viewing custom dimensions </h2>
+    <p>To view custom dimensions in Google Analytics, follow these steps: </p>
     <ol class="bcls-tasklist-restart">
       <li>
         Log in to Google Analytics.
@@ -2494,8 +2466,7 @@ function createGACustomDimensions() {
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/analytics-admin.png" />
-          <figcaption class="bcls-caption--image"> Analytics admin
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Analytics admin </figcaption>
         </figure>
       </li>
       <li>
@@ -2504,8 +2475,7 @@ function createGACustomDimensions() {
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Custom dimensions" src="/assets/images/plugins/google-tag-manager/custom-dimensions.png" />
-          <figcaption class="bcls-caption--image"> Custom dimensions
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Custom dimensions </figcaption>
         </figure>
       </li>
       <li>
@@ -2514,20 +2484,17 @@ function createGACustomDimensions() {
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Dimensions and indices" src="/assets/images/plugins/google-tag-manager/dimensions-indices.png" />
-          <figcaption class="bcls-caption--image"> Dimensions and indices
-          </figcaption>
+          <figcaption class="bcls-caption--image"> Dimensions and indices </figcaption>
         </figure>
       </li>
     </ol>
   </section>
-  <!-- <section class="bcls-section"> <h2 id="Importing_a_container_file_in_GTM">Importing a container file</h2> <p>
- One way to add Variables, Tags and Triggers to Google Tag Manager is to import a JSON-formatted Container file. For details, see Google's <a href="https://support.google.com/tagmanager/answer/6106997?hl=en">Container export and import</a> document.
+</article>
+<!-- <section class="bcls-section"> <h2 id="Importing_a_container_file_in_GTM">Importing a container file</h2> <p> One way to add Variables, Tags and Triggers to Google Tag Manager is to import a JSON-formatted Container file. For details, see Google's <a href="https://support.google.com/tagmanager/answer/6106997?hl=en">Container export and import</a> document.
  </p>
  <h3>Steps</h3>
  <p>
- Follow these steps to import a Container file: </p>
- <ol class="bcls-tasklist-restart"> <li>
- <p>
+ Follow these steps to import a Container file: </p> <ol class="bcls-tasklist-restart"> <li></li></ol> <p>
  In your JSON-formatted Container file, set the following values: </p>
 <!-- complete bootstrap layout -->
     </div>
