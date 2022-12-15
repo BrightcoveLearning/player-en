@@ -26,11 +26,12 @@ parent: References
       </ul>
       <p>The Brightcove Player remains the industry-leading web video player.</p>
       <aside class="bcls-aside bcls-aside--information">Brightcove will <strong>never</strong> automatically upgrade players to a new major version.</aside>
+      <aside class="bcls-aside bcls-aside--warning">The Quality Selector control is currently incompatible with Brightcove Player 7 and should be removed. A fix will be deployed soon..</aside>
     </section>
 
     <section class="bcls-section">
       <h2 id="Upgrade_to_version_7">Upgrade to version 7</h2>
-      <p>Brightcove Player 7.0.0 is available as a pre-release for manual update. No existing players have been auto-updated to this version, but you can upgrade your player using the JSON editor.</p>
+      <!-- <p>Brightcove Player 7.0.0 is available as a pre-release for manual update. No existing players have been auto-updated to this version, but you can upgrade your player using the JSON editor.</p>
       <ol class="bcls-tasklist">
         <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module.</li>
         <li>
@@ -82,10 +83,11 @@ parent: References
           </figure>
         </li>
         <li>Click <strong>Publish Changes</strong> and then <strong>Close</strong>.</li>
-      </ol>
+      </ol> -->
 
       <!-- Uncomment section below for single button upgrade steps -->
-      <!-- <p>Brightcove Player 7.0.0 is available as a pre-release for manual update. No existing players have been auto-updated to this version, but you can upgrade your player with the click of a button.</p>
+      <p>Brightcove Player 7.0.0 is now available. No existing players have been auto-updated to this version, but you can upgrade your player in the Studio.</p>
+      <!-- <p>Brightcove Player 7.0.0 is available as a pre-release for manual update. No existing players have been auto-updated to this version, but you can upgrade your player with the click of a button.</p> -->
       <ol class="bcls-tasklist">
         <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module.</li>
         <li>
@@ -106,7 +108,7 @@ parent: References
           </figure>
         </li> 
         <li>Click <strong>Publish Changes</strong> and then <strong>Close</strong>.</li>
-      </ol> -->
+      </ol>
       <!-- <div style="position: relative; display: block; max-width: 624px;"><div style="padding-top: 56.25%;"><iframe src="https://players.brightcove.net/6225316964001/Qznf2bKtV_default/index.html?videoId=6316422161112" allowfullscreen="" allow="encrypted-media" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe></div></div> -->
     </section>
 
@@ -820,11 +822,23 @@ player.on(&apos;sourceset&apos;, () =&gt; {
         <li>[VJS8] Removed remaining references and logic related to Flash and SWF files</li>
         <li>[VJS8] Remove fallbacks for missing CSS flexbox support</li>
         <li>[VJS8] Removed IE-specific code</li>
-      </ul>
+      </ul> 
+    </section>
 
-
+    <section class="bcls-section">
+      <h2 id="Plugins">Plugins</h2>
+      <p>All Brightcove Plugins have been updated for the new version of the player. If you're performing a manual update, the following list details the new version numbers available from the <a href="https://apis.support.brightcove.com/player-management/guides/plugin-registry.html">Plugin Registry</a>.</p>
+      <figure class="bcls-figure">
+        <img class="bcls-image--no-border" alt="Update plugin version" src="/assets/images/references/bcp7/version-table.webp" />
+      </figure>
+      <aside class="bcls-aside bcls-aside--information">
+        Notes:
+        <ul>
+          <li>The version 6 number may not be exactly what's the listed above, e.g. <strong>2.1.0</strong> instead of <strong>2.x</strong></li>
+          <li>Reverting to version 6 requires the same steps, but reversing the version numbers (i.e. right to left)</li>
+        </ul>
+      </aside>
       
-  
     </section>
 
    
