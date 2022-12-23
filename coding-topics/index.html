@@ -3,26 +3,30 @@ title: 'Coding Topics'
 description: Various topics for coding around the Brightcove Player.
 parent: Home
 ---
+
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-
   <summary>{{ page.description }}</summary>
-    <section>
-      <div>
-        <h2 id="Topics_in_this_section">Topics in {{ page.title }}</h2>
-        <ul>
-          {% for item in site.data.navigation %}
-            {% if item.name == page.parent %}
-              {% for entry in item.docs %}
-                {% if entry.name == page.title %}
-                  {% for doc in entry.docs %}
-                  <li><a href="{{ doc.url }}">{{ doc.name }}</a></li>
+  <section class="bcls-section" id="page_wrapper">
+    {% for item in site.data.navigation %}
+      {% if item.name == page.title %}
+        {% for entry in item.docs %}
+          <ul style="list-style: none;">
+            {% if entry.docs %}
+            <li>
+                <h3><a href="{{ entry.url }}">{{ entry.name }}</a></h3>
+                <ul class="landing-page-item">
+                  {% for subdoc in entry.docs %}
+                  <li><a href="{{ subdoc.url }}">{{ subdoc.name }}</a></li>
                   {% endfor %}
-                {% endif %}
-              {% endfor %}
+                </ul>
+              </li>
+            {% else %}
+            <li style="display: list-item;"><a href="{{ entry.url }}">{{ entry.name }}</a></ul>
             {% endif %}
+          </ul>
           {% endfor %}
-        </ul>
-      </div>
-    </section>
+      {% endif %}
+    {% endfor %}
+  </section>
 </article>
