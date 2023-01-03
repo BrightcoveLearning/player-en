@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In this topic you will learn about the Brightcove Player viewability feature.">
+  <meta name="description" content="In this topic, you will learn how to implement viewability events.">
   
-  <title>Viewability</title>
+  <title>Brightcove Player Sample: Viewability</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/s-site-assets-favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/s-site-assets-favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/s-site-assets-favicons/favicon-16x16.png">
@@ -164,11 +164,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <li class="breadcrumb-item first-item"><a href="/">Home</a></li>
     
       
-        <li class="breadcrumb-item"><a href="/general/">General</a></li>
+        <li class="breadcrumb-item"><a href="/code-samples/">Code samples</a></li>
       
     
       
-        <li class="breadcrumb-item active" aria-current="page">Viewability</li>
+        <li class="breadcrumb-item active" aria-current="page">Brightcove Player Sample: Viewability</li>
       
     
   </nav>
@@ -1390,7 +1390,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
                 
                   
                     
-                    <li><a href="/general/brightcove-player-viewability.html" aria-current="page">Viewability</a></li>
+                    <li><a href="/general/brightcove-player-viewability.html">Viewability</a></li>
                     
                   
                 
@@ -1683,164 +1683,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
 
 
-<h1>Viewability</h1>
+<h1>Brightcove Player Sample: Viewability</h1>
 <article class="bcls-article">
-  <summary>In this topic you will learn about the Brightcove Player viewability feature.</summary>
-  <section class="bcls-section">
-    <h2 id="Introduction">Introduction</h2>
-    <p>The viewability of a player is of fundamental importance to advertising integrations as well as some UI treatments like floating players. In this context, we define “viewability” as the percentage of a player visible in the browser viewport at any given moment. A player is considered “viewable” if some specific percentage of the player is in the viewport.</p>
-    <p>Brightcove Player 7 introduces viewability tracking DOM events and some valuable behaviors that depend on the player’s viewable state.</p>
-    <aside class="bcls-aside bcls-aside--information">Please note that the viewability feature is only available for Brightcove Player 7, and no migration is needed.</aside>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Player_configuration">Player configuration</h2>
-    <p>The player's viewability events and behavior can be configured in your player's JSON configuration. All configurations are available under the viewability property.</p>
-    <table class="bcls-table">
-        <thead class="bcls-table__head">
-          <tr>
-            <th>Property</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Default</th>
-          </tr>
-        </thead>
-        <tbody class="bcls-table__body">
-          <tr>
-            <td><code translate="No">viewability_threshold</code></td>
-            <td>A number between <code translate="No">0</code> and <code translate="No">1</code> representing the portion of the player that must be in the viewport for it to count as "viewable".</td>
-            <td><code translate="No">number</code></td>
-            <td><code translate="No">0.6</code></td>
-          </tr>
-          <tr>
-            <td><code translate="No">min_duration_for_viewable_impression</code></td>
-            <td>Represents the number of milliseconds to wait after ad playback begins before testing for a viewable impression.<br/><br/> 
-              By default, this means that the player will report whether the ad impression was viewable using a <code translate="No">viewable-ad-impression</code> event after 2 seconds of ad playback.</td>
-            <td><code translate="No">number</code></td>
-            <td><code translate="No">2000</code></td>
-          </tr>
-          <tr>
-            <td><code translate="No">threshold_percentage_increment</code></td>
-            <td>The amount of viewability change required between <code translate="No">viewable-percent-change</code> events.<br/><br/>
-              By default, the value <code translate="No">5</code> means that <code translate="No">viewable-percent-change</code> events will only fire if the viewability of the player has changed by 5% (e.g. from 45% to 50%).<br/><br/>
-              It is recommended not to go any more granular with this as it will fire a lot of events..</td>
-            <td><code translate="No">number</code></td>
-            <td><code translate="No">5</code></td>
-          </tr>
-          <tr>
-            <td><code translate="No">delay_autoplay_if_not_viewable</code></td>
-            <td>Only interacts with players that are configured for autoplay.<br/><br/>
-              If <code translate="No">true</code>, the player delays its playback attempt until the player is viewable.<br/><br/>
-              If <code translate="No">false</code>, the player will attempt playback regardless of its viewability state. This is the default behavior of an autoplay player..</td>
-            <td><code translate="No">boolean</code></td>
-            <td><code translate="No">false</code></td>
-          </tr>
-          <tr>
-            <td><code translate="No">delay_autoplay_on_mobile_only</code></td>
-            <td>If <code translate="No">true</code>, the delay autoplay feature will only be activated on mobile environments (iOS or Android).<br/><br/>
-              <strong>NOTE</strong>: In this case, tablets are considered mobile environments..</td>
-            <td><code translate="No">boolean</code></td>
-            <td><code translate="No">true</code></td>
-          </tr>
-          <tr>
-            <td><code translate="No">pause_when_not_viewable</code></td>
-            <td>If <code translate="No">true</code>, the player will pause playback if it becomes not viewable. When the player becomes viewable again, playback will resume.<br/><br/>
-              If <code translate="No">false</code>, the player will not toggle pause or play on <code translate="No">viewable-change</code>. This is the default behavior of a player..</td>
-            <td><code translate="No">boolean</code></td>
-            <td><code translate="No">false</code></td>
-          </tr>
-        </tbody>
-      </table>
-      <h3>Example</h3>
-      <p>Here's the JSON for a player configuration which includes viewability:</p>
-      <pre class="line-numbers"><code class="language-json" translate="No">{
-  ... other properties ...
-  &quot;viewability&quot;: {
-    &quot;viewability_threshold&quot;: 0.3,
-    &quot;pause_when_not_viewable&quot;: true
-  }
-}</code></pre>
-      <p>In this example, playback pauses when less than 30% of the player is visible in the browser viewport, caused by the user scrolling the player out of view. Playback resumes when the player becomes visible again.</p>
-      <div style="max-width: 960px;"><style>video-js.video-js.vjs-fluid:not(.vjs-audio-only-mode) {padding-top: 56.25%;}</style><video-js data-account="1752604059001" data-player="7cdNyY7cJ" data-embed="default" controls="" data-video-id="3851380732001" data-playlist-id="" data-application-id="" class="vjs-fluid"></video-js></div><script src="https://players.brightcove.net/1752604059001/7cdNyY7cJ_default/index.min.js"></script>
-    </section>
+    <summary>In this topic, you will learn how to implement viewability events.</summary>
+    <section id="Styling_playground" class="bcls-section">
+        <h2>Styling playground</h2>
 
-<section class="bcls-section">
-    <h2 id="Viewability_events">Viewability events</h2>
-    <p>Users can hook into three new events related to viewability.</p>
-      <ul>
-        <li>
-          <p><h3><code translate="No">viewable-change</code></h3></p>
-          <p>This event fires when the player transitions to or from a viewable state.</p>
-          <table class="bcls-table">
-            <thead class="bcls-table__head">
-              <tr>
-                <th>Property</th>
-                <th>Type</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class="bcls-table__body">
-              <tr>
-                <td><code translate="No">viewable</code></td>
-                <td>boolean</td>
-                <td>Represents whether or not the player is in a viewable state</td>
-              </tr>
-              <tr>
-                <td><code translate="No">viewablePercent</code></td>
-                <td>number</td>
-                <td>Represents the percentage of the player that is currently in the viewport</td>
-              </tr>
-            </tbody>
-          </table>
-          <strong>Example</strong>
-    <pre class="line-numbers"><code class="language-javascript" translate="No">player.on(&apos;viewable-change&apos;, (e) =&gt; {
-  if (e.viewable) {
-    player.log(&apos;the player is viewable!&apos;);
-  } else {
-    player.log(&apos;the player is not viewable!&apos;);
-  }
-});</code></pre>
-          <br/>
-        </li>
-        <li>
-          <p><h3><code translate="No">viewable-percent-change</code></h3></p>
-          <p>This event fires when the viewable percentage of the player changes.</p>
-          <aside class="bcls-aside bcls-aside--information"><p>The frequency of this event can be influenced by the <code translate="No">threshold_percentage_increment</code> configuration, but it can fire quite often. This means performing any computationally expensive operation on this event could degrade performance.</p> 
-            The recommendation is to use it only if it's really needed. Most use-cases just want to know when the player moves to or from a viewable state and should use the <code translate="No">viewable-change</code> event.</aside>
-          <table class="bcls-table">
-            <thead class="bcls-table__head">
-              <tr>
-                <th>Property</th>
-                <th>Type</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class="bcls-table__body">
-              <tr>
-                <td><code translate="No">viewable</code></td>
-                <td>boolean</td>
-                <td>Represents whether or not the player is in a viewable state</td>
-              </tr>
-              <tr>
-                <td><code translate="No">viewablePercent</code></td>
-                <td>number</td>
-                <td>Represents the percentage of the player that is currently in the viewport</td>
-              </tr>
-            </tbody>
-          </table>
-          <strong>Example</strong>
-    <pre class="line-numbers"><code class="language-javascript" translate="No">player.on(&apos;viewable-percent-change&apos;, (e) =&gt; {
-  player.log(`the player is ${e.viewablePercent}% viewable!`);
-});</code></pre>
-          <br/>
-        </li>
-        <li>
-          <p><h3><code translate="No">viewable-ad-impression</code></h3></p>
-          <p>This event will fire when a viewable ad impression is measured. It will not fire outside the context of ad playback.</p>
-         <p>In other words, once an ad has started and played for the number of milliseconds represented by <code translate="No">min_duration_for_viewable_impression</code> with the player viewable, this event will fire.</p>
-         <p>No additional data is passed with this event.</p>
-        </li>
-      </ul>
-</section>
+        <p>In this topic, you will use a Codepen, shown below, to see the more used viewability events. View it on the <a href="https://codepen.io/yariannatineo_/pen/wvxzwJg?editors=1010">codepen.io</a> site to make changes, and feel free to fork the Codepen for your own use. </p>
+        <aside class="bcls-aside bcls-aside--information">Please note that the viewability feature is only available for Brightcove Player 7, and no migration is needed.</aside>
+        <p class="codepen" data-height="668.4762878417969" data-theme-id="dark" data-default-tab="result" data-slug-hash="wvxzwJg" data-user="yariannatineo_" style="height: 668.4762878417969px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/yariannatineo_/pen/wvxzwJg">
+            Player Viewability</a> by Yarianna Tineo (<a href="https://codepen.io/yariannatineo_">@yariannatineo_</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    </section>
 </article>
 <!-- complete bootstrap layout -->
     </div>
@@ -1857,7 +1714,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <hr>
 <div class="last-updated">
-  Page last updated on 05 Dec 2022
+  Page last updated on 03 Jan 2023
 </div>
 
 
