@@ -1,37 +1,55 @@
 ---
 title: Brightcove Player Documentation
 parent: null
+layout: landing_page
 ---
 <!-- main content -->
-<article class="bcls-article">
-  <h1>Brightcove Player Documentation</h1>
-  <p>
-    Brightcove Player development allows you to customize, integrate with, or add functionality to your players. Development tools are the Player API, and the standard web technologies of HTML5, CSS and JavaScript.
-  </p>
-  <p>
-    Check out the extensive list of
-    <a href="/code-samples/index.html">code samples</a> for player customization possibilities.
-  </p>
-  <p>Brightcove Player current version:</p>
-  <ul>
-    <li>For release 7.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">v7.1.0</a></strong></li>
-    <li>For release 6.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">v6.66.8</a></strong></li>
-  </ul>
-  <p>Pre-release:</p>
-  <ul>
-    <li>For release 7.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">None</a></strong></li>
-    <li>For release 6.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">None</a></strong></li>
-  </ul>
-  <section class="card-wrapper">
-    {% for section in site.data.navigation offset:1 %} <section class="bcls-card-small" onclick="window.location.href='{{ section.url }}'">
-      <div class="card-content">
-        <h2>{{ section.name }}</h2>
-        <ul class="bcls-topic-list">
-          {% for doc in section.docs limit:4 %} <li><a href="{{ doc.url }}">{{ doc.name }}</a></li> {% endfor %}
-        </ul>
-        <p style="font-size:small;"><a href="{{ section.url }}">View all...</a></p>
-      </div>
-    </section>
-    {% endfor %}
-  </section>
-</article>
+<div class="page-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      <div class="row justify-content-center">
+        <div class="text-center">
+              <p>
+                Check out the extensive list of
+                <a href="/code-samples/index.html">code samples</a> for player customization possibilities.
+              </p>
+              <div class="d-flex justify-content-center">
+                <div>
+                <p><strong>Brightcove Player current version:</strong></p>
+              
+                  <p>For release 7.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">v7.1.0</a></strong></p>
+                  <p>For release 6.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">v6.66.8</a></strong></p>
+                </div>
+
+                <div>
+                <p><strong>Pre-release:</strong></p>
+                
+                  <p>For release 7.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">None</a></strong></p>
+                  <p>For release 6.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">None</a></strong></p>
+              </div>
+            </div>
+            </div>
+
+            {% for section in site.data.navigation offset:1 %}
+            <div class="col-12 col-lg-4 py-3">
+              <div class="card card-hover shadow-sm">
+    
+                <div class="card-body">
+                  <h5 class="card-title mb-3">
+                    <span class="span-icon card-icon-holder icon-theme me-2">
+                      <i class="{{ section.icon }}"></i>
+                    </span><!--//card-icon-holder-->
+                    <span class="card-title-text">{{ section.name }}</span>
+                  </h5>
+                  <div class="card-text">
+                    {{ section.description }}
+                  </div>
+                  <a class="card-link-mask" href="{{ section.url }}"></a>
+                </div><!--//card-body-->
+              </div><!--//card-->
+            </div><!--//col-->
+            {% endfor %}
+</div><!--//row-->
+</div><!--//container-->
+</div><!--//container-->
+</div><!--//page-content-->
