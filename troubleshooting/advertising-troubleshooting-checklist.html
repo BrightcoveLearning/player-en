@@ -12,6 +12,7 @@ layout: staging
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
     <p>When integrating ad solutions with Brightcove Player, it is important to determine where an error occurs. Walk through the steps below to help determine where the issue is happening.</p>
+    <p>If you are new to advertising concepts, review the <a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a></p>
     <p>There are two types of advertising. Choose the one that you are working with:</p>
     <ul>
       <li><a href="#Client_side_advertising">Client-side advertising</a></li>
@@ -39,16 +40,28 @@ layout: staging
           <li>You don't have any default/fallback ads when ad targeting fails to find an ad</li>
         </ul>
       </li>
-
     </ol>
 
-    
-  </section>
+    <h3>Test in standalone player</h3>
+    <p>If your Ad Tag is correct, build a standalone page with a Brightcove player and see if it works as expected.</p>
+    <ol class="bcls-tasklist">
+      <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module and create a new player or use the default player.</li>
+      <li>In the left navigation, click <strong>Advertising</strong>.</li>
+      <li>
+        <p>Select <strong>Enable Client-Side (IMA)</strong> and enter your ad tag URL.</p>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Studio csai" src="/assets/images/troubleshooting/ads/studio-csai.webp" />
+          <figcaption class="bcls-caption--image">Studio csai</figcaption>
+        </figure>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>Click <strong>Publish & Embed</strong> and then click <strong>Publish</strong>.</li>
+      <li>Copy the <strong>Advanced</strong> code and paste it into a simple HTML page.</li>
+      <li>If your ads play, then continue.</li>
+    </ol>
 
-  <section class="bcls-section">
-    <h2 id="Header_bidding">Header bidding</h2>
-    <p>If you are having issues with ads loading while using header bidding, make sure you are performing tasks in the correct order to avoid race conditions. A good way to isolate an issue from a complexity of code is to start with a simple sample.</p>
-    <ol class="bcls-tasklist-restart">
+    <h3 id="Test_header_bidding">Test header bidding</h3>
+    <p>If you are using header bidding, make sure you are performing tasks in the correct order to avoid race conditions. A good way to isolate an issue from a complexity of code is to start with a simple sample.</p>
+    <ol class="bcls-tasklist">
       <li>Open the <a href="/advertising/jump-start-header-bidding-ad.html">Jump Start: Header Bidding Ad</a> document.</li>
       <li>Enter values for your Video Cloud Account ID and Video ID.</li>
       <li>Click <strong>Build the Player</strong>.</li>
@@ -63,6 +76,7 @@ layout: staging
       <li>Test the new structure of code.</li>
       <li>If this works, modify the code in your .js file in the same way.</li>
     </ol>
+    
   </section>
   
 </article>
