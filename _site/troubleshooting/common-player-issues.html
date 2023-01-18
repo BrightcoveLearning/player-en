@@ -1697,11 +1697,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </section>
 
   <section class="bcls-section">
+    <h2 id="Client_side_advertising">Client-side advertising</h2>
+    <p>If you are working with client-side ads such as IMA or FreeWheel, see the following sections:</p>
+    <ul>
+      <li><a href="#IMA_ads">IMA ads</a></li>
+      <li><a href="#Header_bidding">Header bidding</a></li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
     <h2 id="IMA_ads">IMA ads</h2>
     <p>If IMA ads are not playing, make sure that your ad URL is working correctly. You can do this with Google's Video Suite inspector.</p>
     <ol class="bcls-tasklist">
       <li>In a browser, navigate to <a href="https://googleads.github.io/googleads-ima-html5/vsi/">IMA HTML5 Video Suite Inspector</a>.</li>
-      <li>Enter your VAST ad tag without header bidding into the text field.</li>
+      <li>Enter your VAST or VMAP ad tag without header bidding into the text field.</li>
       <li>Click <strong>Test Ad</strong>.</li>
       <li>You should see your ad playing in the <strong>Video Player</strong> area.</li>
       <li>If this does NOT work, here are some possible reasons:
@@ -1718,7 +1727,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="Header_bidding">Header bidding</h2>
     <p>If you are having issues with ads loading while using header bidding, make sure you are performing tasks in the correct order to avoid race conditions. A good way to isolate an issue from a complexity of code is to start with a simple sample.</p>
-    <ol class="bcls-tasklist">
+    <ol class="bcls-tasklist-restart">
       <li>Open the <a href="/advertising/jump-start-header-bidding-ad.html">Jump Start: Header Bidding Ad</a> document.</li>
       <li>Enter values for your Video Cloud Account ID and Video ID.</li>
       <li>Click <strong>Build the Player</strong>.</li>
