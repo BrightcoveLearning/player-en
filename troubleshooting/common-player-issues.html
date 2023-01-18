@@ -1,7 +1,7 @@
 ---
 title: Common Player Issues and Resolutions
 parent: Troubleshooting
-description: In this topic, you will learn about common issues with Brightcove Player and how to resolve them.
+description: In this topic, you will learn about common issues that you might run into when adding integrations with Brightcove Player and how to resolve these issues.
 layout: staging
 ---
 
@@ -10,15 +10,30 @@ layout: staging
   <summary>{{ page.description }}</summary>
 
   <section class="bcls-section">
-    <h2 id="Documentation_structure">Documentation structure</h2>
+    <h2 id="Introduction">Introduction</h2>
 
-    <p>At Brightcove, we strive to keep the documentation structured, clean and intuitive. As such, we leverage github READMEs for details on all our plugins and integrations. For your convenience, we've listed and linked to these plugins below.</p>
+    <p></p>
   </section>
 
   <section class="bcls-section">
-    <h2 id="Supported_browsers">Supported browsers</h2>
-    <p>We strongly recommend checking for available browser updates regularly to ensure that you have the latest and greatest fixes and performance.</p>
-    <p>For a complete list of supported browsers, see the <a href="/references/brightcove-player-system-requirements.html">Brightcove Player System Requirements</a> document.</p>
+    <h2 id="Header_Bidding_with_Brightcove_Player">Header Bidding with Brightcove Player</h2>
+    <p>If you are having issues with ads loading while using header bidding, make sure you are performing tasks in the correct order to avoid race conditions. A good way to isolate an issue from a complexity of code is to start with a simple sample.</p>
+    <ol class="bcls-tasklist">
+      <li>Open the <a href="/advertising/jump-start-header-bidding-ad.html">Jump Start: Header Bidding Ad</a> document.</li>
+      <li>Enter values for your Video Cloud Account ID and Video ID.</li>
+      <li>Click <strong>Build the Player</strong>.</li>
+      <li>If this works, click <strong>Copy Code to Clipboard</strong>.</li>
+      <li>Restructure your code to perform tasks in the following order: (you can paste the code from the Jump Start which is in this order)
+        <ol>
+          <li>Load prebid</li>
+          <li>Load Brightcove Player</li>
+          <li>Load IMA3 plugins</li>
+        </ol>
+      </li>
+      <li>Test the new structure of code.</li>
+      <li>If this works, modify the code in your .js file in the same way.</li>
+    </ol>
   </section>
+
   
 </article>
