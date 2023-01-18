@@ -11,12 +11,23 @@ layout: staging
 
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
-
-    <p></p>
+    <p>When using 3rd-party integrations with Brightcove Player, it is important to determine where an error occurs. This topic will help you isolate issues and determine the best way to resolve them.</p>
   </section>
 
   <section class="bcls-section">
-    <h2 id="Header_Bidding_with_Brightcove_Player">Header Bidding with Brightcove Player</h2>
+    <h2 id="IMA_ads">IMA ads</h2>
+    <p>If IMA ads are not playing, make sure that your ad URL is working correctly. You can do this with Google's Video Suite inspector.</p>
+    <ol class="bcls-tasklist">
+      <li>In a browser, navigate to <a href="https://googleads.github.io/googleads-ima-html5/vsi/">IMA HTML5 Video Suite Inspector</a>.</li>
+      <li>Enter your VAST ad tag without header bidding into the text field.</li>
+      <li>Click <strong>Test Ad</strong>.</li>
+      <li>You should see your ad playing in the <strong>Video Player</strong> area.</li>
+      <li>If this does NOT work, then you need to fix your ad URL.</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Header_bidding">Header bidding</h2>
     <p>If you are having issues with ads loading while using header bidding, make sure you are performing tasks in the correct order to avoid race conditions. A good way to isolate an issue from a complexity of code is to start with a simple sample.</p>
     <ol class="bcls-tasklist">
       <li>Open the <a href="/advertising/jump-start-header-bidding-ad.html">Jump Start: Header Bidding Ad</a> document.</li>
@@ -34,6 +45,5 @@ layout: staging
       <li>If this works, modify the code in your .js file in the same way.</li>
     </ol>
   </section>
-
   
 </article>
