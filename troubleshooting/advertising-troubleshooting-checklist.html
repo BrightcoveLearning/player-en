@@ -23,7 +23,7 @@ layout: staging
 
   <section class="bcls-section">
     <h2 id="Client_side_advertising">Client-side advertising</h2>
-    <p>If you are working with client-side ads such as IMA or FreeWheel, walk through these steps:</p>
+    <p>If you are working with client-side ads such as IMA, walk through these steps:</p>
     <h3>Check ad tag URL</h3>
     <p>First, you want to make sure your ad tag URL is setup correctly and functioning properly.</p>
     <ol class="bcls-tasklist">
@@ -53,8 +53,8 @@ layout: staging
       <li>In the left navigation, click <strong>Advertising</strong>.</li>
       <li>
         <p>Select <strong>Enable Client-Side (IMA)</strong> and enter your ad tag URL.</p>
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Studio csai" src="/assets/images/troubleshooting/ads/studio-csai.webp" />
-          <figcaption class="bcls-caption--image">Studio csai</figcaption>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Studio CSAI" src="/assets/images/troubleshooting/ads/studio-csai.webp" />
+          <figcaption class="bcls-caption--image">Studio CSAI</figcaption>
         </figure>
       </li>
       <li>Click <strong>Save</strong>.</li>
@@ -79,6 +79,53 @@ layout: staging
       </li>
       <li>Test the new structure of code.</li>
       <li>If this works, modify the code in your .js file in the same way.</li>
+    </ol>
+
+    <h3>Ads still not playing?</h3>
+    <p>If your ads are still not playing, please <a href="#Contact_support">contact support</a>.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Server_side_advertising">Server-side advertising</h2>
+    <p>If you are working with server-side ads with VOD, walk through these steps:</p>
+    <aside class="bcls-aside bcls-aside--information">Due to the nature of SSAI, the first time the player is loaded, the configured ad won't play. With the first player load, ads are transcoded on the server. After the first player load, your ads will play.</aside>
+    <h3>Check ad tag URL</h3>
+    <p>First, you want to make sure your ad tag URL is setup correctly and functioning properly.</p>
+    <ol class="bcls-tasklist">
+      <li>Load the ad server URL (aka ad tag) in your browser to see if it looks ok.</li>
+      <li>Google provides a set of <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/tags">sample ad tags</a>. Copy an ad tag URL and paste it into a browser to see the XML code.</li>
+      <li>In a browser, navigate to the <a href="https://googleads.github.io/googleads-ima-html5/vsi/">IMA HTML5 Video Suite Inspector</a>.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Video suite inspector" src="/assets/images/troubleshooting/ads/video-suite-inspector.webp" />
+          <figcaption class="bcls-caption--image">Video suite inspector</figcaption>
+        </figure>
+      </li>
+      <li>Enter your VAST or VMAP ad tag without header bidding into the text field.</li>
+      <li>Click <strong>Test Ad</strong>.</li>
+      <li>You should see your ad playing in the <strong>Video Player</strong> area.</li>
+      <li>If this does NOT work, here are some possible reasons:
+        <ul>
+          <li>An issue with your ad server</li>
+          <li>Ad targeting parameters are too specific to return an ad</li>
+          <li>You don't have any default/fallback ads when ad targeting fails to find an ad</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Test in standalone player</h3>
+    <p>If your Ad Tag is correct, build a standalone page with a Brightcove player and see if it works as expected.</p>
+    <ol class="bcls-tasklist">
+      <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module and create a new player or use the default player.</li>
+      <li>In the left navigation, click <strong>Advertising</strong>.</li>
+      <li>
+        <p>Select <strong>Enable Server-Side (SSAI)</strong> and select your ad configuration.</p>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Studio SSAI" src="/assets/images/troubleshooting/ads/studio-ssai.webp" />
+          <figcaption class="bcls-caption--image">Studio SSAI</figcaption>
+        </figure>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>Click <strong>Publish & Embed</strong> and then click <strong>Publish</strong>.</li>
+      <li>Copy the <strong>Advanced</strong> code and paste it into a simple HTML page.</li>
+      <li>If your ads play, then continue.</li>
     </ol>
 
     <h3>Ads still not playing?</h3>
