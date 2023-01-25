@@ -347,13 +347,6 @@ parent: References
       <p>This makes it easier to configure DRM by simply enabling DRM protection on your media content without having to remember to also enable it on your players.</p>
       <p>No migration is needed. Players that are configured with the DRM plugin and Player 7 will not break.</p>
 
-      <h3>Analytics <code translate="No">play_request</code> Event</h3>
-      <p>Change applies to BCP7</p>
-      <aside class="bcls-aside bcls-aside--tip">No migration necessary - expect that <code translate="No">play_request</code> metrics may drop after upgrading.</aside>
-      <p>Brightcove Player 7 will send a <code translate="No">play_request</code> beacon only the first time there is a request to begin playback - either through a viewer hitting the play button or some form of autoplay (i.e. calling the <code translate="No">play()</code> method).</p>
-      <p>In earlier versions, we sent <code translate="No">play_request</code> beacons anytime there was a player <code translate="No">play</code> event. This included anytime content playback was requested, such as a viewer pausing and resuming or a client-side advertisement ending and returning to content playback.</p>
-      <p>Brightcove's Product and Data organizations discussed this and determined that the intent of this event was to track the initial request for playback to begin. This means it's likely that anyone tracking play_request metrics will see that number drop after upgrading to Player 7. If this happens, it does not indicate a problem.</p>
-
       <h3>Timeout Error Enhancements</h3>
       <p>Change applies to BCP7</p>
       <aside class="bcls-aside bcls-aside--tip">No migration necessary</aside>
@@ -407,6 +400,23 @@ parent: References
   // were sent to the Data Collection API.
   player.log(&apos;video_engagement beacon sent!&apos;, e.params);
 });</code></pre>
+
+      <h3>Analytics <code translate="No">play_request</code> Event</h3>
+      <p>Change applies to BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">No migration necessary - expect that <code translate="No">play_request</code> metrics may drop after upgrading.</aside>
+      <p>Brightcove Player 7 will send a <code translate="No">play_request</code> beacon only the first time there is a request to begin playback - either through a viewer hitting the play button or some form of autoplay (i.e. calling the <code translate="No">play()</code> method).</p>
+      <p>In earlier versions, we sent <code translate="No">play_request</code> beacons anytime there was a player <code translate="No">play</code> event. This included anytime content playback was requested, such as a viewer pausing and resuming or a client-side advertisement ending and returning to content playback.</p>
+      <p>Brightcove's Product and Data organizations discussed this and determined that the intent of this event was to track the initial request for playback to begin. This means it's likely that anyone tracking play_request metrics will see that number drop after upgrading to Player 7. If this happens, it does not indicate a problem.</p>
+
+      <h3>Analytics <code translate="No">video_complete</code> Event</h3> 
+      <p>Change applies to BCP7</p>
+      <aside class="bcls-aside bcls-aside--tip">If you are relying on the <code translate="No">video_complete</code> event, you can use the <code translate="No">ended</code> event instead.</aside>
+      <p>Video Cloud analytics doesn't use the <code translate="No">video_complete</code> event, and it was removed from BCP7. That means the following:</p>
+      <ul>
+        <li>No <code translate="No">analytics-beacon-video-complete</code> event</li>
+        <li>No <code translate="No">analytics-beacon</code> event with <code translate="No">params.event</code> set to <code translate="No">video_complete</code></li>
+      </ul>
+      
 
       <h3>Brightcove Namespace</h3>
       <p>Change applies to BCP7</p>
