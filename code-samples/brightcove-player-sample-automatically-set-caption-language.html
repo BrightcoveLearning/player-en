@@ -3,8 +3,8 @@ title: 'Brightcove Player Sample: Automatically Set Caption Language'
 description: 'In this topic, you will learn how to set the default caption language based on the browser language.'
 parent: Code Samples
 ---
-<h1>{{ page.title }}</h1>
 <article class="bcls-article">
+  <h1>{{ page.title }}</h1>
   <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="Player_example">Player example</h2>
@@ -18,7 +18,6 @@ parent: Code Samples
       <li>French (fr)</li>
     </ul>
     <p>If your browser is set for one of these languages, the default caption should be set for that language. You can take this example and add more caption files for different languages.</p>
-    <aside class="bcls-aside bcls-aside--information">Since the Safari browser uses native captions, you will need additional code to handle Safari's specific mechanism for setting user preferred language.</aside>
     <!-- UPDATE codepen here -->
     
     <!-- <p class="codepen" data-height="485" data-theme-id="34967" data-default-tab="result" data-user="rcrooks1969" data-slug-hash="VRvdzW" style="height: 501px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Auto Caption Language"><span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/VRvdzW/"> Auto Caption Language</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</span></p>
@@ -28,7 +27,7 @@ parent: Code Samples
       Auto-Caption</a> by Yarianna Tineo (<a href="https://codepen.io/yariannatineo_">@yariannatineo_</a>)
       on <a href="https://codepen.io">CodePen</a>.</span>
     </p>
-    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    <script&gt; async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
     <h3>Source code</h3>
           <p>View the <a href="https://github.com/BrightcoveLearning/18750-automatically-set-caption-language">complete solution on GitHub</a>.</p>
   </section>
@@ -77,6 +76,78 @@ parent: Code Samples
       <p>Even if your final implementation does not use the iframe code, you can still use the In-Page embed code with a plugin for your JavaScript and a separate file for your CSS. This encapsulates your logic so that you can easily use it in multiple players.</p>
     </details>
   </section>
+
+  <section class="bcls-section">
+    <h2 id="Safari_mechanism_for_user_preferred_language">Safari mechanism for user preferred language</h2>
+    <p>Since the Safari browser uses native captions, additional code is necessary to handle Safari's specific mechanism for setting user preferred language.</p>
+    <p>To see an example of how captions are automatically set by URL parameters, go to <a href="https://cs1.brightcodes.net/thase/solutions/caption/selectlanguagebydefault.html?lang=fr">Set captions via URL parameter</a>.</p>
+    <p>To see an example of how captions are automatically set by <code translate="no">&lt;meta&gt;</code> tags, go to <a href="https://cs1.brightcodes.net/dhardy/SetLanguage/">Set captions via &lt;meta&gt; tags</a>. Here is the code used for this example:</p>
+    <pre class="line-numbers">
+      <code class="language-html" translate="No">
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+          &lt;head&gt;
+          &lt;meta charset="UTF-8"&gt;
+          &lt;meta name="page_language" content="en"&gt;
+          &lt;title>Auto Captions Language&lt;/title&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+            &lt;h2&gt;English Page&lt;/h2&gt;
+            &lt;a href="index.html">Return&lt;/a&gt;
+            &lt;div style="width: 960px; height: 540px;"&gt;
+            &lt;video-js id="myPlayerID"
+                  data-account="1752604059001" 
+                  data-player="default" 
+                  data-embed="default" 
+                  controls="" 
+                  data-video-id="6008592337001" 
+                  data-playlist-id="" 
+                  data-application-id="" 
+                  width="960" height="540" 
+                  class="vjs-fill">
+                  &lt;/video-js>
+                  &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;
+                  &lt;/div&gt;
+                  &lt;script&gt;
+                    videojs.registerPlugin('autoCaptions',function(options){ 
+                    var player = this; 
+                    // Use "loadeddata" event. Using "loadedmetadata" event might not work on Safari
+                    player.on("loadeddata", function () { 
+                        var browser_language = document.getElementsByName('page_language')[0].getAttribute('content') 
+                        var tracks = player.textTracks();
+                        console.log(tracks.length)
+
+                        // +++ Loop through captions +++
+                        for (var i = 0; i &lt; (tracks.length); i++) {
+                          track_language = tracks[i].language.substr(0, 2);
+
+                          // +++ When the caption language equals the browser language, then set it as default +++
+                          if (track_language) {
+                            if (track_language === browser_language) {
+                              tracks[i].mode = "showing";
+                            } else {
+                              tracks[i].mode = "disabled";
+                            }
+                          }
+                        }
+                    }); 
+                });
+
+                videojs("myPlayerID").ready(function() {
+                    var myPlayer = this;
+                    var tracks = null;            
+                    var lang = document.getElementsByName('page_language')[0].getAttribute('content');
+                    myPlayer.autoCaptions({"lang":lang});
+                });
+            &lt;/script&gt;
+
+         &lt;/body&gt;
+
+        &lt;/html&gt;
+      </code>
+    </pre>
+  </section>
+
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
     <!-- UPDATE table, remove unneeded columns -->
