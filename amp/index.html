@@ -1,29 +1,31 @@
 ---
-title: AMP Home
+title: AMP
 parent: amp
 section: AMP
 description: "Accelerated Mobile Pages (AMP) can be used with Brightcove Player. This page links to the two possibilities of using Brightcove Player, with a Video Cloud video or an external video."
 ---
-<article class="landing-page-wrapper">
-    <h1>{{ page.title }}</h1>
-    <section class="landing-page-header" id="landing_page_header">
-        <p>{{ page.description }}</p>
-        <p>AMP is an open-source HTML framework that provides a straightforward way to create web pages that are fast, smooth-loading and prioritize the user-experience. For more details see the <a href="https://amp.dev/">AMP site</a>.</p>
-    </section>
-    <section class="card-wrapper">
-        {% for item in site.data.navigation %}
-        {% if item.name == page.section %}
-        <section class="bcls-card">
-            <div class="card-content">
-                <h2 class="landing-page-item-header">{{ item.name }} Topics</h2>
-                <ul class=" class="bcls-topic-list"">
-                    {% for entry in item.docs %}
-                    <li><a href="{{ entry.url }}">{{ entry.name }}</a></li>
-                    {% endfor %}
-                </ul>
+<!-- Template for section that has just pages -->
+{% for item in site.data.navigation %}
+  {% if item.name == page.title %}
+  <h1><i class="{{ item.icon }}"></i> {{ page.title }}</h1>
+  <article class="bcls-article">
+    <summary>{{ page.description }}</summary>
+
+    <div class="col-12 col-lg-4 py-3">
+      <div class="card shadow-sm" style="background: white" onclick="window.location.href = '{{ item.url }}'">
+        <div class="card-body">
+          <section class="flex-container">
+            <div>
+              <ul class="list-group list-group-flush">
+                {% for entry in item.docs %}
+                <li class="list-group-item"><a href="{{ entry.url }}" style="text-decoration: none;">{{ entry.name }}</a></li>
+                {% endfor %}
+              </ul>
             </div>
-        </section>
-        {% endif %}
-        {% endfor %}
-    </section>
+          </section>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
 </article>

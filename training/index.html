@@ -2,20 +2,28 @@
 title: Training
 parent: Home
 ---
-<article class="bcls-article">
-  <h1>Training</h1>
-  <summary>On-demand    training courses and videos.</summary>
-  <br/>
-    <a href="register-training.html">
-  <h4>Register for Instructor-Led Training</h4>
-  </a>
-  <section class="bcls-section">
-    <ul class="bcls-topic-list">
-      <li><a href="/training/online-training-courses.html">All Online Training Courses</a></li>
-      <li><a href="/training/developer-basics-videos.html">Developer Basics Videos</a></li>
-      <li><a href="/training/training-demand-developing-brightcove-player.html">Training on Demand: Developing with the Brightcove Player</a></li>
-      <li><a href="https://apis.support.brightcove.com/player-management/getting-started/training-demand-quick-start-player-management.html">Training on Demand: Quick Start to Player Management</a></li>
-      <li><a href="/training/player-development-training-videos.html">Player Development Training Videos</a></li>
-    </ul>
-  </section>
+<!-- Template for section that has just pages -->
+{% for item in site.data.navigation %}
+  {% if item.name == page.title %}
+  <h1><i class="{{ item.icon }}"></i> {{ page.title }}</h1>
+  <article class="bcls-article">
+    <summary>{{ page.description }}</summary>
+
+    <div class="col-12 col-lg-4 py-3">
+      <div class="card shadow-sm" style="background: white" onclick="window.location.href = '{{ item.url }}'">
+        <div class="card-body">
+          <section class="flex-container">
+            <div>
+              <ul class="list-group list-group-flush">
+                {% for entry in item.docs %}
+                <li class="list-group-item"><a href="{{ entry.url }}" style="text-decoration: none;">{{ entry.name }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
 </article>

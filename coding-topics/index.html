@@ -4,29 +4,57 @@ description: Various topics for coding around the Brightcove Player.
 parent: Home
 ---
 
-<h1>{{ page.title }}</h1>
+<!-- Template for sections that have both pages and sub-sections -->
+{% assign subfolders_array = "" | split: ',' %}
+
+{% for item in site.data.navigation %}
+  {% if item.name == page.title %}
+
+<h1><i class="{{ item.icon }}"></i> {{ page.title }}</h1>
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
-  <section class="bcls-section" id="page_wrapper">
-    {% for item in site.data.navigation %}
-      {% if item.name == page.title %}
-        {% for entry in item.docs %}
-          <ul style="list-style: none;">
-            {% if entry.docs %}
-            <li>
-                <h3><a href="{{ entry.url }}">{{ entry.name }}</a></h3>
-                <ul class="landing-page-item">
-                  {% for subdoc in entry.docs %}
-                  <li><a href="{{ subdoc.url }}">{{ subdoc.name }}</a></li>
+  <br/>
+  <h2 id="Topics_in_this_section">Topics in this section</h2>
+  <br/>
+  <!-- create the cards -->
+  <div class="row">
+  <!-- create the pages card -->
+  <div class="col-12 col-lg-4 py-3">
+    <div class="card shadow-sm" style="background: white" onclick="window.location.href = '{{ item.url }}'">
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            {% for entry in item.docs %}
+              {% if entry.docs %}
+                {% assign subfolders_array = subfolders_array | push: entry %}
+              {% else %}
+              <li class="list-group-item"><a href="{{ entry.url }}" style="text-decoration: none;">{{ entry.name }}</a>
+              </li>
+              {% endif %} 
+            {% endfor %}
+          </ul>
+        </div> <!-- end <div class="card-body"> -->
+      </div> <!-- end <div class="card shadow-sm"> -->
+    </div> <!-- end <div class="col-12 col-lg-4 py-3"> -->
+  {% endif %}
+{% endfor %}
+
+  <!-- create the subfolder cards -->
+    {% for entry in subfolders_array %}
+      <div class="col-12 col-lg-4 py-3">
+        <div class="card shadow-sm" style="background: white" onclick="window.location.href = '{{ entry.url }}'">
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a href="{{ entry.url }}" style="text-decoration: none;"><strong>{{ entry.name }}</strong></a>
+                <ul class="list-group list-group-flush">
+                  {% for subentry in entry.docs %}
+                  <li class="list-group-item"><a href="{{ subentry.url }}" style="text-decoration: none;"> {{ subentry.name }}</a></li>
                   {% endfor %}
                 </ul>
-              </li>
-            {% else %}
-            <li style="display: list-item;"><a href="{{ entry.url }}">{{ entry.name }}</a></ul>
-            {% endif %}
-          </ul>
-          {% endfor %}
-      {% endif %}
-    {% endfor %}
-  </section>
-</article>
+                </li>
+              </ul>
+            </div> <!-- end <div class="card-body"> -->
+          </div> <!-- end <div class="card shadow-sm"> -->
+        </div> <!-- end <div class="col-12 col-lg-4 py-3"> -->
+      {% endfor %}
+    </div> <!-- end <div class="row"> -->
+  </article>
