@@ -400,7 +400,7 @@ parent: References
       <p>If you want to know when the player sent a <code translate="No">video_engagement</code> event beacon, you could do something like this:</p>
       <pre class="line-numbers"><code class="language-javascript" translate="No">player.on(&apos;analytics-beacon-video-engagement&apos;, (e) =&gt; {
   // The event object in the callback contains a `params` object, which
-  // has a JavaScript object representataion of the query params that
+  // has a JavaScript object representation of the query params that
   // were sent to the Data Collection API.
   player.log(&apos;video_engagement beacon sent!&apos;, e.params);
 });</code></pre>
@@ -766,7 +766,7 @@ parent: References
       <aside class="bcls-aside bcls-aside--tip">Migration only necessary if relying on in-page embed's implicit support of <code translate="No">autoplay</code> or <code translate="No">t</code> query parameters in the parent URL</aside>
       <p>When embedded in-page, Brightcove Player 7 will no longer recognize the <code translate="No">autoplay</code> query parameter or <code translate="No">t</code> query parameter (or any other query parameter).</p>
       <p>Query parameters are an ideal way to provide data at the embed code level for iframe embeds, but for in-page embeds, they would need to exist in the embedding website's URL.</p>
-      <p>These two parameters were previously supported because older versions of Internet Explorer required workarounds for the Fullscreen API, which was not adequately supported. However, they caused several customers some confusion when their own web page URLs included these parameters for other purposes, but they impacted the behavior of the their embedded Brightcove Player.</p>
+      <p>These two parameters were previously supported because older versions of Internet Explorer required workarounds for the Fullscreen API, which was not adequately supported. However, they caused several customers some confusion when their own web page URLs included these parameters for other purposes, but they impacted the behavior of their embedded Brightcove Player.</p>
       <p>If you were relying on this support in some way, Brightcove recommends switching to the <code translate="No">autoplay</code> or <code translate="No">data-start-time</code> attribute for your in-page embeds (or implementing this functionality via JavaScript code).</p>
 
       <h3>Top-level Playlist-related Configurations</h3>
