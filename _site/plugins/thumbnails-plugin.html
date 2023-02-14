@@ -1815,11 +1815,10 @@
 <p>
   Video thumbnail images allow users to quickly scan the progress bar for the section they are interested in. Brightcove Player displays thumbnail images when the user hovers over the progress bar. Clicking on the progress bar takes them to that location in the video.
 </p>
-<aside class="bcls-aside bcls-aside--tip">By default, all new players are enabled for thumbnail seeking.</aside>
-
-<h5>When are images generated?</h5>
+<aside class="bcls-aside bcls-aside--information language-editable">By default, all new players are enabled for thumbnail seeking.</aside>
+<h3>When are images generated?</h3>
 <p>Brightcove generates the images dynamically on request. Any video ingested with Dynamic Delivery will have images generated on the first request. This ensures that images are not created for unused videos. Once generated, images are cached locally and on the CDN for repeat viewing, just like any other image.</p>
-<h5>What is the image frequency for a video?</h5>
+<h3>What is the image frequency for a video?</h3>
 <p>The thumbnails list is filtered down based on the pixel width of the player at initialization. This list varies significantly depending on player styling, window sizing, platform/device, etc. The thumbnail plugin aims to show a new thumbnail roughly every 30px as the user hovers over the progress bar. For example, if the player is 1,500px wide, the player will attempt to filter the list down to 50 thumbnails. The remaining time intervals for the WebVTT cues are adjusted according to the content’s duration.</p>
 <!-- <p>Images are generated every 5 seconds for content < 1 hour, and every 10 seconds for content > 1 hour.</p> -->
 <aside class="bcls-aside bcls-aside--information">Notes:
@@ -1896,28 +1895,28 @@
 <p>The easiest way to configure your player for thumbnail seeking is with Video Cloud Studio.</p>
 
 <ol class="bcls-tasklist">
-	<li>
+  <li>
     <p>
       Open the <strong>PLAYERS</strong> module. Use an existing player or create a new one.
     </p>
   </li>
-	<li>Select the player link to open the player's properties.</li>
-	<li>In the left navigation, select <strong>Controls</strong>.</li>
-	<li>
+  <li>Select the player link to open the player's properties.</li>
+  <li>In the left navigation, select <strong>Controls</strong>.</li>
+  <li>
     <p>
       Check <strong>Thumbnail Seeking</strong>.
     </p>
     <figure class="bcls-figure"><img class="bcls-image--no-border" width="400" alt="Thumbnails checkbox" src="/assets/images/plugins/thumbnails/thumbnail-checkbox.png" />
-  	<figcaption class="bcls-caption--image">Brightcove plugin</figcaption>
-  	</figure>
+    <figcaption class="bcls-caption--image">Brightcove plugin</figcaption>
+    </figure>
   </li>
   <li>
     <p>
       To publish the player, select <strong>Publish &amp; Embed &gt; Publish Changes</strong>
     </p>
     <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Publish Changes" src="/assets/images/plugins/thumbnails/publish-changes.png" />
-  	<figcaption class="bcls-caption--image">Publish Changes</figcaption>
-  	</figure>
+    <figcaption class="bcls-caption--image">Publish Changes</figcaption>
+    </figure>
   </li>
   <li>
     <p>The thumbnails plugin is now configured for your player.</p>
@@ -1935,26 +1934,26 @@
 <p>If you choose to use your own thumbnail images, you can create a custom WebVTT file and pass it to the player using the <code translate="No">player.addRemoteTextTrack()</code> method. Here are the steps:</p>
 
 <ol class="bcls-tasklist-restart">
-	<li>
+  <li>
     <p>
       Create a <strong>.vtt</strong> file that follows the standard WebVTT format. Replace caption text with the URL for each thumbnail image. It may look something like this:
     </p>
     <figure class="bcls-figure"><img class="bcls-image--no-border" alt="WebVTT file" src="/assets/images/plugins/thumbnails/webvtt-file.png" />
-  	<figcaption class="bcls-caption--image">WebVTT file</figcaption>
-  	</figure>
+    <figcaption class="bcls-caption--image">WebVTT file</figcaption>
+    </figure>
   </li>
-	<li>In Video Cloud Studio, choose a video ingested for Dynamic Delivery. Copy the Advanced Embed code for a player with version 6.41.0+.</li>
-	<li>In the HTML file for your web page, paste the Advanced Embed code.</li>
+  <li>In Video Cloud Studio, choose a video ingested for Dynamic Delivery. Copy the Advanced Embed code for a player with version 6.41.0+.</li>
+  <li>In the HTML file for your web page, paste the Advanced Embed code.</li>
   <li>In the <code translate="No">head</code> section of your HTML code add the thumbnails CSS file:
-	<pre>
+  <pre>
 <code class="language-json" translate="No">//players.brightcove.net/videojs-thumbnails/1/videojs-thumbnails.css</code></pre>
-	</li>
+  </li>
   <li>In the <code translate="No">body</code> section of your HTML code add the thumbnails JavaScript file:
-	<pre>
+  <pre>
 <code class="language-json" translate="No">//players.brightcove.net/videojs-thumbnails/1/videojs-thumbnails.js</code></pre>
-	</li>
-	<li>To the <code translate="No">video</code> tag, add an <code translate="No">id</code> property.
-	</li>
+  </li>
+  <li>To the <code translate="No">video</code> tag, add an <code translate="No">id</code> property.
+  </li>
   <li>
     Before the closing <code translate="No">body</code> tag, add a <code translate="No">script</code> block.
   </li>
@@ -1995,7 +1994,7 @@ player.ready(() =&gt; {
   });
 });</code></pre>
   </li>
-	<li>
+  <li>
     <p>
       In the same script block, add the following:
     </p>
@@ -2071,7 +2070,7 @@ player.thumbnails();
 <p>Here are the limitation associated with the thumbnails plugin.</p>
 
 <ul>
-	<li>The current version of this plugin does not support thumbnails on mobile devices.</li>
+  <li>The current version of this plugin does not support thumbnails on mobile devices.</li>
 </ul>
 </section> -->
 
