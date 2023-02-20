@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="In this topic, you will learn how this plugin turns a properly recorded video element into a HTML5, panoramic, 360º video that can be played in Brightcove Player. This plugin is compatible with Brightcove Player version 6.17.0 or later.">
+        <meta name="description" content="In this topic, you will learn how this plugin turns a properly recorded video element into a HTML5, panoramic, 360º video that can be played in Brightcove Player. The new major version of this plugin is compatible with Brightcove Player version 7.0.0 or later. Older versions of this plugin are also compatible with Brightcove Player version 6.17.0 and subversions.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -1808,7 +1808,7 @@
       
 <h1>360°/VR Video Plugin</h1>
 <article class="bcls-article">
-  <summary>In this topic, you will learn how this plugin turns a properly recorded video element into a HTML5, panoramic, 360º video that can be played in Brightcove Player. <aside class="bcls-aside bcls-aside--information">This plugin is compatible with Brightcove Player version 6.17.0 or later.</aside></summary>
+  <summary>In this topic, you will learn how this plugin turns a properly recorded video element into a HTML5, panoramic, 360º video that can be played in Brightcove Player. <aside class="bcls-aside bcls-aside--information">The new major version of this plugin is compatible with Brightcove Player version 7.0.0 or later. Older versions of this plugin are also compatible with Brightcove Player version 6.17.0 and subversions.</aside></summary>
   <style type="text/css">
     .video-js {
       height: 344px;
@@ -1824,9 +1824,15 @@
     <h2 id="Example_player">Example player</h2>
     <p>The sample video below demonstrates the use of the 360°/VR Plugin. Once you click on the video to play it, you can use either your mouse or the arrow keys to control the view on the desktop, or the gyroscope if viewing on a mobile device. The 360° video logo play button disappears on play.</p>
     <!-- <iframe src="https://players.brightcove.net/1752604059001/r1ibOm8PZ_default/index.html?videoId=4944451046001&playsinline=true" allowfullscreen="" allow="encrypted-media"></iframe></section> -->
-    <video-js data-video-id="4944451046001" data-account="1752604059001" data-player="r1ibOm8PZ" data-embed="default" data-application-id="" controls=""  playsinline=""></video-js>
+    
+    <!-- Example with BCP 6 -->
+    <!-- <video-js data-video-id="4944451046001" data-account="1752604059001" data-player="r1ibOm8PZ" data-embed="default" data-application-id="" controls=""  playsinline=""></video-js>
     <script src="https://players.brightcove.net/1752604059001/r1ibOm8PZ_default/index.min.js">
-    </script>
+    </script> -->
+    
+    <!-- Example with BCP 7.2.0 -->
+    <video-js data-account="1752604059001" data-player="TRIB1CahQ" data-embed="default" controls="" data-video-id="4944451046001" data-playlist-id="" data-application-id="" class="vjs-fluid"></video-js>
+    <script src="https://players.brightcove.net/1752604059001/TRIB1CahQ_default/index.min.js"></script>
   </section>
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
@@ -1908,11 +1914,17 @@
       <li>For the <strong>Plugin Name</strong> enter <code translate="No">vr</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter:
         <pre>
-<code class="language-json" translate="No">https://players.brightcove.net/videojs-vr/1/videojs-vr.min.js</code></pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-vr/2/videojs-vr.min.js</code></pre>
+          <p>If you are using <strong>Brightcove Player 6</strong>, use this URL instead:</p>
+          <pre>
+            <code class="language-json" translate="No">https://players.brightcove.net/videojs-vr/1/videojs-vr.min.js</code></pre>
       </li>
       <li>For the <strong>CSS</strong> URL, enter:
         <pre>
-<code class="language-json" translate="No">https://players.brightcove.net/videojs-vr/1/videojs-vr.css</code></pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-vr/2/videojs-vr.css</code></pre>
+        <p>If you are using <strong>Brightcove Player 6</strong>, use this URL instead:</p>
+        <pre>
+          <code class="language-json" translate="No">https://players.brightcove.net/videojs-vr/1/videojs-vr.css</code></pre>
       </li>
       <!-- ** choose one of the following two steps, delete the other ** -->
       <li>You do not have to enter any options for this plugin.</li>
@@ -1990,7 +2002,7 @@
       <li>In Safari 12.x the gyroscope integration for mobile devices is turned off by default. The <strong>Motion &amp; Orientation Access</strong> settings must be changed in order for the gyro feature to function.</li>
       <li>Native HLS captions will not be visible in Safari when the VR plugin is used.</li>
       <li>Although the 360°/VR Plugin may work with live streams, it is not officially supported.</li>
-      <li>The latest 360°/VR Plugin is compatible with Brightcove Player version 6.17.0 and later.</li>
+      <li>The latest 360°/VR Plugin is compatible with Brightcove Player version 7.0.0 and later.</li>
       <li>Because the 360°/VR Plugin uses an MP4 rendition, it does <strong>not</strong> support multiple audio tracks (because browsers do not support multiple audio tracks with MP4s). You can avoid this problem by using ingest profiles that do not include MP4 renditions for 360° videos with multiple audio tracks.</li>
       <li>The 360°/VR Plugin does not function with Internet Explorer.</li>
       <li>The 360°/VR Plugin does not support DRM.</li>
