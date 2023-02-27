@@ -25,7 +25,7 @@ lang_filter = "lang='" + lang + "'";
     this_site_filter = "domain  ^ '" + site_domain + "'";
   } else {
     all_bc_docs_filter = "domain  ^ 'studio.support.' OR domain  ^ 'mstudio.support.' OR domain  ^ 'player.support.' OR domain  ^ 'apis.support.' OR domain  ^ 'sdks.support.' OR domain  ^ 'integrations.support.' OR domain  ^ 'general.support.' OR domain  ^ 'audience-insights.support.' OR domain  ^ 'beacon-help.support.' OR domain  ^ 'beacon.support.' OR domain  ^ 'corptv.support.' OR domain  ^ 'live.support.'  OR domain  ^ 'zencoder.support.'  OR domain  ^ 'gallery.support.' OR domain  ^ 'interactivity.support.' OR domain  ^ 'ssai.support.' OR domain  ^ 'campaign.support.'";
-    this_site_filter = "domain  ~ '" + site_domain + "'"
+    this_site_filter = "domain  ^ '" + site_domain + "'"
   }
   
   console.log('filter', filter);
