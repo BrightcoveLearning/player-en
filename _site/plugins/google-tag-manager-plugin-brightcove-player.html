@@ -1812,29 +1812,35 @@
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>
-      The Google Tag Manager (GTM) plugin allows you to integrate GTM functionality with the Brightcove Player. Here are some examples of tags, which generally are code that sends data to a system like Google Analytics, you may wish to include:</p>
+      The Google Tag Manager (GTM) plugin allows you to integrate GTM by adding a container tag to your Brightcove Player. You will then use Google's tag management system to customize the individual tags based on your business rules.</p>
+      <p>Here are some tag examples:</p>
     <ul>
       <li>Google Analytics Universal tracking code<sup><strong><a href="#note1-1">[1-1]</a></strong></sup></li>
       <li>Adwords Remarketing and/or Conversion Tracking code</li>
       <li>Custom HTML scripts</li>
     </ul>
-    <h4>Notes</h4>
-    <ul>
-      <li id="note1-1" style="list-style: none;"><sup><strong>[1-1]</strong></sup> Note that only Google Universal Analytics is supported at this time. Support for Google Analytics 4 will be added soon.</li>
-    </ul>
-    <p>For an introduction to GTM itself, watch the video located on the <a href="https://support.google.com/tagmanager/answer/6102821?hl=en">Tag Manager overview</a> document.</p>
+    <aside class="bcls-aside bcls-aside--information">
+      <p>Notes</p>
+      <ul>
+        <li id="note1-1" style="list-style: none;"><sup><strong>[1-1]</strong></sup> Only Google Universal Analytics is supported at this time. Support for Google Analytics 4 will be added soon.</li>
+      </ul>
+    </aside>
+    
+    <p>If you are new to GTM, review Google's <a href="https://support.google.com/tagmanager/answer/6102821?hl=en">Tag Manager overview</a> document.</p>
     <p>
       If you are already using Google Analytics, Adwords, and DoubleClick, you may also want to use Google Tag Manager because it integrates well with these tools. GTM offers a large number of variable and trigger options.
     </p>
+
     <h3>Major implementation steps</h3>
-    <p>From a high-lever perspective, here are the major steps you must follow to implement and use GTM:</p>
-    <ol>
-      <li>Create a GTM account and setup a container - these are both part of the initial GTM setup.</li>
-      <li>Upon completion of initial setup, you will need to copy and paste the container snippets that need to be implemented on your web pages. Google suggests that this code be placed in the <code>&lt;head&gt;</code> tag or immediately after the opening <code>&lt;body&gt;</code> tag.</li>
-      <li>Add tags - for instance for Google Analytics or the Brightcove Player.</li>
+    <p>From a high level, here are the major steps you must follow to implement and use GTM:</p>
+     <ol class="bcls-tasklist">
+      <li>Create a GTM account and setup a container - these are both part of the initial GTM setup</li>
+      <li>Copy and paste the container snippets that need to be implemented on your web pages. Google suggests that this code be placed in the <code>&lt;head&gt;</code> tag or immediately after the opening <code>&lt;body&gt;</code> tag.</li>
+      <li>Create tags - for Google Analytics or Brightcove Player</li>
       <li>Publish your tags.</li>
     </ol>
-    <p>For Google's overview of the installation process, watch the video in the <a href="https://support.google.com/tagmanager/answer/6103696?hl=en&ref_topic=3441530">Set up and install Tag Manager</a> document. Detailed hands-on steps follow later in the same document.</p>
+    <p>For setup details, see Google's <a href="https://support.google.com/tagmanager/answer/6103696?hl=en&ref_topic=3441530">Set up and install Tag Manager</a> document.</p>
+
     <h3>Working with Brightcove Player</h3>
     <p>
       The Google Tag Manager plugin enables you to track Brightcove Player events using the Google Analytics dashboard. The following player events can be tracked: </p>
@@ -1941,7 +1947,7 @@
  </li>
  </ul> -->
     <h3>Steps</h3>
-    <ol class="bcls-tasklist">
+    <ol class="bcls-tasklist-restart">
       <li>
         <p>
           In <a href="https://tagmanager.google.com/#/home">Tag Manager</a>, create an account or use an existing account. To create a new account, click the <strong>Create Account</strong> button.
