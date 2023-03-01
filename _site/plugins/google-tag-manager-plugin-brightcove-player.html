@@ -2004,63 +2004,53 @@
 <table class="bcls-table">
   <thead class="bcls-table__head">
     <tr>
-      <th style="width:15%">Type</th>
       <th style="width:20%">Event</th>
       <th style="width:65%">Description</th>
     </tr>
   </thead>
   <tbody class="bcls-table__body">
     <tr>
-      <td>Player Load</td>
       <td><code translate="No">player_load</code></td>
       <td>
         Player has been loaded and is operational</td>
     </tr>
     <tr>
-      <td>Video Impression</td>
       <td><code translate="No">video_impression</code></td>
       <td>
         Video has been loaded into a player and is ready for playback </td>
     </tr>
     <tr>
-      <td>Video View</td>
       <td><code translate="No">video_view</code></td>
       <td>
         Video has started playing back either through auto-play or user interaction </td>
     </tr>
     <tr>
-      <td>Video Engagement</td>
       <td><code translate="No">video_engagement</code></td>
       <td>
         A user watches a range of seconds of a video's timeline. This event is a heartbeat for tracking video engagement and will likely be sent many times during playback, depending on the user interaction and the length of the video.
       </td>
     </tr>
     <tr>
-      <td>Play Request</td>
       <td><code translate="No">play_request</code></td>
       <td>
         Playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario </td>
     </tr>
     <tr>
-      <td>Ad Start</td>
       <td><code translate="No">ad_start</code></td>
       <td>
         Control is handed over to an advertising agent by the playback platform </td>
     </tr>
     <tr>
-      <td>Ad End</td>
       <td><code translate="No">ad_end</code></td>
       <td>
         Control is handed back from the advertising agent to the playback platform </td>
     </tr>
     <tr>
-      <td>Error</td>
       <td><code translate="No">error</code></td>
       <td>
         A fatal error has occurred which disrupts the playback experience </td>
     </tr>
     <tr>
-      <td>Video Complete</td>
       <td><code translate="No">video_complete</code></td>
       <td>
         Video playback finishes
@@ -2075,73 +2065,112 @@
 <table class="bcls-table">
   <thead class="bcls-table__head">
     <tr>
-      <th style="width:15%">Type</th>
-      <th style="width:20%">Event</th>
+      <th style="width:20%">Parameter</th>
       <th style="width:65%">Description</th>
     </tr>
   </thead>
   <tbody class="bcls-table__body">
     <tr>
-      <td>Account ID</td>
       <td><code translate="No">bcvideo_account</code></td>
       <td>
         Video Cloud Studio account ID
       </td>
     </tr>
     <tr>
-      <td>Playback location</td>
       <td><code translate="No">bcvideo_destination</code></td>
       <td>
         Playback location
       </td>
     </tr>
     <tr>
-      <td>Brightcove Player version</td>
       <td><code translate="No">bcvideo_platform_version</code></td>
       <td>
-        Version of the player 
+        Brightcove Player version 
       </td>
     </tr>
     <tr>
-      <td>Brightcove Player ID</td>
       <td><code translate="No">bcvideo_player</code></td>
       <td>
-        ID associated with the player
+        Brightcove Player ID
       </td>
     </tr>
     <tr>
-      <td>Brightcove Player name</td>
       <td><code translate="No">bcvideo_player_name</code></td>
       <td>
-        Name associated with the player 
+        Brightcove Player name 
       </td>
     </tr>
     <tr>
-      <td>Session</td>
       <td><code translate="No">bcvideo_session</code></td>
       <td>
         Session associated with the player 
       </td>
     </tr>
     <tr>
-      <td>Video ID</td>
       <td><code translate="No">bcvideo_video</code></td>
       <td>
-        ID associated with the video
+        Video ID
       </td>
     </tr>
     <tr>
-      <td>Video name</td>
       <td><code translate="No">bcvideo_name</code></td>
       <td>
-        Name associated with the video
+        Video name
       </td>
     </tr>
     <tr>
-      <td>List of tags </td>
       <td><code translate="No">bcvideo_tags</code></td>
       <td>
         List of tags associated with the video
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Event-specific dimensions</h4>
+<p>These custom dimensions will be sent in specific events.</p>
+<table class="bcls-table">
+  <thead class="bcls-table__head">
+    <tr>
+      <th style="width:20%">Parameter</th>
+      <th style="width:65%">Description</th>
+    </tr>
+  </thead>
+  <tbody class="bcls-table__body">
+    <tr>
+      <td><code translate="No">bcvideo_video_playhead</code></td>
+      <td>
+        Sent in <code translate="No">play_request</code> and <code translate="No">engagement</code> events
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">bcvideo_video_duration</code></td>
+      <td>
+        Sent in <code translate="No">engagement</code> event
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">bcvideo_video_range</code></td>
+      <td>
+        Sent in <code translate="No">engagement</code> event
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">bcvideo_video_percent_viewed</code></td>
+      <td>
+        Sent in <code translate="No">engagement</code> event
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">bcvideo_video_seconds_viewed</code></td>
+      <td>
+        Sent in <code translate="No">engagement</code> event
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">bcvideo_video_milestone</code></td>
+      <td>
+        Sent in <code translate="No">engagement</code> event
       </td>
     </tr>
   </tbody>
@@ -2456,6 +2485,10 @@
           <li><code translate="No">paramsToTrack</code> - Custom dimensions you want to track</li>
           <li><code translate="No">milestones</code> - An array of integers to alter the milestones from the default of 25, 50, 75, 100%. Of course, this is only applicable when <code>bcvideo_video_milestone</code> is being tracked.</li>
         </ul>
+        <aside class="bcls-aside bcls-aside--tip">
+          For a complete list of events and dimensions, see the <a href="#Reviewing_events_and_dimensions">Reviewing events and dimensions</a> section.
+       </aside>
+
         <p>Here is an example:</p>
         <pre class="line-numbers">
  <code class="language-json" translate="No">{ 
