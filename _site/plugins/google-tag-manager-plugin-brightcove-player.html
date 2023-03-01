@@ -1812,7 +1812,7 @@
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>
-      Google's Tag Manager (GTM) allows you to track the usage of your websites, video content, and mobile apps. First, you add a container tag to your assets. Then, based on your business rules, you use a web-based user interface to customize the individual tags associated with your container tag.</p>
+      Google's Tag Manager (GTM) allows you to track the usage of your websites, video content, and mobile apps. First, you add a container tag to your assets. Then, you use a web-based user interface to customize the individual tags associated with your container tag based on your business rules.</p>
       <p>Here are some tag examples:</p>
     <ul>
       <li>Google Analytics Universal tracking code
@@ -1842,7 +1842,9 @@
 
     <h3>Working with Brightcove Player</h3>
     <p>
-      Brightcove's GTM plugin enables you to track Brightcove Player events using the Google Analytics dashboard. The following player events can be tracked: </p>
+      Brightcove's GTM plugin enables you to track Brightcove Player events using the Google Analytics dashboard. The following player events can be tracked: 
+    </p>
+
     <ul>
       <li>
         Player load
@@ -1993,76 +1995,159 @@
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="Reviewing_events_to_track">Reviewing events to track</h2>
-    <p>Review the table below and determine which events you want to track.</p>
-    <table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th style="width:15%">Type</th>
-          <th style="width:20%">Event</th>
-          <th style="width:65%">Description</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td>Player Load</td>
-          <td><code translate="No">player_load</code></td>
-          <td>
-            Player has been loaded and is operational</td>
-        </tr>
-        <tr>
-          <td>Video Impression</td>
-          <td><code translate="No">video_impression</code></td>
-          <td>
-            Video has been loaded into a player and is ready for playback </td>
-        </tr>
-        <tr>
-          <td>Video View</td>
-          <td><code translate="No">video_view</code></td>
-          <td>
-            Video has started playing back either through auto-play or user interaction </td>
-        </tr>
-        <tr>
-          <td>Video Engagement</td>
-          <td><code translate="No">video_engagement</code></td>
-          <td>
-            A user watches a range of seconds of a video's timeline. This event is a heartbeat for tracking video engagement and will likely be sent many times during playback, depending on the user interaction and the length of the video.
-          </td>
-        </tr>
-        <tr>
-          <td>Play Request</td>
-          <td><code translate="No">play_request</code></td>
-          <td>
-            Playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario </td>
-        </tr>
-        <tr>
-          <td>Ad Start</td>
-          <td><code translate="No">ad_start</code></td>
-          <td>
-            Control is handed over to an advertising agent by the playback platform </td>
-        </tr>
-        <tr>
-          <td>Ad End</td>
-          <td><code translate="No">ad_end</code></td>
-          <td>
-            Control is handed back from the advertising agent to the playback platform </td>
-        </tr>
-        <tr>
-          <td>Error</td>
-          <td><code translate="No">error</code></td>
-          <td>
-            A fatal error has occurred which disrupts the playback experience </td>
-        </tr>
-        <tr>
-          <td>Video Complete</td>
-          <td><code translate="No">video_complete</code></td>
-          <td>
-            Video playback finishes
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <aside class="bcls-aside bcls-aside--tip">Please note that the events listed in the table above must be created as triggers.</aside>
+    <h2 id="Reviewing_events_and_dimensions">Reviewing events and dimensions</h2>
+
+    
+<p>Choose the events and dimensions that you want to track.</p>
+<h3>Events</h3>
+<p>Any event name used by Brightcove player's <code translate="No">analytics-beacon</code> event can be used, but the following have special handling in the GTM plugin.</p>
+<table class="bcls-table">
+  <thead class="bcls-table__head">
+    <tr>
+      <th style="width:15%">Type</th>
+      <th style="width:20%">Event</th>
+      <th style="width:65%">Description</th>
+    </tr>
+  </thead>
+  <tbody class="bcls-table__body">
+    <tr>
+      <td>Player Load</td>
+      <td><code translate="No">player_load</code></td>
+      <td>
+        Player has been loaded and is operational</td>
+    </tr>
+    <tr>
+      <td>Video Impression</td>
+      <td><code translate="No">video_impression</code></td>
+      <td>
+        Video has been loaded into a player and is ready for playback </td>
+    </tr>
+    <tr>
+      <td>Video View</td>
+      <td><code translate="No">video_view</code></td>
+      <td>
+        Video has started playing back either through auto-play or user interaction </td>
+    </tr>
+    <tr>
+      <td>Video Engagement</td>
+      <td><code translate="No">video_engagement</code></td>
+      <td>
+        A user watches a range of seconds of a video's timeline. This event is a heartbeat for tracking video engagement and will likely be sent many times during playback, depending on the user interaction and the length of the video.
+      </td>
+    </tr>
+    <tr>
+      <td>Play Request</td>
+      <td><code translate="No">play_request</code></td>
+      <td>
+        Playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario </td>
+    </tr>
+    <tr>
+      <td>Ad Start</td>
+      <td><code translate="No">ad_start</code></td>
+      <td>
+        Control is handed over to an advertising agent by the playback platform </td>
+    </tr>
+    <tr>
+      <td>Ad End</td>
+      <td><code translate="No">ad_end</code></td>
+      <td>
+        Control is handed back from the advertising agent to the playback platform </td>
+    </tr>
+    <tr>
+      <td>Error</td>
+      <td><code translate="No">error</code></td>
+      <td>
+        A fatal error has occurred which disrupts the playback experience </td>
+    </tr>
+    <tr>
+      <td>Video Complete</td>
+      <td><code translate="No">video_complete</code></td>
+      <td>
+        Video playback finishes
+      </td>
+    </tr>
+  </tbody>
+</table>
+<aside class="bcls-aside bcls-aside--tip">Please note that the events listed in the table above must be created as triggers.</aside>
+<br/>
+<h3>Dimensions</h3>
+<p>The following dimensions will be sent for all events(except error)</p>
+<table class="bcls-table">
+  <thead class="bcls-table__head">
+    <tr>
+      <th style="width:15%">Type</th>
+      <th style="width:20%">Event</th>
+      <th style="width:65%">Description</th>
+    </tr>
+  </thead>
+  <tbody class="bcls-table__body">
+    <tr>
+      <td>Account ID</td>
+      <td><code translate="No">bcvideo_account</code></td>
+      <td>
+        Video Cloud Studio account ID
+      </td>
+    </tr>
+    <tr>
+      <td>Playback location</td>
+      <td><code translate="No">bcvideo_destination</code></td>
+      <td>
+        Playback location
+      </td>
+    </tr>
+    <tr>
+      <td>Brightcove Player version</td>
+      <td><code translate="No">bcvideo_platform_version</code></td>
+      <td>
+        Version of the player 
+      </td>
+    </tr>
+    <tr>
+      <td>Brightcove Player ID</td>
+      <td><code translate="No">bcvideo_player</code></td>
+      <td>
+        ID associated with the player
+      </td>
+    </tr>
+    <tr>
+      <td>Brightcove Player name</td>
+      <td><code translate="No">bcvideo_player_name</code></td>
+      <td>
+        Name associated with the player 
+      </td>
+    </tr>
+    <tr>
+      <td>Session</td>
+      <td><code translate="No">bcvideo_session</code></td>
+      <td>
+        Session associated with the player 
+      </td>
+    </tr>
+    <tr>
+      <td>Video ID</td>
+      <td><code translate="No">bcvideo_video</code></td>
+      <td>
+        ID associated with the video
+      </td>
+    </tr>
+    <tr>
+      <td>Video name</td>
+      <td><code translate="No">bcvideo_name</code></td>
+      <td>
+        Name associated with the video
+      </td>
+    </tr>
+    <tr>
+      <td>List of tags </td>
+      <td><code translate="No">bcvideo_tags</code></td>
+      <td>
+        List of tags associated with the video
+      </td>
+    </tr>
+  </tbody>
+</table>
+    
+
   </section>
   <section class="bcls-section">
     <h2 id="Creating_variables_tags_&_triggers">Creating Variables, Tags & Triggers</h2>
