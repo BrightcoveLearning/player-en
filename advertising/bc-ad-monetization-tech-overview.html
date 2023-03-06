@@ -1,0 +1,194 @@
+---
+title: "Brightcove Ad Monetization Technical Overview"
+description: "In this topic, you will gain an overview of the technical implementation of Brightcove Ad Monetization."
+parent: "Advertising"
+layout: "staging"
+---
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+
+
+  </section>
+
+
+
+  <section class="bcls-section">
+    <h2 id="section-name">SpringServe macros</h2>
+    <p>The subset of SpringServe macros valid with Brightcove Ad Monetization are shown in the table below. The macros are formatted as capital letters within double braces. They are filled in by the adserver????[player in our case. right "SpringServe URLs passed to the IMA3 plugin have any Magnite macros replaced before the ad request is issued."] in multiple places, such as:</p>
+    <ul>
+      <li>Endpoint URLs of demand tags</li>
+      <li>Event pixels</li>
+      <li>Landing page urls for creative asset demand</li>
+    </ul>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Magnite Macro</th>
+          <th>Query Parameter</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{width}}{% endraw %}</code></pre>
+          </td>
+          <td>w=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{HEIGHT}}{% endraw %}</code></pre>
+          </td>
+          <td>h=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{DOMAIN}}{% endraw %}</code></pre>
+          </td>
+          <td>url=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{URL}}{% endraw %}</code></pre>
+          </td>
+          <td>url=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{ENCODED_URL}}{% endraw %}</code></pre>
+          </td>
+          <td>url=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{CACHEBUSTER}}{% endraw %}</code></pre>
+          </td>
+          <td>cb=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{DESCRIPTION}}{% endraw %}</code></pre>
+          </td>
+          <td>desc=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{DURATION}}{% endraw %}</code></pre>
+          </td>
+          <td>dur=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{AUTOPLAY}}{% endraw %}</code></pre>
+          </td>
+          <td>ap=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{MUTE}}{% endraw %}</code></pre>
+          </td>
+          <td>mute=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{KEYWORDS}}{% endraw %}</code></pre>
+          </td>
+          <td>kwds=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{MEDIA_ID}}{% endraw %}</code></pre>
+          </td>
+          <td>mid=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{ENCODED_VIDEO_TITLE}}{% endraw %}</code></pre>
+          </td>
+          <td>vt=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{VIDEO_ID}}{% endraw %}</code></pre>
+          </td>
+          <td>vid=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{CONSENT}}{% endraw %}</code></pre>
+          </td>
+          <td>gdpr_consent=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{GDPR}}{% endraw %}</code></pre>
+          </td>
+          <td>gdpr=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{US_PRIVACY}}{% endraw %}</code></pre>
+          </td>
+          <td>us_privacy=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{COPPA}}{% endraw %}</code></pre>
+          </td>
+          <td>coppa=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{CONTENT_ID}}{% endraw %}</code></pre>
+          </td>
+          <td>content_id=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{CONTENT_TITLE}}{% endraw %}</code></pre>
+          </td>
+          <td>content_title=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{CONTENT_LIVESTREAM}}{% endraw %}</code></pre>
+          </td>
+          <td>content_livestream=</td>
+        </tr>
+        <tr>
+          <td>
+            <pre><code class="language-html" translate="No">{% raw %}{{LANGUAGE}}{% endraw %}</code></pre>
+          </td>
+          <td>language=</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Advertising_industry_terminology">Advertising industry terminology</h2>
+    <p></p>
+    <ul>
+      <li><strong>Ad Operations</strong>: Processes and systems that support the sale and delivery of online advertising.</li>
+      <li><strong>Ad Network</strong>: A service connecting advertisers to websites that want to host advertisements.</li>
+      <li><strong>Supply-side platform (SSP)</strong>: Software for publishers and advertisers to automate the management, sale and optimization of ad inventory on web and mobile properties.</li>
+      <li><strong>Demand-side platform (DSP)</strong>: Type of software that allows an advertiser to buy advertising with the help of automation.</li>
+      <li><strong>Ad Server</strong>: Technology and service that places advertisements on websites, mobile apps and Connected TVs.</li>
+      <li><strong>Ad Pod</strong>: A group of multiple ads that gets played back-to-back during a single ad break.</li>
+      <li><strong>Advertising cue point</strong>: A marker at a precise time point in the duration of a video to trigger ads.</li>
+      <li><strong>Remnant Inventory</strong>: Unsold ad inventory.</li>
+      <li><strong>VAST URL</strong>: Ad tag URL used by a player to retrieve video and audio ads.</li>
+      <li><strong>Pre-roll ads</strong>: Ads that play automatically before online videos (usually 15 or 30 seconds long).</li>
+      <li><strong>Mid-roll ads</strong>: Ads sandwiched in the middle of video content (a minimum of 12 seconds long).</li>
+      <li><strong>Post-roll ads</strong>: Ads that play automatically after videos (typically 10 to 15 seconds long).</li>
+      <li><strong>Fill rate</strong>: Percentage of ad units that were served out of all the ads requested sent to an ad server.</li>
+      <li><strong>CPM</strong>: Cost per 1000 impressions.</li>
+    </ul>
+  </section>
+
+
+</article>
