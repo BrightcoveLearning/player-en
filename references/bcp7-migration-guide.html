@@ -115,8 +115,21 @@ parent: References
         <li>Click <strong>Publish Changes</strong> and then <strong>Close</strong>.</li>
       </ol>
       <aside class="bcls-aside bcls-aside--information"><p>If you followed the steps above to upgrade your player, the plugin versions will be set correctly.</p>
-        <p>If you are manually updating your player using the JSON Editor, see the <a href="#Plugins">Plugins</a> section for plugin versions.</p></aside>
+        <!-- <p>If you are manually updating your player using the JSON Editor, see the <a href="#Plugins">Plugins</a> section for plugin versions.</p> -->
+      </aside>
 
+        <aside class="bcls-aside bcls-aside--information">
+          <p>Automatic update mode is required for player upgrades/downgrades between versions 6 and 7.</p>
+          <ul>
+            <li>Ensure your player is on automatic update mode before updating to or downgrading from version 7.</li>
+            <li>The upgrade process will automatically ensure Brightcove plugins are set to the appropriate major version.</li>
+            <li>Once the upgrade is complete, you can set the player update mode to Manual or leave it Automatic. </li>
+          </ul>
+        </aside>
+        
+        <aside class="bcls-aside bcls-aside--information">
+          <p>If you manually upgrade the player between major versions, use the JSON editor to ensure <a href="#Plugins">plugin</a> versions are appropriate for the major version of the Brightcove Player. This can be complex, and we recommend following the automatic upgrade process.</p>
+        </aside>
       <!-- <div style="position: relative; display: block; max-width: 624px;"><div style="padding-top: 56.25%;"><iframe src="https://players.brightcove.net/6225316964001/Qznf2bKtV_default/index.html?videoId=6316422161112" allowfullscreen="" allow="encrypted-media" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe></div></div> -->
     </section>
 
@@ -989,7 +1002,7 @@ player.on(&apos;sourceset&apos;, () =&gt; {
       </aside>
     </section>
 
-    <section class="bcls-section">
+    <!-- <section class="bcls-section">
       <h2 id="Limitations">Limitations</h2>
       <p>The following limitations apply to Brightcove Player 7:</p>
       <ul>
@@ -1001,7 +1014,7 @@ player.on(&apos;sourceset&apos;, () =&gt; {
         </li>
       </ul>
      
-    </section>
+    </section> -->
 
    
 </article>
