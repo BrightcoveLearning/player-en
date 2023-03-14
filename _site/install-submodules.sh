@@ -21,6 +21,7 @@ git submodule add https://github.com/BrightcoveLearning/s-live-img
 git submodule add https://github.com/BrightcoveLearning/s-misc-img
 git submodule add https://github.com/BrightcoveLearning/s-apis-general-img
 git submodule add https://github.com/BrightcoveLearning/s-publish-img
+git submodule add https://github.com/BrightcoveLearning/s-general-img
 cd ..
 git submodule add https://github.com/BrightcoveLearning/s-site-assets-favicons
 git submodule add https://github.com/BrightcoveLearning/s-site-assets-stylesheets
