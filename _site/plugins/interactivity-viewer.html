@@ -1817,10 +1817,78 @@
   <summary>In this topic, you will learn about using the interactivity plugin to allow usage of Brightcove Interactivity functionality.</summary>
 
   <section class="bcls-section">
-    <h2 id="section-name">section-title</h2>
-    <p></p>
-    <p>Complete documentation for implementing Brightcove Interactivity is located on the <a href="https://studio.support.brightcove.com/interactivity/index.html">Interactivity</a> landing page.</p>
+    <h2 id="section-name">Introduction</h2>
+    <p>Brightcove Interactivity permits you to add annotations to videos that add functionality like:</p>
+    <ul>
+      <li>Chapters</li>
+      <li>Sentiment (ratings)</li>
+      <li>Overlays and call to actions</li>
+      <li>Polls</li>
+      <li>Branching</li>
+    </ul>
+    <p>For these annotations to function, the Interactivity Viewer Plugin must be added to the Brightcove Player you are using. This is done in the <em>PLAYERS</em> module. In the left-side navigation click <strong>Interactivity</strong>, then check the <strong>Enable interactivity</strong> checkbox. This installs the plugin.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/plugins/interactivity-viewer/enable-interacivity-checkbox.webp" alt="enable interactivity">
+    </figure>
+    <aside class="bcls-aside bcls-aside--tip language-editable">Complete documentation for implementing Brightcove Interactivity is located on the <a href="https://studio.support.brightcove.com/interactivity/index.html">Interactivity</a> landing page.</aside>
   </section>
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_code">Implement using code</h2>
+    <p>Although most likely you use the UI to load the plugin and implement annotations, you can manually load the plugin. First you have to include the plugin code:</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;script src=&quot;https://players.brightcove.net/videojs-interactivity-viewer/1/videojs-interactivity-viewer.min.js&quot;&gt;</code></pre>
+    <p>You then initialize the by calling it (highlighted):</p>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;video-js id=&quot;myPlayerID&quot; 
+  data-account=&quot;1507807800001&quot; 
+  ...&lt;/video-js&gt;
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;
+    
+&lt;script&gt;
+  videojs.getPlayer(&apos;myPlayerID&apos;).ready(function () {
+    var myPlayer = this;
+    <span class="bcls-highlight">myPlayer.interactivityViewer();</span>
+  });
+&lt;/script&gt;</code></pre>
+    <p>There no CSS that needs to be linked in for this plugin.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">Embed code details</h2>
+    <p>There are three types of embedded code for Brightcove Interactivity. Those being:</p>
+    <ul>
+      <li>Projects</li>
+      <li>Templates</li>
+      <li>Experiences</li>
+    </ul>
+    <p>The code used for each is quite different, with details following.</p>
+    <h3>Projects</h3>
+    <ul>
+      <li>iFrame: <code>&interactivityProjectId=64132eeb95e5ed0017610e83</code></li>
+      <li>JavaScript: <code>data-interactivity-project-id="64132eeb95e5ed0017610e83"</code></li>
+    </ul>
+    <h3>Template</h3>
+    <p>The template is applied to the video itself, so you do not see any references to the Interactivity Template in neither the iframe or JavaScript code.</p>
+    <h3>Experiences</h3>
+    <ul>
+      <li>iFrame (a code block is included here as there are numerous references to the Interactivity Experience):
+        <pre class="line-numbers"><code class="language-html" translate="No">&lt;div style=&quot;position: relative; display: block; max-width: 100%;&quot;&gt;
+  &lt;div <span class="bcls-highlight">id=&quot;interactivity_embedded_experience_63fe5a64859355001da01044&quot;</span> style=&quot;padding-top: 56.255;&quot;&gt;
+    &lt;iframe src=&quot;<span class="bcls-highlight">https://player.interactivity.brightcove.com/latest/experience/f04531eb8a6849dfbc1c480fb8ed7507?embed_experience=true</span>&quot;
+      frameborder=&quot;0&quot;
+      allowfullscreen
+      webkitallowfullscreen
+      mozallowfullscreen
+      style=&quot;position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%;&quot;&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;application/javascript&quot; src=&quot;<span class="bcls-highlight">https://player.interactivity.brightcove.com/latest/embedded_experience.js</span>&quot;&gt;&lt;/script&gt;</code></pre>
+      </li>
+      <li>Landing Page: <code>https://player.interactivity.brightcove.com/latest/experience/f04531eb8a6849dfbc1c480fb8ed7507</code></li>
+    </ul>
+  </section>
+
+
+
 </article>
 <!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
   
