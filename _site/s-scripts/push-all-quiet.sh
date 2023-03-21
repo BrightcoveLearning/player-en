@@ -1,3 +1,4 @@
+# Push all with quiet statements
 echo "Enter your ${bold}COMMIT MESSAGE${normal}:"
 read COMMITMESSAGE 
 cd ..
