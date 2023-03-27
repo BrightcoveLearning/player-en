@@ -5,7 +5,6 @@
         
         <!-- Meta -->
         <meta charset="utf-8">
-        <meta name="robots" content="noindex,nofollow"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="In this topic, you will learn about the download plugin for Brightcove Player. This plugin will allow you to download an mp4 file of the video or a text file of the video transcript. The download plugin is NOT automatically included in the player.">
@@ -16,6 +15,7 @@
         <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
         
         <!-- FontAwesome JS-->
+        
         <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
         
         <!-- Plugins CSS -->
@@ -44,7 +44,7 @@
     </head> 
 
     <body class="docs-page">
-
+        
 
 <header class="header fixed-top">
   <div class="branding docs-branding">
@@ -1864,13 +1864,63 @@
 
   <section class="bcls-section">
     <h2 id="Implement_using_Players_module">Implement using Players module</h2>
-    <p>To implement the Download Button Plugin, we can configure the player manually to enable this function:</p>
+    <p>If the <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object on the player contains all of the necessary data, we can configure the player manually to enable this function:</p>
     <ol class="bcls-tasklist">
         <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
         <li>Click the link for the player to open the player's properties.</li>    
+        <li><p>Click <strong>JSON Editor</strong> in the left navigation menu.</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image" alt="Left Navigation" src="/assets/images/plugins/download-button/left-navigation.webp" />
+          </figure>
+        </li>
+        <li><p>In the <strong>plugins</strong> array, we can add a property called <code translate="no">download_button</code>.</p>
+          <p>To configure the player to download the highest quality MP4 file available, use the <code translate="no">mp4</code> value when defining this property. Your code should look similar to this:</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image" alt="Download MP4" src="/assets/images/plugins/download-button/json-editor.webp" />
+          </figure>
+           <p>To configure the player to download a text file of the transcript that matches the language used on the player (or the first transcript if none match), use the <code translate="no">transcript</code> value when defining the download_button property. Your code should look similar to this:</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image" alt="Download Transcript" src="/assets/images/plugins/download-button/json-editor-transcript.webp" />
+          </figure>
+          <aside class="bcls-aside bcls-aside--warning">Please note that if the <code translate="no">download_button</code> configuration is missing, or if the value in the configuration is anything other than <code translate="no">“mp4”</code> or <code translate="no">“transcript”</code>, the download plugin will not be initialized.</aside>
+        </li>
+        <li>Click <strong>Save</strong>.</li>
       </ol>
   </section>
+
+  <section class="bcls-section">
+    <h2 id="Runtime_properties">Runtime properties</h2>
+    <p>The download button can be accessed with <code translate="no">player.downloadButton</code>. This object has some accessible properties that could be useful.</p>
+
+    <h3><code translate="no">player.downloadButton.state</code></h3>
+    <p><strong>Type:</strong> <code translate="no">String</code></p>
+    <p>This property describes the current state of the download button. The following are the valid options:</p>
+    <ul>
+      <li><code translate="no">ready</code>: The download button is ready to start a download.</li>
+      <li><code translate="no">hidden</code>: The download button is hidden. This state occurs when the <code translate="no">downloadable</code> tag is missing.</li>
+      <li><code translate="no">off</code>: The download button is not in the DOM. This state occurs when the source is invalid or missing.</li>
+    </ul>
+
+    <h3><code translate="no">player.downloadButton.source</code></h3>
+    <p><strong>Type:</strong> <code translate="no">String</code></p>
+    <p>This property contains a URL to the source to be downloaded. Depending on the download method, this can be a link to the mp4 file or a transcript text file.</p>
+  </section>
   
+  <section class="bcls-section">
+    <h2 id="Events">Events</h2>
+    <p>The download button plugin triggers a handful of events for analytic purposes.</p>
+    <ul>
+      <li><p><code translate="no">download-ready</code>: Fired once the plugin is initialized successfully.</p></li>
+      <li><p><code translate="no">download-hidden</code>: Fired when the plugin is initialized and the button is hidden. This happens when the <code translate="no">tags</code> array in <code translate="no">mediainfo</code> is missing the <code translate="no">”downloadable”</code> tag.</p></li>
+      <li><p><code translate="no">download-disabled</code>: Fired when the plugin is initialized and the button is disabled. This happens when the <code translate="no">mediainfo</code> object is either missing or has invalid <code translate="no">sources</code> or <code translate="no">transcripts</code> depending on the expected download method.</p></li>
+      <li><p><code translate="no">download-started</code>: Fired when the download button is clicked and a download begins.</p></li>
+      <li><p><code translate="no">download-finished</code>: Fired when a download finished successfully. This event also sends the file name to the listener.</p></li>
+      <li><p><code translate="no">download-disabled</code>: Fired when a download fails. This event also sends information about the error to the listener.</p></li>
+   
+    </ul>
+
+  </section>
+
 </article>
 <!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
   
