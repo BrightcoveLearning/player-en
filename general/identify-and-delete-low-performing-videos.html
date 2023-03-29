@@ -8,9 +8,9 @@ description: In this topic, you will learn how to use Video Cloud Studio and a s
   <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
-    <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="6021341123001">&nbsp;</div>
+    <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="1761727776665071021">&nbsp;</div>
     <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js">
-  </script>
+    </script>
     <p>For a number of reasons, it is probably best to not have videos in your library that are not viewed, and you guess they won't be viewed in the future either. In this document you will see how to identify these videos and remove them from your library. The following bullet points provide a high level overview of the process. The detailed steps then follow.</p>
     <ul>
       <li>Use the Media module to export a file that contains a row of information for every video in your library.</li>
@@ -26,7 +26,11 @@ description: In this topic, you will learn how to use Video Cloud Studio and a s
     <p>From the <strong>Media</strong> module you can get a report on all media in your library. This will be used later in a spreadsheet.</p>
     <ol class="bcls-tasklist">
       <li>Open the <strong>Media</strong> module.</li>
-      <li>Click on the <strong>Export</strong> button near the top of the page.</li>
+      <li>Click on the <strong>Export</strong> button near the top-right of the page.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/general/low-performing-videos/export-button.webp" alt="export button">
+        </figure>
+      </li>
       <li>In the dialog that opens, be sure <strong>All videos in the list</strong> is selected.</li>
       <li>Click the <strong>Export Data</strong> button. Note that this report will export information for a maximum of 15,000 videos.</li>
       <li>When the report has finished building, click the <strong>Download File</strong> button.</li>
@@ -66,7 +70,7 @@ description: In this topic, you will learn how to use Video Cloud Studio and a s
       <li>Open a Google Docs blank spreadsheet.</li>
       <li>Select <strong>File &gt; Import &gt; Upload</strong>, then either drag the all videos CSV file (named after your account ID) to the proper location or browse to select it.</li>
       <li>On the <strong>Import file</strong> dialog, accept the defaults and click <strong>Import data</strong>:
-        <figure class="bcls-figure"><img class="bcls-image" alt="import csv" src="/assets/images/general/import-csv.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="import csv" src="/assets/images/general/low-performing-videos/import-csv.webp" /></figure>
       </li>
       <li>Your imported data will appear similar to the following:
         <figure class="bcls-figure"><img class="bcls-image" alt="sample import all videos" src="/assets/images/general/sample-import-all-videos.png" /></figure>
@@ -79,7 +83,7 @@ description: In this topic, you will learn how to use Video Cloud Studio and a s
     <ol class="bcls-tasklist">
       <li>Select <strong>File &gt; Import &gt; Upload</strong>, then either drag the Analytics report CSV file to the proper location or browse to select it.</li>
       <li>On the <strong>Import file</strong> dialog, BE SURE to change the <strong>Import location</strong> to <strong>Insert new sheet(s)</strong>. Accept the other defaults and click <strong>Import data</strong>:
-        <figure class="bcls-figure"><img class="bcls-image" alt="import analytics" src="/assets/images/general/import-analytics.png" /></figure>
+        <figure class="bcls-figure"><img class="bcls-image" alt="import analytics" src="/assets/images/general/low-performing-videos/import-analytics.webp" /></figure>
       </li>
       <li>Your imported data will appear similar to the following:
         <figure class="bcls-figure"><img class="bcls-image" alt="sample import" src="/assets/images/general/two-sheets.png" /></figure>
@@ -94,7 +98,7 @@ description: In this topic, you will learn how to use Video Cloud Studio and a s
     <p>You will now add a column that will determine if a video has any views. To do that, you will need to reference the IDs in the Analytics report (those videos with views). To make the process easier you will now create and name a range.</p>
     <ol class="bcls-tasklist">
       <li>While still in the Analytics report sheet, click on the uppercase <strong>A</strong> at the top of the first column.</li>
-      <li>Right click somewhere in the column and select <strong>Define named range...</strong></li>
+      <li>Right click somewhere in the column and select <strong>View more column actions > Define named range</strong></li>
       <li>A panel will open on the right side of the spreadsheet. Change the default name of <code translate="No">NamedRange1</code> to <code translate="No">IDsWithViews</code>.</li>
       <li>After pressing enter, you will see the range defined.
         <figure class="bcls-figure"><img class="bcls-image" alt="named range" src="/assets/images/general/named-range.png" /></figure>
@@ -113,16 +117,19 @@ description: In this topic, you will learn how to use Video Cloud Studio and a s
       <li>Just after the opening parentheses, click on the <strong>A2</strong> cell. That cell location will be inserted. This defines for what the function will be looking.</li>
       <li>Enter a comma after the cell, then type <code translate="No">id</code>. You will see you can select the named range, and do select it.
         <figure class="bcls-figure"><img class="bcls-image" alt="select named range" src="/assets/images/general/select-named-range.png" /></figure>
-        This defines where the function will be looking for the value in A2.</li>
+        This defines where the function will be looking for the value in A2.
+      </li>
       <li>Enter a comma after the named range, then type the number <code translate="No">1</code>. This defines the column index to be returned. For you, this means that if the ID in A2 is found in the named range, the ID will be placed in the cell.</li>
       <li>Enter a comma after the number 1, then enter <code translate="No">FALSE</code>, then type the closing parentheses. This option tells the <code translate="No">VLOOKUP()</code> function if columns are sorted and the exact value cannot be found, the closest value should be returned. Since you do not want this to occur, <code translate="No">FALSE</code> is the correct value to enter.</li>
       <li>Ensure your function is defined correctly, as shown here, and press <strong>Enter</strong>.
         <figure class="bcls-figure"><img class="bcls-image" alt="complete vlookup" src="/assets/images/general/complete-vlookup.png" /></figure>
-        Cell B2 will either display the ID from A2 , or <code translate="No">#N/A</code>.</li>
+        Cell B2 will either display the ID from A2 , or <code translate="No">#N/A</code>.
+      </li>
       <li>Click back in cell B2 and be sure it is highlighted.</li>
       <li>To copy the formula down the entire spreadsheet, double click on the blue square at the bottom right of the highlighted cell, which is currently B2.
         <figure class="bcls-figure"><img class="bcls-image" alt="blue square" src="/assets/images/general/blue-square.png" /></figure>
-        In column B you will now see either IDs repeated from column A, or <code translate="No">#N/A</code>. If you see the ID, it tells you that the video represented by that ID was found in the Analytics report. In other words, it has video views. And as you can surmise, if you see <code translate="No">#N/A</code> the video represented by the ID in column A has no views.</li>
+        In column B you will now see either IDs repeated from column A, or <code translate="No">#N/A</code>. If you see the ID, it tells you that the video represented by that ID was found in the Analytics report. In other words, it has video views. And as you can surmise, if you see <code translate="No">#N/A</code> the video represented by the ID in column A has no views.
+      </li>
     </ol>
   </section>
   <section class="bcls-section">
