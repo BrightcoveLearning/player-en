@@ -446,6 +446,7 @@ parent: General Information
       <li><a href="#debugger">debugger (deprecated)</a></li>
       <li><a href="#delivery_config_id">delivery_config_id</a></li>
       <li><a href="#dock">dock</a></li>
+      <li><a href="#download_button">download_button</a></li>
       <li><a href="#embed_id">embed_id</a></li>
       <li><a href="#errors">errors</a></li>
       <li><a href="#fullscreenControl">fullscreen_control</a></li>
@@ -475,6 +476,7 @@ parent: General Information
       <li><a href="#repeat">repeat</a></li>
       <li><a href="#scripts">scripts</a></li>
       <li><a href="#skin">skin</a></li>
+      <li><a href="#skip_buttons">skip_buttons</a></li>
       <li><a href="#stylesheets">stylesheets</a></li>
       <li><a href="#suppress_not_supported_error">suppress_not_supported_error</a></li>
       <li><a href="#teach_order">tech_order</a></li>
@@ -914,6 +916,22 @@ parent: General Information
         <li>Default: true</li>
         <li>If explicitly <code translate="No">false</code>, the player will not include the so-called <strong>dock</strong> where the video title and description can be displayed.</li>
       </ul>
+    </section>
+
+    <section class="bcls-section">
+      <h3 id="download_button">download_button</h3>
+
+      <p><code translate="No">download_button</code> information:</p>
+
+      <ul>
+        <li>Data type: string</li>
+        <li>Default: none</li>
+        <li>Adds a button to the controlbar that download <strong>either</strong> an MP4 rendition of the video in the player (if available) <strong>or</strong> a transcript (if available). The value is set in the player's configuration JSON:
+          <pre class="line-numbers"><code class="language-json" translate="No">"download_button" : "mp4"</code></pre>
+          <p>Valid values for the property are <strong>mp4</strong> and <strong>transcript</strong> only.</p>
+        </li>
+      </ul>
+      <p>For complete information see the <a href="/plugins/download-button-plugin.html">Download Button Plugin</a> document.</p>
     </section>
 
     <section class="bcls-section">
@@ -1992,6 +2010,22 @@ parent: General Information
           </table>
         </li>
       </ul>
+    </section>
+
+    <section class="bcls-section">
+      <h3 id="skip_buttons">skip_buttons</h3>
+
+      <p><code translate="No">skip_buttons</code> information:</p>
+
+      <ul>
+        <li>Data type: object</li>
+        <li>Default: none</li>
+        <li>Adds one or two buttons to the controlbar that when clicked jump the video forward or backward a specified amount. The value is set in the player's configuration JSON:
+          <pre class="line-numbers"><code class="language-json" translate="No">"skip_buttons" : {"forward":5 , "backward":10}</code></pre>
+          <p>Valid values for the skip amount are <strong>5</strong>, <strong>10</strong> and <strong>30</strong> only.</p>
+        </li>
+      </ul>
+      <p>For complete information see the <a href="/plugins/seek-buttons-plugin.html">Seek Buttons Plugin</a> document.</p>
     </section>
 
     <section class="bcls-section">
