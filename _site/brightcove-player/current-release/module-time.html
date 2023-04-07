@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Source: control-bar/spacer-controls/custom-control-spacer.js | Brightcove Player API Documentation</title>
+  <title>Module: time | Brightcove Player API Documentation</title>
 
   <script src="scripts/prettify/prettify.js"> </script>
   <script src="scripts/prettify/lang-css.js"> </script>
@@ -6526,50 +6526,1132 @@
 
 
     <section>
+
+      <header>
+
+        <h2>time</h2>
+
+
+
+
+      </header>
+
       <article>
-        <pre class="prettyprint source linenums"><code>/**
- * @file custom-control-spacer.js
- */
-import Spacer from './spacer.js';
-import Component from '../../component.js';
 
-/**
- * Spacer specifically meant to be used as an insertion point for new plugins, etc.
- *
- * @extends Spacer
- */
-class CustomControlSpacer extends Spacer {
+        <div class="container-overview">
 
-  /**
-   * Builds the default DOM `className`.
-   *
-   * @return {string}
-   *         The DOM `className` for this object.
-   */
-  buildCSSClass() {
-    return `vjs-custom-control-spacer ${super.buildCSSClass()}`;
-  }
 
-  /**
-   * Create the `Component`'s DOM element
-   *
-   * @return {Element}
-   *         The element that was created.
-   */
-  createEl() {
-    return super.createEl('div', {
-      className: this.buildCSSClass(),
-      // No-flex/table-cell mode requires there be some content
-      // in the cell to fill the remaining space of the table.
-      textContent: '\u00a0'
-    });
-  }
-}
+          <div class="description">
+            <p>time.js</p>
+          </div>
 
-Component.registerComponent('CustomControlSpacer', CustomControlSpacer);
-export default CustomControlSpacer;
-</code></pre>
+
+
+
+
+          <dt>
+
+          </dt>
+          <dd>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </dl>
+
+
+
+
+          </dd>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+
+
+          <dt>
+
+            <h4 class="name" id=".createTimeRanges">
+
+              <span class="type-signature"><span class="icon green">static</span> </span>createTimeRanges<span class="signature">(start, end)</span><span class="type-signature"> &rarr; {<a href="module-time.html#~TimeRange">module:time~TimeRange</a>}</span>
+
+
+              <div class="container-source members">
+                <code><a href="utils_time.js.html">utils/time.js</a></code>,
+                <code><a href="utils_time.js.html#line141">line 141</a></code>
+              </div>
+
+            </h4>
+
+
+
+          </dt>
+          <dd>
+
+
+            <div class="description">
+              <p>Create a <code>TimeRange</code> object which mimics an
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/TimeRanges">HTML5 TimeRanges instance</a>.
+              </p>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="container-params">
+              <h5>Parameters:</h5>
+
+              <table class="params">
+                <thead>
+                  <tr>
+
+                    <th>Name</th>
+
+
+                    <th>Type</th>
+
+
+
+
+
+                    <th class="last">Description</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+
+                  <tr>
+
+                    <td class="name"><code>start</code></td>
+
+
+                    <td class="type">
+
+
+                      <span class="param-type">number</span>
+                      |
+
+                      <span class="param-type">Array.&lt;Array></span>
+
+
+
+                    </td>
+
+
+
+
+
+                    <td class="description last">
+                      <p>The start of a single range (a number) or an array of ranges (an
+                        array of arrays of two numbers each).</p>
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+
+                    <td class="name"><code>end</code></td>
+
+
+                    <td class="type">
+
+
+                      <span class="param-type">number</span>
+
+
+
+                    </td>
+
+
+
+
+
+                    <td class="description last">
+                      <p>The end of a single range. Cannot be used with the array form of
+                        the <code>start</code> argument.</p>
+                    </td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="container-returns">
+              <h5>Returns:</h5>
+
+
+
+
+
+              <span class="param-type"><a href="module-time.html#~TimeRange">module:time~TimeRange</a></span>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+            <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </dl>
+
+
+
+
+          </dd>
+
+
+
+
+          <dt>
+
+            <h4 class="name" id=".formatTime">
+
+              <span class="type-signature"><span class="icon green">static</span> </span>formatTime<span class="signature">(seconds, guide)</span><span class="type-signature"> &rarr; {string}</span>
+
+
+              <div class="container-source members">
+                <code><a href="utils_time.js.html">utils/time.js</a></code>,
+                <code><a href="utils_time.js.html#line235">line 235</a></code>
+              </div>
+
+            </h4>
+
+
+
+          </dt>
+          <dd>
+
+
+            <div class="description">
+              <p>Delegates to either the default time formatting function or a custom
+                function supplied via <code>setFormatTime</code>.</p>
+              <p>Formats seconds as a time string (H:MM:SS or M:SS). Supplying a
+                guide (in seconds) will force a number of leading zeros to cover the
+                length of the guide.</p>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="container-params">
+              <h5>Parameters:</h5>
+
+              <table class="params">
+                <thead>
+                  <tr>
+
+                    <th>Name</th>
+
+
+                    <th>Type</th>
+
+
+
+
+
+                    <th class="last">Description</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+
+                  <tr>
+
+                    <td class="name"><code>seconds</code></td>
+
+
+                    <td class="type">
+
+
+                      <span class="param-type">number</span>
+
+
+
+                    </td>
+
+
+
+
+
+                    <td class="description last">
+                      <p>Number of seconds to be turned into a string</p>
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+
+                    <td class="name"><code>guide</code></td>
+
+
+                    <td class="type">
+
+
+                      <span class="param-type">number</span>
+
+
+
+                    </td>
+
+
+
+
+
+                    <td class="description last">
+                      <p>Number (in seconds) to model the string after</p>
+                    </td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="container-returns">
+              <h5>Returns:</h5>
+
+
+
+
+
+              <span class="param-type">string</span>
+
+
+
+
+
+              - <p>Time formatted as H:MM:SS or M:SS</p>
+
+
+
+
+
+            </div>
+
+
+
+
+
+            <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </dl>
+
+
+
+            <h5>Example</h5>
+
+            <pre class="prettyprint"><code>formatTime(125, 600) === "02:05"</code></pre>
+
+
+
+          </dd>
+
+
+
+
+          <dt>
+
+            <h4 class="name" id=".resetFormatTime">
+
+              <span class="type-signature"><span class="icon green">static</span> </span>resetFormatTime<span class="signature">()</span><span class="type-signature"></span>
+
+
+              <div class="container-source members">
+                <code><a href="utils_time.js.html">utils/time.js</a></code>,
+                <code><a href="utils_time.js.html#line213">line 213</a></code>
+              </div>
+
+            </h4>
+
+
+
+          </dt>
+          <dd>
+
+
+            <div class="description">
+              <p>Resets formatTime to the default implementation.</p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </dl>
+
+
+
+
+          </dd>
+
+
+
+
+          <dt>
+
+            <h4 class="name" id=".setFormatTime">
+
+              <span class="type-signature"><span class="icon green">static</span> </span>setFormatTime<span class="signature">(customImplementation)</span><span class="type-signature"></span>
+
+
+              <div class="container-source members">
+                <code><a href="utils_time.js.html">utils/time.js</a></code>,
+                <code><a href="utils_time.js.html#line206">line 206</a></code>
+              </div>
+
+            </h4>
+
+
+
+          </dt>
+          <dd>
+
+
+            <div class="description">
+              <p>Replaces the default formatTime implementation with a custom implementation.</p>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="container-params">
+              <h5>Parameters:</h5>
+
+              <table class="params">
+                <thead>
+                  <tr>
+
+                    <th>Name</th>
+
+
+                    <th>Type</th>
+
+
+
+
+
+                    <th class="last">Description</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+
+                  <tr>
+
+                    <td class="name"><code>customImplementation</code></td>
+
+
+                    <td class="type">
+
+
+                      <span class="param-type">function</span>
+
+
+
+                    </td>
+
+
+
+
+
+                    <td class="description last">
+                      <p>A function which will be used in place of the default formatTime
+                        implementation. Will receive the current time in seconds and the
+                        guide (in seconds) as arguments.</p>
+                    </td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </dl>
+
+
+
+
+          </dd>
+
+        </dl>
+
+
+
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+
+
+          <dt>
+            <h4 class="name" id="~TimeRange">
+              TimeRange
+
+              <div class="container-source members">
+                <code><a href="utils_time.js.html">utils/time.js</a></code>,
+                <code><a href="utils_time.js.html#line23">line 23</a></code>
+              </div>
+
+            </h4>
+
+
+          </dt>
+          <dd>
+
+            <div class="description">
+              <p>An object that contains ranges of time, which mimics TimeRanges.</p>
+            </div>
+
+
+            <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+
+
+
+            <h5 class="subsection-title">Properties:</h5>
+
+
+
+            <table class="props">
+              <thead>
+                <tr>
+
+                  <th>Name</th>
+
+
+                  <th>Type</th>
+
+
+
+
+
+                  <th class="last">Description</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+
+                <tr>
+
+                  <td class="name"><code>length</code></td>
+
+
+                  <td class="type">
+
+
+                    <span class="param-type">number</span>
+
+
+
+                  </td>
+
+
+
+
+
+                  <td class="description last">
+                    <p>The number of time ranges represented by this object.</p>
+                  </td>
+                </tr>
+
+
+
+                <tr>
+
+                  <td class="name"><code>start</code></td>
+
+
+                  <td class="type">
+
+
+                    <span class="param-type">module:time~module:time~TimeRangeIndex</span>
+
+
+
+                  </td>
+
+
+
+
+
+                  <td class="description last">
+                    <p>Returns the time offset at which a specified time range begins.</p>
+                  </td>
+                </tr>
+
+
+
+                <tr>
+
+                  <td class="name"><code>end</code></td>
+
+
+                  <td class="type">
+
+
+                    <span class="param-type">module:time~module:time~TimeRangeIndex</span>
+
+
+
+                  </td>
+
+
+
+
+
+                  <td class="description last">
+                    <p>Returns the time offset at which a specified time range ends.</p>
+                  </td>
+                </tr>
+
+
+              </tbody>
+            </table>
+
+
+
+
+            <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <dt class="tag-see">See:</dt>
+              <dd class="tag-see">
+                <ul>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/TimeRanges">https://developer.mozilla.org/en-US/docs/Web/API/TimeRanges</a></li>
+                </ul>
+              </dd>
+
+
+
+            </dl>
+
+
+
+
+
+          </dd>
+
+
+
+
+          <dt>
+
+            <h4 class="name" id="~TimeRangeIndex">
+
+              <span class="type-signature"></span>TimeRangeIndex<span class="signature">(index<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {number}</span>
+
+
+              <div class="container-source members">
+                <code><a href="utils_time.js.html">utils/time.js</a></code>,
+                <code><a href="utils_time.js.html#line7">line 7</a></code>
+              </div>
+
+            </h4>
+
+
+
+          </dt>
+          <dd>
+
+
+            <div class="description">
+              <p>Returns the time for the specified index at the start or end
+                of a TimeRange object.</p>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="container-params">
+              <h5>Parameters:</h5>
+
+              <table class="params">
+                <thead>
+                  <tr>
+
+                    <th>Name</th>
+
+
+                    <th>Type</th>
+
+
+                    <th>Attributes</th>
+
+
+
+                    <th>Default</th>
+
+
+                    <th class="last">Description</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+
+                  <tr>
+
+                    <td class="name"><code>index</code></td>
+
+
+                    <td class="type">
+
+
+                      <span class="param-type">number</span>
+
+
+
+                    </td>
+
+
+                    <td class="attributes">
+
+                      &lt;optional><br>
+
+
+
+
+
+                    </td>
+
+
+
+                    <td class="default">
+
+                      0
+
+                    </td>
+
+
+                    <td class="description last">
+                      <p>The range number to return the time for.</p>
+                    </td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="container-returns">
+              <h5>Returns:</h5>
+
+
+
+
+
+              <span class="param-type">number</span>
+
+
+
+
+
+              - <p>The time offset at the specified index.</p>
+
+
+
+
+
+            </div>
+
+
+
+
+
+            <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <dt class="important tag-deprecated">Deprecated:</dt>
+              <dd>
+                <ul class="dummy">
+                  <li>The index argument must be provided.
+                    In the future, leaving it out will throw an error.</li>
+                </ul>
+              </dd>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </dl>
+
+
+
+
+          </dd>
+
+        </dl>
+
+
+
       </article>
+
     </section>
 
 
@@ -6587,7 +7669,7 @@ export default CustomControlSpacer;
   <script src="scripts/linenumber.js"></script>
 
   <script>
-    var id = '_sub'.replace(/"/g, '_');
+    var id = 'module:time_sub'.replace(/"/g, '_');
     var selectedApi = document.getElementById(id); // do not use jquery selector
     var $selectedApi = $(selectedApi);
 
