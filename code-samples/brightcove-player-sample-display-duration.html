@@ -124,19 +124,41 @@ parent: "Code Samples"
     <!-- UPDATE task 1 -->
     <h3>Read the duration from the player</h3>
     <p>On the <code>loadstart</code> event read the <code>duration</code> value from the <code>mediainfo</code> object.</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.on('loadstart', function () {
+  let timeInSeconds = Math.round(myPlayer.mediainfo.duration),
+  ...</code></pre>
 
     <!-- UPDATE task 2 -->
     <h3>Format the duration, which is in seconds by default, to minutes:seconds</h3>
-    <p></p>
+    <p>Using a JavaScript function, format the time in seconds to minutes:seconds.</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">timeInMinutesSeconds = fmtMSS(timeInSeconds);
+  ...
+  function fmtMSS(s) { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0' ) + s };
+    </code></pre>
 
     <h3>Display the duration using the Overlay plugin</h3>
     <p></p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.overlay({
+  overlays: [{
+    align: 'bottom-left',
+    content: 'Duration (min:sec): ' + timeInMinutesSeconds,
+    start: 'loadeddata',
+    end: 'play'
+  }]
+});</code></pre>
   </section>
 
   <!-- UPDATE CSS description -->
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
-    <p>No CSS is needed for this sample.</p>
+    <p>Although the player is not styled, CSS is used to style the overlay.</p>
+    <pre class="line-numbers"><code class="language-css" translate="No">.video-js .vjs-overlay-background {
+  background-color: rgba(0, 0, 0, 1) !important;
+  color: red !important;
+  border-radius: 3px;
+  padding: 10px;
+  width: 33%;
+}</code></pre>
   </section>
 
   <section class="bcls-section">
