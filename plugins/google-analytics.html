@@ -8,7 +8,14 @@ parent: Plugins
   <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p>The Brightcove Google Analytics plugin provides functionality to send data to Google Analytics.</p>
+    <p>The Brightcove Google Analytics plugin provides functionality to send data to Google Analytics. This document contains four main content sections, those being:</p>
+    <ul>
+      <li><a href="#Implement_using_Players_module">Implement using Players module</a>: </li>
+      <li><a href="#Implement_using_code">Implement using code</a>: </li>
+      <li><a href="#Options">Options</a>: </li>
+      <li><a href="#Events_and_custom_dimensions">Events and custom dimensions</a>: </li>
+      <li><a href="GA4_and_UA">Google Analytics 4 and Universal Analytics</a>: </li>
+    </ul>
   </section>
 
   <section class="bcls-section">
@@ -38,12 +45,45 @@ parent: Plugins
   </section>
   <section class="bcls-section">
     <h2 id="Implement_using_code">Implement using code</h2>
-    <p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the plugin code and stylesheet are as follows:</p>
+    <p>To implement a plugin the player needs to know the location of the plugin code, a stylesheet if needed, the plugin name and plugin configuration options. The location of the JavaScript plugin code (no CSS needed in this instance) is as follows:</p>
     <pre class="line-numbers">
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js</code></pre>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css</code></pre>
-    <p>The name of the plugin is <code translate="No">customEndscreen</code>, and an example set of options is:</p>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-bc-ga/2/videojs-bc-ga.min.js</code></pre>
+    <p>The name of the plugin is <code translate="No">bcGa</code>, and an example set of options is:</p>
+    <p>The following shows using the In-Page Embed implementation of the player to associate the Google Analytics plugin with a single instance of a player.</p>
+    <ul>
+      <li>Line 1: Gives the <code translate="No">video-js</code> tag an <code translate="No">id</code> attribute, with some value, in this case <strong>myPlayerID</strong>.</li>
+      <li>Line 9: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML page.</li>
+      <li>Line 13: Creates a reference to the player.</li>
+      <li>Lines 14-25: Initializes the plugin and passes in custom options.</li>
+    </ul>
+    <pre class="line-numbers" data-start="1">
+      <code class="language-html" translate="No">  &lt;video-js id="myPlayerID"
+          data-account="1752604059001"
+          data-player="decfdaf5-0a6e-43f6-82d3-39d125c413c4"
+          data-embed="default"
+          data-video-id="4077874637001"
+          controls=""&gt;&lt;/video-js&gt;
+        &lt;script src="https://players.brightcove.net/1752604059001/decfdaf5-0a6e-43f6-82d3-39d125c413c4_default/index.min.js"&gt;&lt;/script&gt;
+      
+        &lt;script type="text/javascript" src="https://players.brightcove.net/videojs-bc-ga/2/videojs-bc-ga.min.js"&gt;&lt;/script&gt;
+      
+        &lt;script type="text/javascript"&gt;
+          videojs.getPlayer('myPlayerID').ready(function() {
+            var myPlayer = this;
+            myPlayer.bcGa({
+              "registry_id": "@brightcove/videojs-bc-ga",
+              "options": {
+                "paramsToTrackGA4": ["seconds_viewed","range","video_duration", "player", "session", ...],
+                "eventsToTrack": {
+                "video_impression": "Video Impression",
+                "play_request": "Play Request",
+                "video_engagement": "Video Engagement",
+                ...
+              },
+            "trackerGA4": "GA-123456-1"
+          })
+        });
+        &lt;/script&gt;</code></pre>
   </section>
 
   <section class="bcls-section">
@@ -51,7 +91,7 @@ parent: Plugins
     <p>The following plugin options are used when configuring the plugin:</p>
     <ul>
       <li><strong>tracker</strong>: Google Analytics tracker ID</li>
-      <li><strong>eventsToTrack</strong>: An object that lists the events to send and the name that will be used for those events.
+      <li><strong>eventsToTrack</strong>: An object that lists the events to send and the name that are used for those events.
         <ul>
           <li>Example: <code>{player_load: 'My name for player load event'}</code></li>
         </ul>
@@ -66,7 +106,7 @@ parent: Plugins
   </section>
 
   <section class="bcls-section">
-    <h2 id="section-name">Events and custom dimensions</h2>
+    <h2 id="Events_and_custom_dimensions">Events and custom dimensions</h2>
     <p>Any event name used by the player's analytics_event and analytics-beacon events can be used, but these ones have special handling in the GA plugin:</p>
     <ul>
       <li>player_load</li>
@@ -93,6 +133,49 @@ parent: Plugins
       <li>bcvideo_video_duration</li>
       <li>bcvideo_video_seconds_viewed</li>
     </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="GA4_and_UA">GA4 and UA</h2>
+    <p>At this point in time (early 2023) both Google Analytics 4 and Universal Analytics are valid. Two example configuration details follow. The first is for Google Analytics 4 and the second is dual tagging for both Google Analytics 4 and Universal Analytics.</p>
+    <h3>Google Analytics 4 example configuration</h3>
+    <pre class="line-numbers" data-start="1">
+<code class="language-html" translate="No">{
+  "registry_id": "@brightcove/videojs-bc-ga",
+  "options": {
+    "paramsToTrackGA4": ["seconds_viewed","range","video_duration", "player", "session", ...],
+    "eventsToTrack": {
+    "video_impression": "Video Impression",
+    "play_request": "Play Request",
+    "video_engagement": "Video Engagement",
+    ...
+  },
+  "trackerGA4": "GA-123456-1"
+}</code></pre>
+    <h3>Dual tagging (both Google Analytics 4 and Universal Analytics)</h3>
+    <pre class="line-numbers" data-start="1">
+<code class="language-html" translate="No">{
+  "registry_id": "@brightcove/videojs-bc-ga",
+  "options": {
+    "paramsToTrack": {
+    "bcvideo_video_seconds_viewed": "dimension1",
+    "bcvideo_range": "dimension2",
+    "bcvideo_video_duration": "dimension3",
+    "bcvideo_player": "dimension4",
+    "bcvideo_session": "dimension5",
+    ...
+    },
+    "paramsToTrackGA4": ["seconds_viewed","range","video_duration", "player", "session",...],
+    "eventsToTrack": {
+      "video_impression": "Video Impression",
+      "play_request": "Play Request",
+      "video_engagement": "Video Engagement",
+      ...
+    },
+    "trackerGA4": "GA-123456-1",
+    "tracker": "UA-123456-1"
+  }
+}</code></pre>
   </section>
 
 </article>
