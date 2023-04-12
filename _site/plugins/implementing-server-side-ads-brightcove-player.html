@@ -1844,6 +1844,7 @@
               ad configuration for your account, see the <a href="http://docs.brightcove.com/en/staging/ssai-api.html">Dynamic Delivery and SSAI Ad Config API</a> document.
           </p> -->
   </section>
+
   <section class="bcls-section">
     <h2 id="Features">Features</h2>
     <p>Brightcove SSAI is a modern replacement for Once UX ad serving. The features include:</p>
@@ -1857,6 +1858,7 @@
       <li>Dual support for legacy Once UX VMAPs (using the uo namespace) and new Dynamic Delivery VMAPs (using the bc namespace)</li>
     </ul>
   </section>
+
   <section class="bcls-section">
     <h2 id="Getting_started">Getting started</h2>
     <p>To play server-side ads from Video Cloud, follow these steps:</p>
@@ -1888,6 +1890,7 @@
     <p>Create a new Brightcove Player using Video Cloud Studio. For details, see the <a href="https://studio.support.brightcove.com/get-started/basics/video-cloud-basics-creating-player.html">Video Cloud Basics: Creating a Player</a> document.</p>
     <aside class="bcls-aside bcls-aside--information">You must use a Brightcove Player version 6.8.0+.</aside>
   </section>
+
   <section class="bcls-section">
     <h2 id="Implementing_SSAI_using_Studio">Implementing SSAI using Studio</h2>
     <p>The easiest way to configure your player for server-side ads is with Video Cloud Studio. Once you have created an ad configuration and player, then you are ready to configure the player for SSAI as follows:</p>
@@ -1917,6 +1920,7 @@
     <p>Any video that you retrieve from Video Cloud that has been ingested with Dynamic Delivery, will include the ads specified in the VMAP file in your ad configuration. Note that the video needs to have an audio track associated with it for SSAI to work.</p>
     <aside class="bcls-aside bcls-aside--information">Please note that to make the SSAI ads work, change the video configuration from <strong>Ad free</strong> to <strong>Ad Supported</strong> in the Media Module.</aside>
   </section>
+
   <section class="bcls-section">
     <h2 id="Implementing_SSAI_programmatically">Implementing SSAI programmatically</h2>
     <p>You can easily add SSAI to your player using Video Cloud Studio, as shown in the previous section. If you prefer to do this programmatically, follow these steps:</p>
@@ -2074,6 +2078,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
     <p>Any video that you retrieve from Video Cloud that has been ingested with Dynamic Delivery, will include the ads specified in the VMAP file in your ad configuration. Note that the video needs to have an audio track associated with it for SSAI to work.</p>
     <aside class="bcls-aside bcls-aside--information">Please note that to make the SSAI ads work, change the video configuration from <strong>Ad free</strong> to <strong>Ad Supported</strong> in the Media Module.</aside>
   </section>
+
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
     <ul>
@@ -2097,6 +2102,27 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
           <li>The number of milliseconds after which an XHR to fetch a VMAP will time out.</li>
         </ul>
       </li>
+      <li><code translate="No">vmapURLParams</code>
+        <p>An object containing the parameters for replacing arbitrary values in VMAP content URLs. See the <a href="https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html#URL_variables">SSAI - URL Variables</a> section.</p>
+        <ul>
+          <li>
+            <p><code translate="no">vmapURLParams.*</code> - The object keys can have any name. The name of this property must match the VMAP source URL param sub-string with the format <code translate="no">&#x2774;&#x2774;url.*&#x2775;&#x2775;</code>, or else it will not be replaced.</p>
+            <p><strong>Example:</strong> In the case where <code translate="no">vmapURLParams</code> is set to an object <code translate="no">{ foo: 123, bar: 'test' }</code>:</p>
+              <ul>
+                <li>
+                  <p>The original VMAP source URL:</p>
+                  <pre class="line-numbers"><code class="language-javascript">.../content.vmap?foo=&#x2774;&#x2774;url.foo&#x2775;&#x2775;&bar=&#x2774;&#x2774;url.bar&#x2775;&#x2775;</code></pre>
+                </li>
+                <li>
+                  <p>Will be updated to:</p>
+                  <pre class="line-numbers"><code class="language-javascript">.../content.vmap?foo=123&bar=test</code></pre>
+                </li>
+              </ul>
+          </li>
+        </ul>
+         
+      </li>
+      
       <!-- <li><code translate="No">vmapXML</code>
 	<ul>
 		<li>Used to provide an initial VMAP XML document, which will be loaded into the player. See the <a href="#Using_the_src_method">Using the src() method</a> section.</li>
@@ -2109,6 +2135,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
 	</li> -->
     </ul>
   </section>
+
   <section class="bcls-section">
     <h2 id="Styling">Styling</h2>
     <p>There are several useful HTML classes applied to the player by this plugin that can be targeted to determine the plugin's state.</p>
@@ -2151,6 +2178,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
       </tbody>
     </table>
   </section>
+
   <section class="bcls-section">
     <h2 id="Methods_properties">Methods/properties</h2>
     <p>Several public methods are available when using the SSAI plugin. Remember, you can also use the standard player methods.</p>
@@ -2228,6 +2256,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
       <li>An object representing the current linear ad for the absolute time.</li>
     </ul>
   </section>
+
   <section class="bcls-section">
     <h2 id="Events">Events</h2>
     <p>At the current time there is one SSAI-specific event dispatched by this plugin.</p>
@@ -2237,6 +2266,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
       <li>This event is dispatched internally by the plugin to indicate that an ad click-through was requested.</li>
     </ul>
   </section>
+
   <section class="bcls-section">
     <h2 id="Configuration_notes">Configuration notes</h2>
     <ol>
@@ -2244,6 +2274,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
       <li>If the web player is using SSAI, and one of your motivations for doing so is to work around ad blockers, you should use server-side beacons. Client-side beacons should not be used as they will be blocked.</li>
     </ol>
   </section>
+
   <section class="bcls-section">
     <h2 id="Glossary">Glossary</h2>
     <p>This plugin distinguishes the concepts of <strong>absolute</strong> and <strong>content</strong> time within an SSAI stream. Traditional video players only have a concept of <strong>content</strong> time; times between start and end of the URI it is currently playing. Because an SSAI stream is essentially a number of <strong>content</strong> streams stitched together we've introduced the concept of <strong>absolute</strong> time which takes into account the complete stitched stream including the video advertisements.</p>
@@ -2261,6 +2292,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
       </li>
     </ul>
   </section>
+
   <section class="bcls-section">
     <h2 id="Known_issues">Known issues</h2>
     <p>Here are the known issues for using the SSAI plugin:</p>
