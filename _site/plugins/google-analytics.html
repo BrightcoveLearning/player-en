@@ -1918,11 +1918,12 @@
 
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
-    <p>The items listed below are plugin options are used when configuring the Google Analytics plugin. For clarification, in the <strong>paramsToTrack</strong> item an <em>index</em> is mentioned. This <em>index</em> is defined as:</p>
-    <ul>
-      <li>The index parameter corresponds to the index number of the custom dimension or metric that GA assigns in the configuration phase. Unlike other types of data, custom dimensions and metrics are sent to GA as parameters attached to other hits, like pageviews, events, or ecommerce transactions.</li>
-    </ul>
-
+    <p>The items listed below are plugin options are used when configuring the Google Analytics plugin.</p>
+    <aside class="bcls-aside bcls-aside--tip language-editable">For clarification, in the <strong>paramsToTrack</strong> item an <em>index</em> is mentioned. This <em>index</em> is defined as:
+      <ul>
+        <li>The index parameter corresponds to the index number of the custom dimension or metric that GA assigns in the configuration phase. Unlike other types of data, custom dimensions and metrics are sent to GA as parameters attached to other hits, like pageviews, events, or ecommerce transactions.</li>
+      </ul>
+    </aside>
     <ul>
       <li><strong>tracker</strong>: Google Analytics tracker ID.</li>
       <li><strong>eventsToTrack</strong>: An object that lists the events to send and the names that are used for those events.
@@ -1930,18 +1931,18 @@
           <li>Example: <code>{player_load: 'My name for player load event'}</code></li>
         </ul>
       </li>
-      <li><strong>paramsToTrack</strong>: An object that lists the parameters (that is, custom dimensions) to include in events and the index to track them as. Use the format <code>dimension1, dimension2, ...</code> based on the index field in GA. Do not use the dimension name.
+      <li><strong>paramsToTrack</strong>: An object that lists the parameters (that is, custom dimensions) to include in events and the index to track each of them. Use the format <code>dimension1, dimension2, ...</code> based on the index field in GA. Do not use the dimension name.
         <ul>
           <li>Example: <code>{bcvideo_account: 'dimension1'}</code></li>
         </ul>
       </li>
-      <li><strong>debug</strong>: true to use GA debug url and visualize console trace. <strong><em>This should not be used in production environment.</em></strong></li>
+      <li><strong>debug</strong>: Use <code>true</code> to turn on GA debug URL and visualize console trace. <strong><em>This should not be used in a production environment.</em></strong></li>
     </ul>
   </section>
 
   <section class="bcls-section">
     <h2 id="Events_and_custom_dimensions">Events and custom dimensions</h2>
-    <p>Any event name used by the player's analytics_event and analytics-beacon events can be used, but these ones have special handling in the GA plugin:</p>
+    <p>Any event name used by the player's <code>analytics_event</code> and <code>analytics-beacon</code> events can be used, but the following have special handling in the GA plugin:</p>
     <ul>
       <li>player_load</li>
       <li>video_engagement</li>
@@ -1971,7 +1972,7 @@
 
   <section class="bcls-section">
     <h2 id="GA4_and_UA">GA4 and UA</h2>
-    <p>At this point in time (early 2023) both Google Analytics 4 and Universal Analytics are valid. Two example configuration details follow. The first is for Google Analytics 4 and the second is dual tagging for both Google Analytics 4 and Universal Analytics.</p>
+    <p>At this point in time (early 2023) both Google Analytics 4 and Universal Analytics are valid. Two example configurations follow. The first is for Google Analytics 4 and the second is dual tagging for both Google Analytics 4 and Universal Analytics.</p>
     <h3>Google Analytics 4 example configuration</h3>
     <pre class="line-numbers" data-start="1">
 <code class="language-html" translate="No">{
