@@ -14,9 +14,22 @@ parent: Plugins
 
   <section class="bcls-section">
     <h2 id="Implement_using_Players_module_JSON_editor">Implement using Players module JSON editor</h2>
-    <p>To implement the Google Analytics plugin using the <strong>Players</strong> module. Note that support for GA4 and dual tagging is only available for self configuration at the current time via the Studio UI. Hence, if you wish to use GA4 or dual tagging, you need to follow the steps to alter the player's JSON configuration, as shown in steps 7-10. If you wish to use only UA, you need not do those extra steps. For example configurations see the <a href="#GA4_and_UA_example_configurations">GA4 and UA example configurations</a> section below.</p>
+    <p>To implement the plugin, you must use the player's JSON editor as follows:</p>
     <ol class="bcls-tasklist">
-      <li>In Studio select the <strong>Players</strong> module.</li>
+      <li>In Studio, select the <strong>Players</strong> module.</li>
+      <li>Click the player to which you wish to add the Kollective eCDN plugin.</li>
+      <li>In the left-navigation, click <strong>JSON editor</strong>.</li>
+      <li>To the <strong>plugins</strong> section, add the highlighted section.
+        <aside class="bcls-aside bcls-aside--tip language-editable">Here is the URL for copying:
+          <pre class="line-numbers"><code class="language-javascript" translate="No">https://players.brightcove.net/videojs-kollective/2/videojs-kollective.min.js</code></pre>
+          <p>See the <a href="#Options">Options</a> section below for more available configuration options.</p>
+        </aside>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/plugins/kollective-ecdn-plugin/json-configuration.webp" alt="JSON configuration">
+        </figure>
+      </li>
+      <li>Save then publish your player.</li>
+    </ol>
   </section>
 
   <section class="bcls-section">
