@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="In this topic, you will learn the use of the Kollective eCDN plugin.">
+        <meta name="description" content="In this topic, you will learn to implement the Kollective eCDN plugin.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -1808,30 +1808,37 @@
       
 <h1>Kollective eCDN Plugin</h1>
 <article class="bcls-article">
-  <summary>In this topic, you will learn the use of the Kollective eCDN plugin.</summary>
+  <summary>In this topic, you will learn to implement the Kollective eCDN plugin.</summary>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p>This plugin is used to integrate a Brightcove Player with Kollective eCDN.
+    <p>This plugin is used to integrate a Brightcove Player with Kollective eCDN.</p>
+    <p>There are a number of docs from Brightcove's <strong>Integrations</strong> web site that pertain to Kollective eCDN. The are:</p>
+    <ul>
+      <li><a href="https://integrations.support.brightcove.com/ecdn/kollective/index.html">Kollective eCDN landing page</a></li>
+      <li><a href="https://integrations.support.brightcove.com/ecdn/kollective/kollective-deployment-guide.html">Kollective eCDN Deployment Guide</a></li>
+      <li><a href="https://integrations.support.brightcove.com/ecdn/kollective/add-kollective-player-plugin.html">Installing the Kollective Player Plugin</a> (content very similar to this document)</li>
+      <li><a href="https://integrations.support.brightcove.com/ecdn/kollective/kollective-user-guide.html">Kollective eCDN User Guide</a></li>
+    </ul>
   </section>
 
   <section class="bcls-section">
-    <h2 id="Implement_using_Players_module_JSON_editor">Implement using Players module</h2>
-    <p>To implement the plugin, use the following steps:</p>
+    <h2 id="Implement_using_Players_module">Implement using Players module</h2>
+    <p>To implement the plugin in Studio's Players module, use the following steps:</p>
     <ol class="bcls-tasklist">
       <li>In Studio, select the <strong>Players</strong> module.</li>
       <li>Click the player to which you wish to add the Kollective eCDN plugin.</li>
       <li>In the left-navigation, click <strong>Plugins</strong>.</li>
-      <li>Click <strong>Add a Plugin > Brightcove plugi</strong>n.
+      <li>Click <strong>Add a Plugin > Brightcove plugin</strong>.
         <figure class="bcls-figure">
           <img class="bcls-image" src="/assets/images/plugins/kollective-ecdn-plugin/select-bc-plugin.webp" alt="select brightcove plugin">
         </figure>
       </li>
-      <li>From the dropdown select <strong>Kollective eCDN</strong>.
+      <li>From the dropdown, select <strong>Kollective eCDN</strong>.
         <figure class="bcls-figure">
           <img class="bcls-image" src="/assets/images/plugins/kollective-ecdn-plugin/select-kollective.webp" alt="select kollective ecdn">
         </figure>
       </li>
-      <li>Enter any options, if using any, in JSON format. An example is shown.
+      <li>Enter configuration <strong>Options</strong>, if using any, in JSON format. An example is shown.
         <figure class="bcls-figure">
           <img class="bcls-image" src="/assets/images/plugins/kollective-ecdn-plugin/show-options.webp" alt="enter options">
         </figure>
@@ -1839,7 +1846,7 @@
       <li>Save then publish your player.</li>
     </ol>
     <p>Note that you can also simply edit a player's JSON to implement the plugin. The follow steps guide you through that process:</p>
-    <ol class="bcls-tasklist">
+    <ol class="bcls-tasklist-restart">
       <li>In Studio, select the <strong>Players</strong> module.</li>
       <li>Click the player to which you wish to add the Kollective eCDN plugin.</li>
       <li>In the left-navigation, click <strong>JSON editor</strong>.</li>
@@ -1915,7 +1922,7 @@
       <li><strong>loadVideo(videoId)</strong>: Loads a single video by its ID or ref ID.
         <ul>
           <li>Data type is <code>string</code>.</li>
-          <li>Returns a promise, which will resolve when the Brightcove Playback API responds.
+          <li>Returns a promise, which resolves when the Brightcove Playback API responds.
             <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.kollective().loadVideo('1234567890').then(data => {
   // Playback API request is complete, but KSDK.load might not be complete!
 });</code></pre>
