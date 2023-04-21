@@ -1,53 +1,7 @@
 ---
-title: Rename 608/708 Captions in the Player
-description: 'This topic explains how to rename captions tracks for HLS in the player to conform with 608 and 708 naming requirements.'
-parent: General Information
+layout: nolayout
+search: exclude
 ---
-
-<h1>{{ page.title }}</h1>
-<article class="bcls-article">
-  <summary>{{ page.description }}</summary>
-  <section class="bcls-section">
-    <h2 id="captions_in_hls">608 Captions in HLS</h2>
-    <p>608 captions, also known as CEA-608 captions, EIA-608 captions and Line 21 captions, are a standard for closed captioning for NTSC TV analog broadcasts in the United States and Canada. The 608 captions can be inserted into a live stream where they are mixed into the HLS <span translate="no">ts</span> (transport stream) files.</p>
-    <p>The 608 specification doesn't allow for custom naming of captions tracks, and by default will always be named <code translate="No">CC1</code> or <code translate="No">CC2</code>, regardless of the language being used.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="renaming_captions">Renaming captions</h2>
-    <p>It is possible to rename the captions tracks to comply with 608 requirements in the Brightcove Player <strong>6.56.0+</strong> by using a player configuration. In the player's JSON, add the following:</p>
-    <h3>Single language</h3>
-<pre class="line-numbers"><code class="language-json" translate="No">"hls": {
-  "captionServices": {
-    "CC1": {
-      "language": "en",
-      "label": "English"
-    }
-  }</code></pre>
-    <h3>Two languages</h3>
-<pre class="line-numbers"><code class="language-json" translate="No">"hls": {
-  "captionServices": {
-    "CC1": {
-      "language": "en",
-      "label": "English"
-    },
-    "CC2": {
-      "language": "es",
-      "label": "Español"
-    }
-  }</code></pre>
-    <p>Note that you can edit the player's JSON configuration in the <a href="/general/player-configuration-guide.html">Studio Players module</a> or using the <a href="https://apis.support.brightcove.com/player-management/index.html">Player Management API</a>.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="708_captions">708 captions</h2>
-    <p>If you are using CEA-708 captions instead of 608, they can be renamed in exactly the same way as 608 captions.</p>
-    <p>If your encoder is sending both 608 and 708 captions, and you wish to hide the 708 captions, add the line <code class="language-json" translate="No">"parse708captions": false</code> immediately before the <code translate="no">captionServices</code> block:</p>
-<pre class="line-numbers"><code class="language-json" translate="No">"hls": {
-  "parse708captions": false,
-  "captionServices": {
-    "CC1": {
-      "language": "en",
-      "label": "English"
-    }
-  }</code></pre>
-      </section>
-</article>
+<!-- this is a redirect page - don't edit -->
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="refresh" content="0; URL=/user-interface/rename-608-708-captions.html">
