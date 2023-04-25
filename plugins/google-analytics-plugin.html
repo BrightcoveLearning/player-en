@@ -8,12 +8,13 @@ parent: Plugins
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
   <section class="bcls-section">
-    <aside class="bcls-aside bcls-aside--warning">Note the following:
+    <aside class="bcls-aside bcls-aside--warning">Note the following <strong>VERY IMPORTANT</strong> items:
       <ul>
         <li>The latest version of the Brightcove Player Google Analytics plugin, version 2.1.x or later, supports Google Analytics 4 (the "new version").</li>
         <li>To use this plugin you must also be using Brightcove Player version 7.x or later.</li>
         <li>Google Universal Analytics (the "old version") will end of life on July 1, 2023.</li>
         <li>This doc focuses on setting up Google Analytics 4, with the option to also setup Universal Analytics. This is referred to as dual tagging.</li>
+        <li>At this time, configuring the plugin is done via the <strong>JSON Editor</strong> ONLY in Studio. The UI configuration is still for Universal Analytics.</li>
         <li>If you wish to configure for Universal Analytics ONLY, see the <a href="/analytics/ga-self-configure.html">Google Analytics Self Configuration</a> document.</li>
       </ul>
     </aside>
@@ -21,12 +22,11 @@ parent: Plugins
     <p>The Brightcove Google Analytics plugin provides functionality to send data to Google Analytics. Note that the plugin supports both Google Analytics 4 and the older Universal Analytics. This document contains seven main content sections, those being:</p>
     <ul>
       <li><a href="#Requirements">Requirements</a>: Requirements for using the Google Analytics Plugin v2.1.0 and newer.</li>
-      <li><a href="#Implement_using_Players_module">Implement using Players module</a>: Steps to follow to implement the plugin using Studio's <strong>Players</strong> module. Note that at this time configuration in the Players module must be done through the <strong>JSON Editor</strong> only. At this time, the user interface options are for Universal Analytics only.</li>
+      <li><a href="#Implement_using_Players_module">Implement using Players module</a>: Steps to follow to implement the plugin using Studio's <strong>Players</strong> module. Note that at this time configuration in the Players module must be done through the <strong>JSON Editor</strong> only. The user interface options are for Universal Analytics only.</li>
       <li><a href="#Implement_using_code">Implement using code</a>: Steps to follow to implement the plugin in an HTML page.</li>
       <li><a href="#Options">Options</a>: The configuration options available for the plugin.</li>
-      <li><a href="#GA4_events_and_custom_dimensions">GA4 events and custom dimensions</a>: The GA$ data options to send to Google Analytics.</li>
-      <li><a href="#UA_events_and_custom_dimensions">UA events and custom dimensions</a>: The UA data options to send to Google Analytics.</li>
-      <li><a href="#GA4_and_UA_example_configurations">GA4 and UA example configurations</a>: Configuration options for Google Analytics 4 AND another configuration for both Google Analytics 4 and Universal Analytics, referred to as <em>dual tagging</em>.</li>
+      <li><a href="#GA4_events_and_custom_dimensions">GA4 events and custom dimensions</a>: The GA4 data options to send to Google Analytics.</li>
+      <li><a href="#GA4_and_UA_dual_tagging_example_configuration">GA4_and_UA_dual_tagging_example_configuration</a>: Configuration option for both Google Analytics 4 and Universal Analytics, referred to as <em>dual tagging</em>.</li>
     </ul>
   </section>
 
@@ -110,36 +110,35 @@ parent: Plugins
   }
 }</code></pre>
       </li>
-      <li>To check the configuration's JSON format, use the following as a guide:
+      <li>To check the configuration's total JSON format, use the following as a guide:
         <figure class="bcls-figure">
           <img class="bcls-image" src="/assets/images/publish/copied-code-details/json-editor.webp" alt="json editor">
         </figure>
       </li>
-      <li>If you wish to configure Google Analytics for both UA and GA4, use the configuration example shown later in the document in the <a href="#GA4_and_UA_example_configuration">GA4 and UA dual tagging example configuration</a></li>
+      <li>If you wish to configure Google Analytics for both UA and GA4, use the configuration example shown later in the document in the <a href="#GA4_and_UA_dual_tagging_example_configuration">GA4 and UA dual tagging example configuration</a></li>
       <li>Save and publish your player.</li>
-    </ol>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="Implement_using_code">Implement using code</h2>
-    <p>To implement a plugin, the player needs to know the location of the plugin code, a stylesheet location (if needed), the plugin name and plugin configuration options. For the Google Analytics plugin:
-    <ul>
-      <li>The location of the JavaScript plugin code (no CSS needed in this instance) is as follows:</p>
-        <pre class="line-numbers">
+    <>To implement a plugin, the player needs to know the location of the plugin code, a stylesheet location (if needed), the plugin name and plugin configuration options. For the Google Analytics plugin:
+      <ul>
+        <li>The location of the JavaScript plugin code (no CSS needed in this instance) is as follows:
+          <pre class="line-numbers">
         <code class="language-javascript" translate="No">https://players.brightcove.net/videojs-bc-ga/2/videojs-bc-ga.min.js</code></pre>
-      </li>
-      <li>The name of the plugin is <code translate="No">bcGa</code></li>
-      <li>Example configuration options can be found below in the <a href="#GA4_and_UA_example_configurations">GA4_and_UA_example_configurations</a> section below</li>
-    </ul>
+        </li>
+        <li>The name of the plugin is <code translate="No">bcGa</code></li>
+        <li>The standard configuration options are shown in the following code.</li>
+      </ul>
 
-    <p>The following shows using the In-Page Embed implementation of the player to associate the Google Analytics plugin with a single instance of a player.</p>
-    <ul>
-      <li>Line 1: Gives the <code translate="No">video-js</code> tag an <code translate="No">id</code> attribute, with some value, in this case <strong>myPlayerID</strong>.</li>
-      <li>Line 9: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML page.</li>
-      <li>Line 13: Creates a reference to the player.</li>
-      <li>Lines 14-25: Initializes the plugin and passes in custom options.</li>
-    </ul>
-    <pre class="line-numbers" data-start="1">
+      <p>The following shows using the Advanced (embed) code implementation of the player to associate the Google Analytics plugin with a single instance of a player.</p>
+      <ul>
+        <li>Line 1: Gives the <code translate="No">video-js</code> tag an <code translate="No">id</code> attribute, with some value, in this case <strong>myPlayerID</strong>.</li>
+        <li>Line 9: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML page.</li>
+        <li>Line 13: Creates a reference to the player.</li>
+        <li>Lines 14-35: Initializes the plugin and passes in custom options.</li>
+      </ul>
+      <pre class="line-numbers" data-start="1">
       <code class="language-html" translate="No">  &lt;video-js id="myPlayerID"
           data-account="1752604059001"
           data-player="decfdaf5-0a6e-43f6-82d3-39d125c413c4"
@@ -156,14 +155,24 @@ parent: Plugins
             myPlayer.bcGa({
               "registry_id": "@brightcove/videojs-bc-ga",
               "options": {
-                "paramsToTrackGA4": ["seconds_viewed","range","video_duration", "player", "session", ...],
+                "paramsToTrackGA4": [
+                  "seconds_viewed",
+                  "range",
+                  "video_duration",
+                  "player",
+                  "account",
+                  "session",
+                  "platform_version"
+                ],
                 "eventsToTrack": {
-                "video_impression": "Video Impression",
-                "play_request": "Play Request",
-                "video_engagement": "Video Engagement",
-                ...
-              },
-            "trackerGA4": "GA-123456-1"
+                  "video_impression": "Video Impression",
+                  "play_request": "Play Request",
+                  "video_engagement": "Video Engagement",
+                  "player_load": "Player Load",
+                  "video_view": "Video View"
+                }
+                "trackerGA4": "GA-123456-1"
+              }
           })
         });
         &lt;/script&gt;</code></pre>
@@ -171,12 +180,10 @@ parent: Plugins
 
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
-    <p>The items listed below are plugin options are used when configuring the Google Analytics plugin.</p>
-    <aside class="bcls-aside bcls-aside--tip language-editable">For clarification, in the <strong>paramsToTrack</strong> item an <em>index</em> is mentioned. This <em>index</em> is defined as:
-      <ul>
-        <li>The index parameter corresponds to the index number of the custom dimension or metric that GA assigns in the configuration phase. Unlike other types of data, custom dimensions and metrics are sent to GA as parameters attached to other hits, like pageviews, events, or ecommerce transactions.</li>
-      </ul>
-    </aside>
+    <p>The items listed below are plugin options used when configuring the Google Analytics plugin.</p>
+    <ul>
+      <li>The index parameter corresponds to the index number of the custom dimension or metric that GA assigns in the configuration phase. Unlike other types of data, custom dimensions and metrics are sent to GA as parameters attached to other hits, like pageviews, events, or ecommerce transactions.</li>
+    </ul>
     <ul>
       <li><strong>tracker</strong>: Google Analytics tracker ID.</li>
       <li><strong>eventsToTrack</strong>: An object that lists the events to send and the names that are used for those events.
@@ -222,37 +229,27 @@ parent: Plugins
       <li>bcvideo_video_seconds_viewed</li>
     </ul>
     <h4>Create custom dimensions</h4>
-    <p>You must create each of the custom dimensions you are using. For details about Google Analytics 4, see the following:</p>
+    <p>You must create each of the custom dimensions you are using. Note the following:</p>
+    <ul>
+      <li>During the creation of each custom dimension, you will be asked to select a <strong>Scope</strong>. For these custom dimensions use the value <samp>Event</samp>.</li>
+      <li>When creating the dimensions you can choose a more friendly name. For instance, consider the following:
+        <ul>
+          <li>When creating the custom dimension for <code translate="no">bcvideo_video_duration</code> you name it simply <strong>Duration</strong> because you want the friendlier name used in your reports.</li>
+        </ul>
+      </li>
+    </ul>
+    <p>For further information on using the Google Analytics UI, see the following:</p>
     <ul>
       <li><a href="https://support.google.com/analytics/answer/10089681">Introducing the next generation of Analytics, Google Analytics 4</a></li>
       <li><a href="https://support.google.com/analytics/answer/9304153">Set up Analytics for a website and/or app</a></li>
       <li><a href="https://support.google.com/analytics/answer/9744165">Add a Google Analytics 4 property (to a site that already has Analytics)</a></li>
       <li><a href="https://support.google.com/analytics/answer/10075209?hl=en">[GA4] Custom dimensions and metrics</a>: Create dimensions and metrics from event parameters and user properties so you can easily access data in reports and explorations</li>
     </ul>
-    <p>During the creation of each custom dimension, you will be asked to select a <strong>Scope</strong>. For these custom dimensions use the value <samp>Event</samp>.</p>
-    <!-- <p>Also, when you create each custom dimension an index, or sequence, number will be associated with it, as shown in this screenshot:</p> -->
-    <!-- <figure class="bcls-figure">
-              <img class="bcls-image" src="/assets/images/general/ga-self-configure/custom-dimension-index.png" alt="custom dimension index">
-            </figure> -->
-    <!-- <p>You will need to have available the table of created custom dimensions as the index number is needed in the configuration JSON.</p> -->
-    <p>When creating the dimensions you can choose a more friendly name. For instance, consider the following:</p>
-    <ul>
-      <li>When creating the custom dimension for <code translate="no">bcvideo_video_duration</code> you name it simply <strong>Duration</strong> because you want the friendlier name used in your reports.</li>
-      <!-- <li>When created, the index associated with <strong>Duration</strong> is <code translate="no">7</code>.</li> -->
-      <li>In your configuration JSON, you will list your custom dimensions.</li>
-      <!-- <li>In your configuration JSON, you use the following assignment:
-                <pre><code class="language-json" translate="No">"bcvideo_video_duration": "dimension7"</code></pre>
-                The index number associates the friendly name with the plugin's internal name.
-              </li> -->
-    </ul>
-    <!-- <figure class="bcls-figure">
-              <img class="bcls-image" src="/assets/images/general/ga-self-configure/ga-dimension-names-index-google-drawings.png" alt="analytics dimension names index">
-            </figure> -->
   </section>
 
 
   <section class="bcls-section">
-    <h2 id="GA4_and_UA_example_configuration">GA4 and UA dual tagging example configuration</h2>
+    <h2 id="GA4_and_UA_dual_tagging_example_configuration">GA4 and UA dual tagging example configuration</h2>
     <p>At this point in time (early 2023) both Google Analytics 4 and Universal Analytics are valid. The following is an example of dual tagging, where both Google Analytics 4 and Universal Analytics would function.</p>
     <h4>Dual tagging (both Google Analytics 4 and Universal Analytics)</h4>
     <pre class="line-numbers" data-start="1">
