@@ -104,7 +104,10 @@ parent: Plugins
       "play_request": "Play Request",
       "video_engagement": "Video Engagement",
       "player_load": "Player Load",
-      "video_view": "Video View"
+      "video_view": "Video View",
+      "error": "Player Errors",
+      "ad_start": "Ad Started",
+      "ad_end": "Ad Ended"
     },
     "trackerGA4": "G-WG9CBF4C3S"
   }
@@ -169,7 +172,10 @@ parent: Plugins
                   "play_request": "Play Request",
                   "video_engagement": "Video Engagement",
                   "player_load": "Player Load",
-                  "video_view": "Video View"
+                  "video_view": "Video View",
+                  "error": "Player Errors",
+                  "ad_start": "Ad Started",
+                  "ad_end": "Ad Ended"
                 }
                 "trackerGA4": "GA-123456-1"
               }
@@ -183,9 +189,9 @@ parent: Plugins
     <p>The items listed below are plugin options used when configuring the Google Analytics plugin.</p>
     <ul>
       <li><strong>tracker</strong>: Google Analytics tracker ID.</li>
-      <li><strong>eventsToTrack</strong>: An object that lists the events to send and the names that are used for those events.
+      <li><strong>eventsToTrack</strong>: An array that lists the events to send and the names that are used for those events.
         <ul>
-          <li>Example: <code>{player_load: 'My name for player load event'}</code></li>
+          <li>Example: <code>"player_load": "My name for player load event"</code></li>
         </ul>
       </li>
       <li><strong>paramsToTrack</strong>: An object that lists the parameters (that is, custom dimensions) to include in events.</li>
