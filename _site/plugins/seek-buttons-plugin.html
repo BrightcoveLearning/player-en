@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <title>Download Button Plugin</title>
+        <title>Seek Buttons Plugin</title>
         
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="In this topic, you will learn about the download plugin for Brightcove Player. This plugin will allow you to download an mp4 file of the video or a text file of the video transcript. The download plugin is NOT automatically included in the player.">
+        <meta name="description" content="In this topic, you will learn about the seek buttons plugin for Brightcove Player. This plugin will allow you to seek forward/back through a video for a configurable amount of time. The seek buttons plugin is automatically included in the player.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -1116,7 +1116,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/plugins/download-button-plugin.html" aria-current="page">Download Button</a></li>
+              <li class="nav-item"><a class="nav-link" href="/plugins/download-button-plugin.html">Download Button</a></li>
               
               
               
@@ -1824,7 +1824,7 @@
             
             
             
-            <li class="breadcrumb-item active" aria-current="page">Download Button Plugin</li>
+            <li class="breadcrumb-item active" aria-current="page">Seek Buttons Plugin</li>
             
             
           </ol>
@@ -1845,74 +1845,23 @@
       <br>
       
       
-<h1>Download Button Plugin</h1>
+<h1>Seek Buttons Plugin</h1>
 <article class="bcls-article">
-  <summary>In this topic, you will learn about the download plugin for Brightcove Player. This plugin will allow you to download an mp4 file of the video or a text file of the video transcript. <aside class="bcls-aside bcls-aside--information">The download plugin is <strong>NOT</strong> automatically included in the player.</aside></summary>
+  <summary>In this topic, you will learn about the seek buttons plugin for Brightcove Player. This plugin will allow you to seek forward/back through a video for a configurable amount of time. <aside class="bcls-aside bcls-aside--information">The seek buttons plugin is automatically included in the player.</aside></summary>
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
-    <aside class="bcls-aside bcls-aside--information">Please note that the Download Button plugin is only available for Brightcove Player v7.3.0 and above.</aside>
-    <div style="position: relative; display: block; max-width: 960px;"><div style="padding-top: 56.25%;"><iframe src="https://players.brightcove.net/1752604059001/7rxOshjjg_default/index.html?videoId=1762039624723441663" allowfullscreen="" allow="encrypted-media" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe></div></div>
-
-    </figure>
-    <h3>Basics</h3>
-    <p>The Download plugin relies on the player’s <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object. This object needs to contain a few sub-properties to work.</p>
-    <ul>
-        <li>
-            <code translate="no">tags</code>: The tags attribute contains information about the player’s media info. To initialize the download button plugin, this array needs to include the string <code translate="no">“downloadable“</code> and all other elements are ignored.
-            <pre class="line-numbers"><code class="language-javascript" translate="No">tags: ["downloadable"]</code></pre>
-        </li>
-        <li>
-            <code translate="no">sources</code>: The sources array contains information about different sources pulled in by the player. The download button plugin looks for the highest quality mp4 source within this array; all other elements are ignored. The <code translate="no">container</code> property determines the source is an mp4 file, and the <code translate="no">size</code> property chooses the mp4 quality.
-            <pre class="line-numbers"><code class="language-javascript" translate="No">
-                sources: [{
-                    avg_bitrate: 2121000,
-                    codec: "H264",
-                    container: "MP4",
-                    duration: 734167,
-                    height: 720,
-                    size: 195024286,
-                    src: "https://examplesource.mp4",
-                    type: "video/mp4",
-                    width: 1728
-                  }]
-            </code></pre>
-            <aside class="bcls-aside bcls-aside--information">Sources are only used when downloading an mp4 file for the video.</aside>
-        </li>
-        <li>
-            <code translate="no">transcripts</code>: The transcripts array lists all of the transcripts tied to the player. The download button plugin looks for a transcript with a language that matches the player’s language. If none correspond, it selects the first transcript in the list. The <code translate="no">src_lang</code> property determines the transcript’s language.
-            <pre class="line-numbers"><code class="language-javascript" translate="No">
-                transcripts: [{
-                    default: false,
-                    id: "95423543d7-8363-49dd-9b1c-ff32365433fc0cda",
-                    label: "English",
-                    src: "https://examplesource.txt",
-                    src_lang: "en-US",
-                    status: null
-                  }]
-            </code></pre>
-            <aside class="bcls-aside bcls-aside--information">Transcripts are only used when downloading a text file for the transcript.</aside>
-        </li>
-    </ul>
-    <h3>Browser compatibility</h3>
-    <aside class="bcls-aside bcls-aside--warning">The download button will not be initialized if the player is viewed through Chromecast.</aside>
-    <p>The plugin is compatible with the latest versions of these major browsers:</p>
-    <ul>
-      <li>Chrome Desktop</li>
-      <li>Chrome Mobile (on Android 6+)</li>
-      <li>Firefox Desktop</li>
-      <li>Edge</li>
-      <li>Safari Desktop
-        <super>* </super>
-      </li>
-      <li>Safari Mobile (iOS 11.2+)
-        <super>* </super>
-      </li>
-    </ul>
+    <p>The Seek Buttons are a feature of Video.js. When enabled, they allow the user to seek forward/back through a video for a configurable amount of time.</p>
+    <aside class="bcls-aside bcls-aside--information"> The Seek Buttons feature is only available in the Brightcove Player v7.5.0 and above.</aside>
+   
+    <div style="max-width: 960px;"><style>video-js.video-js.vjs-fluid:not(.vjs-audio-only-mode) {padding-top: 56.25%;}</style><video-js data-account="1752604059001" data-player="OoeNMyOA0" data-embed="default" controls="" data-video-id="5977793284001" data-playlist-id="" data-application-id="" class="vjs-fluid"></video-js></div><script src="https://players.brightcove.net/1752604059001/OoeNMyOA0_default/index.min.js"></script>
+    <!-- <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Seek Buttons" src="/assets/images/plugins/seek-buttons/seek-buttons-example.webp" />
+      <figcaption class="bcls-caption--image">Seek Buttons</figcaption>
+    </figure> -->
  </section>
 
   <section class="bcls-section">
     <h2 id="Implement_using_Players_module">Implement using Players module</h2>
-    <p>If the <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object on the player contains all of the necessary data, we can configure the player manually to enable this function:</p>
+    <p>In Video Cloud Studio, we can configure the player manually to enable this function:</p>
     <ol class="bcls-tasklist">
         <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
         <li>Click the link for the player to open the player's properties.</li>    
@@ -1921,52 +1870,31 @@
             <img class="bcls-image" alt="Left Navigation" src="/assets/images/plugins/download-button/left-navigation.webp" />
           </figure>
         </li>
-        <li><p>In the <strong>JSON Editor</strong> object, we can add a property called <code translate="no">download_button</code>.</p>
-          <p>To configure the player to download the highest quality MP4 file available, use the <code translate="no">mp4</code> value when defining this property. Your code should look similar to this:</p>
+        <li><p>In the <strong>JSON Editor</strong> object, we can add a property called <code translate="no">skip_buttons</code>.</p>
+          <p>To configure the player to have forward and backward seek buttons, we can define the <code translate="no">skip_buttons</code> property as follows. Your code should look similar to this:</p>
           <figure class="bcls-figure">
-            <img class="bcls-image" alt="Download MP4" src="/assets/images/plugins/download-button/json-editor.webp" />
+            <img class="bcls-image" alt="Download MP4" src="/assets/images/plugins/seek-buttons/json-editor-seek-buttons.webp" />
           </figure>
-           <p>To configure the player to download a text file of the transcript that matches the language used on the player (or the first transcript if none match), use the <code translate="no">transcript</code> value when defining the download_button property. Your code should look similar to this:</p>
-          <figure class="bcls-figure">
-            <img class="bcls-image" alt="Download Transcript" src="/assets/images/plugins/download-button/json-editor-transcript.webp" />
-          </figure>
-          <aside class="bcls-aside bcls-aside--warning">Please note that if the <code translate="no">download_button</code> configuration is missing, or if the value in the configuration is anything other than <code translate="no">“mp4”</code> or <code translate="no">“transcript”</code>, the download plugin will not be initialized.</aside>
+           <p>We can also configure the player only to have one seek button by defining the <code translate="no">skip_buttons</code> as follows:</p>
+           <ul>
+            <li>
+                <p>Only a forward seek button:</p>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" alt="Seek Button Forward" src="/assets/images/plugins/seek-buttons/json-editor-seek-buttons-forward.webp" />
+                </figure>
+            </li>
+            <li>
+                <p>Only a backward seek button:</p>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" alt="Seek Button Backward" src="/assets/images/plugins/seek-buttons/json-editor-seek-buttons-backward.webp" />
+                </figure>
+            </li>
+           </ul> 
+           
+          <aside class="bcls-aside bcls-aside--information">Please note that the valid options in the <code translate="no">skip_buttons.forward/backward</code> configuration are the following: 5, 10, 30.</aside>
         </li>
         <li>Click <strong>Save</strong>.</li>
       </ol>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Runtime_properties">Runtime properties</h2>
-    <p>The download button can be accessed with <code translate="no">player.downloadButton</code>. This object has some accessible properties that could be useful.</p>
-
-    <h3><code translate="no">player.downloadButton.state</code></h3>
-    <p><strong>Type:</strong> <code translate="no">String</code></p>
-    <p>This property describes the current state of the download button. The following are the valid options:</p>
-    <ul>
-      <li><code translate="no">ready</code>: The download button is ready to start a download.</li>
-      <li><code translate="no">hidden</code>: The download button is hidden. This state occurs when the <code translate="no">downloadable</code> tag is missing.</li>
-      <li><code translate="no">off</code>: The download button is not in the DOM. This state occurs when the source is invalid or missing.</li>
-    </ul>
-
-    <h3><code translate="no">player.downloadButton.source</code></h3>
-    <p><strong>Type:</strong> <code translate="no">String</code></p>
-    <p>This property contains a URL to the source to be downloaded. Depending on the download method, this can be a link to the mp4 file or a transcript text file.</p>
-  </section>
-  
-  <section class="bcls-section">
-    <h2 id="Events">Events</h2>
-    <p>The download button plugin triggers a handful of events for analytic purposes.</p>
-    <ul>
-      <li><p><code translate="no">download-ready</code>: Fired once the plugin is initialized successfully.</p></li>
-      <li><p><code translate="no">download-hidden</code>: Fired when the plugin is initialized and the button is hidden. This happens when the <code translate="no">tags</code> array in <code translate="no">mediainfo</code> is missing the <code translate="no">”downloadable”</code> tag.</p></li>
-      <li><p><code translate="no">download-disabled</code>: Fired when the plugin is initialized and the button is disabled. This happens when the <code translate="no">mediainfo</code> object is either missing or has invalid <code translate="no">sources</code> or <code translate="no">transcripts</code> depending on the expected download method.</p></li>
-      <li><p><code translate="no">download-started</code>: Fired when the download button is clicked and a download begins.</p></li>
-      <li><p><code translate="no">download-finished</code>: Fired when a download finished successfully. This event also sends the file name to the listener.</p></li>
-      <li><p><code translate="no">download-disabled</code>: Fired when a download fails. This event also sends information about the error to the listener.</p></li>
-   
-    </ul>
-
   </section>
 
 </article>

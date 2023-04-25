@@ -1,0 +1,58 @@
+---
+title: 'Seek Buttons Plugin'
+description: 'In this topic, you will learn about the seek buttons plugin for Brightcove Player. This plugin will allow you to seek forward/back through a video for a configurable amount of time. <aside class="bcls-aside bcls-aside--information">The seek buttons plugin is automatically included in the player.</aside>'
+parent: Plugins
+---
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+    <p>The Seek Buttons are a feature of Video.js. When enabled, they allow the user to seek forward/back through a video for a configurable amount of time.</p>
+    <aside class="bcls-aside bcls-aside--information"> The Seek Buttons feature is only available in the Brightcove Player v7.5.0 and above.</aside>
+   
+    <div style="max-width: 960px;"><style>video-js.video-js.vjs-fluid:not(.vjs-audio-only-mode) {padding-top: 56.25%;}</style><video-js data-account="1752604059001" data-player="OoeNMyOA0" data-embed="default" controls="" data-video-id="5977793284001" data-playlist-id="" data-application-id="" class="vjs-fluid"></video-js></div><script src="https://players.brightcove.net/1752604059001/OoeNMyOA0_default/index.min.js"></script>
+    <!-- <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Seek Buttons" src="/assets/images/plugins/seek-buttons/seek-buttons-example.webp" />
+      <figcaption class="bcls-caption--image">Seek Buttons</figcaption>
+    </figure> -->
+ </section>
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_Players_module">Implement using Players module</h2>
+    <p>In Video Cloud Studio, we can configure the player manually to enable this function:</p>
+    <ol class="bcls-tasklist">
+        <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+        <li>Click the link for the player to open the player's properties.</li>    
+        <li><p>Click <strong>JSON Editor</strong> in the left navigation menu.</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image" alt="Left Navigation" src="/assets/images/plugins/download-button/left-navigation.webp" />
+          </figure>
+        </li>
+        <li><p>In the <strong>JSON Editor</strong> object, we can add a property called <code translate="no">skip_buttons</code>.</p>
+          <p>To configure the player to have forward and backward seek buttons, we can define the <code translate="no">skip_buttons</code> property as follows. Your code should look similar to this:</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image" alt="Download MP4" src="/assets/images/plugins/seek-buttons/json-editor-seek-buttons.webp" />
+          </figure>
+           <p>We can also configure the player only to have one seek button by defining the <code translate="no">skip_buttons</code> as follows:</p>
+           <ul>
+            <li>
+                <p>Only a forward seek button:</p>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" alt="Seek Button Forward" src="/assets/images/plugins/seek-buttons/json-editor-seek-buttons-forward.webp" />
+                </figure>
+            </li>
+            <li>
+                <p>Only a backward seek button:</p>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" alt="Seek Button Backward" src="/assets/images/plugins/seek-buttons/json-editor-seek-buttons-backward.webp" />
+                </figure>
+            </li>
+           </ul> 
+           
+          <aside class="bcls-aside bcls-aside--information">Please note that the valid options in the <code translate="no">skip_buttons.forward/backward</code> configuration are the following: 5, 10, 30.</aside>
+        </li>
+        <li>Click <strong>Save</strong>.</li>
+      </ol>
+  </section>
+
+</article>
