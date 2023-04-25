@@ -1,0 +1,75 @@
+---
+title: Copied Code Details
+description: In this topic, you will learn what all the attributes/options are in code copied when you publish a video in Studio. This doc details both the Standard (iframe) and Advanced (embed) code options.
+parent: 'Publishing Videos & Players'
+---
+<article class="bcls-article">
+  <h1>{{ page.title }}</h1>
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+    <p></p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/publish/copied-code-details/studio-dialog.webp" alt="choose standard or advanced">
+    </figure>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Advanced_code">Advanced code</h2>
+    <p>This is advanced code</p>
+    <h4>Fixed</h4>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;div style=&quot;width: 640px;&quot;&gt;
+  &lt;video-js data-account=&quot;1507807800001&quot;
+    data-player=&quot;rXHplU9As&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-video-id=&quot;6189113122001&quot;
+    data-playlist-id=&quot;&quot;
+    data-application-id=&quot;&quot;
+    width=&quot;640&quot; height=&quot;360&quot;
+    class=&quot;vjs-fluid&quot;&gt;&lt;/video-js&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/rXHplU9As_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+    <h4>Responsive</h4>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;div style=&quot;max-width: 960px;&quot;&gt;
+  &lt;style&gt;
+    video-js.video-js.vjs-fluid:not(.vjs-audio-only-mode) {
+      padding-top: 56.25%;
+    }
+  &lt;/style&gt;
+    
+  &lt;video-js data-account=&quot;1507807800001&quot;
+    data-player=&quot;default&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-video-id=&quot;6189113122001&quot;
+    data-playlist-id=&quot;&quot;
+    data-application-id=&quot;&quot;
+    class=&quot;vjs-fluid&quot;&gt;&lt;/video-js&gt;
+&lt;/div&gt;
+&lt;script src=&quot;https://players.brightcove.net/1507807800001/default_default/index.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Standard_code">Standard code</h2>
+    <p>This is standard code</p>
+    <h4>Fixed</h4>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;iframe src=&quot;https://players.brightcove.net/1507807800001/default_default/index.html?videoId=6189113122001&quot;
+  allowfullscreen=&quot;&quot;
+  allow=&quot;encrypted-media&quot;
+  width=&quot;960&quot; height=&quot;540&quot;&gt;
+&lt;/iframe&gt;</code></pre>
+    <h4>Responsive</h4>
+    <pre class="line-numbers"><code class="language-html" translate="No">&lt;div style=&quot;position: relative; display: block; max-width: 960px;&quot;&gt;
+  &lt;div style=&quot;padding-top: 56.25%;&quot;&gt;
+    &lt;iframe src=&quot;https://players.brightcove.net/1507807800001/default_default/index.html?videoId=6189113122001&quot; 
+      allowfullscreen=&quot;&quot; 
+      allow=&quot;encrypted-media&quot; 
+      style=&quot;position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;&quot;&gt;
+    &lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+</article>
