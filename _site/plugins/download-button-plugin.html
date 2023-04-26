@@ -1851,9 +1851,15 @@
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
     <aside class="bcls-aside bcls-aside--information">Please note that the Download Button plugin is only available for Brightcove Player v7.3.0 and above.</aside>
-    <div style="position: relative; display: block; max-width: 960px;"><div style="padding-top: 56.25%;"><iframe src="https://players.brightcove.net/1752604059001/7rxOshjjg_default/index.html?videoId=1762039624723441663" allowfullscreen="" allow="encrypted-media" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe></div></div>
+    <aside class="bcls-aside bcls-aside--information">  Navigate to the <strong>Media</strong> module, and add the  <strong>downloadable</strong> tag in the Video Information. It is essential to do it. If you don't add the tag, the plugin does not work.
 
-    </figure>
+      <p><figure class="bcls-figure">
+        <img class="bcls-image" alt="Tag" src="/assets/images/plugins/download-button/tag-downloadable.webp" />
+      </figure></p></aside>
+    <div style="position: relative; display: block; max-width: 960px;"><div style="padding-top: 56.25%;"><iframe src="https://players.brightcove.net/1752604059001/7rxOshjjg_default/index.html?videoId=1762039624723441663" allowfullscreen="" allow="encrypted-media" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe></div></div>
+    <p><figure class="bcls-figure">
+      <img class="bcls-image" alt="Download Button" src="/assets/images/plugins/download-button/download-button.webp" />
+    </figure></p>
     <h3>Basics</h3>
     <p>The Download plugin relies on the player’s <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object. This object needs to contain a few sub-properties to work.</p>
     <ul>
@@ -1940,6 +1946,10 @@
           <aside class="bcls-aside bcls-aside--warning">Please note that if the <code translate="no">download_button</code> configuration is missing, or if the value in the configuration is anything other than <code translate="no">“mp4”</code> or <code translate="no">“transcript”</code>, the download plugin will not be initialized.</aside>
         </li>
         <li>Click <strong>Save</strong>.</li>
+        <p>In cases where this feature is enabled but an mp4 or transcript is not available, the button still appears but is disabled.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image" alt="Video disabled" src="/assets/images/plugins/download-button/video-disabled.webp" />
+        </figure>
       </ol>
   </section>
 
