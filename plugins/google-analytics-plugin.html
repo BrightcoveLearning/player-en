@@ -196,7 +196,9 @@ parent: Plugins
           <li>Example: <code>"player_load": "My name for player load event"</code></li>
         </ul>
       </li>
-      <li><strong>paramsToTrack</strong>: An object that lists the parameters (that is, custom dimensions) to include in events.</li>
+      <li><strong>paramsToTrack</strong>: An object that lists the parameters to include in events.
+        <aside class="bcls-aside bcls-aside--information language-editable">Note: These parameters are be added as custom dimensions in the Google Analytics UI. Instructions for this task follow later in this document.</aside>
+      </li>
       <li><strong>debug</strong>: Use <code>true</code> to turn on GA debug URL and visualize console trace. <strong><em>This should not be used in a production environment.</em></strong></li>
     </ul>
   </section>
@@ -242,9 +244,10 @@ parent: Plugins
 
 
     <h4>Create custom dimensions</h4>
+    <aside class="bcls-aside bcls-aside--information language-editable">Note: The custom events are automatically created in Google Analytics, so no need to perform that task.</aside>
     <p>You must create each of the custom dimensions you are using. Note the following:</p>
     <ul>
-      <li>During the creation of each custom dimension, you will be asked to select a <strong>Scope</strong>. For these custom dimensions use the value <samp>Event</samp>.</li>
+      <li>During the creation of each custom dimension, you are asked to select a <strong>Scope</strong>. For these custom dimensions use the value <samp>Event</samp>.</li>
       <li>When creating the dimensions you can choose a more friendly name. For instance, consider the following:
         <ul>
           <li>When creating the custom dimension for <code translate="no">video_duration</code> you name it simply <strong>Duration</strong> because you want the friendlier name used in your reports.</li>
@@ -283,7 +286,7 @@ parent: Plugins
         <p>For each parameter in the array, complete the form:</p>
         <ul>
           <li><strong>Dimension name</strong>: Friendly name for your parameter.</li>
-          <li><strong>Scope</strong>: This will always be <em>Event</em> for Brightcove GA plugin.</li>
+          <li><strong>Scope</strong>: This is always <em>Event</em> for Brightcove GA plugin.</li>
           <li><strong>Description</strong>: Add appropriate description.</li>
           <li><strong>Event parameter</strong>: Choose one of the parameters listed just above.</li>
         </ul>
@@ -291,7 +294,7 @@ parent: Plugins
           <img class="bcls-image" src="/assets/images/publish/copied-code-details/new-custom-dimension.webp" alt="">
         </figure>
       </li>
-      <p>These custom dimensions will now be associated with the appropriate event in your Google Analytics reports.</p>
+      <p>These custom dimensions are now associated with the appropriate event in your Google Analytics reports.</p>
     </ol>
     <p>For further information on using the Google Analytics UI, see the following:</p>
     <ul>
