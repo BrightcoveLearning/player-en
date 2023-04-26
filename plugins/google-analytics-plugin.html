@@ -91,23 +91,24 @@ parent: Plugins
   "version": "2.x",
   "options": {
     "paramsToTrackGA4": [
-      "seconds_viewed",
-      "range",
-      "video_duration",
-      "player",
       "account",
-      "session",
       "platform_version"
+      "player",
+      "range",
+      "seconds_viewed",
+      "session",
+      "tags",
+      "video_duration",
     ],
     "eventsToTrack": {
-      "video_impression": "Video Impression",
-      "play_request": "Play Request",
-      "video_engagement": "Video Engagement",
-      "player_load": "Player Load",
-      "video_view": "Video View",
-      "error": "Player Errors",
-      "ad_start": "Ad Started",
       "ad_end": "Ad Ended"
+      "ad_start": "Ad Started",
+      "error": "Player Errors",
+      "play_request": "Play Request",
+      "player_load": "Player Load",
+      "video_engagement": "Video Engagement",
+      "video_impression": "Video Impression",
+      "video_view": "Video View",
     },
     "trackerGA4": "G-WG9CBF4C3S"
   }
@@ -159,23 +160,24 @@ parent: Plugins
               "registry_id": "@brightcove/videojs-bc-ga",
               "options": {
                 "paramsToTrackGA4": [
-                  "seconds_viewed",
-                  "range",
-                  "video_duration",
-                  "player",
                   "account",
-                  "session",
                   "platform_version"
+                  "player",
+                  "range",
+                  "seconds_viewed",
+                  "session",
+                  "tags",
+                  "video_duration",
                 ],
                 "eventsToTrack": {
-                  "video_impression": "Video Impression",
-                  "play_request": "Play Request",
-                  "video_engagement": "Video Engagement",
-                  "player_load": "Player Load",
-                  "video_view": "Video View",
-                  "error": "Player Errors",
-                  "ad_start": "Ad Started",
                   "ad_end": "Ad Ended"
+                  "ad_start": "Ad Started",
+                  "error": "Player Errors",
+                  "play_request": "Play Request",
+                  "player_load": "Player Load",
+                  "video_engagement": "Video Engagement",
+                  "video_impression": "Video Impression",
+                  "video_view": "Video View",
                 }
                 "trackerGA4": "GA-123456-1"
               }
@@ -203,13 +205,13 @@ parent: Plugins
     <h2 id="GA4_events_and_custom_dimensions">GA4 events and custom dimensions</h2>
     <p>Any event name used by the player's <code>analytics_event</code> and <code>analytics-beacon</code> events can be used, but the following have special handling in the GA plugin:</p>
     <ul>
+      <li>ad_end</li>
+      <li>ad_start</li>
+      <li>error</li>
+      <li>play_request</li>
       <li>player_load</li>
       <li>video_engagement</li>
       <li>video_impression</li>
-      <li>play_request</li>
-      <li>ad_start</li>
-      <li>ad_end</li>
-      <li>error</li>
       <li>video_view</li>
     </ul>
     <p>The following are custom dimensions available for use:</p>
@@ -218,11 +220,27 @@ parent: Plugins
       <li>platform_version</li>
       <li>player</li>
       <li>range</li>
+      <li>seconds_viewed</li>
       <li>session</li>
       <li>tags</li>
       <li>video_duration</li>
-      <li>video_seconds_viewed</li>
     </ul>
+    <p>Parameters, which you add as custom dimensions in Google Analytics, are associated with event. The following parameters are common to all events:</p>
+    <ul>
+      <li>account</li>
+      <li>player</li>
+      <li>session</li>
+      <li>tags</li>
+      <li>version</li>
+    </ul>
+    <p>The <code>video_engagement</code> event includes the five parameters listed above, and also adds:</p>
+    <ul>
+      <li>range</li>
+      <li>seconds_viewed</li>
+      <li>video_duration</li>
+    </ul>
+
+
     <h4>Create custom dimensions</h4>
     <p>You must create each of the custom dimensions you are using. Note the following:</p>
     <ul>
