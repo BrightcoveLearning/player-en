@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <title></title>
+        <title>Jump Start: Pre-roll Ad</title>
         
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
+        <meta name="description" content="Enter values for the three form fields below to see a pre-roll ad appear before your video. (If you choose not to input your data, demo data is supplied.) Below the player, the code for the player implementation is shown so you can copy and use.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -1824,7 +1824,7 @@
             
             
             
-            <li class="breadcrumb-item active" aria-current="page"></li>
+            <li class="breadcrumb-item active" aria-current="page">Jump Start: Pre-roll Ad</li>
             
             
           </ol>
@@ -1845,15 +1845,9 @@
       <br>
       
       
----
-title: 'Jump Start: Pre-roll Ad'
-parent: Advertising
-description: Enter values for the three form fields below to see a pre-roll ad appear before your video. (If you choose not to input your data, demo data is supplied.)</p>
-<p>Below the player, the code for the player implementation is shown so you can copy and use.
-  ---
 <article class="bcls-article">
   <h1>Jump Start: Pre-roll Ad</h1>
-  <summary></summary>
+  <summary><p>Enter values for the three form fields below to see a pre-roll ad appear before your video. (If you choose not to input your data, demo data is supplied.)</p> Below the player, the code for the player implementation is shown so you can copy and use.</summary>
   <style type="text/css">
     .video-js {
       width: 640px;
@@ -1890,7 +1884,7 @@ description: Enter values for the three form fields below to see a pre-roll ad a
       font-family: 'Source Code Pro', monospace;
     }
   </style>
-  <link href="//players.brightcove.net/videojs-ima3/4/videojs.ima3.css" rel="stylesheet" />
+  <link href="https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css" rel="stylesheet" />
   <div id="inputFields" class="input-fields">
     <h3>Account Information</h3>
     <div id="accountInfo">
@@ -1957,7 +1951,7 @@ description: Enter values for the three form fields below to see a pre-roll ad a
   //  Initialize the player and start the video
   function callback() {
     var ima = document.createElement('script');
-    ima.src = '//players.brightcove.net/videojs-ima3/4/videojs.ima3.min.js';
+    ima.src = 'https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js';
     document.body.appendChild(ima);
     myPlayer = bc('myPlayerID');
     ima.onload = function () {
@@ -1977,10 +1971,10 @@ description: Enter values for the three form fields below to see a pre-roll ad a
       htmlText2,
       jsText,
       allFormattedCode;
-    htmlText1 = '<!doctype html><html><head><meta charset="UTF-8"><title>Play a Preroll</title><!-- Page styles --><style translate="no">.video-js {width: 640px; height: 360px;}</style><link href="//players.brightcove.net/videojs-ima3/4/videojs.ima3.css" rel="stylesheet"></head><body>'
+    htmlText1 = '<!doctype html><html><head><meta charset="UTF-8"><title>Play a Preroll</title><!-- Page styles --><style translate="no">.video-js {width: 640px; height: 360px;}</style><link href="https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css" rel="stylesheet"></head><body>'
     htmlText1 += playerHTML;
     htmlText1 += playerScript.outerHTML;
-    htmlText1 += '<script src="//players.brightcove.net/videojs-ima3/4/videojs.ima3.min.js">\</script\>'
+    htmlText1 += '<script src="https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js">\</script\>'
     htmlText1 += '<script translate="no">';
 
       jsText = 'var myPlayer = videojs.getPlayer("myPlayerID");myPlayer.ready(function(){myPlayer.ima3({ debug: true,requestMode: "onload",serverUrl: "' + options.adServerURL + '"})});';
