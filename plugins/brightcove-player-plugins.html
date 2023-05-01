@@ -31,20 +31,21 @@ parent: Plugins
     <p>The <a href="/plugins/overview-brightcove-player-plugins.html">Overview: Player Plugins</a> document lists the plugins supplied by Brightcove and which plugins are loaded by default.</p>
     <p>Brightcove supplied plugins can be used in a number of ways. Although all can be implemented using the <strong>Plugins</strong> section in Studio's <strong>PLAYERS</strong> module, some have a dedicated section to load the functionality, like advertising, endscreens and social. You can also get some extra help for some plugins in the <strong>Plugins</strong> section as shown in these screenshots:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="add plugin in Studio" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugins-add-brightcove.png" /></figure>
-    <figure class="bcls-figure"><img class="bcls-image" alt="brightcove supplied plugin" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugins-chromecast.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="brightcove supplied plugin" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugins-chromecast.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="Adding_plugins_in_Studio">Adding plugins in Studio</h2>
     <p>If you choose not to, or there is no way to add a plugin another way, use the following form. As shown, first select <strong>Custom Plugin</strong>, the the form will appear to complete.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="add plugin in Studio" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugin-add-custom.png"/></figure>
-    <figure class="bcls-figure"><img class="bcls-image" alt="add plugin in Studio" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugins-manually-add-plugin-form.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="add plugin in Studio" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugin-add-custom.png" /></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="add plugin in Studio" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugins-manually-add-plugin-form.png" /></figure>
     <p>You see you add the plugin name, an Internet accessible link to the JavaScript file, to the CSS file (if needed) and options.</p>
     <aside class="bcls-aside bcls-aside--information">In some cases you may wish to add a link to JavaScript code, but not execute any initialization code. In this case, you add the link under the <strong>Scripts</strong> tab. Similarly you can do the same if you have just CSS using the <strong>CSS</strong> tab.</aside>
   </section>
   <section class="bcls-section">
     <h2 id="defaultplugins">Default plugins</h2>
-    <p>There are two plugins loaded by default. They are:</p>
+    <p>There are three plugins loaded by default. (In reality, this makes them no longer plugins but simply player features.) They are:</p>
     <ul>
+      <li><strong>DRM</strong>: Enables delivery of DRM protected content to the widest possible variety of browsers and devices.</li>
       <li><strong>Errors</strong> - Allows the player to display user friendly messages when it encounters an error. The display is an overlay that is semi-transparent and styled by the default style sheet.</li>
       <li><strong>HLS</strong> - Plays HLS video on platforms that don't support HLS but do have Flash Player. The enables the video content in the m3u8 manifest to be played in the player.</li>
     </ul>
@@ -81,9 +82,9 @@ parent: Plugins
   https://players.api.brightcove.com/v2/accounts/$ACCOUNT_ID/players/$PLAYER_ID/configuration</code></pre>
     <h3>How to detect if a default plugin is loaded?</h3>
     <p>You can determine if a default plugin is loaded by going to a browser's Console when using the URL or embed_in_page implementations of a player and seeing if the corresponding plugin object is present. The following screenshot shows presence of the plugin.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="default-plugin-with-hls" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugins-default-plugin-with-hls.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="default-plugin-with-hls" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugins-default-plugin-with-hls.png" /></figure>
     <p>If you have set a particular default plugin NOT to be loaded, it's object will not be present in the page. In the following screenshot you see that the HLS plugin object is NOT present:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="default-plugin-no-hls" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugins-default-plugin-no-hls.png"/></figure>
+    <figure class="bcls-figure"><img class="bcls-image" alt="default-plugin-no-hls" src="/assets/images/plugins/brightcove-player-plugins/bcv-players-plugins-default-plugin-no-hls.png" /></figure>
   </section>
   <section class="bcls-section">
     <h2 id="passdata">Pass data</h2>
