@@ -1858,12 +1858,13 @@
       <p><figure class="bcls-figure">
         <img class="bcls-image" alt="Tag" src="/assets/images/plugins/download-button/tag-downloadable.webp" />
       </figure></p></aside>
-    <h4>Download video example</h4>
+    <h4>Download mp4 example</h4>
     <div style="position: relative; display: block; max-width: 960px;"><div style="padding-top: 56.25%;"><iframe src="https://players.brightcove.net/1752604059001/7rxOshjjg_default/index.html?videoId=1762039624723441663" allowfullscreen="" allow="encrypted-media" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe></div></div>
+    <p><h4>Download transcript example</h4></p>
+    <div style="position: relative; display: block; max-width: 960px;"><div style="padding-top: 56.25%;"><iframe src="https://players.brightcove.net/1752604059001/0UPvzCobsH_default/index.html?videoId=6008016522001" allowfullscreen="" allow="encrypted-media" style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe></div></div>
     <p><figure class="bcls-figure">
       <img class="bcls-image" alt="Download Button" src="/assets/images/plugins/download-button/download-button.webp" />
     </figure></p>
-    <!-- <h4>Download transcript example</h4> -->
     <h3>Basics</h3>
     <p>The Download plugin relies on the player’s <a href="/references/video-metadata-mediainfo.html">mediainfo</a> object. This object needs to contain a few sub-properties to work.</p>
     <ul>
@@ -1938,7 +1939,7 @@
             <img class="bcls-image" alt="Left Navigation" src="/assets/images/plugins/download-button/left-navigation.webp" />
           </figure>
         </li>
-        <li><p>In the <strong>JSON Editor</strong> object, we can add a property called <code translate="no">download_button</code>.</p>
+        <li><p>In the <strong>JSON Editor</strong> object, add the property  <code translate="no">download_button</code>.</p>
           <p>To configure the player to download the highest quality MP4 file available, use the <code translate="no">mp4</code> value when defining this property. Your code should look similar to this:</p>
           <figure class="bcls-figure">
             <img class="bcls-image" alt="Download MP4" src="/assets/images/plugins/download-button/json-editor.webp" />
@@ -1947,6 +1948,7 @@
           <figure class="bcls-figure">
             <img class="bcls-image" alt="Download Transcript" src="/assets/images/plugins/download-button/json-editor-transcript.webp" />
           </figure>
+          <aside class="bcls-aside bcls-aside--information">You need to add a transcript for the video in order to add the upload button. For more information, see <a href="https://apis.support.brightcove.com/dynamic-ingest/ingest-guides/ingesting-transcriptions.html">Ingesting Transcript Files</a> </aside>
           <aside class="bcls-aside bcls-aside--warning">Please note that if the <code translate="no">download_button</code> configuration is missing, or if the value in the configuration is anything other than <code translate="no">“mp4”</code> or <code translate="no">“transcript”</code>, the download plugin will not be initialized.</aside>
         </li>
         <li>Click <strong>Save</strong>.</li>
@@ -1956,7 +1958,6 @@
         </figure>
       </ol>
   </section>
-
   <section class="bcls-section">
     <h2 id="Runtime_properties">Runtime properties</h2>
     <p>The download button can be accessed with <code translate="no">player.downloadButton</code>. This object has some accessible properties that could be useful.</p>
