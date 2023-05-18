@@ -1844,10 +1844,10 @@
       Google's Tag Manager (GTM) allows you to track the usage of your websites, video content, and mobile apps. First, you add a container tag to your assets. Then, you use a web-based user interface to customize the individual tags associated with your container tag based on your business rules.</p>
       <p>Here are some tag examples:</p>
     <ul>
-      <li>Google Analytics Universal tracking code
-        <aside class="bcls-aside bcls-aside--information">
-           Brightcove's GTM plugin only supports Google Universal Analytics at this time. Support for Google Analytics 4 will be added soon.
-        </aside>
+      <li>Google Analytics 4 tracking code
+        <!-- <aside class="bcls-aside bcls-aside--information">
+           Brightcove's GTM plugin supports Google Universal Analytics at this time. Support for  will be added soon.
+        </aside> -->
       </li>
       <li>Adwords Remarketing and/or Conversion Tracking code</li>
       <li>Custom HTML scripts</li>
@@ -2225,7 +2225,7 @@
         Click <strong>Variables</strong> in the left side navigation.
       </li>
       <li>
-        <p>In the <strong>User-Defined Variables</strong> section, click the <strong>New</strong> button.</p>
+        <p>In the <strong>User-Defined Variables</strong> section, click the <strong>New</strong> button, and then click <strong>Variable Configuration</strong>.</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Data Layer Variable" src="/assets/images/plugins/google-tag-manager/new-variable.png" />
           <figcaption class="bcls-caption--image">Data Layer Variable</figcaption>
@@ -2251,7 +2251,7 @@
           </li>
         </ul>
       </li>
-      <li>
+      <!-- <li>
         <p>First, create three user-defined variables called; <strong>Event Action</strong>, <strong>Event Category</strong>, and <strong>Event Label</strong>. The configuration should look similar to this.</p>
         <ul>
           <li>
@@ -2268,7 +2268,7 @@
           <img class="bcls-image--no-border" alt="Event action variable" src="/assets/images/plugins/google-tag-manager/event-action-variable.png" />
           <figcaption class="bcls-caption--image">Event action variable</figcaption>
         </figure>
-      </li>
+      </li> -->
       <li>
         <p>
           Then create the variables required to reflect the Brightcove parameters. In this case, the name of the <strong>Data Layer Variable</strong> should match what is in the player’s JSON config for <code>paramsToTrack</code> after <strong>customDimensions</strong> in the GTM variable. Here is an example: </p>
@@ -2370,14 +2370,14 @@
           Login to your Google Tag Manager account </p>
       </li>
       <li>
-        Click <strong>Tags</strong> in the left side navigation, and click the <strong>New</strong> button.
+        Click <strong>Tags</strong> in the left side navigation, and click the <strong>New</strong> button, and then click <strong>Tag Configuration</strong>.
       </li>
       <li>
         <p>
-          Select the <strong>Tag Type</strong> as <strong>Google Analytics: Universal Analytics</strong>.
+          Select the <strong>Tag Type</strong> as <strong>Google Analytics: GA4 Configuration</strong>.
         </p>
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Tag configuration" src="/assets/images/plugins/google-tag-manager/tag-configuration.png" />
+          <img class="bcls-image--no-border" alt="Tag configuration" src="/assets/images/plugins/google-tag-manager/tag-configuration.webp" />
           <figcaption class="bcls-caption--image">Tag configuration</figcaption>
         </figure>
       </li>
@@ -2387,12 +2387,13 @@
         </p>
         <ul>
           <li>
-            <strong>Track Type</strong> - Set to <strong>Event</strong>
+            <strong>Measurement ID</strong> - Enter your "G-" ID, or select the variable.
           </li>
           <li>
-            <strong>Category</strong> - Event Category Variable
+            If you want to automatically send <code translate="no">pageview</code> events, keep the <strong>Send a page view event when this configuration loads</strong> option checked.
           </li>
-          <li>
+
+          <!-- <li>
             <strong>Action</strong> - Event Action Variable
           </li>
           <li>
@@ -2408,20 +2409,30 @@
             <strong>Google Analytics Settings</strong> - Default setting
           </li>
           <li>
-            <strong>Tracking ID</strong> - Tracking ID of GA dashboard. Select Tracking ID Variable.
-          </li>
+            <strong>Tracking ID</strong> - Tracking ID of GA dashboard.
+          </li> -->
+        </ul>
+        <p>Optional settings:</p>
+        <ul>
+          <li><strong>Server-side tagging</strong> - To send all GA4 events to a Tag Manager server container instead of Google Analytics, select <strong>Send to server container</strong>.</li>
+          <li><strong>Parameters</strong> - Add any parameters to configure in <strong>Fields to Set</strong>.</li>
+          <li><strong>Custom properties</strong> - Add any custom user properties to configure in <strong>User Properties</strong>.</li>
         </ul>
       </li>
       <li>
         <p>
-          Go to Advanced settings and set the related Custom Dimension indices and Dimension Values. These indices should match what is in Google Analytics.
+          Select the corresponding trigger to to make the tag fire.
         </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Tags in GTM" src="/assets/images/plugins/google-tag-manager/all-pages.webp" />
+          <figcaption class="bcls-caption--image">Trigger</figcaption>
+        </figure>
       </li>
       <li>
         <p>
           Your Tags should look similar to this in GTM: </p>
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Tags in GTM" src="/assets/images/plugins/google-tag-manager/tags-in-gtm.png" />
+          <img class="bcls-image--no-border" alt="Tags in GTM" src="/assets/images/plugins/google-tag-manager/tags-in-gtm.webp" />
           <figcaption class="bcls-caption--image">Tags in GTM</figcaption>
         </figure>
       </li>
@@ -2436,7 +2447,7 @@
           Login to your Google Tag Manager account </p>
       </li>
       <li>
-        Click <strong>Triggers</strong> in the left side navigation, and click the <strong>New</strong> button.
+        Click <strong>Triggers</strong> in the left side navigation, and click the <strong>New</strong> button, and then click <strong>Trigger Configuration</strong>.
       </li>
       <li>
         <p>
@@ -2468,6 +2479,9 @@
         </figure>
       </li>
     </ol>
+    <aside class="bcls-aside bcls-aside--information">
+      For additional information on creating variables, tags, and triggers, see <a href="https://support.google.com/tagmanager/answer/9442095?hl=en&ref_topic=6333310">here</a>.
+    </aside>
   </section>
   <section class="bcls-section">
     <h2 id="Integrating_with_Brightcove">Integrating with Brightcove</h2>
@@ -2600,8 +2614,44 @@
     </p>
     <h3>Adding custom dimensions with Google Analytics</h3>
     <p>To add the custom dimensions directly in Google Analytics, follow these steps:</p>
-    <aside class="bcls-aside bcls-aside--tip">Please note that you must create a Universal Google Analytics instance instead of a v4 one. Brightcove Google Tag Manager Plugin currently only works with Universal Google Analytics.</aside>
+    <p>Use the follow steps to create the custom dimensions in the Google Analytics UI:</p>
     <ol class="bcls-tasklist-restart">
+      <li>Login to your Google Analytics account.</li>
+      <li>In the GA page:
+        <ol type="a">
+          <li>Click <strong>Admin</strong> (gear icon) in the bottom-let of the UI.</li>
+          <li>In the <strong>Property</strong> column, click <strong>Custom Definitions</strong>.
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/publish/copied-code-details/ga-ui-custom-definitions.webp" alt="custom dimensions">
+            </figure>
+          </li>
+        </ol>
+      </li>
+      <li>Click <strong>Create custom dimension.</strong>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/publish/copied-code-details/create-custom-dimensions.webp" alt="">
+        </figure>
+      </li>
+      <li> <p>Fill in the fields with the necessary information:</p>
+        <ul>
+          <li><strong>Dimension name</strong>: Friendly name for your parameter.</li>
+          <li><strong>Scope</strong>: This is always <em>Event</em> for Brightcove GA plugin.</li>
+          <li><strong>Description</strong>: Add appropriate description.</li>
+          <li><strong>Event parameter</strong>: Choose one of the parameters listed just above.</li>
+        </ul>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/publish/copied-code-details/new-custom-dimension.webp" alt="">
+        </figure>
+      </li>
+    </ol>
+    <p>For further information on using the Google Analytics UI, see the following:</p>
+    <ul>
+      <li><a href="https://support.google.com/analytics/answer/10089681">Introducing the next generation of Analytics, Google Analytics 4</a></li>
+      <li><a href="https://support.google.com/analytics/answer/9304153">Set up Analytics for a website and/or app</a></li>
+      <li><a href="https://support.google.com/analytics/answer/9744165">Add a Google Analytics 4 property (to a site that already has Analytics)</a></li>
+      <li><a href="https://support.google.com/analytics/answer/10075209?hl=en">[GA4] Custom dimensions and metrics</a>: Create dimensions and metrics from event parameters and user properties so you can easily access data in reports and explorations</li>
+    </ul>
+    <!-- <ol class="bcls-tasklist-restart">
       <li>
         <p>Log in to Google Analytics.</p>
       </li>
@@ -2633,7 +2683,7 @@
           <figcaption class="bcls-caption--image"> Add Custom dimensions </figcaption>
         </figure>
       </li>
-    </ol>
+    </ol> -->
     <h3>Adding custom dimensions with Google App Script</h3>
     <p>To use a Google App Script to create custom dimensions, follow these steps:</p>
     <ol class="bcls-tasklist-restart">
@@ -2783,6 +2833,48 @@
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Dimensions and indices" src="/assets/images/plugins/google-tag-manager/dimensions-indices.png" />
           <figcaption class="bcls-caption--image"> Dimensions and indices </figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="GTM_dual_tagging">GTM dual tagging</h2>
+    <p>Dual tagging requires no code change for the GTM plugin. To set up dual tagging in a website that already uses Universal Analytics through GTM, for every tag currently set up in GTM, a corresponding tag in GTM for GA4 will need to be set up. The process must be replicated until all current Universal Analytics tags have parallel GA4 tags.</p>
+    <ol class="bcls-tasklist-restart">
+      <li> <p>Create a <a href="https://support.google.com/analytics/answer/9744165?hl=en#zippy=%2Cin-this-article">Google Analytics 4 property</a> and note its tracking ID. In GTM, create a new tag and select <strong>oogle Analytics: GA4 configuration</strong> as the tag type.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/creating-tag.webp" />
+          <figcaption class="bcls-caption--image">Create tag</figcaption>
+        </figure>
+      </li>
+      <li><p>Enter the new GA4 property tracking ID in the measurement ID field.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/property-id.webp" />
+          <figcaption class="bcls-caption--image">Property Tracking ID</figcaption>
+        </figure>
+      </li>
+      <li><p>Select <strong>All pages</strong> as the trigger to to make the tag fire.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/triggering.webp" />
+          <figcaption class="bcls-caption--image">Selecting Trigger</figcaption>
+        </figure>
+      </li>
+      <li><p>Create a GA4 tag for every Universal Analytics event that is set up. For example, to set up the <code translate="no">play_request</code> event. First, create a trigger.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/play-request.webp" />
+          <figcaption class="bcls-caption--image">Play Request Trigger</figcaption>
+        </figure>
+      </li>
+      <li><p>Then, create a tag and select <strong>Google Analytics: GA4 Event</strong> as the tag type, select <strong>Google Analytics: GA4 configuration</strong> as the configuration type, <code translate="no">play_request</code> as the event name, and select the play request trigger as the firing trigger.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/play-request-config.webp" />
+          <figcaption class="bcls-caption--image">Play Request Tag Configuration</figcaption>
+        </figure>
+      </li>
+      <li><p>To test the setup, click <strong>Preview</strong> on the top right corner and enter the website URL with UA GTM installed. Make sure that the newly set GA4 tags get fired along with the already existing UA tags.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/play-request-final-setup.webp" />
+          <figcaption class="bcls-caption--image">Play Request Test</figcaption>
         </figure>
       </li>
     </ol>
