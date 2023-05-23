@@ -81,6 +81,24 @@ parent: Plugins
 });</code></pre>
   </section>
   <section class="bcls-section">
+    <h2 id="Consent_GDPR_support">Consent/GDPR support</h2>
+    <p>In Freewheel's SDK version 6.28.x, they added two new fields to the ad request: <code translate="No">_fw_gdpr</code> and <code translate="No">_fw_gdpr_consent</code>. Using 6.28.x, you had to pass these values to Freewheel via API.</p>
+    <p>In SDK version 6.30.0, all you have to do is include the link to your specific CMP  (consent management platform) implementation script you are using and as of Freewheel version 6.30.0, the SDK does the rest. The SDK checks if a CMP script exists, whether the you are in a GDPR-protected country, and/or requires consent. It then calls the appropriate API to set the <code translate="No">_fw_gdpr</code> and <code translate="No">_fw_gdpr_consent</code> flags.</p>
+    <h3>Steps</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        Include the link to the CMP script in the page where the player is embedded
+        <p><strong>Example</strong></p>
+<pre class="line-numbers"><code class="language-html" translate="No"><script src="//your_cmp_address.net/cmp/cmp.complete.bundle.js" async></script></code></pre>
+      </li>
+      <li>
+        Make sure you are using version 6.30.0+ of the Freewheel SDK by setting the <code translate="No">sdkurl</code> property in your Freewheel configuration to 6.30 or later:
+        <p><strong>Example</strong></p>
+<pre><code class="language-http" translate="No">https://mssl.fwmrm.net/libs/adm/6.30.0/AdManager.js</code></pre>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
     <h2 id="Implement_using_Players_module">Implement using Players module</h2>
     <p>To implement the FreeWheel Plugin using the Players module, follow these steps:</p>
     <ol class="bcls-tasklist">
@@ -251,20 +269,6 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
               <li>Must be a child property of the <code translate="No">Html5</code> object. This will be directly applied to the object element if the Html5 ad tech is used.</li>
             </ul>
           </li>
-          <li>
-            <code translate="No">videoAssetFallbackId</code>
-            <ul>
-              <li>Type: <code translate="No">string</code> Default Value: none</li>
-              <li>Video asset fallback id. A FreeWheel video asset id when the video asset id in ad request is not recognized. Note this needs to be a "FreeWheel id", which is all digital. It is <strong>not</strong> a custom id.</li>
-            </ul>
-          </li>
-          <li>
-            <code translate="No">siteSectionFallbackId</code>
-            <ul>
-              <li>Type: <code translate="No">string</code> Default Value: none</li>
-              <li>Site section fallback id. A FreeWheel site section id when the site section id in ad request is not recognized. Note this needs to be a "FreeWheel id", which is all digital. It is <strong>not</strong>  a custom id.</li>
-            </ul>
-          </li>
           <li id="subsessionToken"><code translate="No">subsessionToken</code>:
             <ul>
               <li>Type: <code translate="No">int</code> Default Value: <code translate="No">(optional)</code></li>
@@ -293,13 +297,27 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
           </li>
         </ul>
       </li>
-      <li id="loadWithCookie"><strong translate="No">loadWithCookie</strong>:
+      <li>
+        <code translate="No">videoAssetFallbackId</code>
+        <ul>
+          <li>Type: <code translate="No">string</code> Default Value: none</li>
+          <li>Video asset fallback id. A FreeWheel video asset id when the video asset id in ad request is not recognized. Note this needs to be a "FreeWheel id", which is all digital. It is <strong>not</strong> a custom id.</li>
+        </ul>
+      </li>
+      <li>
+        <code translate="No">siteSectionFallbackId</code>
+        <ul>
+          <li>Type: <code translate="No">string</code> Default Value: none</li>
+          <li>Site section fallback id. A FreeWheel site section id when the site section id in ad request is not recognized. Note this needs to be a "FreeWheel id", which is all digital. It is <strong>not</strong>  a custom id.</li>
+        </ul>
+      </li>
+  <li id="loadWithCookie"><code translate="No">loadWithCookie</code>:
         <ul>
           <li>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></li>
           <li>Enables or disables cookies for VAST requests.</li>
         </ul>
       </li>
-      <li id="reqestAdsMode"><strong translate="No">requestAdsMode</strong>:
+      <li id="reqestAdsMode"><code translate="No">requestAdsMode</code>:
         <ul>
           <li>Type: <code translate="No">string</code> Default Value: <code translate="No">onload</code></li>
           <li>Possible values for the property are:
