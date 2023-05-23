@@ -1943,21 +1943,6 @@
     ...
   }
 }</code></pre>
-        <!-- <code class="language-json" translate="No">{
-  "adTechOrder": ["html5"],
-  "Flash": {
-    "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
-    "serverUrl": "http://cue.v.fwmrm.net/..."
-    "profile": "3aaa_profile",
-    ...
-  },
-  "Html5": {
-    "sdkurl": "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
-    "serverUrl": "http://cue.v.fwmrm.net/..."
-    "profile": "3aaa_profile",
-    ...
-  }
-}</code></pre> -->
       </li>
       <li>Click <strong>Save</strong>.</li>
       <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
@@ -1979,20 +1964,6 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
     profile: "3aaa_profile",
     ...
 }</code></pre>
-    <!-- <code class="language-json" translate="No">{
-  adTechOrder: ["html5"],
-  Flash: {
-    sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
-    serverUrl: "http://cue.v.fwmrm.net/..."
-    profile: "3aaa_profile",
-    ...
-  },
-  Html5: {
-    sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
-    serverUrl: "http://cue.v.fwmrm.net/..."
-    profile: "3aaa_profile",
-    ...
-}</code></pre> -->
     <p>The following shows using the In-Page Embed implementation of the player to associate the FreeWheel Plugin with a single instance of a player.</p>
     <ul>
       <li>Line 90: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.</li>
@@ -2036,84 +2007,13 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
   });
 &lt;/script&gt;</code></pre>
 
-    <!-- myPlayer.FreeWheelPlugin({
-  adTechOrder: ["html5"],
-  Flash: {
-    sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
-    serverUrl: "http://cue.v.fwmrm.net/..."
-    profile: "3aaa_profile",
-    ...
-  },
-  Html5: {
-    sdkurl: "https://mssl.fwmrm.net/libs/adm/<span class="bcls-highlight">{LATEST_VERSION}</span>/...",
-    serverUrl: "http://cue.v.fwmrm.net/..."
-    profile: "3aaa_profile",
-    ...
-  }
-}); -->
   </section>
-  <!-- <section class="bcls-section">
-    <h2 id="Rendering_options">Rendering options</h2>
-    <p>The following table shows the Tech in which the FreeWheel plugin will render an ad (column 3) based on Tech selections in Brightcove Player (column 1) and the <code translate="No">adTechOrder</code> set in the plugin (column 2).</p>
-    <table class="bcls-table">
-      <tbody class="bcls-table__body">
-        <tr>
-          <th>Brightcove Player<br />
-            Selected Tech</th>
-          <th>FreeWheelPlugin adTechOrder</th>
-          <th>FreeWheel Plugin<br />
-            Selected Ad Tech</th>
-        </tr>
-        <tr>
-          <td>html5</td>
-          <td>["flash","html5"]</td>
-          <td>flash</td>
-        </tr>
-        <tr>
-          <td>html5</td>
-          <td>["html5","flash"]</td>
-          <td>html5</td>
-        </tr>
-        <tr>
-          <td>html5</td>
-          <td>["html5"]</td>
-          <td>html5</td>
-        </tr>
-        <tr>
-          <td>html5</td>
-          <td>["flash"]</td>
-          <td>flash</td>
-        </tr>
-        <tr>
-          <td>flash</td>
-          <td>["flash","html5"]</td>
-          <td>flash</td>
-        </tr>
-        <tr>
-          <td>flash</td>
-          <td>["html5","flash"]</td>
-          <td>flash</td>
-        </tr>
-        <tr>
-          <td>flash</td>
-          <td>["html5"]</td>
-          <td>Not possible</td>
-        </tr>
-        <tr>
-          <td>flash</td>
-          <td>["flash"]</td>
-          <td>flash</td>
-        </tr>
-      </tbody>
-    </table>
-    <aside class="bcls-aside bcls-aside--information">Note: For the best user experience when delivering midrolls, you should use a segmented delivery format like HLS and deliver your content from a CDN that supports byte­range requests.</aside>
-  </section> -->
   <section class="bcls-section">
     <h2 id="Configuration">Configuration</h2>
     <p>The following settings are used to configure the FreeWheel plugin:</p>
     <aside class="bcls-aside bcls-aside--information">Since Flash is no longer supported in Brightcove Player, the <code translate="No">adTechOrder</code> and <code translate="No">Flash</code> options are not applicable.</aside>
     <ul>
-      <li><strong translate="No">adTechOrder</strong>:
+      <li><code translate="No">adTechOrder</code>:
 
         <ul>
           <li>Type: <code translate="No">Array</code> Default Value: <code translate="No">["html5"]</code></li>
@@ -2126,28 +2026,28 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
           <li>An object for Tech specific FreeWheel configuration (provided by FreeWheel). The object contains the following options:
             <!-- <aside class="bcls-aside bcls-aside--information">These options can either be set dynamically (shown <a href="#Dynamic_server_URL_assignment">here</a>) or as part of the initial configuration (shown <a href="#exampleconfiguration">here</a>).</aside> -->
           </li>
-          <li><strong translate="No">swfurl</strong>:
+          <li><code translate="No">swfurl</code>:
             <ul>
               <li>Type: <code translate="No">string</code> Default Value: <code translate="No">https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf</code> (compatible with FW Flash SDK v6.4.6)</li>
               <li>Optional values can be used based on FreeWheel Flash Plugin Version. Those values can be found in the <strong translate="No">Using versions of the plugin</strong> section near the top of this document.</li>
               <li>Must be a child property of the <code translate="No">Flash</code> object. This will be directly applied to the object element if the Flash ad tech is used.</li>
             </ul>
           </li>
-          <li><strong translate="No">autoplay</strong>:
+          <li><code translate="No">autoplay</code>:
             <ul>
               <li>Type: <code translate="No">boolean</code> Default Value: <code translate="No">true</code></li>
               <li>Indicates if the content is autoplayed.</li>
               <li>Must be a child property of the <code translate="No">Flash</code> object. This will be directly applied to the object element if the Flash ad tech is used.</li>
             </ul>
           </li>
-          <li><strong translate="No">unattendedPlay</strong>:
+          <li><code translate="No">unattendedPlay</code>:
             <ul>
               <li>Type: <code translate="No">boolean</code> Default Value: <code translate="No">false</code></li>
               <li>When <code translate="No">autoPlay</code> is set to true, <code translate="No">unattendedPlay</code> indicates whether the user is aware of the autoplaying.</li>
               <li>Must be a child property of the <code translate="No">Flash</code> object. This will be directly applied to the object element if the Flash ad tech is used.</li>
             </ul>
           </li>
-          <li><strong translate="No">visitorCustomId</strong>:
+          <li><code translate="No">visitorCustomId</code>:
             <ul>
               <li>Type: <code translate="No">string</code> Default Value: <code translate="No">unset</code></li>
               <li>Allows publishers to pass a custom visitor id for the ad request. When set, this value will be passed in the visitor block of the request payload as <strong translate="No">customId="CustomID_001"</strong>. The id will be returned in the response to the ad request in the opening visitor tag as an attribute: <strong translate="No">customId="CustomID_001"</strong>.</li>
@@ -2156,13 +2056,13 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
           </li>
         </ul>
       </li>
-      <li><strong translate="No">Html5</strong>:
+      <li><code translate="No">Html5</code>:
         <ul>
           <li>Type: <code translate="No">Object</code></li>
           <li>An object for Tech specific FreeWheel configuration (provided by FreeWheel). The object contains the following options:
             <aside class="bcls-aside bcls-aside--information">These options can either be set dynamically (shown <a href="#Dynamic_server_URL_assignment">here</a>) or as part of the initial configuration (shown <a href="#exampleconfiguration">here</a>).</aside>
           </li>
-          <li><strong translate="No">autoPlayType</strong>:
+          <li><code translate="No">autoPlayType</code>:
             <ul>
               <li>Type: <code translate="No">integer</code> Default Value: <code translate="No">1</code></li>
               <li>Indicates that the content video will autoPlay and the user is aware the content is autoplaying.</li>
@@ -2176,14 +2076,28 @@ https://players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css</co
               <li>Must be a child property of the <code translate="No">Html5</code> object. This will be directly applied to the object element if the Html5 ad tech is used.</li>
             </ul>
           </li>
-          <li><strong translate="No">visitorCustomId</strong>:
+          <li><code translate="No">visitorCustomId</code>:
             <ul>
               <li>Type: <code translate="No">string</code> Default Value: <code translate="No">(optional)</code></li>
               <li>The <code translate="No">visitorCustomId</code> option allows publishers to pass a custom visitor id for the ad request. When set, this value will be passed in the ad request URL as the queryString <strong translate="No">vcid=CustomID_001</strong>. The id will be returned in response of the ad request in the visitor JSON block as <strong translate="No">"customId" : "CustomID_001"</strong>.</li>
               <li>Must be a child property of the <code translate="No">Html5</code> object. This will be directly applied to the object element if the Html5 ad tech is used.</li>
             </ul>
           </li>
-          <li id="subsessionToken"><strong translate="No">subsessionToken</strong>:
+          <li>
+            <code translate="No">videoAssetFallbackId</code>
+            <ul>
+              <li>Type: <code translate="No">string</code> Default Value: none</li>
+              <li>Video asset fallback id. A FreeWheel video asset id when the video asset id in ad request is not recognized. Note this needs to be a "FreeWheel id", which is all digital. It is <strong>not</strong> a custom id.</li>
+            </ul>
+          </li>
+          <li>
+            <code translate="No">siteSectionFallbackId</code>
+            <ul>
+              <li>Type: <code translate="No">string</code> Default Value: none</li>
+              <li>Site section fallback id. A FreeWheel site section id when the site section id in ad request is not recognized. Note this needs to be a "FreeWheel id", which is all digital. It is <strong>not</strong>  a custom id.</li>
+            </ul>
+          </li>
+          <li id="subsessionToken"><code translate="No">subsessionToken</code>:
             <ul>
               <li>Type: <code translate="No">int</code> Default Value: <code translate="No">(optional)</code></li>
               <li>The <code translate="No">subsessionToken</code> option allows publishers to start a subsession with the given token. When set, this value will be passed in the ad request URL as the queryString:
