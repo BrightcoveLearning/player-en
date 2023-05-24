@@ -158,30 +158,27 @@ parent: Plugins
           videojs.getPlayer('myPlayerID').ready(function() {
             var myPlayer = this;
             myPlayer.bcGa({
-              "registry_id": "@brightcove/videojs-bc-ga",
-              "options": {
-                "paramsToTrackGA4": [
-                  "account",
-                  "platform_version",
-                  "player",
-                  "range",
-                  "seconds_viewed",
-                  "session",
-                  "tags",
-                  "video_duration"
-                ],
-                "eventsToTrack": {
-                  "ad_end": "Ad Ended",
-                  "ad_start": "Ad Started",
-                  "error": "Player Errors",
-                  "play_request": "Play Request",
-                  "player_load": "Player Load",
-                  "video_engagement": "Video Engagement",
-                  "video_impression": "Video Impression",
-                  "video_view": "Video View"
-                },
-                "trackerGA4": "GA-123456-1"
-              }
+              "paramsToTrackGA4": [
+                "account",
+                "platform_version",
+                "player",
+                "range",
+                "seconds_viewed",
+                "session",
+                "tags",
+                "video_duration"
+              ],
+              "eventsToTrack": {
+                "ad_end": "Ad Ended",
+                "ad_start": "Ad Started",
+                "error": "Player Errors",
+                "play_request": "Play Request",
+                "player_load": "Player Load",
+                "video_engagement": "Video Engagement",
+                "video_impression": "Video Impression",
+                "video_view": "Video View"
+              },
+              "trackerGA4": "GA-123456-1"
             })
         });
         &lt;/script&gt;</code></pre>
