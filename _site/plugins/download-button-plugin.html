@@ -1862,34 +1862,40 @@
         </li>
         <li>
             <code translate="no">sources</code>: The sources array contains information about different sources pulled in by the player. The download button plugin looks for the highest quality mp4 source within this array; all other elements are ignored. The <code translate="no">container</code> property determines the source is an mp4 file, and the <code translate="no">size</code> property chooses the mp4 quality.
-            <pre class="line-numbers"><code class="language-javascript" translate="No">
-                sources: [{
-                    avg_bitrate: 2121000,
-                    codec: "H264",
-                    container: "MP4",
-                    duration: 734167,
-                    height: 720,
-                    size: 195024286,
-                    src: "https://examplesource.mp4",
-                    type: "video/mp4",
-                    width: 1728
-                  }]
-            </code></pre>
+<pre class="line-numbers"><code class="language-javascript" translate="No">
+  sources: [{
+      avg_bitrate: 2121000,
+      codec: "H264",
+      container: "MP4",
+      duration: 734167,
+      height: 720,
+      size: 195024286,
+      src: "https://examplesource.mp4",
+      type: "video/mp4",
+      width: 1728
+    }]
+</code></pre>
             <aside class="bcls-aside bcls-aside--information">Sources are only used when downloading an mp4 file for the video.</aside>
         </li>
         <li>
             <code translate="no">transcripts</code>: The transcripts array lists all of the transcripts tied to the player. The download button plugin looks for a transcript with a language that matches the player’s language. If none correspond, it selects the first transcript in the list. The <code translate="no">src_lang</code> property determines the transcript’s language.
-            <pre class="line-numbers"><code class="language-javascript" translate="No">
-                transcripts: [{
-                    default: false,
-                    id: "95423543d7-8363-49dd-9b1c-ff32365433fc0cda",
-                    label: "English",
-                    src: "https://examplesource.txt",
-                    src_lang: "en-US",
-                    status: null
-                  }]
-            </code></pre>
-            <aside class="bcls-aside bcls-aside--information">Transcripts are only used when downloading a text file for the transcript.</aside>
+<pre class="line-numbers"><code class="language-javascript" translate="No">
+  transcripts: [{
+    default: false,
+    id: "95423543d7-8363-49dd-9b1c-ff32365433fc0cda",
+    label: "English",
+    src: "https://examplesource.txt",
+    src_lang: "en-US",
+    status: null
+    }]
+</code></pre>
+            <aside class="bcls-aside bcls-aside--information"><strong>Notes:</strong>
+              <ul>
+                <li>Transcripts are <strong>not</strong> the same thing as captions (text tracks) - you cannot download captions using this plugin</li>
+                <li>Transcripts are only used when downloading a text file for the transcript.</li>
+              </ul>
+              
+            </aside>
         </li>
     </ul>
     <h3>Browser compatibility</h3>
