@@ -2760,30 +2760,37 @@
       </li>
       <li>
         <p>
-          To enable Google Analytics API, in the script editor, select <strong>Resources</strong> &gt; <strong>Advanced Google services</strong>.
+          To enable Google Analytics API, in the script editor, select <strong>Services</strong>.
         </p>
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Advanced Google Services" src="/assets/images/plugins/google-tag-manager/advanced-services.png" />
-          <figcaption class="bcls-caption--image"> Advanced Google Services </figcaption>
+          <img class="bcls-image--no-border" alt="Services" src="/assets/images/plugins/google-tag-manager/advanced-services.webp" />
+          <figcaption class="bcls-caption--image">Services</figcaption>
         </figure>
       </li>
       <li>
         <p>
-          Then, find <strong>Advanced Google services</strong>, and turn it <strong>on</strong>. Click <strong>OK</strong>.
+          Then, find <strong>Google Analytics API</strong> and select it. Click <strong>Add</strong>.
         </p>
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Google Analytics API" src="/assets/images/plugins/google-tag-manager/enable-gtm2.png" />
+          <img class="bcls-image--no-border" alt="Google Analytics API" src="/assets/images/plugins/google-tag-manager/enable-gtm2.webp" />
           <figcaption class="bcls-caption--image"> Google Analytics API </figcaption>
         </figure>
       </li>
       <li>
-        <p>To run your app script, click <strong>Run</strong> &gt; <strong>Run function</strong>, and choose your script.</p>
+        <p>To run your app script, click <strong>Run</strong></p>
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Run script" src="/assets/images/plugins/google-tag-manager/run-script.png" />
+          <img class="bcls-image--no-border" alt="Run script" src="/assets/images/plugins/google-tag-manager/run-script.webp" />
           <figcaption class="bcls-caption--image">Run script</figcaption>
         </figure>
       </li>
       <li>
+        <p>If you have more than one function, you can select a specific one and then click <strong>Run</strong></p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Select function" src="/assets/images/plugins/google-tag-manager/select-function.webp" />
+          <figcaption class="bcls-caption--image">Select function</figcaption>
+        </figure>
+      </li>
+      <!-- <li>
         <p>In the authorization dialog, click <strong>Review Permissions</strong>.</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Authorization dialog" src="/assets/images/plugins/google-tag-manager/authorization-dialog.png" />
@@ -2798,7 +2805,7 @@
           <img class="bcls-image--no-border" alt="Allow permissions" src="/assets/images/plugins/google-tag-manager/allow-permissions.png" />
           <figcaption class="bcls-caption--image">Allow permissions</figcaption>
         </figure>
-      </li>
+      </li> -->
     </ol>
   </section>
   <section class="bcls-section">
@@ -2831,7 +2838,7 @@
           You should see the custom dimensions along with their associated indices.
         </p>
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Dimensions and indices" src="/assets/images/plugins/google-tag-manager/dimensions-indices.png" />
+          <img class="bcls-image--no-border" alt="Dimensions and indices" src="/assets/images/plugins/google-tag-manager/dimensions-indices.webp" />
           <figcaption class="bcls-caption--image"> Dimensions and indices </figcaption>
         </figure>
       </li>
@@ -2839,9 +2846,9 @@
   </section>
   <section class="bcls-section">
     <h2 id="GTM_dual_tagging">GTM dual tagging</h2>
-    <p>Dual tagging requires no code change for the GTM plugin. To set up dual tagging in a website that already uses Universal Analytics through GTM, for every tag currently set up in GTM, a corresponding tag in GTM for GA4 will need to be set up. The process must be replicated until all current Universal Analytics tags have parallel GA4 tags.</p>
+    <p>To set up dual tagging in a website that already uses Universal Analytics through Google Tag Manager, a corresponding tag in Google Tag Manager for Google Analytics 4 will need to be set up for every current tag. The process must be replicated until all current Universal Analytics tags have parallel Google Analytics 4 tags.</p>
     <ol class="bcls-tasklist-restart">
-      <li> <p>Create a <a href="https://support.google.com/analytics/answer/9744165?hl=en#zippy=%2Cin-this-article">Google Analytics 4 property</a> and note its tracking ID. In GTM, create a new tag and select <strong>oogle Analytics: GA4 configuration</strong> as the tag type.</p>
+      <li> <p>Create a <a href="https://support.google.com/analytics/answer/9744165?hl=en#zippy=%2Cin-this-article">Google Analytics 4 property</a> and note its tracking ID. In Google Tag Manager, create a new tag and select <strong>Google Analytics: GA4 configuration</strong> as the tag type.</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/creating-tag.webp" />
           <figcaption class="bcls-caption--image">Create tag</figcaption>
@@ -2853,13 +2860,13 @@
           <figcaption class="bcls-caption--image">Property Tracking ID</figcaption>
         </figure>
       </li>
-      <li><p>Select <strong>All pages</strong> as the trigger to to make the tag fire.</p>
+      <li><p>Select <strong>All pages</strong> as the trigger to make the tag fire.</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/triggering.webp" />
           <figcaption class="bcls-caption--image">Selecting Trigger</figcaption>
         </figure>
       </li>
-      <li><p>Create a GA4 tag for every Universal Analytics event that is set up. For example, to set up the <code translate="no">play_request</code> event. First, create a trigger.</p>
+      <li><p>Create a GA4 tag for every Universal Analytics event that is set up. For example, to set up the <code translate="no">play_request</code> event, you must create the trigger first.</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/play-request.webp" />
           <figcaption class="bcls-caption--image">Play Request Trigger</figcaption>
