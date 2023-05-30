@@ -141,11 +141,12 @@ parent: Plugins
       <li>For the <strong>Plugin Name</strong> enter <code translate="No">ssai</code>.</li>
       <li>For the <strong>JavaScript</strong> URL, enter:
         <pre>
-<code class="language-json" translate="No">https://players.brightcove.net/videojs-ssai/1/videojs-ssai.js</code></pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ssai/2/videojs-ssai.js</code></pre>
       </li>
       <li>For the <strong>CSS</strong> URL, enter:
         <pre>
-<code class="language-json" translate="No">https://players.brightcove.net/videojs-ssai/1/videojs-ssai.css</code></pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ssai/2/videojs-ssai.css</code></pre>
+        <aside class="bcls-aside bcls-aside--information language-editable">Note that if you are using a 6.x version of the player, you will need to use version 1 of the SSAI plugin - to do that, simply replace <code translate="No">/2/</code> in the URLs for the CSS and JavaScript with <code translate="No">/1/</code></aside>
       </li>
       <li>You do not have to enter any options for this plugin.</li>
       <li>Click <strong>Save</strong>.</li>
@@ -166,10 +167,10 @@ parent: Plugins
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">&lt;iframe src="https://players.brightcove.net/1752604059001/default_default/
 index.html?videoId=5625751316001&amp;<span class="bcls-highlight">adConfigId</span>=<span class="bcls-input">your ad config id</span>"
-	allowfullscreen
+  allowfullscreen
   allow="encrypted-media"
-	width="640"
-	height="360"&gt;&lt;/iframe&gt;</code></pre>
+  width="640"
+  height="360"&gt;&lt;/iframe&gt;</code></pre>
     <h4 id="Advanced_embed_code">Advanced embed code</h4>
     <p>With the Advanced embed code, include the <code translate="No">data-ad-config-id</code> attribute with the value of your ad config id:</p>
     <pre class="line-numbers">
@@ -198,11 +199,11 @@ var myPlayer = videojs.getPlayer('myPlayerId');
 //myPlayer.ssai();
 
 myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", function(error, video) {
-	if (error) {
-		myPlayer.error(error);
-	} else {
-		myPlayer.catalog.load(video);
-	}
+  if (error) {
+    myPlayer.error(error);
+  } else {
+    myPlayer.catalog.load(video);
+  }
 }, <span class="bcls-highlight">adConfigId</span>);</code></pre>
     <h4 id="Updating_your_player_configuration">Updating your player configuration</h4>
     <p>Another way to associate ads is to include your ad config id in your Brightcove Player configuration. To do this, you can use the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> as follows:</p>
@@ -247,7 +248,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
   "player": {
     "template": {
       "name": "single-video-template",
-      "version": "6.9.0"
+      "version": "7.7.0"
     }
   },
   "player_id": "rJCECV0RZ",
@@ -258,10 +259,10 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
     }
   ],
   "scripts": [
-    "https://players.brightcove.net/videojs-ssai/1/videojs-ssai.js"
+    "https://players.brightcove.net/videojs-ssai/2/videojs-ssai.js"
   ],
   "stylesheets": [
-    "https://players.brightcove.net/videojs-ssai/1/videojs-ssai.css"
+    "https://players.brightcove.net/videojs-ssai/2/videojs-ssai.css"
   ],</span>
   "updated_at": "2017-11-07T16:03:47.161Z",
   "video_cloud": {
@@ -269,6 +270,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
     "video": null
   }
 }</code></pre>
+        <aside class="bcls-aside bcls-aside--information language-editable">Note that if you are using a 6.x version of the player, you will need to use version 1 of the SSAI plugin - to do that, simply replace <code translate="No">/2/</code> in the URLs for the CSS and JavaScript with <code translate="No">/1/</code></aside>
       </li>
     </ol>
     <h4 id="Play_a_video_with_ads1">Playing a video with ads</h4>
@@ -321,15 +323,15 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
       </li>
       
       <!-- <li><code translate="No">vmapXML</code>
-	<ul>
-		<li>Used to provide an initial VMAP XML document, which will be loaded into the player. See the <a href="#Using_the_src_method">Using the src() method</a> section.</li>
-	</ul>
-	</li>
-	<li><code translate="No">vmapURL</code>
-	<ul>
-		<li>Used to provide an initial URL to a VMAP, which will be fetched and loaded into the player. See the <a href="#Setting_from_a_URL">Setting from a URL</a> section.</li>
-	</ul>
-	</li> -->
+  <ul>
+    <li>Used to provide an initial VMAP XML document, which will be loaded into the player. See the <a href="#Using_the_src_method">Using the src() method</a> section.</li>
+  </ul>
+  </li>
+  <li><code translate="No">vmapURL</code>
+  <ul>
+    <li>Used to provide an initial URL to a VMAP, which will be fetched and loaded into the player. See the <a href="#Setting_from_a_URL">Setting from a URL</a> section.</li>
+  </ul>
+  </li> -->
     </ul>
   </section>
 
@@ -382,12 +384,12 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
     <p>To use the SSAI methods, your JavaScript code will need to wait for the plugin to be loaded, as shown here:</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">&lt;script&gt;
-	videojs.getPlayer('myPlayerID').ready(function () {
-		var myPlayer = this;
-		myPlayer.on("loadedmetadata", function () {
-			console.log(myPlayer.ssai().currentTimelineState());
-		});
-	});
+  videojs.getPlayer('myPlayerID').ready(function () {
+    var myPlayer = this;
+    myPlayer.on("loadedmetadata", function () {
+      console.log(myPlayer.ssai().currentTimelineState());
+    });
+  });
 &lt;/script&gt;</code></pre>
     <h3>Timeline state methods</h3>
     <p>The <code translate="No">*TimelineState</code> methods return a <code translate="No">TimelineState</code> object. A timeline state object is a plain object with a specific interface that details the playback state of an SSAI stream at any point in the absolute timeline.</p>
