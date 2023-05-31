@@ -1842,6 +1842,7 @@
     <aside class="bcls-aside bcls-aside--warning">Note the following <strong>VERY IMPORTANT</strong> items:
       <ul>
         <li>The latest version of the Brightcove Player Google Analytics plugin, version 2.1.x or later, supports Google Analytics 4 (the "new version").</li>
+        <li>Google analytics 4 can be used with our Google Tag Manager plugin v2.0.1</li>
         <li>To use this plugin you must also be using Brightcove Player version 7.x or later.</li>
         <li>Google Universal Analytics (the "old version") will end of life on July 1, 2023.</li>
         <li>This doc focuses on setting up Google Analytics 4, with the option to also setup Universal Analytics. This is referred to as dual tagging.</li>
@@ -1874,7 +1875,7 @@
         <!-- ONCE UI FOR GA4 IS IN STUDIO< UPDATE THIS SECTION -->
         <!-- ONCE THE UI FOR STUDIO IS UPDATED NOTE THAT WE WIL HAVE TO UPDATE THE STEPS LISTED BELOW TO CONFIGURE THE PLUGIN FROM SCRATCH -->
 
-  <!-- <p>To implement the Google Analytics plugin using the <strong>Players</strong> module.</p>
+  <p>To implement the Google Analytics plugin using the <strong>Players</strong> module.</p>
     <ol class="bcls-tasklist">
       <li>In Studio select the <strong>Players</strong> module.</li>
       <li>Click the player to which you wish to add the Google Analytics plugin.</li>
@@ -1889,9 +1890,15 @@
         </figure>
       </li>
       <li>Complete the sign in process by entering information for your Google account and which Google Analytics account to send data.</li>
+      <li>
+        Select a GA4 account Tracking ID in the <strong>Google Analytics 4 (GA4)</strong> dropdown.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/plugins/google-analytics-plugin/GA4-config.webp" alt="enable Google Analytics">
+        </figure>
+      </li>
       <li>Finish the configuration using the provided form.
         <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/plugins/google-analytics-plugin/studio-configuration2.png" alt="configuration">
+          <img class="bcls-image" src="/assets/images/plugins/google-analytics-plugin/studio-configuration2.webp" alt="configuration">
         </figure>
       </li>
       <li>Click <strong>Save</strong>. Publish your player if not completing the rest of the rest of the steps.</li>
@@ -1910,10 +1917,10 @@
           <img class="bcls-image" src="/assets/images/plugins/google-analytics-plugin/json-config.webp" alt="json editor">
         </figure>
       </li>
-      <li>Click <strong>Save</strong> and publish your player.</li> -->
+      <li>Click <strong>Save</strong> and publish your player.</li>
 
     <!-- Remove this section once the Studio UI is up to date -->
-    <ol class="bcls-tasklist">
+    <!-- <ol class="bcls-tasklist">
       <li>In Studio select the <strong>Players</strong> module.</li>
       <li>Click the player to which you wish to add the Google Analytics plugin.</li>
       <li>In the Player's property screen, from the left side navigation, select <strong>JSON Editor</strong>.</li>
@@ -1953,7 +1960,7 @@
       </li>
       <li>If you wish to configure Google Analytics for both UA and GA4, use the configuration example shown later in the document in the <a href="#GA4_and_UA_dual_tagging_example_configuration">GA4 and UA dual tagging example configuration</a></li>
       <li>Save and publish your player.</li>
-    </ol>
+    </ol> -->
   </section>
   <section class="bcls-section">
     <h2 id="Implement_using_code">Implement using code</h2>
@@ -2181,12 +2188,20 @@
       <li>Click the player to which you wish to update the Google Analytics plugin.</li>
       <li>In the <strong>Player Information</strong> section select:
         <ol type="a">
-          <li><strong>Third-Party Analytics -> Google Analytics</strong></li>
-          <li>Select a GA4 account Tracking ID in the <strong>Google Analytics 4 (GA4)</strong> dropdown.</li>
+          <li>
+            <strong>Third-Party Analytics -> Google Analytics</strong>
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/plugins/google-analytics-plugin/select-ga.webp" alt="enable Google Analytics">
+            </figure>
+          </li>
+          <li>
+            Select a GA4 account Tracking ID in the <strong>Google Analytics 4 (GA4)</strong> dropdown.
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/plugins/google-analytics-plugin/ga4-dropdown.webp" alt="enable Google Analytics">
+            </figure>
+          </li>
         </ol>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/plugins/google-analytics-plugin/select-ga.webp" alt="enable Google Analytics">
-        </figure>
+        
       </li>
       <li>Click <strong>Save</strong>.</li>
       <li>Click <strong>Publish</strong> to publish the latest changes for your player.</li>
