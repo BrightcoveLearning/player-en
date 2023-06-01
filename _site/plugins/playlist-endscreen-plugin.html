@@ -1870,7 +1870,7 @@
 
     <br />
     <p>The user can also click on the end screen button in the UI to display the playlist end screen. The button tooltip uses the plugin title. In this case, the default, <strong>Related videos</strong>, is being used.</p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Playlist Endscreen button" src="/assets/images/plugins/playlist-endscreen/related-videos-button.png" />
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Playlist Endscreen button" src="/assets/images/plugins/playlist-endscreen/endscreen-button.webp" />
       <figcaption class="bcls-caption--image">Playlist Endscreen button</figcaption>
     </figure>
 
@@ -1923,26 +1923,26 @@
       <li>
         <p>Include the plugin code:</p>
         <pre>
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1/videojs-playlist-endscreen.js</code></pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/2/videojs-playlist-endscreen.js</code></pre>
       </li>
       <li>
         <p>Include the plugin styles:</p>
         <pre>
-<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/1/videojs-playlist-endscreen.css</code></pre>
+<code class="language-javascript" translate="No">https://players.brightcove.net/videojs-playlist-endscreen/2/videojs-playlist-endscreen.css</code></pre>
       </li>
       <li>Use the plugin name to load it into the player: <code translate="No">playlistEndscreen</code></li>
       <li>
         <p>An example set of options is:</p>
         <pre class="line-numbers">
 <code class="language-html" translate="No">{
-  playlistId: &quot;4602525726001&quot;,
+  playlistId: &quot;5126480959001&quot;,
   title: &quot;Watch More&quot;
 }</code></pre>
       </li>
       <li>
         <p>Here is an example using the Advanced Embed implementation to associate the Playlist Endscreen plugin with a single instance of a player.</p>
         <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1/videojs-playlist-endscreen.css&quot; rel=&quot;stylesheet&quot;&gt;
+<code class="language-html" translate="No">&lt;link href=&quot;https://players.brightcove.net/videojs-playlist-endscreen/2/videojs-playlist-endscreen.js&quot; rel=&quot;stylesheet&quot;&gt;
   
   &lt;div style=&quot;max-width: 960px;&quot;&gt;
   &lt;video-js id=&quot;myPlayerID&quot;
@@ -1959,15 +1959,18 @@
 &lt;script src=&quot;https://players.brightcove.net/<span class="bcls-input">your account ID</span>/<span class="bcls-input">your player ID</span>_default/index.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- script for the Playlist Endscreen plugin --&gt;
-&lt;script src=&quot;https://players.brightcove.net/videojs-playlist-endscreen/1/videojs-playlist-endscreen.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://players.brightcove.net/videojs-playlist-endscreen/2/videojs-playlist-endscreen.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- custom script --&gt;
 &lt;script&gt;
   videojs.getPlayer('myPlayerID').ready(function() {
     var myPlayer = this;
 
-    // initialize the Playlist Endscreen plugin
-    myPlayer.playlistEndscreen({playlistId: &quot;<span class="bcls-input">your playlist ID</span>&quot;}); 
+    // initialize the Playlist Endscreen plugin 
+    myPlayer.playlistEndscreen({
+      playlistId: &quot;<span class="bcls-input">your playlist ID</span>&quot;,
+      title: &quot;<span class="bcls-input">your title</span>&quot;
+    });
   });
 &lt;/script&gt;</code></pre>
       </li>
