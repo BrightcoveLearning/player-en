@@ -401,6 +401,13 @@ parent: "References"
   </section>
   <section class="bcls-section">
     <h2 id="playlist">playlist( ) method</h2>
+    <aside class="bcls-aside bcls-aside--tip">
+      <p>To use playlists with Brightcove Player 7, include one of the following plugins:</p>
+      <ul>
+        <li><a href="/plugins/playlist-ui-plugin.html">Playlist UI Plugin</a></li>
+        <li><a href="/plugins/playlist-endscreen-plugin.html">Playlist Endscreen Plugin</a></li>
+      </ul>
+    </aside>
     <p>The <code translate="No">player.playlist(newPlayList)</code> method acts as both a getter and setter, either retrieving the playlist currently playing in the player, or assigning a playlist to the player to play. If called without an argument the method performs the retrieval and acts as a getter, with an argument is assigns the value and acts as a setter.</p>
     <h5>Parameter (setter):</h5>
     <ul>
@@ -455,7 +462,7 @@ myPlayer.playlist([{
     <p>The method returns an <strong translate="No">array of objects</strong>.</p>
     <p class="video-cloud-only">An example of a returned Video Cloud playlist (an array of Video Cloud video objects) follows:</p>
     <figure class="bcls-figure"><img class="bcls-image video-cloud-only" alt="Video Cloud playlist object" src="/assets/images/references/playlist-api/playlist-vc-object.png" /></figure>
-    <figure class="bcls-figure player-only"><img class="bcls-image" alt="playlist object perform" src="/assets/images/references/playlist-api/playlist-perform-object.png" /></figure>
+    <!-- <figure class="bcls-figure player-only"><img class="bcls-image" alt="playlist object perform" src="/assets/images/references/playlist-api/playlist-perform-object.png" /></figure> -->
     <p class="video-cloud-only">The following example shows using the catalog object's <code translate="No">getPlaylist()</code> and <code translate="No">load()</code> methods to load a Video Cloud playlist. As mentioned previously, this is the recommended approach when using Video Cloud playlists. For more information see the <a href="/references/player-catalog.html">Player Catalog</a> document.</p>
     <pre class="line-numbers video-cloud-only">
 <code class="language-javascript" translate="No">myPlayer = this;
