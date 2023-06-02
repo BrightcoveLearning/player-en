@@ -1,0 +1,261 @@
+<style>
+  /* * The body style is just for the
+ * background color of the codepen.
+ * Do not include in your code.
+ */
+body {
+  background-color: #111;
+  color: #fff;
+}
+/*
+ * Styles essential to the sample
+ * are below
+ */
+.player-block {
+  position: relative;
+}
+/* Styles for lightbox */
+#BCLSlightbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin-left:0;
+  color: white;
+  text-align: center;
+  background-color: #333;
+  border-radius: 5px;
+  z-index:20;
+  overflow: hidden;
+  -webkit-transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  -moz-transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  -ms-transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  -o-transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955); /* easeInOutQuad */
+}
+.BCLSshow {
+  width: 520px;
+  height: 310px;
+  padding: 10px;
+  -webkit-box-shadow:  10px 10px 10px 10px rgba(151, 151, 151, .7);
+  box-shadow:  10px 10px 10px 10px rgba(151, 151, 151, .7);
+}
+/* Remove the hide button */
+.BCLShide {
+  width: 0;
+  height: 0;
+  padding: 0;
+}
+/* Style the close button */
+.BCLSclose {
+  text-align: right;
+  margin-top: 5px;
+  text-decoration: underline;
+  color: #63A7CE;
+  width: 90%;
+  cursor: pointer;
+}
+/* Styles for video selector */
+#carousel-outer-container {
+  position: relative;
+  background-color: #F5F5F5;
+  width: 500px;
+  height: 250px;
+  padding: 5px;
+  border: 1px #999 solid;
+  border-radius: 5px;
+}
+#feature-carousel-container {
+  border: none;
+  background-color: #F5F5F5;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 5px;
+}
+#carousel-left img {
+  position: relative;
+  left: -20px;
+  top: 20px;
+}
+#carousel-right img {
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+div.carousel-caption {
+  padding: 0;
+  width: 200px;
+  height: 20px;
+  opacity: .7 !important;
+}
+div.carousel-caption p {
+  font-size: xx-small !important;
+  padding: 0;
+}
+.tracker-summation-container {
+  top: 185px;
+}
+.carousel-feature img {
+  cursor: pointer;
+}
+#myPlayerID {
+  width: 480px;
+  height: 270px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+</style>
+
+<!-- Include styles for the feature carousel -->
+<link rel="stylesheet" type="text/css" href="https://solutions.brightcove.com/bcls/scripts/jQuery-Feature-Carousel/css/feature-carousel.css" />
+<!-- Custom code for horizontal menu and lightbox player -->
+<div class="player-block">
+  <a id="but_prev">PREV</a> | <a id="but_pause">PAUSE</a> | <a id="but_start">START</a> | <a id="but_next">NEXT</a>
+  <!-- Container for the carousel -->
+  <div id="carousel-outer-container">
+    <div id="feature-carousel-container" class="well well-small">
+      <div id="feature-carousel" class="carousel"></div>
+      <div id="carousel-left">
+        <img src="http://solutions.brightcove.com/bcls/scripts/jQuery-Feature-Carousel/images/arrow-left.png" />
+      </div>
+      <div id="carousel-right">
+        <img src="http://solutions.brightcove.com/bcls/scripts/jQuery-Feature-Carousel/images/arrow-right.png" />
+      </div>
+    </div>
+  </div>
+  <!-- Container for the lightbox -->
+  <div id="BCLSlightbox" class="BCLShide">
+
+    <!-- Player embed code with id attribute -->
+    <video-js id="myPlayerID" 
+       data-account="1752604059001" 
+       data-playlist-id="5686354139001" 
+       data-player="default" 
+       data-embed="default"
+       controls></video-js>
+    <script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+    <div id="BCLSclose" class="BCLSclose">Close</div>
+  </div>
+</div>
+
+<!-- Additional scripts for jQuery, Handlebars and the Feature Carousel -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
+<script src="https://solutions.brightcove.com/bcls/scripts/jQuery-Feature-Carousel/js/jquery.featureCarousel.js"></script>
+
+<script translate="no">
+  var myPlayer,
+  $lightbox = $("#BCLSlightbox"),
+  $carousel = $("#feature-carousel"),
+  $close = $(".BCLSclose"),
+  // Define the Handlebars template and the top navigation
+  videosTemplate =
+    '{{#each this}}<div class="carousel-feature"><img alt="{{name}}" class="carousel-image" src="{{thumbnailURL}}" width="180" height="96" data-id="{{id}}" /><div class="carousel-caption"><p>{{name}}</p></div></div>{{/each}}',
+  carouselNavigation =
+    '<div id="carousel-left"><img src="/en/scripts/jQuery-Feature-Carousel/images/arrow-left.png" alt="left image" /></div><div id="carousel-right"><img src="/en/scripts/jQuery-Feature-Carousel/images/arrow-right.png" alt="right image" /></div>',
+  template,
+  data,
+  results,
+  i = 0,
+  max = 0,
+  currentVideo,
+  playlistData,
+  vjs,
+  videoItem = {},
+  videoArray = [];
+
+var buildPlaylistData = function() {
+  // +++ Build video data array +++
+  // Build the video data array
+  for (var i in playlistData) {
+    videoItem = {
+      id: playlistData[i].id,
+      name: playlistData[i].name,
+      thumbnailURL: playlistData[i].thumbnail,
+      shortDescription: playlistData[i].description
+    };
+    videoArray.push(videoItem);
+  }
+  console.log('videoArray', videoArray);
+};
+
+// +++ Build feature carousel +++
+var buildCarousel = function() {
+  // Build the videos carousel
+  template = Handlebars.compile(videosTemplate);
+  results = template(videoArray);
+  $carousel.prepend(results);
+  // Instantiate the carousel
+  $carousel.featureCarousel({
+    smallFeatureWidth: 0.9,
+    smallFeatureHeight: 0.9,
+    trackerIndividual: false
+  });
+  // Add event listener for clicks on videos
+  $(".carousel-image").on("click", showAndLoad);
+  $("#but_prev").click(function() {
+    $carousel.prev();
+  });
+  $("#but_pause").click(function() {
+    $carousel.pause();
+  });
+  $("#but_start").click(function() {
+    $carousel.start();
+  });
+  $("#but_next").click(function() {
+    $carousel.next();
+  });
+  $close.on("click", hideAndStop);
+
+  // Let the video selector know the player is loaded
+  playerLoaded = true;
+};
+
+// +++ Play selected video +++
+var showAndLoad = function(e) {
+  // Make sure the player is loaded
+  if (playerLoaded) {
+    // Load the video
+    var currentID = $(this).attr("data-id");
+    var index = videoArray
+      .map(function(el) {
+        return el.id;
+      })
+      .indexOf(currentID);
+
+    // Load the selected video
+    myPlayer.playlist.currentItem(index);
+
+    // Reveal the lightbox
+    $lightbox.attr("class", "BCLSshow");
+    // Play the video
+    myPlayer.play();
+  }
+};
+
+// +++ Close lightbox +++
+var hideAndStop = function() {
+  // Pause the video
+  myPlayer.pause();
+
+  // Hide the lightbox
+  $lightbox.attr("class", "BCLShide");
+};
+
+videojs.getPlayer('myPlayerID').ready(function() {
+  myPlayer = this;
+  vjs = document.querySelector('video-js');
+  playlist_id = vjs.getAttribute('data-playlist-id');
+  myPlayer.one("loadedmetadata", function() {
+    myPlayer.catalog.getPlaylist(playlist_id, function(error, myPlaylist) {
+      // deal with error
+      // +++ Place playlist in player, but -1 parameter does not load playlist video in player +++
+      playlistData = myPlaylist;
+      console.log('playlist data', playlistData);
+      buildPlaylistData();
+      buildCarousel();
+    });    
+  });
+});
+
+</script>
