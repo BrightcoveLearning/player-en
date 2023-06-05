@@ -147,10 +147,16 @@ parent: Plugins
       <li><p><code translate="no">download-disabled</code>: Fired when the plugin is initialized and the button is disabled. This happens when the <code translate="no">mediainfo</code> object is either missing or has invalid <code translate="no">sources</code> or <code translate="no">transcripts</code> depending on the expected download method.</p></li>
       <li><p><code translate="no">download-started</code>: Fired when the download button is clicked and a download begins.</p></li>
       <li><p><code translate="no">download-finished</code>: Fired when a download finished successfully. This event also sends the file name to the listener.</p></li>
-      <li><p><code translate="no">download-disabled</code>: Fired when a download fails. This event also sends information about the error to the listener.</p></li>
-   
+      <li><p><code translate="no">download-failed</code>: Fired when a download fails. This event also sends information about the error to the listener.</p></li>
     </ul>
+  </section>
 
+  <section class="bcls-section">
+    <h2 id="Limitations">Limitations</h2>
+    <p>The following limitations apply to the Download Button plugin:</p>
+    <ul>
+      <li>The download button will not be initialized if the player is being viewed through Chromecast.</li>
+    </ul>
   </section>
 
 </article>
