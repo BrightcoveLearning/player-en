@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lightbox with Scroller</title>
+  <!-- <link href="https://players.brightcove.net/videojs-playlist-endscreen/2/videojs-playlist-endscreen.css" rel="stylesheet"> -->
+  <style>
+    /* Styles for lightbox */
+    #playerLightbox {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0;
+      margin-left: 0;
+      color: white;
+      text-align: center;
+      background-color: #333;
+      border-radius: 5px;
+      z-index: 20;
+      overflow: hidden;
+      -webkit-transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+      -moz-transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+      -ms-transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+      -o-transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+      transition: all 500ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+      /* easeInOutQuad */
+    }
+    .playerShow {
+      width: 530px;
+      height: 395px;
+      padding: 10px;
+      -webkit-box-shadow: 10px 10px 10px 10px rgba(151, 151, 151, .7);
+      box-shadow: 10px 10px 10px 10px rgba(151, 151, 151, .7);
+    }
+    .playerHide {
+      width: 0;
+      height: 0;
+      padding: 0;
+    }
+    .playerClose {
+      text-align: right;
+      margin-top: -2px;
+      text-decoration: underline;
+      color: #63A7CE;
+      width: 90%;
+      cursor: pointer;
+    }
+    /* Styles for video selector */
+    #scroller-outer-container {
+      position: relative;
+      background-color: #090909;
+      width: 480px;
+      height: 360px;
+      padding: 0px;
+      border: 1px #999 solid;
+      border-radius: 5px;
+    }
+    #scroller {
+      position: absolute;
+      top: 33px;
+      bottom: 30px;
+      height: auto;
+      left: 15px;
+      width: 450px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+    }
+
+    #scroller-item {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+    }
+    #scroller img {
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      vertical-align: top;
+      /* this prevents vertical whitespace */
+    }
+    div.scroller-caption {
+      position: relative;
+      bottom: 30px;
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      background-color: #313131;
+      opacity: .7 !important;
+    }
+    div.scroller-caption span {
+      font-size: small !important;
+      color: #FFF;
+    }
+    #myPlayerID {
+      width: 490px;
+      height: 360px;
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="scroller-outer-container">
+    <div id="scroller" class="customScroll">
+      <!-- This container is for the clickable video still images -->
+    </div>
+  </div>
+  
+  <!-- Lightbox container -->
+  <div id="playerLightbox" class="playerHide">
+  
+    <!-- Player embed code -->
+    <video-js id="myPlayerID"
+           data-playlist-id="5686354139001"
+           data-account="1752604059001"
+           data-player="default"
+           data-embed="default"
+           data-application-id
+           controls></video-js>
+    <script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+  
+    <!-- Lightbox close button -->
+    <div id="playerClose" class="playerClose" onClick="hideAndStop();">Close</div>
+  </div>
+
+
+  <script>
+
+    var myPlayer,
+    playlistData;
+
+    var buildPlaylistData = function () {
+      // +++ Build horizontal scroller +++
+      // Build the scroller of video poster images and names
+      var str = "";
+      for (var i in playlistData) {
+        str += "<div id='scroller-item'><img id='" + i + "'src='" +
+          playlistData[i].poster + "' /><div class=\"scroller-caption\"><span>" +
+          playlistData[i].name + "</span></div></div>";
+      }
+      document.getElementById("scroller").innerHTML = str;
+    };
+
+    // +++ Play selected video +++
+    scroller.onclick = function(e) {
+      // Load the selected video
+      var j = parseInt(e.target.id);
+      console.log(j)
+      myPlayer.load(playlistData[j]);
+      // Reveal the lightbox
+      document.getElementById("playerLightbox").className = "playerShow";
+
+      // Play the video
+      myPlayer.play();
+    }
+
+    // +++ Close lightbox +++
+    playerClose.onclick = function(e) {
+      myPlayer.pause();
+      // Hide the lightbox
+      document.getElementById("playerLightbox").className = "playerHide";
+    }
+
+    videojs.getPlayer('myPlayerID').ready(function() {
+      myPlayer = this;
+      vjs = document.querySelector('video-js');
+      playlist_id = vjs.getAttribute('data-playlist-id');
+      myPlayer.one("loadedmetadata", function() {
+        myPlayer.catalog.getPlaylist(playlist_id, function(error, myPlaylist) {
+          // deal with error
+          // +++ Place playlist in player, but -1 parameter does not load playlist video in player +++
+          playlistData = myPlaylist;
+          console.log('playlist data', playlistData);
+          buildPlaylistData();
+        });    
+      });
+    });
+  </script> 
+
+</body>
+</html>
