@@ -6,6 +6,76 @@ parent: Plugins
 <h1>{{ page.title }}</h1>
 <article class="bcls-article">
   <summary>{{ page.description }}</summary>
+  <!-- <h3>Adding Tags to GTM</h3>
+    <p>For each event you want to track, a Tag must be created in Google Tag Manager.</p>
+    <p>
+      To create Tags in Google Tag Manager, follow these steps </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          Login to your Google Tag Manager account </p>
+      </li>
+      <li>
+        Click <strong>Tags</strong> in the left side navigation, and click the <strong>New</strong> button, and then click <strong>Tag Configuration</strong>.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Create a new tag" src="/assets/images/plugins/google-tag-manager/create-tag.png" />
+          <figcaption class="bcls-caption--image">Create a new tag</figcaption>
+        </figure>
+      </li>
+      <li>Click on the <strong>Tag Configuration</strong> box
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Tag Configuration Modal" src="/assets/images/plugins/google-tag-manager/tag-configuration-dialog.png" />
+          <figcaption class="bcls-caption--image">Tag Configuration</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          Select the <strong>Tag Type</strong> as <strong>Google Analytics: GA4 Configuration</strong>.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Tag configuration" src="/assets/images/plugins/google-tag-manager/tag-configuration.webp" />
+          <figcaption class="bcls-caption--image">Tag configuration</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          Enter the tag details:
+        </p>
+        <ul>
+          <li>
+            <strong>Measurement ID</strong> - Enter your "G-" ID, or select the variable.
+          </li>
+          <li>
+            If you want to automatically send <code translate="no">pageview</code> events, keep the <strong>Send a page view event when this configuration loads</strong> option checked.
+          </li>
+
+        </ul>
+        <p>Optional settings:</p>
+        <ul>
+          <li><strong>Server-side tagging</strong> - To send all GA4 events to a Tag Manager server container instead of Google Analytics, select <strong>Send to server container</strong>.</li>
+          <li><strong>Parameters</strong> - Add any parameters to configure in <strong>Fields to Set</strong>.</li>
+          <li><strong>Custom properties</strong> - Add any custom user properties to configure in <strong>User Properties</strong>.</li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          Select the corresponding trigger to to make the tag fire.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Tags in GTM" src="/assets/images/plugins/google-tag-manager/all-pages.webp" />
+          <figcaption class="bcls-caption--image">Trigger</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          Your Tags should look similar to this in GTM: </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Tags in GTM" src="/assets/images/plugins/google-tag-manager/tags-in-gtm.webp" />
+          <figcaption class="bcls-caption--image">Tags in GTM</figcaption>
+        </figure>
+      </li>
+    </ol> -->
+
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <p>
@@ -31,9 +101,10 @@ parent: Plugins
     <p>From a high level, here are the major steps you must follow to implement and use GTM:</p>
      <ol class="bcls-tasklist">
       <li>Create a GTM account and setup a container - these are both part of the initial GTM setup</li>
-      <li>Copy and paste the container snippets that need to be implemented on your web pages. Google suggests that this code be placed in the <code>&lt;head&gt;</code> tag or immediately after the opening <code>&lt;body&gt;</code> tag.</li>
+      <li>Copy and paste the container snippets that need to be implemented on your web pages. Google suggests that this code be placed in the <code>&lt;head&gt;</code> tag or immediately after the opening <code>&lt;body&gt;</code> tag</li>
       <li>Create tags - for Google Analytics or Brightcove Player</li>
-      <li>Publish your tags.</li>
+      <li>Verify that your tags work</li>
+      <li>Publish your tags</li>
     </ol>
     <p>For setup details, see Google's <a href="https://support.google.com/tagmanager/answer/6103696?hl=en&ref_topic=3441530">Set up and install Tag Manager</a> document.</p>
 
@@ -129,18 +200,28 @@ parent: Plugins
       </table>
     </details>
     <br/>
-    <aside class="bcls-aside bcls-aside--information">Google Analytics 4 can be used with our Google Tag Manager plugin v2.0.1.</aside>
   </section>
+
   <section class="bcls-section">
     <h2 id="Requirements">Requirements</h2>
     <p>The following requirements are needed to use the GTM plugin:</p>
     <ul>
-      <li>Brightcove Player v6.46.0 or later</li>
+      <li>Brightcove Player v6.46.0 or later.</li>
       <li>The Google Tag Manager plugin requires that you use the Advanced embed code when publishing your player. You should NOT use the Standard (iFrame) embed code with this plugin. For details, see the <a href="#Integrating_with_Brightcove">Integrating with Brightcove</a> section.</li>
     </ul>
+    <aside class="bcls-aside bcls-aside--information">Please note that Player 6 can use v1 of GTM. Player 7 requires v2.0.1 or later of GTM. Google Analytics 4 can be used with our Google Tag Manager plugin v2.0.1.</aside>
+ 
   </section>
+
   <section class="bcls-section">
-    <h2 id="Getting_started">Getting started</h2>
+    <h2 id="Reviewing_events_and_dimensions">Reviewing events and dimensions</h2>
+
+    {% include s-general/bcplayer/gtm-plugin-events.html %}
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Set_up_Google_Tag_Manager">Set up Google Tag Manager</h2>
     <p>
       To set up Google Tag Manager follow these steps: </p> <!-- <ul>
  <li>Define tag configurations for Google Analytics</li> <li>Define triggers to fire beacons</li> <li> <p>Create variables for events and custom dimensions</p> <aside class="bcls-aside bcls-aside--information"> Make sure that each dimension's name and index number from Google Tag Manager matches the player's plugin JSON file.
@@ -194,20 +275,67 @@ parent: Plugins
  </li> -->
     </ol>
   </section>
+  
   <section class="bcls-section">
-    <h2 id="Reviewing_events_and_dimensions">Reviewing events and dimensions</h2>
-
-    {% include s-general/bcplayer/gtm-plugin-events.html %}
-
-  </section>
-  <section class="bcls-section">
-    <h2 id="Creating_variables_tags_&_triggers">Creating Variables, Tags & Triggers</h2>
+    <h2 id="Creating_variables_tags_&_triggers">Creating Triggers, Variables & Tags</h2>
     <p>Every Brightcove event that you want tracked must be created as an Event Tag in Google Tag Manager (GTM). The event IDs from GTM will then be used inside the Players module. This allows Brightcove event data to be passed to GTM events.</p>
     <p>For each Event Tag, you need to create a GTM trigger to send the event to Google Analytics. Then, in the GTM <strong>Variables</strong> tab, you will create the custom parameters associated with each event.</p> <!-- <p>You can create Variables, Tags and Triggers in Google Tag Manager, as shown below, or you can <a href="#Importing_a_container_file_in_GTM">import a Container file in GTM</a>. </p> -->
+    <h3>Adding Triggers to GTM</h3>
+    <p>After determining which events you want to track, create a Trigger in Google Tag Manager.</p>
+    <p>
+      To create Triggers in Google Tag Manager, follow these steps </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          Login to your Google Tag Manager account </p>
+      </li>
+      <li>
+        Click <strong>Triggers</strong> in the left side navigation, and click the <strong>New</strong> button
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Create a new trigger" src="/assets/images/plugins/google-tag-manager/create-trigger.png" />
+          <figcaption class="bcls-caption--image">Create a new trigger</figcaption>
+        </figure>
+      </li>
+      <li>Click on the <strong>Trigger Configuration</strong> box
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Trigger Configuration Modal" src="/assets/images/plugins/google-tag-manager/trigger-configuration-dialog.png" />
+          <figcaption class="bcls-caption--image">Trigger Configuration</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          Select the <strong>Trigger Type</strong> as <strong>Custom Event</strong>.
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Trigger configuration" src="/assets/images/plugins/google-tag-manager/trigger-configuration.png" />
+          <figcaption class="bcls-caption--image">Trigger configuration</figcaption>
+        </figure>
+      </li>
+      <li>
+        Enter the <strong>Event name</strong>. The event name should look similar to the image below.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Trigger configuration name" src="/assets/images/plugins/google-tag-manager/trigger-configuration-name.png" />
+          <figcaption class="bcls-caption--image">Trigger configuration name</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          Create a Trigger for each Event that you want to track.
+        </p>
+      </li>
+      <li>
+        <p>
+          Your Triggers should look similar to this in GTM: </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Triggers in GTM" src="/assets/images/plugins/google-tag-manager/triggers-in-gtm.png" />
+          <figcaption class="bcls-caption--image">Triggers in GTM</figcaption>
+        </figure>
+      </li>
+    </ol>
+
     <h3>Adding Variables to GTM</h3>
     <p>Brightcove parameters carry additional data and are passed with events. Every Brightcove parameter that will be recorded must be created as a Variable in Google Tag Manager. The parameter name will be used inside the player, allowing Brightcove parameters to be passed to Google Tag Manager Variables.</p>
-    <p>
-      To create Variables in Google Tag Manager, follow these steps </p>
+    <p> To create Variables in Google Tag Manager, follow these steps </p>
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
@@ -352,8 +480,9 @@ parent: Plugins
         </figure>
       </li>
     </ol>
+    
     <h3>Adding Tags to GTM</h3>
-    <p>After you determine which events you want to track, Tags must be created in Google Tag Manager.</p>
+    <p>For each event you want to track, a Tag must be created in Google Tag Manager.</p>
     <p>
       To create Tags in Google Tag Manager, follow these steps </p>
     <ol class="bcls-tasklist-restart">
@@ -363,6 +492,16 @@ parent: Plugins
       </li>
       <li>
         Click <strong>Tags</strong> in the left side navigation, and click the <strong>New</strong> button, and then click <strong>Tag Configuration</strong>.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Create a new tag" src="/assets/images/plugins/google-tag-manager/create-tag.png" />
+          <figcaption class="bcls-caption--image">Create a new tag</figcaption>
+        </figure>
+      </li>
+      <li>Click on the <strong>Tag Configuration</strong> box
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Tag Configuration Modal" src="/assets/images/plugins/google-tag-manager/tag-configuration-dialog.png" />
+          <figcaption class="bcls-caption--image">Tag Configuration</figcaption>
+        </figure>
       </li>
       <li>
         <p>
@@ -429,52 +568,12 @@ parent: Plugins
         </figure>
       </li>
     </ol>
-    <h3>Adding Triggers to GTM</h3>
-    <p>For each event that you want to track, you also need a Trigger in Google Tag Manager.</p>
-    <p>
-      To create Triggers in Google Tag Manager, follow these steps </p>
-    <ol class="bcls-tasklist-restart">
-      <li>
-        <p>
-          Login to your Google Tag Manager account </p>
-      </li>
-      <li>
-        Click <strong>Triggers</strong> in the left side navigation, and click the <strong>New</strong> button, and then click <strong>Trigger Configuration</strong>.
-      </li>
-      <li>
-        <p>
-          Select the <strong>Trigger Type</strong> as <strong>Custom Event</strong>.
-        </p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Trigger configuration" src="/assets/images/plugins/google-tag-manager/trigger-configuration.png" />
-          <figcaption class="bcls-caption--image">Trigger configuration</figcaption>
-        </figure>
-      </li>
-      <li>
-        Enter the Event name; the event name should look similar to the image below.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Trigger configuration name" src="/assets/images/plugins/google-tag-manager/trigger-configuration-name.png" />
-          <figcaption class="bcls-caption--image">Trigger configuration name</figcaption>
-        </figure>
-      </li>
-      <li>
-        <p>
-          Create a Trigger for each Event that you want to track.
-        </p>
-      </li>
-      <li>
-        <p>
-          Your Triggers should look similar to this in GTM: </p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Triggers in GTM" src="/assets/images/plugins/google-tag-manager/triggers-in-gtm.png" />
-          <figcaption class="bcls-caption--image">Triggers in GTM</figcaption>
-        </figure>
-      </li>
-    </ol>
+   
     <aside class="bcls-aside bcls-aside--information">
       For additional information on creating variables, tags, and triggers, see <a href="https://support.google.com/tagmanager/answer/9442095?hl=en&ref_topic=6333310">here</a>.
     </aside>
   </section>
+
   <section class="bcls-section">
     <h2 id="Integrating_with_Brightcove">Integrating with Brightcove</h2>
     <p>
@@ -599,6 +698,7 @@ parent: Plugins
       </li>
     </ol>
   </section>
+
   <section class="bcls-section">
     <h2 id="Creating_custom_dimensions"> Creating custom dimensions </h2>
     <p>
@@ -782,6 +882,7 @@ parent: Plugins
       </li>
     </ol> -->
   </section>
+
   <section class="bcls-section">
     <h2 id="Viewing_custom_dimensions"> Viewing custom dimensions </h2>
     <p>To view custom dimensions in Google Analytics, follow these steps: </p>
@@ -818,7 +919,8 @@ parent: Plugins
       </li>
     </ol>
   </section>
-  <section class="bcls-section">
+
+  <!-- <section class="bcls-section">
     <h2 id="GTM_dual_tagging">GTM dual tagging</h2>
     <p>To set up dual tagging in a website that already uses Universal Analytics through Google Tag Manager, a corresponding tag in Google Tag Manager for Google Analytics 4 will need to be set up for every current tag. The process must be replicated until all current Universal Analytics tags have parallel Google Analytics 4 tags.</p>
     <ol class="bcls-tasklist-restart">
@@ -859,7 +961,7 @@ parent: Plugins
         </figure>
       </li>
     </ol>
-  </section>
+  </section> -->
 </article>
 <!-- <section class="bcls-section"> <h2 id="Importing_a_container_file_in_GTM">Importing a container file</h2> <p> One way to add Variables, Tags and Triggers to Google Tag Manager is to import a JSON-formatted Container file. For details, see Google's <a href="https://support.google.com/tagmanager/answer/6106997?hl=en">Container export and import</a> document.
  </p>
