@@ -335,7 +335,8 @@ parent: Plugins
 
     <h3>Adding Variables to GTM</h3>
     <p>Brightcove parameters carry additional data and are passed with events. Every Brightcove parameter that will be recorded must be created as a Variable in Google Tag Manager. The parameter name will be used inside the player, allowing Brightcove parameters to be passed to Google Tag Manager Variables.</p>
-    <p> To create Variables in Google Tag Manager, follow these steps </p>
+    <aside class="bcls-aside bcls-aside--information">Data layer variable creation is a essential step for collecting GA4 analytics data from Brightcove Player.</aside>
+    <p>To create Variables in Google Tag Manager, follow these steps </p>
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
@@ -345,10 +346,16 @@ parent: Plugins
         Click <strong>Variables</strong> in the left side navigation.
       </li>
       <li>
-        <p>In the <strong>User-Defined Variables</strong> section, click the <strong>New</strong> button, and then click <strong>Variable Configuration</strong>.</p>
+        <p>In the <strong>User-Defined Variables</strong> section, click the <strong>New</strong> button</p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Data Layer Variable" src="/assets/images/plugins/google-tag-manager/new-variable.png" />
           <figcaption class="bcls-caption--image">Data Layer Variable</figcaption>
+        </figure>
+      </li>
+      <li>Click on the <strong>Variable Configuration</strong> box
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Variable Configuration Modal" src="/assets/images/plugins/google-tag-manager/variable-configuration-dialog.png" />
+          <figcaption class="bcls-caption--image">Variable Configuration</figcaption>
         </figure>
       </li>
       <li>
@@ -402,46 +409,46 @@ parent: Plugins
           Brightcove parameters you can create as GTM variables: </p>
         <ul>
           <li>
-            <strong>Account</strong> - Brightcove account ID
+            <strong>Account (account)</strong> - Brightcove account ID
           </li>
           <li>
-            <strong>Player</strong> - Player ID
+            <strong>Player (player)</strong> - Player ID
           </li>
           <li>
-            <strong>Player Name</strong> - Player Name
+            <strong>Player Name (player_name)</strong> - Player Name
           </li>
           <li>
-            <strong>Platform Version</strong> - Platform version number
+            <strong>Platform Version (platform_version)</strong> - Platform version number
           </li>
           <li>
-            <strong>Session</strong> - Session identifier
+            <strong>Session (session)</strong> - Session identifier
           </li>
           <li>
-            <strong>Video</strong> - Video ID
+            <strong>Video (video)</strong> - Video ID
           </li>
           <li>
-            <strong>Video Name</strong> - Name of the video
+            <strong>Video Name (video_name)</strong> - Name of the video
           </li>
           <li>
-            <strong>Range</strong> - The range of seconds viewed in the format StartSecond..EndSecond
+            <strong>Range (range)</strong> - The range of seconds viewed in the format StartSecond..EndSecond
           </li>
           <li>
-            <strong>Video Seconds Viewed</strong> - Count of watched seconds
+            <strong>Video Seconds Viewed (seconds_viewed)</strong> - Count of watched seconds
           </li>
           <li>
-            <strong>Video Duration</strong> - The duration of the video in seconds
+            <strong>Video Duration (duration)</strong> - The duration of the video in seconds
           </li>
           <li>
-            <strong>Video Percent Viewed</strong> - Percentage of video watched
+            <strong>Video Percent Viewed (percent_viewed)</strong> - Percentage of video watched
           </li>
           <li>
-            <strong>Error Code</strong> - Platform specific error code associated with the event
+            <strong>Error Code (error)</strong> - Platform specific error code associated with the event
           </li>
           <li>
-            <strong>Video Milestone</strong> - Milestone (25%,50%,75%,100%) completed by the video
+            <strong>Video Milestone (milestone)</strong> - Milestone (25%,50%,75%,100%) completed by the video
           </li>
           <li>
-            <strong>Video Playhead</strong> - The time in the video at which the event is triggered
+            <strong>Video Playhead (playhead)</strong> - The time in the video at which the event is triggered
           </li>
           <!-- <li>
  <strong>Country</strong> - ISO-3166 (alpha 2) country code, e.g.: US </li>
@@ -642,10 +649,13 @@ parent: Plugins
     "bcvideo_error_code": "error",
     "bcvideo_account": "account",
     "bcvideo_session": "session",
-    "bcvideo_video_milestone": "milestone", "bcvideo_video_name": "video_name",
+    "bcvideo_video_milestone": "milestone", 
+    "bcvideo_video_name": "video_name",
     "bcvideo_range": "range",
-    "bcvideo_video_seconds_viewed": "seconds_viewed", "bcvideo_player_name": "player_name",
-    "bcvideo_video_percent_viewed": "percent_viewed", "bcvideo_destination": "destination",
+    "bcvideo_video_seconds_viewed": "seconds_viewed", 
+    "bcvideo_player_name": "player_name",
+    "bcvideo_video_percent_viewed": "percent_viewed", 
+    "bcvideo_destination": "destination",
     "bcvideo_video_playhead": "playhead"
   }
  <!-- ,
@@ -702,11 +712,8 @@ parent: Plugins
   <section class="bcls-section">
     <h2 id="Creating_custom_dimensions"> Creating custom dimensions </h2>
     <p>
-      Custom dimensions are metrics that you create yourself in Google Analytics. There are two ways to add custom dimensions, the first is adding the dimensions directly in Google Analytics, and the other is using Google Scripts.
+      Custom dimensions are metrics that you create yourself in Google Analytics. Use the follow steps to create the custom dimensions in the Google Analytics UI:
     </p>
-    <h3>Adding custom dimensions with Google Analytics</h3>
-    <p>To add the custom dimensions directly in Google Analytics, follow these steps:</p>
-    <p>Use the follow steps to create the custom dimensions in the Google Analytics UI:</p>
     <ol class="bcls-tasklist-restart">
       <li>Login to your Google Analytics account.</li>
       <li>In the GA page:
@@ -830,7 +837,7 @@ parent: Plugins
     'scope':'HIT',
     'active':true,
  }
- //This create a request to the new custom dimension Analytics.Management.CustomDimensions.insert(customDimensions,accountId,webPropertyId); 
+ //This create a request to the new custom dimension Analytics.Management. insert(customDimensions,accountId,webPropertyId); 
  // Pause for 1 second between adding each custom dimension, this ensure that the GA property has time 
  // to process the request fully before moving to the next custom dimension.
  Utilities.sleep(1000)
@@ -901,7 +908,7 @@ parent: Plugins
       </li>
       <li>
         <p>
-          Click on <strong>Custom Definitions</strong> to expand it, then select <strong>Custom Dimensions</strong>.
+          Click on <strong>Custom Definitions</strong>
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Custom dimensions" src="/assets/images/plugins/google-tag-manager/custom-dimensions.png" />
@@ -910,11 +917,11 @@ parent: Plugins
       </li>
       <li>
         <p>
-          You should see the custom dimensions along with their associated indices.
+          You should see the custom dimensions.
         </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Dimensions and indices" src="/assets/images/plugins/google-tag-manager/dimensions-indices.webp" />
-          <figcaption class="bcls-caption--image"> Dimensions and indices </figcaption>
+          <figcaption class="bcls-caption--image"> Dimensions </figcaption>
         </figure>
       </li>
     </ol>
