@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Ad Only Plugin</title>
+  <title>Ad Only Player</title>
 </head>
 
 <body>
@@ -46,31 +46,7 @@
     bcPlayerTools.expandAndInjectAdOnlyPlayer({
       div: adPlayerDiv,
       // Un-comment this line if you want to try an adTag
-      adTag: "https://ads.brightcove.com/ads?vc=1&dur=5",
-      // Or you can use in-line VAST like this. Comment this part out if you want to use an ad tag
-      // adsResponse:
-      // 	'<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd"\ version="3.0">\
-      // 	 <Ad id="bc-test-10s-blue">\
-      // 	  <InLine>\
-      // 	   <AdSystem>BCTest</AdSystem>\
-      // 	   <AdTitle>10-Second Soccer Ball Countdown</AdTitle>\
-      // 	   <Description><![CDATA[5-Second Brightcove marketing Ad]]></Description>\
-      // 	   <Creatives>\
-      // 	    <Creative AdID="bc-test-10s-blue">\
-      // 	     <Linear>\
-      // 	      <Duration>00:00:05</Duration>\
-      // 	      <VideoClicks>\
-      // 	        <ClickThrough><![CDATA[//www.brightcove.com/]]></ClickThrough>\
-      // 	      </VideoClicks>\
-      // 	      <MediaFiles>\
-      // 	       <MediaFile id="bc_test" delivery="progressive" width="1280" height="720" type="video/mp4" bitrate="2096" scalable="true" maintainAspectRatio="true"><![CDATA[//solutions.brightcove.com/bcls/ads/bc-ads/bcls-ad-6-5seconds.mp4]]></MediaFile>\
-      // 	      </MediaFiles>\
-      // 	     </Linear>\
-      // 	    </Creative>\
-      // 	   </Creatives>\
-      // 	  </InLine>\
-      // 	 </Ad>\
-      // 	</VAST>',
+      adTag: "//solutions.brightcove.com/bcls/ads/simple-vast.xml",
       height: 360,
       animationDuration: 200,
       // autoplays muted by default - which is the only way it will work in some browsers

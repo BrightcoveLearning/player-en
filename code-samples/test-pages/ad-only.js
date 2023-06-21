@@ -94,20 +94,19 @@ window.Promise || document.write('<script src="https://unpkg.com/es6-promise@3.2
 		player.addClass("vjs-ad-only");
 		player.adonly = true;
 
-    console.log("ready for ad");
+    console.log("ready for ad",options);
 
 		// initialize the IMA3 plugin
 		player.ima3({
 			// if the adsResponse in-line VAST is supplied just provide a dummy ad tag
 			serverUrl: options.adsResponse ? "abc" : options.adTag,
 			timeout: options.timeout ? options.timeout : 7000, // use a 7-second timeout
-			requestMode: "onplay",
-			adTechOrder: ["html5"]
+			requestMode: "onplay"
 		});
 
 		// wait for IMA3 to be ready before triggering play
 		player.on('ima3-ready', function() {
-      console.log("ima3 ready");
+      console.log("ima3 ready",player);
 			// if the user has provided an in-line VAST ad server response use that instead of the ad tag
       // console.log("use in-line VAST instead of ad tag",options.adsResponse);
 			if (options.adsResponse) {
@@ -139,7 +138,8 @@ window.Promise || document.write('<script src="https://unpkg.com/es6-promise@3.2
 			}, 200); // delay
 		});
 		// our "content" video is a 1-second black MP4 which never gets shown
-		player.src("//d2zihajmogu5jn.cloudfront.net/tiny.mp4");
+		// player.src("//d2zihajmogu5jn.cloudfront.net/tiny.mp4");
+    player.src("//solutions.brightcove.com/bcls/ads/bc-ads/bcls-ad-4-12seconds.mp4");
 
 		return player;
 	};
