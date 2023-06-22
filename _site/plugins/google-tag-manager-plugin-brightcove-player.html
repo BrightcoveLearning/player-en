@@ -1838,75 +1838,6 @@
 <h1>Google Tag Manager Plugin for Brightcove Player</h1>
 <article class="bcls-article">
   <summary>In this topic, you will learn how to use the Google Tag Manager (GTM) plugin for Brightcove Player.</summary>
-  <!-- <h3>Adding Tags to GTM</h3>
-    <p>For each event you want to track, a Tag must be created in Google Tag Manager.</p>
-    <p>
-      To create Tags in Google Tag Manager, follow these steps </p>
-    <ol class="bcls-tasklist-restart">
-      <li>
-        <p>
-          Login to your Google Tag Manager account </p>
-      </li>
-      <li>
-        Click <strong>Tags</strong> in the left side navigation, and click the <strong>New</strong> button, and then click <strong>Tag Configuration</strong>.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Create a new tag" src="/assets/images/plugins/google-tag-manager/create-tag.png" />
-          <figcaption class="bcls-caption--image">Create a new tag</figcaption>
-        </figure>
-      </li>
-      <li>Click on the <strong>Tag Configuration</strong> box
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Tag Configuration Modal" src="/assets/images/plugins/google-tag-manager/tag-configuration-dialog.png" />
-          <figcaption class="bcls-caption--image">Tag Configuration</figcaption>
-        </figure>
-      </li>
-      <li>
-        <p>
-          Select the <strong>Tag Type</strong> as <strong>Google Analytics: GA4 Configuration</strong>.
-        </p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Tag configuration" src="/assets/images/plugins/google-tag-manager/tag-configuration.webp" />
-          <figcaption class="bcls-caption--image">Tag configuration</figcaption>
-        </figure>
-      </li>
-      <li>
-        <p>
-          Enter the tag details:
-        </p>
-        <ul>
-          <li>
-            <strong>Measurement ID</strong> - Enter your "G-" ID, or select the variable.
-          </li>
-          <li>
-            If you want to automatically send <code translate="no">pageview</code> events, keep the <strong>Send a page view event when this configuration loads</strong> option checked.
-          </li>
-
-        </ul>
-        <p>Optional settings:</p>
-        <ul>
-          <li><strong>Server-side tagging</strong> - To send all GA4 events to a Tag Manager server container instead of Google Analytics, select <strong>Send to server container</strong>.</li>
-          <li><strong>Parameters</strong> - Add any parameters to configure in <strong>Fields to Set</strong>.</li>
-          <li><strong>Custom properties</strong> - Add any custom user properties to configure in <strong>User Properties</strong>.</li>
-        </ul>
-      </li>
-      <li>
-        <p>
-          Select the corresponding trigger to to make the tag fire.
-        </p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Tags in GTM" src="/assets/images/plugins/google-tag-manager/all-pages.webp" />
-          <figcaption class="bcls-caption--image">Trigger</figcaption>
-        </figure>
-      </li>
-      <li>
-        <p>
-          Your Tags should look similar to this in GTM: </p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Tags in GTM" src="/assets/images/plugins/google-tag-manager/tags-in-gtm.webp" />
-          <figcaption class="bcls-caption--image">Tags in GTM</figcaption>
-        </figure>
-      </li>
-    </ol> -->
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
@@ -1962,10 +1893,7 @@
         Play request
       </li>
       <li>
-        Video complete
-      </li>
-      <li>
-        Advanced player events such as ad start, ad end </li>
+        Advanced player events such as ad_mode_begin, ad_mode_complete</li>
       <li>
         Errors which disrupt the playback experience </li>
     </ul>
@@ -2046,7 +1974,7 @@
   </section>
 
   <section class="bcls-section">
-    <h2 id="Reviewing_events_and_dimensions">Reviewing events and dimensions</h2>
+    <h2 id="Reviewing_events_dimensions_and_variables">Reviewing events, dimensions and variables</h2>
 
     
 <p>Choose the events and dimensions that you want to track from Brightcove Player.</p>
@@ -2087,12 +2015,12 @@
         Playback is initiated either by the user expressly clicking the play button, or automatically when the platform triggers playback in an auto-play scenario </td>
     </tr>
     <tr>
-      <td><code translate="No">ad_start</code></td>
+      <td><code translate="No">ad_mode_begin</code></td>
       <td>
         Control is handed over to an advertising agent by the playback platform </td>
     </tr>
     <tr>
-      <td><code translate="No">ad_end</code></td>
+      <td><code translate="No">ad_mode_complete</code></td>
       <td>
         Control is handed back from the advertising agent to the playback platform </td>
     </tr>
@@ -2105,6 +2033,9 @@
       <td><code translate="No">video_complete</code></td>
       <td>
         Video playback finishes
+        <p>
+          <aside class="bcls-aside bcls-aside--information">Note: This event can be retrieved only with Player 6 and is no longer available for Player 7 and above.</aside>
+        </p>
       </td>
     </tr>
   </tbody>
@@ -2222,6 +2153,109 @@
       <td><code translate="No">bcvideo_video_milestone</code></td>
       <td>
         Sent in <code translate="No">engagement</code> event
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="GTM_variables">GTM Variables</h4>
+<p>These are Brightcove parameters you can create as GTM variables.</p>
+<table class="bcls-table">
+  <thead class="bcls-table__head">
+    <tr>
+      <th style="width:20%">Variable name</th>
+      <th style="width:65%">Description</th>
+    </tr>
+  </thead>
+  <tbody class="bcls-table__body">
+    <tr>
+      <td><code translate="No">account</code></td>
+      <td>
+        Brightcove account ID
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">player</code></td>
+      <td>
+        Player ID
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">player_name</code></td>
+      <td>
+        Player Name
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">platform_version</code></td>
+      <td>
+        Platform version number
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">session</code></td>
+      <td>
+        Session identifier
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">video</code></td>
+      <td>
+        Video ID
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">video_name</code></td>
+      <td>
+        Name of the video
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">range</code></td>
+      <td>
+        The range of seconds viewed in the format StartSecond..EndSecond
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">seconds_viewed</code></td>
+      <td>
+        Count of watched seconds
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">duration</code></td>
+      <td>
+        The duration of the video in seconds
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">percent_viewed</code></td>
+      <td>
+        Percentage of video watched
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">error</code></td>
+      <td>
+        Platform specific error code associated with the event
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">milestone</code></td>
+      <td>
+        Milestone (25%,50%,75%,100%) completed by the video
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">playhead</code></td>
+      <td>
+        The time in the video at which the event is triggered
+      </td>
+    </tr>
+    <tr>
+      <td><code translate="No">destination</code></td>
+      <td>
+        URI that originated the event
       </td>
     </tr>
   </tbody>
@@ -2408,85 +2442,12 @@
       </li> -->
       <li>
         <p>
-          Then create the variables required to reflect the Brightcove parameters. In this case, the name of the <strong>Data Layer Variable</strong> should match what is in the player’s JSON config for <code>paramsToTrack</code> after <strong>customDimensions</strong> in the GTM variable. Here is an example: </p>
+          Then create the variables required to reflect the Brightcove parameters. In this case, the name of the <strong>Data Layer Variable</strong> should match what is in the player’s JSON config for <code>paramsToTrack</code> after <strong>customDimensions</strong> in the GTM variable. To see a list of the Brightcove parameters you can create as GTM variables, see <a href="#GTM_variables">here</a>.
+          Here is an example: </p>
         <figure class="bcls-figure">
           <img class="bcls-image--no-border" alt="Account variable" src="/assets/images/plugins/google-tag-manager/account-variable.png" />
           <figcaption class="bcls-caption--image">Account variable</figcaption>
         </figure>
-      </li>
-      <li>
-        <p>
-          Brightcove parameters you can create as GTM variables: </p>
-        <ul>
-          <li>
-            <strong>Account (account)</strong> - Brightcove account ID
-          </li>
-          <li>
-            <strong>Player (player)</strong> - Player ID
-          </li>
-          <li>
-            <strong>Player Name (player_name)</strong> - Player Name
-          </li>
-          <li>
-            <strong>Platform Version (platform_version)</strong> - Platform version number
-          </li>
-          <li>
-            <strong>Session (session)</strong> - Session identifier
-          </li>
-          <li>
-            <strong>Video (video)</strong> - Video ID
-          </li>
-          <li>
-            <strong>Video Name (video_name)</strong> - Name of the video
-          </li>
-          <li>
-            <strong>Range (range)</strong> - The range of seconds viewed in the format StartSecond..EndSecond
-          </li>
-          <li>
-            <strong>Video Seconds Viewed (seconds_viewed)</strong> - Count of watched seconds
-          </li>
-          <li>
-            <strong>Video Duration (duration)</strong> - The duration of the video in seconds
-          </li>
-          <li>
-            <strong>Video Percent Viewed (percent_viewed)</strong> - Percentage of video watched
-          </li>
-          <li>
-            <strong>Error Code (error)</strong> - Platform specific error code associated with the event
-          </li>
-          <li>
-            <strong>Video Milestone (milestone)</strong> - Milestone (25%,50%,75%,100%) completed by the video
-          </li>
-          <li>
-            <strong>Video Playhead (playhead)</strong> - The time in the video at which the event is triggered
-          </li>
-          <!-- <li>
- <strong>Country</strong> - ISO-3166 (alpha 2) country code, e.g.: US </li>
- <li>
- <strong>Country Name</strong> - Human readable country name e.g.: United States </li>
- <li>
- <strong>Region</strong> - ISO-3166 (alpha 2) region code </li>
- <li>
- <strong>Region Name</strong> - Human readable region name </li>
- <li>
- <strong>City</strong> - City Name
- </li>
- <li>
- <strong>Browser</strong> - Full name and version of the browser used </li>
- <li>
- <strong>Browser Type</strong> - Common name of browser used (i.e. Chrome, Edge, Firefox) </li> -->
-          <li>
-            <strong>Destination</strong> - URI that originated the event
-          </li>
-          <!-- <li>
- <strong>Source</strong> - URI that sent end-user to destination </li>
- <li>
- <strong>Device Type</strong> - Override to specify the OS of the device that originated the event in cases where the User-Agent is unreliable </li>
- <li>
- <strong>Device OS</strong> - The name of OS being used by the device </li>
- <li>
- <strong>Device OS Version</strong> - The version of OS being used by the device </li> -->
-        </ul>
       </li>
       <li>
         <p>
@@ -2525,7 +2486,7 @@
           Select the <strong>Tag Type</strong> as <strong>Google Analytics: GA4 Configuration</strong>.
         </p>
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Tag configuration" src="/assets/images/plugins/google-tag-manager/tag-configuration.webp" />
+          <img class="bcls-image--no-border" alt="Tag configuration" src="/assets/images/plugins/google-tag-manager/tag-type.png" />
           <figcaption class="bcls-caption--image">Tag configuration</figcaption>
         </figure>
       </li>
@@ -2566,6 +2527,17 @@
           <li><strong>Parameters</strong> - Add any parameters to configure in <strong>Fields to Set</strong>.</li>
           <li><strong>Custom properties</strong> - Add any custom user properties to configure in <strong>User Properties</strong>.</li>
         </ul>
+        <p>Here is an example:</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Tag configuration" src="/assets/images/plugins/google-tag-manager/tag-configuration.png" />
+          <figcaption class="bcls-caption--image">Tag configuration</figcaption>
+        </figure>
+      </li>
+      <li>Then click on the <strong>Triggering</strong> box 
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Triggering Modal" src="/assets/images/plugins/google-tag-manager/triggering.png" />
+          <figcaption class="bcls-caption--image">Triggering</figcaption>
+        </figure>
       </li>
       <li>
         <p>
@@ -2646,13 +2618,15 @@
  <code class="language-json" translate="No">{ 
   "tracker":"<span class="bcls-input">your Google Tag Manager id</span>", 
   "eventsToTrack": {
-    "ad_end": "Ad End",
-    "ad_start": "Ad Start",
+    "ad_mode_complete": "Ad Mode Complete",
+    "ad_mode_begin": "Ad Mode Begin",
     "error": "Error",
     "play_request": "Play Request",
     "player_load": "Player Load",
     "video_complete": "Video Complete",
-    "video_engagement": "Video Engagement", "video_impression": "Video Impression", "video_view": "Video View"
+    "video_engagement": "Video Engagement", 
+    "video_impression": "Video Impression", 
+    "video_view": "Video View"
   },
   "paramsToTrack": {
     "bcvideo_video_duration": "duration",
@@ -2937,48 +2911,6 @@
     </ol>
   </section>
 
-  <!-- <section class="bcls-section">
-    <h2 id="GTM_dual_tagging">GTM dual tagging</h2>
-    <p>To set up dual tagging in a website that already uses Universal Analytics through Google Tag Manager, a corresponding tag in Google Tag Manager for Google Analytics 4 will need to be set up for every current tag. The process must be replicated until all current Universal Analytics tags have parallel Google Analytics 4 tags.</p>
-    <ol class="bcls-tasklist-restart">
-      <li> <p>Create a <a href="https://support.google.com/analytics/answer/9744165?hl=en#zippy=%2Cin-this-article">Google Analytics 4 property</a> and note its tracking ID. In Google Tag Manager, create a new tag and select <strong>Google Analytics: GA4 configuration</strong> as the tag type.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/creating-tag.webp" />
-          <figcaption class="bcls-caption--image">Create tag</figcaption>
-        </figure>
-      </li>
-      <li><p>Enter the new GA4 property tracking ID in the measurement ID field.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/property-id.webp" />
-          <figcaption class="bcls-caption--image">Property Tracking ID</figcaption>
-        </figure>
-      </li>
-      <li><p>Select <strong>All pages</strong> as the trigger to make the tag fire.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/triggering.webp" />
-          <figcaption class="bcls-caption--image">Selecting Trigger</figcaption>
-        </figure>
-      </li>
-      <li><p>Create a GA4 tag for every Universal Analytics event that is set up. For example, to set up the <code translate="no">play_request</code> event, you must create the trigger first.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/play-request.webp" />
-          <figcaption class="bcls-caption--image">Play Request Trigger</figcaption>
-        </figure>
-      </li>
-      <li><p>Then, create a tag and select <strong>Google Analytics: GA4 Event</strong> as the tag type, select <strong>Google Analytics: GA4 configuration</strong> as the configuration type, <code translate="no">play_request</code> as the event name, and select the play request trigger as the firing trigger.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/play-request-config.webp" />
-          <figcaption class="bcls-caption--image">Play Request Tag Configuration</figcaption>
-        </figure>
-      </li>
-      <li><p>To test the setup, click <strong>Preview</strong> on the top right corner and enter the website URL with UA GTM installed. Make sure that the newly set GA4 tags get fired along with the already existing UA tags.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Analytics admin" src="/assets/images/plugins/google-tag-manager/play-request-final-setup.webp" />
-          <figcaption class="bcls-caption--image">Play Request Test</figcaption>
-        </figure>
-      </li>
-    </ol>
-  </section> -->
 </article>
 <!-- <section class="bcls-section"> <h2 id="Importing_a_container_file_in_GTM">Importing a container file</h2> <p> One way to add Variables, Tags and Triggers to Google Tag Manager is to import a JSON-formatted Container file. For details, see Google's <a href="https://support.google.com/tagmanager/answer/6106997?hl=en">Container export and import</a> document.
  </p>
