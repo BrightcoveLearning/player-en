@@ -105,7 +105,8 @@ window.Promise || document.write('<script src="https://unpkg.com/es6-promise@3.2
 		});
 
 		// wait for IMA3 to be ready before triggering play
-		player.on('ima3-ready', function() {
+		// player.on('ima3-ready', function() {
+    player.ready(function() {
       console.log("ima3 ready",player);
 			// if the user has provided an in-line VAST ad server response use that instead of the ad tag
       // console.log("use in-line VAST instead of ad tag",options.adsResponse);
