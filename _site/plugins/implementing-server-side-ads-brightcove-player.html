@@ -2360,10 +2360,9 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
       Because server-side ads (SSAI) are stitched into the stream, the treatment of SSAI midrolls differs from that of CSAI midrolls. 
     For SSAI midrolls, here is the expected behavior:
       <ul>
-        <li>When a user moves the playhead past an ad, the ad will play before the content resumes</li>
-        <li>When the user moves the playhead back before the ad, the ad will play again</li>
+        <li>When a user seeks past a midroll ad without watching it, the ad will play before the content resumes.</li>
+        <li>When a user seeks past a midroll ad after having watched the ad, the player will skip the midroll ad.</li>
       </ul>
-      In conclusion, every time a user crosses a midroll ad, it will play immediately, no matter how many times they cross it. 
   </section>
 
   <section class="bcls-section">
