@@ -1841,11 +1841,11 @@
 <article class="bcls-article">
     <div class="container-fluid py-2" style="width: 75%;">
         <div class="row align-items-center">
-            <!-- <p class="text-center" style="color: white;">In this series debut, we cover: Client-side Ad Insertion, Server-side Ad Insertion (SSAI) and Search Engine Optimization.</p> -->
-            <div style="position: relative; display: block; max-width: 100%; min-height: 544px;">
+            <!-- <p class="text-center" style="color: white;">In this series debut, we cover: Client-side Ad Insertion, Server-side Ad Insertion (SSAI) and Search Engine Optimization.</p> min-height: 544px;-->
+            <div style="position: relative; display: block; max-width: 100%; ">
                 <div
                     id="interactivity_embedded_experience_649430fce65f42001e687f13"
-                    style="padding-top: 56.255;"> <iframe
+                    style="padding-top: calc(56.25% + 4px) !important;"> <iframe
                         src="https://player.interactivity.brightcove.com/latest/experience/cee0af20c4a1416da85236bbaf042c8f?embed_experience=true"
                         frameborder="0" allowfullscreen webkitallowfullscreen
                         mozallowfullscreen
@@ -1920,6 +1920,22 @@
             </div>
         </div>
     </div>
+    <script>
+    var BCLS = ( function (window, document) {
+        var experience_wrapper = document.getElementById('interactivity_embedded_experience_649430fce65f42001e687f13'),
+        t;
+        t = window.setTimeout(fixStyle, 10000);
+
+
+        // code may execute before the experience has fully loaded
+        // to ensure you get a reference to the experience,
+        // try it, and if it fails keep waiting a second and try again
+        function fixStyle () {
+            experience_wrapper.setAttribute('style', 'padding-top: calc(56.25% + 4px);');
+            t = window.setTimeout(fixStyle, 5000);
+        }  
+    })(window, document);
+    </script>
 </article>
 </div>
 </div>
