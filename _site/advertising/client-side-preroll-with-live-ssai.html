@@ -1844,17 +1844,16 @@
 <p>This feature requires the following:</p>
 
 <ul>
-	<li>IMA3 plugin v3.5.0+</li>
-	<li>SSAI plugin v1.11.0+</li>
-	<li>Brightcove Player version 6.44.0+</li>
+  <li>IMA3 plugin v3.5.0+</li>
+  <li>SSAI plugin v1.11.0+</li>
 </ul>
 </aside>
 
 <h3>Caveats</h3> 
 
 <ul>
-	<li>Customers using this feature must be using Dynamic Delivery.</li>
-	<li>Only IMA and SSAI plugins are supported (no FreeWheel).</li>
+  <li>Customers using this feature must be using Dynamic Delivery.</li>
+  <li>Only IMA and SSAI plugins are supported (no FreeWheel).</li>
   <li>Currently, this feature only supports a single player on the page.</li>
 </ul>
 </section>
@@ -1865,9 +1864,9 @@
 <p>To play a client-side IMA pre-roll ad with a live SSAI stream, follow these steps:</p>
 
 <ol class="bcls-tasklist-restart">
-	<li><a href="#Create_an_SSAI_enabled_live_stream">Create an SSAI-enabled live stream</a></li>
-	<li><a href="#Create_a_Brightcove_player">Create a Brightcove player</a></li>
-	<li><a href="#Implementing_client_side_pre_roll_using_Studio">Implement client-side pre-roll using Studio </a></li>
+  <li><a href="#Create_an_SSAI_enabled_live_stream">Create an SSAI-enabled live stream</a></li>
+  <li><a href="#Create_a_Brightcove_player">Create a Brightcove player</a></li>
+  <li><a href="#Implementing_client_side_pre_roll_using_Studio">Implement client-side pre-roll using Studio </a></li>
 </ol>
 
 <h3 id="Create_an_SSAI_enabled_live_stream">Create an SSAI-enabled live stream</h3>
@@ -1883,7 +1882,7 @@
 
 <p>Create a new Brightcove player using the <strong>Players</strong> module. For details, see the <a href="https://studio.support.brightcove.com/get-started/basics/creating-player.html">Quick Start: Creating and Styling a Player</a> document.</p>
 
-<aside class="bcls-aside bcls-aside--information">You must use a Brightcove Player version 6.44.0+.</aside>
+<p>You must use a Brightcove Player version 6.44.0 or later.</p>
 </section>
 
 <section class="bcls-section">
@@ -1892,31 +1891,31 @@
 <p>The easiest way to configure your player for auto-failover ads is by using Studio. Once you have created an ad configuration and player, then you are ready to configure the player for auto-failover as follows:</p>
 
 <ol class="bcls-tasklist-restart">
-	<li>Open the <strong>Players</strong> module and locate the player to which you want to add advertising functionality.</li>
-	<li>Click the link for the player to open the player properties.</li>
-	<li>In the left navigation menu, click <strong>Advertising</strong>.</li>
-	<li>Check the <strong>Enable Client-Side (IMA)</strong> checkbox.</li>
-	<li>Include the URL for your IMA Ad Tag. For this example, we will use the sample Ad Tag URL.
+  <li>Open the <strong>Players</strong> module and locate the player to which you want to add advertising functionality.</li>
+  <li>Click the link for the player to open the player properties.</li>
+  <li>In the left navigation menu, click <strong>Advertising</strong>.</li>
+  <li>Check the <strong>Enable Client-Side (IMA)</strong> checkbox.</li>
+  <li>Include the URL for your IMA Ad Tag. For this example, we will use the sample Ad Tag URL.
 
-	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable client-side ads" src="/assets/images/s-live-img/live-module/live-ssai/enable-client-side.png" />
-	<figcaption class="bcls-caption--image">Enable client-side ads</figcaption>
-	</figure>
+  <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable client-side ads" src="/assets/images/s-live-img/live-module/live-ssai/enable-client-side.png" />
+  <figcaption class="bcls-caption--image">Enable client-side ads</figcaption>
+  </figure>
 
-	<p>For details about the player advertising properties, see the <a href="https://studio.support.brightcove.com/players/general/configuring-player-advertising-using-players-module.html">Configuring Player Advertising using the Players Module</a> document.</p>
-	</li>
-	<li>
-	<p>Check the <strong>Enable Server-Side (SSAI)</strong> checkbox.</p>
+  <p>For details about the player advertising properties, see the <a href="https://studio.support.brightcove.com/players/general/configuring-player-advertising-using-players-module.html">Configuring Player Advertising using the Players Module</a> document.</p>
+  </li>
+  <li>
+  <p>Check the <strong>Enable Server-Side (SSAI)</strong> checkbox.</p>
 
-	<aside class="bcls-aside bcls-aside--information">The server-side option will not appear unless your account has been enabled for SSAI.</aside>
-	</li>
-	<li>From the <strong>Select Configuration</strong> dropdown menu, select the ad configuration that you would like to associate with this player.</li>
-	<li>If you want overlays to display over your ads, check the <strong>Enable ad information overlays</strong> checkbox. This includes "Learn More" and ad count down overlays.
+  <aside class="bcls-aside bcls-aside--information">The server-side option will not appear unless your account has been enabled for SSAI.</aside>
+  </li>
+  <li>From the <strong>Select Configuration</strong> dropdown menu, select the ad configuration that you would like to associate with this player.</li>
+  <li>If you want overlays to display over your ads, check the <strong>Enable ad information overlays</strong> checkbox. This includes "Learn More" and ad count down overlays.
     <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Enable SSAI" src="/assets/images/s-live-img/live-module/live-ssai/enable-ssai.png" />
       <figcaption class="bcls-caption--image">Enable SSAI</figcaption>
     </figure>
     <aside class="bcls-aside bcls-aside--information">Overlays will not display until you enable them here and configure them in your VAST ad tag.</aside>
   </li>
-	<li>Click the <strong>Save</strong> button.</li> 
+  <li>Click the <strong>Save</strong> button.</li> 
   <li>In the left navigation menu, click <strong>JSON Editor</strong>.
   </li>
   <li>
@@ -1937,8 +1936,8 @@
     </figure>
   </li>
   <li>Click  <span class="button-blue">Save</span>.</li>
-	<li>To publish the player, click <span class="button-gray-border">Publish &amp; Embed...</span> &gt; <strong>Publish Changes</strong>.
-	</li>
+  <li>To publish the player, click <span class="button-gray-border">Publish &amp; Embed...</span> &gt; <strong>Publish Changes</strong>.
+  </li>
   <li>Now, you are ready to publish your live event. For details, see the <a href="live-module/implementing-server-side-ads-live-module.html#Publishing_the_live_event">Implementing Server-Side Ads in the Live Module</a> document.
   </li>
 </ol> 
