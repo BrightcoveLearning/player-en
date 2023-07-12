@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Test Demo Player</title>
+  <!-- <link href="https://players.brightcove.net/videojs-playlist-endscreen/2/videojs-playlist-endscreen.css" rel="stylesheet"> -->
+</head>
+
+<body>
+  <video-js
+    id="myPlayerID"
+    data-account="1752604059001"
+    data-player="default"
+    data-embed="default"
+    controls=""
+    data-video-id="6156696074001"
+    data-playlist-id=""
+    data-application-id=""
+    width="640" height="360"></video-js>
+  <script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+
+  <!-- script for the Playlist Endscreen plugin -->
+  <!-- <script src="https://players.brightcove.net/videojs-playlist-endscreen/2/videojs-playlist-endscreen.js"></script> -->
+
+  <script>
+    videojs.getPlayer('myPlayerID').ready(function() {
+      var myPlayer = this;
+
+      // initialize the Playlist Endscreen plugin
+      // myPlayer.playlistEndscreen({
+      //   playlistId: '5126480959001'
+      // });
+
+      // myPlayer.audioOnlyMode(true);
+      // myPlayer.audioPosterMode(true);
+
+      myPlayer.on("loadedmetadata", function() {
+          myPlayer.play();
+      });
+    });
+  </script> 
+  
+
+
+
+
+</body>
+
+</html>
