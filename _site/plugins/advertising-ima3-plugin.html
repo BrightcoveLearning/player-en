@@ -2539,8 +2539,128 @@ myPlayer.ima3({
       parent page. All browsers correctly set <code class="notransalate">document.referrer</code> to the referrer of the parent page in https.
     </aside>
 
-    <h4>Default values and ad macros</h4>
+    <h4>CSAI VOD</h4>
+    <h5>Brightcove Ad Monetization</h5>
+    <p>At minimum, a Brightcove Ad Monetization ad tag using SpringServe will include the following macros:</p>
+    <table class="bcls-table">
+        <caption class="bcls-caption--table">Brightcove Ad Monetization</caption>
+        <thead class="bcls-table__head">
+            <tr>
+                <th>Description</th>             
+                <th>Ad Tag Query Parameter</th>
+                <th>Player Macro</th>
+                <th>Always Available to Player</th>
+            </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+            <tr>
+              <td>Player Width</td>          
+              <td><code translate="No">w</code></td>
+               <td><code translate="No">{{WIDTH}}</code></td>
+               <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Player Height</td>          
+              <td><code translate="No">h</code></td>
+               <td><code translate="No">{{HEIGHT}}</code></td>
+               <td>Yes</td>
+            </tr>   
+            <tr>
+              <td>Cachebuster Random number</td>          
+              <td><code translate="No">cb</code></td>
+               <td><code translate="No">{{CACHEBUSTER}}</code></td>
+               <td>Yes</td>
+            </tr>   
+            <tr>
+              <td>Current page</td>          
+              <td><code translate="No">url</code></td>
+               <td><code translate="No">{window.location.href}</code></td>
+               <td>Yes</td>
+            </tr> 
+            <tr>
+              <td>Browser User Agent</td>          
+              <td><code translate="No">ua</code></td>
+               <td><code translate="No">{pageVariable.navigator.userAgent}</code></td>
+               <td>Yes</td>
+            </tr> 
+            <tr>
+              <td>GDPR Consent value</td>          
+              <td><code translate="No">gdpr_consent</code></td>
+               <td><code translate="No">{pageVariable.gdpr_consent}</code></td>
+               <td>See Privacy section below</td>
+            </tr>  
+            <tr>
+              <td>Subject to GDPR</td>          
+              <td><code translate="No">gdpr</code></td>
+               <td><code translate="No">{pageVariable.gdpr}</code></td>
+               <td>See Privacy section below</td>
+            </tr>  
+            <tr>
+              <td>Subject to US Privacy Regulations</td>          
+              <td><code translate="No">us_privacy</code></td>
+               <td><code translate="No">{pageVariable.us_privacy}</code></td>
+               <td>See Privacy section below</td>
+            </tr> 
+            <tr>
+              <td>Subject to COPPA regulations</td>          
+              <td><code translate="No">coppa</code></td>
+               <td><code translate="No">{pageVariable.coppa}</code></td>
+               <td>See Privacy section below</td>
+            </tr> 
+            <tr>
+              <td>Content Genre</td>          
+              <td><code translate="No">content_genre</code></td>
+               <td><code translate="No">{mediainfo.custom_fields.genre}</code></td>
+               <td>Brightcove Library dependent</td>
+            </tr> 
+            <tr>
+              <td>Content Rating</td>          
+              <td><code translate="No">{mediainfo.custom_fields.rating}</code></td>
+               <td>Brightcove Library dependent</td>
+            </tr> 
+            <tr>
+              <td>Content Language</td>          
+              <td><code translate="No">language</code></td>
+               <td><code translate="No">{mediainfo.custom_fields.language}</code></td>
+               <td>Brightcove Library dependent</td>
+            </tr>
+            <tr>
+              <td>Content ID</td>          
+              <td><code translate="No">content_id</code></td>
+               <td><code translate="No">{mediainfo.id} OR {mediainfo.custom_fields.content_id}</code></td>
+               <td>Yes / Brightcove Library dependent</td>
+            </tr>
+            <tr>
+              <td>[Optional] Additional Custom Fields</td>          
+              <td><code translate="No"></code></td>
+               <td><code translate="No">{mediainfo.custom_fields.field_name}</code></td>
+               <td>Brightcove Library dependent</td>
+            </tr>
+        </tbody>
+    </table>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4>Default values and ad macros</h4>
     <p>
       You can give ad macros default values. A default value can be provided within a macro, in which case this value will be used where a variable is
       undefined. The syntax is:
