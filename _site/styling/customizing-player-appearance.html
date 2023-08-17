@@ -2059,26 +2059,26 @@
   </section>
   <section class="bcls-section">
     <h2 id="Fonts">Fonts</h2>
-    <p>The title and description appear when the player is first loaded, and when the user hovers over the player. You can change the style for the fonts for the title and description, either together or separately. The HTML for the <strong>dock</strong> appears as shown in the following screenshot. Note that there is a <code translate="No">&lt;div&gt;</code> element with a class of <code translate="No">vjs-dock-text</code> that contains two other <code translate="No">&lt;div&gt;</code> elements that contain the <strong>title</strong> and <strong>description</strong>.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="dock text selectors" src="/assets/images/styling/customizing-player/dock-text-elements.png" /></figure>
-    <p>You can affect both the title and description by setting a style on the <code translate="No">vjs-dock-text</code> class. Note that styles set on the <code translate="No">.vjs-dock-title</code> and <code translate="No">.vjs-dock-description</code> will, of course, not be completely overridden by the style set at a higher level. Some styles are inherited, as shown by the following style and its result on the text:</p>
+    <p>The title and description appear when the player is first loaded, and when the user hovers over the player. You can change the style for the fonts for the title and description, either together or separately. The HTML for the <strong>TitleBar</strong> appears as shown in the following screenshot. Note that there is a <code translate="No">&lt;div&gt;</code> element with a class of <code translate="No">vjs-title-bar</code> that contains two other <code translate="No">&lt;div&gt;</code> elements that contain the <strong>title</strong> and <strong>description</strong>.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="TitleBar text selectors" src="/assets/images/styling/customizing-player/dock-text-elements.png" /></figure>
+    <p>You can affect both the title and description by setting a style on the <code translate="No">vjs-title-bar</code> class. Note that styles set on the <code translate="No">.vjs-title-bar-title</code> and <code translate="No">.vjs-title-bar-description</code> will, of course, not be completely overridden by the style set at a higher level. Some styles are inherited, as shown by the following style:</p>
     <pre class="line-numbers">
-<code class="language-css" translate="No">.video-js .vjs-dock-text {
+<code class="language-css" translate="No">.video-js .vjs-title-bar {
   color: yellow;
   font-size: .7em;
 }</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="dock text selector example" src="/assets/images/styling/customizing-player/dock-text-selector.png" /></figure>
-    <p>You can directly style the individual title and description. The following shows styles set on the <code translate="No">.vjs-dock-title</code> and <code translate="No">.vjs-dock-description</code> class selectors, with the resulting text displaying the styles:</p>
+    <!-- <figure class="bcls-figure"><img class="bcls-image" alt="TitleBar text selector example" src="/assets/images/styling/customizing-player/dock-text-selector.png" /></figure> -->
+    <p>You can directly style the individual title and description. The following shows styles set on the <code translate="No">.vjs-title-bar-title</code> and <code translate="No">.vjs-title-bar-description</code> class selectors, with the resulting text displaying the styles:</p>
     <pre class="line-numbers">
-<code class="language-css" translate="No">.video-js .vjs-dock-title {
+<code class="language-css" translate="No">.video-js .vjs-title-bar-title {
   color: red;
   font-size: 1.5em;
 }
-.video-js .vjs-dock-description {
+.video-js .vjs-title-bar-description {
   color: yellow;
   font-size: 1.0em;
 }</code></pre>
-    <figure class="bcls-figure"><img class="bcls-image" alt="title and description selectors" src="/assets/images/styling/customizing-player/title-and-description-selectors.png" /></figure>
+    <!-- <figure class="bcls-figure"><img class="bcls-image" alt="title and description selectors" src="/assets/images/styling/customizing-player/title-and-description-selectors.png" /></figure> -->
   </section>
   <section class="bcls-section">
     <h2 id="Controlbar_icon_manipulation">Controlbar icon manipulation</h2>
@@ -2209,11 +2209,11 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
   <section class="bcls-section">
     <h2 id="Hover_gradient">Hover gradient</h2>
     <p>When the player is first loaded, and when you mouse over the player, you see the video title displayed, as well as a black to transparent gradient over the top portion of the player. This section will show you how to alter the gradient.</p>
-    <p>The actual gradient is controlled by the CSS <code translate="No">linear-gradient</code> function in the <code translate="No">vjs-dock-text</code> HTML <code translate="No">&lt;div&gt;.</code> The size of the gradient can be controlled by the height of the <code translate="No">vjs-dock-text</code> HTML <code translate="No">&lt;div&gt;</code>. Here is that element, and its children, from the player:</p>
+    <p>The actual gradient is controlled by the CSS <code translate="No">linear-gradient</code> function in the <code translate="No">vjs-title-bar</code> HTML <code translate="No">&lt;div&gt;.</code> The size of the gradient can be controlled by the height of the <code translate="No">vjs-title-bar</code> HTML <code translate="No">&lt;div&gt;</code>. Here is an example structure of this element inside the player properties:</p>
     <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;div class="vjs-dock-text"&gt;
-  &lt;h1 class="vjs-dock-title"&gt;Tiger&lt;/h1&gt;
-  &lt;h2 class="vjs-dock-description"&gt;&lt;/h2&gt;
+<code class="language-html" translate="No">&lt;div class="vjs-title-bar"&gt;
+  &lt;div class="vjs-title-bar-title"&gt;Tiger&lt;/div&gt;
+  &lt;div class="vjs-title-bar-description"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
     <p>The default values for the gradient use the <code translate="No">rgba()</code> (red-green-blue-alpha) function, as shown here:</p>
     <pre class="line-numbers">
@@ -2221,7 +2221,7 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
     <p>These values cause the gradient to horizontally fade from black, with an alpha of <strong>.8</strong>, to transparent. The value of <strong>25%</strong> is a cut off value, meaning the value set in the <code translate="No">rgba</code> function will be used for the first 25% of the space before the fading to transparent begins.</p>
     <p>For instructional purposes, as you would not use this gradient in production, the following style creates the gradient in the screenshot.</p>
     <pre class="line-numbers">
-<code class="language-css" translate="No">.video-js .vjs-dock-text {
+<code class="language-css" translate="No">.video-js .vjs-title-bar {
   background: linear-gradient(45deg, rgba(0,0,255,.8) 35%, transparent);
   height: 80%;
 }</code></pre>
@@ -2402,16 +2402,16 @@ spacer.setAttribute("style", "justify-content: flex-end;");</code></pre>
           <td><code translate="No">.video-js .vjs-fullscreen-control.vjs-control</code></td>
         </tr>
         <tr>
-          <td>DockText</td>
-          <td><code translate="No">.vjs-dock-text</code> (Inherited by both DockTitle and DockDescription)</td>
+          <td>TitleBarText</td>
+          <td><code translate="No">.vjs-title-bar</code> (Inherited by both TitleBarTitle and TitleBarDescription)</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;DockTitle</td>
-          <td><code translate="No">.vjs-dock-title</code></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;TitleBarTitle</td>
+          <td><code translate="No">.vjs-title-bar-title</code></td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;DockDescription</td>
-          <td><code translate="No">.vjs-dock-description</code></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;TitleBarDescription</td>
+          <td><code translate="No">.vjs-title-bar-description</code></td>
         </tr>
       </tbody>
     </table>
