@@ -1923,6 +1923,60 @@
 &lt;div class="vjs-playlist" <span class="bcls-highlight">data-player="SJLNAJye7" data-embed="default"</span>&gt;&lt;/div&gt;</code></pre>
   </section>
   <section class="bcls-section">
+    <h2 id="Add/Remove_playlist_items">Add/Remove playlist items</h2>
+    <p>The Playlist UI plugin supports adding and removing playlist items individually instead of only allowing complete replacement of the entire playlist. The <code translate="no">add</code> and <code translate="no">remove</code> methods are now added to the playlist object. And it also adds two new events <code translate="no">playlistadd</code>  and <code translate="no">playlistremove</code>.</p>
+    <aside class="bcls-aside bcls-aside--information">Please note that when items are added or removed, the playlist UI will only update the affected items.</aside>
+    <p>These methods and events were introduced via the underlying open-source <a href="https://github.com/videojs/videojs-playlist">videojs-playlist</a> plugin, which is bundled into this plugin. You can refer to the <a href="https://github.com/videojs/videojs-playlist/blob/main/docs/api.md">open-source documentation</a> for specifics. Here is an example of how these new methods might be used:</p>
+    <pre class="line-numbers">
+      <code class="language-javascript" translate="No">var samplePlaylist = [{
+          sources: [{
+            src: 'aaa.mp4',
+            type: 'video/mp4'
+          }]
+        }];
+        
+        player.playlist(samplePlaylist);
+        
+        // Log the playlistadd and playlistremove events
+        player.on('playlistadd', 'playlistremove', ({count, index, type}) => {
+          player.log(`saw ${type} event`, count, index);
+          player.log(`playlist total length is now ${player.playlist().length}`);
+        });
+        
+        // Adding one item to a playlist.
+        // Playlist will contain two items after this call: aaa.mp4, bbb.mp4
+        player.playlist.add({
+          sources: [{
+            src: 'bbb.mp4',
+            type: 'video/mp4'
+          }]
+        });
+        
+        // Adding multiple items to a playlist at index 1.
+        // Playlist will contain four items after this call: aaa.mp4, ccc.mp4, ddd.mp4, and bbb.mp4
+        player.playlist.add([{
+          sources: [{
+            src: 'ccc.mp4',
+            type: 'video/mp4'
+          }]
+        }, {
+          sources: [{
+            src: 'ddd.mp4',
+            type: 'video/mp4'
+          }]
+        }], 1);
+        
+        // Removing a single item from a playlist.
+        // Playlist will contain three items after this call: ccc.mp4, ddd.mp4, and bbb.mp4
+        player.playlist.remove(0);
+        
+        // Removing multiple items from a playlist.
+        // Playlist will contain one item after this call: bbb.mp4
+        player.playlist.remove(1, 2);
+      </code></pre>
+ 
+  </section>
+  <section class="bcls-section">
     <h2 id="Options">Options</h2>
     <p>You may pass in an options object to the plugin upon initialization. This object may contain any of the following options:</p>
     <aside class="bcls-aside bcls-aside--tip">The next section details how to use the options using both code and Studio.</aside>
