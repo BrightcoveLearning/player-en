@@ -29,7 +29,7 @@ parent: Plugins
       <li><a href="#GA4_and_UA_dual_tagging_example_configuration">GA4_and_UA_dual_tagging_example_configuration</a>: Configuration option for both Google Analytics 4 and Universal Analytics, referred to as <em>dual tagging</em>.</li>
     </ul>
   </section>
- <h2 id="Overview">Workflow </h2>
+ <h2 id="Workflow">Workflow </h2>
  <p>The Google Analytics plugin first checks for the eventsToTrack option and the trackerID. If they're both present, it initializes GA and then listens for <code>analytics-beacons</code> and/or <code>analytics_request</code> events and on every player event, it checks if the event is present in the list of events to track. If it is, the plugin then gets the custom dimensions (that are also present in the paramsToTrack )associated with the event.
   The events that are handled in the GA plugin and the custom dimensions associated with them are:
 <ul>
