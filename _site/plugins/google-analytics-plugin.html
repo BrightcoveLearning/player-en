@@ -1856,15 +1856,23 @@
       <li><a href="#GA4_and_UA_dual_tagging_example_configuration">GA4_and_UA_dual_tagging_example_configuration</a>: Configuration option for both Google Analytics 4 and Universal Analytics, referred to as <em>dual tagging</em>.</li>
     </ul>
   </section>
- <!-- <h2 id="Overview">Workflow </h2>
+ <h2 id="Overview">Workflow </h2>
  <p>The Google Analytics plugin first checks for the eventsToTrack option and the trackerID. If they're both present, it initializes GA and then listens for <code>analytics-beacons</code> and/or <code>analytics_request</code> events and on every player event, it checks if the event is present in the list of events to track. If it is, the plugin then gets the custom dimensions (that are also present in the paramsToTrack )associated with the event.
-  The events that are handled in the GA plugin and the custom dimensions associated with them are
+  The events that are handled in the GA plugin and the custom dimensions associated with them are:
 <ul>
   <li><code>player_load</code> - common custom dimensions</li>
-  <li></li>
+  <li><code>video_engagement</code> - common custom dimensions + video_duration+video_range+seconds_viewed</li>
+  <li><code>video_impression</code> - common custom dimensions</li>
+  <li><code>play_request</code> - common custom dimensions</li>
+  <li><code>ad_start/ad_mode_begin</code> - common custom dimensions</li>
+  <li><code>ad_end/ ad_mode_complete </code> - common custom dimensions</li>
+  <li><code>error</code> - common custom dimensions</li>
+  <li><code>video_view</code> - common custom dimensions </li>
+  <li><code>video_complete </code> - common custom dimensions</li>
+<p>Custom dimensions include - <code>video_account</code>, <code>video_player</code>, <code>video_session</code>, <code>video_platform_version</code>, <code>video_tags</code>.</p>
 </ul>
 </p>
-</article> -->
+</article>
   <section class="bcls-section">
     <h2 id="Requirements">Requirements</h2>
     <p>Brightcove Player Google Analytics Plugin v2.1.0 and newer requires the following:</p>
