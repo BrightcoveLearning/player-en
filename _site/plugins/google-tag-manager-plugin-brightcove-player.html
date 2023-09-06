@@ -1857,8 +1857,8 @@
     </p>
     <section class="bcls-section">
       <h2 id="Workflow">Workflow</h2>
-      <p>The GTA plugin first checks for the presence of <code>eventsToTrack</code>and trackerID and then initializes GTM. It then listens for all player events by listening for <code>analytics-beacons</code> or <code>analytics_request</code> events and  on every player event, it checks if the event is present in the list of events to track. If it is, the plugin then gets the custom dimensions (that are also present in the paramsToTrack )associated with the event. The events that are handled in the GA plugin and the custom dimensions associated with them are: </p>
-      <ul>
+      <p>The GTM plugin first checks for the presence of <code>eventsToTrack</code>and trackerID and then initializes GTM. It then listens for all player events by listening for <code>analytics-beacons</code> or <code>analytics_request</code> events and  on every player event, it checks if the event is present in the list of events to track. If it is, the plugin then gets the custom dimensions (that are also present in the paramsToTrack )associated with the event. To learn about the events that are handled in the GA plugin and the custom dimensions associated, see <a href="/plugins/google-tag-manager-plugin-brightcove-player.html#Reviewing_events_dimensions_and_variables"> Reviewing events, dimensions and variables.</a>   </p>
+      <!-- <ul>
         <li><code>player_load</code> - common custom dimensions</li>
         <li><code>video_engagement</code> - common custom dimensions + addOnDimensions + video_duration, seconds_viewed, range, percent_viewed, video_milestone, video_playhead</li>
         <li><code>ad_end</code> - common custom dimensions + addOnDimensions </li>
@@ -1873,7 +1873,7 @@
           <li>addOnDimensions include - video_name, video_reference_id, video_tags.</li>
         
         </p>
-      </ul>
+      </ul> -->
     </section>
 
     <h3>Major implementation steps</h3>
