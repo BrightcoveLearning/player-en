@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <title>Using DFP Premium with Brightcove Player</title>
+        <title>Using GAM Premium with Brightcove Player</title>
         
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="This topic shows you how to create a DFP Premium ad rule that will play pre-, mid- and post-roll video ads in Brightcove Player. It is assumed you already have a DFP Premium account and some familiarity with the platform.">
+        <meta name="description" content="This topic shows you how to create a GAM Premium ad rule that will play pre-, mid- and post-roll video ads in Brightcove Player. It is assumed you already have a GAM Premium account and some familiarity with the platform.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -455,7 +455,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/advertising/using-dfp-premium-brightcove-player.html" aria-current="page">Using DFP Premium with Brightcove Player</a></li>
+              <li class="nav-item"><a class="nav-link" href="/advertising/using-dfp-premium-brightcove-player.html" aria-current="page">Using GAM Premium with Brightcove Player</a></li>
               
               
               
@@ -1810,7 +1810,7 @@
             
             
             
-            <li class="breadcrumb-item active" aria-current="page">Using DFP Premium with Brightcove Player</li>
+            <li class="breadcrumb-item active" aria-current="page">Using GAM Premium with Brightcove Player</li>
             
             
           </ol>
@@ -1832,19 +1832,19 @@
       
       
 <article class="bcls-article">
-  <h1>Using DFP Premium with Brightcove Player</h1>
-  <summary>This topic shows you how to create a DFP Premium ad rule that will play pre-, mid- and post-roll video ads in Brightcove Player. It is assumed you already have a DFP Premium account and some familiarity with the platform.</summary>
+  <h1>Using GAM Premium with Brightcove Player</h1>
+  <summary>This topic shows you how to create a GAM Premium ad rule that will play pre-, mid- and post-roll video ads in Brightcove Player. It is assumed you already have a GAM Premium account and some familiarity with the platform.</summary>
   <section class="bcls-section">
     <h2 id="Disclaimer">Disclaimer</h2>
-    <p>DFP Premium has hundreds of options that lead to a nearly infinite amount of possible configurations. This document shows one way to create an ad rule that gets used by a Brightcove Player. This document is not an exhaustive treatment of DFP Premium configuration and implementation. It is meant to be a starter exercise to introduce Brightcove customers to DFP Premium/Brightcove Player integration. This document in no way is meant to replace any of Google's DFP expansive documentation.</p>
+    <p>GAM Premium has hundreds of options that lead to a nearly infinite amount of possible configurations. This document shows one way to create an ad rule that gets used by a Brightcove Player. This document is not an exhaustive treatment of GAM Premium configuration and implementation. It is meant to be a starter exercise to introduce Brightcove customers to GAM Premium/Brightcove Player integration. This document in no way is meant to replace any of Google's GAM expansive documentation.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
     <aside class="bcls-aside bcls-aside--tip">If you are new to video advertising, it would be a good idea to read through the <a href="/getting-started/learning-guide-video-advertising.html">Learning Guide: Video Advertising</a>.</aside>
-    <p>The chances of you needing the exact DFP Premium configuration detailed in this document is almost nil. That being said, this document will introduce you to the terms, concepts and configuration steps needed to start you on your path to successfully integrating DFP and Brightcove Player.</p>
+    <p>The chances of you needing the exact GAM Premium configuration detailed in this document is almost nil. That being said, this document will introduce you to the terms, concepts and configuration steps needed to start you on your path to successfully integrating GAM and Brightcove Player.</p>
     <p>You need to build some kind of a knowledge foundation so that the detailed steps that follow in this document can be used in reference to a bigger picture. This overview section of the document will help you familiarize yourself with terms, high-level concepts and broad steps you need to understand before getting "into the weeds" of implementation.</p>
     <h3>Terminology</h3>
-    <p>The following terms are used extensively in this document. Gaining knowledge of them will assist in successful implementation and understanding of the integration process detailed in the steps below. The definitions have a video advertising slant reflected in this document, and may not be applicable to all DFP uses.</p>
+    <p>The following terms are used extensively in this document. Gaining knowledge of them will assist in successful implementation and understanding of the integration process detailed in the steps below. The definitions have a video advertising slant reflected in this document, and may not be applicable to all GAM uses.</p>
     <ul>
       <li><strong>Inventory</strong>: The video ad slots available to sell.</li>
       <li><strong>Advertiser</strong>: A company purchasing your video ad slots.</li>
@@ -1861,9 +1861,9 @@
     <figure class="bcls-figure"><img class="bcls-image" alt="DFP Overview Diagram" src="/assets/images/advertising/dfp-overview-diagram.png" /></figure>
     <p>The following provides the next level of detail of the process.</p>
     <ol>
-      <li><strong>Create an advertiser.</strong> In DFP speak, this is a company of type <strong>Advertiser</strong>. This is required as when an order is created it must be associated with an advertiser.</li>
+      <li><strong>Create an advertiser.</strong> In GAM speak, this is a company of type <strong>Advertiser</strong>. This is required as when an order is created it must be associated with an advertiser.</li>
       <li><strong>Create an ad unit.</strong> This is an organizer for your inventory and you will specify the size of video ads and companion ads you want from the advertiser.</li>
-      <li><strong>Create an order.</strong> The order will detail who the advertiser is. Although it can be done later, the DFP interface also allows the line items to be created as part of the order, which will be the process followed in these steps.</li>
+      <li><strong>Create an order.</strong> The order will detail who the advertiser is. Although it can be done later, the GAM interface also allows the line items to be created as part of the order, which will be the process followed in these steps.</li>
       <li><strong>Create a line item as part of the order.</strong> The line item will detail you want to use Video VAST ads, the size of the ad videos, when they should start and stop.</li>
       <li><strong>Target (link) the particular line item to an ad unit.</strong> The order, through a line item, matches the advertiser's ads to your inventory.</li>
       <li><strong>Create creative sets.</strong> Before this step you have line items which contain no actual video ads. In this exercise you will supply both video ads and corresponding companion ad images (if you wish to display them).</li>
@@ -1874,7 +1874,7 @@
       <li><strong>Use Google's Video Suite Inspector</strong> to be sure the ad tag is functioning correctly.</li>
       <li>Lastly (and finally) <strong>use the ad tag with Brightcove Player</strong>.</li>
     </ol>
-    <aside class="bcls-aside bcls-aside--warning">Changes made in the steps of this document do NOT necessarily immediately change DFP configuration. Some changes can take up to an hour to be realized, as detailed in Google's <a href="https://support.google.com/dfp_premium/answer/177316?hl=en">Update periods for changes made in DFP</a> document. If something is not working as expected, it might be the best approach to simply wait some time before trying to solve any issues you are seeing.</aside>
+    <aside class="bcls-aside bcls-aside--warning">Changes made in the steps of this document do NOT necessarily immediately change GAM configuration. Some changes can take up to an hour to be realized, as detailed in Google's <a href="https://support.google.com/dfp_premium/answer/177316?hl=en">Update periods for changes made in GAM</a> document. If something is not working as expected, it might be the best approach to simply wait some time before trying to solve any issues you are seeing.</aside>
   </section>
   <section class="bcls-section">
     <h2 id="Create_an_advertiser">Create an advertiser</h2>
@@ -2133,7 +2133,7 @@
       <li>Publish this video using the player to which you added IMA3 advertising.</li>
       <li>Use the <strong>Standard</strong> or <strong>Advanced</strong> code and test your configuration.</li>
     </ol>
-    <aside class="bcls-aside bcls-aside--warning">You may have to be patient when testing as both the Brightcove Player needs to finish publishing, and the DFP configuration needs to complete, as mentioned near the top of this document.</aside>
+    <aside class="bcls-aside bcls-aside--warning">You may have to be patient when testing as both the Brightcove Player needs to finish publishing, and the GAM configuration needs to complete, as mentioned near the top of this document.</aside>
   </section>
   <section class="bcls-section">
     <h2 id="Display_companion_ads">Display companion ads</h2>
