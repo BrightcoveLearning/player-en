@@ -335,6 +335,13 @@ you can accomplish using it.</code></pre>
     });
   });
 &lt;/script&gt;</code></pre>
+<p>If you run into timing issues on Safari, please try this approach instead:</p>
+<pre class="line-numbers">
+  <code class="language-javascript" translate="No">
+    myPlayer.one('canplay', function () => {
+      setPlayerSubtitles(media, player, isLiveVideo) 
+    })
+  </code></pre>
     <p>The complementary method <code translate="No">textTracks()</code> enables you to retrieve all text tracks assigned to a player. The method returns an object of type <code translate="No">vjs.TextTrackList</code>.</p>
   </section>
   <section class="bcls-section">
