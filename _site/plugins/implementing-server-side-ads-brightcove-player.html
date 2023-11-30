@@ -1883,7 +1883,7 @@
     <p>That's it. Your Brightcove Player is now configured for Server-side ads. If you prefer, you can add SSAI programmatically, as shown in the <a href="#Implementing_SSAI_programmatically">Implement SSAI programmatically </a> section.</p>
     <h3 id="Create_an_ad_configuration">Create an ad configuration</h3>
     <p>The ad configuration defines various aspects of SSAI playback, including ad calls, beacons, and other configuration options. Your ad response can be VAST, VMAP or GAM Ad Rules. To create an ad configuration, follow these steps:</p>
-    <ol class="bcls-tasklist__restart">
+    <ol class="bcls-tasklist-restart">
       <li>
         <p>In Video Cloud Studio, expand the <strong>ADMIN</strong> menu and select <strong>Server-Side Ad Settings</strong>.</p>
         <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Ad configuration admin" src="/assets/images/plugins/ssai/ad-config-admin.png" />
@@ -2000,7 +2000,7 @@ index.html?videoId=5625751316001&amp;<span class="bcls-highlight">adConfigId</sp
 &lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
     <h4 id="Using_the_catalog">Using the catalog</h4>
     <p>You can use the <code translate="No">player catalog</code> to associate ads with your video. The catalog works by making two requests:</p>
-    <ol class="bcls-tasklist__restart">
+    <ol class="bcls-tasklist-restart">
       <li>Request video data from the player catalog. This will include a VMAP URL.</li>
       <li>The player source is set with the VMAP URL, triggering a request for a VMAP document from Dynamic Delivery. The player source is set again with a valid VMAP XML document.</li>
     </ol>
@@ -2022,7 +2022,7 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
 }, <span class="bcls-highlight">adConfigId</span>);</code></pre>
     <h4 id="Updating_your_player_configuration">Updating your player configuration</h4>
     <p>Another way to associate ads is to include your ad config id in your Brightcove Player configuration. To do this, you can use the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> as follows:</p>
-    <ol class="bcls-tasklist__restart">
+    <ol class="bcls-tasklist-restart">
       <li>
         <p>Use the <code translate="No">PATCH</code> command to include your <code translate="No">ad_config_id</code>. Here is an example of updating your player using cURL:</p>
         <pre class="line-numbers" data-start="1">
