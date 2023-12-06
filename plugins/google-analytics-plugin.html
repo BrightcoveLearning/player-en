@@ -54,7 +54,31 @@ parent: Plugins
       <li>Brightcove Player v7.0.0 or newer</li>
     </ul>
   </section>
-
+  <section class="bcls-section">
+    <h2 id="configure">Configuring Google Analytics</h2>
+    <p>To configure Google Analytics integration, follow these steps:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Open the <strong>Players</strong> module.</li>
+      <li>Click the player name you want to configure to open the player properties.</li>
+      <li>Click <strong>Third-Party Analytics &gt; Google Analytics </strong>in the left navigation menu.</li>
+      <li>Check <strong>Enable Google Analytics</strong>.</li>
+      <li>Click <strong>Sign In to Google Account</strong>.</li>
+      <li>Select the Google account to sign in with and enter your credentials if prompted.</li>
+      <li>Click <strong>Allow</strong> to let Brightcove access your Google account.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/s-players-img/general/node18804-permissions.png" /></figure>
+      </li>
+      <li>Use the <strong>Select Account</strong> dropdown to select the Google account to send tracking data to.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/s-players-img/general/node18804-select-account.png" /></figure>
+      </li>
+      <li>Select the <strong>Events for Tracking</strong>. See the <a href="#events">Events and custom dimensions </a> section below for a description of the events.</li>
+      <li>Click  <span class="button-blue">Save</span>. This will configure the player with the Google Analytics plugin and create any needed custom dimensions in your Google Analytics account.
+        <aside class="bcls-aside bcls-aside--information">Note: You must have the <strong>Edit</strong> permission in your Google Analytics account in order to create dimensions.</aside>
+      </li>
+    </ol>
+    <p>Make sure to publish the changes to the player.</p>
+    <aside class="bcls-aside bcls-aside--information">Note: Use the Advanced embed (in-page) code when publishing your player. The Standard embed (iframe) code will not work as the plugin will be running inside of an iframe and therefore will be unable to interact with the needed JavaScript.</aside>
+    <aside class="bcls-aside bcls-aside--warning">The UI configuration is still for Universal Analytics. The configuration for Google Analytics 4 is done via the JSON Editor ONLY in Studio. See <a href="https://player.support.brightcove.com/plugins/google-analytics-plugin.html#Implement_using_Players_module">Google Analytics Plugin</a> for more information.</aside>
+  </section>
   <section class="bcls-section">
     <h2 id="Implement_using_Players_module">Implement using Players module</h2>
         <!-- ONCE UI FOR GA4 IS IN STUDIO< UPDATE THIS SECTION -->
