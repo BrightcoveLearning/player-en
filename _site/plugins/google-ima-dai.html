@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
-        <title>Identify and Delete Low Performing Videos</title>
+        <title>Advertising with Google IMA DAI Plugin</title>
         
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="In this topic, you will learn how to use Video Cloud Studio and a spreadsheet to identify and delete low performing videos.">
+        <meta name="description" content="This topic covers the use of the Google IMA DAI plugin, and how it can be implemented using Studio and through custom coding.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -489,7 +489,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/analytics/identify-and-delete-low-performing-videos.html" aria-current="page">Identify and Delete Low Performing Videos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/analytics/identify-and-delete-low-performing-videos.html">Identify and Delete Low Performing Videos</a></li>
               
               
               
@@ -1795,11 +1795,11 @@
             <li class="breadcrumb-item"><a class="theme-link" href="/">Home</a></li>
             
             
-            <li class="breadcrumb-item"><a class="theme-link" href="/analytics/">Analytics</a></li>
+            <li class="breadcrumb-item"><a class="theme-link" href="/plugins/">Plugins</a></li>
             
             
             
-            <li class="breadcrumb-item active" aria-current="page">Identify and Delete Low Performing Videos</li>
+            <li class="breadcrumb-item active" aria-current="page">Advertising with Google IMA DAI Plugin</li>
             
             
           </ol>
@@ -1820,179 +1820,367 @@
       <br>
       
       
+<h1>Advertising with Google IMA DAI Plugin</h1>
 <article class="bcls-article">
-  <h1>Identify and Delete Low Performing Videos</h1>
-  <summary>In this topic, you will learn how to use Video Cloud Studio and a spreadsheet to identify and delete low performing videos.</summary>
+  <summary>This topic covers the use of the Google IMA DAI plugin, and how it can be implemented using Studio and through custom coding.</summary>
+
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
-    <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="1761727776665071021">&nbsp;</div>
-    <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js">
-    </script>
-    <p>For a number of reasons, it is probably best to not have videos in your library that are not viewed, and you guess they won't be viewed in the future either. In this document you will see how to identify these videos and remove them from your library. The following bullet points provide a high level overview of the process. The detailed steps then follow.</p>
-    <ul>
-      <li>Use the Media module to export a file that contains a row of information for every video in your library.</li>
-      <li>Use the Analytics module to create a custom report that includes the video ID, title, video impressions and video views. The report will be exported in a comma separated values (CSV) format and list only those videos with non-zero video views and/or impressions.</li>
-      <li>Import both the CSV files into a Google Docs spreadsheet.</li>
-      <li>Add a column to the all videos spreadsheet that determines if the video detailed in a particular row has video views or not. This is done by checking to see if an ID in the all videos spreadsheet has a matching entry in the Analytics report spreadsheet.</li>
-      <li>Copy the IDs of the videos with no views to a Google Doc and manipulate the format to use in a bulk deletion process.</li>
-    </ul>
-    <aside class="bcls-aside bcls-aside--warning">Deleting videos is a drastic operation and it is not possible to undelete them. For safety's sake, be sure you have a local copy of a video before deleting it.</aside>
+    <p>
+      The IMA DAI plugin integrates the Brightcove player with Google's Interactive Media Ads (IMA). This allows you to request and track VAST ads for your player. For details about Google IMA DAI, see the <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/dai">IMA DAI SDK</a> document.
+    </p>
   </section>
+
   <section class="bcls-section">
-    <h2 id="Export_all_videos_data">Export all videos data</h2>
-    <p>From the <strong>Media</strong> module you can get a report on all media in your library. This will be used later in a spreadsheet.</p>
-    <ol class="bcls-tasklist">
-      <li>Open the <strong>Media</strong> module.</li>
-      <li>Click on the <strong>Export</strong> button near the top-right of the page.
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/general/low-performing-videos/export-button.webp" alt="export button">
-        </figure>
-      </li>
-      <li>In the dialog that opens, be sure <strong>All videos in the list</strong> is selected.</li>
-      <li>Click the <strong>Export Data</strong> button. Note that this report will export information for a maximum of 15,000 videos.</li>
-      <li>When the report has finished building, click the <strong>Download File</strong> button.</li>
-      <li>Note that the file name corresponds to your account ID, and the file is CSV (comma separated value) formatted.</li>
-      <li>Click <strong>Cancel</strong> to close the dialog.</li>
-    </ol>
+    <h2 id="ccpa_and_gdpr_support">CCPA and GDPR Support</h2>
+    <p>Support for CCPA (California Consumer Privacy Act) is provided by Google's IMA DAI SDK. Customers are able to restrict data processing either in the Google Ad Manager interface, or by specifying "rdp=1" in the ad tag itself. For more information and best practices, see Google's documentation here: <a href="https://support.google.com/admanager/answer/9561023">Link</a>.</p>
+    <p>IAB signal: To notify Google that RDP should be enabled using IAB's signal, use the ad tag parameter "us_privacy=1YNN"</p>
+    <p>GDPR (General Data Protection Regulation in the EU) is supported in a similar way, instead using "npa=1" in the ad tag, and a different setting in the Google Ad Manager interface. <a href="https://support.google.com/admanager/answer/7666366">Link</a>.</p>
+    
   </section>
+
   <section class="bcls-section">
-    <h2 id="Create_custom_report">Create custom Analytics report</h2>
-    <p>To create the Analytics report that includes videos with views, perform the following steps:</p>
-    <ol class="bcls-tasklist">
-      <li>Open the <strong>Analytics</strong> module.</li>
-      <li>On the left side menu, click <strong>Custom</strong>.</li>
-      <li>Use the <strong>Include Accounts</strong> dropdown to choose the desired account(s) for the report.</li>
-      <li>Choose the <strong>Report Type</strong> to be <code translate="No">One-time</code>.</li>
-      <li>Select a <strong>Date Range</strong> for the report using the calendars.
-      </li>
-      <li>For the <strong>Data Groups</strong> choose <code translate="No">Video</code>.</li>
-      <li>For the <strong>Data Fields</strong> choose the three fields <code translate="No">Video Name</code>, <code translate="No">Video Views</code> and <code translate="No">Video Impressions</code>:
-        <figure class="bcls-figure"><img class="bcls-image" alt="data fields" src="/assets/images/general/data-fields.png" /></figure>
-      </li>
-      <li>Below the fields you see a preview of your report. Note that the video ID is automatically included in the report:
-        <figure class="bcls-figure"><img class="bcls-image" alt="report preview" src="/assets/images/general/report-preview.png" /></figure>
-      </li>
-      <li>Supply a <strong>Report Name</strong> or accept the default.</li>
-      <li>Choose the <strong>Format</strong> to be <code translate="No">CSV</code>.</li>
-      <li>Choose to get an email or not when the report is ready. Mostly likely you will just wait for the report unless your account contains a very large number of videos.</li>
-      <li>Click the <strong>Request Report</strong> button.</li>
-      <li>After some delay, you will see the report is downloaded.</li>
-    </ol>
+    <h2 id="Player_sample">Player sample</h2>
+    <p>
+      The sample video below demonstrates the use of the IMA DAI Plugin. Play the video to see a pre-roll, a skippable mid-roll at 5 seconds, then finally a post-roll.
+    </p>
+    <video-js data-account="1752604059001"
+      data-player="H1Qvsb12"
+      data-embed="default"
+      controls=""
+      data-video-id="4607357817001"
+      data-playlist-id=""
+      data-application-id=""
+      width="600" height="340"
+      playsinline></video-js>
+    <script src="https://players.brightcove.net/1752604059001/H1Qvsb12_default/index.min.js"></script>
+    <div id="ad-blocker-note"></div>
   </section>
+
   <section class="bcls-section">
-    <h2 id="Import_the_all_videos_file">Import the all videos file</h2>
-    <aside class="bcls-aside bcls-aside--information">In this document Google Docs will be used because the functionality is available to all for free. If you are an Excel user, you can use that to perform all the spreadsheet tasks shown in this document.</aside>
-    <p>In this section of the document you will open the exported all videos report created from the Media module.</p>
-    <ol class="bcls-tasklist">
-      <li>Open a Google Docs blank spreadsheet.</li>
-      <li>Select <strong>File &gt; Import &gt; Upload</strong>, then either drag the all videos CSV file (named after your account ID) to the proper location or browse to select it.</li>
-      <li>On the <strong>Import file</strong> dialog, accept the defaults and click <strong>Import data</strong>:
-        <figure class="bcls-figure"><img class="bcls-image" alt="import csv" src="/assets/images/general/low-performing-videos/import-csv.webp" /></figure>
-      </li>
-      <li>Your imported data will appear similar to the following:
-        <figure class="bcls-figure"><img class="bcls-image" alt="sample import all videos" src="/assets/images/general/sample-import-all-videos.png" /></figure>
-      </li>
-    </ol>
+    <h2 id="Testing_the_ad_server">Testing the ad server</h2>
+
+    <p>
+      The first thing you should do is verify the validity of the ad tag you are planning to use. Be sure you have copied its URL and browse to the following page:
+      <a target="_blank" rel="noopener noreferrer" href="https://googleads.github.io/googleads-ima-html5/vsi/">Video Suite Inspector</a> (clicking this link will cause the page to open in a new window or tab).
+    </p>
+
+    <p>
+      Paste your ad tag URL into the <strong translate="No">Input type</strong> form input field. Click <strong translate="No">Test Ad</strong> and you will see your ad(s) play, with the Google supplied video interspersed. If your ad tag is not working in this test environment, it will not work with Brightcove Player.
+    </p>
+
+    <aside class="bcls-aside bcls-aside--information">
+      Note: The VAST ad tag can be hosted by your ad provider, or you can copy the XML and host it on your own URL.
+    </aside>
   </section>
+
   <section class="bcls-section">
-    <h2 id="Import_Analytics_report">Import Analytics report</h2>
-    <p>You will now import into another sheet (in the same spreadsheet group) the Analytics report you created.</p>
+    <h2 id="Implement_using_Players_module_advertising_section">Implement using Players module - Advertising section</h2>
+
+    <p>
+      In this section of the document you will use Studio to implement advertising using the <strong>Advertising</strong> section. In this case, you are limited to what options the form provides. If you wish to customize the implementation using some of the many available options that happen NOT to be provided in this section, use the <a href="#Implement_using_Players_module_plugins_section">Implement using Players module - <strong>Plugins</strong> section</a>, which provides the opportunity to supply options via JSON.
+    </p>
+
+    <div id="player" class="video-cloud-only">
+      <video-js data-account="20318290001" data-player="E16-WGGOe" data-embed="default" data-video-id="4043519495001" controls="" crossorigin="anonymous" width="640" height="360">&nbsp;</video-js>
+      <script src="https://players.brightcove.net/20318290001/E16-WGGOe_default/index.min.js"></script>
+    </div>
+
+    <p>To implement the IMA Plugin using the Players module, follow these steps:</p>
+
     <ol class="bcls-tasklist">
-      <li>Select <strong>File &gt; Import &gt; Upload</strong>, then either drag the Analytics report CSV file to the proper location or browse to select it.</li>
-      <li>On the <strong>Import file</strong> dialog, BE SURE to change the <strong>Import location</strong> to <strong>Insert new sheet(s)</strong>. Accept the other defaults and click <strong>Import data</strong>:
-        <figure class="bcls-figure"><img class="bcls-image" alt="import analytics" src="/assets/images/general/low-performing-videos/import-analytics.webp" /></figure>
-      </li>
-      <li>Your imported data will appear similar to the following:
-        <figure class="bcls-figure"><img class="bcls-image" alt="sample import" src="/assets/images/general/two-sheets.png" /></figure>
-      </li>
-      <li>Note that at the bottom of the spreadsheet you see the two sheets listed.
-        <figure class="bcls-figure"><img class="bcls-image" alt="two sheets" src="/assets/images/general/two-sheets.png" /></figure>
-      </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Create_a_named_range">Create a named range</h2>
-    <p>You will now add a column that will determine if a video has any views. To do that, you will need to reference the IDs in the Analytics report (those videos with views). To make the process easier you will now create and name a range.</p>
-    <ol class="bcls-tasklist">
-      <li>While still in the Analytics report sheet, click on the uppercase <strong>A</strong> at the top of the first column.</li>
-      <li>Right click somewhere in the column and select <strong>View more column actions > Define named range</strong></li>
-      <li>A panel will open on the right side of the spreadsheet. Change the default name of <code translate="No">NamedRange1</code> to <code translate="No">IDsWithViews</code>.</li>
-      <li>After pressing enter, you will see the range defined.
-        <figure class="bcls-figure"><img class="bcls-image" alt="named range" src="/assets/images/general/named-range.png" /></figure>
-      </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Add_column_for_no_views_determination">Add column for no views determination</h2>
-    <p>You will now add a column and add a <code translate="No">VLOOKUP()</code> function which will report if a specific video has any views.</p>
-    <ol class="bcls-tasklist">
-      <li>Return to the all videos sheet, named with your account ID.</li>
-      <li>Click on column <strong>B</strong>.</li>
-      <li>From the spreadsheet menu, select <strong>Insert &gt; Column left</strong>. This creates a new, blank column B.</li>
-      <li>Click in cell <strong>B2</strong>.</li>
-      <li>Enter <code translate="No">=VLOOKUP(</code>. This starts the use of the function.</li>
-      <li>Just after the opening parentheses, click on the <strong>A2</strong> cell. That cell location will be inserted. This defines for what the function will be looking.</li>
-      <li>Enter a comma after the cell, then type <code translate="No">id</code>. You will see you can select the named range, and do select it.
-        <figure class="bcls-figure"><img class="bcls-image" alt="select named range" src="/assets/images/general/select-named-range.png" /></figure>
-        This defines where the function will be looking for the value in A2.
-      </li>
-      <li>Enter a comma after the named range, then type the number <code translate="No">1</code>. This defines the column index to be returned. For you, this means that if the ID in A2 is found in the named range, the ID will be placed in the cell.</li>
-      <li>Enter a comma after the number 1, then enter <code translate="No">FALSE</code>, then type the closing parentheses. This option tells the <code translate="No">VLOOKUP()</code> function if columns are sorted and the exact value cannot be found, the closest value should be returned. Since you do not want this to occur, <code translate="No">FALSE</code> is the correct value to enter.</li>
-      <li>Ensure your function is defined correctly, as shown here, and press <strong>Enter</strong>.
-        <figure class="bcls-figure"><img class="bcls-image" alt="complete vlookup" src="/assets/images/general/complete-vlookup.png" /></figure>
-        Cell B2 will either display the ID from A2 , or <code translate="No">#N/A</code>.
-      </li>
-      <li>Click back in cell B2 and be sure it is highlighted.</li>
-      <li>To copy the formula down the entire spreadsheet, double click on the blue square at the bottom right of the highlighted cell, which is currently B2.
-        <figure class="bcls-figure"><img class="bcls-image" alt="blue square" src="/assets/images/general/blue-square.png" /></figure>
-        In column B you will now see either IDs repeated from column A, or <code translate="No">#N/A</code>. If you see the ID, it tells you that the video represented by that ID was found in the Analytics report. In other words, it has video views. And as you can surmise, if you see <code translate="No">#N/A</code> the video represented by the ID in column A has no views.
-      </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Determine_low-performing_videos_and_delete_them">Delete videos with no views</h2>
-    <p>You will now sort the spreadsheet so all videos IDs with no views are grouped together. You will then copy those IDs and format for bulk video deletion.</p>
-    <ol class="bcls-tasklist">
-      <li>Highlight column B, then from the spreadsheet menu select <strong>Data &gt; Sort sheet by column B, Z -&gt; A</strong>. This groups all the videos with no views at the top of the spreadsheet, represented by <code translate="No">#N/A</code> in the cell.</li>
-      <li>You now have two options on how to proceed. They are:
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add advertising functionality.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Advertising</strong> in the left navigation menu.</li>
+      <li>Check the <strong>Enable Client-Side (IMA)</strong> checkbox.</li>
+      <li>Enter the <strong translate="No">Server URL</strong> for the ad server.</li>
+      <li>
+        Select the <strong translate="No">Request Ads</strong> setting.
         <ul>
-          <li>If you have a small number of videos to delete, you can simply go into Studio and manually delete in the <strong>MEDIA</strong> module.</li>
-          <li>If you have a significant number of videos to delete, you may wish to continue to perform the following steps to ease the burden of deleting the videos.</li>
+          <li>
+            <strong translate="No">On load</strong> - Ads are requested immediately when the player loads (this is normally the best experience for GAM /
+            VPAID).
+          </li>
+          <li><strong translate="No">On play</strong> - The first ad request is delayed until playback is initiated.</li>
+          <li>
+            <strong translate="No">On demand</strong> - All ad requests will be initiated programmatically using the
+            <code translate="No">player.ima3.adrequest()</code> method. This mode does not support preroll or postroll ads.
+          </li>
+          <li>
+            <strong translate="No">On cue point</strong> - Ad requests will be initiated on a dispatched ad cue point. See the
+            <a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a> document for complete details.
+          </li>
         </ul>
       </li>
-      <li>Highlight, then copy, ONLY the video IDs for the videos you wish to delete. Do not include any videos that are missing an ID or name as this means the video is already deleted.
-        <figure class="bcls-figure"><img class="bcls-image" alt="copy IDs" src="/assets/images/general/copy-ids.png" /></figure>
+      <li>
+        Select the ad <strong translate="No">VPAID Mode</strong>. The VPAID Mode is used to enable VPAID 2 support in IMA ads.
+        <ul>
+          <li><strong translate="No">Enabled</strong> - Play VPAID ads in an iframe with a different domain</li>
+          <li><strong translate="No">Insecure</strong> - Play VPAID ads in an iframe with the same domain</li>
+          <li><strong translate="No">Disabled</strong> - VPAID ads throw an error</li>
+        </ul>
       </li>
-      <li>Open a Google Doc document.</li>
-      <li>From the document menu, select <strong>Edit &gt; Paste without formatting</strong>. You will simply see the video IDs in a column. To bulk erase the videos they must be in the format <strong>id:12345678 id:23456789 ...</strong>. Rather than editing the list by hand, continue with these steps.</li>
-      <li>Select <strong>Edit &gt; Find and replace...</strong></li>
-      <li>For the <strong>Find</strong> value enter <code translate="No">\n</code>. This represents a carriage return.</li>
-      <li>For the <strong>Replace with</strong> value enter a space followed by <code translate="No">id:</code>. The space in front of the <code translate="No">id:</code> is crucial for correct formatting.</li>
-      <li>Check the <strong>Match using regular expressions</strong> checkbox.</li>
-      <li>Click the <strong>Replace all</strong> button, then close the dialog.</li>
-      <li>Ensure your list of video IDs now appears similarly formatted to following:
-        <pre class="line-numbers">
-  <code class="language-html" translate="No">1754261702001 id:4082515861001 id:5185914204001 id:5324448023001
-  id:1754261492001 id:2180442442001 id:2535301903001 id:4713495235001
-  id:4874718207001 id:4997278349001 id:5686632029001 id:5998203290001
-  id:5998205402001 id:5998658922001 id:5998662608001 id:</code></pre>
+      <li>
+        Set the <strong translate="No">Timeout</strong> value. This is the maximum amount of time to wait, in milliseconds, for an ad to initialize before playback.
       </li>
-      <li>To finish the formatting, you will need to place an <code translate="No">id:</code> in front of the first video ID. Then remove the <code translate="No">id:</code> at the end of the list that has no matching actual video ID.</li>
-      <li>Copy the correctly formatted list of video IDs.
-        <pre class="line-numbers">
-  <code class="language-html" translate="No">id:1754261702001 id:4082515861001 id:5185914204001 id:5324448023001
-  id:1754261492001 id:2180442442001 id:2535301903001 id:4713495235001
-  id:4874718207001 id:4997278349001 id:5686632029001 id:5998203290001
-  id:5998205402001 id:5998658922001 id:5998662608001</code></pre>
+      <li>
+        Make a choice for <strong>Hard timeouts</strong>. Unchecking this option could result in a slow loading advertisement interrupting video playback.
       </li>
-      <li>Open the <strong>MEDIA</strong> module.</li>
-      <li>Paste your list of video IDs into the search box:
-        <figure class="bcls-figure"><img class="bcls-image" alt="media module search" src="/assets/images/general/media-module-search.png" /></figure>
-        <aside class="bcls-aside bcls-aside--warning">If you have a very large number of videos to remove, it will be best to take multiple sets of IDs rather than all the IDs at once. In testing, 100 videos at a time has worked successfully.</aside>
+      <li>
+        Set the <strong>Maximum Number of Redirects</strong>. This specifies the maximum number of redirects before the subsequent redirects will be denied, and the ad load aborted. The number of redirects directly affects latency and thus user experience.
       </li>
-      <li>Press <strong>Enter</strong>.</li>
-      <li>You will now see all the videos listed that match the IDs you selected earlier. You can now individually select videos to be deleted or check the select all box and delete the videos.</li>
+      <li>For the <strong>Plugin Version</strong>, it is strongly recommended you use the latest version.</li>
+      <li>
+        View an example, completed form:
+        <figure class="bcls-figure">
+          <img class="bcls-image" alt="IMA3 properties in Studio" src="/assets/images/plugins/ima/studio-ima-plugin-props-v4.png" />
+        </figure>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
     </ol>
+
+    <p>
+      When the changes to the advertising properties are saved, the IMA plugin will be configured as part of the Plugin settings. The JavaScript and CSS will be hidden since you added them via the <strong translate="No">Advertising</strong> section.
+    </p>
+
+    <p>
+      The IMA plugin does support additional properties that are not available in this section of the UI. See the next section of this document for a way to use more configuration options.
+    </p>
+
+    <aside class="bcls-aside bcls-aside--tip">
+      Note: You may want to dynamically build the <code translate="No">serverUrl</code> at the client (which means the IMA3 plugin would already be initialized, for example after a user login. You can do this by setting that value to an empty string in the <strong translate="No">options</strong> <code translate="No">{ "serverUrl": "" }</code>, then later assign the value programmatically.
+    </aside>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_Players_module_plugins_section">Implement using Players module - Plugins section</h2>
+
+    <p>
+      If you wish to configure the IMA3 plugin beyond the options provided in the <strong>Advertising</strong> section, you can use the <strong>Plugins</strong> section, which provides a way to supply options via JSON.
+    </p>
+
+    <p>To implement the IMA3 Plugin you will add the function name of the plugin and the URLs to the plugin's JavaScript and CSS files:</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>From the <strong>Add a Plugin</strong> dropdown, select <strong>Custom Plugin</strong>.
+        <figure class="bcls-figure">
+          <img class="bcls-image" alt="Select Plugin" src="/assets/images/plugins/ima/custom-plugin.png" />
+        </figure>
+      </li>
+      <li>For the <strong>Plugin Name</strong> enter <code translate="No">ima3</code>.</li>
+      <li>
+        For the <strong>JavaScript</strong> URL, enter:
+        <pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js</code></pre>
+      </li>
+      <li>
+        For the <strong>CSS</strong> URL, enter:
+        <pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css</code></pre>
+      </li>
+      <!-- ** choose one of the following two steps, delete the other ** -->
+      <li>
+        Enter the configuration options in the <strong>Options(JSON)</strong> text box.
+        <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "serverUrl": "//pubads.g.doubleclick.net/gampad/ads?sz=400x300&amp;iu=%2F6062...",
+  "timeout": 5000,
+  "debug": true
+}</code></pre>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="JSON_vs_JavaScript_notation">JSON vs JavaScript notation</h2>
+
+    <p>
+      If you examine the <strong translate="No">Options</strong> section below, you see the configuration information is supplied in JSON format. If you are using code to implement your IMA3 plugin, the notation for setting options with JavaScript is slightly different.
+    </p>
+
+    <p>Here you see options in JSON format you could use in Studio:</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "requestMode": "onload",
+  "serverUrl": "//solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml?cust_params={mediainfo.ad_keys}",
+  "timeout": 5000
+}</code></pre>
+
+    <p>If you are using JavaScript to configure your options, the JSON format would work, but you could also use the JavaScript syntax as shown here:</p>
+
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">{
+  requestMode: 'onload',
+  serverUrl: '//solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap',
+  timeout: 5000
+}</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Options">Options</h2>
+
+    <p>
+      The video.js IMA DAI plugin is built on top of the <a href="https://github.com/brightcove/videojs-ads">video.js ads framework</a> and accepts any options that the ad framework provides. Take a look at the ad framework <a href="https://github.com/videojs/videojs-contrib-ads/blob/main/docs/index.md">README</a> for details.
+    </p>
+    <table class="bcls-table">
+        <caption class="bcls-caption--table">Google IMA DAI Options</caption>
+        <thead class="bcls-table__head">
+            <tr>
+                <th>Option</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Default Value</th>
+            </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+            <tr>
+                <td>Table cell</td>
+                <td>Table cell</td>
+            </tr>
+        </tbody>
+    </table>
+  
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Methods">Methods</h2>
+
+    <p>
+      When you need to interact with the IMA SDK you need to wait for the <code translate="No">ima3-ready</code> event to be dispatched before successful use of the SDK can
+      take place. This includes the following two methods.
+    </p>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Accessing_the_IMA_SDK_directly">Accessing the IMA SDK directly</h2>
+
+    <p>A number of IMA settings are available on the plugin object at runtime. For instance, to determine the ad ID you would use:</p>
+
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">var adId = player.ima3.currentAd.getAdId();</code></pre>
+
+    <p>
+      Be careful interacting directly with these properties. Calling the wrong method can lead to unexpected results and failure of advertisements to play
+      properly.
+    </p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Events">Events</h2>
+
+    <p>
+      The plugin emits some custom event types during loading, initialization, and playback. You can listen for IMA3 and ad framework events just like you would
+      any other event:
+    </p>
+
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">player.on('ima3-ready', function(event) {
+  console.log('event', event);
+});</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_code">Implement using code</h2>
+
+    <p>
+      To implement the IMA3 Plugin the player needs to know the location of the plugin code, a stylesheet, the plugin name and plugin configuration options. The
+      location of the plugin code and stylesheet are as follows:
+    </p>
+
+    <pre class="line-numbers">
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js</code></pre>
+
+    <pre class="line-numbers">
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css</code></pre>
+
+    <p>The name of the plugin is <code translate="No">ima3</code>, and an example set of options is:</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "serverUrl": "//pubads.g.doubleclick.net/gampad/ads?sz=400x300&amp;iu=%2F6062...",
+  "timeout": 5000
+}</code></pre>
+
+    <p>The following example uses the Advanced implementation of the player to associate the IMA Plugin with a single instance of a player.</p>
+
+    <aside class="bcls-aside bcls-aside--information">
+      In the code below, you see the <code translate="No">bc()</code> method is called to initialize the Brightcove Player, then the IMA3 plugin is
+      initialized immediately thereafter. This is because for the IMA3 plugin to function properly it needs to be loaded right after player initialization,
+      before any other plugins are initialized. Initializing the IMA3 plugin in <code translate="No">videojs.getPlayer('myPlayerID').ready(...)</code> or
+      when the <code translate="No">loadedmetadata</code> event is dispatched, will cause the plugin to NOT function as intended.
+    </aside>
+  </section>
+ 
+      <h2 id="Creating_an_ad_tag_based_on_media_info">Creating an ad tag based on media info</h2>
+      <p>A common use-case for programmatic ads is to create an ad tag based on media info, retrieved from the <code translate="No">mediainfo</code> object. Because the ad tag can be passed in as an option during plugin initialization, it may seem appropriate to defer
+      plugin initialization until media info is available. As seen in the <a href="#Implement_using_code"> previous section</a>, however, plugin initialization cannot be deferred. Instead, initialization can happen at the usual time, but the ad
+      tag can be set later when the necessary media info becomes available.</p>
+      <p>Here is an example of how this works. Note that the properties of the <code translate="No">mediainfo</code> object cannot be used until the <code translate="No">loadedmetadata</code> event has been dispatched, which is standard practice.</p>
+      <aside class="bcls-aside bcls-aside--warning">This technique will NOT work if <code translate="No">autoplay</code> is true AND the ad request type is <code translate="No">onplay</code>. In this case you MUST set the <code translate="No">serverUrl</code> in the initial IMA3 plugin configuration.</aside>
+      <pre class="line-numbers">
+      <code class="language-javascript" translate="No">var myPlayer;
+      // Initialize player
+      var player = bc('myPlayerID');
+      // Initialize IMA plugin
+      // A blank serverUrl is used here because we want metadata from the video
+      player.ima3({
+      serverUrl: "",
+      requestMode: 'onplay',
+      debug: true
+      });
+      // When the player's ready, let's get started
+      player.ready(function(){
+      myPlayer = this;
+      myPlayer.one("loadedmetadata", function(){
+      // Now we have metadata, we can set up the ad with information from mediainfo
+      if (<span class="bcls-highlight">myPlayer.mediainfo.id</span> === '4034552795001') {
+      myPlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/";
+      } else {
+      myPlayer.ima3.settings.serverUrl = "https://example.com/ads/";
+      }
+      });
+      });</code></pre>
+      </section>
+
+
+  <section class="bcls-section">
+    <h2 id="Hybrid_implementation">Hybrid implementation</h2>
+
+    <p>
+      So far in this document you have seen the IMA plugin implemented in Studio, then in code. Some customers like to perform a hybrid implementation where the
+      basic plugin is added in Studio, but then configuration done in the page's JavaScript. This hybrid implementation is discussed in this section.
+    </p>
+
+    <p>
+      As you have just seen in the previous section, when implementing the IMA3 plugin purely in code you manipulate the plugin in function format. When you
+      install the plugin in Studio, then configure in the page, you must treat the plugin as an object. For instance, assume you have installed the IMA3 plugin
+      using Studio as shown here, noting that no <strong>Ad Tag</strong> is supplied:
+    </p>
+
+    <figure class="bcls-figure">
+      <img class="bcls-image" alt="Partial Studio Install" src="/assets/images/plugins/ima/partial-studio-install.png" />
+    </figure>
+
+    <p>Now, in the JavaScript in the page you can assign property values (remember, treat the plugin as an object now) as shown here:</p>
+
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
+  var myPlayer = this;
+  myPlayer.ima3.settings.serverUrl = 'http://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml';
+});</code></pre>
+
+    <p>Of course, other properties can be assigned values in this manner.</p>
   </section>
 </article>
 <!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->

@@ -1,0 +1,368 @@
+---
+title: "Advertising with Google IMA DAI Plugin"
+description: "This topic covers the use of the Google IMA DAI plugin, and how it can be implemented using Studio and through custom coding."
+parent: "Plugins"
+---
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">Introduction</h2>
+    <p>
+      The IMA DAI plugin integrates the Brightcove player with Google's Interactive Media Ads (IMA). This allows you to request and track VAST ads for your player. For details about Google IMA DAI, see the <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/dai">IMA DAI SDK</a> document.
+    </p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="ccpa_and_gdpr_support">CCPA and GDPR Support</h2>
+    <p>Support for CCPA (California Consumer Privacy Act) is provided by Google's IMA DAI SDK. Customers are able to restrict data processing either in the Google Ad Manager interface, or by specifying "rdp=1" in the ad tag itself. For more information and best practices, see Google's documentation here: <a href="https://support.google.com/admanager/answer/9561023">Link</a>.</p>
+    <p>IAB signal: To notify Google that RDP should be enabled using IAB's signal, use the ad tag parameter "us_privacy=1YNN"</p>
+    <p>GDPR (General Data Protection Regulation in the EU) is supported in a similar way, instead using "npa=1" in the ad tag, and a different setting in the Google Ad Manager interface. <a href="https://support.google.com/admanager/answer/7666366">Link</a>.</p>
+    
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Player_sample">Player sample</h2>
+    <p>
+      The sample video below demonstrates the use of the IMA DAI Plugin. Play the video to see a pre-roll, a skippable mid-roll at 5 seconds, then finally a post-roll.
+    </p>
+    <video-js data-account="1752604059001"
+      data-player="H1Qvsb12"
+      data-embed="default"
+      controls=""
+      data-video-id="4607357817001"
+      data-playlist-id=""
+      data-application-id=""
+      width="600" height="340"
+      playsinline></video-js>
+    <script src="https://players.brightcove.net/1752604059001/H1Qvsb12_default/index.min.js"></script>
+    <div id="ad-blocker-note"></div>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Testing_the_ad_server">Testing the ad server</h2>
+
+    <p>
+      The first thing you should do is verify the validity of the ad tag you are planning to use. Be sure you have copied its URL and browse to the following page:
+      <a target="_blank" rel="noopener noreferrer" href="https://googleads.github.io/googleads-ima-html5/vsi/">Video Suite Inspector</a> (clicking this link will cause the page to open in a new window or tab).
+    </p>
+
+    <p>
+      Paste your ad tag URL into the <strong translate="No">Input type</strong> form input field. Click <strong translate="No">Test Ad</strong> and you will see your ad(s) play, with the Google supplied video interspersed. If your ad tag is not working in this test environment, it will not work with Brightcove Player.
+    </p>
+
+    <aside class="bcls-aside bcls-aside--information">
+      Note: The VAST ad tag can be hosted by your ad provider, or you can copy the XML and host it on your own URL.
+    </aside>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_Players_module_advertising_section">Implement using Players module - Advertising section</h2>
+
+    <p>
+      In this section of the document you will use Studio to implement advertising using the <strong>Advertising</strong> section. In this case, you are limited to what options the form provides. If you wish to customize the implementation using some of the many available options that happen NOT to be provided in this section, use the <a href="#Implement_using_Players_module_plugins_section">Implement using Players module - <strong>Plugins</strong> section</a>, which provides the opportunity to supply options via JSON.
+    </p>
+
+    <div id="player" class="video-cloud-only">
+      <video-js data-account="20318290001" data-player="E16-WGGOe" data-embed="default" data-video-id="4043519495001" controls="" crossorigin="anonymous" width="640" height="360">&nbsp;</video-js>
+      <script src="https://players.brightcove.net/20318290001/E16-WGGOe_default/index.min.js"></script>
+    </div>
+
+    <p>To implement the IMA Plugin using the Players module, follow these steps:</p>
+
+    <ol class="bcls-tasklist">
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add advertising functionality.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Advertising</strong> in the left navigation menu.</li>
+      <li>Check the <strong>Enable Client-Side (IMA)</strong> checkbox.</li>
+      <li>Enter the <strong translate="No">Server URL</strong> for the ad server.</li>
+      <li>
+        Select the <strong translate="No">Request Ads</strong> setting.
+        <ul>
+          <li>
+            <strong translate="No">On load</strong> - Ads are requested immediately when the player loads (this is normally the best experience for GAM /
+            VPAID).
+          </li>
+          <li><strong translate="No">On play</strong> - The first ad request is delayed until playback is initiated.</li>
+          <li>
+            <strong translate="No">On demand</strong> - All ad requests will be initiated programmatically using the
+            <code translate="No">player.ima3.adrequest()</code> method. This mode does not support preroll or postroll ads.
+          </li>
+          <li>
+            <strong translate="No">On cue point</strong> - Ad requests will be initiated on a dispatched ad cue point. See the
+            <a href="/advertising/displaying-ads-using-ad-cue-points.html">Displaying Ads Using Ad Cue Points</a> document for complete details.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Select the ad <strong translate="No">VPAID Mode</strong>. The VPAID Mode is used to enable VPAID 2 support in IMA ads.
+        <ul>
+          <li><strong translate="No">Enabled</strong> - Play VPAID ads in an iframe with a different domain</li>
+          <li><strong translate="No">Insecure</strong> - Play VPAID ads in an iframe with the same domain</li>
+          <li><strong translate="No">Disabled</strong> - VPAID ads throw an error</li>
+        </ul>
+      </li>
+      <li>
+        Set the <strong translate="No">Timeout</strong> value. This is the maximum amount of time to wait, in milliseconds, for an ad to initialize before playback.
+      </li>
+      <li>
+        Make a choice for <strong>Hard timeouts</strong>. Unchecking this option could result in a slow loading advertisement interrupting video playback.
+      </li>
+      <li>
+        Set the <strong>Maximum Number of Redirects</strong>. This specifies the maximum number of redirects before the subsequent redirects will be denied, and the ad load aborted. The number of redirects directly affects latency and thus user experience.
+      </li>
+      <li>For the <strong>Plugin Version</strong>, it is strongly recommended you use the latest version.</li>
+      <li>
+        View an example, completed form:
+        <figure class="bcls-figure">
+          <img class="bcls-image" alt="IMA3 properties in Studio" src="/assets/images/plugins/ima/studio-ima-plugin-props-v4.png" />
+        </figure>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+
+    <p>
+      When the changes to the advertising properties are saved, the IMA plugin will be configured as part of the Plugin settings. The JavaScript and CSS will be hidden since you added them via the <strong translate="No">Advertising</strong> section.
+    </p>
+
+    <p>
+      The IMA plugin does support additional properties that are not available in this section of the UI. See the next section of this document for a way to use more configuration options.
+    </p>
+
+    <aside class="bcls-aside bcls-aside--tip">
+      Note: You may want to dynamically build the <code translate="No">serverUrl</code> at the client (which means the IMA3 plugin would already be initialized, for example after a user login. You can do this by setting that value to an empty string in the <strong translate="No">options</strong> <code translate="No">{ "serverUrl": "" }</code>, then later assign the value programmatically.
+    </aside>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_Players_module_plugins_section">Implement using Players module - Plugins section</h2>
+
+    <p>
+      If you wish to configure the IMA3 plugin beyond the options provided in the <strong>Advertising</strong> section, you can use the <strong>Plugins</strong> section, which provides a way to supply options via JSON.
+    </p>
+
+    <p>To implement the IMA3 Plugin you will add the function name of the plugin and the URLs to the plugin's JavaScript and CSS files:</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>From the <strong>Add a Plugin</strong> dropdown, select <strong>Custom Plugin</strong>.
+        <figure class="bcls-figure">
+          <img class="bcls-image" alt="Select Plugin" src="/assets/images/plugins/ima/custom-plugin.png" />
+        </figure>
+      </li>
+      <li>For the <strong>Plugin Name</strong> enter <code translate="No">ima3</code>.</li>
+      <li>
+        For the <strong>JavaScript</strong> URL, enter:
+        <pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js</code></pre>
+      </li>
+      <li>
+        For the <strong>CSS</strong> URL, enter:
+        <pre>
+<code class="language-json" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css</code></pre>
+      </li>
+      <!-- ** choose one of the following two steps, delete the other ** -->
+      <li>
+        Enter the configuration options in the <strong>Options(JSON)</strong> text box.
+        <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "serverUrl": "//pubads.g.doubleclick.net/gampad/ads?sz=400x300&amp;iu=%2F6062...",
+  "timeout": 5000,
+  "debug": true
+}</code></pre>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="JSON_vs_JavaScript_notation">JSON vs JavaScript notation</h2>
+
+    <p>
+      If you examine the <strong translate="No">Options</strong> section below, you see the configuration information is supplied in JSON format. If you are using code to implement your IMA3 plugin, the notation for setting options with JavaScript is slightly different.
+    </p>
+
+    <p>Here you see options in JSON format you could use in Studio:</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "requestMode": "onload",
+  "serverUrl": "//solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml?cust_params={mediainfo.ad_keys}",
+  "timeout": 5000
+}</code></pre>
+
+    <p>If you are using JavaScript to configure your options, the JSON format would work, but you could also use the JavaScript syntax as shown here:</p>
+
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">{
+  requestMode: 'onload',
+  serverUrl: '//solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap',
+  timeout: 5000
+}</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Options">Options</h2>
+
+    <p>
+      The video.js IMA DAI plugin is built on top of the <a href="https://github.com/brightcove/videojs-ads">video.js ads framework</a> and accepts any options that the ad framework provides. Take a look at the ad framework <a href="https://github.com/videojs/videojs-contrib-ads/blob/main/docs/index.md">README</a> for details.
+    </p>
+    <table class="bcls-table">
+        <caption class="bcls-caption--table">Google IMA DAI Options</caption>
+        <thead class="bcls-table__head">
+            <tr>
+                <th>Option</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Default Value</th>
+            </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+            <tr>
+                <td>Table cell</td>
+                <td>Table cell</td>
+            </tr>
+        </tbody>
+    </table>
+  
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Methods">Methods</h2>
+
+    <p>
+      When you need to interact with the IMA SDK you need to wait for the <code translate="No">ima3-ready</code> event to be dispatched before successful use of the SDK can
+      take place. This includes the following two methods.
+    </p>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Accessing_the_IMA_SDK_directly">Accessing the IMA SDK directly</h2>
+
+    <p>A number of IMA settings are available on the plugin object at runtime. For instance, to determine the ad ID you would use:</p>
+
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">var adId = player.ima3.currentAd.getAdId();</code></pre>
+
+    <p>
+      Be careful interacting directly with these properties. Calling the wrong method can lead to unexpected results and failure of advertisements to play
+      properly.
+    </p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Events">Events</h2>
+
+    <p>
+      The plugin emits some custom event types during loading, initialization, and playback. You can listen for IMA3 and ad framework events just like you would
+      any other event:
+    </p>
+
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">player.on('ima3-ready', function(event) {
+  console.log('event', event);
+});</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_code">Implement using code</h2>
+
+    <p>
+      To implement the IMA3 Plugin the player needs to know the location of the plugin code, a stylesheet, the plugin name and plugin configuration options. The
+      location of the plugin code and stylesheet are as follows:
+    </p>
+
+    <pre class="line-numbers">
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js</code></pre>
+
+    <pre class="line-numbers">
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css</code></pre>
+
+    <p>The name of the plugin is <code translate="No">ima3</code>, and an example set of options is:</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "serverUrl": "//pubads.g.doubleclick.net/gampad/ads?sz=400x300&amp;iu=%2F6062...",
+  "timeout": 5000
+}</code></pre>
+
+    <p>The following example uses the Advanced implementation of the player to associate the IMA Plugin with a single instance of a player.</p>
+
+    <aside class="bcls-aside bcls-aside--information">
+      In the code below, you see the <code translate="No">bc()</code> method is called to initialize the Brightcove Player, then the IMA3 plugin is
+      initialized immediately thereafter. This is because for the IMA3 plugin to function properly it needs to be loaded right after player initialization,
+      before any other plugins are initialized. Initializing the IMA3 plugin in <code translate="No">videojs.getPlayer('myPlayerID').ready(...)</code> or
+      when the <code translate="No">loadedmetadata</code> event is dispatched, will cause the plugin to NOT function as intended.
+    </aside>
+  </section>
+ 
+      <h2 id="Creating_an_ad_tag_based_on_media_info">Creating an ad tag based on media info</h2>
+      <p>A common use-case for programmatic ads is to create an ad tag based on media info, retrieved from the <code translate="No">mediainfo</code> object. Because the ad tag can be passed in as an option during plugin initialization, it may seem appropriate to defer
+      plugin initialization until media info is available. As seen in the <a href="#Implement_using_code"> previous section</a>, however, plugin initialization cannot be deferred. Instead, initialization can happen at the usual time, but the ad
+      tag can be set later when the necessary media info becomes available.</p>
+      <p>Here is an example of how this works. Note that the properties of the <code translate="No">mediainfo</code> object cannot be used until the <code translate="No">loadedmetadata</code> event has been dispatched, which is standard practice.</p>
+      <aside class="bcls-aside bcls-aside--warning">This technique will NOT work if <code translate="No">autoplay</code> is true AND the ad request type is <code translate="No">onplay</code>. In this case you MUST set the <code translate="No">serverUrl</code> in the initial IMA3 plugin configuration.</aside>
+      <pre class="line-numbers">
+      <code class="language-javascript" translate="No">var myPlayer;
+      // Initialize player
+      var player = bc('myPlayerID');
+      // Initialize IMA plugin
+      // A blank serverUrl is used here because we want metadata from the video
+      player.ima3({
+      serverUrl: "",
+      requestMode: 'onplay',
+      debug: true
+      });
+      // When the player's ready, let's get started
+      player.ready(function(){
+      myPlayer = this;
+      myPlayer.one("loadedmetadata", function(){
+      // Now we have metadata, we can set up the ad with information from mediainfo
+      if (<span class="bcls-highlight">myPlayer.mediainfo.id</span> === '4034552795001') {
+      myPlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/";
+      } else {
+      myPlayer.ima3.settings.serverUrl = "https://example.com/ads/";
+      }
+      });
+      });</code></pre>
+      </section>
+
+
+  <section class="bcls-section">
+    <h2 id="Hybrid_implementation">Hybrid implementation</h2>
+
+    <p>
+      So far in this document you have seen the IMA plugin implemented in Studio, then in code. Some customers like to perform a hybrid implementation where the
+      basic plugin is added in Studio, but then configuration done in the page's JavaScript. This hybrid implementation is discussed in this section.
+    </p>
+
+    <p>
+      As you have just seen in the previous section, when implementing the IMA3 plugin purely in code you manipulate the plugin in function format. When you
+      install the plugin in Studio, then configure in the page, you must treat the plugin as an object. For instance, assume you have installed the IMA3 plugin
+      using Studio as shown here, noting that no <strong>Ad Tag</strong> is supplied:
+    </p>
+
+    <figure class="bcls-figure">
+      <img class="bcls-image" alt="Partial Studio Install" src="/assets/images/plugins/ima/partial-studio-install.png" />
+    </figure>
+
+    <p>Now, in the JavaScript in the page you can assign property values (remember, treat the plugin as an object now) as shown here:</p>
+
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
+  var myPlayer = this;
+  myPlayer.ima3.settings.serverUrl = 'http://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml';
+});</code></pre>
+
+    <p>Of course, other properties can be assigned values in this manner.</p>
+  </section>
+</article>
