@@ -48,7 +48,7 @@ description: 'This topic provides an overview of how IP address restriction can 
     <p><strong>https://edge.api.brightcove.com/playback/v1/</strong>.</p>
     <p>Here is how that URL behaves:</p>
     <ul>
-      <li>When hitting Edge from within North America, it hits Edge directly, and Edge sees the user's IP address. It can either allow or deny access to the catalog as per the IP Restriction whitelist. This is the desired behavior.</li>
+      <li>When hitting Edge from within North America, it hits Edge directly, and Edge sees the user's IP address. It can either allow or deny access to the catalog as per the IP Restriction whitelist. This is the desired behaviour.</li>
       <li>When hitting Edge from outside North America it goes via Cloudfront for load-balancing/local caching CDN reasons. This causes issues because Edge sees the Cloudfront IP instead of the user's IP, and denies all requests. This is because Cloudfront isn't on the whitelist (and never should it be because then anyone using Cloudfront would have access).</li>
     </ul>
     <p>There is an alternative endpoint for Edge that can remedy this situation for non-North American customers. The endpoint is:</p>
