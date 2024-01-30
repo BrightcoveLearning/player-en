@@ -331,6 +331,83 @@ myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", funct
     <p>Any video that you retrieve from Video Cloud that has been ingested with Dynamic Delivery, will include the ads specified in the VMAP file in your ad configuration. Note that the video needs to have an audio track associated with it for SSAI to work.</p>
     <aside class="bcls-aside bcls-aside--information">Please note that to make the SSAI ads work, change the video configuration from <strong>Ad free</strong> to <strong>Ad Supported</strong> in the Media Module.</aside>
   </section>
+  <section class="bcls-section">
+    <h2 id="open-measurement">Open Measurement</h2>
+    <p>The IMA SDK for HTML5 includes the Open Measurement (OM) SDK, an industry standard developed by the Interactive Advertising Bureau (IAB) to enable third-party viewability and verification measurement. When using the IMA SDK for HTML5, the included OM SDK automatically parses the tag within VAST ad tags and sends viewability data to the specified measurement vendors via the OMID API. You can optionally set access mode rules for each request to control what content the verification script can access. <a href="https://developers.google.com/ad-manager/dynamic-ad-insertion/sdk/html5/omsdk">Learn more</a></p>
+
+    <p>Access modes The Open Measurement SDK supports running verification scripts in different access modes, which control how much the verification script can access. The four access modes are:</p>
+    <ul>
+      <li><code>FULL</code>: The verification script has direct access to the creative and the publisher page.</li>
+      <li><code>CREATIVE</code>: The verification script and creative are sandboxed from the publisher page. However, the script has direct access to the creative.</li>
+      <li><code>DOMAIN</code>: The verification script is sandboxed and cannot access the creative or publisher page. However, the script is loaded in such a way that it can directly confirm what publisher domain it is on.</li>
+      <li><code>LIMITED</code>: The verification script is sandboxed and cannot access the creative or publisher page and cannot directly confirm what publisher domain it is on.</li>
+    </ul>
+    <p>Here is an example of how you can set access mode rules for a request for different verification script providers:</p>
+    <pre class="line-numbers"><code class="language-JS" translate="No">
+      // ...
+imaDai.one(ImaDaiPlugin.EVENTS.IMA_DAI_SDK_LOADED, ({ imaDaiSdk }) => {
+  const { LiveStreamRequest } = imaDaiSdk;
+
+  const streamRequest = new LiveStreamRequest();
+
+  streamRequest.assetKey = 'c-rArva4ShKVIAkNfy6HUQ';
+  streamRequest.omidAccessModeRules = {};
+  // set full access mode for goole:
+  streamRequest.omidAccessModeRules[google.ima.OmidVerificationVendor.GOOGLE] = google.ima.OmidAccessMode.FULL;
+  // set domain acess mode for other verfication script provider: 
+  streamRequest.omidAccessModeRules[google.ima.OmidVerificationVendor.OTHER] = google.ima.OmidAccessMode.DOMAIN;
+
+  const fallback = {
+    type: 'application/x-mpegURL',
+    src: 'https://bitmovin-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+  };
+
+  player.src({
+    type: fallback.type,
+    src: fallback.src,
+    imaDai: { streamRequest }
+  });
+});
+// ...
+      </code></pre>
+
+  </section>
+  <section class="bcls-section">
+    <h2 id="privacy">Privacy</h2>
+    <h3>CCPA</h3>
+    <p>To help publishers toward compliance with the California Consumer Privacy Act (CCPA), the Google Interactive Media Ads SDK allows publishers to use two different parameters to indicate whether Google should enable restricted data processing (RDP). The SDK provides publishers with the ability to set RDP at an ad request level utilizing the following parameters:</p>
+    <ul>
+      <li>RDP signal</li>
+      <li><a href="https://developers.google.com/ad-manager/dynamic-ad-insertion/sdk/html5/ccpa">IAB signal</a></li>
+    </ul>
+    <p><strong>RDP signal</strong></p>
+    <p>To notify Google that RDP should be enabled using Google's signal, append <code translate="no">rdp=1</code> to your ad tag parameters, as shown in the following example:</p>
+    <pre class="line-numbers"><code class="language-JS" translate="No">
+      // ...
+imaDai.one(ImaDaiPlugin.EVENTS.IMA_DAI_SDK_LOADED, ({ imaDaiSdk }) => {
+  const { LiveStreamRequest } = imaDaiSdk;
+
+  const streamRequest = new LiveStreamRequest();
+
+  streamRequest.assetKey = 'c-rArva4ShKVIAkNfy6HUQ';
+  // RDP signal:
+  streamRequest.adTagParameters = {"rdp": 1};
+
+  const fallback = {
+    type: 'application/x-mpegURL',
+    src: 'https://bitmovin-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+  };
+
+  player.src({
+    type: fallback.type,
+    src: fallback.src,
+    imaDai: { streamRequest }
+  });
+});
+// ...
+      </code></pre>
+
+  </section>
 
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
