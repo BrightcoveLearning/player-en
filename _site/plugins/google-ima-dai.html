@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="This guide will help you initialize the IMA DAI Plugin and send a stream request.">
+        <meta name="description" content="This topic covers the use of the IMA DAI plugin and how it can be implemented using Studio and through custom coding.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -1822,7 +1822,7 @@
       
 <h1>Advertising with Google IMA DAI Plugin</h1>
 <article class="bcls-article">
-  <summary>This guide will help you initialize the IMA DAI Plugin and send a stream request.</summary>
+  <summary>This topic covers the use of the IMA DAI plugin and how it can be implemented using Studio and through custom coding.</summary>
 
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
@@ -1832,10 +1832,34 @@
     <p>It minimizes buffering and latency, and it ensures ads are rendered in the appropriate format, so that viewers have the broadcast-quality experience they expect.</p>
 
   </section>
+  <section class="bcls-section">
+    <h2 id="player-sample">Player sample</h2>
+    <p>The sample video below demonstrates the use of the IMA DAI Plugin.</p>
+    <div style="max-width: 960px;">
+      <style>
+      video-js.video-js.vjs-fluid:not(.vjs-audio-only-mode) {
+        padding-top: 56.25%;
+      }
+      </style><video-js
+        data-account="1752604059001"
+        data-player="ViaDKbqjvP"
+        data-embed="default"
+        controls=""
+        data-video-id="5393799457001"
+        data-playlist-id=""
+        data-application-id=""
+        class="vjs-fluid"></video-js>
+    </div>
+    <script
+      src="https://players.brightcove.net/1752604059001/ViaDKbqjvP_default/index.min.js">
+    </script>
+  </section>
 
   <section class="bcls-section">
     <h2 id="Requirements">Requirements</h2>
-    <p>Have an Ad Manager 360 Advanced account.</p> 
+    <ul>
+      <li>Have an Ad Manager 360 Advanced account.</li>
+    </ul>
   </section>
 
   <section class="bcls-section">
@@ -1846,9 +1870,49 @@
       <li>Streams are combined on the Ad Manager servers, regardless of which network an ad is hosted on.</li>
     </ul>
   </section>
+  <!-- <section class="bcls-section">
+    <h2 id="workflow">Workflow</h2>
+    <ol>
+      <li>The web page or app loads the IMA DAI SDK.</li>
+      <li>The IMA DAI SDK makes a request to the Ad Manager DAI cloud service (Google) for content.</li>
+      <li>The cloud service returns ads and content stitched together in a single stream.
+        <ul>
+          <li>All manifests and segments will be delivered from Google via Google’s CDN or a Brightcove CDN connected to Google’s origin.</li>
+        </ul>
+      </li>
+      <li>The video player plays the stream.</li>
+      <li>The IMA DAI SDK sends impression pixels to Google.</li>
+    </ol>
+  </section> -->
 
   <section class="bcls-section">
-    <h2 id="Getting_started">Getting started</h2>
+    <h2 id="players-plugins">Implement using Players module - Plugins section</h2>
+    <p>You can easily add DAI to your player using Video Cloud Studio. If you prefer to do this programmatically, follow these steps:</p>
+    <h3 id="Add_the_DAI_plugin">Add the DAI plugin</h3>
+    <p>You can either add the DAI plugin files to your HTML code, or you can add it to your player's configuration as shown here:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
+      <li>Click the link for the player to open the player's properties.</li>
+      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
+      <li>
+        <p>From the <strong>Add a Plugin</strong> dropdown, select <strong>Custom Plugin</strong>.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image" alt="Custom Plugin" src="/assets/images/plugins/ssai/custom-plugin.png" />
+        </figure>
+      </li>
+      <li>For the <strong>Plugin Name</strong> enter <code translate="No">dai</code>.</li>
+      <li>For the <strong>JavaScript</strong> URL, enter:
+        <pre>
+<code class="language-json" translate="No">https://bc-players-qa.s3.amazonaws.com/videojs-ima-dai/main/videojs-ima-dai.min.js</code></pre>
+      </li>
+      <li>You do not have to enter any options for this plugin.</li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+      <li>To close the open dialog, click <strong>Close</strong>.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Getting_started">Implement using code</h2>
     <p>To Initialize the IMA DAI Plugin, follow these steps:</p>
     <ol class="bcls-tasklist-restart">
       <li><p>Get the IMA DAI Plugin class:</p>
@@ -1989,165 +2053,6 @@ imaDai.one(ImaDaiPlugin.EVENTS.IMA_DAI_SDK_LOADED, ({ imaDaiSdk }) => {
     
     
   </section>
-
-  <section class="bcls-section">
-    <h2 id="Implementing_SSAI_using_Studio">Implementing SSAI using Studio</h2>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Implementing_SSAI_programmatically">Implementing DAI programmatically</h2>
-    <p>You can easily add DAI to your player using Video Cloud Studio, as shown in the previous section. If you prefer to do this programmatically, follow these steps:</p>
-    <ol>
-      <li><a href="#Add_the_DAI_plugin">Add the DAI plugin</a></li>
-      <li><a href="#Associate_ads_with_your_player">Associate ads with your player</a></li>
-      <li><a href="#Play_a_video_with_ads1">Play a video with ads</a></li>
-    </ol>
-    <h3 id="Add_the_DAI_plugin">Add the DAI plugin</h3>
-    <p>You can either add the DAI plugin files to your HTML code, or you can add it to your player's configuration as shown here:</p>
-    <ol class="bcls-tasklist-restart">
-      <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
-      <li>Click the link for the player to open the player's properties.</li>
-      <li>Click <strong>Plugins</strong> in the left navigation menu.</li>
-      <li>
-        <p>From the <strong>Add a Plugin</strong> dropdown, select <strong>Custom Plugin</strong>.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" alt="Custom Plugin" src="/assets/images/plugins/ssai/custom-plugin.png" />
-        </figure>
-      </li>
-      <li>For the <strong>Plugin Name</strong> enter <code translate="No">dai</code>.</li>
-      <li>For the <strong>JavaScript</strong> URL, enter:
-        <pre>
-<code class="language-json" translate="No">https://bc-players-qa.s3.amazonaws.com/videojs-ima-dai/main/videojs-ima-dai.min.js</code></pre>
-      </li>
-      <li>You do not have to enter any options for this plugin.</li>
-      <li>Click <strong>Save</strong>.</li>
-      <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
-      <li>To close the open dialog, click <strong>Close</strong>.</li>
-    </ol>
-    <h3 id="Associate_ads_with_your_player">Associate ads with your player</h3>
-    <p>Next, you will associate either your ad configuration to your Brightcove Player. You can do this one of three ways:</p>
-    <ul>
-      <li><a href="#Standard_embed_code">Standard embed code</a></li>
-      <li><a href="#Advanced_embed_code">Advanced embed code</a></li>
-      <li><a href="#Using_the_catalog">Using the catalog</a></li>
-      <li><a href="#Updating_your_player_configuration">Updating your player configuration</a></li>
-      <!-- <li><a href="#Using_the_src_method">Using the src method</a></li> -->
-    </ul>
-    <h4 id="Standard_embed_code">Standard (iframe) embed code</h4>
-    <p>With the Standard embed code, include the <code translate="No">adConfigId</code> query string parameter with the value of your ad config id:</p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">&lt;iframe src="https://players.brightcove.net/1752604059001/default_default/
-index.html?videoId=5625751316001&amp;<span class="bcls-highlight">adConfigId</span>=<span class="bcls-input">your ad config id</span>"
-  allowfullscreen
-  allow="encrypted-media"
-  width="640"
-  height="360"&gt;&lt;/iframe&gt;</code></pre>
-    <h4 id="Advanced_embed_code">Advanced embed code</h4>
-    <p>With the Advanced embed code, include the <code translate="No">data-ad-config-id</code> attribute with the value of your ad config id:</p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">&lt;video-js data-video-id="5625751316001"
-  data-account="1752604059001"
-  data-player="default"
-  data-embed="default"
-  data-application-id
-  <span class="bcls-highlight">data-ad-config-id</span>="<span class="bcls-input">your ad config id</span>"
-  controls=""
-  width="640" height="360"&gt;&lt;/video-js&gt;
-&lt;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&gt;&lt;/script&gt;</code></pre>
-    <h4 id="Using_the_catalog">Using the catalog</h4>
-    <p>You can use the <code translate="No">player catalog</code> to associate ads with your video. The catalog works by making two requests:</p>
-    <ol class="bcls-tasklist-restart">
-      <li>Request video data from the player catalog. This will include a VMAP URL.</li>
-      <li>The player source is set with the VMAP URL, triggering a request for a VMAP document from Dynamic Delivery. The player source is set again with a valid VMAP XML document.</li>
-    </ol>
-    <p>When using the <code translate="No">catalog</code> with SSAI, append your ad configuration id to the <code translate="No">getVideo()</code> call to the Playback API as follows:</p>
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No"><span class="bcls-highlight">var adConfigId</span> = "<span class="bcls-input">your ad config id</span>";
-var myPlayer = videojs.getPlayer('myPlayerId');
-// If you added the SSAI plugin using the Players module, then the initialization
-// step is performed automatically. Uncomment the next line if you
-// did not use the Players module.
-//myPlayer.ssai();
-
-myPlayer.catalog.getVideo("<span class="bcls-input">your video id</span>", function(error, video) {
-  if (error) {
-    myPlayer.error(error);
-  } else {
-    myPlayer.catalog.load(video);
-  }
-}, <span class="bcls-highlight">adConfigId</span>);</code></pre>
-    <h4 id="Updating_your_player_configuration">Updating your player configuration</h4>
-    <p>Another way to associate ads is to include your ad config id in your Brightcove Player configuration. To do this, you can use the <a href="https://apis.support.brightcove.com/player-management/">Player Management API</a> as follows:</p>
-    <ol class="bcls-tasklist-restart">
-      <li>
-        <p>Use the <code translate="No">PATCH</code> command to include your <code translate="No">ad_config_id</code>. Here is an example of updating your player using cURL:</p>
-        <pre class="line-numbers" data-start="1">
-<code class="language-json" translate="No">curl \
-  --header "Content-Type: application/json" \
-  --user <span class="bcls-input">$EMAIL</span> \
-  --request PATCH \
-  --data '{
-      "ad_config_id" : "<span class="bcls-input">$CONFIG_ID</span>"
-  }' \
-  https://players.api.brightcove.com/v1/accounts/<span class="bcls-input">$ACCOUNT_ID</span>/players/<span class="bcls-input">$PLAYER_ID</span>/configuration
-</code></pre>
-      </li>
-      <li>
-        <p>You can then publish your changes as follows:</p>
-        <pre class="line-numbers" data-start="1">
-<code class="language-json" translate="No">curl \
-  --header "Content-Type: application/json" \
-  --user <span class="bcls-input">$EMAIL</span> \
-  --request POST \
-  https://players.api.brightcove.com/v1/accounts/<span class="bcls-input">$ACCOUNT_ID</span>/players/<span class="bcls-input">$PLAYER_ID</span>/publish
-</code></pre>
-      </li>
-      <li>
-        <p>Verify that the configuration for your Brightcove Player includes <code translate="No">ad_config_id</code> set to your config id value and the ssai plugin with the associated plugin files. To do this, follow these steps:</p>
-        <ol>
-          <li>Navigate to your player in the Studio Players module. Click on the player name link to see details.</li>
-          <li>Select the <strong>Embed Code &amp; URL</strong> (either Preview or Published will work). Click on the <strong>Player URL</strong> link.</li>
-          <li>In the browser address bar, change the <strong>index.html</strong> to <strong>config.json</strong>, and browse the new URL.</li>
-        </ol>
-        <p>Your player configuration should look similar to this:</p>
-        <pre class="line-numbers">
-<code class="language-json" translate="No">{
-  "account_id": "1752604059001",
-<span class="bcls-highlight">  "ad_config_id": "d6190656-2095-4ff3-8afe-123abcde",</span>
-  "compatibility": true,
-  "embed_id": "default",
-  "player": {
-    "template": {
-      "name": "single-video-template",
-      "version": "7.7.0"
-    }
-  },
-  "player_id": "rJCECV0RZ",
-  "player_name": "SSAI Player",
-<span class="bcls-highlight">  "plugins": [
-    {
-      "name": "ssai"
-    }
-  ],
-  "scripts": [
-    "https://players.brightcove.net/videojs-ssai/2/videojs-ssai.js"
-  ],
-  "stylesheets": [
-    "https://players.brightcove.net/videojs-ssai/2/videojs-ssai.css"
-  ],</span>
-  "updated_at": "2017-11-07T16:03:47.161Z",
-  "video_cloud": {
-    "policy_key": "ABCDE123456789",
-    "video": null
-  }
-}</code></pre>
-        <aside class="bcls-aside bcls-aside--information language-editable">Note that if you are using a 6.x version of the player, you will need to use version 1 of the SSAI plugin - to do that, simply replace <code translate="No">/2/</code> in the URLs for the CSS and JavaScript with <code translate="No">/1/</code></aside>
-      </li>
-    </ol>
-    <h4 id="Play_a_video_with_ads1">Playing a video with ads</h4>
-    <p>Any video that you retrieve from Video Cloud that has been ingested with Dynamic Delivery, will include the ads specified in the VMAP file in your ad configuration. Note that the video needs to have an audio track associated with it for SSAI to work.</p>
-    <aside class="bcls-aside bcls-aside--information">Please note that to make the SSAI ads work, change the video configuration from <strong>Ad free</strong> to <strong>Ad Supported</strong> in the Media Module.</aside>
-  </section>
   <section class="bcls-section">
     <h2 id="open-measurement">Open Measurement</h2>
     <p>The IMA SDK for HTML5 includes the Open Measurement (OM) SDK, an industry standard developed by the Interactive Advertising Bureau (IAB) to enable third-party viewability and verification measurement. When using the IMA SDK for HTML5, the included OM SDK automatically parses the tag within VAST ad tags and sends viewability data to the specified measurement vendors via the OMID API. You can optionally set access mode rules for each request to control what content the verification script can access. <a href="https://developers.google.com/ad-manager/dynamic-ad-insertion/sdk/html5/omsdk">Learn more</a></p>
@@ -2224,7 +2129,117 @@ imaDai.one(ImaDaiPlugin.EVENTS.IMA_DAI_SDK_LOADED, ({ imaDaiSdk }) => {
 // ...
       </code></pre>
 
+      <p><strong>IAB signal</strong></p>
+      <p>To notify Google that RDP should be enabled using IAB's signal, use the ad tag parameter <code translate="no">us_privacy</code>. The snippet below demonstrates how to create an ad request with the IAB parameter <code translate="no">"1YNN"</code>:</p>
+      <pre class="line-numbers"><code class="language-JS" translate="No">
+        // ...
+imaDai.one(ImaDaiPlugin.EVENTS.IMA_DAI_SDK_LOADED, ({ imaDaiSdk }) => {
+  const { LiveStreamRequest } = imaDaiSdk;
+
+  const streamRequest = new LiveStreamRequest();
+
+  streamRequest.assetKey = 'c-rArva4ShKVIAkNfy6HUQ';
+  // IAB signal:
+  streamRequest.adTagParameters = {"us_privacy": "1YNN"};
+
+  const fallback = {
+    type: 'application/x-mpegURL',
+    src: 'https://bitmovin-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+  };
+
+  player.src({
+    type: fallback.type,
+    src: fallback.src,
+    imaDai: { streamRequest }
+  });
+});
+// ...
+        </code></pre>
+        <h3>GDPR</h3>
+        <p>Under Google's updated EU User Consent Policy, you must make certain disclosures to your users in the European Economic Area (EEA) and obtain their consent for the use of cookies or other local storage where legally required and for the collection, sharing, and use of personal data for ads personalization. This policy reflects the requirements of the EU ePrivacy Directive and the General Data Protection Regulation (GDPR). <a href="https://developers.google.com/ad-manager/dynamic-ad-insertion/sdk/html5/consent">Learn more</a>.</p>
+        <p><strong>Force non-personalized ads</strong></p>
+        <p>Append <code translate="no">npa=1</code> to your ad tag to specify that only non-personalized ad content.</p>
+        <pre class="line-numbers"><code class="language-JS" translate="No">
+          // ...
+          imaDai.one(ImaDaiPlugin.EVENTS.IMA_DAI_SDK_LOADED, ({ imaDaiSdk }) => {
+            const { LiveStreamRequest } = imaDaiSdk;
+          
+            const streamRequest = new LiveStreamRequest();
+          
+            streamRequest.assetKey = 'c-rArva4ShKVIAkNfy6HUQ';
+            // Force non-personalized ads:
+            streamRequest.adTagParameters = {"npa": 1};
+          
+            const fallback = {
+              type: 'application/x-mpegURL',
+              src: 'https://bitmovin-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+            };
+          
+            player.src({
+              type: fallback.type,
+              src: fallback.src,
+              imaDai: { streamRequest }
+            });
+          });
+          // ...
+          </code></pre>
+          <p><strong>Tagging users as under the age of consent</strong></p>
+          <p>This parameter disables personalized advertising, including remarketing, for that specific ad request. It also disables requests to third-party ad vendors, such as ad measurement pixels and third-party ad servers. To include this tag on all ad requests made from your implementation, append <code translate="no">tfua=1</code> to your ad tag.</p>
+          <pre class="line-numbers"><code class="language-JS" translate="No">
+            // ...
+imaDai.one(ImaDaiPlugin.EVENTS.IMA_DAI_SDK_LOADED, ({ imaDaiSdk }) => {
+  const { LiveStreamRequest } = imaDaiSdk;
+
+  const streamRequest = new LiveStreamRequest();
+
+  streamRequest.assetKey = 'c-rArva4ShKVIAkNfy6HUQ';
+  // Tagging users as under the age of consent:
+  streamRequest.adTagParameters = {"tfua": 1};
+
+
+  const fallback = {
+    type: 'application/x-mpegURL',
+    src: 'https://bitmovin-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+  };
+
+  player.src({
+    type: fallback.type,
+    src: fallback.src,
+    imaDai: { streamRequest }
+  });
+});
+// ...
+            </code></pre>
+
   </section>
+  <section class="bcls-section">
+    <h2 id="Options">Main Concepts</h2>
+    <h3>Stream Time vs. Relative Time</h3>
+    <p>When we use server-side ad insertion (SSAI), ads and content are stitched together into a single stream.</p>
+    <p>Since there's only one stream, we need to create a way to understand time:</p>
+    <ul>
+      <li><strong>Stream Time (or Absolute Time)</strong>: This is the time in the whole stream.</li>
+      <li><strong>Relative Time</strong>: This depends on what's playing right now (ads or content).
+      <ol>
+        <li>If we're playing an ad, the relative time will be the time within that specific ad.</li>
+        <li>If we're playing content, the relative time will be the time within the content.</li>
+      </ol></li>
+    </ul>
+    <p>Example:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/plugins/ssai/stream-time-relative-time.webp" />
+    </figure>
+    <p>In this 70-second stream, ads take up to 30 seconds, and content takes up to 40 seconds.</p>
+    <ul>
+      <li><strong>Absolute Time</strong> Duration = 70 seconds</li>
+      <li><strong>Relative Time</strong> Duration (Content) = 40 seconds</li>
+      <li><strong>Relative Time</strong> Duration (each Ad) = each individual ad's length (10s, 5s, ...)</li>
+    </ul>
+    <br>
+    <h3>Snapback</h3>
+    <p>Snapback is the ability to take the user back to the start of the ad break they seeked past and then return them to their seek location after that ad break is over. <a href="https://developers.google.com/ad-manager/dynamic-ad-insertion/sdk/html5/snapback">Learn more</a>.</p>
+  </section>
+
 
   <section class="bcls-section">
     <h2 id="Options">Options</h2>
