@@ -130,4 +130,14 @@ window.qsParams.postId</code></pre>
 });</code></pre>
 
   </section>
+  <section class="bcls-section">
+    <h2 id="Autoplay">Autoplay</h2>
+    <p>A warning may appear in the browser console if you use autoplay:</p>
+    <aside class="bcls-aside bcls-aside--warning">Autoplay option disabled. AMP requires autoplay to be managed by adding `autoplay` to the AMP embed instead.</aside>
+    <p>This error will appear if you use any autoplay option within the Brightcove Player configuration. "autoplay" must be set to false or be absent from the player configuration for the warning not to appear.
+
+      AMP rules require that players in AMP only start playback if initiated by a user action or by AMP-managed autoplay, which can be set by adding the <code translate="No">autoplay</code> attribute to the <code translate="No">amp-brightcove</code> element.
+      
+      Brightcove recommends using a dedicated player for AMP pages without the autoplay setting within the player configuration if autoplay is required.</p>
+    </section>
 </article>
