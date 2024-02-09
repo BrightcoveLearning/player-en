@@ -2000,6 +2000,128 @@
   </section>
 
   <section class="bcls-section">
+    <h2 id="Hybrid_implementation">Hybrid implementation</h2>
+
+    <p>
+      So far in this document you have seen the IMA plugin implemented in Studio, then in code. Some customers like to perform a hybrid implementation where the
+      basic plugin is added in Studio, but then configuration done in the page's JavaScript. This hybrid implementation is discussed in this section.
+    </p>
+
+    <p>
+      As you have just seen in the previous section, when implementing the IMA3 plugin purely in code you manipulate the plugin in function format. When you
+      install the plugin in Studio, then configure in the page, you must treat the plugin as an object. For instance, assume you have installed the IMA3 plugin
+      using Studio as shown here, noting that no <strong>Ad Tag</strong> is supplied:
+    </p>
+
+    <figure class="bcls-figure">
+      <img class="bcls-image" alt="Partial Studio Install" src="/assets/images/plugins/ima/partial-studio-install.png" />
+    </figure>
+
+    <p>Now, in the JavaScript in the page you can assign property values (remember, treat the plugin as an object now) as shown here:</p>
+
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
+  var myPlayer = this;
+  myPlayer.ima3.settings.serverUrl = 'http://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml';
+});</code></pre>
+
+    <p>Of course, other properties can be assigned values in this manner.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Implement_using_code">Implement using code</h2>
+
+    <p>
+      To implement the IMA3 Plugin the player needs to know the location of the plugin code, a stylesheet, the plugin name and plugin configuration options. The
+      location of the plugin code and stylesheet are as follows:
+    </p>
+
+    <pre class="line-numbers">
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js</code></pre>
+
+    <pre class="line-numbers">
+<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css</code></pre>
+
+    <p>The name of the plugin is <code translate="No">ima3</code>, and an example set of options is:</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "serverUrl": "//pubads.g.doubleclick.net/gampad/ads?sz=400x300&amp;iu=%2F6062...",
+  "timeout": 5000
+}</code></pre>
+
+    <p>The following example uses the Advanced implementation of the player to associate the IMA Plugin with a single instance of a player.</p>
+
+    <aside class="bcls-aside bcls-aside--information">
+      In the code below, you see the <code translate="No">bc()</code> method is called to initialize the Brightcove Player, then the IMA3 plugin is
+      initialized immediately thereafter. This is because for the IMA3 plugin to function properly it needs to be loaded right after player initialization,
+      before any other plugins are initialized. Initializing the IMA3 plugin in <code translate="No">videojs.getPlayer('myPlayerID').ready(...)</code> or
+      when the <code translate="No">loadedmetadata</code> event is dispatched, will cause the plugin to NOT function as intended.
+    </aside>
+
+    <ul>
+      <li>
+        Line 7: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.
+      </li>
+      <li>
+        Line 12: Gives the <code translate="No">video</code> tag an <code translate="No">id</code> attribute, with some value, in this case
+        <strong translate="No">myPlayerID</strong>.
+      </li>
+      <li>
+        Line 21: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML
+        page.
+      </li>
+      <li>
+        Lines 25-29: Initializes the player using the <code translate="No">bc()</code> method, and then calls the
+        <code translate="No">ima3()</code> method.
+      </li>
+      <li>
+        Lines 30-33: On player <code translate="No">ready</code>, a reference to the player is created. The comment is shown to indicate where you can
+        place code to add other player behaviors beyond IMA3 plugin setup and configuration.
+      </li>
+    </ul>
+
+    <pre class="line-numbers">
+<code class="language-html" translate="No">&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;IMA3 Plugin v4 Code Example&lt;/title&gt;
+  &lt;link href=&quot;https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;video-js id=&quot;myPlayerID&quot;
+    data-account=&quot;1752604059001&quot;
+    data-player=&quot;JLvQcZgxxV&quot;
+    data-embed=&quot;default&quot;
+    controls=&quot;&quot;
+    data-video-id=&quot;5550679964001&quot;
+    data-playlist-id=&quot;&quot;
+    data-application-id=&quot;&quot;
+    width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
+  &lt;script src=&quot;https://players.brightcove.net/1752604059001/JLvQcZgxxV_default/index.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var myPlayer;
+    var player = bc('myPlayerID');
+    player.ima3({
+      serverUrl: '//solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml'
+    });
+    player.ready(function () {
+      myPlayer = this;
+      //Do something
+    });
+  &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </section>
+
+  <section class="bcls-section">
     <h2 id="section-name">IMA3 plugin and autoplay</h2>
     <p>Advertisments played via the IMA3 plugin will use a similar autoplay configuration set for Brightcove Player. (See <a href="/playback/autoplay-considerations.html">Autoplay Considerations</a>.) Full control is granted and all possible Brightcove Player autoplay values are supported.</p>
     Also see the <code translate="No">usePlayerAutoplayHandling</code> option below to give control over autoplay to the player rather than the IMA3 plugin.
@@ -3281,98 +3403,7 @@ player.ready(function () {
       <figure class="bcls-figure"><img class="bcls-image" alt="nework flow VAST" src="/assets/advertising/ima3-plugin/ads-learning-guide-network-vast.png" /></figure>
       </section> -->
 
-  <section class="bcls-section">
-    <h2 id="Implement_using_code">Implement using code</h2>
-
-    <p>
-      To implement the IMA3 Plugin the player needs to know the location of the plugin code, a stylesheet, the plugin name and plugin configuration options. The
-      location of the plugin code and stylesheet are as follows:
-    </p>
-
-    <pre class="line-numbers">
-<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js</code></pre>
-
-    <pre class="line-numbers">
-<code class="language-html" translate="No">https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css</code></pre>
-
-    <p>The name of the plugin is <code translate="No">ima3</code>, and an example set of options is:</p>
-
-    <pre class="line-numbers">
-<code class="language-json" translate="No">{
-  "serverUrl": "//pubads.g.doubleclick.net/gampad/ads?sz=400x300&amp;iu=%2F6062...",
-  "timeout": 5000
-}</code></pre>
-
-    <p>The following example uses the Advanced implementation of the player to associate the IMA Plugin with a single instance of a player.</p>
-
-    <aside class="bcls-aside bcls-aside--information">
-      In the code below, you see the <code translate="No">bc()</code> method is called to initialize the Brightcove Player, then the IMA3 plugin is
-      initialized immediately thereafter. This is because for the IMA3 plugin to function properly it needs to be loaded right after player initialization,
-      before any other plugins are initialized. Initializing the IMA3 plugin in <code translate="No">videojs.getPlayer('myPlayerID').ready(...)</code> or
-      when the <code translate="No">loadedmetadata</code> event is dispatched, will cause the plugin to NOT function as intended.
-    </aside>
-
-    <ul>
-      <li>
-        Line 7: Uses a <code translate="No">link</code> tag to include the plugin's CSS in the <code translate="No">head</code> of the HTML page.
-      </li>
-      <li>
-        Line 12: Gives the <code translate="No">video</code> tag an <code translate="No">id</code> attribute, with some value, in this case
-        <strong translate="No">myPlayerID</strong>.
-      </li>
-      <li>
-        Line 21: Uses a <code translate="No">script</code> tag to include the plugin's JavaScript in the <code translate="No">body</code> of the HTML
-        page.
-      </li>
-      <li>
-        Lines 25-29: Initializes the player using the <code translate="No">bc()</code> method, and then calls the
-        <code translate="No">ima3()</code> method.
-      </li>
-      <li>
-        Lines 30-33: On player <code translate="No">ready</code>, a reference to the player is created. The comment is shown to indicate where you can
-        place code to add other player behaviors beyond IMA3 plugin setup and configuration.
-      </li>
-    </ul>
-
-    <pre class="line-numbers">
-<code class="language-html" translate="No">&lt;!doctype html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;title&gt;IMA3 Plugin v4 Code Example&lt;/title&gt;
-  &lt;link href=&quot;https://players.brightcove.net/videojs-ima3/4/videojs-ima3.css&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-  &lt;video-js id=&quot;myPlayerID&quot;
-    data-account=&quot;1752604059001&quot;
-    data-player=&quot;JLvQcZgxxV&quot;
-    data-embed=&quot;default&quot;
-    controls=&quot;&quot;
-    data-video-id=&quot;5550679964001&quot;
-    data-playlist-id=&quot;&quot;
-    data-application-id=&quot;&quot;
-    width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/video-js&gt;
-  &lt;script src=&quot;https://players.brightcove.net/1752604059001/JLvQcZgxxV_default/index.min.js&quot;&gt;&lt;/script&gt;
-
-  &lt;script src=&quot;https://players.brightcove.net/videojs-ima3/4/videojs-ima3.min.js&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
-    var myPlayer;
-    var player = bc('myPlayerID');
-    player.ima3({
-      serverUrl: '//solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml'
-    });
-    player.ready(function () {
-      myPlayer = this;
-      //Do something
-    });
-  &lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-  </section>
+ 
   <!-- <section class="bcls-section">
       <h2 id="Creating_an_ad_tag_based_on_media_info">Creating an ad tag based on media info</h2>
       <p>A common use-case for programmatic ads is to create an ad tag based on media info, retrieved from the <code translate="No">mediainfo</code> object. Because the ad tag can be passed in as an option during plugin initialization, it may seem appropriate to defer
@@ -3405,34 +3436,7 @@ player.ready(function () {
       });</code></pre>
       </section> -->
 
-  <section class="bcls-section">
-    <h2 id="Hybrid_implementation">Hybrid implementation</h2>
 
-    <p>
-      So far in this document you have seen the IMA plugin implemented in Studio, then in code. Some customers like to perform a hybrid implementation where the
-      basic plugin is added in Studio, but then configuration done in the page's JavaScript. This hybrid implementation is discussed in this section.
-    </p>
-
-    <p>
-      As you have just seen in the previous section, when implementing the IMA3 plugin purely in code you manipulate the plugin in function format. When you
-      install the plugin in Studio, then configure in the page, you must treat the plugin as an object. For instance, assume you have installed the IMA3 plugin
-      using Studio as shown here, noting that no <strong>Ad Tag</strong> is supplied:
-    </p>
-
-    <figure class="bcls-figure">
-      <img class="bcls-image" alt="Partial Studio Install" src="/assets/images/plugins/ima/partial-studio-install.png" />
-    </figure>
-
-    <p>Now, in the JavaScript in the page you can assign property values (remember, treat the plugin as an object now) as shown here:</p>
-
-    <pre class="line-numbers">
-<code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').ready(function() {
-  var myPlayer = this;
-  myPlayer.ima3.settings.serverUrl = 'http://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml';
-});</code></pre>
-
-    <p>Of course, other properties can be assigned values in this manner.</p>
-  </section>
 
   <section class="bcls-section">
     <h2 id="Debugging_assistance">Debugging assistance</h2>
