@@ -2373,6 +2373,15 @@ request.omidAccessModeRules[google.ima.OmidVerificationVendor.GOOGLE] = google.i
 request.omidAccessModeRules[google.ima.OmidVerificationVendor.OTHER] = google.ima.OmidAccessMode.DOMAIN;</code></pre>
 
 
+<p>The access rules for each <strong>OmidVerificationVendor</strong> can be set via the <code> omidAccessModeRules</code> plugin option as follows:</p>
+<pre class="line-numbers"><code class="language-json" translate="No">{
+  omidAccessModeRules: {
+    OTHER: 'LIMITED',
+    DOUBLEVERIFY: 'DOMAIN',
+    GOOGLE: 'FULL'
+  }
+}</code></pre>
+
     <h3 id="postrollTimeout">postrollTimeout</h3>
 
     <p>Type: <code translate="No">number</code><br>Default Value: <code translate="No">undefined</code></p>
