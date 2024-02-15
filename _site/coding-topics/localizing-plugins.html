@@ -1892,8 +1892,8 @@
 <article class="bcls-article">
   <h1>Localizing Plugins</h1>
   <summary>In this topic you will learn how a plugin developer can localize a Brightcove Player plugin. Note that this is NOT the same as using the built-in localization for the player itself. As is suggested in the <a href="/coding-topics/step-step-plugin-development.html">Quick Start to Plugin Development</a>, the application will be developed locally then converted into a plugin.</summary>
-  <section id="addlanguage" class="bcls-section">
-    <h2>Add language(s)</h2>
+  <section class="bcls-section">
+    <h2 id="addlanguage">Add language(s)</h2>
     <p>You can choose the languages to support in a plugin. For each language you wish to support you must have a set of key-value pairs with the English language as the key and the corresponding localized language as a value. You do this by using Videojs' <code translate="No">addLanguage()</code> method. The following code shows adding German translations to a page:</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">videojs.addLanguage('de', {
@@ -1901,8 +1901,8 @@
   "Goodbye": "Auf Wiedersehen",
 });</code></pre>
   </section>
-  <section id="localizecontent" class="bcls-section">
-    <h2>Localize content</h2>
+  <section class="bcls-section">
+    <h2 id="localizecontent">Localize content</h2>
     <p>Once you have added the languages and vocabulary you wish to use in the localization process you can use the player's <code translate="No">localize()</code> method to perform the actual localization. The following shows a string being injected into an HTML <code translate="No">&lt;span&gt;</code>, then appended to the end of the video tag:</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">  textSpan = document.createElement('span');
@@ -1919,8 +1919,8 @@
     <p>If the browser's preferred language is set to an available language, you will see the localized version, as shown here:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="localize german" src="/assets/images/coding-topics/localize-plugin-deutsch.png" /></figure>
   </section>
-  <section id="plugincode" class="bcls-section">
-    <h2>Plugin code</h2>
+  <section class="bcls-section">
+    <h2 id="plugincode">Plugin code</h2>
     <p>As documented in the <a href="/coding-topics/step-step-plugin-development.html">Step-by-Step: Plugin Development</a>, you put the code into a file that contains the plugin.</p>
     <ul>
       <li>Lines 27,37: Standard syntax to define a Brightcove Player plugin. Notice for later reference the name of the plugin is <strong>pluginLocalize</strong>.</li>
@@ -1965,8 +1965,8 @@
 
 &lt;/html&gt;</code></pre>
   </section>
-  <section id="addplugintoplayer" class="bcls-section">
-    <h2>Add plugin to player</h2>
+  <section class="bcls-section">
+    <h2 id="addplugintoplayer">Add plugin to player</h2>
     <p>Once you have confirmed the plugin is functioning correctly, you will want to add the plugin to the player. To do this, follow these steps:</p>
     <ol class="bcls-tasklist">
       <li>Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.</li>
@@ -2009,6 +2009,43 @@
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+  </section>
+  <section  class="bcls-section">
+    <h2 id="Localizing-pligins-loaded-in-page">Localizing Brightcove Plugins Loaded In-Page</h2>
+    <p>When a Brightcove plugin is loaded in-page via a &#60;script&#62; rather than added in Studio, any language translations associated with that plugin will not automatically be included. If you wish to localize a Brightcove plugin that has been loaded in-page, you have to manually include the language files for each language you want to support.</p>
+      <p>This can be accomplished either by:
+        <ul>
+          <li>Adding the language files as custom Scripts in Studio.</li>
+          <li>Loading the language files in &#60;script&#62; tags after the player, before the plugin script.</li>
+        </ul> 
+      
+      <p>The language file URLs have the following format:</p>
+      <code translate="no">https://players.brightcove.net/&#60;plugin-name&#62;/&#60;plugin-version&#62;/lang/&#60;language-code&#62;.js</code>
+      <br>
+      <br>
+      <p>Here is an example of the second approach using the Quality Selection plugin:</p>
+      <pre class="line-numbers">
+        <code class="language-html" translate="No">// Load the player
+          &#60;video-js id="myPlayerID"
+          data-account="175260405001"
+          data-player="default"
+          data-embed="default"
+          controls=""
+          data-video-id="584280065001"
+          data-playlist-id=""
+          data-application-id=""
+          width="960" height="540"></video-js>
+        &#60;script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"&#62;&#60;/script&#62;
+        
+        // Load translations for the Quality Selection plugin
+        &#60;script src="https://players.brightcove.net/videojs-quality-menu/3/lang/fr.js"&#62;&#60;/script&#62;
+        &#60;script src="https://players.brightcove.net/videojs-quality-menu/3/lang/ko.js"&#62;&#60;/script&#62;
+        &#60;script src="https://players.brightcove.net/videojs-quality-menu/3/lang/zh-Hant.js"&#62;&#60;/script&#62;
+        
+        // Load the Quality Selection plugin
+        &#60;script src="https://players.brightcove.net/videojs-quality-menu/3/videojs-quality-menu.min.js"&#62;&#60;/script&#62;
+        </code></pre>
+        <aside class="bcls-aside bcls-aside--tip">Note: Not all Brightcove plugins have associated language files. Only plugins with user interface elements that need localization offer these.</aside>
   </section>
 </article>
 <!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
