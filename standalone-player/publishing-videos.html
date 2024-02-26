@@ -1,6 +1,6 @@
 ---
-title: Add videos to the player by code
-description: In this topic, you will learn about the configuration of the player to add videos programatically.
+title: Publishing Videos with the Player programmatically
+description: In this topic, you will learn about the player's configuration to publish videos programmatically.
 parent: 'Standalone Player Resources'
 ---
 <article class="bcls-article">
@@ -8,117 +8,97 @@ parent: 'Standalone Player Resources'
   <summary>{{ page.description }}</summary>
   
   <section class="bcls-section">
-    <h2 id="media">Media Property</h2>
-    <p>The media property has child properties as shown in the following table.</p>
+    <h2 id="Introduction">Publishing Videos Player-only</h2>
+    <p>There are multiple ways to load source content into your Brightcove Player.</p>
+    <aside class="bcls-aside bcls-aside--information">Note: The source that is selected for playback is determined by the video order you've configured and the capabilities of the browser and device on which the player is loaded. If you haven't altered the defaults, and HLS is supported natively, the player will check if any of the sources point to HLS videos and select the first one it finds. If HLS is not supported natively or no HLS video sources have been specified, HTML playback will be attempted next. As previously, the first playable source will be selected.</aside>
+    <br>
+    <div class="BCLS-subsection">
+      <h3>Advanced (in-page embed) code implementation.</h3>
+      <p>The Advanced (in-page) embed code permits you to have the player exist in the HTML page directly, not in an iframe. This offers the benefits of ease of accessing the player and associated properties and events. <a href="https://player.support.brightcove.com/publish/available-options-advanced-page-embed-code.html">More info</a>.</p>
+      <p>To use the <strong>in-page embed code</strong> follow these steps:</p>
+      <ol class="bcls-tasklist-restart">
+        <li>Use the <strong>PLAYERS</strong> module to create a player.</li>
+        <li>Copy the Advanced embed code.</li>
+        <li>Embed your source assets on the embed code. The HTML will be similar to the following:
+          <pre class="line-numbers"><code class="language-html" translate="No">&#60;video-js
+    data-account="123456789001"
+    data-player="default"
+    data-embed="default"
+    controls=""
+    width="640" 
+    height="360"&#62;
+    &#60;source src="https://your-domain.com/master.m3u8" type="application/x-mpegURL"&#62;
+    &#60;source src="https://your-domain.com/video.mp4" type="video/mp4"&#62;
+&#60;/video-js&#62;
+&#60;script src="//players.brightcove.net/123456789001/default_default/index.min.js">&#60;/script&#62;</code></pre>
+<aside class="bcls-aside bcls-aside--information">Note: The player will attempt to load <code translate="no">master.m3u8</code> first, and if that fails, it will try <code translate="no">video.mp4.</code></aside>
+        </li>
+        <li>Copy the HTML from the browser and paste into the <code translate="no">body</code> of a full HTML page.</li>
+        <li>Browse the HTML page to see the player functioning.</li>
+      </ol>
+    </div>
+<br>
+    <div class="BCLS-subsection">
+      <h3>Programmatic implementation.</h3>
+      <p>Selecting video programmatically is a much more flexible and dynamic method of loading your content.</p>
+      <p>To use a video programmatically follow these steps:</p>
+      <ol class="bcls-tasklist-restart">
+        <li>Get a <a href="https://player.support.brightcove.com/coding-topics/using-bc-and-getplayer-methods.html">reference</a> to your player:
+          <pre class="line-numbers"><code class="language-JS" translate="No">const player = bc('myPlayer');
+          </code></pre>
 
-    <div class="table-responsive">
-      <table class="bcls-table">
-            <caption class="bcls-caption--table">Media Properties</caption>
-            <thead class="bcls-table__head">
-                <tr>
-                    <th>Property</th>
-                    <th>Data Type</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody class="bcls-table__body">
-                <tr>
-                    <td>src</td>
-                    <td>string</td>
-                    <td>
-                      <ul>
-                        <li>The URL of the video file to load into the player.</li>
-                      </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>sources</td>
-                    <td>array of objects</td>
-                    <td>
-                      <ul>
-                        <li>An array of source objects, in order of preference.</li>
-                        <li>The elements of this array are translated directly to source elements.</li>
-                        <li>A source object should have two properties: <code translate="no">src</code> and <code translate="no">type</code>.</li>
-                        <li>The <code translate="no">type</code> attribute is the MIME type of the video, as specified in the HTML5 standard.</li>
-                      </ul>
-                    </td>
-                </tr>
-                <tr>
-                  <td>title</td>
-                  <td>string</td>
-                  <td>
-                    <ul>
-                      <li>Content of the &#60;title&#62; element of the page.</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>poster.highres</td>
-                  <td>string</td>
-                  <td>
-                    <ul>
-                      <li>The file path to the poster image, relative to the root directory of the skin.</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>height</td>
-                  <td>string</td>
-                  <td>
-                    <ul>
-                      <li>The height of the video.</li>
-                      <li>The default value is relative to the width and is appropriate for a video with a 2:1 aspect-ratio.</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>width</td>
-                  <td>string</td>
-                  <td>
-                    <ul>
-                      <li>The width of the video.</li>
-                      <li>The default value is relative to the height and is appropriate for a video with a 2:1 aspect-ratio.</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td>tracks</td>
-                  <td>array</td>
-                  <td>
-                    <ul>
-                      <li>An array of track objects.</li>
-                      <li>The default value is undefined.</li>
-                    </ul>
-                  </td>
-                </tr>
-            </tbody>
-        </table>
-      </div>
-      
-      <p>In the following <strong>JSON</strong>, you can see a media property containing:</p>
-      <ul>
-        <li>A poster.highres property.</li>
-        <li>A sources property containing two source objects, one for an HLS video and one for a MP4 video.</li>
-      </ul>
-
-      <pre class="line-numbers"><code class="language-json" translate="No">"media": {
-        "poster": {
-          "highres": "http://solutions.brightcove.com/bcls/assets/images/Tiger.jpg"
-        },
-        "sources": [{
-          "type": "application/x-mpegURL",
-          "src": "http://solutions.brightcove.com/bcls/assets/videos/Tiger.m3u8"
-        }, {
-          "type": "video/mp4",
-          "src": "http://solutions.brightcove.com/bcls/assets/videos/Tiger.mp4"
-        }]
-      }</code></pre>
-      <br>
-
-      <p>The source that is selected for playback is determined by the video order you've configured and the capabilities of the browser and device on which the player is loaded. If you haven't altered the defaults, and HLS is supported natively, the player will check if any of the sources point to HLS videos and select the first one it finds. If HLS is not supported natively or no HLS video sources have been specified, HTML playback will be attempted next. As previously, the first playable source will be selected. If the first two attempts to play the video fail, Flash fallback will be tried.</p>
-
-      <aside class="bcls-aside bcls-aside--tip">Note: Source selection is different from rendition selection. Rendition selection is a process of selecting a particular variant of a video when it is available in multiple formats or quality levels that are all playable. Source selection isn't that smart, it just starts using the first video that is compatible with the player. The Brightcove player does rendition selection during playback, automatically adjusting the quality level based on bandwidth information detected by the player. It only does so, however, within an HLS source. It does not support doing rendition selection among multiple bitrate MP4 files, for instance.
-      </aside>
-
-  </section>
+        </li>
+        <li>Load the source programmatically:
+          <pre class="line-numbers"><code class="language-JS" translate="No">player.src('master.m3u8');
+          </code></pre>
+          <p>or</p>
+          <p>Single video with <em>MIME</em> type:</p>
+          <pre class="line-numbers"><code class="language-JS" translate="No">player.src({
+  type: 'application/x-mpegURL',
+  src: 'master.m3u8'
+});
+          </code></pre>
+          <p>or</p>
+          <p>An array of sources for the same video: </p>
+          <pre class="line-numbers"><code class="language-JS" translate="No">player.src([
+  {type: 'application/x-mpegURL', src: 'master.m3u8'},
+  {type: 'application/dash+xml', src: 'manifest.mpd'},
+  {type: 'video/mp4', src: 'video.mp4'}
+]);
+          </code></pre>
+        </li>
+      </ol>
+    </div>
+  <br>
+    <div class="BCLS-subsection">
+      <h3>DRM implementation.</h3>
+      <p>DRM (Digital Rights Management) protects your video content by encrypting the video data and unlocking it based on license policies. When the video content is loaded into a Brightcove Player, the player calls back to a licensing server and obtains permission to play the video. <a href="https://player.support.brightcove.com/content-protection/overview-content-protection.html">Learn more</a>.</p>
+      <p>To use a video with <em>DRM</em> follow these steps:</p>
+      <ol class="bcls-tasklist-restart">
+        <li>Get a <a href="https://player.support.brightcove.com/coding-topics/using-bc-and-getplayer-methods.html">reference</a> to your player:
+          <pre class="line-numbers"><code class="language-JS" translate="No">const player = bc('myPlayer');
+          </code></pre>
+        </li>
+        <li>Load the source with <em>DRM</em> programmatically:
+          <pre class="line-numbers"><code class="language-JS" translate="No">player.src({
+  type: 'application/x-mpegURL',
+  src: 'master.m3u8',
+  keySystems: {
+    'com.widevine.alpha': '&#60;license url&#62;',
+    'com.microsoft.playready': '&#60;license url&#62;',
+    'com.apple.fps.1_0': {
+    options: {
+           authToken: 'your-auth-token',
+          customData: 'your-custom-data'
+    },
+    certificateUri: 'https://example.com/your-certificate-uri.cer',
+        icenseUri: 'https://example.com/your-license-uri'
+    }
+  }
+});</code></pre>
+        </li>
+      </ol>
+    </div>
+    
+</section>
 </article>
