@@ -5,6 +5,7 @@
         
         <!-- Meta -->
         <meta charset="utf-8">
+        <meta name="robots" content="noindex,nofollow"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="In this topic, you will learn how to use the Brightcove Player Sample: Outstream (Ad-Only) Player.">
@@ -15,10 +16,8 @@
         <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
         
         <!-- FontAwesome JS-->
-        
         <!-- <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>   -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
         <!-- Plugins CSS -->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
         <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
@@ -45,7 +44,7 @@
     </head> 
 
     <body class="docs-page">
-        
+
 
 <header class="header fixed-top">
   <div class="branding docs-branding">
@@ -1894,13 +1893,15 @@
       </div>
       <br>
       
-      
+      <h3 style="color:#990000;border:#990000 solid 1px; padding:10px;width: fit-content;">Limited Availability - Do not share this document</h3>
 <h1>Brightcove Player Sample: Outstream (Ad-Only) Player</h1>
 <section class="bcls-article">
   <summary>In this topic, you will learn how to use the Brightcove Player Sample: Outstream (Ad-Only) Player.</summary>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p>An Outstream player generates paid video ad impressions without requiring video content behind it. This means it can generate incremental ad revenue beyond the current video content and viewership support.</p>
+    <p>An Outstream player generates paid video ad impressions without requiring video content behind it. This means it can generate incremental ad revenue beyond the current video content and viewership support.
+      <aside class="bcls-aside bcls-aside--information language-editable">Note: This is for player version 7.18.0.</aside>
+    </p>
   </section>
 <h2>Getting Started</h2>
 <ol class="bcls-tasklist">
@@ -1936,6 +1937,48 @@
     </figure>
   </li>
   <li><strong>Advertising</strong>- Enable Client-Side (IMA) is required for Outrstream players. Once you select the Outstream Player, it automatically comes with IMA 3 enabled. You can choose your Ad Tag or select the sample Ad Tag.</li>
+  <li><strong>JSON Editor</strong>- Make sure you have added the following values:
+    <p></p>
+  <ul>
+    <li><code>autoplay: “play”</code></li>
+    <li><code>“muted:” true</code></li>
+    <li><code>“picture_in_picture_control:” false</code></li>
+  </ul>
+  <figure class="bcls-figure">
+    <img class="bcls-image" src="/assets/images/code-samples/player-outstream/json-editor.webp" alt="json-editor">
+    <figcaption class="bcls-caption--image">json-editor</figcaption>
+  </figure>
+  <p>Then, click <span class="button-blue">Save</span> and <span class="button-blue">Publish</span>.</p>
+  <aside class="bcls-aside bcls-aside--information language-editable">Notes:
+    <ul>
+      <li>Outstream player requires set to <strong>muted</strong> on true, otherwise you can't save it.  </li>
+      <li>Outstream player requires set to <strong>autoplay</strong> on  play, otherwise you can't save it. </li>
+      <li>Outstream player requires to have the latest Player Version (currently v7.18.0)</li>
+      <li>Supported plugins for Outstream:
+        <ul>
+          <li>@brightcove/videojs-ima3 - IMA3 plugin - <strong>Required</strong></li>
+          <li>@brightcove/videojs-aa - Adobe Analytics - Optional</li>
+          <li>@brightcove/videojs-ga - Google Analyitcs - Optional</li>
+          <li>@brightcove/videojs-pip - Picture-in-Picture - Optional</li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+  <h3>Analytics</h3>
+  <li><strong>Google Analytics</strong>- Sing In to Google Account. Notice how only Ad related events are allowed. You can choose between <strong> Ad Start (ad_start) or Ad end (ad_end) </strong>. Notice how only Ad related events are allowed. You can choose between <strong> Ad Start (ad_start) or Ad end (ad_end) </strong>. 
+    Everything related to a video is invalid because it is not a video. 
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/code-samples/player-outstream/google-analytics.webp" alt="google-analytics">
+      <figcaption class="bcls-caption--image">google-analytics</figcaption>
+    </figure>
+  </li>
+    <li><strong>Adobe Analytics</strong>- Sing In to Adobe Analytics. Notice how only Ad related events are allowed. For more information, see <a href="https://studio.support.brightcove.com/players/general/configuring-adobe-analytics-event-tracking.html">Configuring Adobe Analytics Event Tracking</a></strong>. 
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/code-samples/player-outstream/adobe-analytics.webp" alt="adobe-analytics">
+        <figcaption class="bcls-caption--image">adobe-analytics</figcaption>
+      </figure>
+      <p>Click <span class="button-blue">Save</span>. </p>
+    </li>
 </ul>
 </article>
 <!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
