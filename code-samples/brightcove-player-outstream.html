@@ -1,6 +1,6 @@
 ---
-title: 'Brightcove Player Sample: Outstream (Ad-Only) Player'
-description: 'In this topic, you will learn how to use the Brightcove Player Sample: Outstream (Ad-Only) Player.'
+title: 'Brightcove Outstream (Ad-Only) Player'
+description: 'In this topic you will learn the basic set up of an Outstream Player type and available customizable features.'
 parent: Code Samples
 layout: staging
 ---
@@ -9,18 +9,20 @@ layout: staging
   <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p>Integrating Outstream players into Video Cloud allows the Creation of Outstream Players directly through Video Cloud. These players cannot play video IDs or playlist IDs and can only playback advertising. An Outstream player generates paid video ad impressions without requiring video content behind it. This means it can generate incremental ad revenue beyond the current video content and viewership support.
+    <p> An Outstream player generates paid video ad impressions without requiring video content behind it. It can generate incremental ad revenue beyond the current video content and viewership support. Brightcove core player technology, along with Client-side Ad Insertion with built-in IMA, this player type can be added to in-text environments across desktop and mobile web. This player type will only display to the user when a valid ad response is available.
+      Ads may be delivered from the ad server of choice. Alternately, Brightcove can handle the fulfillment of advertising and player setup and management on your behalf through our Ad Monetization Managed Service offering. Deliver video ads fulfilled by BCOV Ad Monetization Services alone or alongside your ad fulfillment.</p>
       <aside class="bcls-aside bcls-aside--information language-editable">Notes:
         <ul>
+          <li>For provisioned for Outstream to be available, contact your Brightcove Account Manager. </li>
           <li> This is for player version 7.18.0</li>
           <li>The minimum IMA3 version for full Outstream capability is v5.4.2</li>
         </ul>
       </aside>
     </p>
   </section>
-<h2>Getting Started</h2>
+<h2>Setting Up</h2>
 <ol class="bcls-tasklist">
-    <p>To start using Outstream Player, follow these steps:</p>
+    <p>To create an Outstream Player, follow these steps:</p>
     <li>Login to <a href="https://studio.brightcove.com/products/videocloud/home">Studio</a>. Then, click the <strong>Players</strong> module.
         <p></p>
         <figure class="bcls-figure">
@@ -28,7 +30,7 @@ layout: staging
             <figcaption class="bcls-caption--image">players-module</figcaption>
           </figure>
     </li>
-    <li>Select your Player. In case you haven't created one yet, see <a href="https://player.support.brightcove.com/basics/developer-basics-generating-player-code.html">Player Developer Basics</a>.
+    <li>Select the Oustream player type</li>.
     </li>
 <li>It sends you to <strong>Player Information</strong>. In the <strong>Player Type</strong>, click  <strong>Outstream</strong>.
     <figure class="bcls-figure">
@@ -51,7 +53,7 @@ layout: staging
       <figcaption class="bcls-caption--image">pip-plugin</figcaption>
     </figure>
   </li>
-  <li><strong>Advertising</strong>- Enable Client-Side (IMA) is required for Outrstream players. Once you select the Outstream Player, it automatically comes with IMA 3 enabled. You can choose your Ad Tag or select the sample Ad Tag.</li>
+  <li><strong>AdvertiSign</strong>- Enable Client-Side (IMA) is required for Outrstream players. Once you select the Outstream Player, it automatically comes with IMA 3 enabled. You can choose your Ad Tag or select the sample Ad Tag.</li>
   <li><strong>JSON Editor</strong>- Make sure you have added the following values:
     <p></p>
   <ul>
@@ -80,14 +82,14 @@ layout: staging
     </ul>
   </aside>
   <h3>Analytics</h3>
-  <li><strong>Google Analytics</strong>- Sing In to Google Account. Notice how only Ad related events are allowed. You can choose between <strong> Ad Start (ad_start) or Ad end (ad_end) </strong>. Notice how only Ad related events are allowed. You can choose between <strong> Ad Start (ad_start) or Ad end (ad_end) </strong>. 
+  <li><strong>Google Analytics</strong>- Sign In to Google Account. Notice how only Ad related events are allowed. You can choose between <strong> Ad Start (ad_start) or Ad end (ad_end)</strong>.</strong>
     Everything related to a video is invalid because it is not a video. 
     <figure class="bcls-figure">
       <img class="bcls-image" src="/assets/images/code-samples/player-outstream/google-analytics.webp" alt="google-analytics">
       <figcaption class="bcls-caption--image">google-analytics</figcaption>
     </figure>
   </li>
-    <li><strong>Adobe Analytics</strong>- Sing In to Adobe Analytics. Notice how only Ad related events are allowed. For more information, see <a href="https://studio.support.brightcove.com/players/general/configuring-adobe-analytics-event-tracking.html">Configuring Adobe Analytics Event Tracking</a></strong>. 
+    <li><strong>Adobe Analytics</strong>- Sign In to Adobe Analytics. Notice how only Ad related events are allowed. For more information, see <a href="https://studio.support.brightcove.com/players/general/configuring-adobe-analytics-event-tracking.html">Configuring Adobe Analytics Event Tracking</a></strong>. 
       <figure class="bcls-figure">
         <img class="bcls-image" src="/assets/images/code-samples/player-outstream/adobe-analytics.webp" alt="adobe-analytics">
         <figcaption class="bcls-caption--image">adobe-analytics</figcaption>
