@@ -228,10 +228,25 @@ parent: Plugins
     <h2 id="Creating_variables_tags_&_triggers">Creating Triggers, Variables & Tags</h2>
     <p>Every Brightcove event that you want to track must be created as an Event Tag in Google Tag Manager (GTM). The event IDs from GTM will then be used inside the Players module. This allows Brightcove event data to be passed to GTM events.</p>
     <p>For each Event Tag, you need to create a GTM trigger to send the event to Google Analytics. Then, in the GTM <strong>Variables</strong> tab, you will create the custom parameters associated with each event.</p> <!-- <p>You can create Variables, Tags and Triggers in Google Tag Manager, as shown below, or you can <a href="#Importing_a_container_file_in_GTM">import a Container file in GTM</a>. </p> -->
+    <h3>Prerequisites</h3>
+    <p>First, you have to add one Google Tag type tag in order to add tags of type Google Analytics: GA4 Event. To do it, follow these steps: </p>
+    <ol class="bcls-tasklist-restart">
+      <li>In Tag Type, add <strong>Google Tag</strong>.
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/plugins/google-tag-manager/google-tag.webp" alt="google-tag">
+        <figcaption class="bcls-caption--image">google-tag</figcaption>
+      </figure>
+      Notice how you see a <strong>Google tag found in this container message. </strong> If you forget this step, you will see a negative message.
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/plugins/google-tag-manager/GA-tag-container.webp" alt="google-tag-success">
+        <figcaption class="bcls-caption--image">google-tag-success</figcaption>
+      </figure>
+  </ol>
+</li>
     <h3>Adding Triggers to GTM</h3>
     <p>After determining which events you want to track, create a Trigger in Google Tag Manager.</p>
     <p>
-      To create Triggers in Google Tag Manager, follow these steps </p>
+      To create Triggers in Google Tag Manager, follow these steps: </p>
     <ol class="bcls-tasklist-restart">
       <li>
         <p>
