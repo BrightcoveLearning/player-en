@@ -1955,12 +1955,13 @@
             <li>The Brightcove Cast Receiver app does not support Chromecast queueing.</li>
             
             <li>For Chromecast to work with domain restricted players, you should whitelist the Chromecast receiver's domain, which is <code translate="No">players.brightcove.net</code>.</li>
-            <li>Using your own custom receiver app:
+            <!-- <li>Using your own custom receiver app:
               <ul>
                 <li>With the Brightcove Native SDKs, you can change the receiver app id</li>
                 <li>With Brightcove Player (web), this is currently not supported</li> 
               </ul>
-            </li>
+            </li> -->
+            <li>Using your own custom receiver app is supported through options in both the SDKs and the Brightcove Player.</li>
             
             <li>When casting from a Windows 10 machine, you may see the cast video player zoomed in (overscan) on the TV. This behavior is between Windows 10 and the TV. Brightcove Player cannot correct this behavior.</li>
              
@@ -2003,7 +2004,6 @@
     <p>From a data perspective, because our metrics are anonymized by default, it is logged as a new viewer starting a new stream on a separate device. This is what actually happens.</p>
     <aside class="bcls-aside bcls-aside--information language-editable">Also note that Chromecast is categorized in the Analytics Module either as <code translate="no">android</code> or <code translate="no">linux</code>, depending on its user-agent and Chromecast version.</aside>
   </section>
-
 
 
   
@@ -2267,6 +2267,11 @@
         </table>
         <h4>Function usage</h4>
         <p>When <code translate="No">authRequest</code> is a function, it should return either a string or an object per those usages.</p>
+      </li>
+      <li>
+        <h3><code translate="No">options.appId</code></h3> 
+        <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: 'C179578D'
+        <p>This can be used to override the default, internal Chromecast receiver app ID. This is opting out of using Brightcove’s Chromecast receiver app and using your own receiver app instead. Brightcove cannot support third-party receivers.</p>
       </li>
       <!-- <li>
  <code translate="No">js </code><br />

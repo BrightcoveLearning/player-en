@@ -8,7 +8,6 @@ parent: Plugins
   <summary>{{ page.description }}</summary>
 
   {% include s-general/chromecast-introduction.html %}
-
   
   <section class="bcls-section">
     <h2 id="Requirements">Requirements</h2>
@@ -270,6 +269,11 @@ parent: Plugins
         </table>
         <h4>Function usage</h4>
         <p>When <code translate="No">authRequest</code> is a function, it should return either a string or an object per those usages.</p>
+      </li>
+      <li>
+        <h3><code translate="No">options.appId</code></h3> 
+        <strong>Type</strong>: <code translate="No">string</code><br /> <strong>Default</strong>: 'C179578D'
+        <p>This can be used to override the default, internal Chromecast receiver app ID. This is opting out of using Brightcove’s Chromecast receiver app and using your own receiver app instead. Brightcove cannot support third-party receivers.</p>
       </li>
       <!-- <li>
  <code translate="No">js </code><br />
