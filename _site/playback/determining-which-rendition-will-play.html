@@ -1950,8 +1950,7 @@
     <ol>
       <li>Remove all renditions that have a bitrate higher than the measured bandwidth.</li>
       <li>Sort the remaining renditions by resolution (horizontal line count) high to low.</li>
-      <li>Point to the one that is closest to the player dimensions.</li>
-      <li>Choose the one that’s one higher than that one.</li>
+      <li>Point to the one closest to the player's dimensions and choose the one higher than that.</li>
     </ol>
     <p>The process is illustrated below:</p>
     <ol>
@@ -1969,7 +1968,7 @@
       </li>
     </ol>
     <p>If it turns out no rendition is acceptable based on the filtering described above, the first encoding listed in the master playlist will be used.</p>
-    <p>In this case, the best rendition would be 960x5@ 720kbpsbps because It is the “next highest” resolution from the one within the bounds of 900x500, which would be 640x360 in this case. Also, 720kbps is the highest bitrate within the theoretically unlimited range. It also depends on a pixel ratio (if this is a retina display, the player will treat it as 1800x1000). For more information about bandwith, see <a href="https://github.com/videojs/http-streaming?tab=readme-ov-file#list">Github</a>.</p>
+    <p>In this case, the best rendition would be 960x5@ 720kbpsbps because It is the “next highest” resolution from the one within the bounds of 900x500, which would be 640x360 in this case. Also, 720kbps is the highest bitrate within the theoretically unlimited range. It also depends on a pixel ratio (if this is a retina display, the player will treat it as 1800x1000). For more information about bandwidth, see <a href="https://github.com/videojs/http-streaming?tab=readme-ov-file#list">Github</a>.</p>
     <p>If you'd like your player to use a different set of priorities, it's possible to completely replace the rendition selection logic. For instance, you could always choose the most appropriate rendition by resolution, even though this might mean more stalls during playback. See the documentation on <a href="/plugins/hls-plugin.html#selectplaylist">player.hls.selectPlaylist</a> for more details.</p>
   </section>
 
