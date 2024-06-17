@@ -1939,7 +1939,9 @@
   </section>
   <section class="bcls-section">
     <h2 id="Buffering">Buffering</h2>
-    <p>When changing the quality it is possible that some buffering will take place and you will see the loading spinner appear. This is because the quality is changed immediately on quality selection and segments will need to be downloaded. If you prefer to have the same smooth transition behavior seen with automatic rendition switches, you can manually initialize the player with the following option:</p>
+    <p>When changing the quality it is possible that some buffering will take place and you will see the loading spinner appear. This is because the quality is changed immediately on quality selection and segments will need to be downloaded.</p>
+       
+     <p>In the past, if you preferred to have the same smooth transition behavior seen with automatic rendition switches, you could manually initialize the player with the following option:</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">var options = {
   html5: {
@@ -1949,6 +1951,10 @@
   }
 };</code></pre>
     <p>Details on manually initializing the player using the <code translate="No">bc()</code> method can be found in the <a href="/coding-topics/using-bc-and-getplayer-methods.html#bc_method_details">Using bc() and getPlayer() Methods</a> document.</p>
+    <aside class="bcls-aside bcls-aside--information">Note: Starting from Brightcove Player <strong>v6.56.0</strong>, the <code translate="no">smoothQualityChange</code> option has been deprecated and completely removed in Brightcove Player v7.</aside>
+    <p>The <code>smoothQualityChange</code> option has been replaced by the <code translate="no">fastQualityChange</code> method in our player playback engine. This method is integrated into the ABR (Adaptive Bitrate) switching logic and does not require manual invocation.</p>
+    <p>Unlike <code translate="no">smoothQualityChange</code> option, which tried to provide a seamless transition without clearing the buffer, <code translate="no">fastQualityChange</code> deliberately clears the buffer and quickly switches to the new quality level, starting to load content from the current position in the playback timeline.</p> 
+    <p>This approach aims to minimise the time it takes to switch between different qualities, even though it might momentarily disrupt the playback more than the deprecated method because the player needs to load new data that aligns with the current playback position in the higher quality rendition.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Gear_spinning">Gear spinning</h2>
