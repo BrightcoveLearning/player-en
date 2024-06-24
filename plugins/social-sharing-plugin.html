@@ -1,6 +1,6 @@
 ---
 title: Social Sharing Plugin
-description: 'In this topic, you will learn how to use the social media plugin to enable users to share a video through Facebook, Twitter, Tumblr, Pinterest and LinkedIn.'
+description: 'In this topic, you will learn how to use the social media plugin to enable users to share a video through Facebook, X (formerly Twitter), Tumblr, Pinterest and LinkedIn.'
 parent: Plugins
 ---
 <h1>{{ page.title }}</h1>
@@ -16,7 +16,7 @@ parent: Plugins
     <figure class="bcls-figure"><img class="bcls-image" alt="Social Media Share Interface" src="/assets/images/plugins/social/social-media-selection.png" /></figure>
     <p>You will need to set a width and height for the player for two reasons:</p>
     <ol>
-      <li>If no width or height are set there will be no values to pass to Twitter, which will cause the Twitter card not to validate.</li>
+      <li>If no width or height are set there will be no values to pass to X (formerly Twitter), which will cause the X card not to validate.</li>
       <li>The width needs to be wide enough to accommodate the social plugin's interface as shown in the screenshot above. You can also have the interface automatically appear on video end using the <code translate="No">displayAfterVideo </code> property, documented below.</li>
     </ol>
     <aside class="bcls-aside bcls-aside--tip">
@@ -55,7 +55,7 @@ parent: Plugins
         </ul>
       </li>
       <li>Add social <a href="#Generate_meta_tags">meta tags</a> to your player's HTML page.</li>
-      <li><a href="#Validate">Validate</a> the meta tags on your HTML page for FaceBook and Twitter.</li>
+      <li><a href="#Validate">Validate</a> the meta tags on your HTML page for FaceBook and X (formerly Twitter).</li>
     </ol>
     <p>In a browser, open the HTML page with your Brightcove Player and use the social sharing icon in the player to share your video.</p>
     <p>You can also implement the social media plugin within your page code, but this is a more advanced solution. You may want to use this approach to include custom sharing URLs. For details, see the <a href="#Customizing_sharing_URLs">Customizing sharing URLs</a> section.</p>
@@ -112,9 +112,9 @@ parent: Plugins
         <ul>
           <li>Lines 2-3: Set the name and description for your video.</li>
           <li>Line 4: Defines the URL for your custom web page with your video player and social sharing meta tags.</li>
-          <li>Lines 5-6: For Twitter, this allows a user to start viewing the video after a 5 second offset.</li>
+          <li>Lines 5-6: For X, this allows a user to start viewing the video after a 5 second offset.</li>
           <li>
-            <p>Lines 7-13: Enables social sharing for Facebook, Twitter, Tumblr, Pinterest and LinkedIn.</p>
+            <p>Lines 7-13: Enables social sharing for Facebook, X (formerly Twitter), Tumblr, Pinterest and LinkedIn.</p>
           </li>
         </ul>
         <pre class="line-numbers"><code class="language-json" translate="No">{
@@ -182,7 +182,7 @@ parent: Plugins
       <li>Type: <code translate="No">Boolean</code></li>
       <li>Default: <code translate="No">false</code></li>
     </ul>
-    <aside class="bcls-aside bcls-aside--warning">The deep linking feature currently only works with Twitter.</aside>
+    <aside class="bcls-aside bcls-aside--warning">The deep linking feature currently only works with X (formerly Twitter).</aside>
     <h3><code translate="No">options.offset</code></h3>
     <p>A custom offset to start playing the video (<code translate="No">hh:mm:ss</code>). This is used with the <code translate="No">deeplinking </code> option and defines when to start playing the video. To offset 1 minute and 5 seconds, you would write: <code translate="No">00:01:05</code></p>
     <ul>
@@ -223,7 +223,7 @@ parent: Plugins
       <li>Default: <code translate="No">true </code></li>
     </ul>
     <h4><code translate="No">options.services.twitter</code></h4>
-    <p>Enables Twitter sharing link.</p>
+    <p>Enables X (formerly Twitter) sharing link.</p>
     <ul>
       <li>Type: Boolean</li>
       <li>Default: <code translate="No">true </code></li>
@@ -251,12 +251,6 @@ parent: Plugins
     <ul>
       <li>Type: Boolean</li>
       <li>Default: <code translate="No">true </code></li>
-    </ul>
-    <h4><code translate="No">options.services.google</code></h4>
-    <p>Enables Google+ sharing link.</p>
-    <ul>
-      <li>Type: Boolean</li>
-      <li>Default: <code translate="No">false </code></li>
     </ul>
 
 
@@ -570,9 +564,9 @@ parent: Plugins
     <!-- <aside class="bcls-aside bcls-aside--tip">Note: You do not need to use the <a href="#Options">embedCode</a> property when sharing a Smart Player to Facebook. All you need are the Open Graph (og) meta tags as described above.</aside> -->
   </section>
   <section class="bcls-section">
-    <h2 id="Sharing_on_Twitter">Sharing on Twitter</h2>
-    <p>If you want to share your video on Twitter, you need to include the twitter meta tags.</p>
-    <p>Currently, Twitter is the only social site that will allow you to use deep linking to start a video at a specified point in time. If you don't want to use this feature, simply leave the time parameter off the player URL in the example below.</p>
+    <h2 id="Sharing_on_Twitter">Sharing on X (formerly Twitter)</h2>
+    <p>If you want to share your video on X, you need to include the X meta tags.</p>
+    <p>Currently, X is the only social site that will allow you to use deep linking to start a video at a specified point in time. If you don't want to use this feature, simply leave the time parameter off the player URL in the example below.</p>
     <p>To use the deep linking feature, you must add a time parameter to the query string, as defined in the <a href="https://studio.support.brightcove.com/publish/deep-linking.html">Deep Linking</a> document.</p>
     <div class="video-cloud-only">
       <p>Here is an example:</p>
@@ -581,7 +575,7 @@ parent: Plugins
         <li>Save your changes and publish your player.</li>
         <li>Once you have generated your <a href="#Generate_meta_tags">social meta tags</a>, update them as follows:
           <ul>
-            <li>Lines 64-67: define the Twitter card type as <code translate="No">player </code>, your Twitter site, the title and description.</li>
+            <li>Lines 64-67: define the X card type as <code translate="No">player </code>, your X site, the title and description.</li>
             <li>
               <p>Line 68: points to a thumbnail image for your video.</p>
               <aside class="bcls-aside bcls-aside--information">Because media URLs expire, it is recommended that you do either:
@@ -592,7 +586,7 @@ parent: Plugins
                 For more information about using media URLs, see the <a href="https://apis.support.brightcove.com/cms/getting-started/best-practices-cms-and-playback-apis.html#using_media_urls">Best Practices: CMS and Playback APIs</a> document.
               </aside>
             </li>
-            <li>Line 69: points to the URL for your Brightcove Player. Notice that the query parameters define the <code translate="No">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with Twitter.</li>
+            <li>Line 69: points to the URL for your Brightcove Player. Notice that the query parameters define the <code translate="No">videoId </code>, and tells the player to automatically start playing at the 15 second point of the video. This is how you can deep link into a video with X (formerly Twitter).</li>
             <li>Lines 70-71: provide the player dimensions.</li>
             <li>Line 72: points to the URL for your HTML page with your Brightcove Player.</li>
           </ul>
@@ -687,21 +681,21 @@ parent: Plugins
     <ol class="bcls-tasklist">
       <li>Don't forget to check that you have valid meta tags, as described in the <a href="#validate">validate</a> section.</li>
     </ol>
-    <aside class="bcls-aside bcls-aside--information">You do not need to use the <a href="#Options">embedCode</a> property when sharing a player to Twitter. All you need are the twitter meta tags as described above.</aside>
-    <p>For more details about configuring your Twitter meta tags, see the following:</p>
+    <aside class="bcls-aside bcls-aside--information">You do not need to use the <a href="#Options">embedCode</a> property when sharing a player to X (formerly Twitter). All you need are the X meta tags as described above.</aside>
+    <p>For more details about configuring your X meta tags, see the following:</p>
     <ul>
-      <li><a href="https://studio.support.brightcove.com/social/sharing-videos-twitter-player-cards.html">Sharing Videos to Twitter Player Cards</a></li>
-      <li><a href="https://dev.twitter.com/cards/types/player">Twitter Developer Documentation</a></li>
-      <li><a href="https://github.com/twitterdev/cards-player-samples/blob/master/player/page.html">Twitter card example on GitHub</a></li>
+      <li><a href="https://studio.support.brightcove.com/social/sharing-videos-twitter-player-cards.html">Sharing Videos to X Player Cards</a></li>
+      <li><a href="https://dev.twitter.com/cards/types/player">X Developer Documentation</a></li>
+      <li><a href="https://github.com/twitterdev/cards-player-samples/blob/master/player/page.html">X card example on GitHub</a></li>
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="Validate">Validate</h2>
-    <p>Once you have followed the steps to include the meta tags on your page you can validate the page for both Facebook and Twitter. If errors occur in either validation process, update the player configuration as needed.</p>
+    <p>Once you have followed the steps to include the meta tags on your page you can validate the page for both Facebook and X (formerly Twitter). If errors occur in either validation process, update the player configuration as needed.</p>
     <h3>Facebook</h3>
     <p>For Facebook, go to the <a href="https://developers.facebook.com/tools/debug/">Facebook Debugger</a> and paste the URL to the page that contains the meta tags and click <strong>Debug</strong> to validate.</p>
-    <h3>Twitter</h3>
-    <p>For Twitter, go to the <a href="https://cards-dev.twitter.com/validator">Card Validator</a>, paste the URL to the page that contains the meta tags and click <strong>Preview card</strong> to validate. An added advantage to validating is that Twitter will then ask you to verify your website and you will go on the waiting list to be approved for Twitter Cards.</p>
+    <h3>X (formerly Twitter)</h3>
+    <p>For X, go to the <a href="https://cards-dev.twitter.com/validator">Card Validator</a>, paste the URL to the page that contains the meta tags and click <strong>Preview card</strong> to validate. An added advantage to validating is that X will then ask you to verify your website and you will go on the waiting list to be approved for X Cards.</p>
   </section>
   <section class="bcls-section">
     <h2 id="Customizing_sharing_URLs">Customizing sharing URLs</h2>
@@ -858,7 +852,7 @@ parent: Plugins
       <li>You are now ready to add the social meta tags to your player page. See the <a href="#Generate_meta_tags">Meta tags</a> section to generate these tags.</li>
     </ol>
     <aside class="bcls-aside bcls-aside--information">
-      <p>Since the social sharing button does not show up in your player until the social plugin is initialized, the social button will not show up when your player is directly embedded in Twitter. To have the sharing button show up, you can do either of the following:</p>
+      <p>Since the social sharing button does not show up in your player until the social plugin is initialized, the social button will not show up when your player is directly embedded in X (formerly Twitter). To have the sharing button show up, you can do either of the following:</p>
       <ul>
         <li>Point your meta (og/twitter) tags to another player configured for embedded scenarios.</li>
         <li>Include an additional script that initializes the social plugin without the options when it detects it is being embedded.</li>
