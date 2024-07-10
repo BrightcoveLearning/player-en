@@ -1907,7 +1907,7 @@
         <img class="bcls-image" src="/assets/plugins/google-pal-sdk.webp" alt="google-pal-sdk">
         <figcaption class="bcls-caption--image">google-pal-sdk</figcaption>
       </figure>
-  <aside class="bcls-aside bcls-aside--information language-editable">Note: To use this parameter, the ad tag in use should contain the <code></code>e.g.: <code>https://general.support.brightcove.com/assets/ads/vmap/simple-vmap.xml?givn=`</code> </aside>
+  <aside class="bcls-aside bcls-aside--information language-editable">Note: To use this parameter, the ad tag in use should contain the <code>&#60;&#60;url.givn&#62;&#62;</code> e.g.: <code>https://general.support.brightcove.com/assets/ads/vmap/simple-vmap.xml?givn=`</code> </aside>
 </p>
 <h2>Parameters and Options</h2>
 <h3>Automatic PAL Parameters</h3>
@@ -1922,11 +1922,11 @@
     <tbody class="bcls-table__body">
         <tr>
             <td><strong>adWillAutoPlay</strong></td>
-            <td>Set to true if the ad will be auto played without waiting for user interaction. Set to false if the ad will wait for user interaction before being played.</td>
+            <td>Set to true if the ad is auto-played without waiting for user interaction. Set to false if the ad will wait for user interaction before being played.</td>
         </tr>
         <tr>
             <td><strong>adWillPlayMuted </strong></td>
-            <td>Set to true if the ad will be played while muted. Set to false if the ad will play unmuted.</td>
+            <td>Set to true if the ad will be played while muted, or set to false if it will play unmuted</td>
         </tr>
         <tr>
             <td><strong>playerType</strong></td>
@@ -1938,14 +1938,14 @@
         </tr>
         <tr>
         <td><strong>url</strong></td>
-        <td>The URL to which the ads will be targeted. By default, this is the same as the page that will display the ads, but it may be manually set.</td>
+        <td>The URL to which the ads will be targeted. By default, this is the same as the page that will display the ads, but it may be manually set</td>
     </tr>
     <tr>
         <td><strong>videoWidth</strong></td>
         <td>The width of the ad video element</td>
     </tr>
     <td>
-        <p>The following values will be automatically included in the request if you have been set as part of <a class="a-text" href="https://player.support.brightcove.com/plugins/open-measurement-with-ssai.html#SSAI_Options_for_Open_Measurement">SSAI Options for Open Measurement</a>:</p>
+        <p>The following values will be automatically included in the request if it is set as part of <a class="a-text" href="https://player.support.brightcove.com/plugins/open-measurement-with-ssai.html#SSAI_Options_for_Open_Measurement">SSAI Options for Open Measurement</a>:</p>
     </td>
     <tr>
         <td><strong>omidPartnerName</strong> </td>
@@ -1969,7 +1969,7 @@
     <tbody class="bcls-table__body">
         <tr>
             <td><strong>continuousPlayback</strong></td>
-            <td>Set to true if the player intends to continuously play the content videos one after another similar to TV broadcast or video playlist. Set to false otherwise</td>
+            <td>Set to true if the player intends to continuously play the content videos one after another, similar to TV broadcast or video playlist. Set to false otherwise</td>
         </tr>
         <tr>
             <td><strong>descriptionUrl</strong></td>
@@ -1989,7 +1989,7 @@
         </tr>
         <tr>
             <td><strong>PPID</strong></td>
-             <td>A unique ID for the viewer watching the player. Any PPID longer than 200 characters will be ignored and excluded from the nonce.</td>
+             <td>A unique ID for the viewer watching the player. Any PPID exceeding 200 characters will be ignored and excluded from the nonce.</td>
         </tr>
     </tbody>
 </table>
@@ -2011,7 +2011,7 @@
             <td><strong>maxWait</strong></td>
             <td>1000</td>
             <td>Maximum amount of time (in ms) that the plugin will wait for the PAL SDK script to load into the page.</td>
-            <td>the plugin will wait for the PAL SDK script to load into the page. It can be helpful to set this to a higher number if end-user network conditions are poor. This value will directly impact the perceived load time of the video by the end user.</td>
+            <td>The plugin will wait for the PAL SDK script to load into the page. It can be helpful to set this to a higher number if end-user network conditions are poor. This value will directly impact the end user's perception of the video's load time.</td>
         </tr>
         </tr>
     </tbody>
@@ -2020,7 +2020,7 @@
 <section class="bcls-section">
 <h2>Configuration</h2>
 <h3>Simple Configuration Example</h3>
-<p>The simplest possible configuration can be implemented by adding a “googlePal“ entry to the “options“ property of the SSAI plugin configuration, using the JSON editor in the Players module. If the value is set to true or to an empty object*, the SSAI plugin will use default values to generate and attach a <code>givn</code> parameter to the source request.</p>
+<p>The most straightforward possible configuration can be implemented by adding a “googlePal“ entry to the “options“ property of the SSAI plugin configuration using the JSON editor in the Players module. If the value is set to true or to an empty object*, the SSAI plugin will use default values to generate and attach a <code>givn</code> parameter to the source request.</p>
 <pre class="line-numbers"><code class="language-javascript" translate="No">
     {
         ...
@@ -2046,9 +2046,9 @@
     });
 
   </code></pre>
-  <p><aside class="bcls-aside bcls-aside--warning language-editable"><code>Important</code>: There is a release update (v2.7.0) which adds the ability to modify the value of  <a href="https://developers.google.com/ad-manager/pal/html5/reference/js/ConsentSettings#allowStorage"> allowStorage</a> to <code> true</code> or <true> false</true> <strong>this must be done before a source is set on the player.</strong>
+  <p><aside class="bcls-aside bcls-aside--warning language-editable"><code>Important</code>: A release update (v2.7.0) adds the ability to modify the value of <a href="https://developers.google.com/ad-manager/pal/html5/reference/js/ConsentSettings#allowStorage"> allowStorage</a> to <code> true</code> or <code>false</code><strong>. This must be done before a source is set on the player.</strong>
 
- You can use an initialisation option:
+    You can use an initialization option:
     <pre class="line-numbers"><code class="language-javascript" translate="No">
         const allowStorageValue = geStorageValueFromCMP(); // this should be true or false
         player.ssai({
@@ -2140,9 +2140,9 @@
     </section>
     <section class="bcls-section">
         <h2>Dynamic Parameters</h2>
-        <p>The above example shows PAL SDK parameters set in the player configuration. We can also use <code>Player.ssai().googlePal.setParams()</code> to set any PAL SDK parameter dynamically, <strong>before the source is loaded</strong>. 
+        <p>The above example shows PAL SDK parameters set in the player configuration. It can also use <code>Player.ssai().googlePal.setParams()</code> to dynamically set any PAL SDK parameter, <strong>before the source is loaded</strong>. 
         </p>
-        <p>Here is an example showing how to set these dynamically in a web page:</p>
+        <p>Here is an example showing how to set these dynamically on a web page:</p>
         <pre class="line-numbers"><code class="language-html" translate="No">
         &lt;div&gt; style="max-width: 960px;">
         <video-js 
@@ -2194,8 +2194,8 @@
         
         <aside class="bcls-aside bcls-aside--information language-editable">Notes:
             <ul>
-                <li>The <a class="a-text" href="https://developers.google.com/ad-manager/pal/html5/reference/js/NonceRequest#omidVersion">PAL SDK documentation</a> specifies a parameter <code>omidVersion</code> which is expected to be obtained from the OM SDK using <code>getVersion</code>. However no getVersion method is documented in the OM SDK for web. The <code>omidVersion</code> will be omitted from automatic parameters until this is addressed by Google.  </li>
-                <li>The plugin will accept a value of <code>true</code> or an empty object to indicate that the PAL SDK feature should be used with no further options provided. However the JSON editor in the Players module of Studio will filter out any option with an empty object provided as the value. A value of <code>true</code> is saved as expected.  </li>
+                <li>The <a class="a-text" href="https://developers.google.com/ad-manager/pal/html5/reference/js/NonceRequest#omidVersion">PAL SDK documentation</a> specifies a parameter <code>omidVersion</code> which is expected to be obtained from the OM SDK using <code>getVersion</code>. However no getVersion method is documented in the OM SDK for web. The <code>omidVersion</code> will be omitted from automatic parameters until Google addresses this. </li>
+                <li>The plugin will accept a value of <code>true</code> or an empty object to indicate that the PAL SDK feature should be used  without further options provided. However the JSON editor in the Players module of Studio will filter out any option with an empty object provided as the value. A value of <code>true</code> is saved as expected.  </li>
             
             </ul>
         </aside>
