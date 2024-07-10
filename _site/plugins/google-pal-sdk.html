@@ -2142,45 +2142,55 @@
         <h2>Dynamic Parameters</h2>
         <p>The above example shows PAL SDK parameters set in the player configuration. We can also use <code>Player.ssai().googlePal.setParams()</code> to set any PAL SDK parameter dynamically, <strong>before the source is loaded</strong>. 
         </p>
+        <p>Here is an example showing how to set these dynamically in a web page:</p>
         <pre class="line-numbers"><code class="language-html" translate="No">
-            <!-- Javascript (Advanced) embed code -->
-<div style="max-width: 960px;">
-    <video-js 
-      data-account="xxxxxxxxxxxxxxxxx"
-      data-player="xxxxxxxxxxxxxx"
-      data-embed="default"
-      controls=""
-      data-application-id=""
-      id="ssaiPlayer"
-      class="vjs-16-9">
-    </video-js>
-  </div>
-  <script src="https://players.brightcove.net/xxxxxxxxxxxxxx/xxxxxxxx_default/index.min.js"></script>
-  <script>
-    const adConfigId = "your ad config id";
-    const ssaiPlayer = videojs.getPlayer('ssaiPlayer');
-    function getPpid (){
-      // ...
-    }
-    function getDescriptionUrl (videoId){
-      // ...
-    }
-    // set dynamic values
-    ssaiPlayer.ssai().googlePal.setParams({
-      ppid: getPpid(),
-      descriptionUrl: getDescriptionUrl('your video id')
-    })
-    ssaiPlayer.catalog.getVideo('your video id', function(error, video) {
-      if (error) {
-        ssaiPlayer.error(error);
-      } else {
-        ssaiPlayer.catalog.load(video);
-      }
-    }, adConfigId);
-  </script>
-        </code></pre>
-
+        &lt;div&gt; style="max-width: 960px;">
+        <video-js 
+          data-account="xxxxxxxxxxxxxxxxx"
+          data-player="xxxxxxxxxxxxxx"
+          data-embed="default"
+          controls=""
+          data-application-id=""
+          id="ssaiPlayer"
+          class="vjs-16-9">
+        </video-js>
+      &lt;/div&gt;
+      &lt;script&gtsrc="https://players.brightcove.net/xxxxxxxxxxxxxx/xxxxxxxx_default/index.min.js">&lt;/script&gt;
+      &lt;script&gt
+        const adConfigId = "your ad config id";
+        const ssaiPlayer = videojs.getPlayer('ssaiPlayer');
+        function getPpid (){
+          // ...
+        }
+        function getDescriptionUrl (videoId){
+          // ...
+        }
+        // set dynamic values
+        ssaiPlayer.ssai().googlePal.setParams({
+          ppid: getPpid(),
+          descriptionUrl: getDescriptionUrl('your video id')
+        })
+        ssaiPlayer.catalog.getVideo('your video id', function(error, video) {
+          if (error) {
+            ssaiPlayer.error(error);
+          } else {
+            ssaiPlayer.catalog.load(video);
+          }
+        }, adConfigId);
+      &lt;/script&gt;
+    </code></pre>
+    <h3>Events</h3>
+    <p>The following events are emitted by the player when the PAL SDK integration is used:
+        <ul>
+           <li> <code>bcov-ssai-palsdk-error </code> : This could be fired in response to a few error conditions that may arise. Details of the exact problem can be found in <code> event.message</code>.</li>
+           <li><code>bcov-ssai-palsdk-loaded</code>: Fired when the Google PAL SDK has loaded. </li>
+           <li><code>bcov-palsdk-nonce-request</code>: Fired whenever a nonce is requested from the PAL SDK. event.params will list the params used for the request.</li>
+        </ul>
+    </p>
+    <h3>Loading the PAL SDK</h3>
+    <p>The SSAI plugin will load the PAL SDK script onto the page if necessary. However, some users may include the script themselves, for example, if it is needed to add an integrity hash for CSP compliance. The SSAI plugin will check for the presence of <code> window.goog.pal</code>before attempting to add the script and will not add it again if <code> window.goog.pal</code>exists.</p>
     </section>
+
         
         <aside class="bcls-aside bcls-aside--information language-editable">Notes:
             <ul>
