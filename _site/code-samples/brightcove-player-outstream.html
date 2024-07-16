@@ -1126,7 +1126,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/plugins/google-pal-sdk.html">Google PAL SDK for Brightcove SSA</a></li>
+              <li class="nav-item"><a class="nav-link" href="/plugins/google-pal-sdk.html">Google PAL SDK for Brightcove SSAI</a></li>
               
               
               
@@ -1905,8 +1905,8 @@
   <summary>In this topic you will learn the basic set up of an Outstream Player type and available customizable features.</summary>
   <section class="bcls-section">
     <h2 id="Overview">Overview</h2>
-    <p> An Outstream player generates paid video ad impressions without requiring video content behind it. It can generate incremental ad revenue beyond the current video content and viewership support. Brightcove core player technology, along with Client-side Ad Insertion with built-in IMA, this player type can be added to in-text environments across desktop and mobile web. This player type will only display to the user when a valid ad response is available.
-      Ads may be delivered from the ad server of choice. Alternately, Brightcove can handle the fulfillment of advertising and player setup and management on your behalf through our Ad Monetization Managed Service offering. Deliver video ads fulfilled by BCOV Ad Monetization Services alone or alongside your ad fulfillment.</p>
+    <p> An Outstream player generates paid video ad impressions without requiring video content behind it. It can generate incremental ad revenue beyond the current video content and viewership support. This player type can be added to in-text environments across desktop and mobile web. This player type will only display to the user when a valid ad response is available.
+      Ads may be delivered from the ad server of choice. </p>
       <aside class="bcls-aside bcls-aside--information language-editable">
         <p><strong>Prerequisites:</strong></p>
         <ul>
@@ -1953,10 +1953,6 @@
           <td>Companion Ad</td>
           <td>Yes</td>
       </tr>
-      <tr>
-        <td>IMA SDK</td>
-        <td>Yes</td>
-    </tr>
     <tr>
       <td>OM SDK</td>
       <td>Yes</td>
@@ -2018,18 +2014,6 @@
   <td>Yes</td>
 </tr>
 <tr>
-  <td>BCOV Managed Services</td>
-  <td>Yes</td>
-</tr>
-<tr>
-  <td>Direct Deals</td>
-  <td>Yes</td>
-</tr>
-<tr>
-  <td>Programmatic</td>
-  <td>Yes</td>
-</tr>
-<tr>
   <td>Consent Management</td>
   <td>requires customer provided CMP in place</td>
 </tr>
@@ -2046,7 +2030,7 @@
     <li>Avoid placing the player directly below/between large images or other ads</li>
     <li>It is not recommended to use more than one video experience per page. i.e. if there is an existing instream player with ads, do not use the outstream player on this page; only one outstream player per page</li>
     <li>It is not recommended to use vertical video on desktop experiences unless it fits within a right/left rail position</li>
-    <li>Frequency capping per user is recommended for optimal user experience and ad performance.</li>
+    <li>Frequency capping per user is recommended for optimal user experience and ad performance in your ad server.</li>
   </ul>
 </section>
 
@@ -2086,7 +2070,7 @@
       <figcaption class="bcls-caption--image">pip-plugin</figcaption>
     </figure>
   </li>
-  <li><strong>Advertising</strong>- Enable Client-Side (IMA) is required for Outrstream players. Once you select the Outstream Player, it automatically comes with IMA 3 enabled.</li>
+  <!-- <li><strong>Advertising</strong>- Enable Client-Side (IMA) is required for Outrstream players. Once you select the Outstream Player, it automatically comes with IMA 3 enabled.</li> -->
   <li><strong>JSON Editor</strong>- Make sure you have added the following values:
     <p></p>
   <ul>
@@ -2115,6 +2099,24 @@
     </ul>
   </aside>
   <aside class="bcls-aside bcls-aside--warning language-editable">Note: Player will not execute if there is an empty ad response (no ad fill), a VAST/XML error in the response, or adblocker enabled. </aside>
+  <section class="bcls-section">
+    <h2>Player Format</h2>
+    <p>To use the player format, follow these steps:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Stationary player (Standard Outstream format mode. No additional configuration needed. Reveals upon view and automatically disposes once ad complete)</li>
+      <li>Pinning mode -  Enables secondary thumbnail player in bottom corner of screen upon scroll. Must apply Picture in Picture plugin. Available on desktop only</li>
+      <li>Stationary Player with Companion Ad. <strong>Your Outstream Player can enable companion ads by using the IMA SDK's support</strong>, to see more information, go to <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/companions">Companion ads</a>.
+        There are two ways of doing this, and Brightcove recommends using <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/companions#use-companion-ads-with-google-publisher-tag">GPT (Google Publisher Tag)</a>  as the easiest to implement.  No player configuration is needed. The GPT code will automatically interface with the IMA SDK powering ads in your Outstream Player and display the companion ads returned by your campaign. Ensure that the GPT script and initialization code is included in the head tag of your page, before the Outstream Player. 
+        If you’re embedding your Outstream Player using an iframe, use the gpt_proxy.js as specified in Google’s documentation.
+        <p>Companion ad dimensions are specified in the ad tag via the <a href="https://support.google.com/admanager/answer/10678356?sjid=10243382803788324556-NA&visit_id=638484586234278316-2850756290&rd=2#ciu_szs">ciu</a> parameter, and for best results make sure that your companion ad page elements match those dimensions.</p>
+      </li>
+      <li>Verticle Video - configure player dimensions to verticle specifications. Recommended for use on mobile only. Requires similar verticle sized assets from the ad server and in the ad tag url request. </li>
+    </ol>
+    </section>
+    <section class="bcls-section">
+      <h2>Considerations</h2>
+      <p>(common page styling considerations)The page where the Outstream player is being used should not have any conflicting CSS or JavaScript that will impact the player's ability to render and dispose of the content without overlaying or misaligning the content itself or disrupting the playback experience.  Customers are responsible for in page styling and must accommodate page level modifications should they be necessary for Outstream to function correctly. </p>
+    </section>
   <h3>Analytics</h3>
   <li><strong>Google Analytics</strong>- Sign In to Google Account. Notice how only Ad related events are allowed. You can choose between <strong> Ad Start (ad_start) or Ad end (ad_end)</strong>.</strong>
     Everything related to a video is invalid because it is not a video. 
@@ -2132,24 +2134,6 @@
     </li>
 </ul>
 </section> 
-<section class="bcls-section">
-<h2>Player Format</h2>
-<p>To use the player format, follow these steps:</p>
-<ol class="bcls-tasklist-restart">
-  <li>Stationary player (that's the regular version with box-like dimensions and no companion or picture-in-picture enabled.</li>
-  <li>Pinning mode (the picture-in-picture version) Note this is available on desktop only.</li>
-  <li>Stationary Player with Companion Ad. <strong>Your Outstream Player can enable companion ads by using the IMA SDK's support</strong>, to see more information, go to <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/companions">Companion ads</a>.
-    There are two ways of doing this, and Brightcove recommends using <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/companions#use-companion-ads-with-google-publisher-tag">GPT (Google Publisher Tag)</a>  as the easiest to implement.  No player configuration is needed. The GPT code will automatically interface with the IMA SDK powering ads in your Outstream Player and display the companion ads returned by your campaign. Ensure that the GPT script and initialization code is included in the head tag of your page, before the Outstream Player. 
-    If you’re embedding your Outstream Player using an iframe, use the gpt_proxy.js as specified in Google’s documentation.
-    <p>Companion ad dimensions are specified in the ad tag via the <a href="https://support.google.com/admanager/answer/10678356?sjid=10243382803788324556-NA&visit_id=638484586234278316-2850756290&rd=2#ciu_szs">ciu</a> parameter, and for best results make sure that your companion ad page elements match those dimensions.</p>
-  </li>
-  <li>Verticle Video *The mobile only specifies dimension ranges that would make it a verticle video. Required verticle ad assets sent from the ad server.</li>
-</ol>
-</section>
-<section class="bcls-section">
-  <h2>Considerations</h2>
-  <p>(common page styling considerations)The page where the Outstream player is being used should not have any conflicting CSS or JavaScript that will impact the player's ability to render and dispose of the content without overlaying or misaligning the content itself or disrupting the playback experience.  Customers are responsible for in page styling and must accommodate page level modifications should they be necessary for Outstream to function correctly. </p>
-</section>
 </article>
 <!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
   
