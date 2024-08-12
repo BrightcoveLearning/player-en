@@ -1914,8 +1914,8 @@
     <!-- UPDATE description -->
 
     <aside class="bcls-aside bcls-aside--information">This sample and associated code is provided as a guide for your production development. The code is not certified for production use nor officially supported.</aside>
-    <p>The video in the CodePen below uses the following WebVTT file to define captions:</p>
-    <pre class="line-numbers">
+    <!-- <p>In the video below uses the following WebVTT file to define captions:</p> -->
+    <!-- <pre class="line-numbers">
 <code class="language-javascript" translate="No">WEBVTT
 
 00:00.000 --&gt; 00:05.000 align:middle line:90%
@@ -1928,20 +1928,59 @@ Here in the quaint village of Yachats on the central Oregon coast.
 Come visit and enjoy the surf and sand.
 
 00:15.000 --&gt; 00:19.000 align:middle line:84%
-Remember, it never rains on the Oregon coast!</code></pre>
-    <p>The sample supplies a <strong>Download Transcript</strong> button in the controlbar which downloads a text file with the WebVTT formatting stripped from the file. In essence, it permits the user to download a transcript of the captions based on a modified version of the WebVTT file.</p>
-    <!-- UPDATE codepen here -->
+Remember, it never rains on the Oregon coast!</code></pre> -->
+    <p>The sample video below supplies a <strong>Download Transcript</strong> button in the controlbar which downloads a text file with the WebVTT formatting stripped from the file. In essence, it permits the user to download a transcript of the captions based on a modified version of the WebVTT file.</p>
+    <div
+  style="position: relative; display: block; max-width: 960px;">
+  <div
+    style="padding-top: 56.25%;">
+    <iframe
+      src="https://players.brightcove.net/6415772725001/Dmwc3Lw4ms_default/index.html?videoId=6345866674112"
+      allowfullscreen=""
+      allow="encrypted-media"
+      style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe>
+  </div>
+</div>    <!-- UPDATE codepen here -->
+    <section class="bcls-section">
+      <h2 id="playersmodule">Implement using Players module</h2>
+      <p>To implement the transcript option using the Players module, follow these steps:</p>
+      <ol class="bcls-tasklist">
+        <li>
+          Open the <strong>PLAYERS</strong> module and either create a new player or locate the player to which you wish to add the plugin.
+        </li>
+        <li>Click the link for the player to open the player's properties.</li>
+        <li>In the left navigation, click <strong>Plugins</strong>.</li>
+        <li>
+          Expand the <strong>Add a Plugin</strong> dropdown menu, and select <strong>Custom Plugin</strong>.
+          <figure class="bcls-figure">
+            <img class="bcls-image" alt="Custom Plugin" src="/assets/images/plugins/overlay/select-custom-plugin.png" />
+          </figure>
+        </li>
+        <li>For the <strong>Plugin Name</strong> enter <code translate="No">downloadTranscript</code>.</li>
+        <li>
+          For the <strong>JavaScript</strong> URL, enter:
+  <pre><code class="language-json" translate="No">http://players.brightcove.net/6415772725001/custom_plugins/Dmwc3Lw4ms-4d6ddd8d-ba8d-485b-aaa4-2449e5fd592f.js</code></pre>
+        </li>
+        <li>
+          For the <strong>CSS</strong> URL, enter:
+  <pre><code class="language-json" translate="No">http://players.brightcove.net/6415772725001/custom_plugins/Dmwc3Lw4ms-c6a13556-99ed-45cd-b103-ee654e7b7ca6.css</code></pre>
+        </li>
+        <li>Click <strong>Save</strong>.</li>
+        <li>To publish the player, click <strong>Publish &amp; Embed &gt; Publish Changes</strong>.</li>
+        <li>To close the open dialog, click <strong>Close</strong>.</li>
+      </ol>
+    </section>
 
-    <p class="codepen" data-height="478" data-theme-id="34967" data-default-tab="result" data-user="rcrooks1969" data-slug-hash="RdNJMq" style="height: 478px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Download Transcript"><span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/RdNJMq/"> Download Transcript</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</span></p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script><!-- UPDATE link to GitHub source -->
-
+    <!-- <p class="codepen" data-height="478" data-theme-id="34967" data-default-tab="result" data-user="rcrooks1969" data-slug-hash="RdNJMq" style="height: 478px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Download Transcript"><span>See the Pen <a href="https://codepen.io/team/rcrooks1969/pen/RdNJMq/"> Download Transcript</a> by Brightcove Learning Services (<a href="https://codepen.io/rcrooks1969">@rcrooks1969</a>) on <a href="https://codepen.io">CodePen</a>.</span></p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script> UPDATE link to GitHub source -->
+<!-- 
     <h3>Source code</h3>
     <p>View the <a href="https://github.com/BrightcoveLearning/18738-download-transcript">complete solution on GitHub</a>.</p>
     <aside class="bcls-aside bcls-aside--tip">
       <p>BROWSER DOWNLOAD BEHAVIOR: Browsers have changed how they handle file downloads. Safari, Firefox and Chrome all open the downloaded video in a new window or tab, which generally is not desired behavior. For this reason this sample uses a client-side JavaScript tool to force browsers to do a proper download of the video. For detailed information of the tool see <a href="https://www.npmjs.com/package/downloadjs">https://www.npmjs.com/package/downloadjs</a>.</p>
-    </aside>
+    </aside> -->
   </section>
-  <section class="bcls-section">
+  <!-- <section class="bcls-section">
     <details>
       <summary>
         <h2 id="Using_the_CodePen">Using the CodePen</h2>
@@ -1959,8 +1998,8 @@ Remember, it never rains on the Oregon coast!</code></pre>
         </li>
       </ul>
     </details>
-  </section>
-  <section class="bcls-section">
+  </section> -->
+  <!-- <section class="bcls-section">
     <details>
       <summary>
         <h2 id="Development_sequence">Development sequence</h2>
@@ -1992,7 +2031,7 @@ Remember, it never rains on the Oregon coast!</code></pre>
   </section>
   <section class="bcls-section">
     <h2 id="API/Plugin_resources_used">API/Plugin resources used</h2>
-    <!-- UPDATE table, remove unneeded columns -->
+    <!-- UPDATE table, remove unneeded columns 
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
@@ -2017,7 +2056,7 @@ Remember, it never rains on the Oregon coast!</code></pre>
     </table>
     <!-- <aside class="bcls-aside bcls-aside--tip">This code sample uses one of the Brightcove REST APIs. To understand working with this API it is vital you read and understand the <a href="/getting-started/learning-guide-using-rest-apis.html">Learning Guide: Using the REST APIs</a> document.</aside> -->
   </section>
-  <!-- UPDATE player and HTML configuration -->
+  <!-- UPDATE player and HTML configuration 
 
   <section class="bcls-section">
     <h2 id="Player/HTML_configuration">Player/HTML configuration</h2>
@@ -2027,7 +2066,7 @@ Remember, it never rains on the Oregon coast!</code></pre>
     <h3>Other HTML</h3>
     <p>No other HTML elements are added to the page.</p>
   </section>
-  <!-- UPDATE application flow -->
+  <!-- UPDATE application flow 
 
   <section class="bcls-section">
     <h2 id="Application_flow">Application flow</h2>
@@ -2039,35 +2078,35 @@ Remember, it never rains on the Oregon coast!</code></pre>
       <li>On button click, download the remote WebVTT file using an <code translate="No">XMLHttpRequest()</code> object.</li>
       <li>Use the <code translate="No">download</code> JavaScript library to have the browser download the file.</li>
     </ul>
-    <!-- UPDATE task 2 -->
+    <!-- UPDATE task 2 
 
     <h3>Define the regular expression</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// ### Define the regular expression ###</code></pre>
     <p>You need to create a regular expression to remove any unwanted formatting from the WebVTT file. In this case, the regex removes lines that start with the standard way to define times in a WEBVTT file. If you are not a regex expert, you might find <a href="https://regexr.com/">https://regexr.com/</a> of help.</p>
-    <!-- UPDATE task 1 -->
+    <!-- UPDATE task 1 
 
     <h3>Retrieve URL and get file</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// ### Retrieve the URL for the text track, which is in this case a WebVTT caption file ###</code></pre>
     <p>You must wait for the <code translate="No">loadstart</code> event to access the <code translate="No">mediainfo</code> property, which contains the text track information. Note that if the page is served from a secure (<strong>https</strong>) page, you must alter the URL to the file to also use a secure connection. Once you have the correct URL, you then call the <code translate="No">getFile()</code> method that actually returns the file. Finally, you use the JavaScript <code translate="No">replace()</code> method in conjunction with the regular expression to reformat the text.</p>
-    <!-- UPDATE task 3 -->
+    <!-- UPDATE task 3 
 
     <h3>Build a button and place it in the controlbar</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// ### Create button and place in player ###</code></pre>
     <p>An HTML <strong>button</strong> element is built and placed in the controlbar. Note that the <code translate="No">click</code> event listener is also dynamically added. In this case, the button is place in the <code translate="No">spacer</code> region of the controlbar. For further details on the <code translate="No">spacer</code>, see the <a href="/styling/customizing-player-appearance.html">Customizing Player Appearance</a> document.</p>
-    <!-- UPDATE task 4 -->
+    <!-- UPDATE task 4 
 
     <h3>Get the file based on URL provided</h3>
     <p>Find the code which is labeled:</p>
     <pre>
 <code class="language-javascript" translate="No">// ### Function that gets the actual file based on URL ###</code></pre>
     <p>This function uses AJAX, via an <code translate="No">XMLHttpRequest</code> object, to retrieve the file. Asynchronous behavior dictates the use of a callback function.</p>
-    <!-- UPDATE task 5 -->
+    <!-- UPDATE task 5 
 
     <h3>Download the modified file to the user computer</h3>
     <p>Find the code which is labeled:</p>
@@ -2075,7 +2114,7 @@ Remember, it never rains on the Oregon coast!</code></pre>
 <code class="language-javascript" translate="No">// ### download function used for graceful browser download ###</code></pre>
     <p>As mentioned earlier in this document, the default browsers' behaviors as most likely NOT what you wish to happen, that is a new tab or window being opened to display the file. This JavaScript tool forces a file download of the text file.</p>
   </section>
-  <!-- UPDATE CSS description -->
+  <!-- UPDATE CSS description 
 
   <section class="bcls-section">
     <h2 id="Application_styling">Application styling</h2>
@@ -2095,11 +2134,9 @@ var myPlayer = this;
 var myPlayer = this;
 ...
 });</code></pre>
-    <!-- UPDATE path to plugin's JavaScript -->
+    <!-- UPDATE path to plugin's JavaScript 
 
-    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18738-download-transcript/blob/master/plugin/download-transcript.js">download-transcript.js</a>.</p>
-    <h3>Using the plugin with a player</h3>
-    <p>Once you have the plugin's CSS and JavaScript files stored in an Internet accessible location, you can use the plugin with a player. In Studio's <strong>PLAYERS</strong> module you can choose a player, then in the <strong>PLUGINS</strong> section add the URLs to the CSS and JavaScript files, and also add the <strong>Name</strong> and <strong>Options</strong>, if options are needed.</p>
+    <p>As mentioned earlier, you can see the plugin's JavaScript code in this document's corresponding GitHub repo: <a href="https://github.com/BrightcoveLearning/18738-download-transcript/blob/master/plugin/download-transcript.js">download-transcript.js</a>.</p> -->
     <aside class="bcls-aside bcls-aside--tip">For more information on using Studio to assign plugins to players see the <a href="https://studio.support.brightcove.com/players/configuring-player-plugins.html">Configuring Player Plugins</a> document.</aside>
   </section>
 </article>
