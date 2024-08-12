@@ -40,7 +40,30 @@ parent: User Interface
   </section>
   <section class="bcls-section">
     <h2 id="708_captions">708 captions</h2>
-    <p>If you are using CEA-708 captions instead of 608, they can be renamed in exactly the same way as 608 captions.</p>
+    <p>708 captions require a different set of variables and other additions to reflect.</p>
+    <p>The format for 708 captions is the following for a single language:</p>
+    <pre class="line-numbers"><code class="language-json" translate="No">"hls": {
+      "parse708captions": true,
+      "captionServices": {
+        "SERVICE1": {
+          "language": "en",
+          "label": "English"
+        }
+      }</code></pre>
+    <p>Multiple languages are the following:</p>
+    <pre class="line-numbers"><code class="language-json" translate="No">"hls": {
+      "parse708captions": true,
+      "captionServices": {
+        "SERVICE1": {
+          "language": "en",
+          "label": "English"
+        }
+        "SERVICE2": {
+          "language": "es",
+          "label": "Español"
+        }
+      }</code></pre>
+    <p>For the change to work, <code translate="No">“parse708captions”</code> has to be set to true, and the variable is changed to SERVICE instead of CC.</p>
     <p>If your encoder is sending both 608 and 708 captions, and you wish to hide the 708 captions, add the line <code class="language-json" translate="No">"parse708captions": false</code> immediately before the <code translate="no">captionServices</code> block:</p>
     <pre class="line-numbers"><code class="language-json" translate="No">"hls": {
   "parse708captions": false,
