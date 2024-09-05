@@ -2145,27 +2145,28 @@
       </li>
       <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
       <li>
-        <p>In the JSON code, find the <code translate="No">plugins</code> array, and add the EME plugin as follows:</p>
+        <p>In the JSON code, find the <code translate="No">player</code> object, and add the <code>eme_options</code> object, as follows:</p>
         <pre class="line-numbers">
-<code class="language-javascript" translate="No">&quot;plugins&quot;: [
-  {
-  &quot;name&quot;: &quot;eme&quot;,
-  &quot;scripts&quot;: [
-    &quot;//players.brightcove.net/videojs-drm/5.9.1/videojs-drm.min.js&quot;
-  ],
-  &quot;stylesheets&quot;: [
-    &quot;//players.brightcove.net/videojs-drm/5.9.1/videojs-drm.css&quot;
-  ],
-  &quot;options&quot;: {
-    &quot;keySystems&quot;: {
-      &quot;com.widevine.alpha&quot;: {
-        &quot;persistentState&quot;: &quot;required&quot;
+<code class="language-javascript" translate="No">
+  "player": {
+    "eme_options" : {
+      // add eme options for all sources here.
+    }
+  }
+</code></pre>
+<aside class="bcls-aside bcls-aside--warning">The EME plug-in has to be configured in the order shown above (scripts & style sheet first then the option) otherwise, it won't work.</aside>
+<aside class="bcls-aside bcls-aside--information">This functionality is supported in the DRM plug-in v5.9.1 +.</aside>
+<li>As an eme option for your specified keySystems, set <code>persistentState</code> as <code>"required"</code>.
+ <pre><code class="language-javascript" translate="No">
+  "eme_options": {
+    "keySystems": {
+      "com.widevine.alpha": {
+        "persistentState": "required"
       }
     }
   }
-},</code></pre>
-<aside class="bcls-aside bcls-aside--warning">The EME plug-in has to be configured in the order shown above (scripts & style sheet first then the option) otherwise, it won't work.</aside>
-<aside class="bcls-aside bcls-aside--information">This functionality is supported in the DRM plug-in v5.9.1 +.</aside>
+</code></pre>
+</li>
       </li>
       <li>Include a JWT auth token, as defined in the <a href="#Using_License_Keys_Protection">Using License Keys Protection</a> section.</li>
     </ol>
