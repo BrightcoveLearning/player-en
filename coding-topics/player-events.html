@@ -102,8 +102,25 @@ description: In this topic, you will learn about the various types of events ass
 <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('loadedmetadata',function(){})</code></pre>
     <aside class="bcls-aside bcls-aside--information">Note: The reason you must wait for the <code translate="No">loadedmetadata</code> event to be dispatched is that it ensures the catalog has had time to retrieve the video before it tries to play.</aside>
   </section>
-  <section id="fullscreenEvents">
-    <h2 class="bcls-section">Fullscreen events</h2>
+  <section class="bcls-section">
+    <h2 id="autoplay-events">Autoplay Events</h2>
+    <p>The Autoplay Events are triggered when the player attempts to start playing content automatically.</p>
+    <p><code translate="no">autoplay-success</code>: Triggered when autoplay starts successfully without user interaction.</p>
+    <h3>Example</h3>
+    <pre class="line-numbers">
+      <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('autoplay-success',function(){
+ console.log('Autoplay was successful.');
+ });</code></pre>
+    <br>
+    <p><code translate="no">autoplay-failure</code>: Triggered when autoplay fails to start.</p>
+    <h3>Example</h3>
+    <pre class="line-numbers">
+      <code class="language-javascript" translate="No">videojs.getPlayer('myPlayerID').on('autoplay-failure',function(){
+ console.log('Autoplay failed.');
+ });</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="fullscreenEvents">Fullscreen events</h2>
     <p>A <code translate="No">fullscreenchange</code> event is emitted by the player when it is toggled to or from fullscreen mode. The same event is broadcast whether the player is going to fullscreen or returning to normal mode, If it is important for you to know which happened, use the <code translate="No">player.isFullscreen()</code> method to determine whether the player is currently in fullscreen mode.</p>
     <p>The Codepen below illustrates how to do this.</p>
     <p data-height="766" data-theme-id="14832" data-slug-hash="JGEdEd" data-default-tab="result" data-user="bcls" class="codepen">See the Pen <a href="http://codepen.io/team/bcls/pen/JGEdEd/">Brightcove Player Fullscreen Events</a> by Brightcove Learning Services (<a href="http://codepen.io/bcls">@bcls</a>) on <a href="http://codepen.io">CodePen</a>.</p>
@@ -178,17 +195,17 @@ description: In this topic, you will learn about the various types of events ass
       </tbody>
     </table>
   </section>
-  <section id="bc-catalog-error" class="bcls-section">
-    <h2>bc-catalog-error event</h2>
+  <section class="bcls-section">
+    <h2 id="bc-catalog-error" >bc-catalog-error event</h2>
     <p>It is possible that handling errors in the normal <code translate="No">ready()</code> section in the script block can cause issues. For instance, it can happen that the <code translate="No">bc-catalog-error</code> event could be dispatched before the player is ready, and if you listen for the error in the <code translate="No">ready()</code> section, you will not be able to handle the error. This issue can occur when using geo-filtering, a video is unpublished, a video is out of scheduling range, or in a different account. For a complete discussion and examples handling the <code translate="No">bc-catalog-error</code> event, see the <a href="/references/player-catalog.html">Player Catalog</a> document.</p>
   </section>
-  <section id="progresstimeupdate" class="bcls-section">
-    <h2>progress and timeupdate</h2>
+  <section  class="bcls-section">
+    <h2 id="progresstimeupdate">progress and timeupdate</h2>
     <p>Confusion can occur about the differences between the <code translate="No">progress</code> and <code translate="No">timeupdate</code> events. The Brightcove Player builds on top of HTML5 video, and in that standard the <code translate="No">progress</code> event is dispatched when the browser is downloading data. The <code translate="No">timeupdate</code> event is dispatched when the current playback position has changed.</p>
     <p>This can be confusing to users of Brightcove's Smart Player, as in that API the <code translate="No">progress</code> event does what <code translate="No">timeupdate</code> does in the Brightcove Player API.</p>
   </section>
-  <section id="section-name" class="bcls-section">
-    <h2>Caution removing timeupdate listeners</h2>
+  <section  class="bcls-section">
+    <h2 id="section-name">Caution removing timeupdate listeners</h2>
     <p>In some cases you might want to remove an event listener you have added to the <code translate="No">timeupdate</code> event. A use case is shown in the <a href="/code-samples/brightcove-player-sample-register-play-after-preview.html">Brightcove Player Sample: Registering to Play after Preview</a> document. In this situation, you want the player to pause in some time range, and you are using <code translate="No">timeupdate</code> for the time check, then use an anonymous event handler function definition. You only want to pause once, so you need to remove the event listener. You do NOT want to simply do:</p>
     <pre class="line-numbers">
 <code class="language-javascript" translate="No">myPlayer.off('timeupdate');</code></pre>
