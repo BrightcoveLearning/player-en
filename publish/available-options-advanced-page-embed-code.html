@@ -216,21 +216,22 @@ parent: 'Publishing Videos & Players'
     <h2 id="preload_details">preload details</h2>
     <aside class="bcls-aside bcls-aside--warning">Note: Currently the value for preload set in the <a href="https://studio.support.brightcove.com/players/configuring-player-playback-properties.html#preload">Studio Player Settings</a> will always override the value set in the <code translate="No">video</code> tag attributes, so you must set this in Studio.</aside>
     <aside class="bcls-aside bcls-aside--information">Note: The preload settings are actually just suggestions in the HTML5 spec and as a result there can be different behavior on different browsers.</aside>
-    <p>The preload attribute informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. The options are <code translate="No">auto</code>, <code translate="No">metadata</code>, and <code translate="No">none</code>. For HLS playback technology the settings mean slightly different things and noted below.</p>
+    <p>The preload attribute informs the browser whether or not the video data should begin downloading as soon as the video tag is loaded. The options are <code translate="No">auto</code>, <code translate="No">metadata</code>, and <code translate="No">none</code>. For different playback technology the settings mean slightly different things and noted below.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Note: Brightcove uses HLS, DASH and MP4 as the primary playback technology, and HLS is the most commonly used. </aside>
     <ul>
       <li>
-        <p><code translate="No">auto</code> (default): Start loading the video immediately (if the browser agrees). Some mobile devices like iPhones and iPads will not preload the video in order to protect their users' bandwidth. This is why the value is called <strong>auto</strong> and not something more final like <strong>true</strong>.</p>
-       <p>For the HLS playback technology, <strong>auto</strong> means the player downloads the m3u8 manifest file and only 1 segment instead of 3-4, as was the case before version 5.3 of Brightcove Player.</p>
+        <p><code translate="No">auto</code> (default): For HLS and DASH, the player downloads the m3u8 manifest file and 1-2 segments.</p>
+       <p>For the MP4 playback technology, <strong>auto</strong> means the player loading the video immediately (if the browser agrees). 
+       Some mobile devices like iPhones and iPads will not preload the video in order to protect their users' bandwidth. </p>
       </li>
-      <li><code translate="No">metadata</code>: Load only the meta data of the video, which includes information like the duration and dimensions of the video.</li>
+      <li><code translate="No">metadata</code>: For HLS and DASH, metadata is the same as auto.</li>
+        <p>For the MP4 playback technology, the player loads only the metadata of the video, which includes information like the duration and dimensions of the video.</p>
+      </li>
+      <li><code translate="No">none</code>: For HLS and DASH, player only downloads the m3u8 manifest so that the video duration can be calculated.</li>
       <p></p>
-        <p>For the HLS playback technology, <strong>metadata</strong> is the same as <strong>auto</strong>.</p>
+       <p>For the MP4 playback technology, the player doesn’t preload any of the video data. This will wait until the user clicks play to begin downloading. </p>
       </li>
-      <li><code translate="No">none</code>: Don't preload any of the video data. This will wait until the user clicks play to begin downloading. Note that on iOS there may be segment downloading even with this setting. See the <a href="/playback/ios-and-brightcove-player.html">Brightcove Player and iOS</a> document for more information. </li>
-      <p></p>
-        <p>For the HLS playback technology, <strong>none</strong> means the player will only download the m3u8 manifest so that the video duration can be calculated.</p>
-      </li>
-      <aside class="bcls-aside bcls-aside--information language-editable"> Note: Brightcove uses HLS and DASH  as the primary playback technology. DASH technology behaves similarly to HLS playback technology.</aside>
+      <aside class="bcls-aside bcls-aside--information language-editable"> Note: on iOS there may be segment downloading even with this setting. See <a href="https://player.support.brightcove.com/playback/ios-and-brightcove-player.html">Brightcove Player and iOS</a> for more information. </aside>
     </ul>
     <pre class="line-numbers">
   <code class="language-html" translate="No">&lt;video-js preload ...&gt;
