@@ -1909,33 +1909,41 @@
     <p>If you are having a problem with uploading, open the developer tools, then start uploading, and then wait until the upload reaches failure or completion.</p>
 
     <p>The developer tools need to be open before, during, and after the issue is reproduced.</p>
-
+<!-- 
     <p>Following the video, the process for creating a network log related to playback issues is shown in a step-by-step format.</p>
-    <iframe src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5285320772001" allowfullscreen="" allow="encrypted-media" width="640" height="360"></iframe>
+    <iframe src="//players.brightcove.net/20318290001/E16-WGGOe_default/index.html?videoId=5285320772001" allowfullscreen="" allow="encrypted-media" width="640" height="360"></iframe> -->
   </section>
   <section class="bcls-section">
     <h2 id="Create_a_network_log_from_Chrome">Create a network log from Chrome</h2>
     <p>The following steps lead you through using Chrome to create a network log.</p>
     <ol class="bcls-tasklist">
-      <li>Open a Chrome browser window or tab.</li>
-      <li>To be sure cached information in the browser does not affect the network log, you will first clear browsing data. To begin this process, from the <strong>options</strong> menu (three vertical dots) click the <strong>Clear browsing data...</strong> option.
-        <figure class="bcls-figure"><img class="bcls-image" alt="Menu to clear browsing data" src="/assets/images/troubleshooting/network-log-clear-data-menu.png" style="width: 550px;" /></figure>
+      <li>Open a Chrome browser window or tab and do right click. Then, select <strong>Inspect</strong>.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/troubleshooting/right-click.webp" alt="right click">
+          <figcaption class="bcls-caption--image">right click</figcaption>
+        </figure>
       </li>
-      <li>Now in the actual interface, make the selections as shown in the following screenshot and click <strong>Clear browsing data</strong> button.
-        <figure class="bcls-figure"><img class="bcls-image" alt="Clear browsing data" src="/assets/images/troubleshooting/network-log-clear-browsing-data.png" style="width: 550px;" /></figure>
+      <li>Click the <strong>Network</strong> tab in the panel.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/troubleshooting/network.webp" alt="network">
+          <li></li>
+          <figcaption class="bcls-caption--image">network</figcaption>
+        </figure>
       </li>
-      <li>In the browser, again from the <strong>options</strong> menu, select <strong>Developer Tools</strong>.
-        <figure class="bcls-figure"><img class="bcls-image" alt="Menu to developer tools" src="/assets/images/troubleshooting/network-log-dev-tools-menu.png" /></figure>
-      </li>
-      <li>Select the <strong>Network</strong> tab from the Developer Tools.
-        <figure class="bcls-figure"><img class="bcls-image" alt="Network tab" src="/assets/images/troubleshooting/network-log-network-tab.png" /></figure>
-      </li>
+      <li>To reproduce your issue, click <strong>reload</strong> in the browser so it can start capturing the HTTP traffic.  <figure class="bcls-figure"><img class="bcls-image" alt="reload" src="/assets/images/troubleshooting/reload.png" /></figure> </li>
       <li>Paste the URL to the page that contains the Brightcove Player you are troubleshooting into the browser's address bar, and then press <strong>Enter</strong> to load the page. You will immediately see network traffic in the Network tab.</li>
+      <li>Click <strong> download</strong>. Notice how when you hover over the download button, <em>Export HAR</em> appears.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/troubleshooting/save.webp" alt="save">
+          <figcaption class="bcls-caption--image">save</figcaption>
+        </figure>
+      </li>
+      <!-- <li>Paste the URL to the page that contains the Brightcove Player you are troubleshooting into the browser's address bar, and then press <strong>Enter</strong> to load the page. You will immediately see network traffic in the Network tab.</li>
       <li>Start the video if network traffic is needed when the player is playing a video.</li>
       <li>Once you have the needed network traffic, right-click in the traffic area and select <strong>Save as HAR with Content</strong> option.
         <figure class="bcls-figure"><img class="bcls-image" alt="Save as HAR option" src="/assets/images/troubleshooting/network-log-save-as-har.png" /></figure>
-      </li>
-      <li>Save the file and send it to the appropriate support personnel.</li>
+      </li> -->
+      <li>Name and save the file and send it to the appropriate support personnel.</li>
     </ol>
   </section>
   <section class="bcls-section">
