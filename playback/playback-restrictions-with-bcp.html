@@ -127,6 +127,9 @@ parent: Playback
   <section class="bcls-section">
     <h2 id="Making_requests_with_Playback_Rights">Making requests with Playback Rights</h2>
     <p>By default, all Brightcove Players make a request to the Playback API if it has a policy key. To make requests that check Playback Rights first, you need to remove the policy key. Here are two ways to do that:</p>
+    <h3>Remove policy key at runtime</h3>
+    <p>Add this line of code to the JS script to unset the player policy key:</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.catalog.setPolicyKey(null);</code></pre>
     <h3>Remove policy key from all players</h3>
     <p>To avoid the ingest of a policy key for new players created in Video Cloud Studio, do the following:</p>
 
@@ -191,6 +194,7 @@ parent: Playback
 
   <section class="bcls-section">
     <h2 id="Using_License_Keys_Protection">Using License Keys Protection</h2>
+    <aside class="bcls-aside bcls-aside--information">Similarly to Playback Rights, to check License Keys Protection, you would need to remove policy keys from the player.</aside>
     <p>To use License Keys Protection, you will pass a auth token string as part of the <a href="https://player.support.brightcove.com/references/player-catalog.html">player catalog</a> object, using the property name <code translate="No">bcovAuthToken</code>.</p>
     <p>This approach works for both DRM and HLSe content. The player will detect the type of source being loaded from the Playback API and provide the correct implementation for that source.</p>
 
@@ -216,6 +220,7 @@ parent: Playback
       myPlayer.catalog.get({
         type: 'video',
         id: '6015247091001',
+        policyKey:'none',
         <span class="bcls-highlight">bcovAuthToken:</span> '<span class="bcls-input">your jwt token</span>'
       })
         .then(function(videoReturned){
