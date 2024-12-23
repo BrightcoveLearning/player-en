@@ -2027,10 +2027,7 @@
 
   <section class="bcls-section">
     <h2 id="Making_requests_with_Playback_Rights">Making requests with Playback Rights</h2>
-    <p>By default, all Brightcove Players make a request to the Playback API if it has a policy key. To make requests that check Playback Rights first, you need to remove the policy key. Here are two ways to do that:</p>
-    <h3>Remove policy key at runtime</h3>
-    <p>Add this line of code to the JS script to unset the player policy key:</p>
-    <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.catalog.setPolicyKey(null);</code></pre>
+    <p>By default, all Brightcove Players make a request to the Playback API if it has a policy key. To make requests that check Playback Rights first, you need to remove the policy key. Here are three ways to do that:</p>
     <h3>Remove policy key from all players</h3>
     <p>To avoid the ingest of a policy key for new players created in Video Cloud Studio, do the following:</p>
 
@@ -2059,6 +2056,9 @@
       </li>
       <li>Save your changes and publish your player.</li>
     </ol>
+    <h3>Remove policy key at runtime</h3>
+    <p>Add this line of code to the JS script to unset the player policy key:</p>
+    <pre class="line-numbers"><code class="language-javascript" translate="No">myPlayer.catalog.setPolicyKey(null);</code></pre>
       <!-- <pre>
         <code class="language-javascript" translate="No">player.catalog.setPolicyKey(null);</code></pre> -->
   </section>
