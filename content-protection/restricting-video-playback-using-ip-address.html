@@ -39,12 +39,24 @@ description: 'This topic provides an overview of how IP address restriction can 
   </section>
   <section class="bcls-section">
     <h2 id="Video_Cloud_content">Video Cloud content</h2>
-    <p>When using the Playback API to retrieve content from a Video Cloud account which is configured for IP restrictions, you must use the following instead of the standard URL:</p>
+    <aside class="bcls-aside bcls-aside--information"><p>Notes:</p>
+      <ul>
+        <li>IP address restriction is available only to Video Cloud Enterprise publishers.</li>
+        <li>IP restriction is only available for IPv4 addresses.</li>
+      </ul>
+    </aside>
+    <p>When using the Playback API to retrieve content from a Video Cloud account which is configured for IP restrictions, you must use the following URL:</p>
     <pre>
-<code class="language-javascript" translate="No">https://edge-elb.api.brightcove.com/playback/v1</code></pre>
-    <p>Use <code translate="No">edge-elb.api...</code> vs the normal <code translate="No">edge.api...</code></p>
+<code class="language-javascript" translate="No">https://edge.api.brightcove.com/playback/v1</code></pre>
+    <p>Use <code translate="No">edge.api.brightcove.com</code> instead of <code translate="No">playback.brightcovecdn.com</code>.</p>
     <h3 id="Implementation_details">Implementation details</h3>
-    <p>When a Brightcove Player is asked to load a video from a Video Cloud account, it connects to the catalog at this address:</p>
+    <p>When a Brightcove Player is asked to load a video from a Video Cloud account, it connects to the catalog at either one of these hostnames:</p>
+
+   <p><a href="https://playback.brightcovecdn.com/playback/v1/">https://playback.brightcovecdn.com/playback/v1/</a>(Supports IPv6 and IPv4).</p>
+   <p><a href="https://edge.api.brightcove.com/playback/v1/">https://edge.api.brightcove.com/playback/v1/</a>(Supports IPv4 only).</p>
+    
+   <p>If you require IP restrictions, you must use the edge.api.brightcove.com hostname. The following steps lead you through the configuration change:</p>
+<!-- 
     <p><strong>https://edge.api.brightcove.com/playback/v1/</strong>.</p>
     <p>Here is how that URL behaves:</p>
     <ul>
@@ -53,7 +65,7 @@ description: 'This topic provides an overview of how IP address restriction can 
     </ul>
     <p>There is an alternative endpoint for Edge that can remedy this situation for non-North American customers. The endpoint is:</p>
     <p><strong>edge-elb.api.brightcove.com</strong>.</p>
-    <p>The downside to this approach is that it will introduce a very slight delay to the retrieval of cached content from outside of the US because catalog requests will be going to Virginia in the U.S. rather than through Cloudfront's global network of local servers. It's likely that this will be barely noticeable, but it's worth considering and testing. Content itself will be delivered as normal, from local servers. When accessing from North America or through an North American proxy, there will be no change in performance at all.</p>
+    <p>The downside to this approach is that it will introduce a very slight delay to the retrieval of cached content from outside of the US because catalog requests will be going to Virginia in the U.S. rather than through Cloudfront's global network of local servers. It's likely that this will be barely noticeable, but it's worth considering and testing. Content itself will be delivered as normal, from local servers. When accessing from North America or through an North American proxy, there will be no change in performance at all.</p> -->
     <p>If you feel the slight delay is worth the benefit, you must configure every player that needs to access the IP restricted account from outside North America. You can make this change in Studio in the <strong>PLAYERS</strong> module. The following steps lead you through the configuration change:</p>
     <ol class="bcls-tasklist">
       <li>Open the <strong>Players</strong> module and either create a new player or locate the player to which you wish to make the configuration change.</li>
@@ -74,6 +86,6 @@ description: 'This topic provides an overview of how IP address restriction can 
       </li>
       <li>Save and publish the updated player.</li>
     </ol>
-    <aside class="bcls-aside bcls-aside--warning">The <code translate="No">base_url</code> setting should ONLY be used with IP restriction configuration.</aside>
+    <aside class="bcls-aside bcls-aside--warning">You should not modify the <code translate="No">base_url</code> unless you have a specific requirement. The default setting is suitable for most situations.</aside>
   </section>
 </article>
