@@ -2203,7 +2203,18 @@
         <p>For example, let's say your SSAI implementation relies on the <code translate="No">exampleMacro</code> being available globally. You would add the following to your Chromecast plugin options:</p>
         <pre><code class="language-javascript" translate="No">&quot;ssaiDynamicMacros&quot;: [&quot;exampleMacro&quot;]</code></pre>
         <p>When the sender player casts, will pass the value of <code translate="No">window.exampleMacro</code> across to the receiver, where it will be picked up automatically by the built-in SSAI ad macro resolution.</p>
-
+      </li>
+      <li>
+        <h3><code translate="No">options.liveUpdateThrottle</code></h3>
+        <strong>Type:</strong>: <code>number</code> Default: <code>500</code>
+        <p>Versions affected:
+          <ul>
+            <li>v4.1.0 + (with player version <strong>TBC</strong>)</li>
+            <li>v3.4.0 +</li>
+          </ul>
+          <p>Represents the minimum time (in milliseconds) the receiver should wait between sending messages to the receiver with updated live playback data.</p>
+          <p>During casting of a live stream with a DVR window, the receiver will send update messages to the sender to keep the Progressbar on the sender up to date. These updates should happen frequently to avoid perceivable sync issues between sender and receiver, but could cause performance issues if sent too frequently. The default throttle of 500ms strikes a reasonable balance  however customers may wish to provide their own value after testing with their target devices.</p>
+        </p>
       </li>
       </ul>
       <h3>Uncommon options</h3>
@@ -2300,6 +2311,7 @@
   <section class="bcls-section">
     <h2 id="Limitations_and_known_issues">Limitations and known issues</h2>
     <ul>
+      <li>When casting from within a DVR window, there can be a moment of live-edge content shown before the receiver matches it’s playhead position to match the sender.</li>
       <li>
         HEVC/4K content is only supported on Chromecast Ultra devices and newer Chromecast with Google TV devices.
       </li>
@@ -2341,6 +2353,21 @@
       <li><code translate="No">customData.keySystems</code> was added</li>
     </ul>
   </section>
+  <h2 id="Changes_from_v3_x_to_v4_x">Changes from v3.x to v4.x</h2>
+  <ul>
+    <li>Brightcove Player Chromecast Receiver now only contains the receiver application</li>
+    <li>The previous Chromecast sender plugin can be used as a packaged plugin in player versions v7.25.0 and above. To configure the sender plugin with player configuration, add the packaged plugin to your player configuration:
+      <pre class="line-numbers">
+      <code class="language-json" translate="No"> "plugins": [
+        {
+          "name": "chromecastSender",
+          "is_packaged": true,
+          "options": [...]
+        }
+      ]
+      </code> </pre>
+    </li>
+  </ul>
   <section class="bcls-section">
     <h2 id="Changelog">Changelog</h2>
     <!-- <p>See the <a href="http://players.brightcove.net/release-notes/brightcove-player-chromecast-receiver/index.html">Chromecast Receiver and Plugin Release</a>.</p> -->
