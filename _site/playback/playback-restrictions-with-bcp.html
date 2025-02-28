@@ -1906,7 +1906,7 @@
   <section class="bcls-section">
     <h2 id="Introduction">Introduction</h2>
     <p>
-      By default, Brightcove Player talks to the Brightcove Playback API. A new system to manage playback rights and restrictions sits in front of the Playback API and provides playback authorization using DRM licenses.
+      Brightcove Player interacts with the <strong>Brightcove Playback API</strong> to manage playback rights and restrictions. A new <strong>Enable Playback Rights</strong> checkbox in the <strong>Content Restriction</strong> settings simplifies this process by automating playback authorization.
     </p>
     <p>You can use Playback Rights with or without DRM, but if you choose to use runtime restrictions, then you will need to use a JSON Web Token (JWT).</p>
     <p>License Keys Protection offers an extra level of security when using Dynamic Delivery with DRM-protected or HTTP Live Streaming Encryption (HLSe) content. License requests can be authenticated using a signed <a href="https://general.support.brightcove.com/developer/create-json-web-token.html">JSON Web Token (JWT)</a>. The token is used when requesting the video license, once the video has been loaded to the player and the source has been selected.</p>
@@ -2021,7 +2021,7 @@
 
   <section class="bcls-section">
     <h2 id="Making_requests_with_Playback_Rights">Making requests with Playback Rights</h2>
-    <p>By default, all Brightcove Players make a request to the Playback API if it has a policy key. To make requests that check Playback Rights first, you need to remove the policy key. Here are three ways to do that:</p>
+    <p>By default, Brightcove Players use a policy key to request content from the Playback API. To enable Playback Rights, the player must not have a policy key. The <strong>Enable Playback Rights</strong> checkbox in the <strong>Content Restriction</strong> page automates this by setting the policy key to <code translate="no">none</code> and disabling content restriction settings.</p>
     <h3>Remove policy key from all players</h3>
     <p>To avoid the ingest of a policy key for new players created in Video Cloud Studio, do the following:</p>
 
@@ -2029,24 +2029,23 @@
       <li>Contact your account manager.</li>
       <li>Provide your account ID and ask to enable the <code translate="No">remove policy key</code> flag.
       </li>
+      <li>For existing players, please re-publish the player so the change takes effect.</li>
     </ol>
 
-    <h3>Remove policy key from individual players</h3>
-    <p>By default, the <code translate="No">remove policy key</code> flag is disabled for your account. To remove the policy key from individual players, do the following:</p>
+    <h3>Enable Playback Rights in Video Cloud Studio</h3>
     <ol class="bcls-tasklist-restart">
-      <li>In Video Cloud Studio, navigate to the <strong>Players</strong> module.</li>
-      <li>Select the player that you want to remove the policy key from.</li>
-      <li>In the left navigation, select <strong>JSON Editor</strong>.</li>
-      <li>
-        <p>Set the <code translate="No">policy_key</code> field as <code translate="No">"none"</code>.</p>
+      <li>Navigate to the <strong>Players</strong> module.</li>
+      <li>Select the player you want to configure.</li>
+      <li>In the left navigation, select <strong>Content Restriction</strong>.</li>
+      <li><p>Check <strong>Enable Playback Rights</strong></p>
         <figure class="bcls-figure">
           <img
             class="bcls-image--no-border"
-            alt="JSON editor"
-            src="/assets/images/playback/policy-key-editor.png"
+            alt="playback rights"
+            src="/assets/images/playback/playback-rights.png"
           />
-          <figcaption class="bcls-caption--image">JSON editor</figcaption>
         </figure>
+        <aside class="bcls-aside bcls-aside--information">Note: All content restriction settings will be disabled, and the policy key will be automatically set to <code translate="">none</code></aside>
       </li>
       <li>Save your changes and publish your player.</li>
     </ol>
@@ -2060,31 +2059,47 @@
   <section class="bcls-section">
     <h2 id="Making_requests_without_Playback_Rights">Making requests without Playback Rights</h2>
     <p>The process can be reversed to direct requests back to Playback API without rights and restrictions.</p>
-    <p>
-      Set the policy key and authorization token as follows:
-    </p>
+    <h3>Re-enable Policy Key for All Players</h3>
+    <p>If the remove <code translate="no">policy key flag</code> was previously enabled for your account, you must disable it to restore policy keys.</p>
     <ol class="bcls-tasklist-restart">
       <li>
-        <p>If you had the <code translate="No">remove policy key</code> flag enabled, then contact your account manager to disable it.</p>
-        <aside class="bcls-aside bcls-aside--information">
-          If you have the <code translate="No">remove policy key</code> flag enabled and you disable it, policy keys will be regenerated for all of your players, except those where you have set the <code translate="No">policy_key</code> field to <code translate="No">"none"</code>.</aside>
+        <p>Contact your Brightcove account manager.</p>
       </li>
+      <li><p>Request to disable the <code translate="no">remove policy key</code> flag.</p></li>
+      <li><p>Republish all affected players for the changes to take effect.</p></li>
+      <aside class="bcls-aside bcls-aside--information">
+        Note: If you disable the remove policy key flag, policy keys will be regenerated automatically for all players, except those where the policy_key is explicitly set to <code translate="no">none</code>.</aside>
+    </ol>
+    <h3>Re-enable Policy Key for Individual Players</h3>
+    <p>If you need to restore a policy key for a specific player:</p>
+    <ol class="bcls-tasklist-restart">
       <li>
-        <p>If you updated individual players in Studio, then update the JSON with your policy key.</p>
+        <p>In <strong>Video Cloud Studio</strong>, navigate to the <strong>Players</strong> module.</p>
+      </li>
+      <li><p>Select the player you want to update.</p></li>
+      <li><p>In the left navigation menu, select <strong>JSON Editor</strong>.</p>
+      </li>
+      <li><p>Update the player's JSON configuration to include a <strong>policy key</strong>, replacing <code translate="no">none</code> with a valid policy key:</p>
         <figure class="bcls-figure">
           <img
             class="bcls-image--no-border"
             alt="JSON editor"
             src="/assets/images/playback/policy-key-defined.png"
           />
-          <figcaption class="bcls-caption--image">JSON editor</figcaption>
         </figure>
       </li>
+      <li><p>Save, then republish the player.</p></li>
+    </ol>
+    <h3>Re-enable Policy Key at Runtime</h3>
+    <p>To dynamically re-enable a policy key at runtime, update the authorization token in your JavaScript code:</p>
+    <ol class="bcls-tasklist-restart">
       <li>Set the authorization token to <code translate="No">null</code>.
         <pre>
 <code class="language-javascript" translate="No">player.catalog.setBcovAuthToken(null);</code></pre>
       </li>
+      
     </ol>
+    
   </section>
 
   <section class="bcls-section">
