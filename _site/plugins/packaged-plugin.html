@@ -1909,82 +1909,176 @@
   If you update in one place, you MUST update it in all!
  -->
 
- <h1>Packaged Plugins</h1>
- <article class="bcls-article">
+<h1>Packaged Plugins</h1>
+<article class="bcls-article">
   <summary>In this topic, we introduced Packaged Plugins with Brightcove Player version 7.21.0, a new way to manage core player features. This replaces the <a href="https://apis.support.brightcove.com/player-management/guides/plugin-registry.html">Plugin Registry</a>.</summary>
   <section class="bcls-section">
     <h2 id="What_are_packaged_plugins">What are Packaged Plugins?</h2>
-    
-    <p>Player features, including Advertising, Thumbnail Seeking, Playlists, and others, have historically been provided as plugins, and their management handled by a separate service called the <a href="https://apis.support.brightcove.com/player-management/guides/plugin-registry.html">Plugin Registry</a>.  The Plugin Registry was initially designed to make managing player plugins efficient without user interaction. Still, over the years, it has led to confusion and mismatches in versions, leading to problems that could have been avoided.</p>
-    <p>A common problem has been trying to use an old plugin version with a new player version (or vice versa), with the plugin relying on specific player functionality that may be different than expected or not present, leading to unexpected behavior or failures. We saw multiple examples of this with advertising as browsers moved to block autoplay with sound by default.</p>
-    <p>By moving features into the player's core, we ensure that the code being used is the right version for the player because there is no longer a separate version. It's a part of the player that's been tested to function as expected.</p>
-    </section>
 
-    <section class="bcls-section">
-      <h2 id="eligible_plugins">Current Supported Packaged Plugins</h2>
-      <table class="bcls-table">
-        <thead class="bcls-table__head">
-          <tr>
-            <th>Brightcove Plugin</th>
-            <th>Registry ID (Players below v7.21.0)</th>
-            <th>Package Plugin Name (v7.21.0+)</th>
-          </tr>
-        </thead>
-        <tbody class="bcls-table__body">
-          <tr>
-            <td><a href="https://player.support.brightcove.com/plugins/thumbnails-plugin.html">Thumbnail Seeking</a></td>
-            <td>@brightcove/videojs-thumbnails</td>
-            <td>thumbnails</td>
-          </tr>
-          <tr>
-            <td><a href="https://player.support.brightcove.com/plugins/advertising-ima3-plugin.html">IMA3</a></td>
-            <td>@brightcove/videojs-ima3</td>
-            <td>ima3</td>
-          </tr>
-          <tr>
-            <td><a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">SSAI</a></td>
-            <td>@brightcove/videojs-ssai</td>
-            <td>ssai</td>
-          </tr>
-          <tr>
-            <td><a href="https://player.support.brightcove.com/plugins/custom-endscreen-plugin.html">Custom Endscreen</a></td>
-            <td>@brightcove/videojs-custom-endscreen</td>
-            <td>customEndscreen</td>
-          </tr>
-          <tr>
-            <td><a href="https://player.support.brightcove.com/plugins/social-sharing-plugin.html">Social Sharing</a></td>
-            <td>@brightcove/videojs-social</td>
-            <td>social</td>
-          </tr>
-          <tr>
-            <td><a href="https://player.support.brightcove.com/plugins/quality-selection-plugin.html">Quality Selection</a></td>
-            <td>@brightcove/videojs-quality-menu</td>
-            <td>qualityMenu</td>
-          </tr>
-          <tr>
-            <td><a href="https://player.support.brightcove.com/plugins/playlist-ui-plugin.html">Playlist UI</a></td>
-            <td>@brightcove/videojs-bc-playlist-ui</td>
-            <td>bcPlaylistUi</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    
-   <!-- <section class="bcls-section">
+    <p>Player features, including Advertising, Thumbnail Seeking, Playlists, and others, have historically been provided
+      as plugins, and their management handled by a separate service called the <a
+        href="https://apis.support.brightcove.com/player-management/guides/plugin-registry.html">Plugin Registry</a>.
+      The Plugin Registry was initially designed to make managing player plugins efficient without user interaction.
+      Still, over the years, it has led to confusion and mismatches in versions, leading to problems that could have
+      been avoided.</p>
+    <p>A common problem has been trying to use an old plugin version with a new player version (or vice versa), with the
+      plugin relying on specific player functionality that may be different than expected or not present, leading to
+      unexpected behavior or failures. We saw multiple examples of this with advertising as browsers moved to block
+      autoplay with sound by default.</p>
+    <p>By moving features into the player's core, we ensure that the code being used is the right version for the player
+      because there is no longer a separate version. It's a part of the player that's been tested to function as
+      expected.</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="eligible_plugins">Current Supported Packaged Plugins</h2>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Brightcove Plugin</th>
+          <th>Registry ID (Players below v7.21.0)</th>
+          <th>Package Plugin Name</th>
+          <th>Minimum Player Version</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/thumbnails-plugin.html">Thumbnail Seeking</a></td>
+          <td>@brightcove/videojs-thumbnails</td>
+          <td>thumbnails</td>
+          <td>7.21.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/advertising-ima3-plugin.html">IMA3</a></td>
+          <td>@brightcove/videojs-ima3</td>
+          <td>ima3</td>
+          <td>7.21.0</td>
+        </tr>
+        <tr>
+          <td><a
+              href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">SSAI</a>
+          </td>
+          <td>@brightcove/videojs-ssai</td>
+          <td>ssai</td>
+          <td>7.21.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/custom-endscreen-plugin.html">Custom Endscreen</a>
+          </td>
+          <td>@brightcove/videojs-custom-endscreen</td>
+          <td>customEndscreen</td>
+          <td>7.21.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/social-sharing-plugin.html">Social Sharing</a></td>
+          <td>@brightcove/videojs-social</td>
+          <td>social</td>
+          <td>7.21.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/quality-selection-plugin.html">Quality
+              Selection</a></td>
+          <td>@brightcove/videojs-quality-menu</td>
+          <td>qualityMenu</td>
+          <td>7.21.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/playlist-ui-plugin.html">Playlist UI</a></td>
+          <td>@brightcove/videojs-bc-playlist-ui</td>
+          <td>bcPlaylistUi</td>
+          <td>7.21.0</td>
+        </tr>
+        <tr>
+          <td><a
+              href="https://player.support.brightcove.com/plugins/chromecast-plugin-brightcove-player.html">Chromecast
+              Sender</a></td>
+          <td>@brightcove/videojs-chromecast-receiver</td>
+          <td>chromecastSender </td>
+          <td>7.25.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/google-ima-dai.html">Google IMA DAI Plugin</a></td>
+          <td>@brightcove/videojs-ima-dai</td>
+          <td>imaDai</td>
+          <td>7.25.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/kollective-ecdn-plugin.html">Kollective eCDN
+              Plugin</a>
+          </td>
+          <td>@brightcove/videojs-kollective</td>
+          <td>kollective</td>
+          <td>7.25.0</td>
+        </tr>
+        <tr>
+          <td><a
+              href="https://player.support.brightcove.com/plugins/picture-picture-plugin-aka-floating-or-pinned.html">Pinning
+              Plugin</a></td>
+          <td>@brightcove/videojs-pip</td>
+          <td>pinning</td>
+          <td>7.25.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/tealium-plugin-brightcove-player.html">Tealium
+              Plugin for Brightcove Player</a></td>
+          <td>@brightcove/videojs-bc-tealium</td>
+          <td>bcTealium</td>
+          <td>7.25.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/plugin-registry.html">Google Tag Manager Plugin</a>
+          </td>
+          <td>@brightcove/videojs-bc-gt</td>
+          <td>bcGtm</td>
+          <td>7.25.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/google-analytics-plugin.html">Google Analytics
+              Plugin</a></td>
+          <td>@brightcove/videojs-bc-ga</td>
+          <td>bcGa</td>
+          <td>7.25.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/plugin-registry.html">AirPlay Plugin</a></td>
+          <td>@brightcove/videojs-bc-airplay</td>
+          <td>bcAirplay</td>
+          <td>7.25.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/plugins/plugin-registry.html">Adobe Analytics Plugin</a>
+          </td>
+          <td>@brightcove/videojs-bc-aa</td>
+          <td>bcAa</td>
+          <td>7.25.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://player.support.brightcove.com/amp/amp-using-video-cloud-video.html">AMP Plugin</a></td>
+          <td>videojs-amp-support</td>
+          <td>ampSupport</td>
+          <td>7.25.0</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- <section class="bcls-section">
     <h2 id="configuration">How do I configure my Packaged Plugins?</h2>
     
     <p>To use them in the studio, see this guide.</p>
     <p>To use them via the Player Management API, see this guide.</p>
     </section> -->
-    
-    <section class="bcls-section">
+
+  <section class="bcls-section">
     <h2 id="player_versions">What if I need to use plugin version X with player version Y?</h2>
-    <p>You shouldn't have to! The concept of Packaged Plugins is to ensure that the feature you are using is 100% compatible with your player version. Trying to use a different version goes against this.</p>
-    </section>
-    
-    <section class="bcls-section">
+    <p>You shouldn't have to! The concept of Packaged Plugins is to ensure that the feature you are using is 100%
+      compatible with your player version. Trying to use a different version goes against this.</p>
+  </section>
+
+  <section class="bcls-section">
     <h2 id="how_i_know_use_of_a_plugin">How do I know if I'm using a Packaged Plugin?</h2>
-    <p>Registry plugin - notice that this JSON has no injected_versions, scripts, or stylesheets. The Registry just made this work:</p>
+    <p>Registry plugin - notice that this JSON has no injected_versions, scripts, or stylesheets. The Registry just made
+      this work:</p>
     <pre class="line-numbers">
     <code class="language-bash" translate="No">
       "plugins": [{
@@ -2008,29 +2102,39 @@
       }],
             </code>
               </pre>
-    <p>Packaged Plugins replaced <code translate="No">registry_id</code> with <code translate="No">name</code> and <code translate="No">version</code> with <code translate="No">is_packaged: true</code>.</p>    <aside class="bcls-aside bcls-aside--information">If you have <strong>Registry Plugins</strong> and upgrade your player to v7.21.0 or above, any of the eligible plugins will be converted automatically to Packaged Plugins.</aside>
-    <aside class="bcls-aside bcls-aside--information">If you have <strong>Packaged Plugins</strong> and downgrade your player below v7.21.0, any of the packaged plugins on your players will be converted back into registry plugins.</aside>
-    </section>
-    
-    <section class="bcls-section">
+    <p>Packaged Plugins replaced <code translate="No">registry_id</code> with <code translate="No">name</code> and <code
+        translate="No">version</code> with <code translate="No">is_packaged: true</code>.</p>
+    <aside class="bcls-aside bcls-aside--information">If you have <strong>Registry Plugins</strong> and upgrade your
+      player to v7.21.0 or above, any of the eligible plugins will be converted automatically to Packaged Plugins.
+    </aside>
+    <aside class="bcls-aside bcls-aside--information">If you have <strong>Packaged Plugins</strong> and downgrade your
+      player below v7.21.0, any of the packaged plugins on your players will be converted back into registry plugins.
+    </aside>
+  </section>
+
+  <section class="bcls-section">
     <h2 id="Sideload">What if I must “sideload” a core plugin during player load time?</h2>
-        
-    <p>You should never need to do that, and we recommend against it. Brightcove's player management system is designed to compile all the features you need and deliver a working player with those features to your users.</p>
+
+    <p>You should never need to do that, and we recommend against it. Brightcove's player management system is designed
+      to compile all the features you need and deliver a working player with those features to your users.</p>
     <p>By way of example:</p>
     <ul>
-        <li>Instead of sideloading the IMA3 plugin to support ads, if you need to deliver ads to your users, use a player with the IMA3 feature enabled.</li>
-        <li>If you don't need ads in other situations, use a different player without the IMA3 feature enabled.</li>
-        <li>To support both scenarios, use an IMA3-enabled player and programmatically configure ads only when needed.</li>
+      <li>Instead of sideloading the IMA3 plugin to support ads, if you need to deliver ads to your users, use a player
+        with the IMA3 feature enabled.</li>
+      <li>If you don't need ads in other situations, use a different player without the IMA3 feature enabled.</li>
+      <li>To support both scenarios, use an IMA3-enabled player and programmatically configure ads only when needed.
+      </li>
     </ul>
 
-    </section>
-    
-    <section class="bcls-section">
+  </section>
+
+  <section class="bcls-section">
     <h2 id="third_party">What about custom or third-party plugins?</h2>
 
-    <p>We have not changed or removed any functionality for those. These changes only affect plugins managed by the plugin registry.</p>
-    </section>
-    </article>
+    <p>We have not changed or removed any functionality for those. These changes only affect plugins managed by the
+      plugin registry.</p>
+  </section>
+</article>
 <!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
   
   <nav class="right-side-nav" id="right_side_nav">
