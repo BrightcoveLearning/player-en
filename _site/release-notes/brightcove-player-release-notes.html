@@ -1907,13 +1907,11 @@
   <p>Brightcove Player version (see links below for details):</p>
   <p>Brightcove Player current version:</p>
   <ul>
-    <!-- <li>For release 7.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">v7.1.1</a></strong></li> -->
-    <li><strong><a href="#release_list">v7.30.0</a></strong></li>
+    <li id="current-release"><strong>Loading...</strong></li>
   </ul>
   <p>Pre-release:</p>
   <ul>
-    <!-- <li>For release 7.x: <strong><a href="/release-notes/brightcove-player-release-notes.html">None</a></strong></li> -->
-    <li><strong><a href="#release_list">v7.30.0</a></strong></li>
+    <li id="pre-release"><strong>Loading...</strong></li>
   </ul>
 
 
@@ -1921,26 +1919,125 @@
     <strong style="color:#990000">Notes:</strong>
     <ul>
       <li>
-        <p>Note: that 5.x players cannot be updated in Studio. You can update them via the Player Management API or <a href="https://apis.support.brightcove.com/player-management/code-samples/player-managment-api-update-player-version.html">this sample app</a>, but if the player is highly customized, it may no longer function properly.</p>
+        <p>Note: that 5.x players cannot be updated in Studio. You can update them via the Player Management API or <a
+            href="https://apis.support.brightcove.com/player-management/code-samples/player-managment-api-update-player-version.html">this
+            sample app</a>, but if the player is highly customized, it may no longer function properly.</p>
       </li>
-      <li>By default, stable releases are applied to all players automatically. To prevent auto-updating of a player you must set it to manual updating (also known as locking a player). You can do this in the <a href="https://studio.support.brightcove.com/players/setting-player-update-mode-and-version.html">Studio Players module (external site)</a> or using the <a href="https://apis.support.brightcove.com/player-management/guides/opting-out-automatic-player-updates.html">Player Management API</a>.</li>
-      <li>Opting out of auto-updates should be a temporary measure, applied while you resolve any issues that the update creates. If you do not update players to the current version, you are missing out on new features and bug-fixes, and older versions of the player will cease to be supported at some point.</li>
+      <li>By default, stable releases are applied to all players automatically. To prevent auto-updating of a player you
+        must set it to manual updating (also known as locking a player). You can do this in the <a
+          href="https://studio.support.brightcove.com/players/setting-player-update-mode-and-version.html">Studio
+          Players module (external site)</a> or using the <a
+          href="https://apis.support.brightcove.com/player-management/guides/opting-out-automatic-player-updates.html">Player
+          Management API</a>.</li>
+      <li>Opting out of auto-updates should be a temporary measure, applied while you resolve any issues that the update
+        creates. If you do not update players to the current version, you are missing out on new features and bug-fixes,
+        and older versions of the player will cease to be supported at some point.</li>
     </ul>
   </aside>
   <h3>Available version entries</h3>
-  <p>Available version entries (formatted like <strong>v1.2.3</strong>) indicate a Player version that has been made available as a pre-release for manual update through the Studio JSON editor or the Player Management API. These entries represent every version of the Player that is available for use and the changes each version includes from the previous available version. When a Player version is made available, no players are auto-updated, but they may be used for verification of bug fixes or similar.</p>
+  <p>Available version entries (formatted like <strong>v1.2.3</strong>) indicate a Player version that has been made
+    available as a pre-release for manual update through the Studio JSON editor or the Player Management API. These
+    entries represent every version of the Player that is available for use and the changes each version includes from
+    the previous available version. When a Player version is made available, no players are auto-updated, but they may
+    be used for verification of bug fixes or similar.</p>
 
   <h3>Current pre-release entries</h3>
-  <p>Current pre-release entries (formatted like <strong>v1.2.3-pre-release</strong>) record the time when a Player version has been promoted to the current pre-release state. This will cause players that have opted-in to the latest pre-release in Studio to be auto-updated. Not all available versions become a current pre-release.</p>
+  <p>Current pre-release entries (formatted like <strong>v1.2.3-pre-release</strong>) record the time when a Player
+    version has been promoted to the current pre-release state. This will cause players that have opted-in to the latest
+    pre-release in Studio to be auto-updated. Not all available versions become a current pre-release.</p>
 
   <h3>Stable release entries</h3>
-  <p>Stable release entries (formatted like <strong>v1.2.3-release</strong>) record the time when a Player version has been promoted to the current stable release state. This will cause all players in <strong>automatic update mode</strong> in Studio to be updated and republished. Further, this sets default version for newly created players. Not all available versions become a current stable release.</p>
+  <p>Stable release entries (formatted like <strong>v1.2.3-release</strong>) record the time when a Player version has
+    been promoted to the current stable release state. This will cause all players in <strong>automatic update
+      mode</strong> in Studio to be updated and republished. Further, this sets default version for newly created
+    players. Not all available versions become a current stable release.</p>
 
 
   <section id="release_list" class="bcls-section">
-    <iframe src="https://players.brightcove.net/release-notes/brightcove-player/index.html" frameborder="0" style="width: 100%;height:100%;min-height: 3000px;"></iframe>
+    <iframe src="https://players.brightcove.net/release-notes/brightcove-player/index.html" frameborder="0"
+      style="width: 100%;height:100%;min-height: 3000px;"></iframe>
   </section>
 </article>
+
+<script>
+  /**
+   * Dynamically fetch and output the latest Brightcove Player versions from the RSS feed
+   */
+  async function loadPlayerVersions() {
+    const RSS_URL = 'https://players.brightcove.net/release-notes/brightcove-player.xml';
+    const currentReleaseEl = document.getElementById('current-release');
+    const preReleaseEl = document.getElementById('pre-release');
+
+    try {
+
+      let response;
+      try {
+        response = await fetch(RSS_URL);
+      } catch (corsError) {
+
+        response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(RSS_URL)}`);
+        if (response.ok) {
+          const data = await response.json();
+          response = { ok: true, text: () => Promise.resolve(data.contents) };
+        }
+      }
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const xmlText = await response.text();
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+
+      const parseError = xmlDoc.querySelector('parsererror');
+      if (parseError) {
+        throw new Error('XML parsing error');
+      }
+
+      const items = xmlDoc.querySelectorAll('item');
+      const versions = [];
+
+      for (const item of items) {
+        const titleEl = item.querySelector('title');
+        if (titleEl && titleEl.textContent) {
+          const title = titleEl.textContent.trim();
+          if (/^v\d+\.\d+\.\d+(-release)?$/.test(title)) {
+            versions.push(title);
+          }
+        }
+      }
+
+
+      const releaseVersions = versions.filter(v => v.endsWith('-release'));
+      const currentRelease = releaseVersions.length > 0 ? releaseVersions[0].replace('-release', '') : '';
+
+
+      const preReleaseVersions = versions.filter(v => !v.endsWith('-release'));
+      const preRelease = preReleaseVersions.length > 0 ? preReleaseVersions[0] : '';
+
+      if (currentRelease) {
+        currentReleaseEl.innerHTML = `<strong><a href="#release_list">${currentRelease}</a></strong>`;
+      } else {
+        currentReleaseEl.innerHTML = '<strong>Not found</strong>';
+      }
+
+      if (preRelease) {
+        preReleaseEl.innerHTML = `<strong><a href="#release_list">${preRelease}</a></strong>`;
+      } else {
+        preReleaseEl.innerHTML = '<strong>Not found</strong>';
+      }
+
+    } catch (error) {
+      console.error('Error loading player versions:', error);
+      currentReleaseEl.innerHTML = '<strong>Error loading version</strong>';
+      preReleaseEl.innerHTML = '<strong>Error loading version</strong>';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadPlayerVersions);
+</script>
 <!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
   
   <nav class="right-side-nav" id="right_side_nav">
